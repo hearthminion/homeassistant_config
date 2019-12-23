@@ -215,6 +215,31 @@ sensor:
         value_template:  "{{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
 
+#  =====================================================================
+#
+#  Scenes:
+#
+#
+# ======================================================================
+scene:
+  - id: '1576892383155'
+    name: "[Light] Master Bathroom (Inner): Darken Room"
+    entities:
+      light.hue_lamp_12:
+        friendly_name: "Master Bathroom Center"
+        brightness_pct: 25
+        rgb_color:
+        - 255
+        - 0
+        - 0
+        state: 'on'
+      light.hue_lamp_17:
+        friendly_name: "Master Bathroom Left"
+        state: 'off'
+      light.hue_lamp_19:
+        friendly_name: "Master Bathroom Right"
+        state: 'off'
+
 # ======================================================================
 #
 #

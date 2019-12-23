@@ -282,8 +282,6 @@ automation:
             - switch.circadian_lighting_master_closet_with_brightness_adjustment
             - switch.circadian_lighting_master_closet_without_brightness_adjustment
 
-
-
 # ======================================================================
 #
 #
@@ -337,242 +335,140 @@ input_select:
       - Sundowner
       - Blood Moon
       - Circadian
-      - Night Mode
+      - Darken
       - Migraine
 
 
 scene:
-  - id: '1577071758163'
-    name: Master Lamp 2 Migraine
-    entities:
-      light.hue_lamp_15:
-        friendly_name: Master Lamp 2 Light 2
-        max_mireds: 500
-        min_mireds: 153
-        state: 'off'
-        supported_features: 43
-      light.hue_lamp_2:
-        brightness: 64
-        effect: none
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Lamp 2 Light 1
-        max_mireds: 500
-        min_mireds: 153
-        rgb_color:
-        - 0
-        - 64
-        - 0
-        state: 'on'
-        supported_features: 63
-
   - id: '1576887377088'
-    name: Migraine Master Bedroom
+    name: "Master Bedroom: Migraine"
     entities:
       light.hue_lamp_1:
-        brightness: 254
-        effect: none
-        effect_list:
-        - colorloop
-        - random
         friendly_name: Master Lamp 1 Light 1
-        hs_color:
-        - 38.88
-        - 49.02
-        max_mireds: 500
-        min_mireds: 153
-        rgb_color:
-        - 0
-        - 80
-        - 0
         state: 'on'
-        supported_features: 63
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_2:
+        friendly_name: Master Lamp 2 Light 1
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_4:
+        friendly_name: Master Light 2
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_5:
+        friendly_name: Master Light 3
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
       light.hue_lamp_14:
-        brightness: 254
-        color_temp: 375
         friendly_name: Master Lamp 1 Light 2
-        max_mireds: 500
-        min_mireds: 153
-        state: 'on'
-        supported_features: 43
+        state: 'off'
       light.hue_lamp_15:
-        brightness: 199
-        color_temp: 454
         friendly_name: Master Lamp 2 Light 2
-        max_mireds: 500
-        min_mireds: 153
         state: 'on'
         supported_features: 43
       light.hue_lamp_16:
         friendly_name: Master Light 1
-        max_mireds: 500
-        min_mireds: 153
-        state: unavailable
-        supported_features: 43
-      light.hue_lamp_2:
-        brightness: 199
-        color_temp: 454
-        effect: none
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Lamp 2 Light 1
-        max_mireds: 500
-        min_mireds: 153
-        state: 'on'
-        supported_features: 63
-      light.hue_lamp_4:
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Light 2
-        max_mireds: 500
-        min_mireds: 153
-        state: unavailable
-        supported_features: 63
-      light.hue_lamp_5:
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Light 3
-        max_mireds: 500
-        min_mireds: 153
-        state: unavailable
-        supported_features: 63
+        state: 'off'
       switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment:
-        brightness: 78.62960257288094
         friendly_name: Master Ceiling Lights (with Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment:
-        brightness:
         friendly_name: Master Ceiling Lights (without Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_closet_light_with_brightness_adjustment:
-        brightness: 78.62960257288094
-        friendly_name: Master Closet Light (with Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_closet_light_without_brightness_adjustment:
-        brightness:
-        friendly_name: Master Closet Light (without Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_lamp_1_with_brightness_adjustment:
-        brightness: 78.62960257288094
         friendly_name: Master Lamp 1 (with Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_lamp_1_without_brightness_adjustment:
-        brightness:
         friendly_name: Master Lamp 1 (without Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_lamp_2_with_brightness_adjustment:
-        brightness:
         friendly_name: Master Lamp 2 (with Brightness Adjustment)
-        hs_color:
-        icon: mdi:theme-light-dark
         state: 'off'
       switch.circadian_lighting_master_lamp_2_without_brightness_adjustment:
-        brightness:
         friendly_name: Master Lamp 2 (without Brightness Adjustment)
-        hs_color:
-        - 29.717
-        - 83.137
-        icon: mdi:theme-light-dark
         state: 'off'
   - id: '1576892919563'
-    name: Master Bedroom Darken Room
+    name: "Master Bedroom: Darken Room"
     entities:
       light.hue_lamp_1:
-        brightness: 254
-        effect: none
-        effect_list:
-        - colorloop
-        - random
         friendly_name: Master Lamp 1 Light 1
-        max_mireds: 500
-        min_mireds: 153
-        rgb_color:
-        - 255
-        - 0
-        - 0
         state: 'on'
-        supported_features: 63
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_2:
+        friendly_name: Master Lamp 2 Light 1
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_4:
+        friendly_name: Master Light 2
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_5:
+        friendly_name: Master Light 3
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
       light.hue_lamp_14:
-        brightness: 254
-        color_temp: 375
         friendly_name: Master Lamp 1 Light 2
-        max_mireds: 500
-        min_mireds: 153
         state: 'off'
-        supported_features: 43
       light.hue_lamp_15:
-        brightness: 163
-        color_temp: 454
         friendly_name: Master Lamp 2 Light 2
-        max_mireds: 500
-        min_mireds: 153
-        state: 'off'
+        state: 'on'
         supported_features: 43
       light.hue_lamp_16:
         friendly_name: Master Light 1
-        max_mireds: 500
-        min_mireds: 153
         state: 'off'
-        supported_features: 43
+  - id: '1577071758163'
+    name: "Master Lamp 2: Migraine"
+    entities:
       light.hue_lamp_2:
-        brightness: 163
-        color_temp: 454
-        effect: none
-        effect_list:
-        - colorloop
-        - random
         friendly_name: Master Lamp 2 Light 1
-        max_mireds: 500
-        min_mireds: 153
         state: 'on'
-        supported_features: 63
-      light.hue_lamp_4:
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Light 2
-        max_mireds: 500
-        min_mireds: 153
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_15:
+        friendly_name: Master Lamp 2 Light 2
         state: 'off'
-        supported_features: 63
-      light.hue_lamp_5:
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Master Light 3
-        max_mireds: 500
-        min_mireds: 153
+  - name: "Master Lamp 1: Migraine"
+    entities:
+      light.hue_lamp_1:
+        friendly_name: "Master Lamp 1 Light 1"
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_14:
+        friendly_name: "Master Lamp 1 Light 2"
         state: 'off'
-        supported_features: 63
-
+  - name: "Master Lamp 2: Darken Lamp"
+    entities:
+      light.hue_lamp_2:
+        friendly_name: Master Lamp 2 Light 1
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_15:
+        friendly_name: Master Lamp 2 Light 2
+        state: 'off'
+  - name: "Master Lamp 1: Darken Lamp"
+    entities:
+      light.hue_lamp_1:
+        friendly_name: "Master Lamp 1 Light 1"
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_14:
+        friendly_name: "Master Lamp 1 Light 2"
+        state: 'off'
 
 # ======================================================================
 #

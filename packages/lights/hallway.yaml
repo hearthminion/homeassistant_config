@@ -70,7 +70,7 @@ automation:
 #
 # ======================================================================
 scene:
-    name: "Hallway: Darken Room"
+  - name: "Hallway: Darken Room"
     entities:
       light.hue_lamp_11:
         friendly_name: "Hallway Color Light"
@@ -80,8 +80,7 @@ scene:
       light.hue_lamp_18:
         friendly_name: "Hallway Ambiance Light"
         state: 'off'
-  - id: '1576960043395'
-    name: "Hallway: Migrain"
+  - name: "Hallway: Migrain"
     entities:
       light.hue_lamp_11:
         friendly_name: "Hallway Color Light"

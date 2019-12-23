@@ -1,0 +1,25 @@
+# # ======================================================================
+# #
+# # User 0003
+# #
+# # ======================================================================
+#   - title: !secret user0004
+#     panel: true
+#     icon: mdi:missingnone
+#     path: user0004
+#     cards:
+#       - type: vertical-stack
+#         cards:
+#           - type: glance
+#             title: !secret user0004
+#             entities:
+#               - entity: binary_sensor.user0004_status
+#                 name: !secret user0004
+#               - entity: device_tracker.user0004_phone
+#                 name: !secret user0004_phone
+#               - entity: device_tracker.user0004_phone_bt
+#                 name: !secret user0004_phone_bt
+#               - entity: device_tracker.user0004_phone_wifi
+#                 name: !secret user0004_phone_wifi
+#               - entity: person.user0004
+#                 name: !secret user0004

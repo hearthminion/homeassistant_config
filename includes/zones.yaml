@@ -1,0 +1,18 @@
+zone:
+  #- name: Bree's Work
+  #  latitude: !secret gwork_lat
+  #  longitude: !secret gwork_long
+  - name: Geoff's Work
+    latitude: !secret gwork_lat
+    longitude: !secret gwork_long
+  - name: Home
+    latitude: !secret home_lat
+    longitude: !secret home_long
+    radius: 100
+    icon: mdi:account-multiple
+  - name: Stan's Home
+    latitude: !secret shome_lat
+    longitude: !secret shome_long
+  - name: Stan's Work
+    latitude: !secret swork_lat
+    longitude: !secret swork_long

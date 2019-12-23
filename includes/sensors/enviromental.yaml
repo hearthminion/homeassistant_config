@@ -1,0 +1,140 @@
+- platform: darksky
+  api_key: !secret darksky
+  forecast:
+    - 0
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_accumulation
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - precip_intensity_max
+    - uv_index
+    - moon_phase
+    - nearest_storm_distance
+    - nearest_storm_bearing
+  scan_interval:
+    days: 0
+    hours: 0
+    minutes: 5
+    seconds: 0
+    milliseconds: 0
+
+- platform: darksky
+  api_key: !secret darksky
+  forecast:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_accumulation
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - precip_intensity_max
+    - uv_index
+    - moon_phase
+    - nearest_storm_distance
+    - nearest_storm_bearing
+  scan_interval:
+    days: 1
+    hours: 0
+    minutes: 0
+    seconds: 0
+    milliseconds: 0
+
+- platform: flunearyou
+
+#- platform: mold_indicator
+#  indoor_temp_sensor: sensor.temp
+#  indoor_humidity_sensor: sensor.humidity
+#  outdoor_temp_sensor: sensor.weather_temperature
+#  calibration_factor: 2.0
+
+
+- platform: template
+  sensors:
+    darksky_pressure:
+      value_template: '{{ states.sensor.dark_sky_pressure.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_0d:
+      value_template: '{{ states.sensor.dark_sky_pressure_0d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_1d:
+      value_template: '{{ states.sensor.dark_sky_pressure_1d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_2d:
+      value_template: '{{ states.sensor.dark_sky_pressure_2d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_3d:
+      value_template: '{{ states.sensor.dark_sky_pressure_3d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_4d:
+      value_template: '{{ states.sensor.dark_sky_pressure_4d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_5d:
+      value_template: '{{ states.sensor.dark_sky_pressure_5d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_6d:
+      value_template: '{{ states.sensor.dark_sky_pressure_6d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    darksky_pressure_7d:
+      value_template: '{{ states.sensor.dark_sky_pressure_7d.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    #time_of_day:
+
+
+- platform: moon
+
+# Seasons
+- platform: season
+  type: astronomical
+
+#- platform: weatheralerts
+#  sameid: !secret noahsameid
+
+- platform: yr
+

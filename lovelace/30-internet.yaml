@@ -1,0 +1,104 @@
+# ======================================================================
+#
+# Internet
+#
+# ======================================================================
+#  - title: Internet Status
+    title: Internet Status
+    panel: true
+    icon: mdi:wan
+    path: internet
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout: vertical
+            cards:
+# ======================================================================
+#
+# Column 1:
+#
+# ======================================================================
+              - type: sensor
+                #title: Download Speeds
+                #hours_to_show: 72
+                entity: sensor.speedtest_download
+                  #- sensor.fast_com_download
+                graph: line
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.speedtest_download
+                    name: Speedtest Download
+                    max: 220
+                    severity:
+                      red: 0
+                      yellow: 100
+                      green: 160
+                  # - type: gauge
+                  #   entity: sensor.fast_com_download
+                  #   name: Fast.com Download
+                  #   max: 220
+                  #   severity:
+                  #     red: 0
+                  #     yellow: 80
+                  #     green: 130
+              - break
+
+# ======================================================================
+#
+# Column 2:
+#
+# ======================================================================
+              - type: sensor
+                entity: sensor.speedtest_upload
+                graph: line
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.speedtest_upload
+                    name: Speedtest Upload
+                    max: 15
+                    severity:
+                      red: 0
+                      yellow: 7
+                      green: 10
+                  - type: entities
+                    entities:
+                      - entity: sensor.myip
+                      - entity: sensor.shodan_sensor
+              - break
+
+# ======================================================================
+#
+# Column 3:
+#
+# ======================================================================
+              - type: sensor
+                entity: sensor.speedtest_ping
+                graph: line
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.speedtest_ping
+                    name: Speedtest Ping
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 50
+                      red: 80
+              - type: glance
+                title: Have I Been Pwned
+                entities:
+                  - entity: sensor.breaches_almderber_gmail_com
+                  - entity: sensor.breaches_breelaura_yahoo_com
+                  - entity: sensor.breaches_g_s_derber_gmail_com
+                  - entity: sensor.breaches_gd_business9_gmail_com
+                  - entity: sensor.breaches_gderber_gmail_com
+                  - entity: sensor.breaches_geoff_s_derber_gmail_com
+                  - entity: sensor.breaches_gdnavychop_gmail_com
+                  - entity: sensor.breaches_gd_smlinux_gmail_com
+                  - entity: sensor.breaches_geoff_derber_gmail_com
+                  - entity: sensor.breaches_stanmize_bellsouth_net
+                  - entity: sensor.breaches_geoff_drbr_org
+                  - entity: sensor.breaches_geoffrey_derber_raymondjames_com

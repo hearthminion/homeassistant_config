@@ -1,0 +1,192 @@
+- id: '1574806686777'
+  name: Main Room Darken Room
+  entities:
+    light.hue_lamp_10:
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Kitchen
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63
+    light.hue_lamp_13:
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Front Door
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63
+    light.hue_lamp_24:
+      brightness: 254
+      color_temp: 366
+      friendly_name: Main Island
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 43
+    light.hue_lamp_25:
+      friendly_name: Main Fireplace
+      max_mireds: 500
+      min_mireds: 153
+      state: unavailable
+      supported_features: 43
+    light.hue_lamp_26:
+      friendly_name: Main Living Area
+      max_mireds: 500
+      min_mireds: 153
+      state: unavailable
+      supported_features: 43
+    light.hue_lamp_27:
+      friendly_name: Main Table Lamp
+      max_mireds: 500
+      min_mireds: 153
+      state: unavailable
+      supported_features: 43
+    light.hue_lamp_3:
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Chinese Lamp Top
+      max_mireds: 500
+      min_mireds: 153
+      state: unavailable
+      supported_features: 63
+    light.hue_lamp_31:
+      brightness: 254
+      color_temp: 366
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Dining
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.hue_lamp_6:
+      brightness: 254
+      color_temp: 454
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Couch Lamp Right
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.hue_lamp_7:
+      brightness: 254
+      color_temp: 454
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Couch Lamp Left
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.hue_lamp_8:
+      brightness: 254
+      color_temp: 366
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Main Sitting Area
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+- id: '1576892383155'
+  name: Master Bath Darken Room
+  entities:
+    light.hue_lamp_12:
+      brightness: 25
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Master Bath Center
+      hs_color:
+      - 10.118
+      - 100
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      state: 'on'
+      supported_features: 63
+    light.hue_lamp_17:
+      friendly_name: Master Bath Left
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 43
+    light.hue_lamp_19:
+      friendly_name: Master Bath Right
+      max_mireds: 500
+      min_mireds: 153
+      state: 'off'
+      supported_features: 43
+- id: '1576958171165'
+  name: Christmas Lights
+  entities:
+    switch.jasco_products_14284_outdoor_smart_switch_switch:
+      friendly_name: Jasco Products 14284 Outdoor Smart Switch Switch
+      node_id: 3
+      state: 'on'
+      value_id: '72057594093060096'
+      value_index: 0
+      value_instance: 1
+    zwave.jasco_products_14284_outdoor_smart_switch:
+      application_version: '5.21'
+      averageRequestRTT: 23
+      averageResponseRTT: 35
+      capabilities:
+      - routing
+      - listening
+      - beaming
+      - zwave_plus
+      friendly_name: Jasco Products 14284 Outdoor Smart Switch
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 23
+      lastResponseRTT: 35
+      manufacturer_name: Jasco Products
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 5
+      node_id: 3
+      node_name: Jasco Products 14284 Outdoor Smart Switch
+      product_name: 14284 Outdoor Smart Switch
+      query_stage: Complete
+      receivedCnt: 9
+      receivedDups: 0
+      receivedTS: '2019-12-21 14:54:26:205 '
+      receivedUnsolicited: 0
+      retries: 0
+      sentCnt: 16
+      sentFailed: 0
+      sentTS: '2019-12-21 14:54:26:170 '
+      state: ready
+- id: '1576959398377'
+  name: test
+  entities:
+    light.hue_lamp_22:
+      friendly_name: Back Bedroom Ceiling
+      max_mireds: 500
+      min_mireds: 153
+      state: unavailable
+      supported_features: 43

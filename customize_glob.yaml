@@ -1,0 +1,5 @@
+#"binary_sensor.wap*":
+#  icon: mdi:access-point-network
+
+"sensor.breaches*":
+  icon: mdi:email

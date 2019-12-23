@@ -1,0 +1,7 @@
+- platform: uptime
+
+#- platform: version
+#  source: hassio
+
+# Home Assistant
+- platform: version

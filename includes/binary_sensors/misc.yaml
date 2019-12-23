@@ -1,0 +1,62 @@
+- platform: iss
+  show_on_map: true
+
+- platform: template
+  sensors:
+    sun_up:
+      entity_id:
+        - sun.sun
+      value_template: >-
+        {{ is_state("sun.sun", "above_horizon") }}
+      icon_template: >-
+        {% if is_state("binary_sensor.sun_up", "on") %}
+          mdi:weather-sunset-up
+        {% else %}
+          mdi:weather-sunset-down
+        {% endif %}
+
+# - platform: template
+#   sensors:
+#     binary_front_door_lock_state:
+#       #NOTE: To ensure consistent updates, we link to the update of the zwave entity id, and not the lock!
+#       entity_id:
+#         - sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+#         #- input_select.lock_hass_status_for_office_back_door_lock
+#         - zwave.front_door_lock
+#       device_class: lock
+#       value_template: >-
+#         {% set alarm_type = states('sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type') %}
+#         {% set alarm_level = states('sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_level') %}
+#         #{% set hass_state = states('input_select.lock_hass_status_for_office_back_door_lock') %}
+
+#         {#- Z-Wave/RF Lock: Alarm State 0x01 (???) -#}
+#         {%- if hass_state == 'locked_by_hass' -%}
+#         {#- Z-Wave/RF Unlock: Alarm State 0x01 (???) -#}
+#         {%- elif hass_state == 'unlocked_by_hass' -%}
+
+#         {# Manually Locked: Alarm State 0x15 (21) #}
+#         {% elif alarm_type == '21' %}
+#            {{ 'locked manually with key cylinder or inside thumb turn' }}
+
+#         {#- Manual Unlock: Alarm State 0x16 (22) -#}
+#         {%- elif alarm_type == '22' -%}
+#             {{ 'unlocked manually with key cylinder or inside thumb turn' }}
+
+#         {#- Keypad Lock by keypad touch (lock & leave): Alarm State 0x12 (18) -#}
+#         {%- elif alarm_type ==  '18' -%}
+#             {{ 'locked with keypad' }}
+
+#         {#- Keypad Unlock: Alarm State 0x13 (19) -#}
+#         {%- elif alarm_type == '19' -%}
+#             {{ 'unlocked with keypad by user ' ~ alarm_level }}
+
+#         {%- else -%}
+#             {#- The lock status is sometimes unknown when HASS boots and Z-Wave is initialized.
+#               In this case we want to use the last state reported by the lock itself (physically) if possible, otherwise
+#               we return 'unknown' -#}
+#             {# {{ 'unknown' }} #}
+#             {% set state = states.lock.schlage_be469nxcen_touchscreen_deadbolt_locked %}
+#             {% set status = (state.attributes.lock_status if state else '')|trim() %}
+#             {% set result = status if status != '' else 'unknown' %}
+#             {{ result|lower() }}
+#         {%- endif -%}

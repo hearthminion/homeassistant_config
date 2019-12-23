@@ -1,0 +1,702 @@
+# ======================================================================
+#
+# Master Bedroom Light Configuration
+#
+#
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Automations
+#
+#
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Master Ceiling Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Master Ceiling Lights: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment
+
+  - alias: '[Lights] Master Ceiling Lights: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_master_ceiling_lights_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment
+
+  - alias: '[Lights] Master Ceiling Lights: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment
+            - switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment
+
+  # ======================================================================
+  #
+  # Light fixture: Master Lamp 1
+  #
+  # Lights:
+  #   -
+  #   -
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Master Lamp 1: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_1_without_brightness_adjustment
+
+  - alias: '[Lights] Master Lamp 1: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_master_lamp_1_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_1_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
+
+  - alias: '[Lights] Master Lamp 1: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
+            - switch.circadian_lighting_master_lamp_1_without_brightness_adjustment
+
+  # ======================================================================
+  #
+  # Light fixture: Master Lamp 2
+  #
+  # Lights:
+  #   -
+  #   -
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Master Lamp 2: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_2_without_brightness_adjustment
+
+  - alias: '[Lights] Master Lamp 2: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_master_lamp_2_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_2_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
+
+  - alias: '[Lights] Master Lamp 2: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
+            - switch.circadian_lighting_master_lamp_2_without_brightness_adjustment
+
+  - id: '1577071503214'
+    alias: 'Master Lamp 2: Enable Migrain Mode'
+    description: ''
+    trigger:
+      - entity_id: sensor.light_master_lamp_2_xy_color
+        platform: state
+        to: '(0.17,0.7)'
+    condition: []
+    action:
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
+
+  # ======================================================================
+  #
+  # Light fixture: Master Closet
+  #
+  # Lights:
+  #   -
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Master Closet: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_closet_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_closet_without_brightness_adjustment
+
+  - alias: '[Lights] Master Closet: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_master_closet_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_master_closet_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_closet_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_closet_with_brightness_adjustment
+
+  - alias: '[Lights] Master closet: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_master_closet_with_brightness_adjustment
+            - switch.circadian_lighting_master_closet_without_brightness_adjustment
+
+
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+input_select:
+  hue_scene_master_bedroom:
+    name: Hue Master Bedroom Scene
+    icon: mdi:palette
+    initial: 'Circadian'
+    options:
+      - Arctic aurora
+      - Sevanna sunset
+      - Tropical twilight
+      - Spring blossom
+      - Relax
+      - Read
+      - Concentrate
+      - Energize
+      - Bright
+      - Dimmed
+      - Nightlight
+      - Motown
+      - Midsomer Sun
+      - Midwinter
+      - Ocean Dawn
+      - Emerald Isle
+      - Mountain Breeze
+      - Spring lake
+      - Moonlight
+      - Starlight
+      - Soho
+      - Golden Pond
+      - Frosty Dawn
+      - Fairfax
+      - Autumn Gold
+      - Palm Beach
+      - Lake Mist
+      - Chinatown
+      - Tokyo
+      - Sunday Morning
+      - Ibiza
+      - Nebula
+      - Galaxy
+      - Ruby Glow
+      - Winter mountain
+      - Blue Lagoon
+      - Honolulu
+      - Lake Placid
+      - Osaka
+      - Sundowner
+      - Blood Moon
+      - Circadian
+      - Night Mode
+      - Migraine
+
+
+scene:
+  - id: '1577071758163'
+    name: Master Lamp 2 Migraine
+    entities:
+      light.hue_lamp_15:
+        friendly_name: Master Lamp 2 Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 43
+      light.hue_lamp_2:
+        brightness: 64
+        effect: none
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Lamp 2 Light 1
+        max_mireds: 500
+        min_mireds: 153
+        rgb_color:
+        - 0
+        - 64
+        - 0
+        state: 'on'
+        supported_features: 63
+
+  - id: '1576887377088'
+    name: Migraine Master Bedroom
+    entities:
+      light.hue_lamp_1:
+        brightness: 254
+        effect: none
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Lamp 1 Light 1
+        hs_color:
+        - 38.88
+        - 49.02
+        max_mireds: 500
+        min_mireds: 153
+        rgb_color:
+        - 0
+        - 80
+        - 0
+        state: 'on'
+        supported_features: 63
+      light.hue_lamp_14:
+        brightness: 254
+        color_temp: 375
+        friendly_name: Master Lamp 1 Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'on'
+        supported_features: 43
+      light.hue_lamp_15:
+        brightness: 199
+        color_temp: 454
+        friendly_name: Master Lamp 2 Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'on'
+        supported_features: 43
+      light.hue_lamp_16:
+        friendly_name: Master Light 1
+        max_mireds: 500
+        min_mireds: 153
+        state: unavailable
+        supported_features: 43
+      light.hue_lamp_2:
+        brightness: 199
+        color_temp: 454
+        effect: none
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Lamp 2 Light 1
+        max_mireds: 500
+        min_mireds: 153
+        state: 'on'
+        supported_features: 63
+      light.hue_lamp_4:
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: unavailable
+        supported_features: 63
+      light.hue_lamp_5:
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Light 3
+        max_mireds: 500
+        min_mireds: 153
+        state: unavailable
+        supported_features: 63
+      switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment:
+        brightness: 78.62960257288094
+        friendly_name: Master Ceiling Lights (with Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment:
+        brightness:
+        friendly_name: Master Ceiling Lights (without Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_closet_light_with_brightness_adjustment:
+        brightness: 78.62960257288094
+        friendly_name: Master Closet Light (with Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_closet_light_without_brightness_adjustment:
+        brightness:
+        friendly_name: Master Closet Light (without Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_lamp_1_with_brightness_adjustment:
+        brightness: 78.62960257288094
+        friendly_name: Master Lamp 1 (with Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_lamp_1_without_brightness_adjustment:
+        brightness:
+        friendly_name: Master Lamp 1 (without Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_lamp_2_with_brightness_adjustment:
+        brightness:
+        friendly_name: Master Lamp 2 (with Brightness Adjustment)
+        hs_color:
+        icon: mdi:theme-light-dark
+        state: 'off'
+      switch.circadian_lighting_master_lamp_2_without_brightness_adjustment:
+        brightness:
+        friendly_name: Master Lamp 2 (without Brightness Adjustment)
+        hs_color:
+        - 29.717
+        - 83.137
+        icon: mdi:theme-light-dark
+        state: 'off'
+  - id: '1576892919563'
+    name: Master Bedroom Darken Room
+    entities:
+      light.hue_lamp_1:
+        brightness: 254
+        effect: none
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Lamp 1 Light 1
+        max_mireds: 500
+        min_mireds: 153
+        rgb_color:
+        - 255
+        - 0
+        - 0
+        state: 'on'
+        supported_features: 63
+      light.hue_lamp_14:
+        brightness: 254
+        color_temp: 375
+        friendly_name: Master Lamp 1 Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 43
+      light.hue_lamp_15:
+        brightness: 163
+        color_temp: 454
+        friendly_name: Master Lamp 2 Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 43
+      light.hue_lamp_16:
+        friendly_name: Master Light 1
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 43
+      light.hue_lamp_2:
+        brightness: 163
+        color_temp: 454
+        effect: none
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Lamp 2 Light 1
+        max_mireds: 500
+        min_mireds: 153
+        state: 'on'
+        supported_features: 63
+      light.hue_lamp_4:
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Light 2
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 63
+      light.hue_lamp_5:
+        effect_list:
+        - colorloop
+        - random
+        friendly_name: Master Light 3
+        max_mireds: 500
+        min_mireds: 153
+        state: 'off'
+        supported_features: 63
+
+
+# ======================================================================
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_master_ceiling_circadian_brightness:
+        friendly_name: "[Light] Master Ceiling Lights: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_master_lamp_1_circadian_brightness:
+        friendly_name: "[Light] Master Lamp 1: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_master_lamp_1_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_master_lamp_2_circadian_brightness:
+        friendly_name: "[Light] Master Lamp 2: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_master_lamp_2_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_master_closet_circadian_brightness:
+        friendly_name: "[Light] Master Closet: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_master_closet_light_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_master_ceiling_brightness:
+        friendly_name: "[Light] Master Ceiling Lights: Brightness"
+        value_template:  "{{ ( state_attr('light.master_ceiling_lights','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_master_lamp_1_brightness:
+        friendly_name: "[Light] Master Lamp 1:Brightness"
+        value_template:  "{{ ( state_attr('light.master_lamp_1','brightness') / 254 * 100 )| int }}"
+        unit_of_measurement: '%'
+      light_master_lamp_2_brightness:
+        friendly_name: "[Light] Master Lamp 2: Brightness"
+        value_template:  "{{ ( state_attr('light.master_lamp_2','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_master_closet_brightness:
+        friendly_name: "[Light] Master Closet: Brightness"
+        value_template:  "{{ ( state_attr('light.master_closet','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_master_lamp_1_xy_color:
+        friendly_name: "[Light] Master Lamp 1: XY Color"
+        value_template: "{{ state_attr('light.hue_lamp_1','xy_color') }}"
+      light_master_lamp_2_xy_color:
+        friendly_name: "[Light] Master Lamp 2: XY Color"
+        value_template: "{{ state_attr('light.hue_lamp_2','xy_color') }}"
+      light_master_ceiling_light_2:
+        friendly_name: "[Light] Master Ceiling Lights 2: XY Color"
+        value_template: "{{ state_attr('light.hue_lamp_4','xy_color') }}"
+      light_master_ceiling_light_3:
+        friendly_name: "[Light] Master Ceiling Lights 3: XY Color"
+        value_template: "{{ state_attr('light.hue_lamp_5','xy_color') }}"
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ======================================================================
+  #
+  # Master Bedroom
+  #
+  # Lights:
+  #   - Bedside Lamp
+  #   - Bedside Lamp
+  #   - Overhead Light
+  #
+  # ======================================================================
+  - platform: circadian_lighting
+    name: "Master Lamp 1 (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_1
+      - light.hue_lamp_14
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Master Lamp 1 (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_1
+      - light.hue_lamp_14
+    disable_brightness_adjust: false
+    min_brightness: 50
+
+  - platform: circadian_lighting
+    name: "Master Lamp 2 (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_2
+      - light.hue_lamp_15
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Master Lamp 2 (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_2
+      - light.hue_lamp_15
+    disable_brightness_adjust: false
+    min_brightness: 50
+
+  - platform: circadian_lighting
+    name: "Master Ceiling Lights (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_4
+      - light.hue_lamp_5
+      - light.hue_lamp_16
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Master Ceiling Lights (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_4
+      - light.hue_lamp_5
+      - light.hue_lamp_16
+    disable_brightness_adjust: false
+    min_brightness: 50
+
+  - platform: circadian_lighting
+    name: "Master Closet Light (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_30
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Master Closet Light (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_30
+    disable_brightness_adjust: false
+    min_brightness: 50

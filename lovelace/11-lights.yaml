@@ -1,0 +1,134 @@
+# ======================================================================
+#
+# Home View
+#
+# Home Layout displaying:
+#   - Room Temperatures
+#   - Light Status (On/Off)
+#   - Open/Closed Doors and Windows
+#
+#
+# ======================================================================
+#  - title: Home
+    title: Lights
+    path: lights
+    icon: mdi:lightbulb
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout: vertical
+            cards:
+              - type: custom:auto-entities
+                sort:
+                  method: name
+                show_empty: false
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Main Room Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.main*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_main*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_main*'
+                      options:
+                        secondary_info: last-changed
+              - break
+              - type: custom:auto-entities
+                show_empty: false
+                sort:
+                  method: name
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Master Suite Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.master*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_master*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_master*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                title: "Hallway"
+                show_empty: false
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Hallway Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.hallway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_hallway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_hallway*'
+                      options:
+                        secondary_info: last-changed
+              - break
+              - type: custom:auto-entities
+                show_empty: false
+                sort:
+                  method: name
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Back Bedroom Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.back_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_back_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_back_bedroom*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                show_empty: false
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Front Bedroom Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.front_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_front_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_front_bedroom*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                title: "Guest Bathroom"
+                show_empty: false
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Guest Bathroom Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.guest_bath*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_guest_bath*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_guest_bath*'
+                      options:
+                        secondary_info: last-changed

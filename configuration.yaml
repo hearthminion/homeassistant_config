@@ -1,0 +1,225 @@
+# ======================================================================
+#
+# configuration.yaml ---
+#
+# Filename: configuration.yaml
+# Description: Home Assistant Configuration Files
+# Author: Geoff S Derber
+# Maintainer:
+# Created: Sun Jan 13 12:21:16 2019 (-0500)
+# Version: 0.0.1
+# Package-Requires: ()
+# Last-Updated: Sun Jun  9 13:04:36 2019 (-0400)
+#           By: Geoff S Derber
+#     Update #: 54
+# URL: https://github.com/gderber/homeassistant/
+# Doc URL: 
+# Keywords: Home Assistant
+# Compatibility: 
+# 
+# 
+
+# Commentary: 
+# 
+# 
+# 
+# 
+
+# Change Log:
+# 
+# 
+# 
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+# 
+# 
+# ======================================================================
+# Code:
+
+
+# ======================================================================
+#
+# Homeassistant:
+#
+# Main Home assistant options
+#
+# ======================================================================
+homeassistant:
+  name: !secret ha_name
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  elevation: !secret ha_elevation
+  unit_system: !secret ha_unit_system
+  time_zone: !secret ha_time_zone
+  # Customization file
+  # Note: Having this file anywhere else disables editing from the UI
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+
+  packages: !include_dir_named packages
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - !secret trusted_net1
+        - !secret trusted_net2
+      allow_bypass_login: true
+#    - type: command_line
+#      command:
+    - type: homeassistant
+
+automation: !include automations.yaml
+automation old: !include_dir_merge_list includes/automations/
+binary_sensor: !include_dir_merge_list includes/binary_sensors/
+#conversation: !include includes/conversation.yaml
+device_tracker: !include includes/device_trackers.yaml
+group: !include_dir_merge_named includes/groups/
+input_boolean: !include_dir_merge_named includes/input_boolean/
+input_select: !include_dir_merge_named includes/input_select/
+media_player: !include includes/media_player.yaml
+owntracks: !include includes/owntracks.yaml
+person: !include includes/person.yaml
+scene: !include scenes.yaml
+scene old: !include_dir_merge_list includes/scenes/
+sensor: !include_dir_merge_list includes/sensors/
+switch: !include_dir_merge_list includes/switches/
+timer: !include includes/timers.yaml
+discovery: !include includes/system/discovery.yaml
+history: !include includes/system/history.yaml
+logbook: !include includes/system/logbook.yaml
+logger: !include includes/system/logger.yaml
+recorder: !include includes/system/recorder.yaml
+speedtestdotnet: !include includes/speedtest.yaml
+system_log: !include includes/system/system_log.yaml
+
+
+
+#air_quality:
+#  - platform: opensensemap
+#    station_id: STATION_ID
+
+sun: # Track the sun
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky
+
+# openuv:
+#   api_key: !secret openuv_key
+#   binary_sensors:
+#     monitored_conditions:
+#       - uv_protection_window
+#   sensors:
+#     monitored_conditions:
+#       - current_ozone_level
+#       - current_uv_index
+#       - current_uv_level
+#       - max_uv_index
+#       - safe_exposure_time_type_1
+#       - safe_exposure_time_type_2
+#       - safe_exposure_time_type_3
+#       - safe_exposure_time_type_4
+#       - safe_exposure_time_type_5
+#       - safe_exposure_time_type_6
+
+geo_location:
+  #- platform: geo_json_events
+  #  url: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
+  #  radius: 300km
+ 
+  - platform: usgs_earthquakes_feed
+    feed_type: 'past_day_all_earthquakes'
+    radius: 300
+
+climate:
+  - platform: honeywell
+    region: us
+    username: !secret honeywell_user
+    password: !secret honeywell_pass
+    scan_interval: 600
+
+#tts:
+#  - platform: picotts
+
+
+# ======================================================================
+#
+# Only listen on localhost.  Nginx acts as a proxy for outside access.
+#
+# With Nginx acting as proxy, ssl certificate is not needed.
+#
+# ======================================================================
+http:
+  base_url: localhost
+  server_port: 8123
+  #ssl_certificate:
+  #ssl_key:
+
+updater:
+  reporting: false
+  include_used_components: false
+
+#cloud: # Cloud
+# Enables configuration UI
+config:
+
+map: # Enables a map showing the location of tracked devices
+
+frontend: # Enables the (old?) frontend
+  themes: !include_dir_merge_named themes/
+  javascript_version: latest
+# Use Lovelace by Default
+lovelace:
+  mode: yaml
+
+shopping_list:
+# ======================================================================
+#
+# Services
+#
+# ======================================================================
+#mqtt:
+#  broker: angelia.olympus.drbr.org
+#  #port: 8883
+#  username: homeassistant
+#  password: !secret mqtt_password
+
+ios:
+system_health:
+zeroconf:
+zwave:
+  usb_path: /dev/ttyACM0
+  #device_config: !include includes/zwave/zwave.yaml
+  network_key: !secret zwave_key
+
+
+##############################################################
+#
+# Custom Addons
+#
+##############################################################
+hacs:
+  token: !secret github_token
+  appdaemon: true
+  python_script: true
+  themes: true
+
+#fontawesome:
+#  regular:
+#  solid:
+#  brands:
+
+garbage_collection: !include includes/garbage.yaml
+# ======================================================================
+# configuration.yaml ends here

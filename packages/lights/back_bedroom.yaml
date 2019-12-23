@@ -1,0 +1,253 @@
+# ======================================================================
+#
+# Back Bedroom
+#
+#
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Back Bedroom Ceiling Light
+  #
+  # Light:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Back Bedroom Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_without_brightness_adjustment
+
+  - alias: '[Light] Back Bedroom Ceiling Light: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_back_bedroom_ceiling_lights_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+
+  - alias: '[Light] Back Bedroom Ceiling Lights: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+            - switch.circadian_lighting_back_bedroom_ceiling_lights_without_brightness_adjustment
+
+  # ======================================================================
+  #
+  # Light fixture: Back Bedroom Closet
+  #
+  # Lights:
+  #   -
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Back Bedroom Closet: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_closet_without_brightness_adjustment
+
+  - alias: '[Light] Back Bedroom Closet: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_back_bedroom_closet_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_closet_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+
+  - alias: '[Light] Back Bedroom Closet: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+            - switch.circadian_lighting_back_bedroom_closet_without_brightness_adjustment
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+input_select:
+  hue_scene_back_bedroom_bedroom:
+    name: "[Light] Hue Back Bedroom Scene"
+    icon: mdi:palette
+    initial: 'Circadian'
+    options:
+      - Arctic aurora
+      - Sevanna sunset
+      - Tropical twilight
+      - Spring blossom
+      - Relax
+      - Read
+      - Concentrate
+      - Energize
+      - Bright
+      - Dimmed
+      - Nightlight
+      - Motown
+      - Midsomer Sun
+      - Midwinter
+      - Ocean Dawn
+      - Emerald Isle
+      - Mountain Breeze
+      - Spring lake
+      - Moonlight
+      - Starlight
+      - Soho
+      - Golden Pond
+      - Frosty Dawn
+      - Fairfax
+      - Autumn Gold
+      - Palm Beach
+      - Lake Mist
+      - Chinatown
+      - Tokyo
+      - Sunday Morning
+      - Ibiza
+      - Nebula
+      - Galaxy
+      - Ruby Glow
+      - Winter mountain
+      - Blue Lagoon
+      - Honolulu
+      - Lake Placid
+      - Osaka
+      - Sundowner
+      - Blood Moon
+      - Circadian
+      - Night Mode
+      - Migraine
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_back_bedroom_ceiling_circadian_brightness:
+        friendly_name: "[Light] Back Bedroom Ceiling Lights: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_back_bedroom_closet_circadian_brightness:
+        friendly_name: "[Light] Back Bedroom Closet: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_back_bedroom_ceiling_brightness:
+        friendly_name: "[Light] Back Bedroom Ceiling Lights: Brightness"
+        value_template:  "{{ ( state_attr('light.back_bedroom_ceiling','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_back_bedroom_closet_brightness:
+        friendly_name: "[Light] Back Bedroom Closet: Brightness"
+        value_template:  "{{ ( state_attr('light.back_bedroom_closet','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+
+# ======================================================================
+#
+# Switches
+#
+# ======================================================================
+switch:
+  # ========================================
+  #
+  # Back Bedroom
+  #
+  # =========================================
+  - platform: circadian_lighting
+    name: "Back Bedroom Ceiling Lights (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_22
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Back Bedroom Ceiling Lights (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_22
+    disable_brightness_adjust: false
+    min_brightness: 50
+
+  - platform: circadian_lighting
+    name: "Back Bedroom Closet (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_28
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Back Bedroom Closet (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_28
+    disable_brightness_adjust: false
+    min_brightness: 50

@@ -1,0 +1,21 @@
+- platform: bluetooth_tracker
+
+#- platform: bluetooth_le_tracker
+#  track_new_devices: true
+
+#- platform: google_maps
+#  username: !secret gmaps_user
+#  password: !secret gmaps_pass
+
+- platform: nmap_tracker
+  hosts: 10.0.99.0/24
+  home_interval: 3
+  track_new_devices: yes
+  interval_seconds: 40
+  consider_home: 120
+
+#- platform: snmp
+#  host: 10.0.0.1
+#  community: public
+#  baseoid: 1.3.6.1.2.1.31.1.1.1.6.4
+

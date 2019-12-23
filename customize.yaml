@@ -1,0 +1,37 @@
+binary_sensor.user0001_laptop:
+  icon: mdi:laptop-windows
+binary_sensor.user0002_laptop:
+  icon: mdi:laptop-windows
+binary_sensor.user0001_status:
+  icon: mdi:account
+binary_sensor.user0002_status:
+  icon: mdi:account
+binary_sensor.user0003_status:
+  icon: mdi:account
+binary_sensor.user0004_status:
+  icon: mdi:account
+sensor.sensehat_temperature:
+  icon: mdi:thermometer
+  friendly_name: Temperature
+sensor.sensehat_humidity:
+  icon: mdi:weather-rainy
+  friendly_name: Humidity
+sensor.sensehat_pressure:
+  icon: mdi:gauge
+  friendly_name: Pressure
+binary_sensor.wap1:
+  icon: mdi:access-point-network
+binary_sensor.wap2:
+  icon: mdi:access-point-network
+binary_sensor.wap3:
+  icon: mdi:access-point-network
+binary_sensor.wap4:
+  icon: mdi:access-point-network
+device_tracker.user0001_phone:
+  icon: mdi:crosshairs-gps
+device_tracker.user0001_ipad_bt:
+  icon: mdi:tablet-ipad
+sensor.myip:
+  icon: mdi:ip-network
+sensor.drbr_org:
+  icon: mdi:ip

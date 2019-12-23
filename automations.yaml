@@ -1,0 +1,42 @@
+- id: '1574735776519'
+  alias: Turn on lights to correct color value
+  description: ''
+  trigger: []
+  condition: []
+  action:
+  - data:
+      entity_id: light.entity
+    service: light.turn_on
+- id: '1576627874516'
+  alias: Christmas Lights On
+  description: Turn on outdoor Christmas Lights
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - device_id: 6ec8830ea56d4efaae8b5cf62180794c
+    domain: switch
+    entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    type: turn_on
+- id: '1576628018411'
+  alias: Christmas Lights Off
+  description: ''
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - device_id: 6ec8830ea56d4efaae8b5cf62180794c
+    domain: switch
+    entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    type: turn_off
+- id: '1576717665597'
+  alias: Daily Reboot
+  description: ''
+  trigger:
+  - at: '4:00:00'
+    platform: time
+  condition: []
+  action:
+  - service: hassio.host_reboot

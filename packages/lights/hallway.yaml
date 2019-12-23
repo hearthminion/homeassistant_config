@@ -1,0 +1,108 @@
+# ======================================================================
+#
+# Guest Bath
+#
+#
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Guest Bath Ceiling Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_without_brightness_adjustment
+
+  - alias: '[Lights] Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_with_brightness_adjustment
+
+  - alias: '[Lights] Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_with_brightness_adjustment
+            - switch.circadian_lighting_hallway_without_brightness_adjustment
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_hallway_circadian_brightness:
+        friendly_name: "[Light] Hallway: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_hallway_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_hallway_brightness:
+        friendly_name: "[Light] Hallway: Brightness"
+        value_template: "{{ ( state_attr('light.hallway','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ==========================================
+  #
+  # Hallway
+  #
+  # ============================================
+  - platform: circadian_lighting
+    name: "Hallway (without Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_11
+      - light.hue_lamp_18
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Hallway (with Brightness Adjustment)"
+    lights_ct:
+      - light.hue_lamp_11
+      - light.hue_lamp_18
+    disable_brightness_adjust: false
+    min_brightness: 50

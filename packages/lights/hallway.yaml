@@ -66,6 +66,34 @@ automation:
 
 # ======================================================================
 #
+# Scenes:
+#
+# ======================================================================
+scene:
+    name: "Hallway: Darken Room"
+    entities:
+      light.hue_lamp_11:
+        friendly_name: "Hallway Color Light"
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_lamp_18:
+        friendly_name: "Hallway Ambiance Light"
+        state: 'off'
+  - id: '1576960043395'
+    name: "Hallway: Migrain"
+    entities:
+      light.hue_lamp_11:
+        friendly_name: "Hallway Color Light"
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_18:
+        friendly_name: "Hallway Ambiance Light"
+        state: 'off'
+
+# ======================================================================
+#
 #
 #
 # ======================================================================

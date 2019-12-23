@@ -136,7 +136,7 @@ input_select:
 # ======================================================================
 scene:
   - id: '1576892024578'
-    name: Guest Bath Darken Room
+    name: "Guest Bath: Darken Room"
     entities:
       automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
@@ -149,32 +149,16 @@ scene:
         last_triggered:
         state: 'off'
       light.hue_lamp_20:
-        friendly_name: Guest Bath Right
-        max_mireds: 500
-        min_mireds: 153
+        friendly_name: "Guest Bath Right"
         state: 'off'
-        supported_features: 43
       light.hue_lamp_21:
-        friendly_name: Guest Bath Left
-        max_mireds: 500
-        min_mireds: 153
+        friendly_name: "Guest Bath Left"
         state: 'off'
-        supported_features: 43
       light.hue_lamp_9:
-        brightness: 25
-        effect: none
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Guest Bath Center
-        max_mireds: 500
-        min_mireds: 153
-        rgb_color:
-        - 255
-        - 0
-        - 0
+        friendly_name: "Guest Bath Center"
+        brightness_pct: 25
+        color_name: "darkred"
         state: 'on'
-        supported_features: 63
   - id: '1576960043395'
     name: Guest Bath Migraine
     entities:
@@ -188,33 +172,17 @@ scene:
           Brightness adjust)'
         last_triggered:
         state: 'off'
-      light.hue_lamp_20:
-        friendly_name: Guest Bath Right
-        max_mireds: 500
-        min_mireds: 153
-        state: 'off'
-        supported_features: 43
-      light.hue_lamp_21:
-        friendly_name: Guest Bath Left
-        max_mireds: 500
-        min_mireds: 153
-        state: 'off'
-        supported_features: 43
       light.hue_lamp_9:
-        brightness: 64
-        effect: none
-        effect_list:
-        - colorloop
-        - random
-        friendly_name: Guest Bath Center
-        max_mireds: 500
-        min_mireds: 153
-        rgb_color:
-        - 0
-        - 80
-        - 0
+        friendly_name: "Guest Bath Center"
         state: 'on'
-        supported_features: 63
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.hue_lamp_20:
+        friendly_name: "Guest Bath Right"
+        state: 'off'
+      light.hue_lamp_21:
+        friendly_name: "Guest Bath Left"
+        state: 'off'
 
 # ======================================================================
 #

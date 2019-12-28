@@ -209,11 +209,11 @@ zwave:
 # Custom Addons
 #
 ##############################################################
-hacs:
-  token: !secret github_token
-  appdaemon: true
-  python_script: true
-  themes: true
+#hacs:
+#  token: !secret github_token
+#  appdaemon: true
+#  python_script: true
+#  themes: true
 
 #fontawesome:
 #  regular:

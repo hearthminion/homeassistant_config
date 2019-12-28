@@ -40,3 +40,35 @@
   condition: []
   action:
   - service: hassio.host_reboot
+- id: '1577154074008'
+  alias: test
+  description: ''
+  trigger:
+  - entity_id: sensor.light_master_lamp_2_xy_color
+    platform: state
+    to: (0.17, 0.7)
+  condition: []
+  action:
+  - entity_id: input_boolean.special_migraine_mode
+    service: input_boolean.turn_on
+- id: '1577189016507'
+  alias: 'Christmas Lights On: Morning'
+  description: ''
+  trigger:
+  - event: sunrise
+    offset: '-1:30:00'
+    platform: sun
+  condition: []
+  action:
+  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    service: switch.turn_on
+- id: '1577189063657'
+  alias: 'Christmas Lights Off: Morning'
+  description: ''
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    service: switch.turn_off

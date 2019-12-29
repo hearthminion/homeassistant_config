@@ -60,10 +60,10 @@ resources:
     type: js
   - url: /community_plugin/secondaryinfo-entity-row/secondaryinfo-entity-row.js
     type: js
-  - url: /community_plugin/state-attribute-element/state-attribute-element.js
-    type: js
-  - url: /community_plugin/state-element/state-element.js
-    type: js
+#  - url: /community_plugin/state-attribute-element/state-attribute-element.js
+#    type: js
+#  - url: /community_plugin/state-element/state-element.js
+#    type: js
   - url: /community_plugin/text-action-element/text-action-element.js
     type: module
   - url: /community_plugin/text-divider-row/text-divider-row.js

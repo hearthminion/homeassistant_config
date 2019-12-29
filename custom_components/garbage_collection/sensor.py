@@ -2,6 +2,7 @@
 from homeassistant.helpers.entity import Entity
 import homeassistant.util.dt as dt_util
 import logging
+import locale
 from datetime import datetime, date, timedelta
 from homeassistant.core import HomeAssistant, State
 from typing import List, Any
@@ -328,10 +329,9 @@ class GarbageCollection(Entity):
         if self.date_inside(today):
             next_date = self.get_next_date(today)
             if next_date is not None:
-                next_date_year = next_date.year
                 if not self.date_inside(next_date):
                     if self.__first_month <= self.__last_month:
-                        next_year = date(next_date_year + 1, self.__first_month, 1)
+                        next_year = date(year + 1, self.__first_month, 1)
                         next_date = self.get_next_date(next_year)
                         _LOGGER.debug(
                             "(%s) Did not find the date this year, "
@@ -339,7 +339,7 @@ class GarbageCollection(Entity):
                             self.__name,
                         )
                     else:
-                        next_year = date(next_date_year, self.__first_month, 1)
+                        next_year = date(year, self.__first_month, 1)
                         next_date = self.get_next_date(next_year)
                         _LOGGER.debug(
                             "(%s) Arrived to the end of date range, "

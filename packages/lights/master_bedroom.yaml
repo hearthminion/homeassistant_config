@@ -130,19 +130,6 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
 
-  - alias: '[Lights] Master Lamp 1: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_master_lamp_1_with_brightness_adjustment
-            - switch.circadian_lighting_master_lamp_1_without_brightness_adjustment
-
   # ======================================================================
   #
   # Light fixture: Master Lamp 2
@@ -194,26 +181,13 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
 
-  - alias: '[Lights] Master Lamp 2: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_master_lamp_2_with_brightness_adjustment
-            - switch.circadian_lighting_master_lamp_2_without_brightness_adjustment
-
   - id: '1577071503214'
     alias: 'Master Lamp 2: Enable Migrain Mode'
     description: ''
     trigger:
       - entity_id: sensor.light_master_lamp_2_xy_color
         platform: state
-        to: '(0.17,0.7)'
+        to: (0.17, 0.7)
     condition: []
     action:
       - entity_id: input_boolean.special_migraine_mode
@@ -268,19 +242,6 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_master_closet_with_brightness_adjustment
-
-  - alias: '[Lights] Master closet: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_master_closet_with_brightness_adjustment
-            - switch.circadian_lighting_master_closet_without_brightness_adjustment
 
 # ======================================================================
 #

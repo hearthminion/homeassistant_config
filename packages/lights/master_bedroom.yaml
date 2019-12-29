@@ -511,7 +511,7 @@ switch:
       - light.hue_lamp_1
       - light.hue_lamp_14
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Lamp 2 (without Brightness Adjustment)"
@@ -526,7 +526,7 @@ switch:
       - light.hue_lamp_2
       - light.hue_lamp_15
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Ceiling Lights (without Brightness Adjustment)"
@@ -543,7 +543,7 @@ switch:
       - light.hue_lamp_5
       - light.hue_lamp_16
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Closet Light (without Brightness Adjustment)"
@@ -556,4 +556,4 @@ switch:
     lights_ct:
       - light.hue_lamp_30
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

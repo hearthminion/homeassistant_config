@@ -833,7 +833,7 @@ switch:
     lights_ct:
       - light.hue_lamp_6
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Couch Left (without Brightness Adjustment)"
@@ -846,7 +846,7 @@ switch:
     lights_ct:
       - light.hue_lamp_7
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Dining (without Brightness Adjustment)"
@@ -859,7 +859,7 @@ switch:
     lights_ct:
       - light.hue_lamp_31
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Fireplace (without Brightness Adjustment)"
@@ -872,7 +872,7 @@ switch:
     lights_ct:
       - light.hue_lamp_25
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Front door (without Brightness Adjustment)"
@@ -885,7 +885,7 @@ switch:
     lights_ct:
       - light.hue_lamp_13
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Island (without Brightness Adjustment)"
@@ -898,7 +898,7 @@ switch:
     lights_ct:
       - light.hue_lamp_24
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Kitchen (without Brightness Adjustment)"
@@ -911,7 +911,7 @@ switch:
     lights_ct:
       - light.hue_lamp_10
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Living (without Brightness Adjustment)"
@@ -924,7 +924,7 @@ switch:
     lights_ct:
       - light.hue_lamp_26
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Main Sitting Area (without Brightness Adjustment)"
@@ -937,7 +937,7 @@ switch:
     lights_ct:
       - light.hue_lamp_8
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Chinese Lamp (without Brightness Adjustment)"
@@ -950,7 +950,7 @@ switch:
     lights_ct:
       - light.hue_lamp_3
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Lamp (without Brightness Adjustment)"
@@ -963,4 +963,4 @@ switch:
     lights_ct:
       - light.hue_lamp_27
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

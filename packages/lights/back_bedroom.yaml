@@ -5,6 +5,12 @@
 #
 #
 # ======================================================================
+
+# ======================================================================
+#
+# Automations
+#
+# =====================================================================
 automation:
   # ======================================================================
   #
@@ -247,7 +253,7 @@ switch:
     lights_ct:
       - light.hue_lamp_22
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Back Bedroom Closet (without Brightness Adjustment)"
@@ -260,4 +266,4 @@ switch:
     lights_ct:
       - light.hue_lamp_28
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

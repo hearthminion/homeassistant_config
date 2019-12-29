@@ -1,10 +1,25 @@
+# ======================================================================
+#
+# Common Settings
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Automations
+#
+# =====================================================================
 automation:
   # ======================================================================
   #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  # Set Lighting Mode: Circadian
   #
+  # Trigger:
   # - In the morning when the sun rises to 18 degrees below the horizon
   #   enable
+  #
+  # Actions:
+  #
   # ======================================================================
   - alias: '[Lights] Set Lighting Mode: Circadian'
     description: ''
@@ -21,10 +36,13 @@ automation:
 
   # ======================================================================
   #
-  # Set Lighting Mode: Darken House"
+  # Set Lighting Mode: Darken House
   #
-  # - In the morning when the sun rises to 18 degrees below the horizon
-  #   enable
+  # Trigger:
+  # - When the timer that begins the nighttime routine finishes
+  #
+  # Actions:
+  #
   # ======================================================================
   - alias: "[Lights] Set Light Mode: Darken House"
     description: ''
@@ -42,10 +60,13 @@ automation:
 
   # ======================================================================
   #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  # Set Lighting Mode: Migraine
   #
-  # - In the morning when the sun rises to 18 degrees below the horizon
-  #   enable
+  # Trigger:
+  # - Input Boolean: Special Migraine Mode is set to true
+  #
+  # Actions:
+  # - 
   # ======================================================================
   - alias: '[Lights] Set Lighting Mode: Migraine'
     trigger:
@@ -60,10 +81,14 @@ automation:
 
   # ======================================================================
   #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  # Set Lighting Mode: Guests
   #
-  # - In the morning when the sun rises to 18 degrees below the horizon
-  #   enable
+  # Trigger:
+  # - Input Boolean: Special Guest Mode is set to true
+  #
+  # Actions:
+  # -
+  #
   # ======================================================================
   - alias: '[Lights] Set Light Mode: Guests'
     description: ''
@@ -79,44 +104,48 @@ automation:
         option: Guests
       service: input_select.select_option
 
-
-  # ======================================================================
-  #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
-  #
-  # - In the morning when the sun rises to 18 degrees below the horizon
-  #   enable
-  # ======================================================================
-
-
-#   # - alias: 'Turn on lights to proper color'
-#   #   action:
-#   #     service: light.turn_on
-#   #     data_template:
-#   #       entity_id: light.entity
-#   #       kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-#   #       brightness_pct: "{{ state_attr('switch.circadian_lighting_main_couch_right', 'brightness') | int }}"
-
-#   # - alias: 'Main Couch Right Switch'
-#   #   action:
-#   #     service: light.turn_on
-#   #     data_template:
-#   #       entity_id: light.entity
-#   #       kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-#   #       brightness_pct: "{{ state_attr('switch.circadian_lighting_main_couch_left', 'brightness') | int }}"
-
-
-# hue:
-#   bridges:
-#     - host: 10.3.1.1
-#       allow_unreachable: false
-#       allow_hue_groups: true
-
-
+# ======================================================================
+#
+# Custom Component: Circadian Lighting
+#
+# https://github.com/claytonjn/hass-circadian_lighting
+#
+# ======================================================================
 circadian_lighting:
+  # Minimum color temperature to set
   min_colortemp: 2200
+  # Maximum color temperature to set
   max_colortemp: 6500
+  # Positive/Negative offset to sunrise/sunset
+  # String: (-)HH:MM:SS
+  # Default: None
+  #sunrise_offset:
+  #sunset_offset
+  # Time for sunrise / sunset
+  # Time: HH:MM:SS
+  # Default: Actual Sunrise/Sunset time
+  #sunrise_time:
+  #sunset_time:
+  # Latitude / Longitude / Elevation
+  # Lat and Long used to determine sunrise / sunset / elevation
+  # Default: Use Home Assistant Provided lat, long, elevation
+  #latitudue:
+  #longitude:
+  #elevation:
+  # Frequency at which the lights should be updated
+  # Positive Integer: # (Seconds)
+  # Default: 300 (300 seconds = 5 minutes)
+  #interval:
+  # Transition time for light changes
+  # Float: # (Seconds)
+  # Default: 60 (60 seconds =  1 minute)
+  #transition
 
+# ======================================================================
+#
+# Input select
+#
+# ======================================================================
 input_select:
   light_mode:
     name: "Light Mode"
@@ -131,20 +160,18 @@ input_select:
     #initial: "Circadian"
     #icon: 'mdi:light'
 
+# ======================================================================
+#
+# Sensors
+#
+# ======================================================================
 sensor:
 #  - platform: huesensor
-
-#  - platform: attributes
-#    friendly_name: "Lamp Brightness"
-#    attribute: brightness
-#    unit_of_measurement: "%"
-#    entities:
-#      - switch.circadian_lighting_main_couch_right_with_brightness_adjustment
-#      - switch.circadian_lighting_main_couch_left_with_brightness_adjustment
 
   - platform: template
     sensors:
       circadian_temperature:
+        friendly_name: "Circadian Color Temperature"
         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
         unit_of_measurement: '°K'
 

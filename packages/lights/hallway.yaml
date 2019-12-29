@@ -132,4 +132,4 @@ switch:
       - light.hue_lamp_11
       - light.hue_lamp_18
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

@@ -282,7 +282,7 @@ switch:
       - light.hue_lamp_12
       - light.hue_lamp_19
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Bathroom (Outer) (without Brightness Adjustment)"
@@ -295,4 +295,4 @@ switch:
     lights_ct:
       - light.hue_lamp_32
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

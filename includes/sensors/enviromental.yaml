@@ -134,7 +134,7 @@
   type: astronomical
 
 #- platform: weatheralerts
-#  sameid: !secret noahsameid
+#  state: GA
+#  zone: "036"
 
-- platform: yr
-
+#- platform: yr

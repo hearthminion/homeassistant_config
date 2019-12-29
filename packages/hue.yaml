@@ -1,14 +1,3 @@
-# ======================================================================
-#
-# Group: Master Bathroom Inner
-# Scene_ID: NcXhhhoJnaJIWLa
-#
-# ======================================================================
-#update_hue_scene_master_bath_inner:
-#  url: https://10.3.1.1/api/e2Du8WsQfAUiZPrtb-6qkAbvnoTKq3degi6iGbtf/scenes/NcXhhhoJnaJIWLa/lightstates/
-#  method: put
-#  payload: "{ '12': { 'on': true, 'bri': <circadian_brightness>, 'ct': <circadian_ct> }, { '17': { 'on': true, 'bri': <circadian_brightness>, 'ct': <circadian_ct> }, { '19': { 'on': true,
-# 'bri': <circadian_brightness>, 'ct': <circadian_ct> }"
 
 # ======================================================================
 #

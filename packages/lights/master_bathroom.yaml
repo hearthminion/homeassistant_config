@@ -241,7 +241,7 @@ scene:
   - id: '1576892383155'
     name: "[Light] Master Bathroom (Inner): Darken Room"
     entities:
-      light.hue_lamp_12:
+      light.main_lamp_12:
         friendly_name: "Master Bathroom Center"
         brightness_pct: 25
         rgb_color:
@@ -249,10 +249,10 @@ scene:
         - 0
         - 0
         state: 'on'
-      light.hue_lamp_17:
+      light.main_lamp_17:
         friendly_name: "Master Bathroom Left"
         state: 'off'
-      light.hue_lamp_19:
+      light.main_lamp_19:
         friendly_name: "Master Bathroom Right"
         state: 'off'
 
@@ -270,29 +270,29 @@ switch:
   - platform: circadian_lighting
     name: "Master Bathroom (Inner) (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_17
-      - light.hue_lamp_12
-      - light.hue_lamp_19
+      - light.main_lamp_17
+      - light.main_lamp_12
+      - light.main_lamp_19
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Bathroom (Inner) (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_17
-      - light.hue_lamp_12
-      - light.hue_lamp_19
+      - light.main_lamp_17
+      - light.main_lamp_12
+      - light.main_lamp_19
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Bathroom (Outer) (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_32
+      - light.main_lamp_32
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Bathroom (Outer) (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_32
+      - light.main_lamp_32
     disable_brightness_adjust: false
     min_brightness: 25

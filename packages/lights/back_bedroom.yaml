@@ -229,7 +229,7 @@ sensor:
 #scene:
 #  - name: "Back Bedroom: Darken Room"
 #    entities:
-#      light.hue_lamp_22:
+#      light.main_lamp_22:
 
 # ======================================================================
 #
@@ -245,25 +245,25 @@ switch:
   - platform: circadian_lighting
     name: "Back Bedroom Ceiling Lights (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_22
+      - light.main_lamp_22
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Back Bedroom Ceiling Lights (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_22
+      - light.main_lamp_22
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Back Bedroom Closet (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_28
+      - light.main_lamp_28
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Back Bedroom Closet (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_28
+      - light.main_lamp_28
     disable_brightness_adjust: false
     min_brightness: 25

@@ -304,34 +304,34 @@ scene:
   - id: '1576887377088'
     name: "Master Bedroom: Migraine"
     entities:
-      light.hue_lamp_1:
+      light.main_lamp_1:
         friendly_name: Master Lamp 1 Light 1
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_2:
+      light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_4:
+      light.main_lamp_4:
         friendly_name: Master Light 2
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_5:
+      light.main_lamp_5:
         friendly_name: Master Light 3
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_14:
+      light.main_lamp_14:
         friendly_name: Master Lamp 1 Light 2
         state: 'off'
-      light.hue_lamp_15:
+      light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'on'
         supported_features: 43
-      light.hue_lamp_16:
+      light.main_lamp_16:
         friendly_name: Master Light 1
         state: 'off'
       switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment:
@@ -359,75 +359,75 @@ scene:
   - id: '1576892919563'
     name: "Master Bedroom: Darken Room"
     entities:
-      light.hue_lamp_1:
+      light.main_lamp_1:
         friendly_name: Master Lamp 1 Light 1
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_2:
+      light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_4:
+      light.main_lamp_4:
         friendly_name: Master Light 2
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_5:
+      light.main_lamp_5:
         friendly_name: Master Light 3
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_14:
+      light.main_lamp_14:
         friendly_name: Master Lamp 1 Light 2
         state: 'off'
-      light.hue_lamp_15:
+      light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'on'
         supported_features: 43
-      light.hue_lamp_16:
+      light.main_lamp_16:
         friendly_name: Master Light 1
         state: 'off'
   - id: '1577071758163'
     name: "Master Lamp 2: Migraine"
     entities:
-      light.hue_lamp_2:
+      light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_15:
+      light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'off'
   - name: "Master Lamp 1: Migraine"
     entities:
-      light.hue_lamp_1:
+      light.main_lamp_1:
         friendly_name: "Master Lamp 1 Light 1"
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_14:
+      light.main_lamp_14:
         friendly_name: "Master Lamp 1 Light 2"
         state: 'off'
   - name: "Master Lamp 2: Darken Lamp"
     entities:
-      light.hue_lamp_2:
+      light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_15:
+      light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'off'
   - name: "Master Lamp 1: Darken Lamp"
     entities:
-      light.hue_lamp_1:
+      light.main_lamp_1:
         friendly_name: "Master Lamp 1 Light 1"
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_14:
+      light.main_lamp_14:
         friendly_name: "Master Lamp 1 Light 2"
         state: 'off'
 
@@ -471,16 +471,16 @@ sensor:
         unit_of_measurement: '%'
       light_master_lamp_1_xy_color:
         friendly_name: "[Light] Master Lamp 1: XY Color"
-        value_template: "{{ state_attr('light.hue_lamp_1','xy_color') }}"
+        value_template: "{{ state_attr('light.main_lamp_1','xy_color') }}"
       light_master_lamp_2_xy_color:
         friendly_name: "[Light] Master Lamp 2: XY Color"
-        value_template: "{{ state_attr('light.hue_lamp_2','xy_color') }}"
+        value_template: "{{ state_attr('light.main_lamp_2','xy_color') }}"
       light_master_ceiling_light_2:
         friendly_name: "[Light] Master Ceiling Lights 2: XY Color"
-        value_template: "{{ state_attr('light.hue_lamp_4','xy_color') }}"
+        value_template: "{{ state_attr('light.main_lamp_4','xy_color') }}"
       light_master_ceiling_light_3:
         friendly_name: "[Light] Master Ceiling Lights 3: XY Color"
-        value_template: "{{ state_attr('light.hue_lamp_5','xy_color') }}"
+        value_template: "{{ state_attr('light.main_lamp_5','xy_color') }}"
 
 # ======================================================================
 #
@@ -501,59 +501,59 @@ switch:
   - platform: circadian_lighting
     name: "Master Lamp 1 (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_1
-      - light.hue_lamp_14
+      - light.main_lamp_1
+      - light.main_lamp_14
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Lamp 1 (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_1
-      - light.hue_lamp_14
+      - light.main_lamp_1
+      - light.main_lamp_14
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Lamp 2 (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_2
-      - light.hue_lamp_15
+      - light.main_lamp_2
+      - light.main_lamp_15
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Lamp 2 (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_2
-      - light.hue_lamp_15
+      - light.main_lamp_2
+      - light.main_lamp_15
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Ceiling Lights (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_4
-      - light.hue_lamp_5
-      - light.hue_lamp_16
+      - light.main_lamp_4
+      - light.main_lamp_5
+      - light.main_lamp_16
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Ceiling Lights (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_4
-      - light.hue_lamp_5
-      - light.hue_lamp_16
+      - light.main_lamp_4
+      - light.main_lamp_5
+      - light.main_lamp_16
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Master Closet Light (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_30
+      - light.main_lamp_30
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Master Closet Light (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_30
+      - light.main_lamp_30
     disable_brightness_adjust: false
     min_brightness: 25

@@ -35,3 +35,5 @@ sensor.myip:
   icon: mdi:ip-network
 sensor.drbr_org:
   icon: mdi:ip
+device_tracker.b8_d7_af_78_0f_3c:
+  friendly_name: user0001_wifi

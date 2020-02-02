@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Back Bedroom
+# Back Bedroom Lighting Configuration
 #
 #
 #
@@ -147,7 +147,7 @@ automation:
 # ======================================================================
 input_select:
   hue_scene_back_bedroom_bedroom:
-    name: "[Light] Hue Back Bedroom Scene"
+    name: "[Light] Back Bedroom Scene"
     icon: mdi:palette
     initial: 'Circadian'
     options:
@@ -198,7 +198,21 @@ input_select:
 
 # ======================================================================
 #
+# Rest Commands
 #
+# ======================================================================
+# ======================================================================
+#
+# Group: Back Bedroom Ceiling
+# Scene_ID: qS-eiYbXIwAXNSl
+# Lights: 22
+#
+# ======================================================================
+
+
+# ======================================================================
+#
+# Sensors
 #
 # ======================================================================
 sensor:
@@ -227,7 +241,7 @@ sensor:
 #
 # ======================================================================
 #scene:
-#  - name: "Back Bedroom: Darken Room"
+#  - name: "[Light] Back Bedroom: Darken Room"
 #    entities:
 #      light.main_lamp_22:
 

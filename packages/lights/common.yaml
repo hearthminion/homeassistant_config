@@ -3,6 +3,12 @@
 # Common Settings
 #
 # ======================================================================
+homeassistant:
+  customize_glob:
+    "light.main_lamp_*":
+      hidden:  true
+    "light.basement_lamp_*":
+      hidden:  true
 
 # ======================================================================
 #

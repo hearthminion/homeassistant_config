@@ -27,7 +27,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Lights] Master Ceiling Lights: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Master Ceiling Lights: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -43,7 +43,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment
 
-  - alias: '[Lights] Master Ceiling Lights: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Master Ceiling Lights: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -66,7 +66,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment
 
-  - alias: '[Lights] Master Ceiling Lights: Disable Circadian Lighting'
+  - alias: '[Light] Master Ceiling Lights: Disable Circadian Lighting'
     initial_state: false
     trigger:
       - platform: state
@@ -91,7 +91,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Lights] Master Lamp 1: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Master Lamp 1: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -107,7 +107,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_lamp_1_without_brightness_adjustment
 
-  - alias: '[Lights] Master Lamp 1: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Master Lamp 1: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -142,7 +142,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Lights] Master Lamp 2: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Master Lamp 2: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -158,7 +158,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_lamp_2_without_brightness_adjustment
 
-  - alias: '[Lights] Master Lamp 2: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Master Lamp 2: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -204,7 +204,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Lights] Master Closet: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Master Closet: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -220,7 +220,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_closet_without_brightness_adjustment
 
-  - alias: '[Lights] Master Closet: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Master Closet: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -299,10 +299,35 @@ input_select:
       - Darken
       - Migraine
 
+# ======================================================================
+#
+# Rest Command
+#
+# ======================================================================
 
+# ======================================================================
+#
+# Group: Master Bedroom
+# Scene_ID: BJMSuZPhIT8YH2N
+# Lights: 1, 2, 4, 5, 14, 15, 16
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Master Bedroom Lamp 1
+# Scene_ID: UkFEqgHUaDi9-Px
+# Lights: 1, 14
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Scenes
+#
+# ======================================================================
 scene:
   - id: '1576887377088'
-    name: "Master Bedroom: Migraine"
+    name: "[Light] Master Bedroom: Migraine"
     entities:
       light.main_lamp_1:
         friendly_name: Master Lamp 1 Light 1
@@ -357,7 +382,7 @@ scene:
         friendly_name: Master Lamp 2 (without Brightness Adjustment)
         state: 'off'
   - id: '1576892919563'
-    name: "Master Bedroom: Darken Room"
+    name: "[Light] Master Bedroom: Darken Room"
     entities:
       light.main_lamp_1:
         friendly_name: Master Lamp 1 Light 1
@@ -390,7 +415,7 @@ scene:
         friendly_name: Master Light 1
         state: 'off'
   - id: '1577071758163'
-    name: "Master Lamp 2: Migraine"
+    name: "[Light] Master Lamp 2: Migraine"
     entities:
       light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
@@ -400,7 +425,7 @@ scene:
       light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'off'
-  - name: "Master Lamp 1: Migraine"
+  - name: "[Light] Master Lamp 1: Migraine"
     entities:
       light.main_lamp_1:
         friendly_name: "Master Lamp 1 Light 1"
@@ -410,7 +435,7 @@ scene:
       light.main_lamp_14:
         friendly_name: "Master Lamp 1 Light 2"
         state: 'off'
-  - name: "Master Lamp 2: Darken Lamp"
+  - name: "[Light] Master Lamp 2: Darken Lamp"
     entities:
       light.main_lamp_2:
         friendly_name: Master Lamp 2 Light 1
@@ -420,7 +445,7 @@ scene:
       light.main_lamp_15:
         friendly_name: Master Lamp 2 Light 2
         state: 'off'
-  - name: "Master Lamp 1: Darken Lamp"
+  - name: "[Light] Master Lamp 1: Darken Lamp"
     entities:
       light.main_lamp_1:
         friendly_name: "Master Lamp 1 Light 1"
@@ -432,6 +457,8 @@ scene:
         state: 'off'
 
 # ======================================================================
+#
+# Sensors
 #
 # ======================================================================
 sensor:

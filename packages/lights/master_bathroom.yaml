@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Back Bedroom
+# Master Bathroom Lighting Configuration
 #
 #
 #
@@ -192,7 +192,7 @@ input_select:
 
 # ======================================================================
 #
-#
+# Rest Commands
 #
 # ======================================================================
 #rest_command:
@@ -205,6 +205,45 @@ input_select:
 #    url: https://10.3.1.1/api/e2Du8WsQfAUiZPrtb-6qkAbvnoTKq3degi6iGbtf/scenes/NcXhhhoJnaJIWLa/lightstates/
 #    method: put
 #    payload: "{ '12': { 'on': true, 'bri': <circadian_brightness>, 'ct': <circadian_ct> }, { '17': { 'on': true, 'bri': <circadian_brightness>, 'ct': <circadian_ct> }, { '19': { 'on': true, 'bri': <circadian_brightness>, 'ct': <circadian_ct> }"
+
+
+#  =====================================================================
+#
+#  Scenes:
+#
+#
+# ======================================================================
+scene:
+  - id: '1576892383155'
+    name: "[Light] Master Bathroom (Inner): Darken Room"
+    entities:
+      light.main_lamp_12:
+        friendly_name: "Master Bathroom Center"
+        brightness_pct: 25
+        rgb_color:
+        - 255
+        - 0
+        - 0
+        state: 'on'
+      light.main_lamp_17:
+        friendly_name: "Master Bathroom Left"
+        state: 'off'
+      light.main_lamp_19:
+        friendly_name: "Master Bathroom Right"
+        state: 'off'
+  - name: "[Light] Master Bathroom (Inner): Migraine"
+    entities:
+      light.main_lamp_12:
+        friendly_name: "Master Bathroom Center"
+        brightness_pct: 25
+        color_name: "darkgreen"
+        state: 'on'
+      light.main_lamp_17:
+        friendly_name: "Master Bathroom Left"
+        state: 'off'
+      light.main_lamp_19:
+        friendly_name: "Master Bathroom Right"
+        state: 'off'
 
 # ======================================================================
 #
@@ -231,30 +270,6 @@ sensor:
         value_template:  "{{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
 
-#  =====================================================================
-#
-#  Scenes:
-#
-#
-# ======================================================================
-scene:
-  - id: '1576892383155'
-    name: "[Light] Master Bathroom (Inner): Darken Room"
-    entities:
-      light.main_lamp_12:
-        friendly_name: "Master Bathroom Center"
-        brightness_pct: 25
-        rgb_color:
-        - 255
-        - 0
-        - 0
-        state: 'on'
-      light.main_lamp_17:
-        friendly_name: "Master Bathroom Left"
-        state: 'off'
-      light.main_lamp_19:
-        friendly_name: "Master Bathroom Right"
-        state: 'off'
 
 # ======================================================================
 #

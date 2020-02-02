@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Guest Bath
+# Hallway Lighting Configuration
 #
 #
 #
@@ -66,11 +66,24 @@ automation:
 
 # ======================================================================
 #
+# Rest Commands:
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Hallway
+# Scene_ID: ZOBtVrI82jRCTvL
+# Lights: 11, 18
+#
+# ======================================================================
+
+# ======================================================================
+#
 # Scenes:
 #
 # ======================================================================
 scene:
-  - name: "Hallway: Darken Room"
+  - name: "[Light] Hallway: Darken Room"
     entities:
       light.main_lamp_11:
         friendly_name: "Hallway Color Light"
@@ -80,7 +93,7 @@ scene:
       light.main_lamp_18:
         friendly_name: "Hallway Ambiance Light"
         state: 'off'
-  - name: "Hallway: Migrain"
+  - name: "[Light] Hallway: Migrain"
     entities:
       light.main_lamp_11:
         friendly_name: "Hallway Color Light"

@@ -9,9 +9,9 @@
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Version: 0.0.1
 # Package-Requires: ()
-# Last-Updated: Sun Feb  2 16:01:06 2020 (-0500)
+# Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
-#     Update #: 62
+#     Update #: 64
 # URL: https://github.com/hearthminion/homeassistant/
 # Doc URL: 
 # Keywords: Home Assistant
@@ -98,7 +98,6 @@ logbook: !include includes/system/logbook.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
-
 
 
 #air_quality:
@@ -205,11 +204,6 @@ zwave:
 # Custom Addons
 #
 ##############################################################
-#hacs:
-#  token: !secret github_token
-#  appdaemon: true
-#  python_script: true
-#  themes: true
 
 #fontawesome:
 #  regular:

@@ -6,20 +6,20 @@ binary_sensor:
     device_class: 'presence'
     observations:
       - entity_id: 'device_tracker.user0002_phone'
-	prob_given_true: 0.9
-	prob_given_false: 0.2
-	platform: 'state'
-	to_state: 'home'
+        prob_given_true: 0.9
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'home'
       - entity_id: 'device_tracker.user0002_phone_wifi'
-	prob_given_true: 0.9
-	prob_given_false: 0.1
-	platform: 'state'
-	to_state: 'home'
+        prob_given_true: 0.9
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'home'
       - entity_id: 'device_tracker.user0002_phone_bt'
-	prob_given_true: 0.8
-	prob_given_false: 0.4
-	platform: 'state'
-	to_state: 'home'
+        prob_given_true: 0.8
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
 
 
 input_select:

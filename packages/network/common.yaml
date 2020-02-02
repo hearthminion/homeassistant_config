@@ -1,0 +1,43 @@
+# ======================================================================
+#
+# Speedtest
+#
+# ======================================================================
+speedtestdotnet:
+  scan_interval:
+    days: 0
+    hours: 1
+    minutes: 0
+    seconds: 0
+    milliseconds: 0
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+
+# ======================================================================
+#
+# Sensors
+#
+# ======================================================================
+sensor:
+  # External IP
+  - platform: dnsip
+    name: "External IP"
+    scan_interval: 1800
+
+  - platform: dnsip:
+    name: "Drbr.org IP"
+    hostname: drbr.org
+    scan_interval: 1800
+
+  - platform: template
+    sensors:
+      internet_status:
+        friendly_name_template: {{ state(sensor.dnsip) }}
+        value_template: {{ state(sensor.speedtest_download) }}
+        attribute_templates:
+          upload: {{ state(sensor.speedtest_upload) }}
+          ping: {{ state(sensor.speedtest_ping) }}
+

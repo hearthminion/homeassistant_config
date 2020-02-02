@@ -1,15 +1,3 @@
-# External IP
-- platform: dnsip
-  scan_interval: 1800
-
-  # Resolve IP address of home-assistant.io via Google DNS
-  #- platform: dnsip
-  #  hostname: !secret certhost004
-  #  name: !secret host008
-  #  resolver: 8.8.8.8
-  #  scan_interval: 1800
-
-
   # ======================================================================
   #
   #

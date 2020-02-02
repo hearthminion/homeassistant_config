@@ -27,7 +27,7 @@ sensor:
     name: "External IP"
     scan_interval: 1800
 
-  - platform: dnsip:
+  - platform: dnsip
     name: "Drbr.org IP"
     hostname: drbr.org
     scan_interval: 1800
@@ -35,9 +35,9 @@ sensor:
   - platform: template
     sensors:
       internet_status:
-        friendly_name_template: {{ state(sensor.dnsip) }}
-        value_template: {{ state(sensor.speedtest_download) }}
+        friendly_name_template: "{{ states('sensor.myip') }}"
+        value_template: "{{ states('sensor.speedtest_download') }}"
         attribute_templates:
-          upload: {{ state(sensor.speedtest_upload) }}
-          ping: {{ state(sensor.speedtest_ping) }}
+          upload: "{{ states('sensor.speedtest_upload') }}"
+          ping: "{{ states('sensor.speedtest_ping') }}"
 

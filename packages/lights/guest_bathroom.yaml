@@ -129,6 +129,21 @@ input_select:
 
 # ======================================================================
 #
+# Rest Commands
+#
+# Used to update hue scenes
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Guest Bathroom
+# Scene_ID: YMQdt3e0IgsRg5E
+# Lights: 9, 20, 21
+#
+# ======================================================================
+
+# ======================================================================
+#
 # Scenes
 #
 # Notes:
@@ -136,7 +151,7 @@ input_select:
 # ======================================================================
 scene:
   - id: '1576892024578'
-    name: "Guest Bath: Darken Room"
+    name: "[Light] Guest Bath: Darken Room"
     entities:
       automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
@@ -160,7 +175,7 @@ scene:
         color_name: "darkred"
         state: 'on'
   - id: '1576960043395'
-    name: Guest Bath Migraine
+    name: "[Light] Guest Bath: Migraine"
     entities:
       automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness

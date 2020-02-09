@@ -37,6 +37,7 @@ deps
 tts
 www/icons
 www/floorplans
+www/community
 downloads
 icloud
 dlib_faces
@@ -48,4 +49,5 @@ dlib_unknown_faces
 .pc-session
 custom_components
 themes
+OZW_Log.txt
 

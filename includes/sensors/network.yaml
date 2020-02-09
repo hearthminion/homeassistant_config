@@ -1,0 +1,684 @@
+  # ======================================================================
+  #
+  #
+  #
+  # ======================================================================
+
+  # # LAN Information
+  # - platform: glances
+  #   host: 10.0.1.20
+  #   #port: 61208
+  #   name: Angelia
+  #   #username:
+  #   #password:
+  #   #ssl:
+  #   #verify_ssl:
+  #   version: 3
+  #   resources:
+  #     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.14
+#   #port: 61208
+#   name: Aphrodite
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.11
+#   #port: 61208
+#   name: Apollo
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# # - platform: glances
+# #   host: 10.0.2.2
+# #   #port: 61208
+# #   name: Ariadne
+# #   #username:
+# #   #password:
+# #   #ssl:
+# #   #verify_ssl:
+# #   version: 3
+# #   resources:
+# #     - 'disk_use_percent'
+# #     - 'disk_use'
+# #     - 'disk_free'
+# #     - 'memory_use_percent'
+# #     - 'memory_use'
+# #     - 'memory_free'
+# #     - 'swap_use_percent'
+# #     - 'swap_use'
+# #     - 'swap_free'
+# #     - 'processor_load'
+# #     - 'process_running'
+# #     - 'process_total'
+# #     - 'process_thread'
+# #     - 'process_sleeping'
+# #     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.42
+#   #port: 61208
+#   name: Calliope
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 2
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.18
+#   #port: 61208
+#   name: Calypso
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.12
+#   #port: 61208
+#   name: Demeter
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# # - platform: glances
+# #   host: 10.0.2.1
+# #   #port: 61208
+# #   name: Dionysus
+# #   #username:
+# #   #password:
+# #   #ssl:
+# #   #verify_ssl:
+# #   version: 2
+# #   resources:
+# #     - 'disk_use_percent'
+# #     - 'disk_use'
+# #     - 'disk_free'
+# #     - 'memory_use_percent'
+# #     - 'memory_use'
+# #     - 'memory_free'
+# #     - 'swap_use_percent'
+# #     - 'swap_use'
+# #     - 'swap_free'
+# #     - 'processor_load'
+# #     - 'process_running'
+# #     - 'process_total'
+# #     - 'process_thread'
+# #     - 'process_sleeping'
+# #     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.16
+#   #port: 61208
+#   name: Hades
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 2
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     #- 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.2
+#   #port: 61208
+#   name: Hera
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.19
+#   #port: 61208
+#   name: Hestia
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.15
+#   #port: 61208
+#   name: Iris
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# #- platform: glances
+# #  host: 10.0.1.41
+#   #port: 61208
+# #  name: Mnemosyne
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+# #  version: 2
+# #  resources:
+# #    - 'disk_use_percent'
+# #    - 'disk_use'
+# #    - 'disk_free'
+# #    - 'memory_use_percent'
+# #    - 'memory_use'
+# #    - 'memory_free'
+# #    - 'swap_use_percent'
+# #    - 'swap_use'
+# #    - 'swap_free'
+# #    - 'processor_load'
+# #    - 'process_running'
+# #    - 'process_total'
+# #    - 'process_thread'
+# #    - 'process_sleeping'
+# #    - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.5
+#   #port: 61208
+#   name: Morpheus
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 2
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.13
+#   #port: 61208
+#   name: Nyx
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.17
+#   #port: 61208
+#   name: Persephone
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+# #    - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 10.0.1.1
+#   #port: 61208
+#   name: Zeus
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
+# # LAN Information
+# - platform: glances
+#   host: 192.168.1.2
+# #  #port: 61208
+#   name: Defiance
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 192.168.2.2
+#   #port: 61208
+#   name: Endeavor
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 192.168.1.1
+#   #port: 61208
+#   name: Independence
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 192.168.1.3
+#   #port: 61208
+#   name: Liberty
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+
+# # LAN Information
+# - platform: glances
+#   host: 192.168.2.1
+#   #port: 61208
+#   name: Redemption
+#   #username:
+#   #password:
+#   #ssl:
+#   #verify_ssl:
+#   version: 3
+#   resources:
+#     - 'disk_use_percent'
+#     - 'disk_use'
+#     - 'disk_free'
+#     - 'memory_use_percent'
+#     - 'memory_use'
+#     - 'memory_free'
+#     - 'swap_use_percent'
+#     - 'swap_use'
+#     - 'swap_free'
+#     - 'processor_load'
+#     - 'process_running'
+#     - 'process_total'
+#     - 'process_thread'
+#     - 'process_sleeping'
+#     - 'cpu_temp'
+# - platform: haveibeenpwned
+#   api_key:
+#   email:
+#     - !secret user0001_email001
+#     - !secret user0001_email002
+#     - !secret user0001_email003
+#     - !secret user0001_email004
+#     - !secret user0001_email005
+#     - !secret user0001_email006
+#     - !secret user0001_email007
+#     - !secret user0001_email008
+#     - !secret user0001_email009
+#     - !secret user0001_email010
+#     - !secret user0001_email011
+#     - !secret user0001_email012
+#     - !secret user0002_email001
+#     - !secret user0002_email002
+#     - !secret user0003_email001
+
+- platform: mqtt
+  state_topic: "owntracks/user0001/phone"
+  name: "user0001_phone_battery"
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.batt }}'
+  device_class: battery
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/cpu/total"
+  name: "atlas_cpu_total"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/percpu/#"
+  name: "atlas_percpu"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/load/#"
+  name: "atlas_load"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/mem/#"
+  name: "atlas_mem"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/memswap/#"
+  name: "atlas_swap"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/network/#"
+  name: "atlas_network"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/fs/#"
+  name: "atlas_fs"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/sensors/Battery/value"
+  name: "atlas_sensors_battery"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/mem/total"
+  name: "atlas_total_mem"
+
+- platform: mqtt
+  state_topic: "sensors/Atlas/mem/available"
+  name: "atlas_mem_available"
+
+- platform: mqtt
+  state_topic: "sensors/Hestia/sensehat/temperature"
+  name: "hestia_sensehat_temperature"
+
+- platform: mqtt
+  state_topic: "sensors/Hestia/sensehat/humidity"
+  name: "hestia_sensehat_humidity"
+
+- platform: mqtt
+  state_topic: "sensors/Hestia/sensehat/pressure"
+  name: "hestia_sensehat_pressure"
+
+- platform: shodan
+  api_key: OWoLVeksh1skEQdsZP03oEzKMRdIUU83
+  query: 'home-assistant'
+
+- platform: whois
+  domain: drbr.org

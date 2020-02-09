@@ -1,0 +1,368 @@
+# binary_sensor.yaml ---
+# 
+# Filename: ping.yaml
+# Description: 
+# Author: Geoff S Derber
+# Maintainer: 
+# Created: Sun Mar  3 12:12:38 2019 (-0500)
+# Version: 
+# Package-Requires: ()
+# Last-Updated: Sun Jun  9 11:13:06 2019 (-0400)
+#           By: Geoff S Derber
+#     Update #: 4
+# URL: 
+# Doc URL: 
+# Keywords: 
+# Compatibility: 
+# 
+# 
+
+# Commentary: 
+# 
+# 
+# 
+# 
+
+# Change Log:
+# 
+# 
+# 
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+# 
+# 
+
+# Code:
+
+# ======================================================================
+#
+# Network Equipment
+#
+# ======================================================================
+- platform: ping
+  host: 10.0.0.1
+  name: Cerberus
+  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+#- platform: ping
+#  host: 10.0.0.2
+#  name: Hydra
+#  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+- platform: ping
+  host: 192.168.0.1
+  name: Death Star
+  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+#- platform: ping
+#  host: 192.168.0.4
+#  name: Executor
+#  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+#- platform: ping
+#  host: 192.168.0.5
+#  name: Iron Fist
+#  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+#- platform: ping
+#  host: 10.0.0.3
+#  name: Chimera
+#  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+#- platform: ping
+#  host: 192.168.0.6
+#  name: Lusankya
+#  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+- platform: ping
+  host: 10.0.0.41
+  name: wap1
+  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+- platform: ping
+  host: 10.0.0.42
+  name: wap2
+  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+- platform: ping
+  host: 10.0.0.43
+  name: wap3
+  count: 1              # Number of packets to send
+  #scan_interval: 5     # Polling Interval
+
+- platform: ping
+  host: 10.0.0.44
+  name: wap4
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+# ======================================================================
+#
+# Olympus Servers
+#
+# ======================================================================
+- platform: ping
+  host: 10.0.1.20
+  name: Angelia
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.14
+  name: Aphrodite
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.11
+  name: Apollo
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.2.2
+  name: Ariadne
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.42
+  name: Calliope
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.18
+  name: Calypso
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.12
+  name: Demeter
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.2.1
+  name: Dionysus
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.16
+  name: Hades
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.2
+  name: Hera
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.2.42
+  name: Hermes
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.19
+  name: Hestia
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.15
+  name: Iris
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.41
+  name: Mnemosyne
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.5
+  name: Morpheus
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.13
+  name: Nyx
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform : ping
+  host: 10.0.1.17
+  name: Persephone
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.1.1
+  name: Zeus
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+# ======================================================================
+#
+# Workstations
+#
+# ======================================================================
+- platform: ping
+  host: 10.0.2.41
+  name: user0002_laptop
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.2.42
+  name: Hermes
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 10.0.2.43
+  name: Atlas
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+# ======================================================================
+#
+# SWG Servers
+#
+# ======================================================================
+- platform: ping
+  host: 192.168.1.2
+  name: Defiance
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.2.2
+  name: Endeavor
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.1.4
+  name: Home One
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.1.1
+  name: Independence
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.1.3
+  name: Liberty
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+#- platform: ping
+#  host: 192.168.3.1
+#  name: Millenium Falcon
+#  count: 1               # Number of packets to send
+#scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.2.1
+  name: Redemption
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: template
+  sensors:
+    user0001_laptop:
+      device_class: connectivity
+      value_template: >-
+        {{ is_state('binary_sensor.hermes', 'on')
+        or is_state('binary_sensor.atlas', 'on')
+        or is_state('device_tracker.atlas', 'home') }}
+       #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
+    aether:
+      friendly_name: "Aether"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap1','on') }}"
+      icon_template: >-
+        {% if is_state('binary_sensor.wap1', 'on') %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+        #theme: "if is_state('binary_sensor.wap1', 'on') %} return [251, 210, 41]; else return [54, 95, 140];"
+    chaos:
+      friendly_name: "Chaos"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap2','on') }}"
+      icon_template: >-
+        {% if is_state('binary_sensor.wap2', 'on') %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
+    lelantos:
+      friendly_name: "Lelantos"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap3','on') }}"
+      icon_template: >-
+        {% if is_state('binary_sensor.wap3', 'on') %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
+    uranus:
+      friendly_name: "Uranus"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap4','on') }}"
+      icon_template: >-
+        {% if is_state('binary_sensor.wap4', 'on') %}
+        mdi:access-point-network
+        {% else %}
+        mdi:access-point-network-off
+        {% endif %}
+        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
+
+# ======================================================================
+#
+# Internet of Things
+#
+# ======================================================================
+- platform: ping
+  host: 10.3.1.1
+  name: Hue
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+# 
+# ping.yaml ends here

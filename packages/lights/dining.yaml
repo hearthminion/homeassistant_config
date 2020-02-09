@@ -1,0 +1,136 @@
+# ======================================================================
+#
+# Dining Area Lighting Configuration
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Automations:
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Main Dining Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Dining: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_dining_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_dining_without_brightness_adjustment
+
+  - alias: '[Light] Dining: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: sensor.light_dining_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_dining_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_dining_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_dining_with_brightness_adjustment
+
+  - alias: '[Light] Dining: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_dining_with_brightness_adjustment
+            - switch.circadian_lighting_dining_without_brightness_adjustment
+
+# ======================================================================
+#
+# Binary Sensor
+#
+# ======================================================================
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       main_couch_right_autobrightness:
+#         friendly_name: "Main Couch Right Autobrightness"
+#         value_template: "{{ states('sensor.lights_main_couch_lamp_right_circadian_brightness') == states('sensor.lights_main_couch_lamp_right_brightness') }}"
+
+# ======================================================================
+#
+# Scenes:
+#
+# ======================================================================
+#scene:
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_dining_circadian_brigthness:
+        friendly_name: "[Light] Dining: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_dining_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_dining_brightness:
+        friendly_name: "[Light] Dining: Brightness"
+        value_template:  "{{ ( state_attr('light.dining','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+
+# ======================================================================
+#
+# Switches
+#
+# ======================================================================
+switch:
+  # ==========================================
+  #
+  # Main
+  #
+  # =========================================
+  - platform: circadian_lighting
+    name: "Dining (without Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_31
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Dining (with Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_31
+    disable_brightness_adjust: false
+    min_brightness: 25

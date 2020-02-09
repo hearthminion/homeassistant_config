@@ -1,0 +1,16 @@
+conversation:
+  intents:
+    ColorLight:
+      - Change the lights to [the color] {color}
+
+intent_script:
+  ColorLight:
+    speech:
+      text: Changed the lights to {{ color }}.
+    action:
+      service: light.turn_on
+      data_template:
+        rgb_color:
+          - "{% if color == 'red' %}255{% else %}0{% endif %}"
+          - "{% if color == 'green' %}255{% else %}0{% endif %}"
+          - "{% if color == 'blue' %}255{% else %}0{% endif %}"

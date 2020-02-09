@@ -1,0 +1,26 @@
+- platform: template
+  sensors:
+    thermostat_temperature:
+      value_template: "{{ state_attr('climate.thermostat','current_temperature') | round(1) }}"
+      unit_of_measurement: '°F'
+    thermostat_humidity:
+      value_template: "{{ state_attr('climate.thermostat','current_humidity') | round(1) }}"
+      unit_of_measurement: '%'
+
+- platform: template
+  sensors:
+    sensehat_temperature:
+      value_template: '{{ states.sensor.hestia_sensehat_temperature.state | float * 9/5 + 32 | round(1) }}'
+      unit_of_measurement: '°F'
+    sensehat_pressure:
+      value_template: '{{ states.sensor.hestia_sensehat_pressure.state | float / 33.864 | round(2) }}'
+      unit_of_measurement: 'inHg'
+    sensehat_humidity:
+      value_template: '{{ states.sensor.hestia_sensehat_humidity.state | round(1) }}'
+      unit_of_measurement: '%'
+
+- platform: template
+  sensors:
+    sun_elevation:
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      unit_of_measurement: '°'

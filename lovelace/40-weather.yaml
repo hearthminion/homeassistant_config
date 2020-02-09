@@ -1,0 +1,405 @@
+# ======================================================================
+#
+# Weather
+#
+# ...
+#
+# ======================================================================
+#  - title: Weather
+    title: Weather
+    path: weather
+    panel: true
+    icon: mdi:weather-sunny
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout: vertical
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
+                    entity: sensor.dark_sky_nearest_storm_distance
+                  - type: custom:canvas-gauge-card
+                    entity: sensor.dark_sky_nearest_storm_bearing
+                    card_height: 220
+                    gauge:
+                      type: "radial-gauge"
+                      title: Storm Bearing
+                      width: 220
+                      height: 220
+                      minValue: 0
+                      maxValue: 360
+                      startAngle: 180
+                      ticksAngle: 360
+                      valueBox: false
+                      majorTicks: ["N", "NE", "E", "SE", "S", "SW", "W", "NW","N"]
+                      minorTicks: 22
+                      strokeTicks: true
+                      highlights: false
+                      borders: false
+                      colorPlate: "#333"
+                      colorMajorTicks: "#f5f5f5"
+                      colorMinorTicks: "#ddd"
+                      colorNumbers: "#ccc"
+                      colorNeedle: "rgba(240, 128, 128, 1)"
+                      colorNeedleEnd: "rgba(255, 160, 122, .9)"
+                      valueTextShadow: false
+                      colorCircleInner: "#fff"
+                      colorNeedleCircleOuter: "#ccc"
+                      needleCircleSize: 15
+                      needleCircleOuter: false
+                      animationRule: "linear"
+                      needleType: "line"
+                      needleStart: 75
+                      needleEnd: 99
+                      needleWidth: 3
+                      borderInnerWidth: 0
+                      borderMiddleWidth: 0
+                      borderOuterWidth: 10
+                      colorBorderOuter: "#ccc"
+                      colorBorderOuterEnd: "#ccc"
+                      colorNeedleShadowDown: "#222"
+                      borderShadowWidth: 0
+                      animationDuration: 1500
+              - type: entities
+                title: Weather Alerts
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.weatheralerts
+              - type: history-graph
+                title: Temperatures
+                hours_to_show: 24 # Default: 24; Min: 10; Max: 80
+                entities:
+                  - entity: sensor.dark_sky_apparent_temperature
+                  - entity: sensor.dark_sky_temperature
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
+                    entity: sensor.dark_sky_temperature
+                    graph: line
+                  - type: sensor
+                    entity: sensor.dark_sky_apparent_temperature
+                    graph: line
+              - break
+              - type: custom:canvas-gauge-card
+                entity: sensor.dark_sky_wind_bearing
+                card_height: 220
+                gauge:
+                  type: "radial-gauge"
+                  title: Wind Bearing
+                  width: 220
+                  height: 220
+                  minValue: 0
+                  maxValue: 360
+                  startAngle: 180
+                  ticksAngle: 360
+                  valueBox: false
+                  majorTicks: ["N", "NE", "E", "SE", "S", "SW", "W", "NW","N"]
+                  minorTicks: 22
+                  strokeTicks: true
+                  highlights: false
+                  colorPlate: "#333"
+                  colorMajorTicks: "#f5f5f5"
+                  colorMinorTicks: "#ddd"
+                  colorNumbers: "#ccc"
+                  colorNeedle: "rgba(240, 128, 128, 1)"
+                  colorNeedleEnd: "rgba(255, 160, 122, .9)"
+                  valueTextShadow: false
+                  colorCircleInner: "#fff"
+                  colorNeedleCircleOuter: "#ccc"
+                  needleCircleSize: 15
+                  needleCircleOuter: false
+                  animationRule: "linear"
+                  needleType: "line"
+                  needleStart: 75
+                  needleEnd: 99
+                  needleWidth: 3
+                  borders: true
+                  borderInnerWidth: 0
+                  borderMiddleWidth: 0
+                  borderOuterWidth: 10
+                  colorBorderOuter: "#ccc"
+                  colorBorderOuterEnd: "#ccc"
+                  colorNeedleShadowDown: "#222"
+                  borderShadowWidth: 0
+                  animationDuration: 1500
+
+              - type: entities
+                title: Current Weather
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_wind_speed
+                  - entity: sensor.dark_sky_wind_gust
+                  - entity: sensor.dark_sky_visibility
+                  - entity: sensor.dark_sky_humidity
+                  - entity: sensor.dark_sky_dew_point
+                  - entity: sensor.dark_sky_cloud_coverage
+                  - entity: sensor.dark_sky_icon
+                  - entity: sensor.dark_sky_ozone
+                  - entity: sensor.dark_sky_precip
+                  - entity: sensor.dark_sky_precip_intensity
+                  - entity: sensor.dark_sky_precip_probability
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure
+
+                  
+              - break
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_0d
+                  - entity: sensor.dark_sky_cloud_coverage_0d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_0d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_0d
+                  - entity: sensor.dark_sky_humidity_0d
+                  - entity: sensor.dark_sky_dew_point_0d
+                  - entity: sensor.dark_sky_icon_0d
+                  - entity: sensor.dark_sky_moon_phase_0d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_0d
+                  - entity: sensor.dark_sky_overnight_low_temperature_0d
+                  - entity: sensor.dark_sky_ozone_0d
+                  - entity: sensor.dark_sky_precip_0d
+                  - entity: sensor.dark_sky_precip_accumulation_0d
+                  - entity: sensor.dark_sky_precip_intensity_0d
+                  - entity: sensor.dark_sky_precip_probability_0d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_0d
+                  - entity: sensor.dark_sky_uv_index_0d
+                  - entity: sensor.dark_sky_visibility_0d
+                  - entity: sensor.dark_sky_wind_bearing_0d
+                  - entity: sensor.dark_sky_wind_gust_0d
+                  - entity: sensor.dark_sky_wind_speed_0d
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_1d
+                  - entity: sensor.dark_sky_cloud_coverage_1d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_1d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_1d
+                  - entity: sensor.dark_sky_humidity_1d
+                  - entity: sensor.dark_sky_dew_point_1d
+                  - entity: sensor.dark_sky_icon_1d
+                  - entity: sensor.dark_sky_moon_phase_1d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_1d
+                  - entity: sensor.dark_sky_overnight_low_temperature_1d
+                  - entity: sensor.dark_sky_ozone_1d
+                  - entity: sensor.dark_sky_precip_1d
+                  - entity: sensor.dark_sky_precip_accumulation_1d
+                  - entity: sensor.dark_sky_precip_intensity_1d
+                  - entity: sensor.dark_sky_precip_probability_1d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_1d
+                  - entity: sensor.dark_sky_uv_index_1d
+                  - entity: sensor.dark_sky_visibility_1d
+                  - entity: sensor.dark_sky_wind_bearing_1d
+                  - entity: sensor.dark_sky_wind_gust_1d
+                  - entity: sensor.dark_sky_wind_speed_1d
+
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_2d
+                  - entity: sensor.dark_sky_cloud_coverage_2d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_2d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_2d
+                  - entity: sensor.dark_sky_humidity_2d
+                  - entity: sensor.dark_sky_dew_point_2d
+                  - entity: sensor.dark_sky_icon_2d
+                  - entity: sensor.dark_sky_moon_phase_2d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_2d
+                  - entity: sensor.dark_sky_overnight_low_temperature_2d
+                  - entity: sensor.dark_sky_ozone_2d
+                  - entity: sensor.dark_sky_precip_2d
+                  - entity: sensor.dark_sky_precip_accumulation_2d
+                  - entity: sensor.dark_sky_precip_intensity_2d
+                  - entity: sensor.dark_sky_precip_probability_2d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_2d
+                  - entity: sensor.dark_sky_uv_index_2d
+                  - entity: sensor.dark_sky_visibility_2d
+                  - entity: sensor.dark_sky_wind_bearing_2d
+                  - entity: sensor.dark_sky_wind_gust_2d
+                  - entity: sensor.dark_sky_wind_speed_2d
+
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_3d
+                  - entity: sensor.dark_sky_cloud_coverage_3d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_3d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_3d
+                  - entity: sensor.dark_sky_humidity_3d
+                  - entity: sensor.dark_sky_dew_point_3d
+                  - entity: sensor.dark_sky_icon_3d
+                  - entity: sensor.dark_sky_moon_phase_3d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_3d
+                  - entity: sensor.dark_sky_overnight_low_temperature_3d
+                  - entity: sensor.dark_sky_ozone_3d
+                  - entity: sensor.dark_sky_precip_3d
+                  - entity: sensor.dark_sky_precip_accumulation_3d
+                  - entity: sensor.dark_sky_precip_intensity_3d
+                  - entity: sensor.dark_sky_precip_probability_3d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_3d
+                  - entity: sensor.dark_sky_uv_index_3d
+                  - entity: sensor.dark_sky_visibility_3d
+                  - entity: sensor.dark_sky_wind_bearing_3d
+                  - entity: sensor.dark_sky_wind_gust_3d
+                  - entity: sensor.dark_sky_wind_speed_3d
+
+
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_4d
+                  - entity: sensor.dark_sky_cloud_coverage_4d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_4d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_4d
+                  - entity: sensor.dark_sky_humidity_4d
+                  - entity: sensor.dark_sky_dew_point_4d
+                  - entity: sensor.dark_sky_icon_4d
+                  - entity: sensor.dark_sky_moon_phase_4d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_4d
+                  - entity: sensor.dark_sky_overnight_low_temperature_4d
+                  - entity: sensor.dark_sky_ozone_4d
+                  - entity: sensor.dark_sky_precip_4d
+                  - entity: sensor.dark_sky_precip_accumulation_4d
+                  - entity: sensor.dark_sky_precip_intensity_4d
+                  - entity: sensor.dark_sky_precip_probability_4d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_4d
+                  - entity: sensor.dark_sky_uv_index_4d
+                  - entity: sensor.dark_sky_visibility_4d
+                  - entity: sensor.dark_sky_wind_bearing_4d
+                  - entity: sensor.dark_sky_wind_gust_4d
+                  - entity: sensor.dark_sky_wind_speed_4d
+
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_5d
+                  - entity: sensor.dark_sky_cloud_coverage_5d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_5d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_5d
+                  - entity: sensor.dark_sky_humidity_5d
+                  - entity: sensor.dark_sky_dew_point_5d
+                  - entity: sensor.dark_sky_icon_5d
+                  - entity: sensor.dark_sky_moon_phase_5d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_5d
+                  - entity: sensor.dark_sky_overnight_low_temperature_5d
+                  - entity: sensor.dark_sky_ozone_5d
+                  - entity: sensor.dark_sky_precip_5d
+                  - entity: sensor.dark_sky_precip_accumulation_5d
+                  - entity: sensor.dark_sky_precip_intensity_5d
+                  - entity: sensor.dark_sky_precip_probability_5d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_5d
+                  - entity: sensor.dark_sky_uv_index_5d
+                  - entity: sensor.dark_sky_visibility_5d
+                  - entity: sensor.dark_sky_wind_bearing_5d
+                  - entity: sensor.dark_sky_wind_gust_5d
+                  - entity: sensor.dark_sky_wind_speed_5d
+
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_6d
+                  - entity: sensor.dark_sky_cloud_coverage_6d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_6d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_6d
+                  - entity: sensor.dark_sky_humidity_6d
+                  - entity: sensor.dark_sky_dew_point_6d
+                  - entity: sensor.dark_sky_icon_6d
+                  - entity: sensor.dark_sky_moon_phase_6d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_6d
+                  - entity: sensor.dark_sky_overnight_low_temperature_6d
+                  - entity: sensor.dark_sky_ozone_6d
+                  - entity: sensor.dark_sky_precip_6d
+                  - entity: sensor.dark_sky_precip_accumulation_6d
+                  - entity: sensor.dark_sky_precip_intensity_6d
+                  - entity: sensor.dark_sky_precip_probability_6d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_6d
+                  - entity: sensor.dark_sky_uv_index_6d
+                  - entity: sensor.dark_sky_visibility_6d
+                  - entity: sensor.dark_sky_wind_bearing_6d
+                  - entity: sensor.dark_sky_wind_gust_6d
+                  - entity: sensor.dark_sky_wind_speed_6d
+              - type: entities
+                title: Forecast
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daytime_high_temperature_7d
+                  - entity: sensor.dark_sky_cloud_coverage_7d
+                  - entity: sensor.dark_sky_daily_max_precip_intensity_7d
+                  - entity: sensor.dark_sky_daytime_high_apparent_temperature_7d
+                  - entity: sensor.dark_sky_humidity_7d
+                  - entity: sensor.dark_sky_dew_point_7d
+                  - entity: sensor.dark_sky_icon_7d
+                  - entity: sensor.dark_sky_moon_phase_7d
+                  - entity: sensor.dark_sky_overnight_low_apparent_temperature_7d
+                  - entity: sensor.dark_sky_overnight_low_temperature_7d
+                  - entity: sensor.dark_sky_ozone_7d
+                  - entity: sensor.dark_sky_precip_7d
+                  - entity: sensor.dark_sky_precip_accumulation_7d
+                  - entity: sensor.dark_sky_precip_intensity_7d
+                  - entity: sensor.dark_sky_precip_probability_7d
+                    # No this is not a typo; it is a template sensor
+                  - entity: sensor.darksky_pressure_7d
+                  - entity: sensor.dark_sky_uv_index_7d
+                  - entity: sensor.dark_sky_visibility_7d
+                  - entity: sensor.dark_sky_wind_bearing_7d
+                  - entity: sensor.dark_sky_wind_gust_7d
+                  - entity: sensor.dark_sky_wind_speed_7d
+
+              - break
+              - type: entities
+                title: Summaries
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.dark_sky_daily_summary
+                  - entity: sensor.dark_sky_hourly_summary
+                  - entity: sensor.dark_sky_minutely_summary
+                  - entity: sensor.dark_sky_summary
+                  - entity: sensor.dark_sky_summary_0d
+                  - entity: sensor.dark_sky_summary_1d
+                  - entity: sensor.dark_sky_summary_2d
+                  - entity: sensor.dark_sky_summary_3d
+                  - entity: sensor.dark_sky_summary_4d
+                  - entity: sensor.dark_sky_summary_5d
+                  - entity: sensor.dark_sky_summary_6d
+                  - entity: sensor.dark_sky_summary_7d
+              - type: entities
+                title: Misc
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.season
+                    
+              - break
+              - type: entities
+                title: Sun UV Information
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.current_uv_index
+                  - entity: sensor.current_uv_level
+                  - entity: sensor.max_uv_index
+                  - entity: sensor.dark_sky_uv_index
+              - type: custom:auto-entities
+                show_empty: false
+                card:
+                  type: entities
+                  title: Sun Exposure
+                  show_header_toggle: false
+                filter:
+                  include:
+                    - entity_id: sensor.skin_type*
+                  exclude:
+                    - state: "unknown"

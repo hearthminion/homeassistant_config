@@ -1,0 +1,248 @@
+# ======================================================================
+#
+# Guest Bath
+#
+#
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Guest Bath Ceiling Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+
+  - alias: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: sensor.light_guest_bath_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_guest_bath_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
+
+  - alias: '[Light] Guest Bath Ceiling Light: Disable Circadian Lighting'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: "Circadian"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
+            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+input_select:
+  hue_scene_guest_bath_bedroom:
+    name: "[Light] Hue Guest Bath Scene"
+    icon: mdi:palette
+    initial: 'Circadian'
+    options:
+      - Arctic aurora
+      - Sevanna sunset
+      - Tropical twilight
+      - Spring blossom
+      - Relax
+      - Read
+      - Concentrate
+      - Energize
+      - Bright
+      - Dimmed
+      - Nightlight
+      - Motown
+      - Midsomer Sun
+      - Midwinter
+      - Ocean Dawn
+      - Emerald Isle
+      - Mountain Breeze
+      - Spring lake
+      - Moonlight
+      - Starlight
+      - Soho
+      - Golden Pond
+      - Frosty Dawn
+      - Fairfax
+      - Autumn Gold
+      - Palm Beach
+      - Lake Mist
+      - Chinatown
+      - Tokyo
+      - Sunday Morning
+      - Ibiza
+      - Nebula
+      - Galaxy
+      - Ruby Glow
+      - Winter mountain
+      - Blue Lagoon
+      - Honolulu
+      - Lake Placid
+      - Osaka
+      - Sundowner
+      - Blood Moon
+      - Circadian
+      - Night Mode
+      - Migraine
+
+# ======================================================================
+#
+# Rest Commands
+#
+# Used to update hue scenes
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Guest Bathroom
+# Scene_ID: YMQdt3e0IgsRg5E
+# Lights: 9, 20, 21
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Scenes
+#
+# Notes:
+#   RGB Color Values: https://htmlcolorcodes.com/color-names/
+# ======================================================================
+scene:
+  - id: '1576892024578'
+    name: "[Light] Guest Bath: Darken Room"
+    entities:
+      automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
+        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
+          Adjustment)'
+        last_triggered:
+        state: 'off'
+      automation.light_guest_bath_ceiling_light_circadian_lighting_without_brightness_adjust:
+        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without
+          Brightness adjust)'
+        last_triggered:
+        state: 'off'
+      light.main_lamp_20:
+        friendly_name: "Guest Bath Right"
+        state: 'off'
+      light.main_lamp_21:
+        friendly_name: "Guest Bath Left"
+        state: 'off'
+      light.main_lamp_9:
+        friendly_name: "Guest Bath Center"
+        brightness_pct: 25
+        color_name: "darkred"
+        state: 'on'
+  - id: '1576960043395'
+    name: "[Light] Guest Bath: Migraine"
+    entities:
+      automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
+        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
+          Adjustment)'
+        last_triggered:
+        state: 'off'
+      automation.light_guest_bath_ceiling_light_circadian_lighting_without_brightness_adjust:
+        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without
+          Brightness adjust)'
+        last_triggered:
+        state: 'off'
+      light.main_lamp_9:
+        friendly_name: "Guest Bath Center"
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.main_lamp_20:
+        friendly_name: "Guest Bath Right"
+        state: 'off'
+      light.main_lamp_21:
+        friendly_name: "Guest Bath Left"
+        state: 'off'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_guest_bath_ceiling_circadian_brightness:
+        friendly_name: "[Light] Guest Bath Ceiling Lights: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_guest_bath_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_guest_bath_ceiling_brightness:
+        friendly_name: "[Light] Guest Bath Ceiling Lights: Brightness"
+        value_template:  "{{ (state_attr('light.guest_bath','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_guest_bath_ceiling_xy_color:
+        friendly_name: "[Light] Guest Bath Center Ceiling Light: XY Color"
+        value_template: "{{ state_attr('light.main_lamp_9','xy_color') }}"
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ================================
+  #
+  # Guest Bathroom
+  #
+  # ===============================
+  - platform: circadian_lighting
+    name: "Guest Bath (without Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_20
+      - light.main_lamp_9
+      - light.main_lamp_21
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Guest Bath (with Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_20
+      - light.main_lamp_9
+      - light.main_lamp_21
+    disable_brightness_adjust: false
+    min_brightness: 25

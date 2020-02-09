@@ -1,0 +1,7 @@
+exclude:
+  entities:
+    - sensor.last_boot
+    - sensor.date
+  domains:
+    - sun
+    - weblink

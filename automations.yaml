@@ -1,0 +1,71 @@
+- id: '1576627874516'
+  alias: Christmas Lights On
+  description: Turn on outdoor Christmas Lights
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - device_id: 6ec8830ea56d4efaae8b5cf62180794c
+    domain: switch
+    entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    type: turn_on
+- id: '1576628018411'
+  alias: Christmas Lights Off
+  description: ''
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - device_id: 6ec8830ea56d4efaae8b5cf62180794c
+    domain: switch
+    entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    type: turn_off
+- id: '1576717665597'
+  alias: Daily Reboot
+  description: ''
+  trigger:
+  - at: '4:00:00'
+    platform: time
+  condition: []
+  action:
+  - service: hassio.host_reboot
+- id: '1577189063657'
+  alias: 'Christmas Lights Off: Morning'
+  description: ''
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    service: switch.turn_off
+- id: '1577577061265'
+  alias: 'Christmas Lights Morning: On'
+  description: ''
+  trigger:
+  - above: '-18'
+    entity_id: sensor.sun_elevation
+    platform: numeric_state
+  condition: []
+  action:
+  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    service: switch.turn_on
+# - id: '1579090724953'
+#   alias: Test
+#   description: ''
+#   trigger:
+#   - entity_id: binary_sensor.light_den_couch_right_autobrightness
+#     platform: state
+#     to: 'off'
+#   condition:
+#   - condition: state
+#     entity_id: input_select.light_mode
+#     state: Circadian
+#   action:
+#   - data: {}
+#     entity_id: switch.circadian_lighting_den_couch_right_without_brightness_adjustment
+#     service: switch.turn_on
+#   - entity_id: switch.circadian_lighting_den_couch_right_with_brightness_adjustment
+#     service: switch.turn_off

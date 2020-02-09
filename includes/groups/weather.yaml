@@ -1,0 +1,8 @@
+# group:
+#   weathersensors:
+#     name: Local Weather
+#     view: true
+#     entities:
+#       - sensors.darksky
+#       - sensors.pollen
+#       - sensors.flunearyou

@@ -1,0 +1,10 @@
+#- platform: denonavr
+#  host: 10.1.1.14
+#  name: Denon AVR-3313CI
+#  show_all_sources: True
+#  timeout: 30
+#  zones:
+#    - zone: Zone2
+#      name: Denon AVR-3313CI (Zone 2)
+#    - zone: Zone3
+#      name: Denon AVR-3313CI (Zone 3)

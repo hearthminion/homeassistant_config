@@ -1,0 +1,189 @@
+# ======================================================================
+#
+# Kitchen Lights
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Automations:
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Kitchen Island Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Kitchen Island: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_without_brightness_adjustment
+
+  - alias: '[Light] Kitchen Island: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: sensor.light_main_island_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+
+  # ======================================================================
+  #
+  # Light fixture: Main Kitchen Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Kitchen: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+
+  - alias: '[Light] Kitchen: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: sensor.light_main_kitchen_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_kitchen_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+
+# ======================================================================
+#
+# Binary Sensor
+#
+# ======================================================================
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       main_couch_right_autobrightness:
+#         friendly_name: "Main Couch Right Autobrightness"
+#         value_template: "{{ states('sensor.lights_main_couch_lamp_right_circadian_brightness') == states('sensor.lights_main_couch_lamp_right_brightness') }}"
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_kitchen_island_circadian_brigthness:
+        friendly_name: "[Light] Kitchen Island Area: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_kitchen_island_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_kitchen_circadian_brigthness:
+        friendly_name: "[Light] Kitchen Area: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_kitchen_with_brightness_adjustment','brightness') | round(0) }}"
+        unit_of_measurement: '%'
+      light_kitchen_island_brightness:
+        friendly_name: "[Light] Kitchen Island: Brightness"
+        value_template:  "{{ ( state_attr('light.kitchen_island','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_kitchen_brightness:
+        friendly_name: "[Light] Kitchen Area: Brightness"
+        value_template:  "{{ ( state_attr('light.kitchen','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ==========================================
+  #
+  # Kitchen
+  #
+  # =========================================
+  - platform: circadian_lighting
+    name: "Kitchen Island (without Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_24
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Kitchen Island (with Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_24
+    disable_brightness_adjust: false
+    min_brightness: 25
+
+  - platform: circadian_lighting
+    name: "Kitchen (without Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_10
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Kitchen (with Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_10
+    disable_brightness_adjust: false
+    min_brightness: 25

@@ -1,0 +1,65 @@
+# ======================================================================
+#
+# Updates OpenUV senssor hourly, during daylight.
+#
+# ======================================================================
+# - alias: Update OpenUV hourly
+#   trigger:
+#     platform: time_pattern
+#     minutes: 0
+#     seconds: 0
+#   condition:
+#     - condition: template
+#       value_template: >-
+#         {{ states.sun.sun.state == "above_horizon" }}
+#   action:
+#     service: openuv.update_database
+  # ======================================================================
+  #
+  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  #
+  # - In the morning when the sun rises to 18 degrees below the horizon
+  #   enable
+  # ======================================================================
+  - alias: 'Turn Off Migraine Mode'
+    initial_state: false
+    description: ''
+    trigger:
+    - at: 03:00:00
+      platform: time
+    condition: []
+    action:
+    - data:
+        entity_id: input_boolean.migraine_mode
+      service: input_boolean.turn_off
+
+  # ======================================================================
+  #
+  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  #
+  # - In the morning when the sun rises to 18 degrees below the horizon
+  #   enable
+  # ======================================================================
+  - alias: 'Start Sleep Timer'
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: group.all_lights
+      to: 'off'
+    - platform: state
+      entity_id: light.master_lamp_2
+      from: 'on'
+      to: 'off'
+    - platform: time
+      at: '22:00:00'
+    condition:
+    - after: '22:00:00'
+      condition: time
+    - condition: state
+      entity_id: light.master_lamp_2
+      state: 'off'
+    action:
+    - service: timer.start
+      data:
+        entity_id: timer.lights_off
+

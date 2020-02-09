@@ -1,0 +1,239 @@
+# ======================================================================
+#
+# Network View
+#
+# Displays the network connection layout and groupings
+#
+# ======================================================================
+#  - title: Network Devices
+    title: Network Devices
+    icon: mdi:lan
+    panel: true
+    path: network
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:plan-coordinates
+          - type: picture-elements
+            image: /local/images/network.svg
+            title: Network
+            elements:
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.cerberus
+                style:
+                  top: 21%
+                  left: 4%
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.death_star
+                style:
+                  top: 11%
+                  left: 50%
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.aether
+                style:
+                  top: 26%
+                  left: 22%
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.chaos
+                style:
+                  top: 30%
+                  left: 22%
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.lelantos
+                style:
+                  top: 36%
+                  left: 22%
+              - type: state-icon
+                tap-action:
+                  action: none
+                entity: binary_sensor.uranus
+                style:
+                  top: 40%
+                  left: 22%
+              - type: state-icon
+                entity: binary_sensor.aphrodite
+                title: Aphrodite
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/aphrodite
+                style:
+                  top: 58%
+                  left: 32%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/apollo
+                entity: binary_sensor.apollo
+                style:
+                  top: 47%
+                  left: 21%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/ariadne
+                entity: binary_sensor.ariadne
+                style:
+                  top: 69%
+                  left: 21%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/calliope
+                entity: binary_sensor.calliope
+                style:
+                  top: 58%
+                  left: 40%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/calypso
+                entity: binary_sensor.calypso
+                style:
+                  top: 46%
+                  left: 30%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/demeter
+                entity: binary_sensor.demeter
+                style:
+                  top: 46%
+                  left: 39%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/dionysus
+                entity: binary_sensor.dionysus
+                style:
+                  top: 70%
+                  left: 30%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/hades
+                entity: binary_sensor.hades
+                style:
+                  top: 62%
+                  left: 32%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/hera
+                entity: binary_sensor.hera
+                style:
+                  top: 53%
+                  left: 22%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/hestia
+                entity: binary_sensor.hestia
+                style:
+                  top: 53%
+                  left: 32%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/iris
+                entity: binary_sensor.iris
+                style:
+                  top: 53%
+                  left: 42%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/mnemosyne
+                entity: binary_sensor.mnemosyne
+                style:
+                  top: 70%
+                  left: 39%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/morpheus
+                entity: binary_sensor.morpheus
+                style:
+                  top: 58%
+                  left: 22%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/nyx
+                entity: binary_sensor.nyx
+                style:
+                  top: 47%
+                  left: 48%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/zeus
+                entity: binary_sensor.zeus
+                style:
+                  top: 53%
+                  left: 48%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/independence
+                entity: binary_sensor.independence
+                style:
+                  top: 25%
+                  left: 77%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/defiance
+                entity: binary_sensor.defiance
+                style:
+                  top: 30%
+                  left: 77%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/liberty
+                entity: binary_sensor.liberty
+                style:
+                  top: 35%
+                  left: 77%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/redemption
+                entity: binary_sensor.redemption
+                style:
+                  top: 25%
+                  left: 96%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/endeavor
+                entity: binary_sensor.endeavor
+                style:
+                  top: 30%
+                  left: 96%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/user0001_laptop
+                entity: binary_sensor.user0001_laptop
+                style:
+                  top: 26%
+                  left: 32%
+              - type: state-icon
+                tap-action:
+                  action: navigate
+                  navigation_path: /lovelace/user0002_laptop
+                entity: binary_sensor.user0002_laptop
+                style:
+                  top: 31%
+                  left: 32%

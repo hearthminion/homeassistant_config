@@ -1,0 +1,171 @@
+---
+#  - title: Summary
+    title: Summary
+    path: summary
+    icon: mdi:information-outline
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout: vertical
+            cards:
+# ======================================================================
+#
+# Column 1
+#
+# ======================================================================
+# ======================================================================
+#
+# Who's Home
+#
+# ======================================================================
+              - type: horizontal-stack
+                cards:
+                  - type: picture-entity
+                    entity: person.user0001
+                    image: /local/images/user0001.jpg
+                    name: !secret user0001_status
+                    show_name: true
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/user0001
+                  - type: picture-entity
+                    entity: person.user0002
+                    image: /local/images/user0002.jpg
+                    show_name: true
+                    name: !secret user0002_status
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/user0002
+#              - type: markdown
+#                title: Alarm Status
+#                content: Alarm
+# ======================================================================
+#
+# Doors and Windows
+#
+# ======================================================================
+#          - type: horizontal-stack
+#           cards:
+#             - type: custom:auto-entities
+#               show_empty: true
+#               card:
+#                 type: glance
+#                 title: Doors
+#                 filter:
+#                   include:
+#                     - entity_id: "*door*"
+#                       state: 'open'
+#             - type: custom:auto-entities
+#               show_empty: true
+#               card:
+#                 type: glance
+#                 title: Windows
+#                 filter:
+#                   include:
+#                     - entity_id: "*window*"
+#                       state: 'open'
+
+# ======================================================================
+#
+# Special Flags:
+# - Guests are Present
+# - Migraine Mode
+# -
+#
+# ======================================================================
+              - type: custom:auto-entities
+                show_empty: false
+                card:
+                  type: glance
+                  title: "Special Situations"
+                filter:
+                  include:
+                    - entity_id: "input_boolean.special*"
+                      state: "on"
+                    - entity_id: "binary_sensor.car_wash"
+                      state: "on"
+
+              - break
+# =====================================================================
+#
+# Column 2
+#
+# =====================================================================
+              - type: thermostat
+                entity: climate.thermostat
+              - type: entities
+                entities:
+                  - entity: sensor.date
+                  - entity: sensor.utc
+                  - entity: sensor.sensehat_temperature
+                  - entity: sensor.sensehat_humidity
+                  - entity: sensor.garbage_day
+              - type: entities
+                entities:
+                  - entity: binary_sensor.workday_sensor
+                  - entity: lock.lock_front_door_deadbolt_locked
+                  - entity: lock.lock_carport_door_deadbolt_locked
+              - type: gauge
+                entity: sensor.speedtest_download
+                name: Speedtest
+                max: 220
+              - break
+# ======================================================================
+#
+# Column 3
+#
+# ======================================================================
+# ======================================================================
+#
+# Weather Information
+#
+# ======================================================================
+              - type: weather-forecast
+                entity: weather.dark_sky
+              - type: entities
+                entities:
+                  - type: weblink
+                    name: Wifi Controller
+                    icon: mdi:link
+                    url: https://wifi.olympus.home:8043
+                  - type: weblink
+                    name: Olympus Wiki
+                    icon: mdi:link
+                    url: https://wiki.olympus.home
+                  - type: weblink
+                    name: Redmine
+                    icon: mdi:link
+                    url: https://redmine.olympus.home
+# ======================================================================
+#
+# Moon Phase
+#
+# ======================================================================
+              - type: conditional
+                conditions:
+                  - entity: sun.sun
+                    state: "below_horizon"
+                card:
+                  type: entities
+                  entities:
+                    - entity: sensor.moon
+# ======================================================================
+#
+# Show devices with a low Battery
+#
+# ======================================================================
+              - type: custom:auto-entities
+                show_empty: false
+                card:
+                  type: glance
+                  title: Low Battery Devices
+                filter:
+                  include:
+                    - entity_id: "*battery_level*"
+                      state: '< 25'
+                    - attributes:
+                        battery: '< 25'
+                    - attributes:
+                         battery_level: '< 25'

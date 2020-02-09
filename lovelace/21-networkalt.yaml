@@ -1,0 +1,118 @@
+# ======================================================================
+#
+# Network View
+#
+# ======================================================================
+#  - title: Network Devices Alt
+    title: Network Devices Alt
+    icon: mdi:lan
+    panel: true
+    path: network_alt
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout: vertical
+            cards:
+# ======================================================================
+#
+# Column 1: Networking Equipment
+#
+# ======================================================================
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.cerberus
+                  - type: entity-button
+                    entity: binary_sensor.hydra
+                  - type: entity-button
+                    entity: binary_sensor.death_star
+                  - type: entity-button
+                    entity: binary_sensor.executor
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.aether
+                  - type: entity-button
+                    entity: binary_sensor.chaos
+                  - type: entity-button
+                    entity: binary_sensor.lelantos
+                  - type: entity-button
+                    entity: binary_sensor.uranus
+              - break
+
+# ======================================================================
+#
+# Column 2: Olypmus Servers
+#
+# ======================================================================
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.angelia
+                  - type: entity-button
+                    entity: binary_sensor.aphrodite
+                  - type: entity-button
+                    entity: binary_sensor.apollo
+                  - type: entity-button
+                    entity: binary_sensor.ariadne
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.calypso
+                  - type: entity-button
+                    entity: binary_sensor.calliope
+                  - type: entity-button
+                    entity: binary_sensor.dionysus
+                  - type: entity-button
+                    entity: binary_sensor.demeter
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.hades
+                  - type: entity-button
+                    entity: binary_sensor.hera
+                  - type: entity-button
+                    entity: binary_sensor.hestia
+                  - type: entity-button
+                    entity: binary_sensor.iris
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.mnemosyne
+                  - type: entity-button
+                    entity: binary_sensor.morpheus
+                  - type: entity-button
+                    entity: binary_sensor.nyx
+                  - type: entity-button
+                    entity: binary_sensor.persephone
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.zeus
+                  - type: entity-button
+                    entity: binary_sensor.user0001_laptop
+                  - type: entity-button
+                    entity: binary_sensor.user0002_laptop
+
+
+              - break
+
+# ======================================================================
+#
+# Column 3:
+#
+# ======================================================================
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.defiance
+                  - type: entity-button
+                    entity: binary_sensor.endeavor
+                  - type: entity-button
+                    entity: binary_sensor.independence
+                  - type: entity-button
+                    entity: binary_sensor.liberty
+                  - type: entity-button
+                    entity: binary_sensor.redemption
+              - break

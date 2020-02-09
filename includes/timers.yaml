@@ -1,0 +1,4 @@
+lights_off:
+  name: 'Lights off timer'
+  duration: '00:30:00'
+

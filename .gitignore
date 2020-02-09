@@ -46,3 +46,6 @@ dlib_unknown_faces
 .cloud
 *.pickle
 .pc-session
+custom_components
+themes
+

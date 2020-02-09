@@ -1,0 +1,87 @@
+
+#scene:
+# - name: Relax
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 144
+#       color_temp: 447
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 144
+#       color_temp: 447
+# - name: Read
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 254
+#       color_temp: 346
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 254
+#       color_temp: 346
+# - name: Concentrate
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 254
+#       color_temp: 233
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 254
+#       color_temp: 233
+# - name: Energize
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 254
+#       color_temp: 156
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 254
+#       color_temp: 156
+# - name: Bright
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 254
+#       color_temp: 367
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 254
+#       color_temp: 367
+# - name: Dimmed
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 77
+#       color_temp: 367
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 77
+#       color_temp: 367
+# - name: Nightlight
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 1
+#       xy_color: [0.561,0.4042]
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 1
+#       color_temp: 370
+# - name: Savanna sunset
+#   entities:
+#     light.hue_color_lamp_1:
+#       state: on
+#       brightness: 199
+#       xy_color: [0.4648,0.4507]
+#     light.hue_color_lamp_2:
+#       state: on
+#       brightness: 199
+#       xy_color: [0.5888,0.353]
+#     light.hue_ambiance_lamp_1
+#       state: on
+#       brightness: 254
+#       color_temp: 233
+

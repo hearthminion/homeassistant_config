@@ -1,0 +1,4 @@
+special_migraine_mode:
+  name: Migraine Mode
+  initial: off
+  icon: mdi:hospital-box

@@ -1384,3 +1384,593 @@ Traceback (most recent call last):
     raise value.with_traceback(tb)
   File "<template>", line 1, in top-level template code
 TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 17:54:38 WARNING (MainThread) [homeassistant.helpers.entity] Updating state for sensor.g_derber_s_ipad_battery_level (<class 'homeassistant.components.ios.sensor.IOSSensor'>) took 2.198 seconds. Please report platform to the developers at https://goo.gl/Nvioub
+2020-02-09 17:54:42 ERROR (SyncWorker_13) [homeassistant.components.iss.binary_sensor] Unable to retrieve data
+2020-02-09 17:56:04 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:08 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:09 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:10 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:11 WARNING (MainThread) [homeassistant.helpers.entity] Update of binary_sensor.iss is taking over 10 seconds
+2020-02-09 17:56:11 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:11 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:12 WARNING (MainThread) [homeassistant.components.sensor] Updating ios sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:56:12 WARNING (MainThread) [homeassistant.components.binary_sensor] Updating iss binary_sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:56:12 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:13 WARNING (MainThread) [asyncio] socket.send() raised exception.
+2020-02-09 17:56:17 WARNING (SyncWorker_4) [geojson_client] Fetching data from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson failed with HTTPSConnectionPool(host='earthquake.usgs.gov', port=443): Max retries exceeded with url: /earthquakes/feed/v1.0/summary/all_day.geojson (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7208bed0>: Failed to establish a new connection: [Errno -3] Try again'))
+2020-02-09 17:56:27 WARNING (SyncWorker_4) [geojson_client.feed_manager] Update not successful, no data received from <UsgsEarthquakeHazardsProgramFeed(home=(33.929699, -83.453305), url=https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson, radius=300.0, magnitude=0.0)>
+2020-02-09 17:56:44 ERROR (SyncWorker_19) [homeassistant.components.darksky.sensor] Unable to connect to Dark Sky: HTTPSConnectionPool(host='api.darksky.net', port=443): Max retries exceeded with url: /forecast/b0449b9b5ad3e1e134b293e52871882d/33.929699,-83.453305?units=us&lang=en (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x70909490>: Failed to establish a new connection: [Errno -3] Try again'))
+2020-02-09 17:56:58 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.basement is taking over 10 seconds
+2020-02-09 17:57:04 ERROR (SyncWorker_13) [homeassistant.components.darksky.weather] Unable to connect to Dark Sky. HTTPSConnectionPool(host='api.darksky.net', port=443): Max retries exceeded with url: /forecast/b0449b9b5ad3e1e134b293e52871882d/33.929699,-83.453305?units=us&lang=en (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x70fc57b0>: Failed to establish a new connection: [Errno -3] Try again'))
+2020-02-09 17:57:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.basement_bulb_3 is taking over 10 seconds
+2020-02-09 17:57:52 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.basement_bulb_2 is taking over 10 seconds
+2020-02-09 17:58:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.basement_bulb_1 is taking over 10 seconds
+2020-02-09 17:58:15 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_ceiling is taking over 10 seconds
+2020-02-09 17:58:24 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.entryway_ceiling_bulb is taking over 10 seconds
+2020-02-09 17:58:33 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_bedroom is taking over 10 seconds
+2020-02-09 17:58:38 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.guest_bath is taking over 10 seconds
+2020-02-09 17:58:47 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_27 is taking over 10 seconds
+2020-02-09 17:58:56 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_7 is taking over 10 seconds
+2020-02-09 17:59:04 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_lamp_1_bulb_2 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_lamp_1 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_21 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_table_lamp is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_17 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.hallway_color_bulb is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.back_bedroom is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_room is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_15 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_30 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_24 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_4 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_bath_bulb_center is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_8 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.dining_area_ceiling is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.kitchen_island_ceiling is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_closet is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.entryway_ceiling is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_31 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_ceiling_lights is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_9 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.kitchen_ceiling_bulb is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_2 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.hallway is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_18 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_bath_inner is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_34 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.laundry_room is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_lamp_1_bulb_1 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_6 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.back_bedroom_closet is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_lamp_2 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_16 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_20 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_29 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_3 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_26 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.front_bedroom is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_fireplace is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_19 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.living_area_ceiling is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_couch_right_lamp is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_33 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.master_bath_outer is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.back_bedroom_ceiling_bulb is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_25 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_28 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.main_lamp_5 is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_tower_lamp is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.kitchen_ceiling is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.den_couch_left_lamp is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of light.front_bedroom_closet is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of binary_sensor.redemption is taking over 10 seconds
+2020-02-09 17:59:06 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dark_sky_summary_0d is taking over 10 seconds
+2020-02-09 17:59:07 ERROR (MainThread) [homeassistant.components.hue.sensor_base] Unable to reach bridge 10.3.1.2 ()
+2020-02-09 17:59:07 ERROR (MainThread) [homeassistant.components.hue.sensor_base] Unable to reach bridge 10.3.1.1 ()
+2020-02-09 17:59:07 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 17:59:07 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 17:59:08 WARNING (MainThread) [homeassistant.components.device_tracker] Updating device list from legacy took longer than the scheduled scan interval 0:00:40
+2020-02-09 17:59:08 WARNING (MainThread) [homeassistant.components.sensor] Updating season sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:08 WARNING (MainThread) [homeassistant.components.sensor] Updating circadian_lighting sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:08 WARNING (MainThread) [homeassistant.components.weather] Updating darksky weather took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:08 WARNING (MainThread) [homeassistant.helpers.entity] Update of weather.dark_sky is taking over 10 seconds
+2020-02-09 17:59:09 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 17:59:12 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 17:59:18 WARNING (MainThread) [homeassistant.components.sensor] Updating version sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:27 WARNING (MainThread) [homeassistant.components.sensor] Updating time_date sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:30 ERROR (SyncWorker_9) [homeassistant.components.iss.binary_sensor] Unable to retrieve data
+2020-02-09 17:59:32 WARNING (MainThread) [homeassistant.components.sensor] Updating worldclock sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.sensor] Updating moon sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.sensor] Updating uptime sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.sensor] Updating ios sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.sensor] Updating hacs sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.weather] Updating darksky weather took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.binary_sensor] Updating workday binary_sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.switch] Updating circadian_lighting switch took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:35 WARNING (MainThread) [homeassistant.components.binary_sensor] Updating iss binary_sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 17:59:37 WARNING (MainThread) [homeassistant.helpers.entity] Update of binary_sensor.wap3 is taking over 10 seconds
+2020-02-09 17:59:39 WARNING (MainThread) [homeassistant.helpers.entity] Update of binary_sensor.iss is taking over 10 seconds
+2020-02-09 17:59:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 17:59:51 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_guest_bath_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 17:59:52 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_1_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_table_lamp_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_hallway_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_back_bedroom_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_fireplace_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_outer_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_tower_lamp_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:01:59 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_front_bedroom_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:02:00 WARNING (MainThread) [homeassistant.components.sensor] Updating season sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 18:02:00 WARNING (MainThread) [homeassistant.components.sensor] Updating circadian_lighting sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 18:02:00 WARNING (MainThread) [homeassistant.components.sensor] Updating ios sensor took longer than the scheduled update interval 0:00:30
+2020-02-09 18:02:00 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.flu_symptoms is taking over 10 seconds
+2020-02-09 18:02:00 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback WebSocketResponse._send_heartbeat()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/web_ws.py", line 102, in _send_heartbeat
+    self._loop.create_task(self._writer.ping())  # type: ignore
+AttributeError: 'NoneType' object has no attribute 'ping'
+2020-02-09 18:02:01 WARNING (MainThread) [homeassistant.components.binary_sensor] Updating ping binary_sensor took longer than the scheduled update interval 0:05:00
+2020-02-09 18:02:01 WARNING (MainThread) [homeassistant.components.sensor] Updating darksky sensor took longer than the scheduled update interval 0:05:00
+2020-02-09 18:02:01 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 18:02:01 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-09 18:02:04 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:02:04 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 18:02:55 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback WebSocketResponse._send_heartbeat()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/web_ws.py", line 102, in _send_heartbeat
+    self._loop.create_task(self._writer.ping())  # type: ignore
+AttributeError: 'NoneType' object has no attribute 'ping'
+2020-02-09 18:02:56 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback WebSocketResponse._send_heartbeat()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/web_ws.py", line 102, in _send_heartbeat
+    self._loop.create_task(self._writer.ping())  # type: ignore
+AttributeError: 'NoneType' object has no attribute 'ping'
+2020-02-09 18:02:56 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback WebSocketResponse._send_heartbeat()
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/web_ws.py", line 102, in _send_heartbeat
+    self._loop.create_task(self._writer.ping())  # type: ignore
+AttributeError: 'NoneType' object has no attribute 'ping'

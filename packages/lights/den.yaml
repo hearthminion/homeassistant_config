@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Den Lighting Configuration 
+# Den Lighting Configuration
 #
 # ======================================================================
 
@@ -10,7 +10,7 @@
 #
 # ======================================================================
 automation:
-  # ======================================================================
+  # ====================================================================
   #
   # Light fixture: Den Couch Lamp Right
   #
@@ -22,7 +22,7 @@ automation:
   # Automations:
   #   - 
   #
-  # ======================================================================
+  # ====================================================================
   - alias: '[Light] Den Couch Right: Circadian Lighting (With Brightness Adjustment)'
     trigger:
       - platform: state
@@ -41,6 +41,7 @@ automation:
         entity_id:
           - switch.circadian_lighting_den_couch_right_with_brightness_adjustment
       - service: switch.turn_off
+
         entity_id:
           - switch.circadian_lighting_den_couch_right_without_brightness_adjustment
 
@@ -248,7 +249,7 @@ automation:
 
   # ======================================================================
   #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
+  # Set Lighting Mode: Circadian (with Brightness adjustments)
   #
   # - In the morning when the sun rises to 18 degrees below the horizon
   #   enable

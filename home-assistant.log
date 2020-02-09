@@ -1,0 +1,1386 @@
+2020-02-06 11:18:56 WARNING (MainThread) [homeassistant.loader] You are using a custom integration for circadian_lighting which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
+2020-02-06 11:19:00 WARNING (MainThread) [homeassistant.loader] You are using a custom integration for garbage_collection which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
+2020-02-06 11:19:00 WARNING (MainThread) [homeassistant.loader] You are using a custom integration for fontawesome which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
+2020-02-06 11:19:00 WARNING (MainThread) [homeassistant.loader] You are using a custom integration for hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
+2020-02-06 11:19:05 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:08 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:11 WARNING (MainThread) [homeassistant.setup] Setup of recorder is taking over 10 seconds.
+2020-02-06 11:19:14 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:17 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:23 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:26 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:32 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:39 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:42 ERROR (Recorder) [homeassistant.components.recorder] Error during connection setup: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '10.0.1.13' (115)")
+(Background on this error at: http://sqlalche.me/e/e3q8) (retrying in 3 seconds)
+2020-02-06 11:19:58 WARNING (Recorder) [homeassistant.components.recorder] Ended unfinished session (id=656 from 2020-01-19 23:48:48)
+2020-02-06 11:20:05 WARNING (MainThread) [homeassistant.loader] You are using a custom integration for car_wash which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
+2020-02-06 11:20:12 WARNING (MainThread) [homeassistant.setup] Setup of input_boolean is taking over 10 seconds.
+2020-02-06 12:24:47 WARNING (MainThread) [homeassistant.setup] Setup of person is taking over 10 seconds.
+2020-02-06 12:24:48 ERROR (MainThread) [homeassistant.components.geo_location] Error while setting up platform wwlln
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/connector.py", line 967, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/connector.py", line 830, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "/usr/local/lib/python3.7/asyncio/base_events.py", line 788, in getaddrinfo
+    None, getaddr_func, host, port, family, type, proto, flags)
+  File "/usr/local/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Try again
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 158, in _async_setup_platform
+    await asyncio.wait_for(asyncio.shield(task), SLOW_SETUP_MAX_WAIT)
+  File "/usr/local/lib/python3.7/asyncio/tasks.py", line 442, in wait_for
+    return fut.result()
+  File "/usr/src/homeassistant/homeassistant/components/wwlln/geo_location.py", line 54, in async_setup_entry
+    await manager.async_init()
+  File "/usr/src/homeassistant/homeassistant/components/wwlln/geo_location.py", line 121, in async_init
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/wwlln/geo_location.py", line 134, in async_update
+    window=self._window,
+  File "/usr/local/lib/python3.7/site-packages/aiowwlln/client.py", line 91, in within_radius
+    all_strikes: dict = await self.dump()
+  File "/usr/local/lib/python3.7/site-packages/aiocache/decorators.py", line 93, in wrapper
+    return await self.decorator(f, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/aiocache/decorators.py", line 108, in decorator
+    result = await f(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/aiowwlln/client.py", line 48, in _dump
+    return await self.request("get", DATA_URL)
+  File "/usr/local/lib/python3.7/site-packages/aiowwlln/client.py", line 55, in request
+    method, url, headers=headers, params=params
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/client.py", line 1012, in __aenter__
+    self._resp = await self._coro
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/client.py", line 483, in _request
+    timeout=real_timeout
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/connector.py", line 523, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/connector.py", line 859, in _create_connection
+    req, traces, timeout)
+  File "/usr/local/lib/python3.7/site-packages/aiohttp/connector.py", line 971, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host wwlln.net:80 ssl:None [Try again]
+2020-02-06 12:24:52 WARNING (MainThread) [homeassistant.components.binary_sensor] Setup of binary_sensor platform ping is taking over 10 seconds.
+2020-02-06 12:25:07 WARNING (MainThread) [homeassistant.setup] Setup of hassio is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform version is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform template is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform dnsip is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform time_date is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform worldclock is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform darksky is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform darksky is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform flunearyou is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform moon is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform season is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform shodan is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform whois is taking over 10 seconds.
+2020-02-06 12:25:32 WARNING (MainThread) [homeassistant.components.sensor] Setup of sensor platform uptime is taking over 10 seconds.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Setup failed for mqtt: Integration failed to initialize.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:32 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform mqtt.sensor: Unable to set up component.
+2020-02-06 12:25:40 ERROR (MainThread) [homeassistant.helpers.entity] Update for binary_sensor.car_wash fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/config/custom_components/car_wash/binary_sensor.py", line 133, in async_update
+    self._weather_entity))
+homeassistant.exceptions.HomeAssistantError: Unable to find an entity called weather.darksky
+2020-02-06 12:25:40 WARNING (MainThread) [homeassistant.components.template.sensor] Could not render template sensehat_temperature, the state is unknown.
+2020-02-06 12:25:40 WARNING (MainThread) [homeassistant.components.template.sensor] Could not render template sensehat_humidity, the state is unknown.
+2020-02-06 12:25:40 WARNING (MainThread) [homeassistant.components.template.sensor] Could not render template sensehat_pressure, the state is unknown.
+2020-02-06 12:25:40 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_back_bedroom_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_sitting_area_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_couch_right_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_couch_left_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_dining_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_entryway_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_front_bedroom_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:41 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_kitchen_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:42 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_kitchen_island_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:42 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_living_area_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:42 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:25:42 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:00 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-06 12:26:00 WARNING (MainThread) [homeassistant.components.light] Updating hue light took longer than the scheduled update interval 0:00:05
+2020-02-06 12:26:00 ERROR (MainThread) [homeassistant.components.hue.light] Unable to reach bridge 10.3.1.2 ()
+2020-02-06 12:26:01 ERROR (MainThread) [homeassistant.components.hue.light] Unable to reach bridge 10.3.1.1 ()
+2020-02-06 12:26:02 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_tower_lamp_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_back_bedroom_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_hallway_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_outer_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_fireplace_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_front_bedroom_closet_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_den_table_lamp_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_1_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:03 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_guest_bath_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:07 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:07 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 12:26:07 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 14:33:05 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 18:33:01 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 21:13:09 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-06 21:24:08 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 09:26:46 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 11:19:16 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 11:22:10 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 18:31:13 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 20:01:21 WARNING (MainThread) [homeassistant.helpers.entity] Updating state for weather.dark_sky (<class 'homeassistant.components.darksky.weather.DarkSkyWeather'>) took 0.405 seconds. Please report platform to the developers at https://goo.gl/Nvioub
+2020-02-07 20:22:13 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 20:31:11 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 20:40:39 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 21:48:39 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 22:18:10 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-07 22:18:16 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 04:27:43 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/config/custom_components/hacs/hacsbase/__init__.py", line 304, in recuring_tasks_installed
+    await self.factory.execute()
+  File "/config/custom_components/hacs/hacsbase/task_factory.py", line 24, in execute
+    await asyncio.gather(*self.tasks)
+RuntimeError: cannot reuse already awaited coroutine
+2020-02-08 06:44:55 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 07:16:40 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 07:19:15 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 09:28:29 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 12:06:10 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 12:17:45 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 12:30:24 ERROR (SyncWorker_16) [homeassistant.components.honeywell.climate] SomeComfort update failed, Retrying - Error: You are being rate-limited. Try waiting a bit.
+2020-02-08 19:32:34 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 19:32:58 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 19:43:46 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_basement_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 21:40:16 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 22:52:01 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 22:52:55 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-08 22:54:55 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_lamp_2_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 09:05:55 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 09:58:43 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 12:05:50 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 16:49:22 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_bathroom_inner_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-02-09 16:49:46 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.light_master_ceiling_brightness fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 279, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 459, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/template/sensor.py", line 224, in async_update
+    self._state = self._template.async_render()
+  File "/usr/src/homeassistant/homeassistant/helpers/template.py", line 221, in async_render
+    return compiled.render(kwargs).strip()
+  File "/usr/local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 1, in top-level template code
+TypeError: unsupported operand type(s) for /: 'NoneType' and 'int'

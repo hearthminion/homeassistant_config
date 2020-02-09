@@ -10,6 +10,12 @@ device_tracker:
   # MQTT sensor from multiple systems spaced throughout the house
   - platform: bluetooth_tracker
 
+  # ====================================================================
+  #
+  # NMAP Tracker:
+  #   This is used to identify anyone with access to the main network.
+  #
+  # ====================================================================
   - platform: nmap_tracker
     hosts: 10.0.99.0/24
     home_interval: 3
@@ -17,6 +23,12 @@ device_tracker:
     interval_seconds: 40
     consider_home: 120
 
+  # ====================================================================
+  #
+  # NMAP Tracker:
+  #   This is used to identify anyone on the guest VLAN.
+  #
+  # ====================================================================
   - platform: nmap_tracker
     hosts: 10.7.77.0/24
     home_interval: 3

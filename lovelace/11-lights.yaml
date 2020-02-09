@@ -22,28 +22,138 @@
             cards:
               - type: custom:auto-entities
                 sort:
-                  method: name
-                show_empty: false
+                  method: domain
+                show_empty: true
                 card:
                   type: entities
                   show_header_toggle: false
-                  title: "Main Room Lights"
+                  title: "Kitchen Lights"
                 filter:
                   include:
-                    - entity_id: 'light.main*'
+                    - entity_id: 'light.kitchen*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'switch.circadian_lighting_main*'
+                    - entity_id: 'switch.circadian_lighting_kitchen*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'sensor.light_main*'
+                    - entity_id: 'sensor.light_kitchen*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_kitchen*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_main*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                sort:
+                  method: domain
+                show_empty: true
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Entryway Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.entryway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_entryway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_entryway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_entryway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_main*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                sort:
+                  method: domain
+                show_empty: true
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Dining Area Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.dining*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_dining*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_dining*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_dining*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_main*'
+                      options:
+                        secondary_info: last-changed
+              - break
+              - type: custom:auto-entities
+                sort:
+                  method: domain
+                show_empty: true
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Den Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.den*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_den*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_den*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_den*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_main*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_den*'
+                      options:
+                        secondary_info: last-changed
+              - type: custom:auto-entities
+                sort:
+                  method: domain
+                show_empty: true
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Living Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.living*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_living*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_living*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_living*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_main*'
                       options:
                         secondary_info: last-changed
               - break
               - type: custom:auto-entities
                 show_empty: false
                 sort:
-                  method: name
+                  method: domain
                 card:
                   type: entities
                   show_header_toggle: false
@@ -59,9 +169,17 @@
                     - entity_id: 'sensor.light_master*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'automation.light_master*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_master*'
+                      options:
+                        secondary_info: last-changed
               - type: custom:auto-entities
                 title: "Hallway"
                 show_empty: false
+                sort:
+                  method: domain
                 card:
                   type: entities
                   show_header_toggle: false
@@ -77,11 +195,17 @@
                     - entity_id: 'sensor.light_hallway*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'automation.light_hallway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_hallway*'
+                      options:
+                        secondary_info: last-changed
               - break
               - type: custom:auto-entities
                 show_empty: false
                 sort:
-                  method: name
+                  method: domain
                 card:
                   type: entities
                   show_header_toggle: false
@@ -97,8 +221,16 @@
                     - entity_id: 'sensor.light_back_bedroom*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'automation.light_back_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_back_bedroom*'
+                      options:
+                        secondary_info: last-changed
               - type: custom:auto-entities
                 show_empty: false
+                sort:
+                  method: domain
                 card:
                   type: entities
                   show_header_toggle: false
@@ -114,9 +246,17 @@
                     - entity_id: 'sensor.light_front_bedroom*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'automation.light_front_bedroom*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_front_bedroom*'
+                      options:
+                        secondary_info: last-changed
               - type: custom:auto-entities
                 title: "Guest Bathroom"
                 show_empty: false
+                sort:
+                  method: domain
                 card:
                   type: entities
                   show_header_toggle: false
@@ -130,5 +270,37 @@
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_guest_bath*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_guest_bath*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_guest_bath*'
+                      options:
+                        secondary_info: last-changed
+
+              - type: custom:auto-entities
+                sort:
+                  method: domain
+                show_empty: true
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  title: "Basement Lights"
+                filter:
+                  include:
+                    - entity_id: 'light.basement*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'switch.circadian_lighting_basement*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'sensor.light_basement*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'automation.light_basement*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_basement*'
                       options:
                         secondary_info: last-changed

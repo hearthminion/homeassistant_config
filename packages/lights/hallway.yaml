@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Guest Bath
+# Hallway Lighting Configuration
 #
 #
 #
@@ -66,28 +66,41 @@ automation:
 
 # ======================================================================
 #
+# Rest Commands:
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Hallway
+# Scene_ID: ZOBtVrI82jRCTvL
+# Lights: 11, 18
+#
+# ======================================================================
+
+# ======================================================================
+#
 # Scenes:
 #
 # ======================================================================
 scene:
-  - name: "Hallway: Darken Room"
+  - name: "[Light] Hallway: Darken Room"
     entities:
-      light.hue_lamp_11:
+      light.main_lamp_11:
         friendly_name: "Hallway Color Light"
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_18:
+      light.main_lamp_18:
         friendly_name: "Hallway Ambiance Light"
         state: 'off'
-  - name: "Hallway: Migrain"
+  - name: "[Light] Hallway: Migrain"
     entities:
-      light.hue_lamp_11:
+      light.main_lamp_11:
         friendly_name: "Hallway Color Light"
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_18:
+      light.main_lamp_18:
         friendly_name: "Hallway Ambiance Light"
         state: 'off'
 
@@ -122,14 +135,14 @@ switch:
   - platform: circadian_lighting
     name: "Hallway (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_11
-      - light.hue_lamp_18
+      - light.main_lamp_11
+      - light.main_lamp_18
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Hallway (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_11
-      - light.hue_lamp_18
+      - light.main_lamp_11
+      - light.main_lamp_18
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

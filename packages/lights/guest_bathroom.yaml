@@ -129,6 +129,21 @@ input_select:
 
 # ======================================================================
 #
+# Rest Commands
+#
+# Used to update hue scenes
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Guest Bathroom
+# Scene_ID: YMQdt3e0IgsRg5E
+# Lights: 9, 20, 21
+#
+# ======================================================================
+
+# ======================================================================
+#
 # Scenes
 #
 # Notes:
@@ -136,7 +151,7 @@ input_select:
 # ======================================================================
 scene:
   - id: '1576892024578'
-    name: "Guest Bath: Darken Room"
+    name: "[Light] Guest Bath: Darken Room"
     entities:
       automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
@@ -148,19 +163,19 @@ scene:
           Brightness adjust)'
         last_triggered:
         state: 'off'
-      light.hue_lamp_20:
+      light.main_lamp_20:
         friendly_name: "Guest Bath Right"
         state: 'off'
-      light.hue_lamp_21:
+      light.main_lamp_21:
         friendly_name: "Guest Bath Left"
         state: 'off'
-      light.hue_lamp_9:
+      light.main_lamp_9:
         friendly_name: "Guest Bath Center"
         brightness_pct: 25
         color_name: "darkred"
         state: 'on'
   - id: '1576960043395'
-    name: Guest Bath Migraine
+    name: "[Light] Guest Bath: Migraine"
     entities:
       automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
@@ -172,15 +187,15 @@ scene:
           Brightness adjust)'
         last_triggered:
         state: 'off'
-      light.hue_lamp_9:
+      light.main_lamp_9:
         friendly_name: "Guest Bath Center"
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_20:
+      light.main_lamp_20:
         friendly_name: "Guest Bath Right"
         state: 'off'
-      light.hue_lamp_21:
+      light.main_lamp_21:
         friendly_name: "Guest Bath Left"
         state: 'off'
 
@@ -202,7 +217,7 @@ sensor:
         unit_of_measurement: '%'
       light_guest_bath_ceiling_xy_color:
         friendly_name: "[Light] Guest Bath Center Ceiling Light: XY Color"
-        value_template: "{{ state_attr('light.hue_lamp_9','xy_color') }}"
+        value_template: "{{ state_attr('light.main_lamp_9','xy_color') }}"
 
 # ======================================================================
 #
@@ -218,16 +233,16 @@ switch:
   - platform: circadian_lighting
     name: "Guest Bath (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_20
-      - light.hue_lamp_9
-      - light.hue_lamp_21
+      - light.main_lamp_20
+      - light.main_lamp_9
+      - light.main_lamp_21
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Guest Bath (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_20
-      - light.hue_lamp_9
-      - light.hue_lamp_21
+      - light.main_lamp_20
+      - light.main_lamp_9
+      - light.main_lamp_21
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25

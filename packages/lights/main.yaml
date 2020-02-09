@@ -1,621 +1,15 @@
-automation:
-  # ======================================================================
-  #
-  # Light fixture: Master Ceiling Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Couch Right: Circadian Lighting (With Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_right_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_right_without_brightness_adjustment
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
 
-  - alias: '[Light] Main Couch Right: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_couch_right_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_couch_right_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_right_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_right_with_brightness_adjustment
-
-  - alias: '[Light] Main Couch Right: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_right_with_brightness_adjustment
-            - switch.circadian_lighting_main_couch_right_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Master Ceiling Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Couch Left: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_left_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_left_without_brightness_adjustment
-
-  - alias: '[Light] Main Couch Left: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_couch_left_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_couch_left_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_left_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_left_with_brightness_adjustment
-
-  - alias: '[Light] Main Couch Left: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_couch_left_with_brightness_adjustment
-            - switch.circadian_lighting_main_couch_left_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Dining Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Dining: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_dining_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_dining_without_brightness_adjustment
-
-  - alias: '[Light] Main Dining: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_dining_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_dining_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_dining_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_dining_with_brightness_adjustment
-
-  - alias: '[Light] Main Dining: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_dining_with_brightness_adjustment
-            - switch.circadian_lighting_main_dining_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Fireplace Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Fireplace: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_fireplace_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_fireplace_without_brightness_adjustment
-
-  - alias: '[Light] Main Fireplace: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_fireplace_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_fireplace_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_fireplace_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_fireplace_with_brightness_adjustment
-
-  - alias: '[Light] Main Fireplace: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_fireplace_with_brightness_adjustment
-            - switch.circadian_lighting_main_fireplace_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Front_Door Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Front_Door: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_front_door_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_front_door_without_brightness_adjustment
-
-  - alias: '[Light] Main Front_Door: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_front_door_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_front_door_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_front_door_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_front_door_with_brightness_adjustment
-
-  - alias: '[Light] Main Front_Door: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_front_door_with_brightness_adjustment
-            - switch.circadian_lighting_main_front_door_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Island Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Island: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_island_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_island_without_brightness_adjustment
-
-  - alias: '[Light] Main Island: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_island_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_island_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_island_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_island_with_brightness_adjustment
-
-  - alias: '[Light] Main Island: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_island_with_brightness_adjustment
-            - switch.circadian_lighting_main_island_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Kitchen Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Kitchen: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_kitchen_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_kitchen_without_brightness_adjustment
-
-  - alias: '[Light] Main Kitchen: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_kitchen_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_kitchen_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_kitchen_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_kitchen_with_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Living_Area Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Living_Area: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_living_area_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_living_area_without_brightness_adjustment
-
-  - alias: '[Light] Main Living_Area: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_living_area_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_living_area_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_living_area_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_living_area_with_brightness_adjustment
-
-  - alias: '[Light] Main Living_Area: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_living_area_with_brightness_adjustment
-            - switch.circadian_lighting_main_living_area_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Light fixture: Main Sitting_Area Lights
-  #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
-  #
-  # Automations:
-  #   - 
-  #
-  # ======================================================================
-  - alias: '[Light] Main Sitting_Area: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_sitting_area_with_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_sitting_area_without_brightness_adjustment
-
-  - alias: '[Light] Main Sitting_Area: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: sensor.light_main_sitting_area_brightness
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_main_sitting_area_with_brightness_adjustment
-          state: 'on'
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_sitting_area_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_sitting_area_with_brightness_adjustment
-
-  - alias: '[Light] Main Sitting_Area: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_main_sitting_area_with_brightness_adjustment
-            - switch.circadian_lighting_main_sitting_area_without_brightness_adjustment
-
-  # ======================================================================
-  #
-  # Set Lighting Mode: Circadian (with Brightness adjustments)"
-  #
-  # - In the morning when the sun rises to 18 degrees below the horizon
-  #   enable
-  # ======================================================================
-  - alias: '[Light] Circadian Lighting (without Brightness Adjustment)'
-    initial_state: false
-    trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
-    action:
-      - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_chinese_lamp_without_brightness_adjustment
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_chinese_lamp_with_brightness_adjustment
-
-  - alias: '[Light] Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian (With_Brightness_Adjustment)"
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian (Without_Brightness_Adjustment)"
-    condition:
-      condition: or
-      conditions:
-        - condition: template
-          value_template: "{{ not is_state('input_select.light_mode', 'Circadian (With_Brightness_Adjustment)') }}"
-        - condition: template
-          value_template: "{{ not is_state('input_select.light_mode', 'Circadian (Without_Brightness_Adjustment)') }}"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_chinese_lamp_with_brightness_adjustment
-            - switch.circadian_lighting_chinese_lamp_without_brightness_adjustment
+# # ======================================================================
+# #
+# # Automations:
+# #
+# # ======================================================================
+# automation:
 
 # ======================================================================
 #
@@ -626,350 +20,120 @@ automation:
 # ======================================================================
 scene:
   - id: '1574806686777'
-    name: Main Room Darken Room
+    name: "[Light] Main Room: Darken Room"
     entities:
-      light.hue_lamp_3:
-        friendly_name: "Main Chinese Lamp Top"
+      light.main_lamp_3:
+        friendly_name: "Main Tower Lamp Top"
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_6:
+      light.main_lamp_6:
         friendly_name: Main Couch Lamp Right
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_7:
+      light.main_lamp_7:
         friendly_name: Main Couch Lamp Left
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_8:
+      light.main_lamp_8:
         friendly_name: Main Sitting Area
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_10:
+      light.main_lamp_10:
         friendly_name: Main Kitchen
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_13:
+      light.main_lamp_13:
         friendly_name: Main Front Door
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-      light.hue_lamp_24:
+      light.main_lamp_24:
         friendly_name: "Main"
         state: 'off'
-      light.hue_lamp_25:
+      light.main_lamp_25:
         friendly_name: "Main"
         state: 'off'
-      light.hue_lamp_26:
+      light.main_lamp_26:
         friendly_name: Main Living Area
         state: 'off'
-      light.hue_lamp_27:
+      light.main_lamp_27:
         friendly_name: Main Table Lamp
         state: 'off'
-      light.hue_lamp_31:
+      light.main_lamp_31:
         friendly_name: Main Dining
         state: 'on'
         color_name: "darkred"
         brightness_pct: 25
-  - name: Main Room Migraine
+  - name: "[Light] Main Room: Migraine"
     entities:
-      light.hue_lamp_3:
+      light.main_lamp_3:
         friendly_name: "Main Chinese Lamp Top"
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_6:
+      light.main_lamp_6:
         friendly_name: Main Couch Lamp Right
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_7:
+      light.main_lamp_7:
         friendly_name: Main Couch Lamp Left
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_8:
+      light.main_lamp_8:
         friendly_name: Main Sitting Area
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_10:
+      light.main_lamp_10:
         friendly_name: Main Kitchen
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_13:
+      light.main_lamp_13:
         friendly_name: Main Front Door
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
-      light.hue_lamp_24:
+      light.main_lamp_24:
         friendly_name: "Main"
         state: 'off'
-      light.hue_lamp_25:
+      light.main_lamp_25:
         friendly_name: "Main"
         state: 'off'
-      light.hue_lamp_26:
+      light.main_lamp_26:
         friendly_name: Main Living Area
         state: 'off'
-      light.hue_lamp_27:
+      light.main_lamp_27:
         friendly_name: Main Table Lamp
         state: 'off'
-      light.hue_lamp_31:
+      light.main_lamp_31:
         friendly_name: Main Dining
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
 
-sensor:
-  - platform: template
-    sensors:
-      light_main_couch_right_circadian_brightness:
-        friendly_name: "[Light] Main Couch Lamp Right: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_couch_right_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_couch_left_circadian_brightness:
-        friendly_name: "[Light] Main Couch Lamp Left: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_couch_left_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_chinese_lamp_circadian_brightness:
-        friendly_name: "[Light] Main Chinese Lamp: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_chinese_lamp_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_dining_circadian_brigthness:
-        friendly_name: "[Light] Main Dining Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_dining_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_fireplace_circadian_brigthness:
-        friendly_name: "[Light] Main Fireplace Light: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_fireplace_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_front_door_circadian_brigthness:
-        friendly_name: "[Light] Main Front Door Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_front_door_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_island_circadian_brigthness:
-        friendly_name: "[Light] Main Island Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_island_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_kitchen_circadian_brigthness:
-        friendly_name: "[Light] Main Kitchen Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_kitchen_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_living_area_circadian_brigthness:
-        friendly_name: "[Light] Main Living Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_living_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_sitting_area_circadian_brigthness:
-        friendly_name: "[Light] Main Sitting Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_main_sitting_area_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_main_couch_right_brightness:
-        friendly_name: "[Light] Main Couch Lamp Right: Brightness"
-        value_template:  "{{ ( state_attr('light.main_couch_lamp_right','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_couch_left_brightness:
-        friendly_name: "[Light] Main Couch Lamp Left: Brightness"
-        value_template:  "{{ ( state_attr('light.main_couch_lamp_left','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_chinese_lamp_brightness:
-        friendly_name: "[Light] Main Chinese Lamp: Brightness"
-        value_template:  "{{ ( state_attr('light.main_chinese_lamp','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_dining_brightness:
-        friendly_name: "[Light] Main Dining Area: Brightness"
-        value_template:  "{{ ( state_attr('light.main_dining','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_fireplace_brightness:
-        friendly_name: "[Light] Main Fireplace Light: Brightness"
-        value_template:  "{{ ( state_attr('light.main_fireplace','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_front_door_brightness:
-        friendly_name: "[Light] Main Front Door Area: Brightness"
-        value_template:  "{{ ( state_attr('light.main_front_door','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_island_brightness:
-        friendly_name: "[Light] Main Island: Brightness"
-        value_template:  "{{ ( state_attr('light.main_island','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_kitchen_brightness:
-        friendly_name: "[Light] Main Kitchen Area: Brightness"
-        value_template:  "{{ ( state_attr('light.main_kitchen','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_living_area_brightness:
-        friendly_name: "[Light] Main Living Area: Brightness"
-        value_template:  "{{ ( state_attr('light.main_living_area','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_main_sitting_area_brightness:
-        friendly_name: "[Light] Main Sitting Area: Brightness"
-        value_template:  "{{ ( state_attr('light.main_sitting_area','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
+# sensor:
 
-switch:
-  # ==========================================
-  #
-  # Main
-  #
-  # =========================================
-  - platform: circadian_lighting
-    name: "Main Couch Right (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_6
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Couch Right (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_6
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Couch Left (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_7
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Couch Left (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_7
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Dining (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_31
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Dining (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_31
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Fireplace (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_25
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Fireplace (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_25
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Front door (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_13
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Front door (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_13
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Island (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_24
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Island (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_24
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Kitchen (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_10
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Kitchen (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_10
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Living (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_26
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Living (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_26
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Main Sitting Area (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_8
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Main Sitting Area (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_8
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Chinese Lamp (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_3
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Chinese Lamp (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_3
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  - platform: circadian_lighting
-    name: "Lamp (without Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_27
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Lamp (with Brightness Adjustment)"
-    lights_ct:
-      - light.hue_lamp_27
-    disable_brightness_adjust: false
-    min_brightness: 50
-
-  # - alias: 'Turn on lights to proper color'
-  #   action:
-  #     service: light.turn_on
-  #     data_template:
-  #       entity_id: light.entity
-  #       kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-  #       brightness_pct: "{{ state_attr('switch.circadian_lighting_main_couch_right', 'brightness') | int }}"
-
-  # - alias: 'Main Couch Right Switch'
-  #   action:
-  #     service: light.turn_on
-  #     data_template:
-  #       entity_id: light.entity
-  #       kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
-  #       brightness_pct: "{{ state_attr('switch.circadian_lighting_main_couch_left', 'brightness') | int }}"
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
+# switch:
+#   # ==========================================
+#   #
+#   # Main
+#   #
+#   # =========================================

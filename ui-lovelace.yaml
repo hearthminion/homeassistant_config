@@ -60,10 +60,10 @@ resources:
     type: js
   - url: /community_plugin/secondaryinfo-entity-row/secondaryinfo-entity-row.js
     type: js
-  - url: /community_plugin/state-attribute-element/state-attribute-element.js
-    type: js
-  - url: /community_plugin/state-element/state-element.js
-    type: js
+#  - url: /community_plugin/state-attribute-element/state-attribute-element.js
+#    type: js
+#  - url: /community_plugin/state-element/state-element.js
+#    type: js
   - url: /community_plugin/text-action-element/text-action-element.js
     type: module
   - url: /community_plugin/text-divider-row/text-divider-row.js
@@ -106,7 +106,7 @@ views:
   - !include lovelace/30-internet.yaml
   - !include lovelace/40-weather.yaml
   - !include lovelace/50-homeassistant.yaml
-#  - !include lovelace/60-user0001.yaml
+# - !include lovelace/60-user0001.yaml
 #  - !include lovelace/61-user0002.yaml
 #  - !include lovelace/70-systems.yaml
 

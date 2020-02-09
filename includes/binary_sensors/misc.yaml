@@ -1,3 +1,5 @@
+- platform: car_wash
+
 - platform: template
   sensors:
     sun_up:

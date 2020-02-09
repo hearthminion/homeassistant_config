@@ -83,7 +83,9 @@
                 filter:
                   include:
                     - entity_id: "input_boolean.special*"
-                  state: 'on'
+                      state: "on"
+                    - entity_id: "binary_sensor.car_wash"
+                      state: "on"
 
               - break
 # =====================================================================

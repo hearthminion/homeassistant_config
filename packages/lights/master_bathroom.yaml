@@ -220,10 +220,7 @@ scene:
       light.main_lamp_12:
         friendly_name: "Master Bathroom Center"
         brightness_pct: 25
-        rgb_color:
-        - 255
-        - 0
-        - 0
+        color_name: "darkred"
         state: 'on'
       light.main_lamp_17:
         friendly_name: "Master Bathroom Left"
@@ -247,7 +244,7 @@ scene:
 
 # ======================================================================
 #
-#
+# Sensors
 #
 # ======================================================================
 sensor:
@@ -270,18 +267,12 @@ sensor:
         value_template:  "{{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
 
-
 # ======================================================================
 #
-#
+# Switches
 #
 # ======================================================================
 switch:
-  # =====================================
-  #
-  # Master Bathroom
-  #
-  # =====================================
   - platform: circadian_lighting
     name: "Master Bathroom (Inner) (without Brightness Adjustment)"
     lights_ct:

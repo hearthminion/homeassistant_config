@@ -2,6 +2,10 @@
 #
 # Kitchen Lights
 #
+# Lights:
+#   light.main_lamp_10: Kitchen Ceiling Lightbulb
+#   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+#
 # ======================================================================
 
 # ======================================================================

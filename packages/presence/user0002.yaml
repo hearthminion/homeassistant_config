@@ -35,11 +35,11 @@ input_select:
       - Extended Away
     initial: Home
 
-person:
-  - name: user0002
-    id: user0002
-    device_trackers:
-      - device_tracker.user0002_phone
-      - device_tracker.user0002_phone_bt
-      - device_tracker.user0002_phone_wifi
-      - device_tracker.user0002_kindle
+# person:
+#   - name: user0002
+#     id: user0002
+#     device_trackers:
+#       - device_tracker.user0002_phone
+#       - device_tracker.user0002_phone_bt
+#       - device_tracker.user0002_phone_wifi
+#       - device_tracker.user0002_kindle

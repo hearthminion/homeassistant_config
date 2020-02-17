@@ -184,11 +184,11 @@ shopping_list:
 # Services
 #
 # ======================================================================
-#mqtt:
-#  broker: angelia.olympus.drbr.org
-#  #port: 8883
-#  username: homeassistant
-#  password: !secret mqtt_password
+mqtt:
+  broker: angelia.olympus.drbr.org
+  #port: 8883
+  username: homeassistant
+  password: !secret mqtt_password
 
 ios:
 system_health:

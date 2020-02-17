@@ -325,136 +325,136 @@ input_select:
 # Scenes
 #
 # ======================================================================
-scene:
-  - id: '1576887377088'
-    name: "[Light] Master Bedroom: Migraine"
-    entities:
-      light.main_lamp_1:
-        friendly_name: Master Lamp 1 Light 1
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_2:
-        friendly_name: Master Lamp 2 Light 1
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_4:
-        friendly_name: Master Light 2
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_5:
-        friendly_name: Master Light 3
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_14:
-        friendly_name: Master Lamp 1 Light 2
-        state: 'off'
-      light.main_lamp_15:
-        friendly_name: Master Lamp 2 Light 2
-        state: 'on'
-        supported_features: 43
-      light.main_lamp_16:
-        friendly_name: Master Light 1
-        state: 'off'
-      switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment:
-        friendly_name: Master Ceiling Lights (with Brightness Adjustment)
-        state: 'off'
-      switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment:
-        friendly_name: Master Ceiling Lights (without Brightness Adjustment)
-        state: 'off'
-      switch.circadian_lighting_master_closet_light_with_brightness_adjustment:
-        state: 'off'
-      switch.circadian_lighting_master_closet_light_without_brightness_adjustment:
-        state: 'off'
-      switch.circadian_lighting_master_lamp_1_with_brightness_adjustment:
-        friendly_name: Master Lamp 1 (with Brightness Adjustment)
-        state: 'off'
-      switch.circadian_lighting_master_lamp_1_without_brightness_adjustment:
-        friendly_name: Master Lamp 1 (without Brightness Adjustment)
-        state: 'off'
-      switch.circadian_lighting_master_lamp_2_with_brightness_adjustment:
-        friendly_name: Master Lamp 2 (with Brightness Adjustment)
-        state: 'off'
-      switch.circadian_lighting_master_lamp_2_without_brightness_adjustment:
-        friendly_name: Master Lamp 2 (without Brightness Adjustment)
-        state: 'off'
-  - id: '1576892919563'
-    name: "[Light] Master Bedroom: Darken Room"
-    entities:
-      light.main_lamp_1:
-        friendly_name: Master Lamp 1 Light 1
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_2:
-        friendly_name: Master Lamp 2 Light 1
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_4:
-        friendly_name: Master Light 2
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_5:
-        friendly_name: Master Light 3
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_14:
-        friendly_name: Master Lamp 1 Light 2
-        state: 'off'
-      light.main_lamp_15:
-        friendly_name: Master Lamp 2 Light 2
-        state: 'on'
-        supported_features: 43
-      light.main_lamp_16:
-        friendly_name: Master Light 1
-        state: 'off'
-  - id: '1577071758163'
-    name: "[Light] Master Lamp 2: Migraine"
-    entities:
-      light.main_lamp_2:
-        friendly_name: Master Lamp 2 Light 1
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_15:
-        friendly_name: Master Lamp 2 Light 2
-        state: 'off'
-  - name: "[Light] Master Lamp 1: Migraine"
-    entities:
-      light.main_lamp_1:
-        friendly_name: "Master Lamp 1 Light 1"
-        state: 'on'
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_14:
-        friendly_name: "Master Lamp 1 Light 2"
-        state: 'off'
-  - name: "[Light] Master Lamp 2: Darken Lamp"
-    entities:
-      light.main_lamp_2:
-        friendly_name: Master Lamp 2 Light 1
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_15:
-        friendly_name: Master Lamp 2 Light 2
-        state: 'off'
-  - name: "[Light] Master Lamp 1: Darken Lamp"
-    entities:
-      light.main_lamp_1:
-        friendly_name: "Master Lamp 1 Light 1"
-        state: 'on'
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_14:
-        friendly_name: "Master Lamp 1 Light 2"
-        state: 'off'
+# scene:
+#   - id: '1576887377088'
+#     name: "[Light] Master Bedroom: Migraine"
+#     entities:
+#       light.main_lamp_1:
+#         friendly_name: Master Lamp 1 Light 1
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_2:
+#         friendly_name: Master Lamp 2 Light 1
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_4:
+#         friendly_name: Master Light 2
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_5:
+#         friendly_name: Master Light 3
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_14:
+#         friendly_name: Master Lamp 1 Light 2
+#         state: 'off'
+#       light.main_lamp_15:
+#         friendly_name: Master Lamp 2 Light 2
+#         state: 'on'
+#         supported_features: 43
+#       light.main_lamp_16:
+#         friendly_name: Master Light 1
+#         state: 'off'
+#       switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment:
+#         friendly_name: Master Ceiling Lights (with Brightness Adjustment)
+#         state: 'off'
+#       switch.circadian_lighting_master_ceiling_lights_without_brightness_adjustment:
+#         friendly_name: Master Ceiling Lights (without Brightness Adjustment)
+#         state: 'off'
+#       switch.circadian_lighting_master_closet_light_with_brightness_adjustment:
+#         state: 'off'
+#       switch.circadian_lighting_master_closet_light_without_brightness_adjustment:
+#         state: 'off'
+#       switch.circadian_lighting_master_lamp_1_with_brightness_adjustment:
+#         friendly_name: Master Lamp 1 (with Brightness Adjustment)
+#         state: 'off'
+#       switch.circadian_lighting_master_lamp_1_without_brightness_adjustment:
+#         friendly_name: Master Lamp 1 (without Brightness Adjustment)
+#         state: 'off'
+#       switch.circadian_lighting_master_lamp_2_with_brightness_adjustment:
+#         friendly_name: Master Lamp 2 (with Brightness Adjustment)
+#         state: 'off'
+#       switch.circadian_lighting_master_lamp_2_without_brightness_adjustment:
+#         friendly_name: Master Lamp 2 (without Brightness Adjustment)
+#         state: 'off'
+#   - id: '1576892919563'
+#     name: "[Light] Master Bedroom: Darken Room"
+#     entities:
+#       light.main_lamp_1:
+#         friendly_name: Master Lamp 1 Light 1
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_2:
+#         friendly_name: Master Lamp 2 Light 1
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_4:
+#         friendly_name: Master Light 2
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_5:
+#         friendly_name: Master Light 3
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_14:
+#         friendly_name: Master Lamp 1 Light 2
+#         state: 'off'
+#       light.main_lamp_15:
+#         friendly_name: Master Lamp 2 Light 2
+#         state: 'on'
+#         supported_features: 43
+#       light.main_lamp_16:
+#         friendly_name: Master Light 1
+#         state: 'off'
+#   - id: '1577071758163'
+#     name: "[Light] Master Lamp 2: Migraine"
+#     entities:
+#       light.main_lamp_2:
+#         friendly_name: Master Lamp 2 Light 1
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_15:
+#         friendly_name: Master Lamp 2 Light 2
+#         state: 'off'
+#   - name: "[Light] Master Lamp 1: Migraine"
+#     entities:
+#       light.main_lamp_1:
+#         friendly_name: "Master Lamp 1 Light 1"
+#         state: 'on'
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_14:
+#         friendly_name: "Master Lamp 1 Light 2"
+#         state: 'off'
+#   - name: "[Light] Master Lamp 2: Darken Lamp"
+#     entities:
+#       light.main_lamp_2:
+#         friendly_name: Master Lamp 2 Light 1
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_15:
+#         friendly_name: Master Lamp 2 Light 2
+#         state: 'off'
+#   - name: "[Light] Master Lamp 1: Darken Lamp"
+#     entities:
+#       light.main_lamp_1:
+#         friendly_name: "Master Lamp 1 Light 1"
+#         state: 'on'
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_14:
+#         friendly_name: "Master Lamp 1 Light 2"
+#         state: 'off'
 
 # ======================================================================
 #

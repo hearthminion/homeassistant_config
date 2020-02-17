@@ -5,6 +5,11 @@
 # ======================================================================
 homeassistant:
 
+# ======================================================================
+#
+# Device Trackers
+#
+# ======================================================================
 device_tracker:
   # Bluetooth tracker will be removed in the future.  Moving to an
   # MQTT sensor from multiple systems spaced throughout the house
@@ -36,6 +41,11 @@ device_tracker:
     interval_seconds: 40
     consider_home: 120
 
+# ======================================================================
+#
+# Owntracks
+#
+# ======================================================================
 owntracks:
   max_gps_accuracy: 200
   waypoints: true

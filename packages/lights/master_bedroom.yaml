@@ -2,7 +2,14 @@
 #
 # Master Bedroom Light Configuration
 #
-#
+# Lights:
+#   light.main_lamp_1: Master Bedroom Lamp 1 Lightbulb 1
+#   light.main_lamp_2: Master Bedroom Lamp 2 Lightbulb 1
+#   light.main_lamp_4: Master Bedroom Ceiling Lightbulb 2
+#   light.main_lamp_5: Master Bedroom Ceiling Lightbulb 3
+#   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
+#   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
+#   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
 #
 # ======================================================================
 
@@ -482,19 +489,19 @@ sensor:
         unit_of_measurement: '%'
       light_master_ceiling_brightness:
         friendly_name: "[Light] Master Ceiling Lights: Brightness"
-        value_template:  "{{ ( state_attr('light.master_ceiling_lights','brightness') / 254 * 100 ) | int }}"
+        value_template:  "{{ ( state_attr('light.main_lamp_4','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
       light_master_lamp_1_brightness:
         friendly_name: "[Light] Master Lamp 1:Brightness"
-        value_template:  "{{ ( state_attr('light.master_lamp_1','brightness') / 254 * 100 )| int }}"
+        value_template:  "{{ ( state_attr('light.main_lamp_1','brightness') / 254 * 100 )| int }}"
         unit_of_measurement: '%'
       light_master_lamp_2_brightness:
         friendly_name: "[Light] Master Lamp 2: Brightness"
-        value_template:  "{{ ( state_attr('light.master_lamp_2','brightness') / 254 * 100 ) | int }}"
+        value_template:  "{{ ( state_attr('light.main_lamp_2','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
       light_master_closet_brightness:
         friendly_name: "[Light] Master Closet: Brightness"
-        value_template:  "{{ ( state_attr('light.master_closet','brightness') / 254 * 100 ) | int }}"
+        value_template:  "{{ ( state_attr('light.main_lamp_30','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
       light_master_lamp_1_xy_color:
         friendly_name: "[Light] Master Lamp 1: XY Color"

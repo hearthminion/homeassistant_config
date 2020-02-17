@@ -329,17 +329,17 @@ binary_sensor:
         value_template: >-
           {{ ( states('sensor.light_den_couch_right_circadian_brightness') | int ) < ( states('sensor.light_den_couch_right_brightness_max') | int )
              and ( states('sensor.light_den_couch_right_circadian_brightness') | int  ) > ( states('sensor.light_den_couch_right_brightness_min') | int ) }}
-        # attribute_templates:
-        #   circadian_brightness: >-
-        #     {{ state_attr('switch.circadian_lighting_den_couch_right_with_brightness_adjustment','brightness') | round(0) }}
-        #   brightness: >-
-        #     {% if is_state_attr('light.den_couch_lamp_right','brightness', 'unknown') %}
-        #       100
-        #     {% else %}
-        #       {{ ( state_attr('light.den_couch_lamp_right','brightness') / 254 * 100 ) | int }}
-        #     {% endif %}
-        #   xy_color: >-
-        #     {{ state_attr('light.den_couch_lamp_right','xy_color') }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_den_couch_right_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.den_couch_lamp_right','brightness', 'unknown') %}
+              100
+            {% else %}
+              {{ ( state_attr('light.den_couch_lamp_right','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          xy_color: >-
+            {{ state_attr('light.den_couch_lamp_right','xy_color') }}
 
 # ======================================================================
 #

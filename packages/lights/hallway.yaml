@@ -2,7 +2,9 @@
 #
 # Hallway Lighting Configuration
 #
-#
+# Lights:
+#   light.main_lamp_11: Hallway Ceiling Lightbulb (Color)
+#   light.main_lamp_18: Hallway Ceiling Lightbulb (Ambiance)
 #
 # ======================================================================
 automation:

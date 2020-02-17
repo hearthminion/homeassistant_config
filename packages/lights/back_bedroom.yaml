@@ -2,7 +2,9 @@
 #
 # Back Bedroom Lighting Configuration
 #
-#
+# Lights:
+#   light.main_lamp_22: Back Bedroom Ceiling Lightbulb
+#   light.main_lamp_28: Back Bedroom Closet Lightbulb
 #
 # ======================================================================
 

@@ -204,6 +204,7 @@ zwave:
 # Custom Addons
 #
 ##############################################################
+breaking_changes:
 
 #fontawesome:
 #  regular:

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg
+    width="1000px"
+    height="1400px"
+    viewBox="0 0 1000 1400"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="Internet">
+      <title>Internet</title>
+      <desc>Internet Cloud Bubble</desc>
+      <path
+          style="fill:#2ad4ff"
+          d="m 150.24106,255.90424 c -16.12027,-2.23705
+             -30.80672,-11.15267 -40.45014,-24.5558 l -2.04475,-2.84196
+             -7.5216,2.08435 C 79.634442,236.29665 59.848079,230.83409
+             44.067921,215.0873 35.384293,206.42204 30.10116,197.3467
+             27.55019,186.71323 25.937861,179.99239 26.123035,165.54971
+             27.897112,159.6549 l 1.426358,-4.73943 -4.936226,-3.62351
+             C 7.7326105,139.06633 -1.9729888,116.3449
+             1.1609518,96.917722 3.5238678,82.270096
+             9.6468263,70.589639 19.856872,61.25246 29.737134,52.216874
+             44.371661,45.796948 55.088445,45.796948 c 3.216365,0
+             4.029788,-0.408553 4.516118,-2.268286 1.274983,-4.875539
+             8.475242,-17.839116 12.358642,-22.25089 C
+             82.668965,9.1153859 101.72331,0.28714273
+             117.11597,0.35762304 127.72944,0.40622047
+             143.87496,6.2748993 153.49066,13.579333 l 4.25975,3.235861
+             3.82147,-2.519205 c 6.06699,-3.999503 16.8167,-7.8697956
+             24.5582,-8.841853 30.50313,-3.8301095 60.02556,18.410076
+             64.87197,48.870113 l 1.19406,7.504761 4.44329,1.118835 c
+             11.00909,2.772121 25.03859,12.715675 31.79956,22.53828
+             7.46486,10.845255 10.76982,21.289945 10.78761,34.092265
+             0.0184,13.22627 -3.22387,23.31446 -11.25695,35.02561 l
+             -2.91951,4.25628 2.20832,6.35033 c 3.01122,8.65915
+             3.68187,23.37181 1.46606,32.16239 -2.8941,11.4815
+             -7.19623,18.87193 -16.1824,27.799 -13.13927,13.05284
+             -26.38541,18.20921 -44.51929,17.3302 -8.2729,-0.40103
+             -11.45628,-1.05236 -17.58535,-3.59805 l -7.48382,-3.10839
+             -5.26504,4.81195 c -12.60478,11.52007 -31.27873,17.54033
+             -47.44753,15.29653 z m 18.14077,-14.67428 c
+             9.46602,-2.46559 17.30597,-7.22404 23.55288,-14.29542
+             3.08542,-3.49264 6.44396,-6.61498 7.46341,-6.93854
+             1.09677,-0.3481 5.25659,1.05872 10.18836,3.4456
+             15.37502,7.44122 27.9852,7.60832 42.07875,0.5576
+             21.7785,-10.89533 30.8517,-36.64427 20.74546,-58.87378
+             -1.35661,-2.98396 -2.46655,-6.43237 -2.46655,-7.66314
+             0,-1.23077 2.18011,-4.95423 4.84469,-8.27436
+             5.79284,-7.21802 9.11366,-14.54632 10.56753,-23.3201
+             2.17258,-13.11109 -3.06613,-28.353772 -13.15843,-38.286114
+             -6.65367,-6.548203 -13.20674,-10.119633
+             -21.90887,-11.940355 -3.45554,-0.722994 -7.25994,-1.837485
+             -8.45423,-2.476643 -2.36681,-1.266681 -2.49543,-1.708498
+             -4.08251,-14.024322 -2.70913,-21.022872 -17.3129,-36.357289
+             -37.99959,-39.900769 -11.86571,-2.03251 -25.76406,1.911645
+             -36.26605,10.29179 -5.75608,4.593106 -8.66963,4.205895
+             -15.03954,-1.998753 C 130.90128,10.442013
+             104.05517,10.246251 85.340347,27.07248 79.46417,32.355668
+             73.497032,43.070521 72.415869,50.280234 71.408531,56.997641
+             69.05018,58.554898 58.822253,59.256309 48.875715,59.938424
+             42.181228,61.982693 35.083668,66.505265 16.138243,78.577313
+             9.1349032,103.73743 19.049154,124.11067 c 3.415191,7.01803
+             12.249887,16.45195 18.295093,19.53599 2.351726,1.19976
+             5.050102,3.36301 5.996388,4.80722 1.644591,2.50997
+             1.611808,2.94406 -0.742841,9.836 -4.72136,13.81919
+             -2.70879,29.46899 5.265251,40.94272 4.601909,6.62162
+             13.327538,13.83243 19.937976,16.47662 4.717535,1.88703
+             7.617211,2.26888 17.285198,2.27625 10.522046,0.008
+             12.265326,-0.26387 18.499221,-2.88526 8.65734,-3.64047
+             10.22723,-3.05704 15.88662,5.90396 10.92819,17.30356
+             29.94182,25.16631 48.90977,20.22579 z"
+          id="path2999"
+          />
+    </g>
+    <g id="RouterIcon">
+      <path
+          fill="#000000"
+          d="M5 9C3.9 9 3 9.9 3 11V15C3 16.11 3.9 17 5 17H11V19H10C9.45 19 9 19.45 9 20H2V22H9C9 22.55 9.45 23 10 23H14C14.55 23 15 22.55 15 22H22V20H15C15 19.45 14.55 19 14 19H13V17H19C20.11 17 21 16.11 21 15V11C21 9.9 20.11 9 19 9H5M6 12H8V14H6V12M9.5 12H11.5V14H9.5V12M13 12H15V14H13V12Z" />
+    </g>
+    <g id="RouterIconSym">
+      <path
+          fill="#000000"
+          d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20M13 13V16H15L12 19L9 16H11V13M5 13H8V15L11 12L8 9V11H5M11 11V8H9L12 5L15 8H13V11M19 11H16V9L13 12L16 15V13H19" />
+    </g>
+    <g id="ServerIcon">
+            <path fill="#000000"
+            d="M13,19H14A1,1 0 0,1 15,20H22V22H15A1,1 0 0,1 14,23H10A1,1 0 0,1 9,22H2V20H9A1,1 0 0,1 10,19H11V17H4A1,1 0 0,1 3,16V12A1,1 0 0,1 4,11H20A1,1 0 0,1 21,12V16A1,1 0 0,1 20,17H13V19M4,3H20A1,1 0 0,1 21,4V8A1,1 0 0,1 20,9H4A1,1 0 0,1 3,8V4A1,1 0 0,1 4,3M9,7H10V5H9V7M9,15H10V13H9V15M5,5V7H7V5H5M5,13V15H7V13H5Z" />
+    </g>
+    <g id="WAPIcon">
+      <path
+          fill="#FFFF00"
+          d="M4.93,3.93C3.12,5.74 2,8.24 2,11C2,13.76 3.12,16.26 4.93,18.07L6.34,16.66C4.89,15.22 4,13.22 4,11C4,8.79 4.89,6.78 6.34,5.34L4.93,3.93M19.07,3.93L17.66,5.34C19.11,6.78 20,8.79 20,11C20,13.22 19.11,15.22 17.66,16.66L19.07,18.07C20.88,16.26 22,13.76 22,11C22,8.24 20.88,5.74 19.07,3.93M7.76,6.76C6.67,7.85 6,9.35 6,11C6,12.65 6.67,14.15 7.76,15.24L9.17,13.83C8.45,13.11 8,12.11 8,11C8,9.89 8.45,8.89 9.17,8.17L7.76,6.76M16.24,6.76L14.83,8.17C15.55,8.89 16,9.89 16,11C16,12.11 15.55,13.11 14.83,13.83L16.24,15.24C17.33,14.15 18,12.65 18,11C18,9.35 17.33,7.85 16.24,6.76M12,9A2,2 0 0,0 10,11A2,2 0 0,0 12,13A2,2 0 0,0 14,11A2,2 0 0,0 12,9M11,15V19H10A1,1 0 0,0 9,20H2V22H9A1,1 0 0,0 10,23H14A1,1 0 0,0 15,22H22V20H15A1,1 0 0,0 14,19H13V15H11Z" />
+    </g>
+    <g id="WorkstationIcon">
+      <path
+          fill="#000000"
+          d="M6,2C4.89,2 4,2.89 4,4V12C4,13.11 4.89,14 6,14H18C19.11,14 20,13.11 20,12V4C20,2.89 19.11,2 18,2H6M6,4H18V12H6V4M4,15C2.89,15 2,15.89 2,17V20C2,21.11 2.89,22 4,22H20C21.11,22 22,21.11 22,20V17C22,15.89 21.11,15 20,15H4M8,17H20V20H8V17M9,17.75V19.25H13V17.75H9M15,17.75V19.25H19V17.75H15Z" />
+    </g>
+    <g id="LaptopIcon">
+      <path
+          fill="#000000"
+          d="M3,4H21A1,1 0 0,1 22,5V16A1,1 0 0,1 21,17H22L24,20V21H0V20L2,17H3A1,1 0 0,1 2,16V5A1,1 0 0,1 3,4M4,6V15H20V6H4Z" />
+    </g>
+    <g id="CellphoneIcon">
+      <path fill="#000000" d="M17.25,18H6.75V4H17.25M14,21H10V20H14M16,1H8A3,3 0 0,0 5,4V20A3,3 0 0,0 8,23H16A3,3 0 0,0 19,20V4A3,3 0 0,0 16,1Z" />
+    </g>
+    <g id="CellphoneIcon-Apple">
+      <path
+          fill="#000000"
+          d="M16,18H7V4H16M11.5,22A1.5,1.5 0 0,1 10,20.5A1.5,1.5 0 0,1 11.5,19A1.5,1.5 0 0,1 13,20.5A1.5,1.5 0 0,1 11.5,22M15.5,1H7.5A2.5,2.5 0 0,0 5,3.5V20.5A2.5,2.5 0 0,0 7.5,23H15.5A2.5,2.5 0 0,0 18,20.5V3.5A2.5,2.5 0 0,0 15.5,1Z" />
+    </g>
+    <g id="Router">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #ffffff; stroke-width: 1; stroke: #18CAE6" />
+    </g>
+    <g id="Switch">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6" />
+    </g>
+    <g id="WAP">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6" />
+      <use x="20" y="5" xlink:href="#WAPIcon" />
+    </g>
+
+    <g id="Server">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #3333bb; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#ServerIcon" />
+    </g>
+    <g id="XenDom0Vert">
+      <rect
+          width="128"
+          height="36"
+          style="fill: #3333bb; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#ServerIcon" />
+    </g>
+    <g id="XenDom0Hor">
+      <rect
+          width="64"
+          height="77"
+          style="fill: #3333bb; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="20" xlink:href="#ServerIcon" />
+    </g>
+    <g id="Workstation">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#WorkstationIcon" />
+    </g>
+    <g id="Laptop">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#LaptopIcon" />
+    </g>
+    <g id="Cellphone">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon" />
+    </g>
+    <g id="Cellphone-Apple">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Kindle">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Ipad">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Thermostat">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Wii">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Roomba">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="HueHub">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="AVR">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="20" y="5" xlink:href="#CellphoneIcon-Apple" />
+    </g>
+    <g id="Printer">
+      <rect
+          width="320"
+          height="180"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+    </g>
+    <g id="Camera">
+      <rect
+          width="320"
+          height="180"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+    </g>
+    <g id="TV">
+      <rect
+          width="320"
+          height="180"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+    </g>
+    <g id="Bluray">
+      <rect
+          width="320"
+          height="180"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+    </g>
+
+    <g id="Empty">
+      <rect
+          width="64"
+          height="36"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+    </g>
+
+    <g id="Xen_vert">
+      <rect
+          width="64"
+          height="208"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <use x="20" y="20" xlink:href="#XenDom0Vert" />
+      <line
+          x1="0" y1="44" x2="72" y2="44"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <use x="20" y="240" xlink:href="#Server" />
+      <use x="20" y="440" xlink:href="#Server" />
+      <use x="20" y="640" xlink:href="#Server" />
+      <use x="20" y="840" xlink:href="#Server" />
+    </g>
+    <g id="Xen_hor">
+      <rect
+          width="976"
+          height="100"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <use x="20" y="20" xlink:href="#XenDom0Hor" />
+      <line
+          x1="360" y1="0" x2="360" y2="220"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <use x="380" y="20" xlink:href="#Server" />
+      <use x="720" y="20" xlink:href="#Server" />
+      <use x="1060" y="20" xlink:href="#Server" />
+      <use x="1400" y="20" xlink:href="#Server" />
+    </g>
+    <g id="Xen_hor2">
+      <rect
+          width="355"
+          height="87"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="5" y="5" xlink:href="#XenDom0Hor" />
+      <line
+          x1="74" y1="0"
+          x2="74" y2="87"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="79" y="5" xlink:href="#Server" />
+      <use x="148" y="5" xlink:href="#Server" />
+      <use x="217" y="5" xlink:href="#Server" />
+      <use x="286" y="5" xlink:href="#Server" />
+      <use x="79" y="46" xlink:href="#Server" />
+      <use x="148" y="46" xlink:href="#Server" />
+      <use x="217" y="46" xlink:href="#Server" />
+      <use x="286" y="46" xlink:href="#Server" />
+    </g>
+    <g id="WAPs">
+      <rect
+          width="84"
+          height="190"
+          style="fill: #333333; stroke-width: 1; stroke: #18CAE6"
+          />
+      <use x="10" y="10" xlink:href="#WAP" />
+      <use x="10" y="54" xlink:href="#WAP" />
+      <use x="10" y="98" xlink:href="#WAP" />
+      <use x="10" y="146" xlink:href="#WAP" />
+    </g>
+    <g id="WifiNetwork">
+      <rect
+          width="482"
+          height="254"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <line
+          x1="104" y1="0" x2="104" y2="254"
+          style="fill: #333333; stroke-width: 5; stroke: #18CAE6"
+          />
+      <use x="10" y="54" xlink:href="#WAPs" />
+      <use x="114" y="64" xlink:href="#Laptop" />
+      <use x="114" y="110" xlink:href="#Laptop" />
+      <use x="114" y="156" xlink:href="#Cellphone" />
+      <use x="114" y="202" xlink:href="#Cellphone" />
+      <use x="188" y="64" xlink:href="#Ipad" />
+      <use x="188" y="110" xlink:href="#Kindle" />
+      <use x="188" y="156" xlink:href="#Kindle" />
+      <use x="188" y="202" xlink:href="#Wii" />
+      <use x="262" y="64" xlink:href="#Empty" />
+      <use x="262" y="110" xlink:href="#Empty" />
+      <use x="262" y="156" xlink:href="#Empty" />
+      <use x="262" y="202" xlink:href="#Empty" />
+      <use x="334" y="64" xlink:href="#Empty" />
+      <use x="334" y="110" xlink:href="#Empty" />
+      <use x="334" y="156" xlink:href="#Empty" />
+      <use x="334" y="202" xlink:href="#Empty" />
+      <use x="408" y="64" xlink:href="#Empty" />
+      <use x="408" y="110" xlink:href="#Empty" />
+      <use x="408" y="156" xlink:href="#Empty" />
+      <use x="408" y="202" xlink:href="#Empty" />
+    </g>
+    <g id="CerberusConnections">
+      <use x="84" y="0" xlink:href="#WifiNetwork" />
+      <use x="10" y="448" xlink:href="#Switch" />
+      <use x="84" y="262" xlink:href="#Workstation" />
+      <use x="156" y="262" xlink:href="#Workstation" />
+      <use x="228" y="262" xlink:href="#Workstation" />
+      <use x="290" y="262" xlink:href="#Workstation" />
+      <use x="362" y="262" xlink:href="#Workstation" />
+      <use x="84" y="308" xlink:href="#Server" />
+      <use x="156" y="308" xlink:href="#Server" />
+      <use x="228" y="308" xlink:href="#Server" />
+      <use x="290" y="308" xlink:href="#Server" />
+      <use x="362" y="308" xlink:href="#Server" />
+      <use x="84" y="356" xlink:href="#Xen_hor2" />
+    </g>
+    <g id="SwitchConnections">
+      <use x="0" y="0" xlink:href="#Server" />
+      <use x="69" y="0" xlink:href="#Server" />
+      <use x="138" y="0" xlink:href="#Server" />
+      <use x="207" y="0" xlink:href="#Server" />
+      <use x="276" y="0" xlink:href="#Server" />
+      <use x="345" y="0" xlink:href="#Server" />
+      <use x="414" y="0" xlink:href="#Server" />
+      <use x="0" y="46" xlink:href="#Server" />
+      <use x="69" y="46" xlink:href="#Server" />
+      <use x="138" y="46" xlink:href="#Server" />
+      <use x="207" y="46" xlink:href="#Server" />
+      <use x="276" y="46" xlink:href="#Server" />
+      <use x="345" y="46" xlink:href="#Server" />
+      <use x="414" y="46" xlink:href="#Server" />
+      <use x="0" y="92" xlink:href="#Server" />
+      <use x="69" y="92" xlink:href="#Server" />
+      <use x="138" y="92" xlink:href="#Server" />
+      <use x="207" y="92" xlink:href="#Server" />
+      <use x="276" y="92" xlink:href="#Server" />
+      <use x="345" y="92" xlink:href="#Server" />
+      <use x="414" y="92" xlink:href="#Server" />
+      <use x="0" y="138" xlink:href="#Xen_hor2" />
+    </g>
+
+    <g id="DMZ">
+      <rect
+          width="720"
+          height="3520"
+          style="fill: #111111; stroke-width: 5; stroke: #FFFFFF"
+          />
+      <use x="20" y="20" xlink:href="#Networking" />
+      <use x="360" y="200" xlink:href="#Server" />
+      <use x="360" y="400" xlink:href="#Server" />
+      <use x="360" y="600" xlink:href="#Server" />
+      <use x="360" y="800" xlink:href="#Server" />
+      <use x="360" y="1000" xlink:href="#Server" />
+      <use x="360" y="1200" xlink:href="#Server" />
+      <use x="360" y="1400" xlink:href="#Server" />
+      <use x="360" y="1600" xlink:href="#Server" />
+      <use x="360" y="1800" xlink:href="#Server" />
+      <use x="360" y="2000" xlink:href="#Server" />
+      <use x="360" y="2200" xlink:href="#Server" />
+      <use x="360" y="2400" xlink:href="#Server" />
+      <use x="360" y="2600" xlink:href="#Server" />
+      <use x="360" y="2800" xlink:href="#Server" />
+      <use x="360" y="3000" xlink:href="#Server" />
+      <use x="360" y="3200" xlink:href="#Server" />
+    </g>
+    <g id="DMZSupp">
+      <rect
+          width="720"
+          height="3520"
+          style="fill: #111111; stroke-width: 5; stroke: #FFFFFF"
+          />
+      <use x="20" y="20" xlink:href="#Networking" />
+      <use x="360" y="200" xlink:href="#Server" />
+      <use x="360" y="400" xlink:href="#Server" />
+      <use x="360" y="600" xlink:href="#Server" />
+      <use x="360" y="800" xlink:href="#Server" />
+      <use x="360" y="1000" xlink:href="#Server" />
+      <use x="360" y="1200" xlink:href="#Server" />
+      <use x="360" y="1400" xlink:href="#Server" />
+      <use x="360" y="1600" xlink:href="#Server" />
+      <use x="360" y="1800" xlink:href="#Server" />
+      <use x="360" y="2000" xlink:href="#Server" />
+      <use x="360" y="2200" xlink:href="#Server" />
+      <use x="360" y="2400" xlink:href="#Xen_vert" />
+    </g>
+    <g id="InternalNetwork">
+      <rect
+          width="700"
+          height="952"
+          style="fill: #332222; stroke-width: 5; stroke: #FFFFFF"
+        />
+    <use x="10" y="10" xlink:href="#Router" />
+    <use x="74" y="10" xlink:href="#CerberusConnections" />
+    <use x="158" y="458" xlink:href="#SwitchConnections" />
+    <use x="158" y="696" xlink:href="#SwitchConnections" />
+  </g>
+
+  </defs>
+  <g id="Outside Connections">
+    <use x="660" y="40" xlink:href="#Internet" />
+    <use x="660" y="340" xlink:href="#Router" />
+    <use x="880" y="400" xlink:href="#Networking" />
+  </g>
+
+  <use x="0" y="400" xlink:href="#InternalNetwork" />
+  <use x="660" y="400" xlink:href="#DMZ" />
+  <use x="880" y="400" xlink:href="#DMZSupp" />
+
+
+</svg>

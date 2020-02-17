@@ -186,7 +186,7 @@ shopping_list:
 # ======================================================================
 mqtt:
   broker: angelia.olympus.drbr.org
-  #port: 8883
+  port: 1883
   username: homeassistant
   password: !secret mqtt_password
 
@@ -195,15 +195,16 @@ system_health:
 zeroconf:
 zwave:
   usb_path: /dev/ttyACM0
-  #device_config: !include includes/zwave/zwave.yaml
+  device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_key
 
 
-##############################################################
+# ======================================================================
 #
 # Custom Addons
 #
-##############################################################
+# ======================================================================
+breaking_changes:
 
 #fontawesome:
 #  regular:

@@ -450,11 +450,7 @@
   },
   "node-red-contrib-home-assistant-websocket": {
    "name": "node-red-contrib-home-assistant-websocket",
-<<<<<<< HEAD
    "version": "0.19.5",
-=======
-   "version": "0.19.3",
->>>>>>> b3bd9a4f9defaf43ab5f61d521a95bb52f2e1e74
    "local": false,
    "nodes": {
     "server": {
@@ -1199,11 +1195,7 @@
   },
   "node-red-node-email": {
    "name": "node-red-node-email",
-<<<<<<< HEAD
    "version": "1.7.6",
-=======
-   "version": "1.7.4",
->>>>>>> b3bd9a4f9defaf43ab5f61d521a95bb52f2e1e74
    "local": false,
    "nodes": {
     "email": {
@@ -1326,11 +1318,7 @@
   },
   "node-red-node-rbe": {
    "name": "node-red-node-rbe",
-<<<<<<< HEAD
    "version": "0.2.8",
-=======
-   "version": "0.2.6",
->>>>>>> b3bd9a4f9defaf43ab5f61d521a95bb52f2e1e74
    "local": false,
    "nodes": {
     "rbe": {
@@ -1449,20 +1437,6 @@
      "local": false,
      "module": "node-red-node-twitter",
      "file": "/opt/node_modules/node-red-node-twitter/27-twitter.js"
-    }
-   }
-  }
- },
- "users": {
-  "_": {
-   "editor": {
-    "view": {
-     "view-show-grid": true,
-     "view-snap-grid": true,
-     "view-grid-size": 20,
-     "view-node-status": true,
-     "view-node-show-label": true,
-     "view-show-tips": true
     }
    }
   }

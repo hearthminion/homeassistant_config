@@ -23,13 +23,14 @@ automation:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Den Couch Right: Circadian Lighting (With Brightness Adjustment)'
+  - alias: '[Light] Den Couch Lamp 2: Circadian Lighting (With Brightness Adjustment)'
+    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_den_couch_right_autobrightness
+        entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
         to: 'on'
     condition:
       condition: and
@@ -39,17 +40,18 @@ automation:
     action:
       - service: switch.turn_on
         entity_id:
-          - switch.circadian_lighting_den_couch_right_with_brightness_adjustment
+          - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
       - service: switch.turn_off
 
         entity_id:
-          - switch.circadian_lighting_den_couch_right_without_brightness_adjustment
+          - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
 
   - id: '1579090724953'
-    alias: '[Light] Den Couch Right: Circadian Lighting (without Brightness adjust)'
+    alias: '[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
     trigger:
       - platform: state
-        entity_id: binary_sensor.light_den_couch_right_autobrightness
+        entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
         to: 'off'
     condition:
       condition: and
@@ -59,10 +61,10 @@ automation:
     action:
       - service: switch.turn_on
         entity_id:
-          - switch.circadian_lighting_den_couch_right_without_brightness_adjustment
+          - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
       - service: switch.turn_off
         entity_id:
-          - switch.circadian_lighting_den_couch_right_with_brightness_adjustment
+          - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
 
   # ======================================================================
   #
@@ -77,7 +79,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Den Couch Left: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Den Couch Lamp 1: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -87,34 +89,34 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_den_couch_left_with_brightness_adjustment
+            - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_den_couch_left_without_brightness_adjustment
+            - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
 
-  - alias: '[Light] Den Couch Left: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_main_couch_left_brightness
+      entity_id: sensor.light_main_couch_lamp_1_brightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
         - condition: state
-          entity_id: switch.circadian_lighting_den_couch_left_with_brightness_adjustment
+          entity_id: switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
           state: 'on'
     action:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_den_couch_left_without_brightness_adjustment
+            - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_den_couch_left_with_brightness_adjustment
+            - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
 
 
   # ======================================================================
@@ -130,7 +132,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Fireplace: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Den Fireplace: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -140,24 +142,24 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_fireplace_with_brightness_adjustment
+            - switch.circadian_lighting_den_fireplace_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_fireplace_without_brightness_adjustment
+            - switch.circadian_lighting_den_fireplace_without_brightness_adjustment
 
   - alias: '[Light] Fireplace: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_main_fireplace_brightness
+      entity_id: sensor.light_den_fireplace_brightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
         - condition: state
-          entity_id: switch.circadian_lighting_fireplace_with_brightness_adjustment
+          entity_id: switch.circadian_lighting_den_fireplace_with_brightness_adjustment
           state: 'on'
     action:
       - service: switch.turn_on
@@ -462,28 +464,28 @@ switch:
   #
   # =========================================
   - platform: circadian_lighting
-    name: "Den Couch Right (without Brightness Adjustment)"
+    name: "Den Couch Lamp 2 (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_6
+      - light.den_couch_lamp_2
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Den Couch Right (with Brightness Adjustment)"
+    name: "Den Couch Lamp 2 (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_6
+      - light.den_couch_lamp_2
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
-    name: "Den Couch Left (without Brightness Adjustment)"
+    name: "Den Couch Lamp 1 (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_7
+      - light.den_couch_lamp_1
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Den Couch Left (with Brightness Adjustment)"
+    name: "Den Couch Lamp 1 (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_7
+      - light.den_couch_lamp_1
     disable_brightness_adjust: false
     min_brightness: 25
 

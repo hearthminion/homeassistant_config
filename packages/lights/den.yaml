@@ -41,6 +41,7 @@ automation:
         entity_id:
           - switch.circadian_lighting_den_couch_right_with_brightness_adjustment
       - service: switch.turn_off
+
         entity_id:
           - switch.circadian_lighting_den_couch_right_without_brightness_adjustment
 

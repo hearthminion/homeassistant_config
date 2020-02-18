@@ -1,0 +1,96 @@
+
+b8_d7_af_6b_9a_e3:
+  hide_if_away: false
+  icon:
+  mac: B8:D7:AF:6B:9A:E3
+  name: b8 d7 af 6b 9a e3
+  picture:
+  track: true
+
+b8_d7_af_78_0f_3c:
+  hide_if_away: false
+  icon:
+  mac: B8:D7:AF:78:0F:3C
+  name: b8 d7 af 78 0f 3c
+  picture:
+  track: true
+
+78_ab_bb_7b_6c_94:
+  hide_if_away: false
+  icon:
+  mac: 78:AB:BB:7B:6C:94
+  name: 78 ab bb 7b 6c 94
+  picture:
+  track: true
+
+e4_e4_ab_f0_3e_cc:
+  hide_if_away: false
+  icon:
+  mac: E4:E4:AB:F0:3E:CC
+  name: e4 e4 ab f0 3e cc
+  picture:
+  track: true
+
+00_bb_3a_ec_53_f8:
+  hide_if_away: false
+  icon:
+  mac: 00:BB:3A:EC:53:F8
+  name: 00 bb 3a ec 53 f8
+  picture:
+  track: true
+
+24_f0_94_9d_06_2d:
+  hide_if_away: false
+  icon:
+  mac: 24:F0:94:9D:06:2D
+  name: 24 f0 94 9d 06 2d
+  picture:
+  track: true
+
+g_derber_s_ipad:
+  hide_if_away: false
+  icon:
+  mac: BT_E4:E4:AB:F0:3E:CD
+  name: G Derber's iPad
+  picture:
+  track: true
+
+galaxy_note8:
+  hide_if_away: false
+  icon:
+  mac: BT_94:8B:C1:AD:23:AB
+  name: Galaxy Note8
+  picture:
+  track: true
+
+f8_28_19_e1_a7_5f:
+  hide_if_away: false
+  icon:
+  mac: F8:28:19:E1:A7:5F
+  name: f8 28 19 e1 a7 5f
+  picture:
+  track: true
+
+90_81_2a_de_55_e1:
+  hide_if_away: false
+  icon:
+  mac: 90:81:2A:DE:55:E1
+  name: 90 81 2a de 55 e1
+  picture:
+  track: true
+
+bc_ec_5d_38_a9_00:
+  hide_if_away: false
+  icon:
+  mac: BC:EC:5D:38:A9:00
+  name: bc ec 5d 38 a9 00
+  picture:
+  track: true
+
+ipad:
+  hide_if_away: false
+  icon:
+  mac: BT_BC:EC:5D:38:A9:01
+  name: iPad
+  picture:
+  track: true

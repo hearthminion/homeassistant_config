@@ -45,6 +45,7 @@ device_tracker.24_f0_94_9d_06_2d:
   friendly_name: 24f0949d062d
 device_tracker.78_ab_bb_7b_6c_94:
   friendly_name: Samsung Bluray Player
+  icon: mdi:disc-player
 automation.start_sleep_timer: {}
 device_tracker.90_81_2a_de_55_e1:
   friendly_name: 90812ade55e1

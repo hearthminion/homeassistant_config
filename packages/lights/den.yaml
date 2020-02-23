@@ -2,6 +2,19 @@
 #
 # Den Lighting Configuration
 #
+# Lights:
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#
 # ======================================================================
 
 # ======================================================================
@@ -12,7 +25,7 @@
 automation:
   # ====================================================================
   #
-  # Light fixture: Den Couch Lamp Right
+  # Light fixture: Den Couch Lamp 2
   #
   # Lights:
   #   - 
@@ -68,7 +81,7 @@ automation:
 
   # ======================================================================
   #
-  # Light fixture: Den Couch Lamp: Left
+  # Light fixture: Den Couch Lamp 1
   #
   # Lights:
   #   - 
@@ -327,21 +340,21 @@ binary_sensor:
   - platform: template
     sensors:
       light_den_couch_right_autobrightness:
-        friendly_name: "[Light] Den Couch Right Autobrightness"
+        friendly_name: "[Light] Den Couch Lamp 2 Autobrightness"
         value_template: >-
-          {{ ( states('sensor.light_den_couch_right_circadian_brightness') | int ) < ( states('sensor.light_den_couch_right_brightness_max') | int )
-             and ( states('sensor.light_den_couch_right_circadian_brightness') | int  ) > ( states('sensor.light_den_couch_right_brightness_min') | int ) }}
+          {{ ( states('sensor.light_den_couch_lamp_2_circadian_brightness') | int ) < ( states('sensor.light_den_couch_lamp_2_brightness_max') | int )
+             and ( states('sensor.light_den_couch_lamp_2_circadian_brightness') | int  ) > ( states('sensor.light_den_couch_lamp_2_brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_den_couch_right_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.den_couch_lamp_right','brightness', 'unknown') %}
+            {% if is_state_attr('light.den_couch_lamp_2','brightness', 'unknown') %}
               100
             {% else %}
-              {{ ( state_attr('light.den_couch_lamp_right','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr('light.den_couch_lamp_2','brightness') / 254 * 100 ) | int }}
             {% endif %}
           xy_color: >-
-            {{ state_attr('light.den_couch_lamp_right','xy_color') }}
+            {{ state_attr('light.den_couch_lamp_2','xy_color') }}
 
 # ======================================================================
 #
@@ -387,13 +400,13 @@ binary_sensor:
 sensor:
   - platform: template
     sensors:
-      light_den_couch_right_circadian_brightness:
-        friendly_name: "[Light] Den Couch Lamp Right: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_den_couch_right_with_brightness_adjustment','brightness') | round(0) }}"
+      light_den_couch_lamp_1_circadian_brightness:
+        friendly_name: "[Light] Den Couch Lamp 1: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_den_couch_1_with_brightness_adjustment','brightness') | round(0) }}"
         unit_of_measurement: '%'
-      light_den_couch_left_circadian_brightness:
-        friendly_name: "[Light] Den Couch Lamp Left: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_den_couch_left_with_brightness_adjustment','brightness') | round(0) }}"
+      light_den_couch_lamp_2_circadian_brightness:
+        friendly_name: "[Light] Den Couch Lamp 2: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_den_couch_2_with_brightness_adjustment','brightness') | round(0) }}"
         unit_of_measurement: '%'
       light_den_tower_lamp_circadian_brightness:
         friendly_name: "[Light] Den Tower Lamp: Circadian Brightness"
@@ -403,25 +416,25 @@ sensor:
         friendly_name: "[Light] Den Fireplace Light: Circadian Brightness"
         value_template: "{{ state_attr('switch.circadian_lighting_den_fireplace_with_brightness_adjustment','brightness') | round(0) }}"
         unit_of_measurement: '%'
-      light_den_sitting_area_circadian_brigthness:
-        friendly_name: "[Light] Den Sitting Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_den_sitting_area_with_brightness_adjustment','brightness') | round(0) }}"
+      light_den_ceiling_circadian_brigthness:
+        friendly_name: "[Light] Den Ceiling: Circadian Brightness"
+        value_template: "{{ state_attr('switch.circadian_lighting_den_ceiling_with_brightness_adjustment','brightness') | round(0) }}"
         unit_of_measurement: '%'
       light_den_table_lamp_circadian_brigthness:
         friendly_name: "[Light] Den Table Lamp: Circadian Brightness"
         value_template: "{{ state_attr('switch.circadian_lighting_den_table_lamp_with_brightness_adjustment','brightness') | round(0) }}"
         unit_of_measurement: '%'
-      light_den_couch_right_brightness:
-        friendly_name: "[Light] Den Couch Lamp Right: Brightness"
-        value_template:  "{{ ( state_attr('light.den_couch_lamp_right','brightness') / 254 * 100 ) | int }}"
+      light_den_couch_lamp_1_brightness:
+        friendly_name: "[Light] Den Couch Lamp 1: Brightness"
+        value_template:  "{{ ( state_attr('light.den_couch_lamp_1','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
-      light_den_couch_right_brightness_max:
-        friendly_name: "[Light] Den Couch Lamp Right: Max Brightness"
-        value_template:  "{{ states('sensor.light_den_couch_right_brightness') | int + 4 }}"
+      light_den_couch_lamp_1_brightness_max:
+        friendly_name: "[Light] Den Couch Lamp 1: Max Brightness"
+        value_template:  "{{ states('sensor.light_den_couch_lamp_1_brightness') | int + 4 }}"
         unit_of_measurement: '%'
-      light_den_couch_right_brightness_min:
-        friendly_name: "[Light] Den Couch Lamp Right: Min Brightness"
-        value_template:  "{{ states('sensor.light_den_couch_right_brightness') | int - 4 }}"
+      light_den_couch_lamp_1_brightness_min:
+        friendly_name: "[Light] Den Couch Lamp 1: Min Brightness"
+        value_template:  "{{ states('sensor.light_den_couch_lamp_1_brightness') | int - 4 }}"
         unit_of_measurement: '%'
       # light_den_couch_right_brightness_diff:
       #   friendly_name: "[Light] Den Couch Lamp Right: Brightness Difference"
@@ -431,9 +444,17 @@ sensor:
       #   friendly_name: "[Light] Den Couch Lamp Right: Absolute Brightness Difference"
       #   value_template:  "{{ states('sensor.light_den_couch_right_circadian_brightness_diff') | abs }}"
       #   unit_of_measurement: '%'
-      light_den_couch_left_brightness:
-        friendly_name: "[Light] Den Couch Lamp Left: Brightness"
-        value_template:  "{{ ( state_attr('light.den_couch_lamp_left','brightness') / 254 * 100 ) | int }}"
+      light_den_couch_lamp_2_brightness:
+        friendly_name: "[Light] Den Couch Lamp 2: Brightness"
+        value_template:  "{{ ( state_attr('light.den_couch_lamp_2','brightness') / 254 * 100 ) | int }}"
+        unit_of_measurement: '%'
+      light_den_couch_lamp_2_brightness_max:
+        friendly_name: "[Light] Den Couch Lamp 2: Max Brightness"
+        value_template:  "{{ states('sensor.light_den_couch_lamp_2_brightness') | int + 4 }}"
+        unit_of_measurement: '%'
+      light_den_couch_lamp_2_brightness_min:
+        friendly_name: "[Light] Den Couch Lamp 2: Min Brightness"
+        value_template:  "{{ states('sensor.light_den_couch_lamp_2_brightness') | int - 4 }}"
         unit_of_measurement: '%'
       light_den_tower_lamp_brightness:
         friendly_name: "[Light] Den Tower Lamp: Brightness"
@@ -448,8 +469,8 @@ sensor:
         value_template:  "{{ ( state_attr('light.den_fireplace','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
       light_den_sitting_area_brightness:
-        friendly_name: "[Light] Den Sitting Area: Brightness"
-        value_template:  "{{ ( state_attr('light.den_sitting_area','brightness') / 254 * 100 ) | int }}"
+        friendly_name: "[Light] Den Ceiling: Brightness"
+        value_template:  "{{ ( state_attr('light.den_ceiling','brightness') / 254 * 100 ) | int }}"
         unit_of_measurement: '%'
 
 # ======================================================================
@@ -464,19 +485,6 @@ switch:
   #
   # =========================================
   - platform: circadian_lighting
-    name: "Den Couch Lamp 2 (without Brightness Adjustment)"
-    lights_ct:
-      - light.den_couch_lamp_2
-    disable_brightness_adjust: true
-
-  - platform: circadian_lighting
-    name: "Den Couch Lamp 2 (with Brightness Adjustment)"
-    lights_ct:
-      - light.den_couch_lamp_2
-    disable_brightness_adjust: false
-    min_brightness: 25
-
-  - platform: circadian_lighting
     name: "Den Couch Lamp 1 (without Brightness Adjustment)"
     lights_ct:
       - light.den_couch_lamp_1
@@ -490,53 +498,66 @@ switch:
     min_brightness: 25
 
   - platform: circadian_lighting
+    name: "Den Couch Lamp 2 (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_2
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Den Couch Lamp 2 (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_2
+    disable_brightness_adjust: false
+    min_brightness: 25
+
+  - platform: circadian_lighting
     name: "Den Fireplace (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_25
+      - light.den_fireplace
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Den Fireplace (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_25
+      - light.den_fireplace
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
-    name: "Den Sitting Area (without Brightness Adjustment)"
+    name: "Den Ceiling (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_8
+      - light.den_ceiling
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Den Sitting Area (with Brightness Adjustment)"
+    name: "Den Ceiling (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_8
+      - light.den_ceiling
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Den Tower Lamp (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_3
+      - light.den_tower_lamp
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Den Tower Lamp (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_3
+      - light.den_tower_lamp
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
     name: "Den Table Lamp (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_27
+      - light.den_table_lamp
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Den Table Lamp (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_27
+      - light.den_table_lamp
     disable_brightness_adjust: false
     min_brightness: 25

@@ -15,6 +15,7 @@
 #   - light.main_lamp_
 #   - light.main_lamp_
 #
+# Light Groups:
 # ======================================================================
 
 # ======================================================================
@@ -130,7 +131,6 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
-
 
   # ======================================================================
   #

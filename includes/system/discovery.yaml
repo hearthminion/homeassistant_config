@@ -1,4 +1,4 @@
-ignore:
-  - samsung_tv
+#ignore:
+#  - samsung_tv
 #  enable:
 #    - homekit

@@ -25,6 +25,7 @@ life360.sh
 .ring_cache.pickle
 .spotify-token-cache
 .storage
+.gitconfig
 abodepy_cache.pickle
 camera_recording.py
 home-assistant.env

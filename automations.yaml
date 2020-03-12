@@ -52,20 +52,14 @@
   action:
   - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
     service: switch.turn_on
-# - id: '1579090724953'
-#   alias: Test
-#   description: ''
-#   trigger:
-#   - entity_id: binary_sensor.light_den_couch_right_autobrightness
-#     platform: state
-#     to: 'off'
-#   condition:
-#   - condition: state
-#     entity_id: input_select.light_mode
-#     state: Circadian
-#   action:
-#   - data: {}
-#     entity_id: switch.circadian_lighting_den_couch_right_without_brightness_adjustment
-#     service: switch.turn_on
-#   - entity_id: switch.circadian_lighting_den_couch_right_with_brightness_adjustment
-#     service: switch.turn_off
+- id: '1583021078875'
+  alias: Turn On Master Lamp 2 at Night
+  description: ''
+  trigger:
+  - at: '19:00'
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.master_lamp_2
+    service: light.turn_on

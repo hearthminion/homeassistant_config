@@ -74,3 +74,7 @@ sensor.dark_sky_pressure_7d:
   hidden: true
 light.hallway_color_bulb:
   hidden: true
+device_tracker.b8_d7_af_6b_9a_e3:
+  friendly_name: b8d7af6b9ae3
+device_tracker.bc_ec_5d_38_a9_00:
+  friendly_name: bcec5d38a900

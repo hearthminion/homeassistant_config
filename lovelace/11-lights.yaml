@@ -212,19 +212,22 @@
                   title: "Back Bedroom Lights"
                 filter:
                   include:
-                    - entity_id: 'light.back_bedroom*'
+                    - entity_id: 'light.bedroom_2_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'switch.circadian_lighting_back_bedroom*'
+                    - entity_id: 'switch.circadian_lighting_bedroom_2_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'sensor.light_back_bedroom*'
+                    - entity_id: 'sensor.light_bedroom_2_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'automation.light_back_bedroom*'
+                    - entity_id: 'binary_sensor.light_bedroom_2_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'scene.light_back_bedroom*'
+                    - entity_id: 'automation.light_bedroom_2_*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_bedroom_2_*'
                       options:
                         secondary_info: last-changed
               - type: custom:auto-entities

@@ -1,19 +1,19 @@
 # ======================================================================
 #
-# Back Bedroom Lighting Configuration
+# Bedroom 2 Lighting Configuration
 #
 # Lights:
-#   light.main_lamp_22: Back Bedroom Ceiling Lightbulb
-#   light.main_lamp_28: Back Bedroom Closet Lightbulb
+#   light.main_lamp_22: Bedroom 2 Ceiling Lightbulb
+#   light.main_lamp_28: Bedroom 2 Closet Lightbulb
 # Light Groups:
-#   light.back_bedroom_ceiling
+#   light.bedroom_2_ceiling
 #     hue lights: 22
-#   light.back_bedroom_closet
+#   light.bedroom_2_closet
 #     hue lights: 28
 #
 # Hue "Homeassistant" Scene IDs:
-#   Back Bedroom Ceiling: qS-eiYbXIwAXNSl
-#   Back Bodreom Closet: 
+#   Bedroom 2 Ceiling: qS-eiYbXIwAXNSl
+#   Bedroom 2 Closet: 
 #
 # ======================================================================
 
@@ -25,13 +25,13 @@
 automation:
   # ====================================================================
   #
-  # Light Group: Back Bedroom Ceiling Lights
+  # Light Group: Bedroom 2 Ceiling Lights
   #
   # Automations:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Back Bedroom Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Bedroom 2 Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -41,17 +41,17 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_ceiling_lights_without_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_ceiling_lights_without_brightness_adjustment
 
-  - alias: '[Light] Back Bedroom Ceiling Light: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Bedroom 2 Ceiling Light: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
-        entity_id: sensor.light_back_bedroom_ceiling_lights_autobrightness
+        entity_id: sensor.light_bedroom_2_ceiling_lights_autobrightness
         to: 'off'
     condition:
       condition: and
@@ -62,21 +62,21 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_ceiling_lights_without_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_ceiling_lights_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment
 
   # ======================================================================
   #
-  # Light fixture: Back Bedroom Closet
+  # Light fixture: Bedroom 2 Closet
   #
   # Automations:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Back Bedroom Closet: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Bedroom 2 Closet: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -86,17 +86,17 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_closet_without_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_closet_without_brightness_adjustment
 
-  - alias: '[Light] Back Bedroom Closet: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Bedroom 2 Closet: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
-        entity_id: binary_sensor.light_back_bedroom_closet_autobrightness
+        entity_id: binary_sensor.light_bedroom_2_closet_autobrightness
         to: 'off'
     condition:
       condition: and
@@ -107,11 +107,11 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_closet_without_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_closet_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment
+            - switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment
 
 # ======================================================================
 #
@@ -121,28 +121,28 @@ automation:
 binary_sensor:
   - platform: template
     sensors:
-      light_back_bedroom_ceiling_autobrightness:
-        friendly_name: "[Light] Back Bedroom Ceiling Autobrightness"
+      light_bedroom_2_ceiling_autobrightness:
+        friendly_name: "[Light] Bedroom 2 Ceiling Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_back_bedroom_ceiling_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_bedroom_2_ceiling_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.back_bedroom_ceiling','brightness', 'unknown') %}
+            {% if is_state_attr('light.bedroom_2_ceiling','brightness', 'unknown') %}
               100
             {% else %}
-              {{ ( state_attr('light.back_bedroom_ceiling','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr('light.bedroom_2_ceiling','brightness') / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            "{{ state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'brightness') | int + 4 }}"
+            "{{ state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness') | int + 4 }}"
           brightness_min: >-
-            "{{ state_attr('binary_sensor.light_back_bedroom_ceiling_autobrightness', 'brightness') | int - 4 }}"
+            "{{ state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness') | int - 4 }}"
           xy_color: >-
-            {{ state_attr('light.back_bedroom_ceiling','xy_color') }}
+            {{ state_attr('light.bedroom_2_ceiling','xy_color') }}
           #colortemp: >-
-          #  {{ state_attr('light.back_bedroom_ceiling','color_temp') }}
+          #  {{ state_attr('light.bedroom_2_ceiling','color_temp') }}
 
 # ======================================================================
 #
@@ -150,8 +150,8 @@ binary_sensor:
 #
 # ======================================================================
 input_select:
-  hue_scene_back_bedroom_bedroom:
-    name: "[Light] Back Bedroom Scene"
+  hue_scene_bedroom_2_bedroom:
+    name: "[Light] Bedroom 2 Scene"
     icon: mdi:palette
     initial: 'Circadian'
     options:
@@ -207,7 +207,7 @@ input_select:
 # ======================================================================
 # ======================================================================
 #
-# Group: Back Bedroom Ceiling
+# Group: Bedroom 2 Ceiling
 # Scene_ID: qS-eiYbXIwAXNSl
 # Lights: 22
 #
@@ -219,9 +219,9 @@ input_select:
 #
 # ======================================================================
 #scene:
-#  - name: "[Light] Back Bedroom: Darken Room"
+#  - name: "[Light] Bedroom 2: Darken Room"
 #    entities:
-#      light.back_bedroom_ceiling:
+#      light.bedroom_2_ceiling:
 
 # ======================================================================
 #
@@ -231,21 +231,21 @@ input_select:
 # sensor:
 #   - platform: template
 #     sensors:
-#       light_back_bedroom_ceiling_circadian_brightness:
-#         friendly_name: "[Light] Back Bedroom Ceiling Lights: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_back_bedroom_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
+#       light_bedroom_2_ceiling_circadian_brightness:
+#         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
 #         unit_of_measurement: '%'
-#       light_back_bedroom_closet_circadian_brightness:
-#         friendly_name: "[Light] Back Bedroom Closet: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_back_bedroom_closet_with_brightness_adjustment','brightness') | round(0) }}"
+#       light_bedroom_2_closet_circadian_brightness:
+#         friendly_name: "[Light] Bedroom 2 Closet: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment','brightness') | round(0) }}"
 #         unit_of_measurement: '%'
-#       light_back_bedroom_ceiling_brightness:
-#         friendly_name: "[Light] Back Bedroom Ceiling Lights: Brightness"
-#         value_template:  "{{ ( state_attr('light.back_bedroom_ceiling','brightness') / 254 * 100 ) | int }}"
+#       light_bedroom_2_ceiling_brightness:
+#         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Brightness"
+#         value_template:  "{{ ( state_attr('light.bedroom_2_ceiling','brightness') / 254 * 100 ) | int }}"
 #         unit_of_measurement: '%'
-#       light_back_bedroom_closet_brightness:
-#         friendly_name: "[Light] Back Bedroom Closet: Brightness"
-#         value_template:  "{{ ( state_attr('light.back_bedroom_closet','brightness') / 254 * 100 ) | int }}"
+#       light_bedroom_2_closet_brightness:
+#         friendly_name: "[Light] Bedroom 2 Closet: Brightness"
+#         value_template:  "{{ ( state_attr('light.bedroom_2_closet','brightness') / 254 * 100 ) | int }}"
 #         unit_of_measurement: '%'
 
 # ======================================================================
@@ -256,31 +256,31 @@ input_select:
 switch:
   # ========================================
   #
-  # Back Bedroom
+  # Bedroom 2
   #
   # =========================================
   - platform: circadian_lighting
-    name: "Back Bedroom Ceiling Lights (without Brightness Adjustment)"
+    name: "Bedroom 2 Ceiling Lights (without Brightness Adjustment)"
     lights_ct:
-      - light.back_bedroom_ceiling
+      - light.bedroom_2_ceiling
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Back Bedroom Ceiling Lights (with Brightness Adjustment)"
+    name: "Bedroom 2 Ceiling Lights (with Brightness Adjustment)"
     lights_ct:
-      - light.back_bedroom_ceiling
+      - light.bedroom_2_ceiling
     disable_brightness_adjust: false
     min_brightness: 25
 
   - platform: circadian_lighting
-    name: "Back Bedroom Closet (without Brightness Adjustment)"
+    name: "Bedroom 2 Closet (without Brightness Adjustment)"
     lights_ct:
-      - light.back_bedroom_closet
+      - light.bedroom_2_closet
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Back Bedroom Closet (with Brightness Adjustment)"
+    name: "Bedroom 2 Closet (with Brightness Adjustment)"
     lights_ct:
-      - light.back_bedroom_closet
+      - light.bedroom_2_closet
     disable_brightness_adjust: false
     min_brightness: 25

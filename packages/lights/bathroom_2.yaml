@@ -204,20 +204,20 @@ scene:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_guest_bath_ceiling_circadian_brightness:
-        friendly_name: "[Light] Guest Bath Ceiling Lights: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_guest_bath_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_guest_bath_ceiling_brightness:
-        friendly_name: "[Light] Guest Bath Ceiling Lights: Brightness"
-        value_template:  "{{ (state_attr('light.guest_bath','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_guest_bath_ceiling_xy_color:
-        friendly_name: "[Light] Guest Bath Center Ceiling Light: XY Color"
-        value_template: "{{ state_attr('light.main_lamp_9','xy_color') }}"
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_guest_bath_ceiling_circadian_brightness:
+#         friendly_name: "[Light] Guest Bath Ceiling Lights: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_guest_bath_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_guest_bath_ceiling_brightness:
+#         friendly_name: "[Light] Guest Bath Ceiling Lights: Brightness"
+#         value_template:  "{{ (state_attr('light.guest_bath','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+#       light_guest_bath_ceiling_xy_color:
+#         friendly_name: "[Light] Guest Bath Center Ceiling Light: XY Color"
+#         value_template: "{{ state_attr('light.main_lamp_9','xy_color') }}"
 
 # ======================================================================
 #

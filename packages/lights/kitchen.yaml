@@ -135,25 +135,25 @@ automation:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_kitchen_island_circadian_brigthness:
-        friendly_name: "[Light] Kitchen Island Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_kitchen_island_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_kitchen_circadian_brigthness:
-        friendly_name: "[Light] Kitchen Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_kitchen_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_kitchen_island_brightness:
-        friendly_name: "[Light] Kitchen Island: Brightness"
-        value_template:  "{{ ( state_attr('light.kitchen_island','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_kitchen_brightness:
-        friendly_name: "[Light] Kitchen Area: Brightness"
-        value_template:  "{{ ( state_attr('light.kitchen','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_kitchen_island_circadian_brigthness:
+#         friendly_name: "[Light] Kitchen Island Area: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_kitchen_island_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_circadian_brigthness:
+#         friendly_name: "[Light] Kitchen Area: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_kitchen_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_island_brightness:
+#         friendly_name: "[Light] Kitchen Island: Brightness"
+#         value_template:  "{{ ( state_attr('light.kitchen_island','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_brightness:
+#         friendly_name: "[Light] Kitchen Area: Brightness"
+#         value_template:  "{{ ( state_attr('light.kitchen','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

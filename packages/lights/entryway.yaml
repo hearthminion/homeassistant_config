@@ -105,17 +105,17 @@ automation:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_entryway_circadian_brigthness:
-        friendly_name: "[Light] Entryway: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_entryway_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_entryway_brightness:
-        friendly_name: "[Light] Entryway: Brightness"
-        value_template:  "{{ ( state_attr('light.entryway','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_entryway_circadian_brigthness:
+#         friendly_name: "[Light] Entryway: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_entryway_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_entryway_brightness:
+#         friendly_name: "[Light] Entryway: Brightness"
+#         value_template:  "{{ ( state_attr('light.entryway','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

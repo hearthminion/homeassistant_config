@@ -247,25 +247,25 @@ scene:
 # Sensors
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_master_bathroom_inner_circadian_brightness:
-        friendly_name: "[Light] Master Bathroom (Inner): Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_master_bathroom_outer_circadian_brightness:
-        friendly_name: "[Light] Master Bathroom (Outer): Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_master_bathroom_inner_brightness:
-        friendly_name: "[Light] Master Bathroom (Inner): Brightness"
-        value_template:  "{{ ( state_attr('light.master_bath_inner','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_master_bathroom_outer_brightness:
-        friendly_name: "[Light] Master Bathroom (Outer): Brightness"
-        value_template:  "{{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_master_bathroom_inner_circadian_brightness:
+#         friendly_name: "[Light] Master Bathroom (Inner): Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_master_bathroom_outer_circadian_brightness:
+#         friendly_name: "[Light] Master Bathroom (Outer): Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_master_bathroom_inner_brightness:
+#         friendly_name: "[Light] Master Bathroom (Inner): Brightness"
+#         value_template:  "{{ ( state_attr('light.master_bath_inner','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+#       light_master_bathroom_outer_brightness:
+#         friendly_name: "[Light] Master Bathroom (Outer): Brightness"
+#         value_template:  "{{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

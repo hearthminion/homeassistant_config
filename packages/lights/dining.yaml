@@ -99,17 +99,17 @@ automation:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_dining_circadian_brigthness:
-        friendly_name: "[Light] Dining: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_dining_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_dining_brightness:
-        friendly_name: "[Light] Dining: Brightness"
-        value_template:  "{{ ( state_attr('light.dining','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_dining_circadian_brigthness:
+#         friendly_name: "[Light] Dining: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_dining_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_dining_brightness:
+#         friendly_name: "[Light] Dining: Brightness"
+#         value_template:  "{{ ( state_attr('light.dining','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

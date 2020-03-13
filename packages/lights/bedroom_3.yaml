@@ -208,25 +208,31 @@ input_select:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_front_bedroom_ceiling_circadian_brightness:
-        friendly_name: "[Light] Front Bedroom Ceiling Lights: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_front_bedroom_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_front_bedroom_closet_circadian_brightness:
-        friendly_name: "[Light] Front Bedroom Closet: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_front_bedroom_closet_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_front_bedroom_ceiling_brightness:
-        friendly_name: "[Light] Front Bedroom Ceiling Lights: Brightness"
-        value_template:  "{{ ( state_attr('light.front_bedroom_ceiling','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
-      light_front_bedroom_closet_brightness:
-        friendly_name: "[Light] Front Bedroom Closet: Brightness"
-        value_template:  "{{ ( state_attr('light.front_bedroom_closet','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_front_bedroom_ceiling_circadian_brightness:
+#         friendly_name: "[Light] Front Bedroom Ceiling Lights: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_front_bedroom_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_front_bedroom_closet_circadian_brightness:
+#         friendly_name: "[Light] Front Bedroom Closet: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_front_bedroom_closet_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_front_bedroom_ceiling_brightness:
+#         friendly_name: "[Light] Front Bedroom Ceiling Lights: Brightness"
+#         value_template:  "{{ ( state_attr('light.front_bedroom_ceiling','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+#       light_front_bedroom_closet_brightness:
+#         friendly_name: "[Light] Front Bedroom Closet: Brightness"
+#         value_template:  "{{ ( state_attr('light.front_bedroom_closet','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+
+# ======================================================================
+#
+# Switches
+#
+# ======================================================================
 switch:
   # ===========================================
   #

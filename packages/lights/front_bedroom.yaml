@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Front Bedroom
+# Front Bedroom Lighting Configuration
 #
 #
 #
@@ -192,6 +192,19 @@ input_select:
 
 # ======================================================================
 #
+# Rest Commands:
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Front Bedroom Ceiling
+# Scene_ID: 0sMU7uHvTUUKIl7
+# Lights: 23
+#
+# ======================================================================
+
+# ======================================================================
+#
 #
 #
 # ======================================================================
@@ -223,27 +236,27 @@ switch:
   - platform: circadian_lighting
     name: "Front Bedroom Ceiling Lights (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_23
+      - light.main_lamp_34
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Front Bedroom Ceiling Lights (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_23
+      - light.main_lamp_34
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
 
   - platform: circadian_lighting
     name: "Front Bedroom Closet (without Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_29
+      - light.main_lamp_29
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Front Bedroom Closet (with Brightness Adjustment)"
     lights_ct:
-      - light.hue_lamp_29
+      - light.main_lamp_29
     disable_brightness_adjust: false
-    min_brightness: 50
+    min_brightness: 25
     #disable_entity:
     #disable_state:

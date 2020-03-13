@@ -9,10 +9,10 @@
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Version: 0.0.1
 # Package-Requires: ()
-# Last-Updated: Sun Jun  9 13:04:36 2019 (-0400)
+# Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
-#     Update #: 54
-# URL: https://github.com/gderber/homeassistant/
+#     Update #: 64
+# URL: https://github.com/hearthminion/homeassistant/
 # Doc URL: 
 # Keywords: Home Assistant
 # Compatibility: 
@@ -83,13 +83,10 @@ automation: !include automations.yaml
 automation old: !include_dir_merge_list includes/automations/
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 #conversation: !include includes/conversation.yaml
-device_tracker: !include includes/device_trackers.yaml
 group: !include_dir_merge_named includes/groups/
 input_boolean: !include_dir_merge_named includes/input_boolean/
 input_select: !include_dir_merge_named includes/input_select/
 media_player: !include includes/media_player.yaml
-owntracks: !include includes/owntracks.yaml
-person: !include includes/person.yaml
 scene: !include scenes.yaml
 scene old: !include_dir_merge_list includes/scenes/
 sensor: !include_dir_merge_list includes/sensors/
@@ -100,9 +97,7 @@ history: !include includes/system/history.yaml
 logbook: !include includes/system/logbook.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
-speedtestdotnet: !include includes/speedtest.yaml
 system_log: !include includes/system/system_log.yaml
-
 
 
 #air_quality:
@@ -137,7 +132,7 @@ geo_location:
   #- platform: geo_json_events
   #  url: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
   #  radius: 300km
- 
+
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
@@ -176,7 +171,7 @@ config:
 
 map: # Enables a map showing the location of tracked devices
 
-frontend: # Enables the (old?) frontend
+frontend: # Enables the frontend
   themes: !include_dir_merge_named themes/
   javascript_version: latest
 # Use Lovelace by Default
@@ -189,31 +184,27 @@ shopping_list:
 # Services
 #
 # ======================================================================
-#mqtt:
-#  broker: angelia.olympus.drbr.org
-#  #port: 8883
-#  username: homeassistant
-#  password: !secret mqtt_password
+mqtt:
+  broker: angelia.olympus.drbr.org
+  port: 1883
+  username: homeassistant
+  password: !secret mqtt_password
 
 ios:
 system_health:
 zeroconf:
 zwave:
   usb_path: /dev/ttyACM0
-  #device_config: !include includes/zwave/zwave.yaml
+  device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_key
 
 
-##############################################################
+# ======================================================================
 #
 # Custom Addons
 #
-##############################################################
-#hacs:
-#  token: !secret github_token
-#  appdaemon: true
-#  python_script: true
-#  themes: true
+# ======================================================================
+breaking_changes:
 
 #fontawesome:
 #  regular:

@@ -25,6 +25,7 @@ life360.sh
 .ring_cache.pickle
 .spotify-token-cache
 .storage
+.gitconfig
 abodepy_cache.pickle
 camera_recording.py
 home-assistant.env
@@ -36,7 +37,7 @@ components
 deps
 tts
 www/icons
-www/floorplans
+www/community
 downloads
 icloud
 dlib_faces
@@ -50,3 +51,4 @@ custom_components
 www/custom-cards
 www/community
 themes
+OZW_Log.txt

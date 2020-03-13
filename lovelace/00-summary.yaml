@@ -23,7 +23,7 @@
               - type: horizontal-stack
                 cards:
                   - type: picture-entity
-                    entity: person.user0001
+                    entity: binary_sensor.user0001_status
                     image: /local/images/user0001.jpg
                     name: !secret user0001_status
                     show_name: true
@@ -31,7 +31,7 @@
                       action: navigate
                       navigation_path: /lovelace/user0001
                   - type: picture-entity
-                    entity: person.user0002
+                    entity: binary_sensor.user0002_status
                     image: /local/images/user0002.jpg
                     show_name: true
                     name: !secret user0002_status
@@ -83,7 +83,9 @@
                 filter:
                   include:
                     - entity_id: "input_boolean.special*"
-                  state: 'on'
+                      state: "on"
+                    - entity_id: "binary_sensor.car_wash"
+                      state: "on"
 
               - break
 # =====================================================================

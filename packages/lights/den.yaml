@@ -293,7 +293,7 @@ automation:
 binary_sensor:
   - platform: template
     sensors:
-      light_bedroom_3_ceiling_autobrightness:
+      light_den_couch_lamp_1_autobrightness:
         friendly_name: "[Light] Den Couch Lamp 1 Autobrightness"
         value_template: >-
           {{ ( state_attr('binary_sensor.light_den_couch_lamp_1_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_den_couch_lamp_1_autobrightness', 'brightness_max') | int )
@@ -315,7 +315,7 @@ binary_sensor:
             {{ state_attr('light.den_couch_lamp_1','xy_color') }}
           color_temp: >-
             {{ state_attr('light.den_couch_lamp_1','color_temp') }}
-      light_bedroom_3_closet_autobrightness:
+      light_den_couch_lamp_2_autobrightness:
         friendly_name: "[Light] den couch lamp 2 Autobrightness"
         value_template: >-
           {{ ( state_attr('binary_sensor.light_den_couch_lamp_2_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_den_couch_lamp_2_autobrightness', 'brightness_max') | int )

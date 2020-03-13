@@ -310,7 +310,7 @@ binary_sensor:
           xy_color: >-
             {{ state_attr('light.den_couch_lamp_1','xy_color') }}
           color_temp: >-
-            {{ state_attr('light.den_couch_lamp_1','color_temp' }}
+            {{ state_attr('light.den_couch_lamp_1','color_temp') }}
       light_den_couch_lamp_2_autobrightness:
         friendly_name: "[Light] Bedroom 2 Ceiling Autobrightness"
         value_template: >-

@@ -240,10 +240,10 @@
                   title: "Front Bedroom Lights"
                 filter:
                   include:
-                    - entity_id: 'light.front_bedroom*'
+                    - entity_id: 'light.bedroom_3_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'switch.circadian_lighting_front_bedroom*'
+                    - entity_id: 'switch.circadian_lighting_bedroom_3_*'
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_front_bedroom*'

@@ -23,7 +23,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Dining: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Dining Area Ceiling: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -62,30 +62,36 @@ automation:
           entity_id:
             - switch.circadian_lighting_dining_with_brightness_adjustment
 
-  - alias: '[Light] Dining: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_dining_with_brightness_adjustment
-            - switch.circadian_lighting_dining_without_brightness_adjustment
-
 # ======================================================================
 #
 # Binary Sensor
 #
 # ======================================================================
-# binary_sensor:
-#   - platform: template
-#     sensors:
-#       main_couch_right_autobrightness:
-#         friendly_name: "Main Couch Right Autobrightness"
-#         value_template: "{{ states('sensor.lights_main_couch_lamp_right_circadian_brightness') == states('sensor.lights_main_couch_lamp_right_brightness') }}"
+binary_sensor:
+  - platform: template
+    sensors:
+      light_dining_area_ceiling_autobrightness:
+        friendly_name: "[Light] Dining Area Ceiling Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_dining_area_ceiling_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.dining_area_ceiling','brightness', 'unknown') %}
+              100
+            {% else %}
+              {{ ( state_attr('light.dining_area_ceiling','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_dining_area_ceiling_autobrightness', 'brightness') | int - 4 }}
+          xy_color: >-
+            {{ state_attr('light.dining_area_ceiling','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.dining_area_ceiling','color_temp') }}
 
 # ======================================================================
 #
@@ -123,14 +129,14 @@ switch:
   #
   # =========================================
   - platform: circadian_lighting
-    name: "Dining (without Brightness Adjustment)"
+    name: "Dining Area Ceiling (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_31
+      - light.dining_area_ceiling
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Dining (with Brightness Adjustment)"
+    name: "Dining Area Ceiling (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_31
+      - light.dining_area_ceiling
     disable_brightness_adjust: false
     min_brightness: 25

@@ -66,6 +66,32 @@ automation:
             - switch.circadian_lighting_hallway_with_brightness_adjustment
             - switch.circadian_lighting_hallway_without_brightness_adjustment
 
+binary_sensor:
+  - platform: template
+    sensors:
+      light_hallway_autobrightness:
+        friendly_name: "[Light] Hallway Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_hallway_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_hallway_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_hallway_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_hallway_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_hallway_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.hallway','brightness', 'unknown') %}
+              100
+            {% else %}
+              {{ ( state_attr('light.hallway','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_hallway_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_hallway_autobrightness', 'brightness') | int - 4 }}
+          xy_color: >-
+            {{ state_attr('light.hallway','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.hallway','color_temp') }}
+
 # ======================================================================
 #
 # Rest Commands:

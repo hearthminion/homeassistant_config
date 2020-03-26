@@ -107,7 +107,7 @@ automation:
     action:
       data:
         entity_id: input_select.light_mode
-        option: Guests
+        option: 'Guests'
       service: input_select.select_option
 
 # ======================================================================

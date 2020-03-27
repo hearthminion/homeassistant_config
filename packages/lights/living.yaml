@@ -101,17 +101,17 @@ automation:
 #
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_living_area_circadian_brigthness:
-        friendly_name: "[Light] Main Living Area: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_living_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_living_area_brightness:
-        friendly_name: "[Light] Main Living Area: Brightness"
-        value_template:  "{{ ( state_attr('light.living_area','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_living_area_circadian_brigthness:
+#         friendly_name: "[Light] Main Living Area: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_living_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_living_area_brightness:
+#         friendly_name: "[Light] Main Living Area: Brightness"
+#         value_template:  "{{ ( state_attr('light.living_area','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

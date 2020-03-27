@@ -39,15 +39,13 @@ automation:
     initial_state: false
     trigger:
       - platform: state
-        entity_id: sensor.light_basement_brightness
+        entity_id: binary_sensor.light_basement_autobrightness
+        to: 'off'
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_basement_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
@@ -58,18 +56,36 @@ automation:
           entity_id:
             - switch.circadian_lighting_basement_with_brightness_adjustment
 
-  - alias: '[Light] Basement Ceiling Light: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_basement_with_brightness_adjustment
-            - switch.circadian_lighting_basement_without_brightness_adjustment
+# ======================================================================
+#
+# Binary Sensors
+#
+# ======================================================================
+binary_sensor:
+  - platform: template
+    sensors:
+      light_basement_autobrightness:
+        friendly_name: "[Light] Basement Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_basement_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_basement_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_basement_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_basement_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_basement_lights_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.basement','brightness', 'unknown') %}
+              100
+            {% else %}
+              {{ ( state_attr('light.basement','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int - 4 }}
+          xy_color: >-
+            {{ state_attr('light.basement','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.basement','color_temp') }}
 
 # ======================================================================
 #
@@ -186,20 +202,20 @@ input_select:
 
 # ======================================================================
 #
-#
+# Sensors
 #
 # ======================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_basement_ceiling_circadian_brightness:
-        friendly_name: "[Light] Basement Ceiling Lights: Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_basement_with_brightness_adjustment','brightness') | round(0) }}"
-        unit_of_measurement: '%'
-      light_basement_ceiling_brightness:
-        friendly_name: "[Light] Basement Ceiling Lights: Brightness"
-        value_template:  "{{ (state_attr('light.basement','brightness') / 254 * 100 ) | int }}"
-        unit_of_measurement: '%'
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_basement_ceiling_circadian_brightness:
+#         friendly_name: "[Light] Basement Ceiling Lights: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_basement_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_basement_ceiling_brightness:
+#         friendly_name: "[Light] Basement Ceiling Lights: Brightness"
+#         value_template:  "{{ (state_attr('light.basement','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
 
 # ======================================================================
 #

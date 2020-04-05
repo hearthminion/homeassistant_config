@@ -39,6 +39,9 @@
                     - entity_id: 'sensor.light_kitchen*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'sensor.light_kitchen*'
+                      options:
+                        secondary_info: last-changed
                     - entity_id: 'automation.light_kitchen*'
                       options:
                         secondary_info: last-changed
@@ -59,6 +62,9 @@
                       options:
                         secondary_info: last-changed
                     - entity_id: 'switch.circadian_lighting_entryway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_entryway*'
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_entryway*'
@@ -84,6 +90,9 @@
                       options:
                         secondary_info: last-changed
                     - entity_id: 'switch.circadian_lighting_dining*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_dining*'
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_dining*'
@@ -140,6 +149,9 @@
                     - entity_id: 'switch.circadian_lighting_living*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_living*'
+                      options:
+                        secondary_info: last-changed
                     - entity_id: 'sensor.light_living*'
                       options:
                         secondary_info: last-changed
@@ -166,6 +178,9 @@
                     - entity_id: 'switch.circadian_lighting_master*'
                       options:
                         secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_master*'
+                      options:
+                        secondary_info: last-changed
                     - entity_id: 'sensor.light_master*'
                       options:
                         secondary_info: last-changed
@@ -190,6 +205,9 @@
                       options:
                         secondary_info: last-changed
                     - entity_id: 'switch.circadian_lighting_hallway*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_hallway*'
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_hallway*'
@@ -237,7 +255,7 @@
                 card:
                   type: entities
                   show_header_toggle: false
-                  title: "Front Bedroom Lights"
+                  title: "Bedroom 3 Lights"
                 filter:
                   include:
                     - entity_id: 'light.bedroom_3_*'
@@ -246,39 +264,45 @@
                     - entity_id: 'switch.circadian_lighting_bedroom_3_*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'sensor.light_front_bedroom*'
+                    - entity_id: 'binary_sensor.light_bedroom_3*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'automation.light_front_bedroom*'
+                    - entity_id: 'sensor.light_bedroom_3*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'scene.light_front_bedroom*'
+                    - entity_id: 'automation.light_bedroom_3*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_bedroom_3*'
                       options:
                         secondary_info: last-changed
               - type: custom:auto-entities
-                title: "Guest Bathroom"
+                title: "Bathroom 2"
                 show_empty: false
                 sort:
                   method: domain
                 card:
                   type: entities
                   show_header_toggle: false
-                  title: "Guest Bathroom Lights"
+                  title: "Bathroom 2 Lights"
                 filter:
                   include:
-                    - entity_id: 'light.guest_bath*'
+                    - entity_id: 'light.bathroom_2*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'switch.circadian_lighting_guest_bath*'
+                    - entity_id: 'switch.circadian_lighting_bathroom_2*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'sensor.light_guest_bath*'
+                    - entity_id: 'sensor.light_bathroom_2*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'automation.light_guest_bath*'
+                    - entity_id: 'sensor.light_bathroom_2*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'scene.light_guest_bath*'
+                    - entity_id: 'automation.light_bathroom_2*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'scene.light_bathroom_2*'
                       options:
                         secondary_info: last-changed
 
@@ -299,6 +323,9 @@
                       options:
                         secondary_info: last-changed
                     - entity_id: 'sensor.light_basement*'
+                      options:
+                        secondary_info: last-changed
+                    - entity_id: 'binary_sensor.light_basement*'
                       options:
                         secondary_info: last-changed
                     - entity_id: 'automation.light_basement*'

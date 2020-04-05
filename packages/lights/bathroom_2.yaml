@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Guest Bath
+# Bathroom 2
 #
 #
 #
@@ -8,7 +8,7 @@
 automation:
   # ======================================================================
   #
-  # Light fixture: Guest Bath Ceiling Lights
+  # Light fixture: Bathroom 2 Lights
   #
   # Lights:
   #   - 
@@ -19,7 +19,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -29,47 +29,32 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
+            - switch.circadian_lighting_bahroom_2_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+            - switch.circadian_lighting_bahroom_2_without_brightness_adjustment
 
-  - alias: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Bathroom 2 Lights: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
-        entity_id: sensor.light_guest_bath_brightness
+        entity_id: binary_sensor.light_bathroom_2_autobrightness
+        to: 'off'
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_guest_bath_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+            - switch.circadian_lighting_bahroom_2_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
-
-  - alias: '[Light] Guest Bath Ceiling Light: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_guest_bath_with_brightness_adjustment
-            - switch.circadian_lighting_guest_bath_without_brightness_adjustment
+            - switch.circadian_lighting_bahroom_2_with_brightness_adjustment
 
 # ======================================================================
 #
@@ -79,28 +64,28 @@ automation:
 binary_sensor:
   - platform: template
     sensors:
-      light_bathroom_2_ceiling_autobrightness:
-        friendly_name: "[Light] Bedroom 2 Ceiling Autobrightness"
+      light_bathroom_2_autobrightness:
+        friendly_name: "[Light] Bedroom 2 Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_bathroom_2_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_bathroom_2_lights_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.bathroom_2_ceiling','brightness', 'unknown') %}
+            {% if is_state_attr('light.bathroom_2','brightness', 'unknown') %}
               100
             {% else %}
-              {{ ( state_attr('light.bathroom_2_ceiling','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr('light.bathroom_2','brightness') / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_bathroom_2_ceiling_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness') | int - 4 }}
           xy_color: >-
-            {{ state_attr('light.bathroom_2_ceiling','xy_color') }}
+            {{ state_attr('light.bathroom_2','xy_color') }}
           color_temp: >-
-            {{ state_attr('light.bathroom_2_ceiling','color_temp') }}
+            {{ state_attr('light.bathroom_2','color_temp') }}
 
 # ======================================================================
 #
@@ -108,8 +93,8 @@ binary_sensor:
 #
 # ======================================================================
 input_select:
-  hue_scene_guest_bath_bedroom:
-    name: "[Light] Hue Guest Bath Scene"
+  hue_scene_bahroom_2:
+    name: "[Light] Hue Bathroom 2 Scene"
     icon: mdi:palette
     initial: 'Circadian'
     options:
@@ -167,7 +152,7 @@ input_select:
 # ======================================================================
 # ======================================================================
 #
-# Group: Guest Bathroom
+# Group: Bathroom 2room
 # Scene_ID: YMQdt3e0IgsRg5E
 # Lights: 9, 20, 21
 #
@@ -182,52 +167,52 @@ input_select:
 # ======================================================================
 scene:
   - id: '1576892024578'
-    name: "[Light] Guest Bath: Darken Room"
+    name: "[Light] Bathroom 2: Darken Room"
     entities:
-      automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
+      automation.light_bahroom_2_light_circadian_lighting_with_brightness_adjustment:
+        friendly_name: '[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
           Adjustment)'
         last_triggered:
         state: 'off'
-      automation.light_guest_bath_ceiling_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without
+      automation.light_bahroom_2_light_circadian_lighting_without_brightness_adjust:
+        friendly_name: '[Light] Bathroom 2 Lights: Circadian Lighting (without
           Brightness adjust)'
         last_triggered:
         state: 'off'
       light.main_lamp_20:
-        friendly_name: "Guest Bath Right"
+        friendly_name: "Bathroom 2 Right"
         state: 'off'
       light.main_lamp_21:
-        friendly_name: "Guest Bath Left"
+        friendly_name: "Bathroom 2 Left"
         state: 'off'
       light.main_lamp_9:
-        friendly_name: "Guest Bath Center"
+        friendly_name: "Bathroom 2 Center"
         brightness_pct: 25
         color_name: "darkred"
         state: 'on'
   - id: '1576960043395'
-    name: "[Light] Guest Bath: Migraine"
+    name: "[Light] Bathroom 2: Migraine"
     entities:
-      automation.light_guest_bath_ceiling_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (with Brightness
+      automation.light_bahroom_2_light_circadian_lighting_with_brightness_adjustment:
+        friendly_name: '[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
           Adjustment)'
         last_triggered:
         state: 'off'
-      automation.light_guest_bath_ceiling_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: '[Light] Guest Bath Ceiling Light: Circadian Lighting (without
+      automation.light_bahroom_2_light_circadian_lighting_without_brightness_adjust:
+        friendly_name: '[Light] Bathroom 2 Lights: Circadian Lighting (without
           Brightness adjust)'
         last_triggered:
         state: 'off'
       light.main_lamp_9:
-        friendly_name: "Guest Bath Center"
+        friendly_name: "Bathroom 2 Center"
         state: 'on'
         color_name: "darkgreen"
         brightness_pct: 25
       light.main_lamp_20:
-        friendly_name: "Guest Bath Right"
+        friendly_name: "Bathroom 2 Right"
         state: 'off'
       light.main_lamp_21:
-        friendly_name: "Guest Bath Left"
+        friendly_name: "Bathroom 2 Left"
         state: 'off'
 
 # ======================================================================
@@ -238,16 +223,16 @@ scene:
 # sensor:
 #   - platform: template
 #     sensors:
-#       light_guest_bath_ceiling_circadian_brightness:
-#         friendly_name: "[Light] Guest Bath Ceiling Lights: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_guest_bath_with_brightness_adjustment','brightness') | round(0) }}"
+#       light_bahroom_2_circadian_brightness:
+#         friendly_name: "[Light] Bathroom 2 Lightss: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_bahroom_2_with_brightness_adjustment','brightness') | round(0) }}"
 #         unit_of_measurement: '%'
-#       light_guest_bath_ceiling_brightness:
-#         friendly_name: "[Light] Guest Bath Ceiling Lights: Brightness"
-#         value_template:  "{{ (state_attr('light.guest_bath','brightness') / 254 * 100 ) | int }}"
+#       light_bahroom_2_brightness:
+#         friendly_name: "[Light] Bathroom 2 Lightss: Brightness"
+#         value_template:  "{{ (state_attr('light.bahroom_2','brightness') / 254 * 100 ) | int }}"
 #         unit_of_measurement: '%'
-#       light_guest_bath_ceiling_xy_color:
-#         friendly_name: "[Light] Guest Bath Center Ceiling Light: XY Color"
+#       light_bahroom_2_xy_color:
+#         friendly_name: "[Light] Bathroom 2 Center Ceiling Light: XY Color"
 #         value_template: "{{ state_attr('light.main_lamp_9','xy_color') }}"
 
 # ======================================================================
@@ -258,11 +243,11 @@ scene:
 switch:
   # ================================
   #
-  # Guest Bathroom
+  # Bathroom 2 room
   #
   # ===============================
   - platform: circadian_lighting
-    name: "Guest Bath (without Brightness Adjustment)"
+    name: "Bathroom 2 (without Brightness Adjustment)"
     lights_ct:
       - light.main_lamp_20
       - light.main_lamp_9
@@ -270,7 +255,7 @@ switch:
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Guest Bath (with Brightness Adjustment)"
+    name: "Bathroom 2 (with Brightness Adjustment)"
     lights_ct:
       - light.main_lamp_20
       - light.main_lamp_9

@@ -13,7 +13,6 @@
     cards:
       - type: vertical-stack
         cards:
-          - type: custom:plan-coordinates
           - type: picture-elements
             image: /local/images/network.svg
             title: Network

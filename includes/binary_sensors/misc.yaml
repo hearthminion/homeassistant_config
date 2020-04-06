@@ -1,5 +1,5 @@
 - platform: car_wash
-  weather: weather.darksky
+  weather: weather.dark_sky
 
 - platform: template
   sensors:

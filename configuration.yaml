@@ -176,9 +176,6 @@ frontend: # Enables the frontend
   javascript_version: latest
 lovelace: !include includes/lovelace.yaml
 
-# Moved to Configuration UI
-#shopping_list:
-
 # ======================================================================
 #
 # Services

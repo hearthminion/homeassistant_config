@@ -25,7 +25,7 @@ automation:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Basement Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Basement Ceiling: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -41,7 +41,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_basement_without_brightness_adjustment
 
-  - alias: '[Light] Basement Ceiling Light: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -77,7 +77,7 @@ binary_sensor:
              and ( state_attr('binary_sensor.light_basement_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_basement_autobrightness', 'brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_basement_lights_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_basement_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
             {% if is_state_attr('light.basement','brightness', 'unknown') %}
               100
@@ -88,8 +88,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.basement','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.basement','xy_color') }}
           color_temp: >-
             {{ state_attr('light.basement','color_temp') }}
 

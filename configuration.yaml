@@ -79,6 +79,8 @@ homeassistant:
 #      command:
     - type: homeassistant
 
+# Automations file
+# Note: Having this file anywhere else disables editing from the UI
 automation: !include automations.yaml
 automation old: !include_dir_merge_list includes/automations/
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
@@ -87,6 +89,8 @@ group: !include_dir_merge_named includes/groups/
 input_boolean: !include_dir_merge_named includes/input_boolean/
 input_select: !include_dir_merge_named includes/input_select/
 media_player: !include includes/media_player.yaml
+# Scenes file
+# Note: Having this file anywhere else disables editing from the UI
 scene: !include scenes.yaml
 scene old: !include_dir_merge_list includes/scenes/
 sensor: !include_dir_merge_list includes/sensors/

@@ -1,0 +1,51 @@
+binary_sensor:
+  - platform: bayesian
+    name: user0001_status
+    prior: 0.25
+    probability_threshold: 0.91
+    device_class: 'presence'
+    observations:
+      - entity_id: 'device_tracker.user0001_phone'
+        prob_given_true: 0.9
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.b8_d7_af_78_0f_3c'
+        prob_given_true: 0.9
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.galaxy_note8'
+        prob_given_true: 0.8
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.e4e4abf03ecc'
+        prob_given_true: 0.7
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+
+input_select:
+  # Example configuration.yaml entry
+  user0001_status_dropdown:
+    name: user0001
+    options:
+      - Home
+      - Work
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+# person:
+#   - name: user0001
+#     id: user0001
+#     device_trackers:
+#       - device_tracker.user0001_phone
+#       - device_tracker.user0001_phone_bt
+#       - device_tracker.user0001_phone_wifi
+#       - device_tracker.e4e4abf03ecc
+#       - device_tracker.user0001_kindle
+#       - device_tracker.user0001_ipad_bt

@@ -24,11 +24,7 @@
                   - type: entity-button
                     entity: binary_sensor.cerberus
                   - type: entity-button
-                    entity: binary_sensor.hydra
-                  - type: entity-button
                     entity: binary_sensor.death_star
-                  - type: entity-button
-                    entity: binary_sensor.executor
               - type: horizontal-stack
                 cards:
                   - type: entity-button

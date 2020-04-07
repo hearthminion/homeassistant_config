@@ -275,7 +275,7 @@
     user0001_laptop:
       device_class: connectivity
       value_template: >-
-        {{ is_state('device_tracker.f8_28_19_e1_a7_5f', 'on')
+        {{ is_state('device_tracker.f8_28_19_e1_a7_5f', 'home')
         or is_state('device_tracker.f8_28_19_e1_a7_ff', 'home') }}
        #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
     user0002_laptop:

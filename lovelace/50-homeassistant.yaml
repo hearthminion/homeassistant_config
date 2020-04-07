@@ -25,13 +25,3 @@
                   exclude:
                     - entity_id: group.*
                     - entity_id: sensor.dark_sky_precip_accumulation*
-              - type: glance
-                title: Home Assistant Version
-                entities:
-                  - entity: sensor.current_version
-                  - entity: sensor.latest_version
-              - type: entities
-                entities:
-                  - entity: sensor.potential_breaking_changes
-                  - entity: sensor.hacs
-                  - entity: sensor.uptime

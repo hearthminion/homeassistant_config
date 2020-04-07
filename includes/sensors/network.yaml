@@ -624,45 +624,45 @@
   value_template: '{{ value_json.batt }}'
   device_class: battery
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/cpu/total"
-  name: "atlas_cpu_total"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/cpu/total"
+#   name: "atlas_cpu_total"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/percpu/#"
-  name: "atlas_percpu"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/percpu/#"
+#   name: "atlas_percpu"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/load/#"
-  name: "atlas_load"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/load/#"
+#   name: "atlas_load"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/mem/#"
-  name: "atlas_mem"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/mem/#"
+#   name: "atlas_mem"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/memswap/#"
-  name: "atlas_swap"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/memswap/#"
+#   name: "atlas_swap"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/network/#"
-  name: "atlas_network"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/network/#"
+#   name: "atlas_network"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/fs/#"
-  name: "atlas_fs"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/fs/#"
+#   name: "atlas_fs"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/sensors/Battery/value"
-  name: "atlas_sensors_battery"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/sensors/Battery/value"
+#   name: "atlas_sensors_battery"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/mem/total"
-  name: "atlas_total_mem"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/mem/total"
+#   name: "atlas_total_mem"
 
-- platform: mqtt
-  state_topic: "sensors/Atlas/mem/available"
-  name: "atlas_mem_available"
+# - platform: mqtt
+#   state_topic: "sensors/Atlas/mem/available"
+#   name: "atlas_mem_available"
 
 - platform: mqtt
   state_topic: "sensors/Hestia/sensehat/temperature"

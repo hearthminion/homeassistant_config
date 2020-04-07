@@ -5,6 +5,14 @@
 # Lights:
 #   light.main_lamp_13: Entryway Ceiling Lightbulb
 #
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
 # ======================================================================
 
 # ======================================================================
@@ -15,7 +23,7 @@
 automation:
   # ====================================================================
   #
-  # Light fixture: Main Front_Door Lights
+  # Light fixture: Entryway Ceiling Lights
   #
   # Lights:
   #   - 
@@ -26,7 +34,7 @@ automation:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Entryway: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Entryway Ceiling: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -42,7 +50,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_entryway_without_brightness_adjustment
 
-  - alias: '[Light] Entryway: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Entryway Ceiling: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       platform: state
@@ -65,20 +73,6 @@ automation:
           entity_id:
             - switch.circadian_lighting_entryway_with_brightness_adjustment
 
-  - alias: '[Light] Entryway: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_entryway_with_brightness_adjustment
-            - switch.circadian_lighting_entryway_without_brightness_adjustment
-
-
 # ======================================================================
 #
 # Binary Sensor
@@ -87,24 +81,24 @@ automation:
 binary_sensor:
   - platform: template
     sensors:
-      light_entryway_autobrightness:
-        friendly_name: "[Light] Entryway Autobrightness"
+      light_entryway_ceiling_autobrightness:
+        friendly_name: "[Light] Entryway Ceiling Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_entryway_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_entryway_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_entryway_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_entryway_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_entryway_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_entryway_ceiling_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.entryway','brightness', 'unknown') %}
+            {% if is_state_attr('light.entryway_ceiling','brightness', 'unknown') %}
               100
             {% else %}
-              {{ ( state_attr('light.entryway','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr('light.entryway_ceiling','brightness') / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_entryway_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_entryway_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr('binary_sensor.light_entryway_ceiling_autobrightness', 'brightness') | int - 4 }}
           xy_color: >-
             {{ state_attr('light.entryway','xy_color') }}
           color_temp: >-
@@ -153,13 +147,13 @@ switch:
   #
   # ====================================================================
   - platform: circadian_lighting
-    name: "Entryway (without Brightness Adjustment)"
+    name: "Entryway Ceiling (without Brightness Adjustment)"
     lights_ct:
       - light.main_lamp_13
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
-    name: "Entryway (with Brightness Adjustment)"
+    name: "Entryway Ceiling (with Brightness Adjustment)"
     lights_ct:
       - light.main_lamp_13
     disable_brightness_adjust: false

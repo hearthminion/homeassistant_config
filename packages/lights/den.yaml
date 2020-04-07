@@ -120,15 +120,12 @@ automation:
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_main_couch_lamp_1_brightness
+      entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
@@ -172,15 +169,12 @@ automation:
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_den_fireplace_brightness
+      entity_id: binary_sensor.light_den_fireplace_autobrightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_den_fireplace_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
@@ -231,9 +225,6 @@ automation:
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_den_ceiling_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
@@ -278,9 +269,6 @@ automation:
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_den_tower_lamp_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:

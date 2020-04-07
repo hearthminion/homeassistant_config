@@ -2,27 +2,13 @@
 #
 # Basement
 #
-#
 # Lights:
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
+#   - light.basement_lamp_
+#   - light.basement_lamp_
+#   - light.basement_lamp_
 #
 # Light Groups:
-#   - light.den_couch_lamp_1
-#   - light.den_couch_lamp_2
-#   - light.den_ceiling
-#   - light.den_fireplace
-#   - light.den_tower_lamp
-#   - light.den_table_lamp
+#   - light.basement
 #
 # ======================================================================
 automation:
@@ -251,16 +237,12 @@ switch:
   - platform: circadian_lighting
     name: "Basement (without Brightness Adjustment)"
     lights_ct:
-      - light.basement_lamp_1
-      - light.basement_lamp_2
-      - light.basement_lamp_3
+      - light.basement
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Basement (with Brightness Adjustment)"
     lights_ct:
-      - light.basement_lamp_1
-      - light.basement_lamp_2
-      - light.basement_lamp_3
+      - light.basement
     disable_brightness_adjust: false
     min_brightness: 25

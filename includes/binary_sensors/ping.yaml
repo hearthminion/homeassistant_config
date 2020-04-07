@@ -182,12 +182,6 @@
   #scan_interval: 5       # Polling Interval
 
 - platform: ping
-  host: 10.0.2.42
-  name: Hermes
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-- platform: ping
   host: 10.0.1.19
   name: Hestia
   count: 1               # Number of packets to send
@@ -269,11 +263,11 @@
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
-- platform: ping
-  host: 192.168.1.4
-  name: Home One
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
+# - platform: ping
+#   host: 192.168.1.4
+#   name: Home One
+#   count: 1               # Number of packets to send
+#   #scan_interval: 5       # Polling Interval
 
 - platform: ping
   host: 192.168.1.1

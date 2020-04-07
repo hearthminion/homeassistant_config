@@ -85,7 +85,7 @@ binary_sensor:
   - platform: template
     sensors:
       light_bathroom_2_autobrightness:
-        friendly_name: "[Light] Bedroom 2 Autobrightness"
+        friendly_name: "[Light] Bathroom 2 Autobrightness"
         value_template: >-
           {{ ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness_max') | int )
              and ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness_min') | int ) }}

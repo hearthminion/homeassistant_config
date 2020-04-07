@@ -155,8 +155,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_bedroom_3_ceiling_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_bedroom_3_ceiling_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.bedroom_3_ceiling','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.bedroom_3_ceiling','xy_color') }}
           color_temp: >-
             {{ state_attr('light.bedroom_3_ceiling','color_temp') }}
       light_bedroom_3_closet_autobrightness:
@@ -177,8 +177,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_bedroom_3_closet_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_bedroom_3_closet_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.bedroom_3_closet','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.bedroom_3_closet','xy_color') }}
           color_temp: >-
             {{ state_attr('light.bedroom_3_closet','color_temp') }}
 

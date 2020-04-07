@@ -39,7 +39,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Bathroom 2: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       - platform: state
@@ -49,13 +49,13 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_bahroom_2_with_brightness_adjustment
+            - switch.circadian_lighting_bathroom_2_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_bahroom_2_without_brightness_adjustment
+            - switch.circadian_lighting_bathroom_2_without_brightness_adjustment
 
-  - alias: '[Light] Bathroom 2 Lights: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Bathroom 2: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       - platform: state
@@ -70,11 +70,11 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_bahroom_2_without_brightness_adjustment
+            - switch.circadian_lighting_bathroom_2_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_bahroom_2_with_brightness_adjustment
+            - switch.circadian_lighting_bathroom_2_with_brightness_adjustment
 
 # ======================================================================
 #
@@ -91,7 +91,7 @@ binary_sensor:
              and ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bathroom_2_autobrightness', 'brightness_min') | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_bathroom_2_lights_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr('switch.circadian_lighting_bathroom_2_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
             {% if is_state_attr('light.bathroom_2','brightness', 'unknown') %}
               100
@@ -269,16 +269,12 @@ switch:
   - platform: circadian_lighting
     name: "Bathroom 2 (without Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_20
-      - light.main_lamp_9
-      - light.main_lamp_21
+      - light.bathroom_2
     disable_brightness_adjust: true
 
   - platform: circadian_lighting
     name: "Bathroom 2 (with Brightness Adjustment)"
     lights_ct:
-      - light.main_lamp_20
-      - light.main_lamp_9
-      - light.main_lamp_21
+      - light.bathroom_2
     disable_brightness_adjust: false
     min_brightness: 25

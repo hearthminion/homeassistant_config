@@ -2,6 +2,27 @@
 #
 # Dining Area Lighting Configuration
 #
+# Lights:
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#   - light.main_lamp_
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
 # ======================================================================
 
 # ======================================================================
@@ -33,34 +54,31 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_dining_with_brightness_adjustment
+            - switch.circadian_lighting_dining_area_ceiling_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_dining_without_brightness_adjustment
+            - switch.circadian_lighting_dining_area_ceiling_without_brightness_adjustment
 
-  - alias: '[Light] Dining: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Dining Area Ceiling: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_dining_brightness
+      entity_id: binary_sensor.light_dining_area_ceiling_autobrightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-        - condition: state
-          entity_id: switch.circadian_lighting_dining_with_brightness_adjustment
-          state: 'on'
     action:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_dining_without_brightness_adjustment
+            - switch.circadian_lighting_dining_area_ceiling_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_dining_with_brightness_adjustment
+            - switch.circadian_lighting_dining_area_ceiling_with_brightness_adjustment
 
 # ======================================================================
 #

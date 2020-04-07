@@ -103,6 +103,22 @@ logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
 
+# ======================================================================
+#
+# Speedtest
+#
+# ======================================================================
+speedtestdotnet:
+  scan_interval:
+    days: 0
+    hours: 1
+    minutes: 0
+    seconds: 0
+    milliseconds: 0
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 #air_quality:
 #  - platform: opensensemap

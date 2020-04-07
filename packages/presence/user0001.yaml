@@ -10,12 +10,12 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.user0001_phone_wifi'
+      - entity_id: 'device_tracker.b8_d7_af_78_0f_3c'
         prob_given_true: 0.9
         prob_given_false: 0.1
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.user0001_phone_bt'
+      - entity_id: 'device_tracker.galaxy_note8'
         prob_given_true: 0.8
         prob_given_false: 0.4
         platform: 'state'

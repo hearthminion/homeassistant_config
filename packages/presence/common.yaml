@@ -22,20 +22,10 @@ device_tracker:
   #
   # ====================================================================
   - platform: nmap_tracker
-    hosts: 10.0.99.0/24
-    home_interval: 3
-    track_new_devices: yes
-    interval_seconds: 40
-    consider_home: 120
-
-  # ====================================================================
-  #
-  # NMAP Tracker:
-  #   This is used to identify anyone on the guest VLAN.
-  #
-  # ====================================================================
-  - platform: nmap_tracker
-    hosts: 10.7.77.0/24
+    hosts:
+      - 10.0.99.0/24
+      - 10.7.77.0/24
+      - 10.0.2.41-43
     home_interval: 3
     track_new_devices: yes
     interval_seconds: 40

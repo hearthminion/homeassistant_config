@@ -371,8 +371,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_den_fireplace_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_den_fireplace_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.den_fireplace','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.den_fireplace','xy_color') }}
           color_temp: >-
             {{ state_attr('light.den_fireplace','color_temp') }}
       light_den_table_lamp_autobrightness:
@@ -393,8 +393,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_den_table_lamp_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_den_table_lamp_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.den_table_lamp','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.den_table_lamp','xy_color') }}
           color_temp: >-
             {{ state_attr('light.den_table_lamp','color_temp') }}
       light_den_tower_lamp_autobrightness:

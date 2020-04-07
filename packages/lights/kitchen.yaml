@@ -174,8 +174,8 @@ binary_sensor:
             {{ state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness') | int + 4 }}
           brightness_min: >-
             {{ state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness') | int - 4 }}
-          xy_color: >-
-            {{ state_attr('light.kitchen_island_ceiling','xy_color') }}
+          #xy_color: >-
+          #  {{ state_attr('light.kitchen_island_ceiling','xy_color') }}
           color_temp: >-
             {{ state_attr('light.kitchen_island_ceiling','color_temp') }}
 

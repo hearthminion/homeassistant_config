@@ -11,6 +11,14 @@
 #   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
 #   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
 #
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
 # ======================================================================
 
 # ======================================================================

@@ -225,29 +225,6 @@
 
 # ======================================================================
 #
-# Workstations
-#
-# ======================================================================
-- platform: ping
-  host: 10.0.2.41
-  name: user0002_laptop
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-- platform: ping
-  host: 10.0.2.42
-  name: Hermes
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-- platform: ping
-  host: 10.0.2.43
-  name: Atlas
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-# ======================================================================
-#
 # SWG Servers
 #
 # ======================================================================
@@ -298,9 +275,13 @@
     user0001_laptop:
       device_class: connectivity
       value_template: >-
-        {{ is_state('binary_sensor.hermes', 'on')
-        or is_state('binary_sensor.atlas', 'on')
-        or is_state('device_tracker.atlas', 'home') }}
+        {{ is_state('device_tracker.f8_28_19_e1_a7_5f', 'on')
+        or is_state('device_tracker.f8_28_19_e1_a7_ff', 'home') }}
+       #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
+    user0002_laptop:
+      device_class: connectivity
+      value_template: >-
+        {{ is_state('device_tracker.atlas', 'home') }}
        #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
     aether:
       friendly_name: "Aether"

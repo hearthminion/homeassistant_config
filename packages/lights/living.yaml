@@ -1,6 +1,18 @@
 # ======================================================================
 #
-# 
+# Living Area Lights
+#
+# Lights:
+#   light.main_lamp_10: Kitchen Ceiling Lightbulb
+#   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp 
 #
 # ======================================================================
 

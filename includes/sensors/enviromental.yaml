@@ -133,8 +133,8 @@
 - platform: season
   type: astronomical
 
-#- platform: weatheralerts
-#  state: GA
-#  zone: "036"
-
+- platform: weatheralerts
+  state: GA
+  zone: 36
+  county: 59
 #- platform: yr

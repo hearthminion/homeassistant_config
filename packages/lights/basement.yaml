@@ -26,7 +26,7 @@ automation:
   #
   # ====================================================================
   - alias: '[Light] Basement Ceiling: Circadian Lighting (with Brightness Adjustment)'
-    initial_state: false
+    initial_state: true
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -42,7 +42,7 @@ automation:
             - switch.circadian_lighting_basement_without_brightness_adjustment
 
   - alias: '[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)'
-    initial_state: false
+    initial_state: true
     trigger:
       - platform: state
         entity_id: binary_sensor.light_basement_autobrightness

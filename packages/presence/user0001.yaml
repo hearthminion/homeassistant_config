@@ -29,7 +29,6 @@ binary_sensor:
 input_select:
   # Example configuration.yaml entry
   user0001_status_dropdown:
-    name: user0001
     options:
       - Home
       - Work

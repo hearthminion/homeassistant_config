@@ -62,11 +62,6 @@
                       colorNeedleShadowDown: "#222"
                       borderShadowWidth: 0
                       animationDuration: 1500
-              - type: entities
-                title: Weather Alerts
-                show_header_toggle: false
-                entities:
-                  - entity: sensor.weatheralerts
               - type: history-graph
                 title: Temperatures
                 hours_to_show: 24 # Default: 24; Min: 10; Max: 80
@@ -382,24 +377,3 @@
                 show_header_toggle: false
                 entities:
                   - entity: sensor.season
-                    
-              - break
-              - type: entities
-                title: Sun UV Information
-                show_header_toggle: false
-                entities:
-                  - entity: sensor.current_uv_index
-                  - entity: sensor.current_uv_level
-                  - entity: sensor.max_uv_index
-                  - entity: sensor.dark_sky_uv_index
-              - type: custom:auto-entities
-                show_empty: false
-                card:
-                  type: entities
-                  title: Sun Exposure
-                  show_header_toggle: false
-                filter:
-                  include:
-                    - entity_id: sensor.skin_type*
-                  exclude:
-                    - state: "unknown"

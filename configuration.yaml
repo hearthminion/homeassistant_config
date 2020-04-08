@@ -103,6 +103,63 @@ logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
 
+
+device_tracker:
+  # Bluetooth tracker will be removed in the future.  Moving to an
+  # MQTT sensor from multiple systems spaced throughout the house
+  - platform: bluetooth_tracker
+
+  # ====================================================================
+  #
+  # NMAP Tracker:
+  #   This is used to identify anyone with access to the main network.
+  #
+  # ====================================================================
+  - platform: nmap_tracker
+    hosts: 10.0.99.0/24
+    home_interval: 3
+    track_new_devices: yes
+    interval_seconds: 40
+    consider_home: 120
+
+  - platform: nmap_tracker
+    hosts: 10.7.77.0/24
+    home_interval: 3
+    track_new_devices: yes
+    interval_seconds: 40
+    consider_home: 120
+
+  - platform: nmap_tracker
+    hosts: 10.0.2.41-43
+    home_interval: 3
+    track_new_devices: yes
+    interval_seconds: 40
+    consider_home: 120
+
+  - platform: ping
+    hosts:
+      user0002_laptop: 10.0.2.41
+      hermes: 10.0.2.42
+      atlas: 10.0.2.43
+
+
+# ======================================================================
+#
+# Owntracks
+#
+# ======================================================================
+owntracks:
+  max_gps_accuracy: 200
+  waypoints: true
+  mqtt_topic: "owntracks/#"
+  events_only: false
+  waypoint_whitelist:
+    - user0001
+    - user0002
+  #region_mapping:
+  #  cabin: home
+  #  office: work
+
 # ======================================================================
 #
 # Speedtest

@@ -42,6 +42,11 @@ device_tracker:
     interval_seconds: 40
     consider_home: 120
 
+  - platform: ping
+    hosts:
+      user0002_laptop: 10.0.2.41
+      hermes: 10.0.2.42
+      atlas: 10.0.2.43
 
 # ======================================================================
 #

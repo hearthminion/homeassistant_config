@@ -281,7 +281,7 @@
     user0002_laptop:
       device_class: connectivity
       value_template: >-
-        {{ is_state('device_tracker.atlas', 'home') }}
+        {{ is_state('device_tracker.user0002_laptop', 'home') }}
        #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
     aether:
       friendly_name: "Aether"

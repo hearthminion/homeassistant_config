@@ -273,9 +273,6 @@
                     - entity_id: 'automation.light_bedroom_3*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'scene.light_bedroom_3*'
-                      options:
-                        secondary_info: last-changed
               - type: custom:auto-entities
                 title: "Bathroom 2"
                 show_empty: false
@@ -302,10 +299,6 @@
                     - entity_id: 'automation.light_bathroom_2*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'scene.light_bathroom_2*'
-                      options:
-                        secondary_info: last-changed
-
               - type: custom:auto-entities
                 sort:
                   method: domain
@@ -322,15 +315,6 @@
                     - entity_id: 'switch.circadian_lighting_basement*'
                       options:
                         secondary_info: last-changed
-                    - entity_id: 'sensor.light_basement*'
-                      options:
-                        secondary_info: last-changed
                     - entity_id: 'binary_sensor.light_basement*'
-                      options:
-                        secondary_info: last-changed
-                    - entity_id: 'automation.light_basement*'
-                      options:
-                        secondary_info: last-changed
-                    - entity_id: 'scene.light_basement*'
                       options:
                         secondary_info: last-changed

@@ -31,6 +31,14 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_basement_autobrightness
+        to: 'on'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -40,7 +48,6 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_basement_without_brightness_adjustment
-
   - alias: '[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)'
     initial_state: true
     trigger:

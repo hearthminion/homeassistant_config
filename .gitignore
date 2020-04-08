@@ -49,7 +49,6 @@ dlib_unknown_faces
 *.pickle
 .pc-session
 custom_components
-www/custom-cards
-www/community
 themes
 OZW_Log.txt
+customize.yaml

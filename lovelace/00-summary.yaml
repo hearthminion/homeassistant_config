@@ -1,5 +1,4 @@
 ---
-#  - title: Summary
     title: Summary
     path: summary
     icon: mdi:information-outline
@@ -25,47 +24,11 @@
                   - type: picture-entity
                     entity: binary_sensor.user0001_status
                     image: /local/images/user0001.jpg
-                    name: !secret user0001_status
                     show_name: true
-                    #tap_action:
-                    #  action: navigate
-                    #  navigation_path: /lovelace/user0001
                   - type: picture-entity
                     entity: binary_sensor.user0002_status
                     image: /local/images/user0002.jpg
                     show_name: true
-                    name: !secret user0002_status
-                    #tap_action:
-                    #  action: navigate
-                    #  navigation_path: /lovelace/user0002
-#              - type: markdown
-#                title: Alarm Status
-#                content: Alarm
-# ======================================================================
-#
-# Doors and Windows
-#
-# ======================================================================
-#          - type: horizontal-stack
-#           cards:
-#             - type: custom:auto-entities
-#               show_empty: true
-#               card:
-#                 type: glance
-#                 title: Doors
-#                 filter:
-#                   include:
-#                     - entity_id: "*door*"
-#                       state: 'open'
-#             - type: custom:auto-entities
-#               show_empty: true
-#               card:
-#                 type: glance
-#                 title: Windows
-#                 filter:
-#                   include:
-#                     - entity_id: "*window*"
-#                       state: 'open'
 
 # ======================================================================
 #
@@ -105,8 +68,6 @@
               - type: entities
                 entities:
                   - entity: binary_sensor.workday_sensor
-                  - entity: lock.lock_front_door_deadbolt_locked
-                  - entity: lock.lock_carport_door_deadbolt_locked
               - type: gauge
                 entity: sensor.speedtest_download
                 name: Speedtest

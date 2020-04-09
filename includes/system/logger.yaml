@@ -4,5 +4,6 @@ logs:
   homeassistant.config: debug
   homeassistant.components.http: debug
   homeassistant.components.hassio: debug
+  aiohttp: debug
 #    homeassistant.components.whois.sensor: debug
 #    homeassistant.components.ios: debug

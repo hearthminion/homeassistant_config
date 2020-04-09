@@ -214,10 +214,13 @@ climate:
 #
 # With Nginx acting as proxy, ssl certificate is not needed.
 #
+# Temporarily disabled:
+#   https://community.home-assistant.io/t/dont-use-server-host-options-with-hass-io/176372
+#
 # ======================================================================
-http:
-  base_url: localhost
-  server_port: 8123
+#http:
+#  base_url: localhost
+#  server_port: 8123
   #ssl_certificate:
   #ssl_key:
 

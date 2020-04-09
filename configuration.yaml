@@ -215,9 +215,9 @@ climate:
 # With Nginx acting as proxy, ssl certificate is not needed.
 #
 # ======================================================================
-http:
-  base_url: localhost
-  server_port: 8123
+#http:
+#  base_url: localhost
+#  server_port: 8123
   #ssl_certificate:
   #ssl_key:
 

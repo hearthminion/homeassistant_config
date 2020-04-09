@@ -105,23 +105,6 @@ system_log: !include includes/system/system_log.yaml
 
 # ======================================================================
 #
-# Owntracks
-#
-# ======================================================================
-owntracks:
-  max_gps_accuracy: 200
-  waypoints: true
-  mqtt_topic: "owntracks/#"
-  events_only: false
-  waypoint_whitelist:
-    - user0001
-    - user0002
-  #region_mapping:
-  #  cabin: home
-  #  office: work
-
-# ======================================================================
-#
 # Speedtest
 #
 # ======================================================================

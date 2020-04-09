@@ -1,8 +1,9 @@
 default: warn
 logs:
-  homeassistant.util.packages: debug
-  homeassistant.config: debug
-  homeassistant.components.http: debug
-  homeassistant.components.hassio: debug
-#    homeassistant.components.whois.sensor: debug
-#    homeassistant.components.ios: debug
+  homeassistant.util.packages: info
+  # homeassistant.config: debug
+  # homeassistant.components.http: debug
+  # homeassistant.components.hassio: debug
+  # aiohttp: debug
+  # homeassistant.components.whois.sensor: debug
+  # homeassistant.components.ios: debug

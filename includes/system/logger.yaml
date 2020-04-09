@@ -1,9 +1,7 @@
 default: warn
-#  logs:
-#    homeassistant.config: debug
-#    homeassistant.components.sensor.glances: debug
-#    homeassistant.components.device_tracker.owntracks: debug
-#    homeassistant.components.device_tracker.bluetooth_le_tracker: debug
-#    homeassistant.components.http.view: debug
+logs:
+  homeassistant.util.packages:  debug
+  homeassistant.config: debug
+  homeassistant.components.http.view: debug
 #    homeassistant.components.whois.sensor: debug
 #    homeassistant.components.ios: debug

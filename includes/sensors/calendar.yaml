@@ -2,8 +2,6 @@
   time_zone: Etc/UTC
   name: 'UTC'
 
-#- platform: launch_library
-
 - platform: time_date
   display_options:
     - 'time'

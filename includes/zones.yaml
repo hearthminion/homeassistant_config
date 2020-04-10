@@ -1,7 +1,4 @@
 zone:
-  #- name: Bree's Work
-  #  latitude: !secret gwork_lat
-  #  longitude: !secret gwork_long
   - name: Geoff's Work
     latitude: !secret gwork_lat
     longitude: !secret gwork_long

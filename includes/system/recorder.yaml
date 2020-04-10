@@ -15,7 +15,6 @@ exclude:
     - sensor.last_boot
     - sensor.current_version
     - sensor.latest_version
-    - sensor.cert_expiry
     - sensor.whois
     - sensor.drbr_org
     - sensor.myip

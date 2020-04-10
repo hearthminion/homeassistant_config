@@ -88,13 +88,6 @@
 
 - platform: flunearyou
 
-#- platform: mold_indicator
-#  indoor_temp_sensor: sensor.temp
-#  indoor_humidity_sensor: sensor.humidity
-#  outdoor_temp_sensor: sensor.weather_temperature
-#  calibration_factor: 2.0
-
-
 - platform: template
   sensors:
     darksky_pressure:
@@ -132,9 +125,3 @@
 # Seasons
 - platform: season
   type: astronomical
-
-#- platform: weatheralerts
-#  state: GA
-#  zone: 36
-#  county: 59
-#- platform: yr

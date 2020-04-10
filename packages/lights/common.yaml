@@ -172,8 +172,6 @@ input_select:
 #
 # ======================================================================
 sensor:
-#  - platform: huesensor
-
   - platform: template
     sensors:
       circadian_temperature:

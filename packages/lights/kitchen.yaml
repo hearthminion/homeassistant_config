@@ -1,0 +1,244 @@
+# ======================================================================
+#
+# Kitchen Lights
+#
+# Lights:
+#   light.main_lamp_10: Kitchen Ceiling Lightbulb
+#   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Automations:
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Kitchen Island Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Kitchen Island: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_without_brightness_adjustment
+
+  - alias: '[Light] Kitchen Island: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: sensor.light_main_island_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_island_with_brightness_adjustment
+
+  # ======================================================================
+  #
+  # Light fixture: Main Kitchen Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Light] Kitchen: Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+
+  - alias: '[Light] Kitchen: Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: sensor.light_main_kitchen_brightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_kitchen_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+
+# ======================================================================
+#
+# Binary Sensor
+#
+# ======================================================================
+binary_sensor:
+  - platform: template
+    sensors:
+      light_kitchen_ceiling_autobrightness:
+        friendly_name: "[Light] Kitchen Ceiling Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_kitchen_ceiling_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.kitchen_ceiling','brightness', 'unknown')  or
+               is_state("light.kitchen_ceiling","off") %}
+              100
+            {% else %}
+              {{ ( state_attr('light.kitchen_ceiling','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_kitchen_ceiling_autobrightness', 'brightness') | int - 4 }}
+          xy_color: >-
+            {{ state_attr('light.kitchen_ceiling','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.kitchen_ceiling','color_temp') }}
+      light_kitchen_island_ceiling_autobrightness:
+        friendly_name: "[Light] Kitchen Island Ceiling Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_kitchen_island_ceiling_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.kitchen_island_ceiling','brightness', 'unknown')  or
+               is_state("light.kitchen_island_ceiling","off") %}
+              100
+            {% else %}
+              {{ ( state_attr('light.kitchen_island_ceiling','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_kitchen_island_ceiling_autobrightness', 'brightness') | int - 4 }}
+          #xy_color: >-
+          #  {{ state_attr('light.kitchen_island_ceiling','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.kitchen_island_ceiling','color_temp') }}
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_kitchen_island_circadian_brigthness:
+#         friendly_name: "[Light] Kitchen Island Area: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_kitchen_island_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_circadian_brigthness:
+#         friendly_name: "[Light] Kitchen Area: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_kitchen_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_island_brightness:
+#         friendly_name: "[Light] Kitchen Island: Brightness"
+#         value_template:  "{{ ( state_attr('light.kitchen_island','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+#       light_kitchen_brightness:
+#         friendly_name: "[Light] Kitchen Area: Brightness"
+#         value_template:  "{{ ( state_attr('light.kitchen','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ==========================================
+  #
+  # Kitchen
+  #
+  # =========================================
+  - platform: circadian_lighting
+    name: "Kitchen Island Ceiling (without Brightness Adjustment)"
+    lights_ct:
+      - light.kitchen_island_ceiling
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Kitchen Island Ceiling (with Brightness Adjustment)"
+    lights_ct:
+      - light.kitchen_island_ceiling
+    disable_brightness_adjust: false
+    min_brightness: 25
+
+  - platform: circadian_lighting
+    name: "Kitchen Ceiling (without Brightness Adjustment)"
+    lights_ct:
+      - light.kitchen_ceiling
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Kitchen Ceiling (with Brightness Adjustment)"
+    lights_ct:
+      - light.kitchen_ceiling
+    disable_brightness_adjust: false
+    min_brightness: 25

@@ -1,0 +1,184 @@
+# ======================================================================
+#
+# Hallway Lighting Configuration
+#
+# Lights:
+#   light.main_lamp_11: Hallway Ceiling Lightbulb (Color)
+#   light.main_lamp_18: Hallway Ceiling Lightbulb (Ambiance)
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
+# ======================================================================
+automation:
+  # ======================================================================
+  #
+  # Light fixture: Guest Bath Ceiling Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ======================================================================
+  - alias: '[Lights] Circadian Lighting (with Brightness Adjustment)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_select.light_mode
+      to: "Circadian"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_without_brightness_adjustment
+
+  - alias: '[Lights] Circadian Lighting (without Brightness adjust)'
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: binary_sensor.light_hallway_autobrightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_hallway_with_brightness_adjustment
+          state: 'on'
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_hallway_with_brightness_adjustment
+
+# ======================================================================
+#
+# Binary Sensors
+#
+# ======================================================================
+binary_sensor:
+  - platform: template
+    sensors:
+      light_hallway_autobrightness:
+        friendly_name: "[Light] Hallway Autobrightness"
+        value_template: >-
+          {{ ( state_attr('binary_sensor.light_hallway_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_hallway_autobrightness', 'brightness_max') | int )
+             and ( state_attr('binary_sensor.light_hallway_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_hallway_autobrightness', 'brightness_min') | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr('switch.circadian_lighting_hallway_with_brightness_adjustment','brightness') | round(0) }}
+          brightness: >-
+            {% if is_state_attr('light.hallway','brightness', 'unknown')  or
+               is_state("light.hallway","off") %}
+              100
+            {% else %}
+              {{ ( state_attr('light.hallway','brightness') / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr('binary_sensor.light_hallway_autobrightness', 'brightness') | int + 4 }}
+          brightness_min: >-
+            {{ state_attr('binary_sensor.light_hallway_autobrightness', 'brightness') | int - 4 }}
+          xy_color: >-
+            {{ state_attr('light.hallway','xy_color') }}
+          color_temp: >-
+            {{ state_attr('light.hallway','color_temp') }}
+
+# ======================================================================
+#
+# Rest Commands:
+#
+# ======================================================================
+# ======================================================================
+#
+# Group: Hallway
+# Scene_ID: ZOBtVrI82jRCTvL
+# Lights: 11, 18
+#
+# ======================================================================
+
+# ======================================================================
+#
+# Scenes:
+#
+# ======================================================================
+scene:
+  - name: "[Light] Hallway: Darken Room"
+    entities:
+      light.main_lamp_11:
+        friendly_name: "Hallway Color Light"
+        state: 'on'
+        color_name: "darkred"
+        brightness_pct: 25
+      light.main_lamp_18:
+        friendly_name: "Hallway Ambiance Light"
+        state: 'off'
+  - name: "[Light] Hallway: Migrain"
+    entities:
+      light.main_lamp_11:
+        friendly_name: "Hallway Color Light"
+        state: 'on'
+        color_name: "darkgreen"
+        brightness_pct: 25
+      light.main_lamp_18:
+        friendly_name: "Hallway Ambiance Light"
+        state: 'off'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_hallway_circadian_brightness:
+#         friendly_name: "[Light] Hallway: Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_hallway_with_brightness_adjustment','brightness') | round(0) }}"
+#         unit_of_measurement: '%'
+#       light_hallway_brightness:
+#         friendly_name: "[Light] Hallway: Brightness"
+#         value_template: "{{ ( state_attr('light.hallway','brightness') / 254 * 100 ) | int }}"
+#         unit_of_measurement: '%'
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+switch:
+  # ==========================================
+  #
+  # Hallway
+  #
+  # ============================================
+  - platform: circadian_lighting
+    name: "Hallway (without Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_11
+      - light.main_lamp_18
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Hallway (with Brightness Adjustment)"
+    lights_ct:
+      - light.main_lamp_11
+      - light.main_lamp_18
+    disable_brightness_adjust: false
+    min_brightness: 25

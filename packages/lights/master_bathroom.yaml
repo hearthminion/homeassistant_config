@@ -315,7 +315,7 @@ switch:
   - platform: circadian_lighting
     name: "Master Bathroom (Inner) (without Brightness Adjustment)"
     lights_ct:
-      - light.master_bath_inner'
+      - light.master_bath_inner
     disable_brightness_adjust: true
 
   - platform: circadian_lighting

@@ -49,8 +49,15 @@ automation:
     initial_state: false
     trigger:
       platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
+      entity_id: binary_sensor.light_hallway_autobrightness
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+        - condition: state
+          entity_id: switch.circadian_lighting_hallway_with_brightness_adjustment
+          state: 'on'
     action:
       - service: switch.turn_on
         data:
@@ -61,19 +68,11 @@ automation:
           entity_id:
             - switch.circadian_lighting_hallway_with_brightness_adjustment
 
-  - alias: '[Lights] Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_hallway_with_brightness_adjustment
-            - switch.circadian_lighting_hallway_without_brightness_adjustment
-
+# ======================================================================
+#
+# Binary Sensors
+#
+# ======================================================================
 binary_sensor:
   - platform: template
     sensors:

@@ -55,7 +55,7 @@ automation:
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_living_area_brightness
+      entity_id: binary_sensor.light_living_area_autobrightness
     condition:
       condition: and
       conditions:
@@ -74,18 +74,6 @@ automation:
           entity_id:
             - switch.circadian_lighting_living_area_with_brightness_adjustment
 
-  - alias: '[Light] Living Area: Disable Circadian Lighting'
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    action:
-      - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_living_area_with_brightness_adjustment
-            - switch.circadian_lighting_living_area_without_brightness_adjustment
 
 # ======================================================================
 #

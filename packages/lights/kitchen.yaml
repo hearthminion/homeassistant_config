@@ -87,7 +87,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Kitchen: Circadian Lighting (with Brightness Adjustment)'
+  - alias: '[Light] Kitchen Ceiling: Circadian Lighting (with Brightness Adjustment)'
     initial_state: false
     trigger:
       platform: state
@@ -97,34 +97,34 @@ automation:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+            - switch.circadian_lighting_kitchen_ceiling_with_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+            - switch.circadian_lighting_kitchen_ceiling_without_brightness_adjustment
 
-  - alias: '[Light] Kitchen: Circadian Lighting (without Brightness adjust)'
+  - alias: '[Light] Kitchen Ceiling: Circadian Lighting (without Brightness adjust)'
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_main_kitchen_brightness
+      entity_id: binary_sensor.light_kitchen_ceiling_autobrightness
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
         - condition: state
-          entity_id: switch.circadian_lighting_kitchen_with_brightness_adjustment
+          entity_id: switch.circadian_lighting_kitchen_ceiling_with_brightness_adjustment
           state: 'on'
     action:
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.circadian_lighting_kitchen_without_brightness_adjustment
+            - switch.circadian_lighting_kitchen_ceiling_without_brightness_adjustment
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.circadian_lighting_kitchen_with_brightness_adjustment
+            - switch.circadian_lighting_kitchen_ceiling_with_brightness_adjustment
 
 # ======================================================================
 #

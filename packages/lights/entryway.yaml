@@ -54,7 +54,7 @@ automation:
     initial_state: false
     trigger:
       platform: state
-      entity_id: sensor.light_entryway_brightness
+      entity_id: binary_sensor.light_entryway_ceiling_autobrightness
     condition:
       condition: and
       conditions:

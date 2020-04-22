@@ -2,7 +2,7 @@
   latitude: !secret gwork_lat
   longitude: !secret gwork_long
   radius: 100
-  icon: mdi:office
+  icon: mdi:office-building
 - name: Home
   latitude: !secret home_lat
   longitude: !secret home_long
@@ -17,4 +17,4 @@
   latitude: !secret swork_lat
   longitude: !secret swork_long
   radius: 100
-  icon: mdi:storefront-outline
+  icon: mdi:storefront

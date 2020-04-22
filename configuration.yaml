@@ -88,6 +88,7 @@ logbook: !include includes/system/logbook.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
+zone: !include/zones.yaml
 
 device_tracker:
   - platform: bluetooth_tracker

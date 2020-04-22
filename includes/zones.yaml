@@ -1,21 +1,20 @@
-zone:
-  - name: "Geoff's Work"
-    latitude: !secret gwork_lat
-    longitude: !secret gwork_long
-    radius: 100
-    icon: mdi:icon
-  - name: Home
-    latitude: !secret home_lat
-    longitude: !secret home_long
-    radius: 100
-    icon: mdi:castle
-  - name: "Stan's Home"
-    latitude: !secret shome_lat
-    longitude: !secret shome_long
-    radius: 100
-    icon: mdi:home
-  - name: "Stan's Work"
-    latitude: !secret swork_lat
-    longitude: !secret swork_long
-    radius: 100
-    icon: mdi:storefront-outline
+- name: "Geoff's Work"
+  latitude: !secret gwork_lat
+  longitude: !secret gwork_long
+  radius: 100
+  icon: mdi:icon
+- name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  radius: 100
+  icon: mdi:castle
+- name: "Stan's Home"
+  latitude: !secret shome_lat
+  longitude: !secret shome_long
+  radius: 100
+  icon: mdi:home
+- name: "Stan's Work"
+  latitude: !secret swork_lat
+  longitude: !secret swork_long
+  radius: 100
+  icon: mdi:storefront-outline

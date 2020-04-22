@@ -277,12 +277,10 @@
       value_template: >-
         {{ is_state('device_tracker.atlas_olympus_drbr_org', 'home')
         or is_state('device_tracker.hermes_olympus_drbr_org', 'home') }}
-       #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
     user0002_laptop:
       device_class: connectivity
       value_template: >-
         {{ is_state('device_tracker.athena_olympus_drbr_org', 'home') }}
-       #theme: "if (state == 'on') return [0, 0, 255]; else return [255,0,0];"
     aether:
       friendly_name: "Aether"
       device_class: connectivity
@@ -293,7 +291,6 @@
         {% else %}
           mdi:access-point-network-off
         {% endif %}
-        #theme: "if is_state('binary_sensor.wap1', 'on') %} return [251, 210, 41]; else return [54, 95, 140];"
     chaos:
       friendly_name: "Chaos"
       device_class: connectivity
@@ -304,7 +301,6 @@
         {% else %}
           mdi:access-point-network-off
         {% endif %}
-        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
     lelantos:
       friendly_name: "Lelantos"
       device_class: connectivity
@@ -315,7 +311,6 @@
         {% else %}
           mdi:access-point-network-off
         {% endif %}
-        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
     uranus:
       friendly_name: "Uranus"
       device_class: connectivity
@@ -326,7 +321,6 @@
         {% else %}
         mdi:access-point-network-off
         {% endif %}
-        #rgb_color: "if (state === 'on') return [251, 210, 41]; else return [54, 95, 140];"
 
 # ======================================================================
 #

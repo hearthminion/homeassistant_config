@@ -16,6 +16,8 @@ __pycache__
 *.sqlite
 *.xml
 *.backup
+*.bak
+*.bak2
 life360.sh
 .ip_authenticated.yaml
 .config_entries.json
@@ -52,3 +54,5 @@ custom_components
 themes
 OZW_Log.txt
 customize.yaml
+.HA_VERSION
+core

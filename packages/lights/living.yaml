@@ -35,7 +35,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Living Area: Circadian Lighting (with Brightness Adjustment)'
+  - alias: "[Light] Living Area: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -51,7 +51,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_living_area_without_brightness_adjustment
 
-  - alias: '[Light] Living Area: Circadian Lighting (without Brightness adjust)'
+  - alias: "[Light] Living Area: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
       platform: state
@@ -63,7 +63,7 @@ automation:
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
         - condition: state
           entity_id: switch.circadian_lighting_living_area_with_brightness_adjustment
-          state: 'on'
+          state: "on"
     action:
       - service: switch.turn_on
         data:
@@ -86,27 +86,27 @@ binary_sensor:
       light_living_area_autobrightness:
         friendly_name: "[Light] Living Area Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_living_area_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_living_area_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_living_area_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_living_area_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr("binary_sensor.light_living_area_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_living_area_autobrightness", "brightness_max") | int )
+             and ( state_attr("binary_sensor.light_living_area_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_living_area_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_living_area_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr("switch.circadian_lighting_living_area_with_brightness_adjustment","brightness") | round(0) }}
           brightness: >-
-            {% if state_attr('light.living_area', 'brightness') == None or
-               is_state_attr('light.living_area', 'brightness', 'unknown')  or
+            {% if state_attr("light.living_area", "brightness") == None or
+               is_state_attr("light.living_area", "brightness", "unknown")  or
                is_state("light.living_area","off") %}
               100
             {% else %}
-              {{ ( state_attr('light.living_area','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr("light.living_area","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_living_area_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr("binary_sensor.light_living_area_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_living_area_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr("binary_sensor.light_living_area_autobrightness", "brightness") | int - 4 }}
           xy_color: >-
-            {{ state_attr('light.living_area','xy_color') }}
+            {{ state_attr("light.living_area","xy_color") }}
           color_temp: >-
-            {{ state_attr('light.living_area','color_temp') }}
+            {{ state_attr("light.living_area","color_temp") }}
 
 # ======================================================================
 #
@@ -127,12 +127,12 @@ binary_sensor:
 #     sensors:
 #       light_living_area_circadian_brigthness:
 #         friendly_name: "[Light] Main Living Area: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_living_with_brightness_adjustment','brightness') | round(0) }}"
-#         unit_of_measurement: '%'
+#         value_template: "{{ state_attr("switch.circadian_lighting_living_with_brightness_adjustment","brightness") | round(0) }}"
+#         unit_of_measurement: "%"
 #       light_living_area_brightness:
 #         friendly_name: "[Light] Main Living Area: Brightness"
-#         value_template:  "{{ ( state_attr('light.living_area','brightness') / 254 * 100 ) | int }}"
-#         unit_of_measurement: '%'
+#         value_template:  "{{ ( state_attr("light.living_area","brightness") / 254 * 100 ) | int }}"
+#         unit_of_measurement: "%"
 
 # ======================================================================
 #

@@ -27,8 +27,8 @@ automation:
   # Actions:
   #
   # ======================================================================
-  - alias: '[Lights] Set Lighting Mode: Circadian'
-    description: ''
+  - alias: "[Lights] Set Lighting Mode: Circadian"
+    description: ""
     trigger:
       - platform: numeric_state
         entity_id: sun.sun
@@ -38,7 +38,7 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.light_mode
-          option: 'Circadian'
+          option: "Circadian"
 
   # ======================================================================
   #
@@ -51,7 +51,7 @@ automation:
   #
   # ======================================================================
   - alias: "[Lights] Set Light Mode: Darken House"
-    description: ''
+    description: ""
     trigger:
       - platform: event
         event_type: timer.finished
@@ -62,7 +62,7 @@ automation:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.light_mode
-          option: 'Darken House'
+          option: "Darken House"
 
   # ======================================================================
   #
@@ -74,16 +74,16 @@ automation:
   # Actions:
   # - 
   # ======================================================================
-  - alias: '[Lights] Set Lighting Mode: Migraine'
+  - alias: "[Lights] Set Lighting Mode: Migraine"
     trigger:
       platform: state
       entity_id: input_boolean.special_migraine_mode
-      to: 'on'
+      to: "on"
     action:
       - service: input_select.select_option
         data_template:
           entity_id: input_select.light_mode
-          option: 'Migraine'
+          option: "Migraine"
 
   # ======================================================================
   #
@@ -96,18 +96,18 @@ automation:
   # -
   #
   # ======================================================================
-  - alias: '[Lights] Set Light Mode: Guests'
-    description: ''
+  - alias: "[Lights] Set Light Mode: Guests"
+    description: ""
     trigger:
     - platform: state
       entity_id: input_boolean.special_guest_present
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
     condition: []
     action:
       data:
         entity_id: input_select.light_mode
-        option: 'Guests'
+        option: "Guests"
       service: input_select.select_option
 
 # ======================================================================
@@ -156,15 +156,15 @@ input_select:
   light_mode:
     name: "Light Mode"
     options:
-      - 'Circadian'
-      - 'Darken House'
-      - 'Migraine'
-      - 'Sleeping (Migraine)'
-      - 'Night Out'
-      - 'Guests'
-      - 'Other'
+      - "Circadian"
+      - "Darken House"
+      - "Migraine"
+      - "Sleeping (Migraine)"
+      - "Night Out"
+      - "Guests"
+      - "Other"
     #initial: "Circadian"
-    #icon: 'mdi:light'
+    #icon: "mdi:light"
 
 # ======================================================================
 #
@@ -177,5 +177,5 @@ sensor:
       circadian_temperature:
         friendly_name: "Circadian Color Temperature"
         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
-        unit_of_measurement: '°K'
+        unit_of_measurement: "°K"
 

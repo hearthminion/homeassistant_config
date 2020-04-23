@@ -31,7 +31,7 @@ automation:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Bedroom 2 Ceiling Light: Circadian Lighting (with Brightness Adjustment)'
+  - alias: "[Light] Bedroom 2 Ceiling Light: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -47,12 +47,12 @@ automation:
           entity_id:
             - switch.circadian_lighting_bedroom_2_ceiling_lights_without_brightness_adjustment
 
-  - alias: '[Light] Bedroom 2 Ceiling Light: Circadian Lighting (without Brightness adjust)'
+  - alias: "[Light] Bedroom 2 Ceiling Light: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: sensor.light_bedroom_2_ceiling_lights_autobrightness
-        to: 'off'
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -76,7 +76,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: '[Light] Bedroom 2 Closet: Circadian Lighting (with Brightness Adjustment)'
+  - alias: "[Light] Bedroom 2 Closet: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -92,12 +92,12 @@ automation:
           entity_id:
             - switch.circadian_lighting_bedroom_2_closet_without_brightness_adjustment
 
-  - alias: '[Light] Bedroom 2 Closet: Circadian Lighting (without Brightness adjust)'
+  - alias: "[Light] Bedroom 2 Closet: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.light_bedroom_2_closet_autobrightness
-        to: 'off'
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -124,51 +124,51 @@ binary_sensor:
       light_bedroom_2_ceiling_autobrightness:
         friendly_name: "[Light] Bedroom 2 Ceiling Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "brightness_max") | int )
+             and ( state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr("switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment","brightness") | round(0) }}
           brightness: >-
-            {% if state_attr('light.bedroom_2_ceiling', 'brightness') == None or
-               is_state_attr('light.bedroom_2_ceiling', 'brightness', 'unknown')  or
+            {% if state_attr("light.bedroom_2_ceiling", "brightness") == None or
+               is_state_attr("light.bedroom_2_ceiling", "brightness", "unknown")  or
                is_state("light.bedroom_2_ceiling", "off") %}
               100
             {% else %}
-              {{ ( state_attr('light.bedroom_2_ceiling','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr("light.bedroom_2_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_bedroom_2_ceiling_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr("binary_sensor.light_bedroom_2_ceiling_autobrightness", "brightness") | int - 4 }}
           #xy_color: >-
-          #  {{ state_attr('light.bedroom_2_ceiling','xy_color') }}
+          #  {{ state_attr("light.bedroom_2_ceiling","xy_color") }}
           color_temp: >-
-            {{ state_attr('light.bedroom_2_ceiling','color_temp') }}
+            {{ state_attr("light.bedroom_2_ceiling","color_temp") }}
       light_bedroom_2_closet_autobrightness:
         friendly_name: "[Light] Bedroom 2 Closet Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "brightness_max") | int )
+             and ( state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr("switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment","brightness") | round(0) }}
           brightness: >-
-            {% if state_attr('light.bedroom_2_closet', 'brightness') == None or
-               is_state_attr('light.bedroom_2_closet', 'brightness', 'unknown') or
+            {% if state_attr("light.bedroom_2_closet", "brightness") == None or
+               is_state_attr("light.bedroom_2_closet", "brightness", "unknown") or
                is_state("light.bedroom_2_closet","off") %}
               100
             {% else %}
-              {{ ( state_attr('light.bedroom_2_closet','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr("light.bedroom_2_closet","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_bedroom_2_closet_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr("binary_sensor.light_bedroom_2_closet_autobrightness", "brightness") | int - 4 }}
           #xy_color: >-
-          #  {{ state_attr('light.bedroom_2_closet','xy_color') }}
+          #  {{ state_attr("light.bedroom_2_closet","xy_color") }}
           color_temp: >-
-            {{ state_attr('light.bedroom_2_closet','color_temp') }}
+            {{ state_attr("light.bedroom_2_closet","color_temp") }}
 
 # ======================================================================
 #
@@ -179,7 +179,7 @@ input_select:
   hue_scene_bedroom_2_bedroom:
     name: "[Light] Bedroom 2 Scene"
     icon: mdi:palette
-    initial: 'Circadian'
+    initial: "Circadian"
     options:
       - Arctic aurora
       - Sevanna sunset
@@ -259,20 +259,20 @@ input_select:
 #     sensors:
 #       light_bedroom_2_ceiling_circadian_brightness:
 #         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}"
-#         unit_of_measurement: '%'
+#         value_template: "{{ state_attr("switch.circadian_lighting_bedroom_2_ceiling_lights_with_brightness_adjustment","brightness") | round(0) }}"
+#         unit_of_measurement: "%"
 #       light_bedroom_2_closet_circadian_brightness:
 #         friendly_name: "[Light] Bedroom 2 Closet: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment','brightness') | round(0) }}"
-#         unit_of_measurement: '%'
+#         value_template: "{{ state_attr("switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment","brightness") | round(0) }}"
+#         unit_of_measurement: "%"
 #       light_bedroom_2_ceiling_brightness:
 #         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Brightness"
-#         value_template:  "{{ ( state_attr('light.bedroom_2_ceiling','brightness') / 254 * 100 ) | int }}"
-#         unit_of_measurement: '%'
+#         value_template:  "{{ ( state_attr("light.bedroom_2_ceiling","brightness") / 254 * 100 ) | int }}"
+#         unit_of_measurement: "%"
 #       light_bedroom_2_closet_brightness:
 #         friendly_name: "[Light] Bedroom 2 Closet: Brightness"
-#         value_template:  "{{ ( state_attr('light.bedroom_2_closet','brightness') / 254 * 100 ) | int }}"
-#         unit_of_measurement: '%'
+#         value_template:  "{{ ( state_attr("light.bedroom_2_closet","brightness") / 254 * 100 ) | int }}"
+#         unit_of_measurement: "%"
 
 # ======================================================================
 #

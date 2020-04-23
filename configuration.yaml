@@ -97,8 +97,8 @@ device_tracker:
 
   - platform: nmap_tracker
     hosts:
-      - 10.0.99.0/8
-      - 10.7.77.0/8
+      - 10.0.99.0/24
+      - 10.7.77.0/24
       - 10.0.2.41-43
     home_interval: 3
 

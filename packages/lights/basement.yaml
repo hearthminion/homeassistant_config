@@ -25,7 +25,7 @@ automation:
   #   - 
   #
   # ====================================================================
-  - alias: '[Light] Basement Ceiling: Circadian Lighting (with Brightness Adjustment)'
+  - alias: "[Light] Basement Ceiling: Circadian Lighting (with Brightness Adjustment)"
     initial_state: true
     trigger:
       - platform: state
@@ -33,7 +33,7 @@ automation:
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.light_basement_autobrightness
-        to: 'on'
+        to: "on"
     condition:
       condition: and
       conditions:
@@ -48,12 +48,12 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_basement_without_brightness_adjustment
-  - alias: '[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)'
+  - alias: "[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)"
     initial_state: true
     trigger:
       - platform: state
         entity_id: binary_sensor.light_basement_autobrightness
-        to: 'off'
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -80,27 +80,27 @@ binary_sensor:
       light_basement_autobrightness:
         friendly_name: "[Light] Basement Autobrightness"
         value_template: >-
-          {{ ( state_attr('binary_sensor.light_basement_autobrightness', 'circadian_brightness') | int ) < ( state_attr('binary_sensor.light_basement_autobrightness', 'brightness_max') | int )
-             and ( state_attr('binary_sensor.light_basement_autobrightness', 'circadian_brightness') | int ) > ( state_attr('binary_sensor.light_basement_autobrightness', 'brightness_min') | int ) }}
+          {{ ( state_attr("binary_sensor.light_basement_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
+             and ( state_attr("binary_sensor.light_basement_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
           circadian_brightness: >-
-            {{ state_attr('switch.circadian_lighting_basement_with_brightness_adjustment','brightness') | round(0) }}
+            {{ state_attr("switch.circadian_lighting_basement_with_brightness_adjustment","brightness") | round(0) }}
           brightness: >-
-            {% if state_attr('light.basement', 'brightness') == None or
-               is_state_attr('light.basement', 'brightness', 'unknown')  or
+            {% if state_attr("light.basement", "brightness") == None or
+               is_state_attr("light.basement", "brightness", "unknown")  or
                is_state("light.basement", "off") %}
               100
             {% else %}
-              {{ ( state_attr('light.basement','brightness') / 254 * 100 ) | int }}
+              {{ ( state_attr("light.basement","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int + 4 }}
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
-            {{ state_attr('binary_sensor.light_basement_autobrightness', 'brightness') | int - 4 }}
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
           #xy_color: >-
-          #  {{ state_attr('light.basement','xy_color') }}
+          #  {{ state_attr("light.basement","xy_color") }}
           color_temp: >-
-            {{ state_attr('light.basement','color_temp') }}
+            {{ state_attr("light.basement","color_temp") }}
 
 # ======================================================================
 #
@@ -111,7 +111,7 @@ input_select:
   hue_scene_basement_bedroom:
     name: "[Light] Hue Basement Scene"
     icon: mdi:palette
-    initial: 'Circadian'
+    initial: "Circadian"
     options:
       - Arctic aurora
       - Sevanna sunset
@@ -166,54 +166,54 @@ input_select:
 #   RGB Color Values: https://htmlcolorcodes.com/color-names/
 # ======================================================================
 # scene:
-#   - id: '1576892024578'
+#   - id: "1576892024578"
 #     name: "Basement: Darken Room"
 #     entities:
 #       automation.light_basement_ceiling_light_circadian_lighting_with_brightness_adjustment:
-#         friendly_name: '[Light] Basement Ceiling Light: Circadian Lighting (with Brightness
-#           Adjustment)'
+#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (with Brightness
+#           Adjustment)"
 #         last_triggered:
-#         state: 'off'
+#         state: "off"
 #       automation.light_basement_ceiling_light_circadian_lighting_without_brightness_adjust:
-#         friendly_name: '[Light] Basement Ceiling Light: Circadian Lighting (without
-#           Brightness adjust)'
+#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (without
+#           Brightness adjust)"
 #         last_triggered:
-#         state: 'off'
+#         state: "off"
 #       light.basement_lamp_20:
 #         friendly_name: "Basement Right"
-#         state: 'off'
+#         state: "off"
 #       light.basement_lamp_21:
 #         friendly_name: "Basement Left"
-#         state: 'off'
+#         state: "off"
 #       light.basement_lamp_9:
 #         friendly_name: "Basement Center"
 #         brightness_pct: 25
 #         color_name: "darkred"
-#         state: 'on'
-#   - id: '1576960043395'
+#         state: "on"
+#   - id: "1576960043395"
 #     name: Basement Migraine
 #     entities:
 #       automation.light_basement_ceiling_light_circadian_lighting_with_brightness_adjustment:
-#         friendly_name: '[Light] Basement Ceiling Light: Circadian Lighting (with Brightness
-#           Adjustment)'
+#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (with Brightness
+#           Adjustment)"
 #         last_triggered:
-#         state: 'off'
+#         state: "off"
 #       automation.light_basement_ceiling_light_circadian_lighting_without_brightness_adjust:
-#         friendly_name: '[Light] Basement Ceiling Light: Circadian Lighting (without
-#           Brightness adjust)'
+#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (without
+#           Brightness adjust)"
 #         last_triggered:
-#         state: 'off'
+#         state: "off"
 #       light.basement_lamp_1:
 #         friendly_name: "Basement Center"
-#         state: 'on'
+#         state: "on"
 #         color_name: "darkgreen"
 #         brightness_pct: 25
 #       light.basement_lamp_2:
 #         friendly_name: "Basement Right"
-#         state: 'off'
+#         state: "off"
 #       light.basement_lamp_3:
 #         friendly_name: "Basement Left"
-#         state: 'off'
+#         state: "off"
 
 # ======================================================================
 #
@@ -221,20 +221,10 @@ input_select:
 #
 # ======================================================================
 # sensor:
-#   - platform: template
-#     sensors:
-#       light_basement_ceiling_circadian_brightness:
-#         friendly_name: "[Light] Basement Ceiling Lights: Circadian Brightness"
-#         value_template: "{{ state_attr('switch.circadian_lighting_basement_with_brightness_adjustment','brightness') | round(0) }}"
-#         unit_of_measurement: '%'
-#       light_basement_ceiling_brightness:
-#         friendly_name: "[Light] Basement Ceiling Lights: Brightness"
-#         value_template:  "{{ (state_attr('light.basement','brightness') / 254 * 100 ) | int }}"
-#         unit_of_measurement: '%'
 
 # ======================================================================
 #
-#
+# Switches
 #
 # ======================================================================
 switch:

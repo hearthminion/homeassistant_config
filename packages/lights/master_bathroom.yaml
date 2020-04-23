@@ -135,8 +135,9 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.master_bath_inner','brightness', 'unknown')  or
-               is_state("light.master_bath_inner","off") %}
+            {% if state_attr('light.master_bath_inner', 'brightness') == None or
+               is_state_attr('light.master_bath_inner', 'brightness', 'unknown')  or
+               is_state("light.master_bath_inner", "off") %}
               100
             {% else %}
               {{ ( state_attr('light.master_bath_inner','brightness') / 254 * 100 ) | int }}
@@ -158,8 +159,9 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.master_bath_outer','brightness', 'unknown')  or
-               is_state("light.master_bath_outer","off") %}
+            {% if state_attr('light.master_bath_outer', 'brightness') == None or
+               is_state_attr('light.master_bath_outer', 'brightness', 'unknown')  or
+               is_state("light.master_bath_outer", "off") %}
               100
             {% else %}
               {{ ( state_attr('light.master_bath_outer','brightness') / 254 * 100 ) | int }}

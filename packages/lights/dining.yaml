@@ -97,7 +97,8 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_dining_area_ceiling_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.dining_area_ceiling','brightness', 'unknown')  or
+            {% if state_attr('light.dining_area_ceiling', 'brightness') == None or
+               is_state_attr('light.dining_area_ceiling','brightness', 'unknown')  or
                is_state("light.dining_area_ceiling","off") %}
               100
             {% else %}

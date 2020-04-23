@@ -86,8 +86,6 @@
     seconds: 0
     milliseconds: 0
 
-- platform: flunearyou
-
 - platform: template
   sensors:
     darksky_pressure:

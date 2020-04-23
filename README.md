@@ -44,6 +44,16 @@
 ##### Locks
 - [Schlage Connect](https://www.schlage.com/en/home/smart-locks/connect.html)
 
+#### Integrations
+##### Built In
+###### Device Trackers
+###### Sensors
+##### Custom
+###### [HACS](https://github.com/)
+###### [Car Wash Sensor](https://github.com)
+###### [Garbage Collection](https://github.com)
+###### [Circadian Lighting](https://github.com)
+
 ## Features and Advantages
 ...
 

@@ -262,8 +262,9 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_master_lamp_1_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.master_lamp_1','brightness', 'unknown') or
-               is_state("light.master_lamp_1","off") %}
+            {% if state_attr('light.master_lamp_1', 'brightness') == None or
+               is_state_attr('light.master_lamp_1', 'brightness', 'unknown') or
+               is_state("light.master_lamp_1", "off") %}
               100
             {% else %}
               {{ ( state_attr('light.master_lamp_1','brightness') / 254 * 100 ) | int }}
@@ -285,8 +286,9 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_master_lamp_2_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.master_lamp_2','brightness', 'unknown') or
-               is_state("light.master_lamp_2","off") %}
+            {% if state_attr('light.master_lamp_2', 'brightness') == None or
+               is_state_attr('light.master_lamp_2', 'brightness', 'unknown') or
+               is_state("light.master_lamp_2", "off") %}
               100
             {% else %}
               {{ ( state_attr('light.master_lamp_2','brightness') / 254 * 100 ) | int }}
@@ -308,7 +310,8 @@ binary_sensor:
           circadian_brightness: >-
             {{ state_attr('switch.circadian_lighting_master_ceiling_lights_with_brightness_adjustment','brightness') | round(0) }}
           brightness: >-
-            {% if is_state_attr('light.master_ceiling','brightness', 'unknown')  or
+            {% if state_attr('light.master_ceiling', 'brightness') == None or
+               is_state_attr('light.master_ceiling','brightness', 'unknown')  or
                is_state("light.master_ceiling","off") %}
               100
             {% else %}

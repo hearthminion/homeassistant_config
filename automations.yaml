@@ -9,10 +9,8 @@
     platform: numeric_state
   condition: []
   action:
-  - device_id: 6ec8830ea56d4efaae8b5cf62180794c
-    domain: switch
-    entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
-    type: turn_on
+  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
+    type: switch.turn_on
 - id: '1576628018411'
   alias: Christmas Lights Off
   description: ''

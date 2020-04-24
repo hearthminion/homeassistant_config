@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.108.8
-# Version: 0.108.18
+# Version: 0.108.19
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -178,6 +178,11 @@ lovelace: !include includes/lovelace.yaml
 # Services
 #
 # ======================================================================
+mqtt:
+  broker: angelia.olympus.drbr.org
+  port: 1883
+  username: homeassistant
+  password: !secret mqtt_password
 
 ios:
 system_health:

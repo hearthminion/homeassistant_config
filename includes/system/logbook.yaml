@@ -1,5 +1,0 @@
-exclude:
-  entities:
-    - sensor.date
-  domains:
-    - sun

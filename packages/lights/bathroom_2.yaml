@@ -98,9 +98,9 @@ binary_sensor:
           brightness: >-
             {% if state_attr("light.bathroom_2", "brightness") == None or
                is_state_attr("light.bathroom_2","brightness", "unknown")  or
-               is_state("light.bathroom_2", "off") %}
+               is_state("light.bathroom_2", "off") -%}
               100
-            {% else %}
+            {%- else %}
               {{ ( state_attr("light.bathroom_2_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-

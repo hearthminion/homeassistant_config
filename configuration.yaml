@@ -192,13 +192,5 @@ zwave:
   device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_key
 
-
-# ======================================================================
-#
-# Custom Addons
-#
-# ======================================================================
-
-garbage_collection: !include includes/garbage.yaml
 # ======================================================================
 # configuration.yaml ends here

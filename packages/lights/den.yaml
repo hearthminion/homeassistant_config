@@ -63,7 +63,6 @@ automation:
         entity_id:
           - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
       - service: switch.turn_off
-
         entity_id:
           - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
 
@@ -470,11 +469,11 @@ binary_sensor:
 # ======================================================================
 scene:
   - id: '1587751320837'
-    name: Enable Den Light Automations
+    name: "[Light] Enable Den Automations"
     entities:
       automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
         state: 'on'
-      automation.light_den_couch_right_circadian_lighting_without_brightness_adjust:
+      automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjust:
         state: 'on'
 
 # ======================================================================

@@ -190,55 +190,55 @@ input_select:
 # Notes:
 #   RGB Color Values: https://htmlcolorcodes.com/color-names/
 # ======================================================================
-scene:
-  - id: "1576892024578"
-    name: "[Light] Bathroom 2: Darken Room"
-    entities:
-      automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
-          Adjustment)"
-        last_triggered:
-        state: "off"
-      automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
-          Brightness adjust)"
-        last_triggered:
-        state: "off"
-      light.main_lamp_20:
-        friendly_name: "Bathroom 2 Right"
-        state: "off"
-      light.main_lamp_21:
-        friendly_name: "Bathroom 2 Left"
-        state: "off"
-      light.main_lamp_9:
-        friendly_name: "Bathroom 2 Center"
-        brightness_pct: 25
-        color_name: "darkred"
-        state: "on"
-  - id: "1576960043395"
-    name: "[Light] Bathroom 2: Migraine"
-    entities:
-      automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
-          Adjustment)"
-        last_triggered:
-        state: "off"
-      automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
-          Brightness adjust)"
-        last_triggered:
-        state: "off"
-      light.main_lamp_9:
-        friendly_name: "Bathroom 2 Center"
-        state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_20:
-        friendly_name: "Bathroom 2 Right"
-        state: "off"
-      light.main_lamp_21:
-        friendly_name: "Bathroom 2 Left"
-        state: "off"
+# scene:
+#   - id: "1576892024578"
+#     name: "[Light] Bathroom 2: Darken Room"
+#     entities:
+#       automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
+#         friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
+#           Adjustment)"
+#         last_triggered:
+#         state: "off"
+#       automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
+#         friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
+#           Brightness adjust)"
+#         last_triggered:
+#         state: "off"
+#       light.main_lamp_20:
+#         friendly_name: "Bathroom 2 Right"
+#         state: "off"
+#       light.main_lamp_21:
+#         friendly_name: "Bathroom 2 Left"
+#         state: "off"
+#       light.main_lamp_9:
+#         friendly_name: "Bathroom 2 Center"
+#         brightness_pct: 25
+#         color_name: "darkred"
+#         state: "on"
+#   - id: "1576960043395"
+#     name: "[Light] Bathroom 2: Migraine"
+#     entities:
+#       automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
+#         friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
+#           Adjustment)"
+#         last_triggered:
+#         state: "off"
+#       automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
+#         friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
+#           Brightness adjust)"
+#         last_triggered:
+#         state: "off"
+#       light.main_lamp_9:
+#         friendly_name: "Bathroom 2 Center"
+#         state: "on"
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_20:
+#         friendly_name: "Bathroom 2 Right"
+#         state: "off"
+#       light.main_lamp_21:
+#         friendly_name: "Bathroom 2 Left"
+#         state: "off"
 
 # ======================================================================
 #

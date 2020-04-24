@@ -26,7 +26,7 @@ automation:
   #
   # ====================================================================
   - alias: "[Light] Basement Ceiling: Circadian Lighting (with Brightness Adjustment)"
-    initial_state: true
+    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -49,7 +49,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_basement_without_brightness_adjustment
   - alias: "[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)"
-    initial_state: true
+    initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.light_basement_autobrightness
@@ -169,7 +169,15 @@ input_select:
 # Notes:
 #   RGB Color Values: https://htmlcolorcodes.com/color-names/
 # ======================================================================
-# scene:
+scene:
+  - id: '1587760070294'
+    name: '[Light] Enable Basement Automations'
+    entities:
+      automation.light_basement_ceiling_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_basement_ceiling_circadian_lighting_without_brightness_adjust:
+        state: 'on'
+
 #   - id: "1576892024578"
 #     name: "Basement: Darken Room"
 #     entities:

@@ -39,21 +39,24 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: "[Light] Bathroom 2: Circadian Lighting (with Brightness Adjustment)"
+  - id: "1587733513647"
+    alias: "[Light] Bathroom 2: Circadian Lighting (with Brightness Adjustment)"
+    description: "Turn on Bathroom 2 Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
+    condition: []
     action:
       - service: switch.turn_on
-        data:
-          entity_id:
-            - switch.circadian_lighting_bathroom_2_with_brightness_adjustment
+        data: {}
+        entity_id:
+          - switch.circadian_lighting_bathroom_2_with_brightness_adjustment
       - service: switch.turn_off
-        data:
-          entity_id:
-            - switch.circadian_lighting_bathroom_2_without_brightness_adjustment
+        data: {}
+        entity_id:
+          - switch.circadian_lighting_bathroom_2_without_brightness_adjustment
 
   - alias: "[Light] Bathroom 2: Circadian Lighting (without Brightness adjust)"
     initial_state: false
@@ -191,12 +194,12 @@ scene:
   - id: "1576892024578"
     name: "[Light] Bathroom 2: Darken Room"
     entities:
-      automation.light_bahroom_2_light_circadian_lighting_with_brightness_adjustment:
+      automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
           Adjustment)"
         last_triggered:
         state: "off"
-      automation.light_bahroom_2_light_circadian_lighting_without_brightness_adjust:
+      automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
         friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (without
           Brightness adjust)"
         last_triggered:
@@ -215,12 +218,12 @@ scene:
   - id: "1576960043395"
     name: "[Light] Bathroom 2: Migraine"
     entities:
-      automation.light_bahroom_2_light_circadian_lighting_with_brightness_adjustment:
+      automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
         friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
           Adjustment)"
         last_triggered:
         state: "off"
-      automation.light_bahroom_2_light_circadian_lighting_without_brightness_adjust:
+      automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
         friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (without
           Brightness adjust)"
         last_triggered:

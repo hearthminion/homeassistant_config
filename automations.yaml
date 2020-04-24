@@ -32,3 +32,13 @@
   condition: []
   action:
   - service: hassio.host_reboot
+- id: '1587755245580'
+  alias: Enable Light Automations
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - scene: scene.enable_main_room_automations
+  - scene: scene.enable_master_bedroom_light_automations

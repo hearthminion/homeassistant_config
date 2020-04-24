@@ -44,3 +44,37 @@
       sentFailed: 0
       sentTS: '2019-12-21 14:54:26:170 '
       state: ready
+- id: '1587750936415'
+  name: Enable Master Bedroom Light Automations
+  entities:
+    automation.light_master_bedroom_lamp_2_at_night:
+      friendly_name: '[Light] Master Bedroom Lamp 2 at Night'
+      id: '1583021078875'
+      last_triggered: '2020-04-23T23:00:00.463296+00:00'
+      state: 'on'
+    automation.light_master_bedroom_lamp_2_circadian_lighting_with_brightness_adjustment:
+      friendly_name: '[Light] Master Bedroom Lamp 2: Circadian Lighting (with Brightness
+        Adjustment)'
+      id: '1577577061265'
+      last_triggered: '2020-01-07T11:17:19.148843+00:00'
+      state: 'off'
+    automation.light_master_bedroom_lamp_2_circadian_lighting_without_brigtness_adjustment:
+      friendly_name: '[Light] Master Bedroom Lamp 2: Circadian Lighting (without Brightness
+        adjust)'
+      id: '1577189063657'
+      last_triggered: '2020-01-07T12:37:57.201287+00:00'
+      state: 'off'
+- id: '1587751320837'
+  name: Enable Main Room Light Automations
+  entities:
+    automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
+      friendly_name: '[Light] Den Couch Lamp 2: Circadian Lighting (With Brightness
+        Adjustment)'
+      last_triggered:
+      state: 'off'
+    automation.light_den_couch_right_circadian_lighting_without_brightness_adjust:
+      friendly_name: '[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness
+        adjust)'
+      id: '1579090724953'
+      last_triggered: '2020-01-19T21:10:02.794185+00:00'
+      state: 'off'

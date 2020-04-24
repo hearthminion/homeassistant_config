@@ -17,6 +17,7 @@
 - [License](#license)
 
 ## Description
+Home Assistant Version: 0.108.8
 
 ## Installation
 

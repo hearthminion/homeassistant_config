@@ -67,7 +67,7 @@ automation:
           - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
 
   - id: "1579090724953"
-    alias: "[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness adjust)"
+    alias: "[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -115,7 +115,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
 
-  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -165,7 +165,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_fireplace_without_brightness_adjustment
 
-  - alias: "[Light] Den Fireplace: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Den Fireplace: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -215,7 +215,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
 
-  - alias: "[Light] Den Ceiling: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Den Ceiling: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -259,7 +259,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
 
-  - alias: "[Light] Den Tower Lamp: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Den Tower Lamp: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -473,7 +473,7 @@ scene:
     entities:
       automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
         state: 'on'
-      automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjust:
+      automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
         state: 'on'
 
 # ======================================================================

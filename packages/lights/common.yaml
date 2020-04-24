@@ -24,9 +24,10 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - scene: scene.enable_common_light_automations
-      - scene: scene.enable_den_light_automations
-      - scene: scene.enable_master_bedroom_light_automations
+      - scene: scene.light_enable_basement_automations
+      - scene: scene.light_enable_common_automations
+      - scene: scene.light_enable_den_automations
+      - scene: scene.light_enable_master_light_automations
 
   # ======================================================================
   #
@@ -184,7 +185,7 @@ input_select:
 #
 # ======================================================================
 scene:
-  name: Enable Common Light Automations
+  name: "[Light] Enable Common Automations"
   entities:
     automation.light_set_light_mode_circadian:
       state: 'on'

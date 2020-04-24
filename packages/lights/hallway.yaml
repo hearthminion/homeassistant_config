@@ -119,27 +119,27 @@ binary_sensor:
 # Scenes:
 #
 # ======================================================================
-scene:
-  - name: "[Light] Hallway: Darken Room"
-    entities:
-      light.main_lamp_11:
-        friendly_name: "Hallway Color Light"
-        state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
-      light.main_lamp_18:
-        friendly_name: "Hallway Ambiance Light"
-        state: "off"
-  - name: "[Light] Hallway: Migrain"
-    entities:
-      light.main_lamp_11:
-        friendly_name: "Hallway Color Light"
-        state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 25
-      light.main_lamp_18:
-        friendly_name: "Hallway Ambiance Light"
-        state: "off"
+# scene:
+#   - name: "[Light] Hallway: Darken Room"
+#     entities:
+#       light.main_lamp_11:
+#         friendly_name: "Hallway Color Light"
+#         state: "on"
+#         color_name: "darkred"
+#         brightness_pct: 25
+#       light.main_lamp_18:
+#         friendly_name: "Hallway Ambiance Light"
+#         state: "off"
+#   - name: "[Light] Hallway: Migrain"
+#     entities:
+#       light.main_lamp_11:
+#         friendly_name: "Hallway Color Light"
+#         state: "on"
+#         color_name: "darkgreen"
+#         brightness_pct: 25
+#       light.main_lamp_18:
+#         friendly_name: "Hallway Ambiance Light"
+#         state: "off"
 
 # ======================================================================
 #

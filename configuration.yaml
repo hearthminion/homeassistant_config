@@ -169,11 +169,6 @@ lovelace: !include includes/lovelace.yaml
 # Services
 #
 # ======================================================================
-mqtt:
-  broker: angelia.olympus.drbr.org
-  port: 1883
-  username: homeassistant
-  password: !secret mqtt_password
 
 ios:
 system_health:

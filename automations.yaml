@@ -10,7 +10,7 @@
   condition: []
   action:
   - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
-    type: switch.turn_on
+    service: switch.turn_on
 - id: '1576628018411'
   alias: Christmas Lights Off
   description: ''
@@ -22,7 +22,7 @@
   condition: []
   action:
   - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
-    type: switch.turn_off
+    service: switch.turn_off
 - id: '1576717665597'
   alias: Daily Reboot
   description: ''

@@ -47,8 +47,24 @@ Home Assistant Version: 0.108.8
 
 #### Integrations
 ##### Built In
+###### Binary Sensors
+####### [Ping](https://home-assistant.io/)
+####### [Template](https://home-assistant.io/)
 ###### Device Trackers
+####### [Owntracks](https://home-assistant.io/)
+###### [MQTT](https://home-assistant.io)
 ###### Sensors
+####### [Darksky](https://home-assistant.io/) This will be replaced in the future.
+####### [Moon](https://home-assistant.io/)
+####### [MQTT](https://home-assistant.io/)
+####### [Season](https://home-assistant.io/)
+####### [Template](https://home-assistant.io/)
+####### [Time and Date](https://home-assistant.io/)
+####### [Worldclock](https://home-assistant.io/)
+####### [Uptime](https://home-assistant.io/)
+###### [Sun](https://home-assistant.io/)
+###### []
+
 ##### Custom
 ###### [HACS](https://github.com/)
 ###### [Car Wash Sensor](https://github.com)

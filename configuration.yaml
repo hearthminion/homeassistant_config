@@ -84,7 +84,6 @@ sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
 timer: !include includes/timers.yaml
 discovery: !include includes/system/discovery.yaml
-history: !include includes/system/history.yaml
 logbook: !include includes/system/logbook.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml

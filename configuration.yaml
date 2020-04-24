@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.108.8
-# Version: 0.108.16
+# Version: 0.108.17
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -84,8 +84,6 @@ sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
 timer: !include includes/timers.yaml
 discovery: !include includes/system/discovery.yaml
-history: !include includes/system/history.yaml
-logbook: !include includes/system/logbook.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml

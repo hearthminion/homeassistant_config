@@ -254,34 +254,34 @@ input_select:
 #
 #
 # ======================================================================
-scene:
-  - id: "1576892383155"
-    name: "[Light] Master Bathroom (Inner): Darken Room"
-    entities:
-      light.main_lamp_12:
-        friendly_name: "Master Bathroom Center"
-        brightness_pct: 25
-        color_name: "darkred"
-        state: "on"
-      light.main_lamp_17:
-        friendly_name: "Master Bathroom Left"
-        state: "off"
-      light.main_lamp_19:
-        friendly_name: "Master Bathroom Right"
-        state: "off"
-  - name: "[Light] Master Bathroom (Inner): Migraine"
-    entities:
-      light.main_lamp_12:
-        friendly_name: "Master Bathroom Center"
-        brightness_pct: 25
-        color_name: "darkgreen"
-        state: "on"
-      light.main_lamp_17:
-        friendly_name: "Master Bathroom Left"
-        state: "off"
-      light.main_lamp_19:
-        friendly_name: "Master Bathroom Right"
-        state: "off"
+#scene:
+  # - id: "1576892383155"
+  #   name: "[Light] Master Bathroom (Inner): Darken Room"
+  #   entities:
+  #     light.main_lamp_12:
+  #       friendly_name: "Master Bathroom Center"
+  #       brightness_pct: 25
+  #       color_name: "darkred"
+  #       state: "on"
+  #     light.main_lamp_17:
+  #       friendly_name: "Master Bathroom Left"
+  #       state: "off"
+  #     light.main_lamp_19:
+  #       friendly_name: "Master Bathroom Right"
+  #       state: "off"
+  # - name: "[Light] Master Bathroom (Inner): Migraine"
+  #   entities:
+  #     light.main_lamp_12:
+  #       friendly_name: "Master Bathroom Center"
+  #       brightness_pct: 25
+  #       color_name: "darkgreen"
+  #       state: "on"
+  #     light.main_lamp_17:
+  #       friendly_name: "Master Bathroom Left"
+  #       state: "off"
+  #     light.main_lamp_19:
+  #       friendly_name: "Master Bathroom Right"
+  #       state: "off"
 
 # ======================================================================
 #

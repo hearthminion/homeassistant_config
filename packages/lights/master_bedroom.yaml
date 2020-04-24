@@ -676,7 +676,7 @@ switch:
     min_brightness: 25
 
   - platform: circadian_lighting
-    name: "Master Bedroom Ceiling Lights (without Brightness Adjustment)"
+    name: "Master Bedroom Ceiling (without Brightness Adjustment)"
     lights_ct:
       - light.master_bedroom_ceiling
     disable_brightness_adjust: true

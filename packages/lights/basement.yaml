@@ -88,9 +88,9 @@ binary_sensor:
           brightness: >-
             {% if state_attr("light.basement", "brightness") == None or
                is_state_attr("light.basement", "brightness", "unknown")  or
-               is_state("light.basement", "off") %}
+               is_state("light.basement", "off") -%}
               100
-            {% else %}
+            {%- else %}
               {{ ( state_attr("light.basement","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-

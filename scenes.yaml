@@ -44,3 +44,16 @@
       sentFailed: 0
       sentTS: '2019-12-21 14:54:26:170 '
       state: ready
+- id: '1587760070294'
+  name: '[Light] Enable Basement Automations'
+  entities:
+    automation.light_basement_ceiling_circadian_lighting_with_brightness_adjustment:
+      friendly_name: '[Light] Basement Ceiling: Circadian Lighting (with Brightness
+        Adjustment)'
+      last_triggered: '2020-04-24T19:17:22.897758+00:00'
+      state: 'on'
+    automation.light_basement_ceiling_circadian_lighting_without_brightness_adjust:
+      friendly_name: '[Light] Basement Ceiling: Circadian Lighting (without Brightness
+        adjust)'
+      last_triggered: '2020-04-24T19:16:34.833134+00:00'
+      state: 'on'

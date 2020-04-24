@@ -258,7 +258,7 @@ input_select:
 #   - platform: template
 #     sensors:
 #       light_bedroom_2_ceiling_circadian_brightness:
-#         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Circadian Brightness"
+#         friendly_name: "[Light] Bedroom 2: Circadian Brightness"
 #         value_template: "{{ state_attr("switch.circadian_lighting_bedroom_2_ceiling_with_brightness_adjustment","brightness") | round(0) }}"
 #         unit_of_measurement: "%"
 #       light_bedroom_2_closet_circadian_brightness:
@@ -266,7 +266,7 @@ input_select:
 #         value_template: "{{ state_attr("switch.circadian_lighting_bedroom_2_closet_with_brightness_adjustment","brightness") | round(0) }}"
 #         unit_of_measurement: "%"
 #       light_bedroom_2_ceiling_brightness:
-#         friendly_name: "[Light] Bedroom 2 Ceiling Lights: Brightness"
+#         friendly_name: "[Light] Bedroom 2: Brightness"
 #         value_template:  "{{ ( state_attr("light.bedroom_2_ceiling","brightness") / 254 * 100 ) | int }}"
 #         unit_of_measurement: "%"
 #       light_bedroom_2_closet_brightness:

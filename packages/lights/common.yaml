@@ -16,6 +16,18 @@ homeassistant:
 #
 # =====================================================================
 automation:
+  - id: '1587755245580'
+    alias: Enable Light Automations
+    description: ''
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.enable_common_light_automations
+      - scene: scene.enable_den_light_automations
+      - scene: scene.enable_master_bedroom_light_automations
+
   # ======================================================================
   #
   # Set Lighting Mode: Circadian
@@ -27,7 +39,7 @@ automation:
   # Actions:
   #
   # ======================================================================
-  - alias: "[Lights] Set Lighting Mode: Circadian"
+  - alias: "[Light] Set Light Mode: Circadian"
     description: ""
     trigger:
       - platform: numeric_state
@@ -50,7 +62,7 @@ automation:
   # Actions:
   #
   # ======================================================================
-  - alias: "[Lights] Set Light Mode: Darken House"
+  - alias: "[Light] Set Light Mode: Darken House"
     description: ""
     trigger:
       - platform: event
@@ -74,7 +86,7 @@ automation:
   # Actions:
   # - 
   # ======================================================================
-  - alias: "[Lights] Set Lighting Mode: Migraine"
+  - alias: "[Light] Set Light Mode: Migraine"
     trigger:
       platform: state
       entity_id: input_boolean.special_migraine_mode
@@ -96,7 +108,7 @@ automation:
   # -
   #
   # ======================================================================
-  - alias: "[Lights] Set Light Mode: Guests"
+  - alias: "[Light] Set Light Mode: Guests"
     description: ""
     trigger:
     - platform: state
@@ -165,6 +177,23 @@ input_select:
       - "Other"
     #initial: "Circadian"
     #icon: "mdi:light"
+
+# ======================================================================
+#
+# Scenes
+#
+# ======================================================================
+scene:
+  name: Enable Common Light Automations
+  entities:
+    automation.light_set_light_mode_circadian:
+      state: 'on'
+    automation.light_set_light_mode_guests:
+      state: 'on'
+    automation.light_set_light_mode_migraine:
+      state: 'on'
+    automation.light_set_light_mode_darken_house:
+      state: 'on'
 
 # ======================================================================
 #

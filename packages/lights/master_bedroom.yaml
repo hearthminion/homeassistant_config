@@ -58,7 +58,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_bedroom_ceiling_without_brightness_adjustment
 
-  - alias: "[Light] Master Bedroom Ceiling: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Master Bedroom Ceiling: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -109,7 +109,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_bedroom_lamp_1_without_brightness_adjustment
 
-  - alias: "[Light] Master Lamp 1: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Master Bedroom Lamp 1: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -134,7 +134,7 @@ automation:
 
   # ======================================================================
   #
-  # Light fixture: Master Lamp 2
+  # Light fixture: Master Bedroom Lamp 2
   #
   # Lights:
   #   -
@@ -164,7 +164,7 @@ automation:
             - switch.circadian_lighting_master_bedroom_lamp_2_without_brightness_adjustment
 
   - id: "1577189063657"
-    alias: "[Light] Master Bedroom Lamp 2: Circadian Lighting (without Brightness adjust)"
+    alias: "[Light] Master Bedroom Lamp 2: Circadian Lighting (without Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -191,6 +191,7 @@ automation:
   - id: "1577071503214"
     alias: "Enable Migrain Mode"
     description: ""
+    initial_state: false
     trigger:
       - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
         platform: state
@@ -203,6 +204,7 @@ automation:
   - id: "1583021078875"
     alias: "[Light] Master Bedroom Lamp 2 at Night"
     description: "Turn on Master Bedroom Lamp 2 at night"
+    initial_state: false
     trigger:
       - event: sunset
         platform: sun
@@ -239,7 +241,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_master_bedroom_closet_without_brightness_adjustment
 
-  - alias: "[Light] Master Bedroom Closet: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Master Bedroom Closet: Circadian Lighting (without Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -449,7 +451,17 @@ input_select:
 # Scenes
 #
 # ======================================================================
-# scene:
+scene:
+  - id: '1587750936415'
+    name: Enable Master Bedroom Light Automations
+    entities:
+      automation.light_master_bedroom_lamp_2_at_night:
+        state: 'on'
+      automation.light_master_bedroom_lamp_2_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_master_bedroom_lamp_2_circadian_lighting_without_brightness_adjustment:
+        state: 'on'
+
 #   - id: "1576887377088"
 #     name: "[Light] Master Bedroom: Migraine"
 #     entities:

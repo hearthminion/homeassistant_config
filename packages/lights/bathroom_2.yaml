@@ -28,7 +28,7 @@
 automation:
   # ======================================================================
   #
-  # Light fixture: Bathroom 2 Lights
+  # Light fixture: Bathroom 2
   #
   # Lights:
   #   - 
@@ -195,12 +195,12 @@ scene:
     name: "[Light] Bathroom 2: Darken Room"
     entities:
       automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
+        friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
           Adjustment)"
         last_triggered:
         state: "off"
       automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (without
+        friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
           Brightness adjust)"
         last_triggered:
         state: "off"
@@ -219,12 +219,12 @@ scene:
     name: "[Light] Bathroom 2: Migraine"
     entities:
       automation.light_bathroom_2_light_circadian_lighting_with_brightness_adjustment:
-        friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (with Brightness
+        friendly_name: "[Light] Bathroom 2: Circadian Lighting (with Brightness
           Adjustment)"
         last_triggered:
         state: "off"
       automation.light_bathroom_2_light_circadian_lighting_without_brightness_adjust:
-        friendly_name: "[Light] Bathroom 2 Lights: Circadian Lighting (without
+        friendly_name: "[Light] Bathroom 2: Circadian Lighting (without
           Brightness adjust)"
         last_triggered:
         state: "off"
@@ -249,11 +249,11 @@ scene:
 #   - platform: template
 #     sensors:
 #       light_bahroom_2_circadian_brightness:
-#         friendly_name: "[Light] Bathroom 2 Lightss: Circadian Brightness"
+#         friendly_name: "[Light] Bathroom 2 Light: Circadian Brightness"
 #         value_template: "{{ state_attr("switch.circadian_lighting_bahroom_2_with_brightness_adjustment","brightness") | round(0) }}"
 #         unit_of_measurement: "%"
 #       light_bahroom_2_brightness:
-#         friendly_name: "[Light] Bathroom 2 Lightss: Brightness"
+#         friendly_name: "[Light] Bathroom 2 Light: Brightness"
 #         value_template:  "{{ (state_attr("light.bahroom_2","brightness") / 254 * 100 ) | int }}"
 #         unit_of_measurement: "%"
 #       light_bahroom_2_xy_color:

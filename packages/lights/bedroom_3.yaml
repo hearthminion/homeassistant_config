@@ -39,7 +39,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: "[Lights] Bedroom 3 Ceiling: Circadian Lighting (with Brightness Adjustment)"
+  - alias: "[Light] Bedroom 3 Ceiling: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -55,7 +55,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_bedroom_3_ceiling_without_brightness_adjustment
 
-  - alias: "[Lights] Bedroom 3 Ceiling: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Bedroom 3 Ceiling: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
       - platform: state
@@ -89,7 +89,7 @@ automation:
   #   - 
   #
   # ======================================================================
-  - alias: "[Lights] Bedroom 3 Closet: Circadian Lighting (with Brightness Adjustment)"
+  - alias: "[Light] Bedroom 3 Closet: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
       platform: state
@@ -105,7 +105,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_bedroom_3_closet_without_brightness_adjustment
 
-  - alias: "[Lights] Bedroom 3 Closet: Circadian Lighting (without Brightness adjust)"
+  - alias: "[Light] Bedroom 3 Closet: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
       - platform: state

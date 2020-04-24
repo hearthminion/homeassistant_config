@@ -121,6 +121,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
+      to: "off"
     condition:
       condition: and
       conditions:
@@ -170,6 +171,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.light_den_fireplace_autobrightness
+      to: "off"
     condition:
       condition: and
       conditions:
@@ -466,7 +468,14 @@ binary_sensor:
 #   - Migraine
 #
 # ======================================================================
-#scene:
+scene:
+  - id: '1587751320837'
+    name: Enable Den Light Automations
+    entities:
+      automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_den_couch_right_circadian_lighting_without_brightness_adjust:
+        state: 'on'
 
 # ======================================================================
 #

@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.108.8
-# Version: 0.108.20
+# Version: 0.108.21
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -94,12 +94,12 @@ device_tracker:
     consider_home: 120
     interval_seconds: 40
 
-  - platform: nmap_tracker
-    hosts:
-      - 10.0.99.0/24
-      - 10.7.77.0/24
-      - 10.0.2.41-43
-    home_interval: 3
+  # - platform: nmap_tracker
+  #   hosts:
+  #     - 10.0.99.0/24
+  #     - 10.7.77.0/24
+  #     - 10.0.2.41-43
+  #   home_interval: 3
 
 owntracks:
   max_gps_accuracy: 200

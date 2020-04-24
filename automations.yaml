@@ -34,4 +34,3 @@
   condition: []
   action:
   - service: hassio.host_reboot
-    service: switch.turn_off

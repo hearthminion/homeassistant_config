@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.108.8
-# Version: 0.108.17
+# Version: 0.108.18
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -178,11 +178,6 @@ lovelace: !include includes/lovelace.yaml
 # Services
 #
 # ======================================================================
-mqtt:
-  broker: angelia.olympus.drbr.org
-  port: 1883
-  username: homeassistant
-  password: !secret mqtt_password
 
 ios:
 system_health:
@@ -192,13 +187,5 @@ zwave:
   device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_key
 
-
-# ======================================================================
-#
-# Custom Addons
-#
-# ======================================================================
-
-garbage_collection: !include includes/garbage.yaml
 # ======================================================================
 # configuration.yaml ends here

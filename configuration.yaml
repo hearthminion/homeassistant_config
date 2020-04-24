@@ -101,15 +101,6 @@ device_tracker:
       - 10.0.2.41-43
     home_interval: 3
 
-owntracks:
-  max_gps_accuracy: 200
-  waypoints: true
-  wayponts_whitelist:
-    - user0001
-    - user0002
-  mqtt_topic: "owntracks/#"
-  events_only: false
-
 # ======================================================================
 #
 # Speedtest

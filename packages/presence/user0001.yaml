@@ -10,21 +10,17 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.b8_d7_af_78_0f_3c'
+      - entity_id: 'device_tracker.user0001_phone_wifi'
         prob_given_true: 0.9
         prob_given_false: 0.1
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.galaxy_note8'
+      - entity_id: 'device_tracker.user0001_phone_bt'
         prob_given_true: 0.8
         prob_given_false: 0.4
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.e4_e4_ab_f0_3e_cc'
-        prob_given_true: 0.7
-        prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'home'
+
 
 input_select:
   # Example configuration.yaml entry
@@ -45,6 +41,4 @@ input_select:
 #       - device_tracker.user0001_phone
 #       - device_tracker.user0001_phone_bt
 #       - device_tracker.user0001_phone_wifi
-#       - device_tracker.e4e4abf03ecc
 #       - device_tracker.user0001_kindle
-#       - device_tracker.user0001_ipad_bt

@@ -94,12 +94,19 @@ device_tracker:
     consider_home: 120
     interval_seconds: 40
 
-  # - platform: nmap_tracker
-  #   hosts:
-  #     - 10.0.99.0/24
-  #     - 10.7.77.0/24
-  #     - 10.0.2.41-43
-  #   home_interval: 3
+  # Re-enable nmap tracker
+  # Add "interval_seconds" parameter to slow down frequency of scans
+  # See:
+  #   - https://github.com/home-assistant/core/issues/33281
+  #   - https://community.home-assistant.io/t/0-107-6-broke-device-tracker/181234/
+  - platform: nmap_tracker
+    interval_seconds: 300
+    consider_home: 600
+    hosts:
+      - 10.0.99.0/24
+      - 10.7.77.0/24
+      - 10.0.2.41-43
+    home_interval: 10
 
 owntracks:
   max_gps_accuracy: 200

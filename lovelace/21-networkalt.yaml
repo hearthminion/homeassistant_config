@@ -90,7 +90,7 @@
                     entity: binary_sensor.user0001_laptop
                   - type: entity-button
                     entity: binary_sensor.user0002_laptop
-              - type: horizontal-stack:
+              - type: horizontal-stack
                 cards:
                   - type: entity-button
                     entity: binary_sensor.hue_main_floor

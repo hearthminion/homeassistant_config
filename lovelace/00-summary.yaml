@@ -25,10 +25,16 @@
                     entity: binary_sensor.user0001_status
                     image: /local/images/user0001.jpg
                     show_name: true
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/user0001
                   - type: picture-entity
                     entity: binary_sensor.user0002_status
                     image: /local/images/user0002.jpg
                     show_name: true
+                    tap_action:
+                      action: navigation
+                      navigation_path: /local/user0002
 
 # ======================================================================
 #

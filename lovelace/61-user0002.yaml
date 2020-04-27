@@ -3,76 +3,76 @@
 # User 0002
 #
 # ======================================================================
-  - title: user0002
-    panel: true
-    icon: mdi:missingnone
-    path: user0002
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:layout-card
-            layout: vertical
-            cards:
+  title: user0002
+  panel: true
+  icon: mdi:missingnone
+  path: user0002
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:layout-card
+          layout: vertical
+          cards:
 # ======================================================================
 #
 # Column 1: User0002 Status
 #
 # ======================================================================
-              - type: entities
-                title: user0002
-                entities:
-                  - entity: person.user0002
-                  - entity: binary_sensor.user0002_status
-                  - entity: device_tracker.b8_d7_af_78_0f_3c
-                  - entity: device_tracker.galaxy_note8_2
-                  - entity: device_tracker.e4_e4_ab_f0_3e_cc
-                  - entity: device_tracker.user0002_ipad
-                  - entity: binary_sensor.user0002_laptop
-              - type: history-graph
-                title: user0002
-                hours_to_show: 24
-                entities:
-                  - entity: binary_sensor.user0002_status
-                  - entity: person.user0002
-              - break
+            - type: entities
+              title: user0002
+              entities:
+                - entity: person.user0002
+                - entity: binary_sensor.user0002_status
+                - entity: device_tracker.b8_d7_af_78_0f_3c
+                - entity: device_tracker.galaxy_note8_2
+                - entity: device_tracker.e4_e4_ab_f0_3e_cc
+                - entity: device_tracker.user0002_ipad
+                - entity: binary_sensor.user0002_laptop
+            - type: history-graph
+              title: user0002
+              hours_to_show: 24
+              entities:
+                - entity: binary_sensor.user0002_status
+                - entity: person.user0002
+            - break
 # ======================================================================
 #
 # Column 1: Device Status
 #
 # ======================================================================
-              # - type: history-graph
-              #   title: Battery Status
-              #   hours_to_show: 24 # Default: 24; Min: 10; Max: 80
-              #   entities:
-              #     - entity: sensor.user0002_phone_battery
-              #       name: !secret user0002_phone_battery
-              # - type: horizontal-stack
-              #   cards:
-              #     - type: custom:canvas-gauge-card
-              #       entity: sensor.user0002_phone_battery
-              #       card_height: 420
-              #       gauge:
-              #         type: "linear-gauge"
-              #         title:  !secret user0002_phone_battery
-              #         width: 220
-              #         height: 420
-              #         minValue: 0
-              #         maxValue: 100
-              #         valueBox: false
-              #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
-              #         minorTicks: 2
-              #         strokeTicks: true
-              #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
-              #         borders: true
-              #         barBeginCircle: false
-              #- break
-              - type: history-graph
-                title: user0002_phone
-                entities:
-                  - entity: device_tracker.user0002_phone
-                    name: GPS
-                  - entity: device_tracker.galaxy_note8_2
-                    name: Bluetooth
-                  - entity: device_tracker.b8_d7_af_78_0f_3c
-                    name: Wifi
-                  - entity: device_tracker.user0001_phone_bt
+            # - type: history-graph
+            #   title: Battery Status
+            #   hours_to_show: 24 # Default: 24; Min: 10; Max: 80
+            #   entities:
+            #     - entity: sensor.user0002_phone_battery
+            #       name: !secret user0002_phone_battery
+            # - type: horizontal-stack
+            #   cards:
+            #     - type: custom:canvas-gauge-card
+            #       entity: sensor.user0002_phone_battery
+            #       card_height: 420
+            #       gauge:
+            #         type: "linear-gauge"
+            #         title:  !secret user0002_phone_battery
+            #         width: 220
+            #         height: 420
+            #         minValue: 0
+            #         maxValue: 100
+            #         valueBox: false
+            #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+            #         minorTicks: 2
+            #         strokeTicks: true
+            #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
+            #         borders: true
+            #         barBeginCircle: false
+            #- break
+            - type: history-graph
+              title: user0002_phone
+              entities:
+                - entity: device_tracker.user0002_phone
+                  name: GPS
+                - entity: device_tracker.galaxy_note8_2
+                  name: Bluetooth
+                - entity: device_tracker.b8_d7_af_78_0f_3c
+                  name: Wifi
+                - entity: device_tracker.user0001_phone_bt

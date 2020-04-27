@@ -3,87 +3,87 @@
 # User 0001
 #
 # ======================================================================
-  - title: user0001
-    panel: true
-    icon: mdi:missingnone
-    path: user0001
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:layout-card
-            layout: vertical
-            cards:
+  title: user0001
+  panel: true
+  icon: mdi:missingnone
+  path: user0001
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: custom:layout-card
+          layout: vertical
+          cards:
 # ======================================================================
 #
 # Column 1: User0001 Status
 #
 # ======================================================================
-              - type: entities
-                title: user0001
-                entities:
-                  - entity: person.user0001
-                  - entity: binary_sensor.user0001_status
-                  - entity: device_tracker.b8_d7_af_6b_9a_e3
-                  - entity: binary_sensor.user0001_laptop
-              - type: history-graph
-                title: user0001
-                hours_to_show: 24
-                entities:
-                  - entity: binary_sensor.user0001_status
-                  - entity: person.user0001
-              - break
+            - type: entities
+              title: user0001
+              entities:
+                - entity: person.user0001
+                - entity: binary_sensor.user0001_status
+                - entity: device_tracker.b8_d7_af_6b_9a_e3
+                - entity: binary_sensor.user0001_laptop
+            - type: history-graph
+              title: user0001
+              hours_to_show: 24
+              entities:
+                - entity: binary_sensor.user0001_status
+                - entity: person.user0001
+            - break
 # ======================================================================
 #
 # Column 1: Device Status
 #
 # ======================================================================
-              # - type: history-graph
-              #   title: Battery Status
-              #   hours_to_show: 24 # Default: 24; Min: 10; Max: 80
-              #   entities:
-              #     - entity: sensor.user0001_phone_battery
-              #       name: !secret user0001_phone_battery
-              #     - entity: sensor.user0001_ipad_battery_level
-              #       name: !secret user0001_ipad_battery_level
-              # - type: horizontal-stack
-              #   cards:
-              #     - type: custom:canvas-gauge-card
-              #       entity: sensor.user0001_phone_battery
-              #       card_height: 420
-              #       gauge:
-              #         type: "linear-gauge"
-              #         title:  !secret user0001_phone_battery
-              #         width: 220
-              #         height: 420
-              #         minValue: 0
-              #         maxValue: 100
-              #         valueBox: false
-              #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
-              #         minorTicks: 2
-              #         strokeTicks: true
-              #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
-              #         borders: true
-              #         barBeginCircle: false
-              #     - type: custom:canvas-gauge-card
-              #       entity: !secret user0001_ipad_bat_lev_dev
-              #       card_height: 420
-              #       gauge:
-              #         type: "linear-gauge"
-              #         title:  !secret user0001_ipad_battery_level
-              #         width: 220
-              #         height: 420
-              #         minValue: 0
-              #         maxValue: 100
-              #         valueBox: false
-              #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
-              #         minorTicks: 2
-              #         strokeTicks: true
-              #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
-              #         borders: true
-              #         barBeginCircle: false
-              # - break
-              - type: history-graph
-                title: user0001_phone
-                entities:
-                  - entity: device_tracker.user0001_phone
-                  - entity: device_tracker.b8_d7_af_6b_9a_e3
+            # - type: history-graph
+            #   title: Battery Status
+            #   hours_to_show: 24 # Default: 24; Min: 10; Max: 80
+            #   entities:
+            #     - entity: sensor.user0001_phone_battery
+            #       name: !secret user0001_phone_battery
+            #     - entity: sensor.user0001_ipad_battery_level
+            #       name: !secret user0001_ipad_battery_level
+            # - type: horizontal-stack
+            #   cards:
+            #     - type: custom:canvas-gauge-card
+            #       entity: sensor.user0001_phone_battery
+            #       card_height: 420
+            #       gauge:
+            #         type: "linear-gauge"
+            #         title:  !secret user0001_phone_battery
+            #         width: 220
+            #         height: 420
+            #         minValue: 0
+            #         maxValue: 100
+            #         valueBox: false
+            #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+            #         minorTicks: 2
+            #         strokeTicks: true
+            #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
+            #         borders: true
+            #         barBeginCircle: false
+            #     - type: custom:canvas-gauge-card
+            #       entity: !secret user0001_ipad_bat_lev_dev
+            #       card_height: 420
+            #       gauge:
+            #         type: "linear-gauge"
+            #         title:  !secret user0001_ipad_battery_level
+            #         width: 220
+            #         height: 420
+            #         minValue: 0
+            #         maxValue: 100
+            #         valueBox: false
+            #         majorTicks: ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]
+            #         minorTicks: 2
+            #         strokeTicks: true
+            #         highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
+            #         borders: true
+            #         barBeginCircle: false
+            # - break
+            - type: history-graph
+              title: user0001_phone
+              entities:
+                - entity: device_tracker.user0001_phone
+                - entity: device_tracker.b8_d7_af_6b_9a_e3

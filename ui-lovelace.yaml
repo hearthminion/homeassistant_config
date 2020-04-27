@@ -17,7 +17,8 @@ views:
   - !include lovelace/30-internet.yaml
   - !include lovelace/40-weather.yaml
   - !include lovelace/50-homeassistant.yaml
-
+  - !include lovelace/60-user0001.yaml
+  - !include lovelace/61-user0002.yaml
 # ======================================================================
 #
 # Misc Views

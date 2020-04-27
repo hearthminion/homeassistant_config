@@ -15,13 +15,28 @@ binary_sensor:
         prob_given_false: 0.1
         platform: 'state'
         to_state: 'home'
-      - entity_id: "device_tracker.b8_d7_af_78_0f_3c"
-        prob_given_true: 0.8
+      - entity_id: 'device_tracker.galaxy_note8_2'
+        prob_given_true: 0.7
         prob_given_false: 0.4
         platform: 'state'
         to_state: 'home'
       - entity_id: 'device_tracker.e4_e4_ab_f0_3e_cc'
         prob_given_true: 0.7
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.user0002_ipad'
+        prob_given_true: 0.7
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "device_tracker.user0002_laptop_1_wifi"
+        prob_given_true: 0.8
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: "device_tracker.user0002_laptop_2_wifi"
+        prob_given_true: 0.8
         prob_given_false: 0.4
         platform: 'state'
         to_state: 'home'
@@ -43,10 +58,9 @@ person:
     id: user0002
     device_trackers:
       - device_tracker.user0002_phone
-#       - device_tracker.user0002_phone_bt
-#       - device_tracker.user0002_phone_wifi
+      - device_tracker.b8_d7_af_78_0f_3c
       - device_tracker.user0002_laptop_1_wifi
       - device_tracker.user0002_laptop_2_wifi
-#       - device_tracker.e4e4abf03ecc
-#       - device_tracker.user0002_kindle
-#       - device_tracker.user0002_ipad_bt
+      - device_tracker.e4_e4_ab_f0_3e_cc
+      - device_tracker.galaxy_note8_2
+      - device_tracker.user0002_ipad

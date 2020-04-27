@@ -34,7 +34,7 @@
                     show_name: true
                     tap_action:
                       action: navigation
-                      navigation_path: /local/user0002
+                      navigation_path: /lovelace/user0002
 
 # ======================================================================
 #

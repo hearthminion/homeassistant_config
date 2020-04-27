@@ -108,9 +108,9 @@ device_tracker:
 
   - platform: ping
     hosts:
-      user0001_laptop_wifi: 10.0.1.41
-      user0002_laptop_1_wifi: 10.0.1.42
-      user0002_laptop_2_wifi: 10.0.1.43
+      user0001_laptop_wifi: 10.0.2.41
+      user0002_laptop_1_wifi: 10.0.2.42
+      user0002_laptop_2_wifi: 10.0.2.43
     count: 1
     interval_seconds: 60
 

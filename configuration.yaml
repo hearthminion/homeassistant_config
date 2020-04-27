@@ -100,11 +100,11 @@ device_tracker:
   # See:
   #   - https://github.com/home-assistant/core/issues/33281
   #   - https://community.home-assistant.io/t/0-107-6-broke-device-tracker/181234/
+  #
+  # Alternatively, reduce the size of number of hosts to scan
   - platform: nmap_tracker
-    interval_seconds: 300
-    consider_home: 600
     hosts: 10.0.99.0/24
-    home_interval: 10
+    home_interval: 3
 
   - platform: ping
     hosts:

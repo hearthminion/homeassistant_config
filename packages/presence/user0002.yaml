@@ -45,6 +45,8 @@ person:
       - device_tracker.user0002_phone
 #       - device_tracker.user0002_phone_bt
 #       - device_tracker.user0002_phone_wifi
+      - device_tracker.user0002_laptop_1_wifi
+      - device_tracker.user0002_laptop_2_wifi
 #       - device_tracker.e4e4abf03ecc
 #       - device_tracker.user0002_kindle
 #       - device_tracker.user0002_ipad_bt

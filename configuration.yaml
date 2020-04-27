@@ -103,9 +103,13 @@ device_tracker:
   - platform: nmap_tracker
     interval_seconds: 300
     consider_home: 600
-    hosts:
-      - 10.0.99.0/24
-      - 10.7.77.0/24
+    hosts: 10.0.99.0/24
+    home_interval: 10
+
+  - platform: nmap_tracker
+    interval_seconds: 300
+    consider_home: 600
+    hosts: 10.7.77.0/24
     home_interval: 10
 
   - platform: ping
@@ -206,6 +210,13 @@ zwave:
   usb_path: /dev/ttyACM0
   device_config: !include zwave_device_config.yaml
   network_key: !secret zwave_key
+
+# ======================================================================
+#
+# Custom Components
+#
+# ======================================================================
+custom_icons:
 
 # ======================================================================
 # configuration.yaml ends here

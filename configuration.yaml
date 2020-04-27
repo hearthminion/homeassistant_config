@@ -106,12 +106,6 @@ device_tracker:
     hosts: 10.0.99.0/24
     home_interval: 10
 
-  - platform: nmap_tracker
-    interval_seconds: 300
-    consider_home: 600
-    hosts: 10.7.77.0/24
-    home_interval: 10
-
   - platform: ping
     hosts:
       user0001_laptop_wifi: 10.0.1.41

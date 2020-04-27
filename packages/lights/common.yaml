@@ -1,6 +1,6 @@
 # ======================================================================
 #
-# Common Settings
+# common settings
 #
 # ======================================================================
 homeassistant:
@@ -12,12 +12,12 @@ homeassistant:
 
 # ======================================================================
 #
-# Automations
+# automations
 #
 # =====================================================================
 automation:
   - id: '1587755245580'
-    alias: Enable Light Automations
+    alias: enable light automations
     description: ''
     trigger:
       - event: start
@@ -27,7 +27,7 @@ automation:
       - scene: scene.light_enable_basement_automations
       - scene: scene.light_enable_common_automations
       - scene: scene.light_enable_den_automations
-      - scene: scene.light_enable_master_light_automations
+      - scene: scene.light_enable_master_bedroom_light_automations
 
   # ======================================================================
   #

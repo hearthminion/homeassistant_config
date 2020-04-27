@@ -33,7 +33,7 @@
                     image: /local/images/user0002.jpg
                     show_name: true
                     tap_action:
-                      action: navigation
+                      action: navigate
                       navigation_path: /lovelace/user0002
 
 # ======================================================================

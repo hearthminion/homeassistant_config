@@ -105,8 +105,15 @@ device_tracker:
     hosts:
       - 10.0.99.0/24
       - 10.7.77.0/24
-      - 10.0.2.41-43
     home_interval: 10
+
+  - platform: ping
+    hosts:
+      user0001_laptop_wifi: 10.0.1.41
+      user0002_laptop_1_wifi: 10.0.1.42
+      user0002_laptop_2_wifi: 10.0.1.43
+    count: 1
+    interval_seconds: 60
 
 owntracks:
   max_gps_accuracy: 200

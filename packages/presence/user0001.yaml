@@ -5,17 +5,12 @@ binary_sensor:
     probability_threshold: 0.91
     device_class: 'presence'
     observations:
-      - entity_id: 'device_tracker.user0001_phone'
-        prob_given_true: 0.9
-        prob_given_false: 0.2
-        platform: 'state'
-        to_state: 'home'
-      - entity_id: 'device_tracker.user0001_phone_wifi'
+      - entity_id: 'device_tracker.b8_d7_af_6b_9a_e3'
         prob_given_true: 0.9
         prob_given_false: 0.1
         platform: 'state'
         to_state: 'home'
-      - entity_id: 'device_tracker.user0001_phone_bt'
+      - entity_id: 'device_tracker.user0001_laptop_wifi'
         prob_given_true: 0.8
         prob_given_false: 0.4
         platform: 'state'
@@ -38,8 +33,6 @@ person:
   - name: user0001
     id: user0001
     device_trackers:
-#       - device_tracker.user0001_phone
-#       - device_tracker.user0001_phone_bt
-#       - device_tracker.user0001_phone_wifi
-#       - device_tracker.user0001_kindle
+      - device_tracker.b8_d7_af_6b_9a_e3
       - device_tracker.user0001_laptop_wifi
+

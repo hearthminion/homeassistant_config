@@ -3,46 +3,53 @@ binary_sensor:
     name: user0002_status
     prior: 0.375
     probability_threshold: 0.9
-    device_class: 'presence'
+    device_class: "presence"
     observations:
-      - entity_id: 'device_tracker.user0002_phone'
+      - entity_id: "device_tracker.user0002_phone"
         prob_given_true: 0.9
         prob_given_false: 0.1
-        platform: 'state'
-        to_state: 'home'
-      - entity_id: 'device_tracker.b8_d7_af_78_0f_3c'
+        platform: "state"
+        to_state: "home"
+      - entity_id: "device_tracker.b8_d7_af_78_0f_3c"
         prob_given_true: 0.9
         prob_given_false: 0.2
-        platform: 'state'
-        to_state: 'home'
-      - entity_id: 'device_tracker.galaxy_note8_2'
+        platform: "state"
+        to_state: "home"
+      - entity_id: "device_tracker.galaxy_note8_2"
         prob_given_true: 0.9
         prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'home'
-      - entity_id: 'device_tracker.e4_e4_ab_f0_3e_cc'
+        platform: "state"
+        to_state: "home"
+      - entity_id: "device_tracker.e4_e4_ab_f0_3e_cc"
         prob_given_true: 0.7
         prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'home'
-      - entity_id: 'device_tracker.user0002_ipad'
+        platform: "state"
+        to_state: "home"
+      - entity_id: "device_tracker.user0002_ipad"
         prob_given_true: 0.7
         prob_given_false: 0.3
-        platform: 'state'
-        to_state: 'home'
+        platform: "state"
+        to_state: "home"
       - entity_id: "device_tracker.user0002_laptop_1_wifi"
         prob_given_true: 0.6
         prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'home'
+        platform: "state"
+        to_state: "home"
       - entity_id: "device_tracker.user0002_laptop_2_wifi"
         prob_given_true: 0.6
         prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'home'
+        platform: "state"
+        to_state: "home"
+      - entity_id: "device_tracker.atlas"
+        prob_given_true: 0.6
+        prob_given_false: 0.4
+        platform: "state"
+        to_state: "home"
       - entity_id: "device_tracker.00_bb_3a_ec_53_f8"
         prob_given_true: 0.6
         prob_given_false: 0.4
+        platform: "state"
+        to_state: "home"
 
 input_select:
   # Example configuration.yaml entry
@@ -62,9 +69,10 @@ person:
     device_trackers:
       - device_tracker.user0002_phone
       - device_tracker.b8_d7_af_78_0f_3c
+      - device_tracker.galaxy_note8_2
       - device_tracker.user0002_laptop_1_wifi
       - device_tracker.user0002_laptop_2_wifi
+      - device_tracker.atlas
       - device_tracker.e4_e4_ab_f0_3e_cc
-      - device_tracker.galaxy_note8_2
       - device_tracker.user0002_ipad
       - device_tracker.00_bb_3a_ec_53_f8

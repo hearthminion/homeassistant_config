@@ -28,6 +28,7 @@
                 - entity: device_tracker.e4_e4_ab_f0_3e_cc
                 - entity: device_tracker.user0002_ipad
                 - entity: binary_sensor.user0002_laptop
+                - entity: device_tracker.00_bb_3a_ec_53_f8
             - type: history-graph
               title: user0002
               hours_to_show: 24
@@ -66,7 +67,7 @@
                     barBeginCircle: false
             - break
             - type: history-graph
-              title: user0002_phone
+              title: Phone
               entities:
                 - entity: device_tracker.user0002_phone
                   name: GPS
@@ -74,4 +75,23 @@
                   name: Bluetooth
                 - entity: device_tracker.b8_d7_af_78_0f_3c
                   name: Wifi
-                - entity: device_tracker.user0002_phone_battery
+            - type: history-graph
+              title: iPad
+              entities:
+                - entity: device_tracker.user0002_ipad
+                  name: Bluetooth
+                - entity: 00_bb_3a_ec_53_f8
+                  name: Wifi
+            - type: history-graph
+              title: Laptop
+              entities:
+                - entity: binary_sensor.user0002_laptop
+                - entity: device_tracker.user0002_laptop_1_wifi
+                  name: Wifi
+                - entity: device_tracker.user0002_laptop_2_wifi
+                  name: Wifi
+            - type: history-graph
+              title: Kindle
+              entities:
+                - entity: device_tracker.00_bb_3a_ec_53_f8
+                  name: Wifi

@@ -23,6 +23,7 @@
               entities:
                 - entity: person.user0002
                 - entity: binary_sensor.user0002_status
+                - entity: device_tracker.user0002_phone
                 - entity: device_tracker.b8_d7_af_78_0f_3c
                 - entity: device_tracker.galaxy_note8_2
                 - entity: device_tracker.e4_e4_ab_f0_3e_cc
@@ -71,17 +72,17 @@
               entities:
                 - entity: device_tracker.user0002_phone
                   name: GPS
-                - entity: device_tracker.galaxy_note8_2
-                  name: Bluetooth
                 - entity: device_tracker.b8_d7_af_78_0f_3c
                   name: Wifi
+                - entity: device_tracker.galaxy_note8_2
+                  name: Bluetooth
             - type: history-graph
               title: iPad
               entities:
+                - entity: device_tracker.e4_e4_ab_f0_3e_cc
+                  name: Wifi
                 - entity: device_tracker.user0002_ipad
                   name: Bluetooth
-                - entity: device_tracker.00_bb_3a_ec_53_f8
-                  name: Wifi
             - type: history-graph
               title: Laptop
               entities:

@@ -80,7 +80,7 @@
               entities:
                 - entity: device_tracker.user0002_ipad
                   name: Bluetooth
-                - entity: 00_bb_3a_ec_53_f8
+                - entity: device_tracker.00_bb_3a_ec_53_f8
                   name: Wifi
             - type: history-graph
               title: Laptop
@@ -90,6 +90,8 @@
                   name: Wifi
                 - entity: device_tracker.user0002_laptop_2_wifi
                   name: Wifi
+                - entity: device_tracker.atlas
+                  name: Bluetooth
             - type: history-graph
               title: Kindle
               entities:

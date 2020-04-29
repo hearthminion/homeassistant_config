@@ -275,18 +275,19 @@
     user0001_laptop:
       device_class: connectivity
       value_template: >-
-        {{ is_state('device_tracker.user0001_laptop_wifi', 'home') }}
+        {{ is_state("device_tracker.user0001_laptop_wifi", "home") }}
     user0002_laptop:
       device_class: connectivity
       value_template: >-
-        {{ is_state('device_tracker.user0002_laptop_1_wifi', 'home')
-        or is_state('device_tracker.user0002_laptop_2_wifi', 'home') }}
+        {{ is_state("device_tracker.user0002_laptop_1_wifi", "home")
+        or is_state("device_tracker.user0002_laptop_2_wifi", "home")
+        or is_state("device_tracker.atlas", "home") }}
     aether:
       friendly_name: "Aether"
       device_class: connectivity
       value_template: "{{ is_state('binary_sensor.wap1','on') }}"
       icon_template: >-
-        {% if is_state('binary_sensor.wap1', 'on') %}
+        {% if is_state("binary_sensor.wap1", "on") %}
           mdi:access-point-network
         {% else %}
           mdi:access-point-network-off
@@ -296,7 +297,7 @@
       device_class: connectivity
       value_template: "{{ is_state('binary_sensor.wap2','on') }}"
       icon_template: >-
-        {% if is_state('binary_sensor.wap2', 'on') %}
+        {% if is_state("binary_sensor.wap2", "on") %}
           mdi:access-point-network
         {% else %}
           mdi:access-point-network-off
@@ -306,7 +307,7 @@
       device_class: connectivity
       value_template: "{{ is_state('binary_sensor.wap3','on') }}"
       icon_template: >-
-        {% if is_state('binary_sensor.wap3', 'on') %}
+        {% if is_state("binary_sensor.wap3", "on") %}
           mdi:access-point-network
         {% else %}
           mdi:access-point-network-off
@@ -316,7 +317,7 @@
       device_class: connectivity
       value_template: "{{ is_state('binary_sensor.wap4','on') }}"
       icon_template: >-
-        {% if is_state('binary_sensor.wap4', 'on') %}
+        {% if is_state("binary_sensor.wap4", "on") %}
         mdi:access-point-network
         {% else %}
         mdi:access-point-network-off

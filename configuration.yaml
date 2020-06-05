@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.108.8
-# Version: 0.108.32
+# Version: 0.110.1
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -88,7 +88,6 @@ history: !include includes/system/history.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
-zone: !include includes/zones.yaml
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -200,10 +199,6 @@ mqtt:
 ios:
 system_health:
 zeroconf:
-zwave:
-  usb_path: /dev/ttyACM0
-  device_config: !include zwave_device_config.yaml
-  network_key: !secret zwave_key
 
 # ======================================================================
 #

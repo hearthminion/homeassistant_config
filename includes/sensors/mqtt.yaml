@@ -24,3 +24,6 @@
   state_topic: "sensors/Hestia/sensehat/pressure"
   name: "hestia_sensehat_pressure"
 
+- platform: mqtt
+  state_topic: "sensors/atlas/sensors/Battery/value"
+  name: "atlas battery"

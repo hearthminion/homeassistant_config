@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 0.112.4
-# Version: 0.112.0
+# Version: 0.112.1
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -45,12 +45,6 @@
 #
 # ======================================================================
 homeassistant:
-  name: !secret ha_name
-  latitude: !secret home_lat
-  longitude: !secret home_long
-  elevation: !secret ha_elevation
-  unit_system: !secret ha_unit_system
-  time_zone: !secret ha_time_zone
   # Customization file
   # Note: Having this file anywhere else disables editing from the UI
   customize: !include customize.yaml
@@ -72,7 +66,6 @@ default_config:
 
 # Automations file
 # Note: Having this file anywhere else disables editing from the UI
-automation: !include automations.yaml
 automation old: !include_dir_merge_list includes/automations/
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
@@ -80,7 +73,6 @@ input_boolean: !include_dir_merge_named includes/input_boolean/
 input_select: !include_dir_merge_named includes/input_select/
 # Scenes file
 # Note: Having this file anywhere else disables editing from the UI
-scene: !include scenes.yaml
 scene old: !include_dir_merge_list includes/scenes/
 sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
@@ -129,20 +121,6 @@ owntracks:
 # Speedtest
 #
 # ======================================================================
-speedtestdotnet:
-  scan_interval:
-    days: 0
-    hours: 1
-    minutes: 0
-    seconds: 0
-    milliseconds: 0
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-sun: # Track the sun
-
 weather:
   - platform: darksky
     api_key: !secret darksky
@@ -179,7 +157,6 @@ updater:
   reporting: false
   include_used_components: false
 
-config: # Enables configuration UI
 map:    # Enables a map showing the location of tracked devices
 
 frontend: # Enables the frontend
@@ -199,8 +176,6 @@ mqtt:
   password: !secret mqtt_password
 
 ios:
-system_health:
-zeroconf:
 
 # ======================================================================
 #

@@ -171,5 +171,3 @@ Procfile       text
 ## EXECUTABLES
 *.exe binary
 *.pyc binary
-
-secrets.yaml filter=git-crypt diff=git-crypt

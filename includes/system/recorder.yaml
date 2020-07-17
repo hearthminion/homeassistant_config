@@ -5,10 +5,19 @@ auto_purge: true
 include:
   domains:
     - circadian_lighting
-    - person
-    - light
-    - sensor.speedtest_download
     - climate
+    - device_tracker
+    - input_boolean
+    - light
+    - person
+  entities:
+    - input_select.light_mode
+    - input_select.user0001_status_dropdown
+    - input_select.user0002_status_dropdown
+    - sensor.circadian_values
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
 exclude:
   domains:
     - updater

@@ -175,6 +175,12 @@
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
+- platform : ping
+  host: 10.0.1.21
+  name: Helios
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
 - platform: ping
   host: 10.0.1.2
   name: Hera
@@ -214,6 +220,12 @@
 - platform : ping
   host: 10.0.1.17
   name: Persephone
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform : ping
+  host: 10.0.1.22
+  name: Selene
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
@@ -340,5 +352,10 @@
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
+- platform: ping
+  host: 10.3.1.11
+  name: Roomba
+  count: 1
+  #scan_interval: 5
 #
 # ping.yaml ends here

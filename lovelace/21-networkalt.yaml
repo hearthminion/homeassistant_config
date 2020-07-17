@@ -67,23 +67,27 @@
                   - type: entity-button
                     entity: binary_sensor.hades
                   - type: entity-button
+                    entity: binary_sensor.helios
+                  - type: entity-button
                     entity: binary_sensor.hera
                   - type: entity-button
                     entity: binary_sensor.hestia
-                  - type: entity-button
-                    entity: binary_sensor.iris
               - type: horizontal-stack
                 cards:
+                  - type: entity-button
+                    entity: binary_sensor.iris
                   - type: entity-button
                     entity: binary_sensor.mnemosyne
                   - type: entity-button
                     entity: binary_sensor.morpheus
                   - type: entity-button
                     entity: binary_sensor.nyx
-                  - type: entity-button
-                    entity: binary_sensor.persephone
               - type: horizontal-stack
                 cards:
+                  - type: entity-button
+                    entity: binary_sensor.persephone
+                  - type: entity-button
+                    entity: binary_sensor.selene
                   - type: entity-button
                     entity: binary_sensor.zeus
                   - type: entity-button
@@ -96,6 +100,8 @@
                     entity: binary_sensor.hue_main_floor
                   - type: entity-button
                     entity: binary_sensor.hue_basement
+                  - type: entity-button
+                    entity: sensor.cnmf741c_743c
 
               - break
 

@@ -7,3 +7,7 @@ resources:
     type: js
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
     type: module
+  - url: /hacsfiles/custom-header/custom-header.js
+    type: module 
+  - url: /hacsfiles/lovelace-card-tools/card-tools.js
+    type: module 

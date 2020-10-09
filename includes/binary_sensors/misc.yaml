@@ -1,5 +1,5 @@
 - platform: car_wash
-  weather: weather.dark_sky
+  weather: weather.kahn_daynight
 
 - platform: template
   sensors:

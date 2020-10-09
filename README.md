@@ -77,7 +77,7 @@ Home Assistant Version: 0.108.8
 ### Other Configurations
 #### Isabella Gross Alströ
 - Website:
-- Github: [Isabella Gross Alstö Configurationm](https://github.com/isabellaalstrom/HomeAssistantConfiguration)
+- Github: [Isabella Gross Alstöm Configuration](https://github.com/isabellaalstrom/HomeAssistantConfiguration)
 - ...
 #### [C Constan]
 - Website: [vCloudinfo](https://www.vcloudinfo.com/?m=1)

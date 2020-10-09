@@ -7,8 +7,8 @@
 # Author: Geoff S Derber
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
-# Home Assistant Version: 0.112.4
-# Version: 0.112.2
+# Home Assistant Version: 0.115.6
+# Version: 0.115.0
 # Package-Requires: ()
 # Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
 #           By: Geoff S Derber
@@ -19,13 +19,11 @@
 # Compatibility: 
 # 
 # 
-
 # Commentary: 
 # 
 # 
 # 
 # 
-
 # Change Log:
 # 
 # 
@@ -64,15 +62,9 @@ homeassistant:
 
 default_config:
 
-# Automations file
-# Note: Having this file anywhere else disables editing from the UI
 automation old: !include_dir_merge_list includes/automations/
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
-input_boolean: !include_dir_merge_named includes/input_boolean/
-input_select: !include_dir_merge_named includes/input_select/
-# Scenes file
-# Note: Having this file anywhere else disables editing from the UI
 scene old: !include_dir_merge_list includes/scenes/
 sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
@@ -116,11 +108,6 @@ owntracks:
   mqtt_topic: "owntracks/#"
   events_only: false
 
-# ======================================================================
-#
-# Speedtest
-#
-# ======================================================================
 weather:
   - platform: darksky
     api_key: !secret darksky
@@ -137,52 +124,13 @@ climate:
     password: !secret honeywell_pass
     scan_interval: 600
 
-# ======================================================================
-#
-# Only listen on localhost.  Nginx acts as a proxy for outside access.
-#
-# With Nginx acting as proxy, ssl certificate is not needed.
-#
-# Temporarily disabled:
-#   https://community.home-assistant.io/t/dont-use-server-host-options-with-hass-io/176372
-#
-# ======================================================================
-http:
-  base_url: localhost
-  server_port: 8123
-  #ssl_certificate:
-  #ssl_key:
-
 updater:
   reporting: false
   include_used_components: false
 
-map:    # Enables a map showing the location of tracked devices
-
-frontend: # Enables the frontend
-  themes: !include_dir_merge_named themes/
-  javascript_version: latest
 lovelace: !include includes/lovelace.yaml
 
-# ======================================================================
-#
-# Services
-#
-# ======================================================================
-mqtt:
-  broker: angelia.olympus.drbr.org
-  port: 1883
-  username: homeassistant
-  password: !secret mqtt_password
-
 ios:
-
-# ======================================================================
-#
-# Custom Components
-#
-# ======================================================================
-custom_icons:
 
 # ======================================================================
 # configuration.yaml ends here

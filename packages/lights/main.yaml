@@ -11,6 +11,16 @@
 # # ======================================================================
 # automation:
 
+input_boolean:
+  special_migraine_mode:
+    name: Migraine Mode
+    initial: off
+    icon: mdi:hospital-box
+  special_guest_present:
+    name: Guests are present
+    initial: off
+    icon: mdi:human
+
 # ======================================================================
 #
 # Scenes:

@@ -341,19 +341,19 @@
 #
 # ======================================================================
 - platform: ping
-  host: 10.3.1.1
+  host: 10.6.1.1
   name: Hue (Main Floor)
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
 - platform: ping
-  host: 10.3.1.2
+  host: 10.6.1.2
   name: Hue (Basement)
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
 - platform: ping
-  host: 10.3.1.11
+  host: 10.5.1.1
   name: Roomba
   count: 1
   #scan_interval: 5

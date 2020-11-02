@@ -7,10 +7,10 @@
 # Author: Geoff S Derber
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
-# Home Assistant Version: 0.115.6
-# Version: 0.115.1
+# Home Assistant Version: 0.117.1
+# Version: 0.117.0
 # Package-Requires: ()
-# Last-Updated: Sun Feb  2 16:40:52 2020 (-0500)
+# Last-Updated: Sun Nov  2 9:50 2020 (-0500)
 #           By: Geoff S Derber
 #     Update #: 64
 # URL: https://github.com/hearthminion/homeassistant/
@@ -74,6 +74,12 @@ history: !include includes/system/history.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
+
+calendar:
+  - platform: caldav
+    username: !secret caldav_username
+    password: !secret caldav_password
+    url: !secret caldev_url
 
 device_tracker:
   - platform: bluetooth_tracker

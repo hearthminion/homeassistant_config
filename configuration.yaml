@@ -75,6 +75,12 @@ logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
 
+calendar:
+  - platform: caldav
+    username: !secret caldav_username
+    password: !secret caldav_password
+    url: !secret caldev_url
+
 device_tracker:
   - platform: bluetooth_tracker
     consider_home: 120

@@ -80,6 +80,7 @@ calendar:
     username: !secret caldav_username
     password: !secret caldav_password
     url: !secret caldav_url
+    verify_ssl: false
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -125,10 +126,8 @@ geo_location:
 
 climate:
   - platform: honeywell
-    region: us
     username: !secret honeywell_user
     password: !secret honeywell_pass
-    scan_interval: 600
 
 updater:
   reporting: false

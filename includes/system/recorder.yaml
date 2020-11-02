@@ -18,6 +18,7 @@ include:
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
+    - sensor.circadian_temperature
 exclude:
   domains:
     - updater

@@ -3,10 +3,6 @@
 # ui-lovelace.yaml
 #
 # ======================================================================
-custom_header:
-  compact_mode: true
-  header_text: '{{ hours24LZ }}:{{ minutesLZ }}'
-
 title: Home
 
 views:

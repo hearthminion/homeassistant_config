@@ -79,7 +79,7 @@ calendar:
   - platform: caldav
     username: !secret caldav_username
     password: !secret caldav_password
-    url: !secret caldev_url
+    url: !secret caldav_url
 
 device_tracker:
   - platform: bluetooth_tracker

@@ -56,3 +56,5 @@ OZW_Log.txt
 customize.yaml
 .HA_VERSION
 core
+secrets.yaml
+secrets.yaml.*

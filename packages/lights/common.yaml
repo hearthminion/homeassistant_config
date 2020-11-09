@@ -7,8 +7,6 @@ homeassistant:
   customize_glob:
     "light.*bulb*":
       hidden:  true
-    "light.*bulb*":
-      hidden:  true
 
 # ==================================================================================================
 #

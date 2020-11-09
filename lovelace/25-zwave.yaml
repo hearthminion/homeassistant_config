@@ -1,0 +1,18 @@
+# ======================================================================
+#
+# Z-Wave Network
+#
+# Home Layout displaying:
+#   - Room Temperatures
+#   - Light Status (On/Off)
+#   - Open/Closed Doors and Windows
+#
+#
+# ======================================================================
+#  - title: Home
+    title: Z-Wave Network
+    path: zwave
+    icon: mdi:z-wave
+    panel: true
+    cards:
+      - type: custom:ozw-network-visualization-card

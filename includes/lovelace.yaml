@@ -8,6 +8,22 @@ resources:
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
     type: module
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
+    type: module 
+  - url: /hacsfiles/state-switch.js
     type: module
+  - url: /community_plugin/dual-gauge-card/dual-gauge-card.js
+    type: js
+  - url: /hacsfiles/config-template-card.js
+    type: module
+  - url: /hacsfiles/fold-entity-row.js
+    type: module
+  - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+    type: module
+  - url: /hacsfiles/decluttering-card.js
+    type: module
+  - url: /hacsfiles/bignumber-card.js
+    type: js
   - url: /hacsfiles/ozw-network-visualization-card.js
+    type: module
+  - url: /hacsfiles/slider-entity-row.js
     type: module

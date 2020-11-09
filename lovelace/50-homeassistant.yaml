@@ -24,4 +24,5 @@
                     - state: "unknown"
                   exclude:
                     - entity_id: group.*
-                    - entity_id: sensor.dark_sky_precip_accumulation*
+                    - entity_id: sensor.*
+                    - entity_id: binary_sensor.*

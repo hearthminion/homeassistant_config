@@ -186,7 +186,7 @@ input_select:
 # ==================================================================================================
 light:
   - platform: group
-    name: All Lights
+    name: All lights
     entities:
       - light.basement
       - light.main_floor

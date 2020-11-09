@@ -26,4 +26,9 @@
 
 - platform: mqtt
   state_topic: "sensors/atlas/sensors/Battery/value"
+  unit_of_measurement: "%"
   name: "atlas battery"
+
+- platform: mqtt
+  state_topic: "sensors/atlas/sensors/ath10k_hwmon_1/value"
+  name: "atlas cpu temperature"

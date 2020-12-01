@@ -1,28 +1,3 @@
-- id: '1576627874516'
-  alias: Christmas Lights On
-  description: Turn on outdoor Christmas Lights
-  trigger:
-  - event: sunset
-    platform: sun
-  - above: '-18'
-    entity_id: sensor.sun_elevation
-    platform: numeric_state
-  condition: []
-  action:
-  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
-    service: switch.turn_on
-- id: '1576628018411'
-  alias: Christmas Lights Off
-  description: ''
-  trigger:
-  - at: '22:00:00'
-    platform: time
-  - event: sunrise
-    platform: sun
-  condition: []
-  action:
-  - entity_id: switch.jasco_products_14284_outdoor_smart_switch_switch
-    service: switch.turn_off
 - id: '1576717665597'
   alias: Daily Reboot
   description: ''
@@ -32,14 +7,3 @@
   condition: []
   action:
   - service: hassio.host_reboot
-- id: '1587762496178'
-  alias: '[Light] Basement: Turn Off Lights At Night'
-  description: ''
-  trigger:
-  - at: '21:30'
-    platform: time
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.basement
-    service: light.turn_off

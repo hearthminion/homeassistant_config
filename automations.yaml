@@ -1,9 +1,0 @@
-- id: '1576717665597'
-  alias: Daily Reboot
-  description: ''
-  trigger:
-  - at: '4:00:00'
-    platform: time
-  condition: []
-  action:
-  - service: hassio.host_reboot

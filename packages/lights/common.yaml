@@ -14,9 +14,9 @@ homeassistant:
 #
 # ==================================================================================================
 automation:
-  - id: '1587755245580'
+  - id: "1587755245580"
     alias: "Enable Light Automations"
-    description: ''
+    description: ""
     trigger:
       - event: start
         platform: homeassistant

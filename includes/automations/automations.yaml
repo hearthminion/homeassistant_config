@@ -48,44 +48,44 @@
     data:
       entity_id: timer.lights_off
 
-- id: '1606847637745'
-alias: Turn of Master Bedroom TV Power
-description: ''
-trigger:
-  - platform: time
-    at: '22:00'
-  - platform: state
-    entity_id: sensor.power_strip_03_outlet_3_power
-    to: '0'
-  - platform: state
-    entity_id: light.master_bedroom_lamp_1
-    from: 'on'
-    to: 'off'
-  - platform: state
-    entity_id: light.master_bedroom_lamp_2
-    from: 'on'
-    to: 'off'
-  - platform: state
-    entity_id: media_player.samsung_bd_f5900
-    from: 'on'
-    to: 'off'
-condition:
-  - condition: device
-    device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
-    domain: media_player
-    entity_id: media_player.samsung_bd_f5900
-    type: is_off
-  - condition: time
-    after: '22:00'
-  - condition: state
-    entity_id: light.master_bedroom_lamp_2
-    state: 'off'
-  - condition: state
-    entity_id: light.master_bedroom_lamp_1
-    state: 'off'
-  - condition: numeric_state
-    entity_id: sensor.power_strip_03_outlet_3_power
-    below: '5'
-action:
-  - type: turn_off
-    device_id: df96863a0f8bfe05ddaba286433
+- id: "1606847637745"
+  alias: "Turn off Master Bedroom TV Power"
+  description: ''
+  trigger:
+    - platform: time
+      at: '22:00'
+    - platform: state
+      entity_id: sensor.power_strip_03_outlet_3_power
+      to: '0'
+    - platform: state
+      entity_id: light.master_bedroom_lamp_1
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.master_bedroom_lamp_2
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: media_player.samsung_bd_f5900
+      from: 'on'
+      to: 'off'
+  condition:
+    - condition: device
+      device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
+      domain: media_player
+      entity_id: media_player.samsung_bd_f5900
+      type: is_off
+    - condition: time
+      after: '22:00'
+    - condition: state
+      entity_id: light.master_bedroom_lamp_2
+      state: 'off'
+    - condition: state
+      entity_id: light.master_bedroom_lamp_1
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.power_strip_03_outlet_3_power
+      below: '5'
+  action:
+    - type: turn_off
+      device_id: df96863a0f8bfe05ddaba286433

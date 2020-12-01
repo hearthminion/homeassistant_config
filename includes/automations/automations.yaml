@@ -5,16 +5,16 @@
 # - In the morning when the sun rises to 18 degrees below the horizon
 #   enable
 # ======================================================================
-# - alias: 'Turn Off Migraine Mode'
-#   description: ''
-#   trigger:
-#   - at: 03:00:00
-#     platform: time
-#   condition: []
-#   action:
-#   - data:
-#       entity_id: input_boolean.migraine_mode
-#     service: input_boolean.turn_off
+- alias: 'Turn Off Migraine Mode'
+  description: ''
+  trigger:
+  - at: 03:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.migraine_mode
+    service: input_boolean.turn_off
 
 # ======================================================================
 #

@@ -10,6 +10,8 @@ include:
     - input_boolean
     - light
     - person
+  entity_globs:
+    - sensor.power*
   entities:
     - input_select.light_mode
     - input_select.user0001_status_dropdown
@@ -19,7 +21,6 @@ include:
     - sensor.speedtest_ping
     - sensor.speedtest_upload
     - sensor.circadian_temperature
-    - sensor.power*
 exclude:
   domains:
     - updater

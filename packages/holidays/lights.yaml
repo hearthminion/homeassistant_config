@@ -20,15 +20,25 @@ automation:
     action:
       - scene: scene.chrismas_lighs_off
     mode: single
+  - id: "1607003903288"
+    alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
+    description: ""
+    trigger:
+      - platform: sun
+        event: sunrise
+    condition: []
+    action:
+      - scene: scene.christmas_outdoor_lights_on
+    mode: single
   - id: "1606782092296"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
     description: ""
     trigger:
       - platform: sun
-        event: sunset
+        event: sunrise
     condition: []
     action:
-      - scene: scene.outdoor_christmas_lights_off
+      - scene: scene.christmas_outdoor_lights_off
     mode: single
 
 scene:

@@ -94,7 +94,7 @@ ssdp:
 sun:
 system_health:
 tag:
-timer:
+timer: !include includes/timers.yaml
 updater:
   reporting: false
   include_used_components: false
@@ -102,7 +102,7 @@ zeroconf:
 zone:
 
 # Not part of default_config, but appears to need to be explicitely set if default_config is not
-discovery:
+discovery: !include includes/system/discovery.yaml
   
 # ==================================================================================================
 #
@@ -121,8 +121,6 @@ binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
 sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
-timer: !include includes/timers.yaml
-discovery: !include includes/system/discovery.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml

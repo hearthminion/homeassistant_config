@@ -7,12 +7,12 @@
 # Author: Geoff S Derber
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
-# Home Assistant Version: 0.117.5
-# Version: 0.117.6
+# Home Assistant Version: 0.118.4
+# Version: 0.118.2
 # Package-Requires: ()
-# Last-Updated: Mon Nov  9 11:00 2020 (-0500)
+# Last-Updated: Mon Dec  7 11:00 2020 (-0500)
 #           By: Geoff S Derber
-#     Update #: 64
+#     Update #: 66
 # URL: https://github.com/hearthminion/homeassistant/
 # Doc URL: 
 # Keywords: Home Assistant
@@ -60,17 +60,69 @@ homeassistant:
 #      command:
     - type: homeassistant
 
-default_config:
+# ==================================================================================================
+#
+# Default Config Replacement
+#
+# I do not want everything enabled from default config.  Items not used that are part of
+# default_config:
+#   - cloud
+#
+# Documentation: https://www.home-assistant.io/integrations/default_config/
+#
+# ==================================================================================================
+automation: !include automations.yaml
+#cloud: Disabled
+config:
+counter:
+frontend:
+history: !include includes/system/history.yaml
+image:
+input_boolean:
+input_datetime:
+input_number:
+input_select:
+input_text:
+logbook:
+map:
+media_source:
+mobile_app:
+person:
+scene: !include scenes.yaml
+scripts: !include scripts.yaml
+ssdp:
+sun:
+system_health:
+tag:
+timer:
+updater:
+  reporting: false
+  include_used_components: false
+zeroconf:
+zone:
 
+# Not part of default_config, but appears to need to be explicitely set if default_config is not
+discovery:
+  
+# ==================================================================================================
+#
+# Old Style Configurations
+#
+# These are used because the new configurations for automations and scenes do not allow for
+# comments explaining the "why" and thought process behind the automations.  Most of my automations
+# are templated with the new method (automations.yaml) then moved here to add the explanations.
+#
+# ==================================================================================================
 automation old: !include_dir_merge_list includes/automations/
+scene old: !include_dir_merge_list includes/scenes/
+
+
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
-scene old: !include_dir_merge_list includes/scenes/
 sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/
 timer: !include includes/timers.yaml
 discovery: !include includes/system/discovery.yaml
-history: !include includes/system/history.yaml
 logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
@@ -128,10 +180,6 @@ climate:
   - platform: honeywell
     username: !secret honeywell_user
     password: !secret honeywell_pass
-
-updater:
-  reporting: false
-  include_used_components: false
 
 lovelace: !include includes/lovelace.yaml
 

@@ -89,7 +89,7 @@ media_source:
 mobile_app:
 person:
 scene: !include scenes.yaml
-scripts:
+script: !include scripts.yaml
 ssdp:
 sun:
 system_health:

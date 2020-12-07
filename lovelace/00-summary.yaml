@@ -91,20 +91,22 @@
 # ======================================================================
               - type: weather-forecast
                 entity: weather.dark_sky
+              - type: weather-forecast
+                entity: weather.openweathermap
+              - type: weather-forecast
+                entity: weather.kahn_daynight
+              - type: weather-forecast
+                entity: weather.kahn_hourly
               - type: entities
                 entities:
                   - type: weblink
                     name: Wifi Controller
                     icon: mdi:link
-                    url: https://wifi.olympus.home:8043
+                    url: https://wifi.adm.home
                   - type: weblink
                     name: Olympus Wiki
                     icon: mdi:link
-                    url: https://wiki.olympus.home
-                  - type: weblink
-                    name: Redmine
-                    icon: mdi:link
-                    url: https://redmine.olympus.home
+                    url: https://wiki/
 # ======================================================================
 #
 # Moon Phase

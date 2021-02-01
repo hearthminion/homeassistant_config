@@ -22,6 +22,7 @@ include:
     - sensor.speedtest_ping
     - sensor.speedtest_upload
     - sensor.circadian_temperature
+    - sensor.cnmf741c_743c
 exclude:
   domains:
     - updater

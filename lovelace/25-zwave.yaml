@@ -15,4 +15,5 @@
     icon: mdi:z-wave
     panel: true
     cards:
-      - type: custom:ozw-network-visualization-card
+      - type: 'custom:ozw-network-visualization-card'
+        integration: ozw

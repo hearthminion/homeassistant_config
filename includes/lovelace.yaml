@@ -24,6 +24,8 @@ resources:
   - url: /hacsfiles/bignumber-card.js
     type: js
   - url: /hacsfiles/ozw-network-visualization-card.js
-    type: module
+    type: js
   - url: /hacsfiles/slider-entity-row.js
+    type: module
+  - url: /hacsfiles/ha-floorplan/floorplan.js
     type: module

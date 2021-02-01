@@ -10,6 +10,7 @@ views:
 #  - !include lovelace/10-home.yaml
 #  - !include lovelace/20-network.yaml
   - !include lovelace/21-networkalt.yaml
+  - !include lovelace/25-zwave.yaml
   - !include lovelace/30-internet.yaml
   - !include lovelace/40-weather.yaml
   - !include lovelace/50-homeassistant.yaml

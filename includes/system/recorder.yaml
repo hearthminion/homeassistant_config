@@ -3,6 +3,7 @@ purge_keep_days: 10
 auto_purge: true
 include:
   domains:
+    - automation
     - circadian_lighting
     - climate
     - device_tracker
@@ -12,6 +13,7 @@ include:
   entity_globs:
     - sensor.power*
   entities:
+    - timer.lights_off
     - input_select.light_mode
     - input_select.user0001_status_dropdown
     - input_select.user0002_status_dropdown

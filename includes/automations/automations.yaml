@@ -33,7 +33,6 @@
     to: "off"
   - platform: state
     entity_id: light.master_lamp_2
-    from: "on"
     to: "off"
   - platform: time
     at: "22:00:00"

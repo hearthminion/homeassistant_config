@@ -9,7 +9,7 @@
   alias: "Turn Off Migraine Mode"
   description: ""
   trigger:
-  - at: 03:00:00
+  - at: 04:00:00
     platform: time
   condition: []
   action:
@@ -26,26 +26,34 @@
 # ======================================================================
 - id: "1606847390094"
   alias: "Start Sleep Timer"
-  description: ""
+  description: "Starts a timer upon going to bed."
   trigger:
-  - platform: state
-    entity_id: light.all_lights
-    to: "off"
-  - platform: state
-    entity_id: light.master_lamp_2
-    to: "off"
-  - platform: time
-    at: "22:00:00"
+    - platform: time
+      at: "21:00:00"
+    - platform: state
+      entity_id: light.all_lights
+      to: "off"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_1
+      from: "on"
+      to: "off"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_2
+      from: "on"
+      to: "off"
   condition:
-  - after: "22:00:00"
-    condition: time
-  - condition: state
-    entity_id: light.master_lamp_2
-    state: "off"
+    - condition: time
+      after: "21:00:00"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_2
+      state: "off"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_1
+      state: "off"
   action:
-  - service: timer.start
-    data:
-      entity_id: timer.lights_off
+    - service: timer.start
+      data:
+        entity_id: timer.lights_off
 
 - id: "1606847637745"
   alias: "Turn off Master Bedroom TV Power"

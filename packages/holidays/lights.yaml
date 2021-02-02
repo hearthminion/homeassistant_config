@@ -1,6 +1,7 @@
 automation:
   - id: "1606841326257"
     alias: "[Christmas] Activate 'Christmas Lights On' Scene"
+    initial_state: false
     description: "Turns on all Christmas lights at astronomical dawn."
     trigger:
       - platform: numeric_state
@@ -11,18 +12,22 @@ automation:
     action:
       - scene: scene.christmas_lights_on
     mode: single
+
   - id: "1576628018411"
     alias: "[Christmas] Activate 'Christmas Lights Off' Scene"
+    initial_state: false
     description: ""
     trigger:
       - platform: time
         at: "21:00:00"
     condition: []
     action:
-      - scene: scene.christmas_lighs_off
+      - scene: scene.christmas_lights_off
     mode: single
+
   - id: "1607003903288"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
+    initial_state: false
     description: ""
     trigger:
       - platform: sun
@@ -31,8 +36,10 @@ automation:
     action:
       - scene: scene.christmas_outdoor_lights_on
     mode: single
+
   - id: "1606782092296"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
+    initial_state: false
     description: ""
     trigger:
       - platform: sun
@@ -54,6 +61,7 @@ scene:
         node_id: 7
         friendly_name: "Plug-in Outdoor Smart Switch: Switch"
         state: "on"
+
   - id: "1606782193777"
     name: "[Christmas] Lights Off"
     entities:
@@ -65,6 +73,7 @@ scene:
         node_id: 7
         friendly_name: "Plug-in Outdoor Smart Switch: Switch"
         state: "off"
+
   - id: "1576958171165"
     name: "[Christmas] Outdoor Lights On"
     entities:
@@ -72,6 +81,7 @@ scene:
         node_id: 7
         friendly_name: "Plug-in Outdoor Smart Switch: Switch"
         state: "on"
+
   - id: "1606782269331"
     name: "[Christmas] Outdoor Lights Off"
     entities:

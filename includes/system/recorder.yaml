@@ -10,8 +10,12 @@ include:
     - input_boolean
     - light
     - person
+    - weather
   entity_globs:
     - sensor.power*
+    - binary_sensor.power*
+    - sensor.openweathermap*
+    - sensor.skin_type_*
   entities:
     - timer.lights_off
     - input_select.light_mode
@@ -23,6 +27,11 @@ include:
     - sensor.speedtest_upload
     - sensor.circadian_temperature
     - sensor.cnmf741c_743c
+    - binary_sensor.protection_window_3
+    - sensor.max_uv_index_3
+    - sensor.current_uv_level_3
+    - sensor.current_uv_index_3
+    - sensor.current_ozone_level_3
 exclude:
   domains:
     - updater

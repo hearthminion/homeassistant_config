@@ -116,7 +116,6 @@ discovery: !include includes/system/discovery.yaml
 automation old: !include_dir_merge_list includes/automations/
 scene old: !include_dir_merge_list includes/scenes/
 
-
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
 sensor: !include_dir_merge_list includes/sensors/

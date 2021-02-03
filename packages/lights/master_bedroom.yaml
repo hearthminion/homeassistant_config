@@ -275,15 +275,9 @@ binary_sensor:
       light_master_bedroom_lamp_1_autobrightness:
         friendly_name: "[Light] Master Bedroom Lamp 1 Autobrightness"
         value_template: >-
-          {{ ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_max") | int )
-             and ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_min") | int ) }}
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.master_bedroom_lamp_1", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_1", "brightness", "unknown") or
@@ -300,18 +294,13 @@ binary_sensor:
             {{ state_attr("light.master_bedroom_lamp_1","xy_color") }}
           color_temp: >-
             {{ state_attr("light.master_bedroom_lamp_1","color_temp") }}
+
       light_master_bedroom_lamp_2_autobrightness:
         friendly_name: "[Light] Master Bedroom Lamp 2 Autobrightness"
         value_template: >-
-          {{ ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_max") | int )
-             and ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_min") | int ) }}
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.master_bedroom_lamp_2", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_2", "brightness", "unknown") or
@@ -328,18 +317,13 @@ binary_sensor:
             {{ state_attr("light.master_bedroom_lamp_2", "xy_color") }}
           color_temp: >-
             {{ state_attr("light.master_bedroom_lamp_2", "color_temp") }}
+
       light_master_bedroom_ceiling_autobrightness:
         friendly_name: "[Light] Master Bedroom Ceiling Autobrightness"
         value_template: >-
-          {{ ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "brightness_max") | int )
-             and ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "brightness_min") | int ) }}
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_ceiling_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.master_bedroom_ceiling", "brightness") == None or
                is_state_attr("light.master_bedroom_ceiling", "brightness", "unknown")  or
@@ -356,18 +340,13 @@ binary_sensor:
           #  {{ state_attr("light.master_bedroom_ceiling","xy_color") }}
           color_temp: >-
             {{ state_attr("light.master_bedroom_ceiling","color_temp") }}
+
       light_master_bedroom_closet_autobrightness:
         friendly_name: "[Light] Master Bedroom Closet Autobrightness"
         value_template: >-
-          {{ ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "brightness_max") | int )
-             and ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "brightness_min") | int ) }}
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bedroom_closet_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.master_bedroom_closet", "brightness") == None or
                is_state_attr("light.master_bedroom_closet", "brightness", "unknown") or

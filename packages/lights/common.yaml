@@ -235,7 +235,7 @@ sensor:
   - platform: template
     sensors:
       circadian_brightness:
-        friendly_name: "Circadian Color Temperature"
+        friendly_name: "Circadian Brightness"
         value_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') }}"
         unit_of_measurement: "%"
 

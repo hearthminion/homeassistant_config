@@ -79,15 +79,9 @@ binary_sensor:
       light_hallway_autobrightness:
         friendly_name: "[Light] Hallway Autobrightness"
         value_template: >-
-          {{ ( state_attr("binary_sensor.light_hallway_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_hallway_autobrightness", "brightness_max") | int )
-             and ( state_attr("binary_sensor.light_hallway_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_hallway_autobrightness", "brightness_min") | int ) }}
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_hallway_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_hallway_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.hallway", "brightness") == None or
                is_state_attr("light.hallway", "brightness", "unknown")  or

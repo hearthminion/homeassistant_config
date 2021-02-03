@@ -193,7 +193,6 @@ light:
       circadian_light:
         friendly_name: "Circadian Light used for testing"
         level_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') | round(0) }}"
-        temperature_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
         turn_on:
           service: notify.notify
           data:

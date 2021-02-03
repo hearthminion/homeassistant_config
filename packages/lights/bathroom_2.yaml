@@ -106,7 +106,7 @@ binary_sensor:
                is_state("light.bathroom_2", "off") -%}
               100
             {%- else %}
-              {{ ( state_attr("light.bathroom_2_ceiling","brightness") / 254 * 100 ) | int }}
+              {{ ( state_attr("light.bathroom_2","brightness") / 254 * 100 ) | int }}
             {% endif %}
           brightness_max: >-
             {{ state_attr("binary_sensor.light_bathroom_2_autobrightness", "brightness") | int + 4 }}
@@ -195,7 +195,19 @@ input_select:
 # Notes:
 #   RGB Color Values: https://htmlcolorcodes.com/color-names/
 # ======================================================================
-# scene:
+scene:
+  - id: '1587774493438'
+    name: '[Light] Bathroom 2: Enable Automations'
+    entities:
+      automation.light_bathroom_2_circadian_lighting_with_brightness_adjust:
+        friendly_name: '[Light] Bathroom 2: Circadian Lighting (with Brightness adjust)'
+        state: 'off'
+    entities:
+      automation.light_bathroom_2_circadian_lighting_without_brightness_adjust:
+        friendly_name: '[Light] Bathroom 2: Circadian Lighting (without Brightness adjust)'
+        last_triggered:
+        state: 'off'
+
 #   - id: "1576892024578"
 #     name: "[Light] Bathroom 2: Darken Room"
 #     entities:

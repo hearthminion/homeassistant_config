@@ -579,7 +579,7 @@ switch:
     lights_ct:
       - light.den_couch_lamp_1
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Den Couch Lamp 2 (without Brightness Adjustment)"
@@ -592,7 +592,7 @@ switch:
     lights_ct:
       - light.den_couch_lamp_2
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Den Fireplace (without Brightness Adjustment)"
@@ -605,7 +605,7 @@ switch:
     lights_ct:
       - light.den_fireplace
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Den Ceiling (without Brightness Adjustment)"
@@ -618,7 +618,7 @@ switch:
     lights_ct:
       - light.den_ceiling
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Den Tower Lamp (without Brightness Adjustment)"
@@ -631,7 +631,7 @@ switch:
     lights_ct:
       - light.den_tower_lamp
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Den Table Lamp (without Brightness Adjustment)"
@@ -644,4 +644,4 @@ switch:
     lights_ct:
       - light.den_table_lamp
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1

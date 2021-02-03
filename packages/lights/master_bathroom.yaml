@@ -325,7 +325,7 @@ switch:
     lights_ct:
       - light.master_bathroom_inner
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1
 
   - platform: circadian_lighting
     name: "Master Bathroom (Outer) (without Brightness Adjustment)"
@@ -338,4 +338,4 @@ switch:
     lights_ct:
       - light.master_bathroom_outer
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1

@@ -156,4 +156,4 @@ switch:
     lights_ct:
       - light.living_area_ceiling
     disable_brightness_adjust: false
-    min_brightness: 0
+    min_brightness: 1

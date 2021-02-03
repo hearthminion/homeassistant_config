@@ -202,7 +202,6 @@ scene:
       automation.light_bathroom_2_circadian_lighting_with_brightness_adjust:
         friendly_name: '[Light] Bathroom 2: Circadian Lighting (with Brightness adjust)'
         state: 'off'
-    entities:
       automation.light_bathroom_2_circadian_lighting_without_brightness_adjust:
         friendly_name: '[Light] Bathroom 2: Circadian Lighting (without Brightness adjust)'
         last_triggered:

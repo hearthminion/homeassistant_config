@@ -48,7 +48,7 @@ automation:
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: light_bathroom_2_autobrightness
+        entity_id: binary_sensor.light_bathroom_2_autobrightness
         to: "on"
     condition:
       condition: and

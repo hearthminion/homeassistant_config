@@ -38,9 +38,17 @@ automation:
   - alias: "[Light] Kitchen Island: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: sensor.light_main_island_brightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -54,8 +62,9 @@ automation:
   - alias: "[Light] Kitchen Island: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: sensor.light_main_island_brightness
+      - platform: state
+        entity_id: sensor.light_main_island_brightness
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -90,9 +99,17 @@ automation:
   - alias: "[Light] Kitchen Ceiling: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_kitchen_ceiling_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -106,8 +123,9 @@ automation:
   - alias: "[Light] Kitchen Ceiling: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: binary_sensor.light_kitchen_ceiling_autobrightness
+      - platform: state
+        entity_id: binary_sensor.light_kitchen_ceiling_autobrightness
+        to: "off"
     condition:
       condition: and
       conditions:

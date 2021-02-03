@@ -1,4 +1,4 @@
-# ======================================================================
+# ==================================================================================================
 #
 # Bathroom 2
 #
@@ -24,9 +24,9 @@
 #   - light.den_tower_lamp
 #   - light.den_table_lamp
 #
-# ======================================================================
+# ==================================================================================================
 automation:
-  # ======================================================================
+  # ================================================================================================
   #
   # Light fixture: Bathroom 2
   #
@@ -38,7 +38,7 @@ automation:
   # Automations:
   #   - 
   #
-  # ======================================================================
+  # ================================================================================================
   - id: "1587733513647"
     alias: "[Light] Bathroom 2: Circadian Lighting (with Brightness Adjustment)"
     description: "Turn on Bathroom 2 Circadian Lighting (with Brightness Adjustment)"
@@ -47,7 +47,14 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
-    condition: []
+      - platform: state
+        entity_id: light_bathroom_2_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data: {}

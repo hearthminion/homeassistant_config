@@ -48,6 +48,14 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
+      - platform: state
+        entity_id: sensor.light_master_bedroom_ceiling_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -63,6 +71,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.light_master_bedroom_ceiling_autobrightness
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -99,6 +108,14 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
+      - platform: state
+        entity_id: sensor.light_master_bedroom_lamp_1_brightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -114,6 +131,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.light_master_bedroom_lamp_1_brightness
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -152,7 +170,14 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
-    condition: []
+      - platform: state
+        entity_id: sensor.light_master_bedroom_lamp_2_brightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -170,6 +195,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.light_master_bedroom_lamp_2_brightness
+        to: "off"
     condition:
       condition: and
       conditions:
@@ -189,7 +215,7 @@ automation:
           - switch.circadian_lighting_master_bedroom_lamp_2_with_brightness_adjustment
 
   - id: "1577071503214"
-    alias: "Enable Migrain Mode"
+    alias: "[Light] Master Bedroom Lamp 2: Enable Migrain Mode"
     description: ""
     initial_state: false
     trigger:
@@ -228,9 +254,17 @@ automation:
   - alias: "[Light] Master Bedroom Closet: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: sensor.light_master_bedroom_closet_brightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -246,6 +280,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.light_master_bedroom_closet_brightness
+        to: "off"
     condition:
       condition: and
       conditions:

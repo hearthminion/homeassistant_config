@@ -36,7 +36,15 @@ automation:
     trigger:
       - platform: state
         entity_id: input_select.light_mode
-        to: "Circadian"
+        to: "Circadian" 
+      - platform: state
+        entity_id: binary_sensor.light_bedroom_2_ceiling_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -51,7 +59,7 @@ automation:
     initial_state: false
     trigger:
       - platform: state
-        entity_id: sensor.light_bedroom_2_ceiling_autobrightness
+        entity_id: binary_sensor.light_bedroom_2_ceiling_autobrightness
         to: "off"
     condition:
       condition: and
@@ -79,9 +87,17 @@ automation:
   - alias: "[Light] Bedroom 2 Closet: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
-      platform: state
-      entity_id: input_select.light_mode
-      to: "Circadian"
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian" 
+      - platform: state
+        entity_id: binary_sensor.light_bedroom_2_closet_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: switch.turn_on
         data:
@@ -121,7 +137,7 @@ automation:
 binary_sensor:
   - platform: template
     sensors:
-      
+
       light_bedroom_2_ceiling_autobrightness:
         friendly_name: "[Light] Bedroom 2 Ceiling Autobrightness"
         value_template: >-

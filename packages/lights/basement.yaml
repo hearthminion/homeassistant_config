@@ -48,6 +48,7 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_basement_without_brightness_adjustment
+
   - alias: "[Light] Basement Ceiling: Circadian Lighting (without Brightness adjust)"
     initial_state: false
     trigger:
@@ -68,6 +69,7 @@ automation:
         data:
           entity_id:
             - switch.circadian_lighting_basement_with_brightness_adjustment
+
   - id: '1587762496178'
     alias: '[Light] Basement: Turn Off Lights At Night'
     description: ''

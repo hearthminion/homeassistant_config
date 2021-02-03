@@ -7,22 +7,9 @@
 #   - light.main_lamp_
 #   - light.main_lamp_
 #   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
 #
 # Light Groups:
 #   - light.den_couch_lamp_1
-#   - light.den_couch_lamp_2
-#   - light.den_ceiling
-#   - light.den_fireplace
-#   - light.den_tower_lamp
-#   - light.den_table_lamp
 #
 # ==================================================================================================
 automation:

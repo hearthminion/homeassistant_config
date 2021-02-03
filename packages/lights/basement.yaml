@@ -96,12 +96,6 @@ binary_sensor:
           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int ) }}
         attribute_templates:
-          circadian_brightness: >-
-            {% if state_attr("switch.circadian_lighting_circadian_light") == None -%}
-               100
-            {%- else -%}
-               {{ state_attr("switch.circadian_lighting_circadian_light","brightness") | round(0) }}
-            {%- endif %}
           brightness: >-
             {% if state_attr("light.basement", "brightness") == None or
                is_state_attr("light.basement", "brightness", "unknown")  or

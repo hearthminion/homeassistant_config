@@ -232,6 +232,12 @@ sensor:
         friendly_name: "Circadian Color Temperature"
         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
         unit_of_measurement: "°K"
+  - platform: template
+    sensors:
+      circadian_brightness:
+        friendly_name: "Circadian Color Temperature"
+        value_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') }}"
+        unit_of_measurement: "%"
 
 switch:
   # ================================

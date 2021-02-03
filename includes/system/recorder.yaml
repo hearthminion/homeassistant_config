@@ -18,21 +18,22 @@ include:
     - sensor.skin_type_*
     - switch.circadian*
   entities:
-    - timer.lights_off
+    - binary_sensor.protection_window_3
     - input_select.light_mode
     - input_select.user0001_status_dropdown
     - input_select.user0002_status_dropdown
+    - sensor.circadian_brightness
+    - sensor.circadian_temperature
     - sensor.circadian_values
+    - sensor.cnmf741c_743c
+    - sensor.current_ozone_level_3
+    - sensor.current_uv_index_3
+    - sensor.current_uv_level_3
+    - sensor.max_uv_index_3
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
-    - sensor.circadian_temperature
-    - sensor.cnmf741c_743c
-    - binary_sensor.protection_window_3
-    - sensor.max_uv_index_3
-    - sensor.current_uv_level_3
-    - sensor.current_uv_index_3
-    - sensor.current_ozone_level_3
+    - timer.lights_off
 exclude:
   domains:
     - updater
@@ -50,13 +51,6 @@ exclude:
     - sensor.whois
     - sensor.drbr_org
     - sensor.myip
-    - sensor.ssl_certificate_expiry
-    - sensor.skin_type_1_safe_exposure_time
-    - sensor.skin_type_2_safe_exposure_time
-    - sensor.skin_type_3_safe_exposure_time
-    - sensor.skin_type_4_safe_exposure_time
-    - sensor.skin_type_5_safe_exposure_time
-    - sensor.skin_type_6_safe_exposure_time
     - sensor.ssl_certificate_expiry
     - sensor.hacs
     - sensor.potential_breaking_changes

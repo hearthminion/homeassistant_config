@@ -282,4 +282,4 @@ switch:
     lights_ct:
       - light.bathroom_2
     disable_brightness_adjust: false
-    min_brightness: 25
+    min_brightness: 0

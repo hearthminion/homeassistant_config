@@ -182,4 +182,4 @@ switch:
       - light.main_lamp_11
       - light.main_lamp_18
     disable_brightness_adjust: false
-    min_brightness: 25
+    min_brightness: 0

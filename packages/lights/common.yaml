@@ -188,6 +188,20 @@ light:
     entities:
       - light.basement
       - light.main_floor
+  - platform: template
+    lights:
+      circadian_light:
+        friendly_name: "Circadian Light used for testing"
+        level_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') | round(0) }}"
+        temperature_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
+        turn_on:
+          service: notify.notify
+          data:
+            message: "Fake light turned on!"
+        turn_off:
+          service: notify.notify
+          data:
+            message: "Fake light turned off!"
 
 # ==================================================================================================
 #
@@ -218,3 +232,15 @@ sensor:
         friendly_name: "Circadian Color Temperature"
         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
         unit_of_measurement: "°K"
+
+switch:
+  # ================================
+  #
+  # Basementroom
+  #
+  # ===============================
+  - platform: circadian_lighting
+    name: "circadian_light"
+    lights_ct:
+      - light.circadian_light
+ 

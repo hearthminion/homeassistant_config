@@ -16,6 +16,7 @@ include:
     - binary_sensor.power*
     - sensor.openweathermap*
     - sensor.skin_type_*
+    - switch.circadian*
   entities:
     - timer.lights_off
     - input_select.light_mode

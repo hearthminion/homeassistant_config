@@ -302,7 +302,7 @@ switch:
     lights_ct:
       - light.bedroom_3_ceiling
     disable_brightness_adjust: false
-    min_brightness: 25
+    min_brightness: 0
 
   - platform: circadian_lighting
     name: "Bedroom 3 Closet (without Brightness Adjustment)"
@@ -315,6 +315,6 @@ switch:
     lights_ct:
       - light.bedroom_3_closet
     disable_brightness_adjust: false
-    min_brightness: 25
+    min_brightness: 0
     #disable_entity:
     #disable_state:

@@ -7,7 +7,8 @@ title: Home
 
 views:
   - !include lovelace/00-summary.yaml
-#  - !include lovelace/10-home.yaml
+  - !include lovelace/10-home.yaml
+  - !include lovelace/11-floorplan.yaml
 #  - !include lovelace/20-network.yaml
   - !include lovelace/21-networkalt.yaml
   - !include lovelace/25-zwave.yaml

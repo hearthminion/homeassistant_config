@@ -24,85 +24,60 @@
                 title: Main Room Lights
                 show_header_toggle: false
                 entities:
-                  - entity: light.chinese_lamp
-                  - entity: light.hue_lamp
-                  - entity: light.main_couch_lamp_left
-                  - entity: light.main_couch_lamp_right
-                  - entity: light.main_dining
-                  - entity: light.main_fireplace
-                  - entity: light.main_front_door
-                  - entity: light.main_island
-                  - entity: light.main_kitchen
-                  - entity: light.main_living_area
-                  - entity: light.main_sitting_area
-                  - entity: switch.circadian_lighting_chinese_lamp
-                  - entity: switch.circadian_lighting_main_lamp
-                  - entity: switch.circadian_lighting_main_couch_left
-                  - entity: switch.circadian_lighting_main_couch_right
-                  - entity: switch.circadian_lighting_main_dining
-                  - entity: switch.circadian_lighting_main_fireplace
-                  - entity: switch.circadian_lighting_main_frontdoor
-                  - entity: switch.circadian_lighting_main_island
-                  - entity: switch.circadian_lighting_main_kitchen
-                  - entity: switch.circadian_lighting_main_living
-                  - entity: switch.circadian_lighting_main_sitting_area
+                  - entity: light.den_ceiling
+                  - entity: light.den_couch_lamp_1
+                  - entity: light.den_couch_lamp_2
+                  - entity: light.den_fireplace
+                  - entity: light.dining_area_ceiling
+                  - entity: light.entryway_ceiling
+                  - entity: light.kitchen_ceiling
+                  - entity: light.kitchen_island_ceiling
+                  - entity: light.living_area_ceiling
+                  - entity: light.main_room
+
               - break
+
               - type: entities
                 title: Master Bedroom
                 show_header_toggle: false
                 entities:
-                  - entity: light.master_ceiling_lights
-                  - entity: light.master_closet
+                  - entity: light.master_bedroom
+                  - entity: light.master_bedroom_chair
+                  - entity: light.master_bedroom_closet
                   - entity: light.master_lamp_1
                   - entity: light.master_lamp_2
-                  - entity: switch.circadian_lighting_master_ceiling_lights
-                  - entity: switch.circadian_lighting_master_closet
-                  - entity: switch.circadian_lighting_master_lamp1
-                  - entity: switch.circadian_lighting_master_lamp2
+
               - type: entities
-                title: Master Bathroom (Inner)
+                title: Master Bathroom
                 show_header_toggle: false
                 entities:
-                  - entity: light.master_bath_inner
-                  - entity: switch.circadian_lighting_master_bath_inner
-              - type: entities
-                title: Master Bathroom (Outer)
-                show_header_toggle: false
-                entities:
-                  - entity: light.master_bath_outer
-                  - entity: switch.circadian_lighting_master_bath_outer
+                  - entity: light.master_bathroom_inner
+                  - entity: light.master_bathroom_outer
+
               - type: entities
                 title: Hallway
                 show_header_toggle: false
                 entities:
                   - entity: light.hallway
-                  - entity: switch.circadian_lighting_hallway
+
               - break
+
               - type: entities
-                title: Back Bedroom Lights
+                title: Bedroom 2
                 show_header_toggle: false
                 entities:
-                  - entity: light.back_bedroom_ceiling
-                  - entity: light.back_bedroom_closet
-                  - entity: switch.circadian_lighting_back_bedroom_ceiling
-                  - entity: switch.circadian_lighting_back_bedroom_closet
+                  - entity: light.bedroom_2
+                  - entity: light.bedroom_2_closet
+
               - type: entities
-                title: Front Bedroom Lights
+                title: Bedroom 3
                 show_header_toggle: false
                 entities:
-                  - entity: light.front_bedroom_ceiling
-                  - entity: light.front_bedroom_closet
-                  - entity: switch.circadian_lighting_front_bedroom_ceiling
-                  - entity: switch.circadian_lighting_front_bedroom_closet
+                  - entity: light.bedroom_3
+                  - entity: light.bedroom_3_closet
+
               - type: entities
-                title: Guest Bath Lights
+                title: Bathroom 2
                 show_header_toggle: false
                 entities:
-                  - entity: light.guest_bath
-                  - entity: switch.circadian_lighting_guest_bath
-              - type: entities
-                title: Automations
-                show_header_toggle: false
-                entities:
-                  - entity: automation.circadian_lighting_disable
-                  - entity: automation.circadian_lighting_enable
+                  - entity: light.bathroom_2

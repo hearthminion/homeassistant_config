@@ -148,7 +148,7 @@ binary_sensor:
             {% if state_attr("light.bedroom_2_ceiling", "brightness") == None or
                is_state_attr("light.bedroom_2_ceiling", "brightness", "unknown")  or
                is_state("light.bedroom_2_ceiling", "off") -%}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {%- else %}
               {{ ( state_attr("light.bedroom_2_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -171,7 +171,7 @@ binary_sensor:
             {% if state_attr("light.bedroom_2_closet", "brightness") == None or
                is_state_attr("light.bedroom_2_closet", "brightness", "unknown") or
                is_state("light.bedroom_2_closet","off") -%}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {%- else %}
               {{ ( state_attr("light.bedroom_2_closet","brightness") / 254 * 100 ) | int }}
             {% endif %}

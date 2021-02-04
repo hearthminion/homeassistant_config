@@ -154,7 +154,7 @@ binary_sensor:
             {% if state_attr("light.master_bathroom_inner", "brightness") == None or
                is_state_attr("light.master_bathroom_inner", "brightness", "unknown")  or
                is_state("light.master_bathroom_inner", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bathroom_inner","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -177,7 +177,7 @@ binary_sensor:
             {% if state_attr("light.master_bathroom_outer", "brightness") == None or
                is_state_attr("light.master_bathroom_outer", "brightness", "unknown")  or
                is_state("light.master_bathroom_outer", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bathroom_outer","brightness") / 254 * 100 ) | int }}
             {% endif %}

@@ -91,7 +91,7 @@ binary_sensor:
             {% if state_attr("light.bathroom_2", "brightness") == None or
                is_state_attr("light.bathroom_2","brightness", "unknown")  or
                is_state("light.bathroom_2", "off") -%}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {%- else %}
               {{ ( state_attr("light.bathroom_2","brightness") / 254 * 100 ) | int }}
             {% endif %}

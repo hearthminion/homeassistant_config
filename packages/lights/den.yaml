@@ -331,7 +331,7 @@ binary_sensor:
             {% if state_attr("light.den_couch_lamp_1", "brightness") == None or
                is_state_attr("light.den_couch_lamp_1", "brightness", "unknown")  or
                is_state("light.den_couch_lamp_1", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -354,7 +354,7 @@ binary_sensor:
             {% if state_attr("light.den_couch_lamp_2", "brightness") == None or
                is_state_attr("light.den_couch_lamp_2", "brightness", "unknown")  or
                is_state("light.den_couch_lamp_2","off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -377,7 +377,7 @@ binary_sensor:
             {% if state_attr("light.den_ceiling", "brightness") == None or
                is_state_attr("light.den_ceiling", "brightness", "unknown")  or
                is_state("light.den_ceiling", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -400,7 +400,7 @@ binary_sensor:
             {% if state_attr("light.den_fireplace", "brightness") == None or
                is_state_attr("light.den_fireplace", "brightness", "unknown")  or
                is_state("light.den_fireplace", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_fireplace","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -424,7 +424,7 @@ binary_sensor:
             {% if state_attr("light.den_table_lamp", "brightness") == None or
                is_state_attr("light.den_table_lamp", "brightness", "unknown")  or
                is_state("light.den_table_lamp", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_table_lamp","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -447,7 +447,7 @@ binary_sensor:
             {% if state_attr("light.den_tower_lamp", "brightness") == None or
                is_state_attr("light.den_tower_lamp", "brightness", "unknown")  or
                is_state("light.den_tower_lamp", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.den_tower_lamp","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -498,6 +498,10 @@ scene:
   - id: "1587751320837"
     name: "[Light] Enable Den Automations"
     entities:
+      automation.light_den_couch_lamp_1_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_den_couch_lamp_1_circadian_lighting_without_brightness_adjustment:
+        state: 'on'
       automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
         state: 'on'
       automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:

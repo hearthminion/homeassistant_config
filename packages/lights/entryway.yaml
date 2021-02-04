@@ -100,7 +100,7 @@ binary_sensor:
             {% if state_attr("light.entryway_ceiling", "brightness") == None or
                is_state_attr("light.entryway_ceiling", "brightness", "unknown")  or
                is_state("light.entryway_ceiling", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.entryway_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}

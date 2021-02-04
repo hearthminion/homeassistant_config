@@ -6,7 +6,6 @@
 #   light.main_lamp_1: Master Bedroom Lamp 1 Lightbulb 1
 #   light.main_lamp_2: Master Bedroom Lamp 2 Lightbulb 1
 #   light.main_lamp_4: Master Bedroom Ceiling Lightbulb 2
-#   light.main_lamp_5: Master Bedroom Ceiling Lightbulb 3
 #   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
 #   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
 #   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
@@ -317,7 +316,7 @@ binary_sensor:
             {% if state_attr("light.master_bedroom_lamp_1", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_1", "brightness", "unknown") or
                is_state("light.master_bedroom_lamp_1", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bedroom_lamp_1","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -340,7 +339,7 @@ binary_sensor:
             {% if state_attr("light.master_bedroom_lamp_2", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_2", "brightness", "unknown") or
                is_state("light.master_bedroom_lamp_2", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bedroom_lamp_2","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -363,7 +362,7 @@ binary_sensor:
             {% if state_attr("light.master_bedroom_ceiling", "brightness") == None or
                is_state_attr("light.master_bedroom_ceiling", "brightness", "unknown")  or
                is_state("light.master_bedroom_ceiling", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bedroom_ceiling", "brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -386,7 +385,7 @@ binary_sensor:
             {% if state_attr("light.master_bedroom_closet", "brightness") == None or
                is_state_attr("light.master_bedroom_closet", "brightness", "unknown") or
                is_state("light.master_bedroom_closet", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.master_bedroom_closet","brightness") / 254 * 100 ) | int }}
             {% endif %}

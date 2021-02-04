@@ -102,7 +102,7 @@ binary_sensor:
             {% if state_attr("light.living_area", "brightness") == None or
                is_state_attr("light.living_area", "brightness", "unknown")  or
                is_state("light.living_area","off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.living_area","brightness") / 254 * 100 ) | int }}
             {% endif %}

@@ -162,7 +162,7 @@ binary_sensor:
             {% if state_attr("light.kitchen_ceiling", "brightness") == None or
                is_state_attr("light.kitchen_ceiling", "brightness", "unknown")  or
                is_state("light.kitchen_ceiling","off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.kitchen_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -185,7 +185,7 @@ binary_sensor:
             {% if state_attr("light.kitchen_island_ceiling", "brightness") == None or
                is_state_attr("light.kitchen_island_ceiling", "brightness", "unknown")  or
                is_state("light.kitchen_island_ceiling", "off") %}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {% else %}
               {{ ( state_attr("light.kitchen_island_ceiling","brightness") / 254 * 100 ) | int }}
             {% endif %}

@@ -1,4 +1,5 @@
 default: warn
 logs:
   homeassistant.util.packages: warn
+  homeassistant.components.rest_command: debug
   #homeassistant.components.nmap_tracker.device_tracker: debug

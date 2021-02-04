@@ -44,8 +44,8 @@
                   - entity: light.master_bedroom
                   - entity: light.master_bedroom_chair
                   - entity: light.master_bedroom_closet
-                  - entity: light.master_lamp_1
-                  - entity: light.master_lamp_2
+                  - entity: light.master_bedroom_lamp_1
+                  - entity: light.master_bedroom_lamp_2
 
               - type: entities
                 title: Master Bathroom

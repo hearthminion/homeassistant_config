@@ -730,6 +730,19 @@ switch:
     min_brightness: 1
 
   - platform: circadian_lighting
+    name: "Master Bedroom Chair (without Brightness Adjustment)"
+    lights_ct:
+      - light.master_bedroom_chair
+    disable_brightness_adjust: true
+
+  - platform: circadian_lighting
+    name: "Master Bedroom Ceiling (with Brightness Adjustment)"
+    lights_ct:
+      - light.master_bedroom_chair
+    disable_brightness_adjust: false
+    min_brightness: 1
+
+  - platform: circadian_lighting
     name: "Master Bedroom Closet (without Brightness Adjustment)"
     lights_ct:
       - light.master_bedroom_closet

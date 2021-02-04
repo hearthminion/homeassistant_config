@@ -71,16 +71,17 @@ automation:
             - switch.circadian_lighting_basement_with_brightness_adjustment
 
   - id: '1587762496178'
+    initial_state: false
     alias: '[Light] Basement: Turn Off Lights At Night'
     description: ''
     trigger:
-    - at: '21:30'
-      platform: time
+      - at: '21:30'
+        platform: time
     condition: []
     action:
-    - data: {}
-      entity_id: light.basement
-      service: light.turn_off
+      - service: light.turn_off
+        data:
+          entity_id: light.basement
 
 # ======================================================================
 #
@@ -100,7 +101,7 @@ binary_sensor:
             {% if state_attr("light.basement", "brightness") == None or
                is_state_attr("light.basement", "brightness", "unknown")  or
                is_state("light.basement", "off") -%}
-              100
+              {{ ( states("sensor.circadian_brightness") | int ) }}
             {%- else -%}
               {{ ( state_attr("light.basement","brightness") / 254 * 100 ) | int }}
             {%- endif %}
@@ -177,13 +178,15 @@ input_select:
 #   RGB Color Values: https://htmlcolorcodes.com/color-names/
 # ======================================================================
 scene:
-  - id: '1587760070294'
-    name: '[Light] Enable Basement Automations'
+  - id: "1587760070294"
+    name: "[Light] Enable Basement Automations"
     entities:
       automation.light_basement_ceiling_circadian_lighting_with_brightness_adjustment:
-        state: 'on'
+        state: "on"
       automation.light_basement_ceiling_circadian_lighting_without_brightness_adjust:
-        state: 'on'
+        state: "on"
+      automation.light_basement_turn_off_lights_at_night:
+        state: "on"
 
 #   - id: "1576892024578"
 #     name: "Basement: Darken Room"

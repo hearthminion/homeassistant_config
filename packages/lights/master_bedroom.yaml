@@ -582,6 +582,10 @@ scene:
     entities:
       automation.light_master_bedroom_lamp_2_at_night:
         state: 'on'
+      automation.light_master_bedroom_lamp_1_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_master_bedroom_lamp_1_circadian_lighting_without_brightness_adjustment:
+        state: 'on'
       automation.light_master_bedroom_lamp_2_circadian_lighting_with_brightness_adjustment:
         state: 'on'
       automation.light_master_bedroom_lamp_2_circadian_lighting_without_brightness_adjustment:

@@ -550,7 +550,7 @@ rest_command:
     method: put
     payload: '{ "lightstates": { "1": { {{ color }}, {{ brightness }} }, "14": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
-  light_update_master_bedroom_lamp_1_scene_homeassistant:
+  light_update_master_bedroom_lamp_2_scene_homeassistant:
     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
     payload: '{ "lightstates": { "2": { {{ color }}, {{ brightness }} }, "15": { {{ color }}, {{ brightness }} }}}'

@@ -232,8 +232,20 @@ script:
         data:
           scene_id: "wct01qioygY1j89"
           username: !secret hue2_username
+          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+        data:
+          scene_id: "regflHASux5FqsF"
+          username: !secret hue1_username
           color: '"ct": {{ states("sensor.circadian_mired") }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") }}'
+          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+        data:
+          scene_id: "UkFEqgHUaDi9-Px"
+          username: !secret hue1_username
+          color: '"ct": {{ states("sensor.circadian_mired") }}'
+          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
       # - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
       #   data:
       #     scene_id: "Qr6JRXSt1GrBwHP"
@@ -253,6 +265,18 @@ script:
         data:
           scene_id: "wct01qioygY1j89"
           username: !secret hue2_username
+          color: '"ct": 454'
+          brightness: '"bri": 25 }}'
+      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+        data:
+          scene_id: "UkFEqgHUaDi9-Px"
+          username: !secret hue1_username
+          color: '"ct": 454'
+          brightness: '"bri": 25 }}'
+      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+        data:
+          scene_id: "regflHASux5FqsF"
+          username: !secret hue1_username
           color: '"ct": 454'
           brightness: '"bri": 25 }}'
 

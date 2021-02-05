@@ -232,8 +232,8 @@ script:
         data:
           scene_id: "wct01qioygY1j89"
           username: !secret hue2_username
-          color: '"ct": {{ circadian_mired }}'
-          brightness: '"bri": {{ circadian_brightness }}'
+          color: '"ct": {{ states("sensor.circadian_mired") }}'
+          brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
       # - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
       #   data:
       #     scene_id: "Qr6JRXSt1GrBwHP"

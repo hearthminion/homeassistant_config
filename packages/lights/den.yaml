@@ -1,49 +1,58 @@
-# ======================================================================
+# ==================================================================================================
 #
 # Den Lighting Configuration
 #
 # Lights:
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
-#   - light.main_lamp_
+#   - light.den_ceiling_bulb
+#     light id: 8
+#   - light.den_couch_lamp_1_bulb
+#     light id: 7
+#   - light.den_couch_lamp_2_bulb
+#     light id: 6
+#   - light.den_fireplace_bulb
+#     light id: 25
+#   - light.dining_area_ceiling_bulb
+#     light id: 31
+#   - light.entryway_ceiling_bulb
+#     light id: 13
+#   - light.kitchen_ceiling_bulb
+#     light id: 10
+#   - light.kitchen_island_ceiling_bulb
+#     light id: 24
+#   - light.living_area_ceiling_bulb
+#     light id: 26
 #
 # Light Groups:
+#   - light.den_ceiling
 #   - light.den_couch_lamp_1
 #   - light.den_couch_lamp_2
-#   - light.den_ceiling
 #   - light.den_fireplace
-#   - light.den_tower_lamp
-#   - light.den_table_lamp
+#   - light.dining_area_ceiling
+#   - light.entryway_ceiling
+#   - light.kitchen_ceiling
+#   - light.kitchen_island_ceiling
+#   - light.living_area_ceiling
+#   - light.main_room
 #
-# ======================================================================
+# ==================================================================================================
 
-# ======================================================================
+# ==================================================================================================
 #
 # Automations:
 #
-# ======================================================================
+# ==================================================================================================
 automation:
-  # ====================================================================
+  # ================================================================================================
   #
   # Light fixture: Den Couch Lamp 2
   #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
+  # Light Group:
+  #   - light.den_couch_lamp_2
   #
   # Automations:
-  #   - 
+  #   -
   #
-  # ====================================================================
+  # ================================================================================================
   - alias: "[Light] Den Couch Lamp 2: Circadian Lighting (With Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -86,19 +95,17 @@ automation:
         entity_id:
           - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
 
-  # ======================================================================
+  # ================================================================================================
   #
   # Light fixture: Den Couch Lamp 1
   #
-  # Lights:
-  #   - 
-  #   - 
-  #   - 
+  # Light Group:
+  #   - light.den_couch_lamp_1
   #
   # Automations:
-  #   - 
+  #   -
   #
-  # ======================================================================
+  # ================================================================================================
   - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -144,7 +151,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
 
-  # ======================================================================
+  # ================================================================================================
   #
   # Light fixture: Fireplace Lights
   #
@@ -156,7 +163,7 @@ automation:
   # Automations:
   #   - 
   #
-  # ======================================================================
+  # ================================================================================================
   - alias: "[Light] Den Fireplace: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -202,7 +209,7 @@ automation:
           entity_id:
             - switch.circadian_lighting_fireplace_with_brightness_adjustment
 
-  # ======================================================================
+  # ================================================================================================
   #
   # Light fixture: Den Ceiling Lights
   #
@@ -214,7 +221,7 @@ automation:
   # Automations:
   #   - 
   #
-  # ======================================================================
+  # ================================================================================================
   - alias: "[Light] Den Ceiling: Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -260,13 +267,13 @@ automation:
           entity_id:
             - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
 
-  # ======================================================================
+  # ================================================================================================
   #
   # Set Lighting Mode: Circadian (with Brightness adjustments)
   #
   # - In the morning when the sun rises to 18 degrees below the horizon
   #   enable
-  # ======================================================================
+  # ================================================================================================
   - alias: "[Light] Den Tower Lamp Circadian Lighting (with Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -312,11 +319,11 @@ automation:
           entity_id:
             - switch.circadian_lighting_tower_lamp_with_brightness_adjustment
 
-# ======================================================================
+# ==================================================================================================
 #
 # Binary Sensor
 #
-# ======================================================================
+# ==================================================================================================
 binary_sensor:
   - platform: template
     sensors:
@@ -460,54 +467,38 @@ binary_sensor:
           color_temp: >-
             {{ state_attr("light.den_tower_lamp","color_temp") }}
 
-# ======================================================================
+# ==================================================================================================
 #
 # Input Select
 #
-# ======================================================================
+# ==================================================================================================
 
-# ======================================================================
+# ==================================================================================================
 #
 # Rest Command
 #
-# ======================================================================
+# ==================================================================================================
 rest_command:
 
   light_update_den_couch_lamp_1_scene_homeassistant:
     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "4": { "ct": 454, "bri": 50}, "5": { "ct": 454, "bri": 50}, "6": { "ct": 454, "bri": 50}, "7": { "ct": 454, "bri": 50}, "8": { "ct": 454, "bri": 50}, "9": { "ct": 454, "bri": 50}, "10": { "ct": 454, "bri": 50}, "11": { "ct": 454, "bri": 50}, "12": { "ct": 454, "bri": 50}, "14": { "ct": 454, "bri": 50}, "15": { "ct": 454, "bri": 50}, "16": { "ct": 454, "bri": 50}, "17": { "ct": 454, "bri": 50}}}'
+    payload: '{ "lightstates": { "7": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
 
   light_update_den_couch_lamp_2_scene_homeassistant:
     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "4": { "ct": 454, "bri": 50}, "5": { "ct": 454, "bri": 50}, "6": { "ct": 454, "bri": 50}, "7": { "ct": 454, "bri": 50}, "8": { "ct": 454, "bri": 50}, "9": { "ct": 454, "bri": 50}, "10": { "ct": 454, "bri": 50}, "11": { "ct": 454, "bri": 50}, "12": { "ct": 454, "bri": 50}, "14": { "ct": 454, "bri": 50}, "15": { "ct": 454, "bri": 50}, "16": { "ct": 454, "bri": 50}, "17": { "ct": 454, "bri": 50}}}'
+    payload: '{ "lightstates": { "6": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
 
-# ======================================================================
-#
-# Group: Main Couch Right
-# Scene_ID: nFeCiO75XJjnaml
-# Lights: 6
-#
-# ======================================================================
-
-# ======================================================================
-#
-# Group: Main Couch Left
-# Scene_ID: Qr6JRXSt1GrBwHP
-# Lights: 7
-#
-# ======================================================================
-
-# ======================================================================
+# ==================================================================================================
 #
 # Scenes:
 #   - Darken Room
 #   - Migraine
 #
-# ======================================================================
+# ==================================================================================================
 scene:
   - id: "1587751320837"
     name: "[Light] Enable Den Automations"
@@ -521,98 +512,17 @@ scene:
       automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
         state: 'on'
 
-# ======================================================================
+# ==================================================================================================
 #
 #
 #
-# ======================================================================
-# sensor:
-#   - platform: template
-#     sensors:
-#       light_den_couch_lamp_1_circadian_brightness:
-#         friendly_name: "[Light] Den Couch Lamp 1: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_couch_1_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_2_circadian_brightness:
-#         friendly_name: "[Light] Den Couch Lamp 2: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_couch_2_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_tower_lamp_circadian_brightness:
-#         friendly_name: "[Light] Den Tower Lamp: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_tower_lamp_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_fireplace_circadian_brigthness:
-#         friendly_name: "[Light] Den Fireplace Light: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_fireplace_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_ceiling_circadian_brigthness:
-#         friendly_name: "[Light] Den Ceiling: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_ceiling_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_table_lamp_circadian_brigthness:
-#         friendly_name: "[Light] Den Table Lamp: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_den_table_lamp_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_1_brightness:
-#         friendly_name: "[Light] Den Couch Lamp 1: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_couch_lamp_1","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_1_brightness_max:
-#         friendly_name: "[Light] Den Couch Lamp 1: Max Brightness"
-#         value_template:  "{{ states("sensor.light_den_couch_lamp_1_brightness") | int + 4 }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_1_brightness_min:
-#         friendly_name: "[Light] Den Couch Lamp 1: Min Brightness"
-#         value_template:  "{{ states("sensor.light_den_couch_lamp_1_brightness") | int - 4 }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_right_brightness_diff:
-#         friendly_name: "[Light] Den Couch Lamp Right: Brightness Difference"
-#         value_template:  "{{ states("sensor.light_den_couch_right_circadian_brightness") | int - states(sensor.light_den_couch_right_brightness) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_right_brightness_abs:
-#         friendly_name: "[Light] Den Couch Lamp Right: Absolute Brightness Difference"
-#         value_template:  "{{ states("sensor.light_den_couch_right_circadian_brightness_diff") | abs }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_2_brightness:
-#         friendly_name: "[Light] Den Couch Lamp 2: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_2_brightness_max:
-#         friendly_name: "[Light] Den Couch Lamp 2: Max Brightness"
-#         value_template:  "{{ states("sensor.light_den_couch_lamp_2_brightness") | int + 4 }}"
-#         unit_of_measurement: "%"
-#       light_den_couch_lamp_2_brightness_min:
-#         friendly_name: "[Light] Den Couch Lamp 2: Min Brightness"
-#         value_template:  "{{ states("sensor.light_den_couch_lamp_2_brightness") | int - 4 }}"
-#         unit_of_measurement: "%"
-#       light_den_tower_lamp_brightness:
-#         friendly_name: "[Light] Den Tower Lamp: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_tower_lamp","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_table_lamp_brightness:
-#         friendly_name: "[Light] Den Table Lamp: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_table_lamp","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_fireplace_brightness:
-#         friendly_name: "[Light] Den Fireplace Light: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_fireplace","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_den_sitting_area_brightness:
-#         friendly_name: "[Light] Den Ceiling: Brightness"
-#         value_template:  "{{ ( state_attr("light.den_ceiling","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-
-# ======================================================================
-#
-#
-#
-# ======================================================================
+# ==================================================================================================
 switch:
-  # ==========================================
+  # ================================================================================================
   #
   # Den
   #
-  # =========================================
+  # ================================================================================================
   - platform: circadian_lighting
     name: "Den Couch Lamp 1 (without Brightness Adjustment)"
     lights_ct:

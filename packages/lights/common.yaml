@@ -240,7 +240,7 @@ script:
           username: !secret hue1_username
           color: '"ct": {{ states("sensor.circadian_mired") }}'
           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+      - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
         data:
           scene_id: "UkFEqgHUaDi9-Px"
           username: !secret hue1_username

@@ -246,8 +246,6 @@ script:
       #     username: !secret hue1_username
       #     color: '"ct": {{ states("sensor.circadian_mired") }}'
       #     brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
-
-script:
   light_update_scene_homeassistant_darkenhouse:
     alias: "[Light] Update Home Assistant Scenes (Darken House)"
     sequence:

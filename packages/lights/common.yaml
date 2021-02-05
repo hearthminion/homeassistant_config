@@ -247,6 +247,16 @@ script:
       #     color: '"ct": {{ states("sensor.circadian_mired") }}'
       #     brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
 
+script:
+  light_update_scene_homeassistant_darkenhouse:
+    alias: "[Light] Update Home Assistant Scenes (Darken House)"
+    sequence:
+      - service: rest_command.light_update_basement_scene_homeassistant
+        data:
+          scene_id: "wct01qioygY1j89"
+          username: !secret hue2_username
+          color: '"ct": 454'
+          brightness: '"bri": 25 }}'
 
 # ==================================================================================================
 #
@@ -275,7 +285,7 @@ sensor:
     sensors:
       circadian_brightness_value:
         friendly_name: "Circadian Brightness"
-        value_template: "{{ states('sensor.circadian_brightness') | int / 100 * 254 | round(0) }}"
+        value_template: "{{ states('sensor.circadian_brightness') | int / 100 * 254 | int }}"
         
 switch:
   # ================================

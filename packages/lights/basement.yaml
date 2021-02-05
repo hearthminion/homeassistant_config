@@ -179,7 +179,7 @@ input_select:
 # ==================================================================================================
 rest_command:
   basement_scene_homeassistant_update:
-    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    url: "https://10.6.1.2/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
     payload: '{ "name": "{{ scene_id }}", "lightstates": { "4": { "ct": 454, "bri": 50,}, "5": { "ct": 454, "bri": 50,}, "6": { "ct": 454, "bri": 50,}, "7": { "ct": 454, "bri": 50,}, "8": { "ct": 454, "bri": 50,}, "9": { "ct": 454, "bri": 50,}, "10": { "ct": 454, "bri": 50,}, "11": { "ct": 454, "bri": 50,}, "12": { "ct": 454, "bri": 50,}, "14": { "ct": 454, "bri": 50,}, "15": { "ct": 454, "bri": 50,}, "16": { "ct": 454, "bri": 50,}, "17": { "ct": 454, "bri": 50,}}}'
     content_type:  'application/json; charset=utf-8'

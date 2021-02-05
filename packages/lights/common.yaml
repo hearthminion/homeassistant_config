@@ -302,12 +302,12 @@ sensor:
     sensors:
       circadian_mired:
         friendly_name: "Circadian Mired"
-        value_template: "{{ 1000000 / state_attr('sensor.circadian_values','colortemp') | round(0) | int }}"
+        value_template: "{{ int | 1000000 / state_attr('sensor.circadian_values','colortemp') }}"
   - platform: template
     sensors:
       circadian_brightness_value:
-        friendly_name: "Circadian Brightness"
-        value_template: "{{ states('sensor.circadian_brightness') | int / 100 * 254 | round(0) | int }}"
+        friendly_name: "Circadian Brightness Value"
+        value_template: "{{ int | states('sensor.circadian_brightness') | int / 100 * 254 }}"
         
 switch:
   # ================================

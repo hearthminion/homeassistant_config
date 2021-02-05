@@ -126,7 +126,6 @@ automation:
     description: "This allows switches to turn on to the correct color temp and brightness"
     trigger:
       - platform: time_pattern
-        # You can also match on interval. This will match every 5 minutes
         minutes: "/5"
     condition:
       condition: and

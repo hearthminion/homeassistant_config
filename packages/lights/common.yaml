@@ -275,7 +275,7 @@ sensor:
     sensors:
       circadian_brightness_value:
         friendly_name: "Circadian Brightness"
-        value_template: "{{ states('sensor.circadian_brightness') / 100 * 254 | int }}"
+        value_template: "{{ states('sensor.circadian_brightness') | int / 100 * 254 | round(0) }}"
         
 switch:
   # ================================

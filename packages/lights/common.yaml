@@ -233,19 +233,19 @@ script:
           scene_id: "wct01qioygY1j89"
           username: !secret hue2_username
           color: '"ct": {{ states("sensor.circadian_mired") }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
+          brightness: '"bri": {{ states("sensor.circadian_brightness_value") }}'
       # - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
       #   data:
       #     scene_id: "Qr6JRXSt1GrBwHP"
       #     username: !secret hue1_username
-      #     color: '"ct": {{ circadian_mired }}'
-      #     brightness: '"bri": {{ circadian_brightness }}'
+      #     color: '"ct": {{ states("sensor.circadian_mired") }}'
+      #     brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
       # - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
       #   data:
       #     scene_id: "nFeCiO75XJjnaml"
       #     username: !secret hue1_username
-      #     color: '"ct": {{ circadian_mired }}'
-      #     brightness: '"bri": {{ circadian_brightness }}'
+      #     color: '"ct": {{ states("sensor.circadian_mired") }}'
+      #     brightness: '"bri": {{ states("sensor.circadian_brightness") }}'
 
 
 # ==================================================================================================
@@ -270,7 +270,12 @@ sensor:
     sensors:
       circadian_mired:
         friendly_name: "Circadian Mired"
-        value_template: "{{ 1000000 / state_attr('sensor.circadian_values','colortemp') | round(0) }}"
+        value_template: "{{ 1000000 / state_attr('sensor.circadian_values','colortemp') | int }}"
+  - platform: template
+    sensors:
+      circadian_brightness_value:
+        friendly_name: "Circadian Brightness"
+        value_template: "{{ states('sensor.circadian_brightness') / 100 * 254 | int }}"
         
 switch:
   # ================================

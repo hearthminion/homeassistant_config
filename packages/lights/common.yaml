@@ -221,6 +221,23 @@ scene:
 
 # ==================================================================================================
 #
+# Update home assistant scenes
+#
+# ==================================================================================================
+script:
+  light_update_scene_homeassistant_circadian:
+    alias: "[Light] Update Home Assistant Scenes (Circadian)"
+    sequence:
+      - service: rest_command.light_update_basement_scene_homeassistant
+        data:
+          scene_id: "wct01qioygY1j89"
+          username: !secret hue2_username
+          color: '"ct": {{ circadian_mired }}'
+          brightness: '"bri": {{ circadian_brightness }}'
+
+
+# ==================================================================================================
+#
 # Sensors
 #
 # ==================================================================================================
@@ -237,7 +254,13 @@ sensor:
         friendly_name: "Circadian Brightness"
         value_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') }}"
         unit_of_measurement: "%"
-
+  - platform: template
+    sensors:
+      circadian_mired:
+        friendly_name: "Circadian Color Temperature"
+        value_template: "{{ 1000000 / state_attr('sensor.circadian_values','colortemp') | round(0) }}"
+        unit_of_measurement: "°K"
+        
 switch:
   # ================================
   #

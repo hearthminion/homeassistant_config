@@ -178,10 +178,10 @@ input_select:
 #
 # ==================================================================================================
 rest_command:
-  basement_scene_homeassistant_update:
+  light_update_basement_scene_homeassistant:
     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "4": { "ct": 454, "bri": 50}, "5": { "ct": 454, "bri": 50}, "6": { "ct": 454, "bri": 50}, "7": { "ct": 454, "bri": 50}, "8": { "ct": 454, "bri": 50}, "9": { "ct": 454, "bri": 50}, "10": { "ct": 454, "bri": 50}, "11": { "ct": 454, "bri": 50}, "12": { "ct": 454, "bri": 50}, "14": { "ct": 454, "bri": 50}, "15": { "ct": 454, "bri": 50}, "16": { "ct": 454, "bri": 50}, "17": { "ct": 454, "bri": 50}}}'
+    payload: '{ "lightstates": { "4": { {{ color }}, {{ brightness }} }, "5": { {{ color }}, {{ brightness }} }, "6": { {{ color }}, {{ brightness }} }, "7": { {{ color }}, {{ brightness }} }, "8": { {{ color }}, {{ brightness }} }, "9": { {{ color }}, {{ brightness }} }, "10": { {{ color }}, {{ brightness }} }, "11": { {{ color }}, {{ brightness }} }, "12": { {{ color }}, {{ brightness }} }, "14": { {{ color }}, {{ brightness }} }, "15": { {{ color }}, {{ brightness }} }, "16": { {{ color }}, {{ brightness }} }, "17": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
 
 # ======================================================================
@@ -250,21 +250,6 @@ scene:
 #       light.basement_lamp_3:
 #         friendly_name: "Basement Left"
 #         state: "off"
-
-script:
-  test_rest_command:
-    sequence:
-      - service: rest_command.basement_scene_homeassistant_update
-        data:
-          scene_id: "wct01qioygY1j89"
-          username: !secret hue2_username
-
-# ======================================================================
-#
-# Sensors
-#
-# ======================================================================
-# sensor:
 
 # ======================================================================
 #

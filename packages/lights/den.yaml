@@ -471,6 +471,20 @@ binary_sensor:
 # Rest Command
 #
 # ======================================================================
+rest_command:
+
+  light_update_den_couch_lamp_1_scene_homeassistant:
+    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    method: put
+    payload: '{ "lightstates": { "4": { "ct": 454, "bri": 50}, "5": { "ct": 454, "bri": 50}, "6": { "ct": 454, "bri": 50}, "7": { "ct": 454, "bri": 50}, "8": { "ct": 454, "bri": 50}, "9": { "ct": 454, "bri": 50}, "10": { "ct": 454, "bri": 50}, "11": { "ct": 454, "bri": 50}, "12": { "ct": 454, "bri": 50}, "14": { "ct": 454, "bri": 50}, "15": { "ct": 454, "bri": 50}, "16": { "ct": 454, "bri": 50}, "17": { "ct": 454, "bri": 50}}}'
+    verify_ssl: false
+
+  light_update_den_couch_lamp_2_scene_homeassistant:
+    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    method: put
+    payload: '{ "lightstates": { "4": { "ct": 454, "bri": 50}, "5": { "ct": 454, "bri": 50}, "6": { "ct": 454, "bri": 50}, "7": { "ct": 454, "bri": 50}, "8": { "ct": 454, "bri": 50}, "9": { "ct": 454, "bri": 50}, "10": { "ct": 454, "bri": 50}, "11": { "ct": 454, "bri": 50}, "12": { "ct": 454, "bri": 50}, "14": { "ct": 454, "bri": 50}, "15": { "ct": 454, "bri": 50}, "16": { "ct": 454, "bri": 50}, "17": { "ct": 454, "bri": 50}}}'
+    verify_ssl: false
+
 # ======================================================================
 #
 # Group: Main Couch Right

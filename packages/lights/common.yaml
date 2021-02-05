@@ -269,9 +269,8 @@ sensor:
   - platform: template
     sensors:
       circadian_mired:
-        friendly_name: "Circadian Color Temperature"
+        friendly_name: "Circadian Mired"
         value_template: "{{ 1000000 / state_attr('sensor.circadian_values','colortemp') | round(0) }}"
-        unit_of_measurement: "°K"
         
 switch:
   # ================================

@@ -272,7 +272,7 @@ script:
           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
         data:
-          scene_id: "mkvvU4zYTpHfAQb"
+          scene_id: "1XtRCQ4r1SorFpd"
           username: !secret hue1_username
           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
@@ -347,7 +347,7 @@ script:
           brightness: '"bri": 25 }}'
       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
         data:
-          scene_id: "mkvvU4zYTpHfAQb"
+          scene_id: "1XtRCQ4r1SorFpd"
           username: !secret hue1_username
           color: '"ct": 454'
           brightness: '"bri": 25 }}'

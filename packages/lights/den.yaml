@@ -481,13 +481,13 @@ binary_sensor:
 rest_command:
 
   light_update_den_couch_lamp_1_scene_homeassistant:
-    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
     payload: '{ "lightstates": { "7": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
 
   light_update_den_couch_lamp_2_scene_homeassistant:
-    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
     payload: '{ "lightstates": { "6": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false

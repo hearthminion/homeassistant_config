@@ -81,3 +81,11 @@
                 show_header_toggle: false
                 entities:
                   - entity: light.bathroom_2
+
+              - break
+
+              - type: entities
+                title: Basement
+                show_header_toggle: false
+                entities:
+                  - entity: light.basement

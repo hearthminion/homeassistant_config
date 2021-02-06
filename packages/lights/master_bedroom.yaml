@@ -548,17 +548,17 @@ rest_command:
   light_update_master_bedroom_lamp_1_scene_homeassistant:
     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "1": { {{ color }}, {{ brightness }} }, "14": { {{ color }}, {{ brightness }} }}}'
+    payload: '{ "lightstates": { "1": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "on": "{{ bulb_02_on_state }}", "14": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
   light_update_master_bedroom_lamp_2_scene_homeassistant:
     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "2": { {{ color }}, {{ brightness }} }, "15": { {{ color }}, {{ brightness }} }}}'
+    payload: '{ "lightstates": { "2": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "on": "{{ bulb_02_on_state }}", "15": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
   light_update_master_bedroom_chair_scene_homeassistant:
     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
     method: put
-    payload: '{ "lightstates": { "36": { {{ color }}, {{ brightness }} }}}'
+    payload: '{ "lightstates": { "36": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
 
 # ======================================================================

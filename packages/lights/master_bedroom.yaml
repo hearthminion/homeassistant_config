@@ -555,6 +555,11 @@ rest_command:
     method: put
     payload: '{ "lightstates": { "2": { {{ color }}, {{ brightness }} }, "15": { {{ color }}, {{ brightness }} }}}'
     verify_ssl: false
+  light_update_master_bedroom_chair_scene_homeassistant:
+    url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    method: put
+    payload: '{ "lightstates": { "36": { {{ color }}, {{ brightness }} }}}'
+    verify_ssl: false
 
 # ======================================================================
 #
@@ -723,60 +728,7 @@ scene:
 
 # ======================================================================
 #
-# Sensors
-#
-# ======================================================================
-# sensor:
-#   - platform: template
-#     sensors:
-#       light_master_bedroom_ceiling_circadian_brightness:
-#         friendly_name: "[Light] Master Ceiling Lights: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_master_bedroom_ceiling_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_lamp_1_circadian_brightness:
-#         friendly_name: "[Light] Master Lamp 1: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_master_bedroom_lamp_1_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_lamp_2_circadian_brightness:
-#         friendly_name: "[Light] Master Lamp 2: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_master_bedroom_lamp_2_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_closet_circadian_brightness:
-#         friendly_name: "[Light] Master Closet: Circadian Brightness"
-#         value_template: "{{ state_attr("switch.circadian_lighting_master_bedroom_closet_with_brightness_adjustment","brightness") | round(0) }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_ceiling_brightness:
-#         friendly_name: "[Light] Master Ceiling Lights: Brightness"
-#         value_template:  "{{ ( state_attr("light.main_lamp_4","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_lamp_1_brightness:
-#         friendly_name: "[Light] Master Lamp 1:Brightness"
-#         value_template:  "{{ ( state_attr("light.main_lamp_1","brightness") / 254 * 100 )| int }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_lamp_2_brightness:
-#         friendly_name: "[Light] Master Lamp 2: Brightness"
-#         value_template:  "{{ ( state_attr("light.main_lamp_2","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_closet_brightness:
-#         friendly_name: "[Light] Master Closet: Brightness"
-#         value_template:  "{{ ( state_attr("light.main_lamp_30","brightness") / 254 * 100 ) | int }}"
-#         unit_of_measurement: "%"
-#       light_master_bedroom_lamp_1_xy_color:
-#         friendly_name: "[Light] Master Lamp 1: XY Color"
-#         value_template: "{{ state_attr("light.main_lamp_1","xy_color") }}"
-#       light_master_bedroom_lamp_2_xy_color:
-#         friendly_name: "[Light] Master Lamp 2: XY Color"
-#         value_template: "{{ state_attr("light.main_lamp_2","xy_color") }}"
-#       light_master_bedroom_ceiling_light_2:
-#         friendly_name: "[Light] Master Ceiling Lights 2: XY Color"
-#         value_template: "{{ state_attr("light.main_lamp_4","xy_color") }}"
-#       light_master_bedroom_ceiling_light_3:
-#         friendly_name: "[Light] Master Ceiling Lights 3: XY Color"
-#         value_template: "{{ state_attr("light.main_lamp_5","xy_color") }}"
-
-# ======================================================================
-#
-#
+# Switches
 #
 # ======================================================================
 switch:

@@ -123,3 +123,9 @@
 # Seasons
 - platform: season
   type: astronomical
+
+- platform: senshat
+  display_options:
+    - temperature
+    - humidity
+    - pressure

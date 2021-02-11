@@ -231,7 +231,7 @@ light:
           data:
             message: "Fake light turned off!"
 
-  - platform: sensehat
+#  - platform: sensehat
 
 # ==================================================================================================
 #

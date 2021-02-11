@@ -124,8 +124,8 @@
 - platform: season
   type: astronomical
 
-- platform: sensehat
-  display_options:
-    - temperature
-    - humidity
-    - pressure
+# - platform: sensehat
+#   display_options:
+#     - temperature
+#     - humidity
+#     - pressure

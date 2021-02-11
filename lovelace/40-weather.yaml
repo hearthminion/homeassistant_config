@@ -19,25 +19,31 @@
               - type: horizontal-stack
                 cards:
                   - type: sensor
+                    name: Temperature
                     entity: sensor.openweathermap_temperature
                     graph: line
                   - type: sensor
+                    name: Pressure
                     entity: sensor.openweathermap_pressure_inhg
                     graph: line
                   - type: sensor
+                    name: Humidity
                     entity: sensor.openweathermap_humidity
                     graph: line
               - type: horizontal-stack
                 cards:
                   - type: sensor
+                    name: "Wind Speed"
                     entity: sensor.openweathermap_wind_speed_mph
                     graph: line
                   - type: sensor
+                    name: Conditions
                     entity: sensor.openweathermap_condition
                     graph: none
               - type: horizontal-stack
                 cards:
                   - type: sensor
+                    name: "Wind Bearing"
                     entity: sensor.openweathermap_wind_bearing
                     graph: none
                   - type: custom:canvas-gauge-card
@@ -85,6 +91,7 @@
               - type: horizontal-stack
                 cards:
                   - type: sensor
+                    name: "Nearest Storm Distance"
                     entity: sensor.dark_sky_nearest_storm_distance
                   - type: custom:canvas-gauge-card
                     entity: sensor.dark_sky_nearest_storm_bearing
@@ -128,12 +135,6 @@
                       colorNeedleShadowDown: "#222"
                       borderShadowWidth: 0
                       animationDuration: 1500
-              - type: history-graph
-                title: Temperatures
-                hours_to_show: 24 # Default: 24; Min: 10; Max: 80
-                entities:
-                  - entity: sensor.dark_sky_apparent_temperature
-                  - entity: sensor.openweathermap_temperature
 
               - break
 
@@ -142,31 +143,12 @@
                 show_header_toggle: false
                 entities:
                   - entity: sensor.nws_visibility
-                  - entity: sensor.dark_sky_dew_point
                   - entity: sensor.openweathermap_cloud_coverage
                   - entity: sensor.openweathermap_rain
                   - entity: sensor.openweathermap_snow
                   - entity: sensor.nws_precip_probability
-              - type: horizontal-stack
-                cards:
-                  - type: gauge
-                    entity: sensor.current_ozone_level_3
-                    name: Ozone Level
-                    max: 500
-                    severity:
-                      green: 0 
-                      yellow: 51
-                      orange: 101
-                      red: 151
-                      purple: 201
-                      maroon: 301
                   
               - break
-              - type: entities
-                title: Misc
-                show_header_toggle: false
-                entities:
-                  - entity: sensor.season
               - type: horizontal-stack
                 cards:
                   - type: sensor
@@ -178,3 +160,8 @@
                   - type: sensor
                     entity: sensor.skin_type_1_safe_exposure_time_3
                     graph: line
+              - type: entities
+                title: Misc
+                show_header_toggle: false
+                entities:
+                  - entity: sensor.season

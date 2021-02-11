@@ -19,6 +19,7 @@ include:
     - sensor.skin_type_*
     - switch.circadian*
     - sensor.dark_sky*
+    - sensor.nws*
   entities:
     - binary_sensor.protection_window_3
     - input_select.light_mode

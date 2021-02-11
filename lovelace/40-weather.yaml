@@ -19,6 +19,72 @@
               - type: horizontal-stack
                 cards:
                   - type: sensor
+                    entity: sensor.openweathermap_temperature
+                    graph: line
+                  - type: sensor
+                    entity: sensor.openweathermap_pressure_inhg
+                    graph: line
+                  - type: sensor
+                    entity: sensor.openweathermap_humidity
+                    graph: line
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
+                    entity: sensor.openweathermap_wind_speed_mph
+                    graph: line
+                  - type: sensor
+                    entity: sensor.openweathermap_condition
+                    graph: none
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
+                    entity: sensor.openweathermap_wind_bearing
+                    graph: none
+                  - type: custom:canvas-gauge-card
+                    entity: sensor.openweathermap_wind_bearing
+                    card_height: 220
+                    gauge:
+                      type: "radial-gauge"
+                      title: Wind Bearing
+                      width: 220
+                      height: 220
+                      minValue: 0
+                      maxValue: 360
+                      startAngle: 180
+                      ticksAngle: 360
+                      valueBox: false
+                      majorTicks: ["N", "NE", "E", "SE", "S", "SW", "W", "NW","N"]
+                      minorTicks: 22
+                      strokeTicks: true
+                      highlights: false
+                      colorPlate: "#333"
+                      colorMajorTicks: "#f5f5f5"
+                      colorMinorTicks: "#ddd"
+                      colorNumbers: "#ccc"
+                      colorNeedle: "rgba(240, 128, 128, 1)"
+                      colorNeedleEnd: "rgba(255, 160, 122, .9)"
+                      valueTextShadow: false
+                      colorCircleInner: "#fff"
+                      colorNeedleCircleOuter: "#ccc"
+                      needleCircleSize: 15
+                      needleCircleOuter: false
+                      animationRule: "linear"
+                      needleType: "line"
+                      needleStart: 75
+                      needleEnd: 99
+                      needleWidth: 3
+                      borders: true
+                      borderInnerWidth: 0
+                      borderMiddleWidth: 0
+                      borderOuterWidth: 10
+                      colorBorderOuter: "#ccc"
+                      colorBorderOuterEnd: "#ccc"
+                      colorNeedleShadowDown: "#222"
+                      borderShadowWidth: 0
+                      animationDuration: 1500
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
                     entity: sensor.dark_sky_nearest_storm_distance
                   - type: custom:canvas-gauge-card
                     entity: sensor.dark_sky_nearest_storm_bearing
@@ -68,74 +134,32 @@
                 entities:
                   - entity: sensor.dark_sky_apparent_temperature
                   - entity: sensor.openweathermap_temperature
-              - type: horizontal-stack
-                cards:
-                  - type: sensor
-                    entity: sensor.openweathermap_temperature
-                    graph: line
-                  - type: sensor
-                    entity: sensor.dark_sky_apparent_temperature
-                    graph: line
+
               - break
-              - type: custom:canvas-gauge-card
-                entity: sensor.openweathermap_wind_bearing
-                card_height: 220
-                gauge:
-                  type: "radial-gauge"
-                  title: Wind Bearing
-                  width: 220
-                  height: 220
-                  minValue: 0
-                  maxValue: 360
-                  startAngle: 180
-                  ticksAngle: 360
-                  valueBox: false
-                  majorTicks: ["N", "NE", "E", "SE", "S", "SW", "W", "NW","N"]
-                  minorTicks: 22
-                  strokeTicks: true
-                  highlights: false
-                  colorPlate: "#333"
-                  colorMajorTicks: "#f5f5f5"
-                  colorMinorTicks: "#ddd"
-                  colorNumbers: "#ccc"
-                  colorNeedle: "rgba(240, 128, 128, 1)"
-                  colorNeedleEnd: "rgba(255, 160, 122, .9)"
-                  valueTextShadow: false
-                  colorCircleInner: "#fff"
-                  colorNeedleCircleOuter: "#ccc"
-                  needleCircleSize: 15
-                  needleCircleOuter: false
-                  animationRule: "linear"
-                  needleType: "line"
-                  needleStart: 75
-                  needleEnd: 99
-                  needleWidth: 3
-                  borders: true
-                  borderInnerWidth: 0
-                  borderMiddleWidth: 0
-                  borderOuterWidth: 10
-                  colorBorderOuter: "#ccc"
-                  colorBorderOuterEnd: "#ccc"
-                  colorNeedleShadowDown: "#222"
-                  borderShadowWidth: 0
-                  animationDuration: 1500
 
               - type: entities
                 title: Current Weather
                 show_header_toggle: false
                 entities:
-                  - entity: sensor.openweathermap_wind_speed_mph
-                  - entity: sensor.dark_sky_wind_gust
                   - entity: sensor.nws_visibility
-                  - entity: sensor.openweathermap_humidity
                   - entity: sensor.dark_sky_dew_point
                   - entity: sensor.openweathermap_cloud_coverage
-                  - entity: sensor.openweathermap_condition
-                  - entity: sensor.current_ozone_level_3
                   - entity: sensor.openweathermap_rain
                   - entity: sensor.openweathermap_snow
                   - entity: sensor.nws_precip_probability
-                  - entity: sensor.openweathermap_pressure_inhg
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.current_ozone_level_3
+                    name: Ozone Level
+                    max: 500
+                    severity:
+                      green: 0 
+                      yellow: 51
+                      orange: 101
+                      red: 151
+                      purple: 201
+                      maroon: 301
                   
               - break
               - type: entities
@@ -143,3 +167,14 @@
                 show_header_toggle: false
                 entities:
                   - entity: sensor.season
+              - type: horizontal-stack
+                cards:
+                  - type: sensor
+                    entity: sensor.current_uv_index_3
+                    graph: line
+                  - type: sensor
+                    entity: sensor.current_uv_level_3
+                    graph: none
+                  - type: sensor
+                    entity: sensor.skin_type_1_safe_exposure_time_3
+                    graph: line

@@ -124,7 +124,7 @@
                 title: Current Weather
                 show_header_toggle: false
                 entities:
-                  - entity: sensor.openweathermap_wind_speed
+                  - entity: sensor.openweathermap_wind_speed_mph
                   - entity: sensor.dark_sky_wind_gust
                   - entity: sensor.nws_visibility
                   - entity: sensor.openweathermap_humidity
@@ -132,10 +132,9 @@
                   - entity: sensor.openweathermap_cloud_coverage
                   - entity: sensor.openweathermap_condition
                   - entity: sensor.current_ozone_level_3
-                  - entity: sensor.dark_sky_precip
                   - entity: sensor.openweathermap_rain
                   - entity: sensor.openweathermap_snow
-                  - entity: sensor.dark_sky_precip_probability
+                  - entity: sensor.nws_precip_probability
                   - entity: sensor.openweathermap_pressure_inhg
                   
               - break

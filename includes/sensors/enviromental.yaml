@@ -116,11 +116,18 @@
       value_template: '{{ states.sensor.dark_sky_pressure_7d.state | float / 33.864 | round(2) }}'
       unit_of_measurement: 'inHg'
     openweathermap_pressure_inhg:
-      value_template: '{{ states("sensor.openweathermap_pressure") | round(2) | float / 33.864 }}'
+      friendly_name: "OpenWeatherMap Pressure"
+      value_template: '{{ states("sensor.openweathermap_pressure") | float / 33.864 | round(2) }}'
       unit_of_measurement: 'inHg'
+    nws_visibility:
+      friendly_name: "NWS Visibility"
+      value_template: "{{ state_attr('weather.kahn_hourly','visibility' }}"
+      unit_of_measurement: "mi"
+    # nws_precip_probability:
+    #   friendly_name: "NWS Precipitation Probability"
+    #   value_template: "{{ state_attr("weather.)
 
     #time_of_day:
-
 
 - platform: moon
 

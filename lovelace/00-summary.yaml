@@ -89,8 +89,6 @@
 #
 # ==================================================================================================
               - type: weather-forecast
-                entity: weather.dark_sky
-              - type: weather-forecast
                 entity: weather.openweathermap
               - type: weather-forecast
                 entity: weather.kahn_daynight

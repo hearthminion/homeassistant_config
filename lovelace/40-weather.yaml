@@ -126,17 +126,16 @@
                 entities:
                   - entity: sensor.openweathermap_wind_speed
                   - entity: sensor.dark_sky_wind_gust
-                  - entity: sensor.dark_sky_visibility
+                  - entity: sensor.nws_visibility
                   - entity: sensor.openweathermap_humidity
                   - entity: sensor.dark_sky_dew_point
                   - entity: sensor.openweathermap_cloud_coverage
                   - entity: sensor.openweathermap_condition
-                  - entity: sensor.dark_sky_ozone
+                  - entity: sensor.current_ozone_level_3
                   - entity: sensor.dark_sky_precip
                   - entity: sensor.openweathermap_rain
                   - entity: sensor.openweathermap_snow
                   - entity: sensor.dark_sky_precip_probability
-                  - entity: sensor.openweathermap_forecast_precipitation
                   - entity: sensor.openweathermap_pressure_inhg
                   
               - break

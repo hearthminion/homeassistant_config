@@ -12,9 +12,10 @@ include:
     - person
     - weather
   entity_globs:
-    - sensor.power*
+    - binary_sensor.light_*
     - binary_sensor.power*
     - sensor.openweathermap*
+    - sensor.power*
     - sensor.skin_type_*
     - switch.circadian*
   entities:
@@ -38,19 +39,19 @@ exclude:
   domains:
     - updater
   entities:
-    - sun.sun
-    - sensor.date
-    - sensor.utc
-    - sensor.time
     - binary_sensor.workday
-    - sensor.season
-    - sensor.moon
-    - sensor.last_boot
     - sensor.current_version
-    - sensor.latest_version
-    - sensor.whois
+    - sensor.date
     - sensor.drbr_org
-    - sensor.myip
-    - sensor.ssl_certificate_expiry
     - sensor.hacs
+    - sensor.last_boot
+    - sensor.latest_version
+    - sensor.moon
+    - sensor.myip
     - sensor.potential_breaking_changes
+    - sensor.season
+    - sensor.ssl_certificate_expiry
+    - sensor.time
+    - sensor.utc
+    - sensor.whois
+    - sun.sun

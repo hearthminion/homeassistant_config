@@ -269,8 +269,12 @@ scene:
       light.hue_color_lamp_2_2:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
       light.basement_bulb_1:
+        state: "off"
+      light.basement_bulb_2:
+        state: "off"
+      light.basement_bulb_3:
         state: "off"
       light.basement_lamp_2:
         state: "off"
@@ -283,7 +287,7 @@ scene:
       light.den_ceiling_bulb_1:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
       light.den_ceiling_bulb_2:
         state: "off"
       light.den_ceiling_bulb_3:
@@ -291,21 +295,21 @@ scene:
       light.den_lamp_1_bulb:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
       light.hue_ambiance_lamp_2:
         state: "off"
       light.hue_color_lamp_1:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
       light.hue_color_lamp_2:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
       light.hue_color_lamp_3:
         state: "on"
         color_name: "darkgreen"
-        brightness_pct: 25
+        brightness_pct: 50
 
 # ======================================================================
 #

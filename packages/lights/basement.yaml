@@ -202,32 +202,60 @@ scene:
       automation.light_basement_turn_off_lights_at_night:
         state: "on"
 
-#   - id: "1576892024578"
-#     name: "Basement: Darken Room"
-#     entities:
-#       automation.light_basement_ceiling_light_circadian_lighting_with_brightness_adjustment:
-#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (with Brightness
-#           Adjustment)"
-#         last_triggered:
-#         state: "off"
-#       automation.light_basement_ceiling_light_circadian_lighting_without_brightness_adjust:
-#         friendly_name: "[Light] Basement Ceiling Light: Circadian Lighting (without
-#           Brightness adjust)"
-#         last_triggered:
-#         state: "off"
-#       light.basement_lamp_20:
-#         friendly_name: "Basement Right"
-#         state: "off"
-#       light.basement_lamp_21:
-#         friendly_name: "Basement Left"
-#         state: "off"
-#       light.basement_lamp_9:
-#         friendly_name: "Basement Center"
-#         brightness_pct: 25
-#         color_name: "darkred"
-#         state: "on"
+  - id: "1576892024578"
+    name: "Basement: Darken Room"
+    entities:
+      automation.light_basement_ceiling_light_circadian_lighting_with_brightness_adjustment:
+        state: "off"
+      automation.light_basement_ceiling_light_circadian_lighting_without_brightness_adjust:
+        last_triggered:
+        state: "off"
+      switch.circadian_lighting_basement_with_brightness_adjustment:
+        state: "off"
+      switch.circadian_lighting_basement_without_brightness_adjustment:
+        state: "off"
+      light.hue_color_lamp_2_2:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
+      light.basement_bulb_1:
+        state: "off"
+      light.basement_lamp_2:
+        state: "off"
+      light.basement_lamp_3:
+        state: "off"
+      light.basement_stairwell_bulb:
+        state: "off"
+      light.cave_lamp_2_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_1:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
+      light.den_ceiling_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_3:
+        state: "off"
+      light.den_lamp_1_bulb:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_ambiance_lamp_2:
+        state: "off"
+      light.hue_color_lamp_1:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_color_lamp_2:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
+      light.hue_color_lamp_3:
+        state: "on"
+        color_name: "darkred"
+        brightness_pct: 25
   - id: "1576960043395"
-    name: Basement Migraine
+    name: "Basement: Migraine"
     entities:
       automation.light_basement_ceiling_light_circadian_lighting_with_brightness_adjustment:
         state: "off"

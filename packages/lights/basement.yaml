@@ -189,7 +189,17 @@ rest_command:
 # Scenes
 #
 # Notes:
-#   RGB Color Values: https://htmlcolorcodes.com/color-names/
+#
+# Brightness settings:
+#  100% = 255
+#   75% = 
+#   50% = 128
+#   25% =  64
+#
+# Colors:
+#   Red = xy [0.689,0.309]
+# Green = xy [0.17,0.7]
+#
 # ======================================================================
 scene:
   - id: "1587760070294"
@@ -216,8 +226,10 @@ scene:
         state: "off"
       light.hue_color_lamp_2_2:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
       light.basement_bulb_1:
         state: "off"
       light.basement_lamp_2:
@@ -230,30 +242,40 @@ scene:
         state: "off"
       light.den_ceiling_bulb_1:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
       light.den_ceiling_bulb_2:
         state: "off"
       light.den_ceiling_bulb_3:
         state: "off"
       light.den_lamp_1_bulb:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
       light.hue_ambiance_lamp_2:
         state: "off"
       light.hue_color_lamp_1:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
       light.hue_color_lamp_2:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
       light.hue_color_lamp_3:
         state: "on"
-        color_name: "darkred"
-        brightness_pct: 25
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
   - id: "1576960043395"
     name: "Basement: Migraine"
     entities:
@@ -268,8 +290,10 @@ scene:
         state: "off"
       light.hue_color_lamp_2_2:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
       light.basement_bulb_1:
         state: "off"
       light.basement_bulb_2:
@@ -286,30 +310,37 @@ scene:
         state: "off"
       light.den_ceiling_bulb_1:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
       light.den_ceiling_bulb_2:
         state: "off"
       light.den_ceiling_bulb_3:
         state: "off"
       light.den_lamp_1_bulb:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
       light.hue_ambiance_lamp_2:
         state: "off"
       light.hue_color_lamp_1:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        brightness: 128
       light.hue_color_lamp_2:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
       light.hue_color_lamp_3:
         state: "on"
-        color_name: "darkgreen"
-        brightness_pct: 50
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
 
 # ======================================================================
 #

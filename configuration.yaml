@@ -130,6 +130,10 @@ calendar:
     password: !secret caldav_password
     url: !secret caldav_url
     verify_ssl: false
+    custom_calendars:
+      - name: Migraine
+        calendar: "Migraine Log"
+        search: "Migraine"
 
 device_tracker:
   - platform: bluetooth_tracker

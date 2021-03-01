@@ -131,8 +131,8 @@ calendar:
     url: !secret caldav_url
     verify_ssl: false
     custom_calendars:
-      - name: Migraine
-        calendar: "Migraine Log"
+      - name: migraine
+        calendar: "migraine log"
         search: ".*"
 
 device_tracker:

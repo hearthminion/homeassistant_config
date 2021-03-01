@@ -4,6 +4,7 @@ auto_purge: true
 include:
   domains:
     - automation
+    - calendar
     - circadian_lighting
     - climate
     - device_tracker
@@ -22,6 +23,7 @@ include:
     - sensor.nws*
   entities:
     - binary_sensor.protection_window_3
+    - binary_sensor.roomba_bin_full
     - input_select.light_mode
     - input_select.user0001_status_dropdown
     - input_select.user0002_status_dropdown
@@ -33,10 +35,12 @@ include:
     - sensor.current_uv_index_3
     - sensor.current_uv_level_3
     - sensor.max_uv_index_3
+    - sensor.roomba_battery_level
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
     - timer.lights_off
+    - vacuum.roomba
 exclude:
   domains:
     - updater

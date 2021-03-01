@@ -133,7 +133,7 @@ calendar:
     custom_calendars:
       - name: Migraine
         calendar: "Migraine Log"
-        search: "Migraine"
+        search: ".*"
 
 device_tracker:
   - platform: bluetooth_tracker

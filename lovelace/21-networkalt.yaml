@@ -65,7 +65,7 @@
               - type: horizontal-stack
                 cards:
                   - type: entity-button
-                    entity: binary_sensor.hades
+                    entity: sensor.cnmf741c_743c
                   - type: entity-button
                     entity: binary_sensor.helios
                   - type: entity-button
@@ -101,7 +101,7 @@
                   - type: entity-button
                     entity: binary_sensor.hue_basement
                   - type: entity-button
-                    entity: sensor.cnmf741c_743c
+                    entity: vacuum.roomba
 
               - break
 
@@ -113,13 +113,27 @@
               - type: horizontal-stack
                 cards:
                   - type: entity-button
+                    entity: binary_sensor.autonomy
+                  - type: entity-button
                     entity: binary_sensor.defiance
                   - type: entity-button
                     entity: binary_sensor.endeavor
+                  - type: entity-button
+                    entity: binary_sensor.home_one
+              - type: horizontal-stack
+                cards:
                   - type: entity-button
                     entity: binary_sensor.independence
                   - type: entity-button
                     entity: binary_sensor.liberty
                   - type: entity-button
+                    entity: binary_sensor.opportunity
+                  - type: entity-button
                     entity: binary_sensor.redemption
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: binary_sensor.salvation
+                  - type: entity-button
+                    entity: binary_sensor.warspite
               - break

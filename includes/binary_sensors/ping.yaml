@@ -169,12 +169,6 @@
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
-- platform: ping
-  host: 10.0.1.16
-  name: Hades
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
 - platform : ping
   host: 10.0.1.21
   name: Helios
@@ -241,22 +235,28 @@
 #
 # ======================================================================
 - platform: ping
+  host: 192.168.1.5
+  name: Autonomy
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
   host: 192.168.1.2
   name: Defiance
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
 - platform: ping
-  host: 192.168.2.2
+  host: 192.168.2.3
   name: Endeavor
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
-# - platform: ping
-#   host: 192.168.1.4
-#   name: Home One
-#   count: 1               # Number of packets to send
-#   #scan_interval: 5       # Polling Interval
+- platform: ping
+  host: 192.168.1.4
+  name: Home One
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
 
 - platform: ping
   host: 192.168.1.1
@@ -277,8 +277,26 @@
 #scan_interval: 5       # Polling Interval
 
 - platform: ping
+  host: 192.168.2.4
+  name: Opportunity
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
   host: 192.168.2.1
   name: Redemption
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.2.2
+  name: Salvation
+  count: 1               # Number of packets to send
+  #scan_interval: 5       # Polling Interval
+
+- platform: ping
+  host: 192.168.2.5
+  name: Warspite
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
@@ -351,11 +369,5 @@
   name: Hue (Basement)
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
-
-- platform: ping
-  host: 10.5.1.1
-  name: Roomba
-  count: 1
-  #scan_interval: 5
 #
 # ping.yaml ends here

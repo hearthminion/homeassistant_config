@@ -328,6 +328,9 @@ scene:
         state: "off"
       light.hue_color_lamp_1:
         state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
         brightness: 128
       light.hue_color_lamp_2:
         state: "on"

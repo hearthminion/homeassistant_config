@@ -62,7 +62,7 @@
     - platform: time
       at: "21:00:00"
     - platform: state
-      entity_id: sensor.power_strip_03_outlet_3_power
+      entity_id: sensor.nodeid_4_electric_w_value_3
       to: "0"
     - platform: state
       entity_id: light.master_bedroom_lamp_1
@@ -91,7 +91,7 @@
       entity_id: light.master_bedroom_lamp_1
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.power_strip_03_outlet_3_power
+      entity_id: sensor.nodeid_4_electric_w_value_3
       below: "5"
   action:
     - type: turn_off

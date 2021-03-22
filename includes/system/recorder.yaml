@@ -14,9 +14,8 @@ include:
     - weather
   entity_globs:
     - binary_sensor.light_*
-    - binary_sensor.power*
     - sensor.openweathermap*
-    - sensor.power*
+    - sensor.nodeid*
     - sensor.skin_type_*
     - switch.circadian*
     - sensor.dark_sky*

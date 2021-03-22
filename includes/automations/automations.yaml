@@ -96,7 +96,7 @@
   action:
     - type: turn_off
       device_id: df96863a0f8bfe05ddaba286433fd95b
-      entity_id: switch.power_strip_03_outlet_3_switch
+      entity_id: switch.nodeid_4_switch_3
       domain: switch
   mode: single
 
@@ -110,6 +110,6 @@
   action:
     - type: turn_on
       device_id: df96863a0f8bfe05ddaba28643395b
-      entity_id: switch.power_strip_03_outlet_3_switch
+      entity_id: switch.nodeid_4_switch_3
       domain: switch
   mode: single

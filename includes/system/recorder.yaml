@@ -20,6 +20,7 @@ include:
     - switch.circadian*
     - sensor.dark_sky*
     - sensor.nws*
+    - sensor.sensehat*
   entities:
     - binary_sensor.protection_window_3
     - binary_sensor.roomba_bin_full

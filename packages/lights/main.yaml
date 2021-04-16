@@ -1,149 +1,149 @@
-# # ======================================================================
-# #
-# #
-# #
-# # ======================================================================
+# # # ======================================================================
+# # #
+# # #
+# # #
+# # # ======================================================================
+
+# # # ======================================================================
+# # #
+# # # Automations:
+# # #
+# # # ======================================================================
+# # automation:
+
+# input_boolean:
+#   special_migraine_mode:
+#     name: Migraine Mode
+#     initial: off
+#     icon: mdi:hospital-box
+#   special_guest_present:
+#     name: Guests are present
+#     initial: off
+#     icon: mdi:human
 
 # # ======================================================================
 # #
-# # Automations:
+# # Scenes:
+# #   - Darken Room
+# #   - Migraine
 # #
 # # ======================================================================
-# automation:
+# #scene:
+#   # - id: "1574806686777"
+#   #   name: "[Light] Main Room: Darken Room"
+#   #   entities:
+#   #     light.main_lamp_3:
+#   #       friendly_name: "Main Tower Lamp Top"
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_6:
+#   #       friendly_name: Main Couch Lamp Right
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_7:
+#   #       friendly_name: Main Couch Lamp Left
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_8:
+#   #       friendly_name: Main Sitting Area
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_10:
+#   #       friendly_name: Main Kitchen
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_13:
+#   #       friendly_name: Main Front Door
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_24:
+#   #       friendly_name: "Main"
+#   #       state: "off"
+#   #     light.main_lamp_25:
+#   #       friendly_name: "Main"
+#   #       state: "off"
+#   #     light.main_lamp_26:
+#   #       friendly_name: Main Living Area
+#   #       state: "off"
+#   #     light.main_lamp_27:
+#   #       friendly_name: Main Table Lamp
+#   #       state: "off"
+#   #     light.main_lamp_31:
+#   #       friendly_name: Main Dining
+#   #       state: "on"
+#   #       color_name: "darkred"
+#   #       brightness_pct: 25
+#   # - name: "[Light] Main Room: Migraine"
+#   #   entities:
+#   #     light.main_lamp_3:
+#   #       friendly_name: "Main Chinese Lamp Top"
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_6:
+#   #       friendly_name: Main Couch Lamp Right
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_7:
+#   #       friendly_name: Main Couch Lamp Left
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_8:
+#   #       friendly_name: Main Sitting Area
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_10:
+#   #       friendly_name: Main Kitchen
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_13:
+#   #       friendly_name: Main Front Door
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
+#   #     light.main_lamp_24:
+#   #       friendly_name: "Main"
+#   #       state: "off"
+#   #     light.main_lamp_25:
+#   #       friendly_name: "Main"
+#   #       state: "off"
+#   #     light.main_lamp_26:
+#   #       friendly_name: Main Living Area
+#   #       state: "off"
+#   #     light.main_lamp_27:
+#   #       friendly_name: Main Table Lamp
+#   #       state: "off"
+#   #     light.main_lamp_31:
+#   #       friendly_name: Main Dining
+#   #       state: "on"
+#   #       color_name: "darkgreen"
+#   #       brightness_pct: 25
 
-input_boolean:
-  special_migraine_mode:
-    name: Migraine Mode
-    initial: off
-    icon: mdi:hospital-box
-  special_guest_present:
-    name: Guests are present
-    initial: off
-    icon: mdi:human
+# # # ======================================================================
+# # #
+# # #
+# # #
+# # # ======================================================================
+# # sensor:
 
-# ======================================================================
-#
-# Scenes:
-#   - Darken Room
-#   - Migraine
-#
-# ======================================================================
-#scene:
-  # - id: "1574806686777"
-  #   name: "[Light] Main Room: Darken Room"
-  #   entities:
-  #     light.main_lamp_3:
-  #       friendly_name: "Main Tower Lamp Top"
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_6:
-  #       friendly_name: Main Couch Lamp Right
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_7:
-  #       friendly_name: Main Couch Lamp Left
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_8:
-  #       friendly_name: Main Sitting Area
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_10:
-  #       friendly_name: Main Kitchen
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_13:
-  #       friendly_name: Main Front Door
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  #     light.main_lamp_24:
-  #       friendly_name: "Main"
-  #       state: "off"
-  #     light.main_lamp_25:
-  #       friendly_name: "Main"
-  #       state: "off"
-  #     light.main_lamp_26:
-  #       friendly_name: Main Living Area
-  #       state: "off"
-  #     light.main_lamp_27:
-  #       friendly_name: Main Table Lamp
-  #       state: "off"
-  #     light.main_lamp_31:
-  #       friendly_name: Main Dining
-  #       state: "on"
-  #       color_name: "darkred"
-  #       brightness_pct: 25
-  # - name: "[Light] Main Room: Migraine"
-  #   entities:
-  #     light.main_lamp_3:
-  #       friendly_name: "Main Chinese Lamp Top"
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_6:
-  #       friendly_name: Main Couch Lamp Right
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_7:
-  #       friendly_name: Main Couch Lamp Left
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_8:
-  #       friendly_name: Main Sitting Area
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_10:
-  #       friendly_name: Main Kitchen
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_13:
-  #       friendly_name: Main Front Door
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-  #     light.main_lamp_24:
-  #       friendly_name: "Main"
-  #       state: "off"
-  #     light.main_lamp_25:
-  #       friendly_name: "Main"
-  #       state: "off"
-  #     light.main_lamp_26:
-  #       friendly_name: Main Living Area
-  #       state: "off"
-  #     light.main_lamp_27:
-  #       friendly_name: Main Table Lamp
-  #       state: "off"
-  #     light.main_lamp_31:
-  #       friendly_name: Main Dining
-  #       state: "on"
-  #       color_name: "darkgreen"
-  #       brightness_pct: 25
-
-# # ======================================================================
-# #
-# #
-# #
-# # ======================================================================
-# sensor:
-
-# # ======================================================================
-# #
-# #
-# #
-# # ======================================================================
-# switch:
-#   # ==========================================
-#   #
-#   # Main
-#   #
-#   # =========================================
+# # # ======================================================================
+# # #
+# # #
+# # #
+# # # ======================================================================
+# # switch:
+# #   # ==========================================
+# #   #
+# #   # Main
+# #   #
+# #   # =========================================

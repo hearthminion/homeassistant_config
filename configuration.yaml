@@ -184,7 +184,5 @@ climate:
 
 lovelace: !include includes/lovelace.yaml
 
-ios:
-
 # ======================================================================
 # configuration.yaml ends here

@@ -1,0 +1,360 @@
+# # ======================================================================
+# #
+# # Master Bathroom Lighting Configuration
+# #
+# # Lights:
+# #   light.main_lamp_10: Kitchen Ceiling Lightbulb
+# #   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+# #
+# # Light Groups:
+# #   - light.den_couch_lamp_1
+# #   - light.den_couch_lamp_2
+# #   - light.den_ceiling
+# #   - light.den_fireplace
+# #   - light.den_tower_lamp
+# #   - light.den_table_lamp
+# #
+# # ======================================================================
+# automation:
+#   # ======================================================================
+#   #
+#   # Light fixture: Master Bathroom (Inner)
+#   #
+#   # Lights:
+#   #   - 
+#   #   - 
+#   #   - 
+#   #
+#   # Automations:
+#   #   - 
+#   #
+#   # ======================================================================
+#   - alias: "[Light] Master Bathroom (Inner): Circadian Lighting (with Brightness Adjustment)"
+#     initial_state: false
+#     trigger:
+#       - platform: state
+#         entity_id: input_select.light_mode
+#         to: "Circadian"
+#       - platform: state
+#         entity_id: binary_sensor.light_master_bathroom_inner_autobrightness
+#         to: "on"
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: template
+#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+#     action:
+#       - service: switch.turn_on
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment
+#       - service: switch.turn_off
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_inner_without_brightness_adjustment
+
+#   - alias: "[Light] Master Bathroom (Inner): Circadian Lighting (without Brightness Adjustment)"
+#     initial_state: false
+#     trigger:
+#       - platform: state
+#         entity_id: binary_sensor.light_master_bathroom_inner_autobrightness
+#         to: "off"
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: template
+#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+#         - condition: state
+#           entity_id: switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment
+#           state: "on"
+#     action:
+#       - service: switch.turn_on
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_inner_without_brightness_adjustment
+#       - service: switch.turn_off
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment
+
+#   # ======================================================================
+#   #
+#   # Light fixture: Master Bathroom (Outer)
+#   #
+#   # Lights:
+#   #   -
+#   #
+#   # Automations:
+#   #   - 
+#   #
+#   # ======================================================================
+#   - alias: "[Light] Master Bathroom (Outer): Circadian Lighting (with Brightness Adjustment)"
+#     initial_state: false
+#     trigger:
+#       - platform: state
+#         entity_id: input_select.light_mode
+#         to: "Circadian"
+#       - platform: state
+#         entity_id: binary_sensor.light_master_bathroom_outer_autobrightness
+#         to: "on"
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: template
+#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+#     action:
+#       - service: switch.turn_on
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment
+#       - service: switch.turn_off
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_outer_without_brightness_adjustment
+
+#   - alias: "[Light] Master Bathroom (Outer): Circadian Lighting (without Brightness Adjustment)"
+#     initial_state: false
+#     trigger:
+#       - platform: state
+#         entity_id: binary_sensor.light_master_bathroom_outer_autobrightness
+#         to: "off"
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: template
+#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+#         - condition: state
+#           entity_id: switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment
+#           state: "on"
+#     action:
+#       - service: switch.turn_on
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_outer_without_brightness_adjustment
+#       - service: switch.turn_off
+#         data:
+#           entity_id:
+#             - switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment
+
+# # ======================================================================
+# #
+# # Binary Sensors
+# #
+# # ======================================================================
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       light_master_bathroom_inner_autobrightness:
+#         friendly_name: "[Light] Master Bathroom (Inner) Autobrightness"
+#         value_template: >-
+#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bathroom_inner_autobrightness", "brightness_max") | int )
+#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bathroom_inner_autobrightness", "brightness_min") | int ) }}
+#         attribute_templates:
+#           brightness: >-
+#             {% if state_attr("light.master_bathroom_inner", "brightness") == None or
+#                is_state_attr("light.master_bathroom_inner", "brightness", "unknown")  or
+#                is_state("light.master_bathroom_inner", "off") %}
+#               {{ ( states("sensor.circadian_brightness") | int ) }}
+#             {% else %}
+#               {{ ( state_attr("light.master_bathroom_inner","brightness") / 254 * 100 ) | int }}
+#             {% endif %}
+#           brightness_max: >-
+#             {{ state_attr("binary_sensor.light_master_bathroom_inner_autobrightness", "brightness") | int + 4 }}
+#           brightness_min: >-
+#             {{ state_attr("binary_sensor.light_master_bathroom_inner_autobrightness", "brightness") | int - 4 }}
+#           xy_color: >-
+#             {{ state_attr("light.master_bathroom_inner","xy_color") }}
+#           color_temp: >-
+#             {{ state_attr("light.master_bathroom_inner","color_temp") }}
+
+#       light_master_bathroom_outer_autobrightness:
+#         friendly_name: "[Light] Master Bathroom (Outer) Autobrightness"
+#         value_template: >-
+#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_master_bathroom_outer_autobrightness", "brightness_max") | int )
+#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_master_bathroom_outer_autobrightness", "brightness_min") | int ) }}
+#         attribute_templates:
+#           brightness: >-
+#             {% if state_attr("light.master_bathroom_outer", "brightness") == None or
+#                is_state_attr("light.master_bathroom_outer", "brightness", "unknown")  or
+#                is_state("light.master_bathroom_outer", "off") %}
+#               {{ ( states("sensor.circadian_brightness") | int ) }}
+#             {% else %}
+#               {{ ( state_attr("light.master_bathroom_outer","brightness") / 254 * 100 ) | int }}
+#             {% endif %}
+#           brightness_max: >-
+#             {{ state_attr("binary_sensor.light_master_bathroom_outer_autobrightness", "brightness") | int + 4 }}
+#           brightness_min: >-
+#             {{ state_attr("binary_sensor.light_master_bathroom_outer_autobrightness", "brightness") | int - 4 }}
+#           xy_color: >-
+#             {{ state_attr("light.master_bathroom_outer","xy_color") }}
+#           color_temp: >-
+#             {{ state_attr("light.master_bathroom_outer","color_temp") }}
+
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
+# input_select:
+#   hue_master_bathroom_inner:
+#     name: "[Light] Hue Master Bathroom (Inner) Scene"
+#     icon: mdi:palette
+#     initial: "Circadian"
+#     options:
+#       - Arctic aurora
+#       - Sevanna sunset
+#       - Tropical twilight
+#       - Spring blossom
+#       - Relax
+#       - Read
+#       - Concentrate
+#       - Energize
+#       - Bright
+#       - Dimmed
+#       - Nightlight
+#       - Motown
+#       - Midsomer Sun
+#       - Midwinter
+#       - Ocean Dawn
+#       - Emerald Isle
+#       - Mountain Breeze
+#       - Spring lake
+#       - Moonlight
+#       - Starlight
+#       - Soho
+#       - Golden Pond
+#       - Frosty Dawn
+#       - Fairfax
+#       - Autumn Gold
+#       - Palm Beach
+#       - Lake Mist
+#       - Chinatown
+#       - Tokyo
+#       - Sunday Morning
+#       - Ibiza
+#       - Nebula
+#       - Galaxy
+#       - Ruby Glow
+#       - Winter mountain
+#       - Blue Lagoon
+#       - Honolulu
+#       - Lake Placid
+#       - Osaka
+#       - Sundowner
+#       - Blood Moon
+#       - Circadian
+#       - Night Mode
+#       - Migraine
+
+# # ======================================================================
+# #
+# # Rest Commands
+# #
+# # ======================================================================
+# #rest_command:
+# # ======================================================================
+# #
+# # Scene_ID: NcXhhhoJnaJIWLa
+# #
+# # ======================================================================
+# #  update_hue_scene_master_bathroom_inner:
+# #    url: https://10.3.1.1/api/e2Du8WsQfAUiZPrtb-6qkAbvnoTKq3degi6iGbtf/scenes/NcXhhhoJnaJIWLa/lightstates/
+# #    method: put
+# #    payload: "{ "12": { "on": true, "bri": <circadian_brightness>, "ct": <circadian_ct> }, { "17": { "on": true, "bri": <circadian_brightness>, "ct": <circadian_ct> }, { "19": { "on": true, "bri": <circadian_brightness>, "ct": <circadian_ct> }"
+
+
+# #  =====================================================================
+# #
+# #  Scenes:
+# #
+# #
+# # ======================================================================
+# #scene:
+# #  - id: '1587774500723'
+# #    name: '[Light] Master Bathroom: Enable Automations'
+# #    entities:
+
+#   # - id: "1576892383155"
+#   #   name: "[Light] Master Bathroom (Inner): Darken Room"
+#   #   entities:
+#   #     light.main_lamp_12:
+#   #       friendly_name: "Master Bathroom Center"
+#   #       brightness_pct: 25
+#   #       color_name: "darkred"
+#   #       state: "on"
+#   #     light.main_lamp_17:
+#   #       friendly_name: "Master Bathroom Left"
+#   #       state: "off"
+#   #     light.main_lamp_19:
+#   #       friendly_name: "Master Bathroom Right"
+#   #       state: "off"
+#   # - name: "[Light] Master Bathroom (Inner): Migraine"
+#   #   entities:
+#   #     light.main_lamp_12:
+#   #       friendly_name: "Master Bathroom Center"
+#   #       brightness_pct: 25
+#   #       color_name: "darkgreen"
+#   #       state: "on"
+#   #     light.main_lamp_17:
+#   #       friendly_name: "Master Bathroom Left"
+#   #       state: "off"
+#   #     light.main_lamp_19:
+#   #       friendly_name: "Master Bathroom Right"
+#   #       state: "off"
+
+# # ======================================================================
+# #
+# # Sensors
+# #
+# # ======================================================================
+# # sensor:
+# #   - platform: template
+# #     sensors:
+# #       light_master_bathroom_inner_circadian_brightness:
+# #         friendly_name: "[Light] Master Bathroom (Inner): Circadian Brightness"
+# #         value_template: "{{ state_attr("switch.circadian_lighting_master_bathroom_inner_with_brightness_adjustment","brightness") | round(0) }}"
+# #         unit_of_measurement: "%"
+# #       light_master_bathroom_outer_circadian_brightness:
+# #         friendly_name: "[Light] Master Bathroom (Outer): Circadian Brightness"
+# #         value_template: "{{ state_attr("switch.circadian_lighting_master_bathroom_outer_with_brightness_adjustment","brightness") | round(0) }}"
+# #         unit_of_measurement: "%"
+# #       light_master_bathroom_inner_brightness:
+# #         friendly_name: "[Light] Master Bathroom (Inner): Brightness"
+# #         value_template:  "{{ ( state_attr("light.master_bathroom_inner","brightness") / 254 * 100 ) | int }}"
+# #         unit_of_measurement: "%"
+# #       light_master_bathroom_outer_brightness:
+# #         friendly_name: "[Light] Master Bathroom (Outer): Brightness"
+# #         value_template:  "{{ ( state_attr("light.master_bathroom_outer","brightness") / 254 * 100 ) | int }}"
+# #         unit_of_measurement: "%"
+
+# # ======================================================================
+# #
+# # Switches
+# #
+# # ======================================================================
+# switch:
+#   - platform: circadian_lighting
+#     name: "Master Bathroom (Inner) (without Brightness Adjustment)"
+#     lights_ct:
+#       - light.master_bathroom_inner
+#     disable_brightness_adjust: true
+
+#   - platform: circadian_lighting
+#     name: "Master Bathroom (Inner) (with Brightness Adjustment)"
+#     lights_ct:
+#       - light.master_bathroom_inner
+#     disable_brightness_adjust: false
+#     min_brightness: 1
+
+#   - platform: circadian_lighting
+#     name: "Master Bathroom (Outer) (without Brightness Adjustment)"
+#     lights_ct:
+#       - light.master_bathroom_outer
+#     disable_brightness_adjust: true
+
+#   - platform: circadian_lighting
+#     name: "Master Bathroom (Outer) (with Brightness Adjustment)"
+#     lights_ct:
+#       - light.master_bathroom_outer
+#     disable_brightness_adjust: false
+#     min_brightness: 1

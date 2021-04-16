@@ -187,312 +187,312 @@ circadian_lighting:
   # Default: 60 (60 seconds =  1 minute)
   #transition
 
-# ==================================================================================================
-#
-# Input select
-#
-# ==================================================================================================
-input_select:
-  light_mode:
-    name: "Light Mode"
-    options:
-      - "Circadian"
-      - "Darken House"
-      - "Migraine"
-      - "Sleeping (Migraine)"
-      - "Night Out"
-      - "Guests"
-      - "Other"
-    #initial: "Circadian"
-    #icon: "mdi:light"
+# # ==================================================================================================
+# #
+# # Input select
+# #
+# # ==================================================================================================
+# input_select:
+#   light_mode:
+#     name: "Light Mode"
+#     options:
+#       - "Circadian"
+#       - "Darken House"
+#       - "Migraine"
+#       - "Sleeping (Migraine)"
+#       - "Night Out"
+#       - "Guests"
+#       - "Other"
+#     #initial: "Circadian"
+#     #icon: "mdi:light"
 
-# ==================================================================================================
-#
-# Light Groups
-#
-# ==================================================================================================
-light:
-  - platform: group
-    name: All lights
-    entities:
-      - light.basement
-      - light.main_floor
-  - platform: template
-    lights:
-      circadian_light:
-        friendly_name: "Circadian Light used for testing"
-        level_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') | round(0) }}"
-        turn_on:
-          service: notify.notify
-          data:
-            message: "Fake light turned on!"
-        turn_off:
-          service: notify.notify
-          data:
-            message: "Fake light turned off!"
+# # ==================================================================================================
+# #
+# # Light Groups
+# #
+# # ==================================================================================================
+# light:
+#   - platform: group
+#     name: All lights
+#     entities:
+#       - light.basement
+#       - light.main_floor
+#   - platform: template
+#     lights:
+#       circadian_light:
+#         friendly_name: "Circadian Light used for testing"
+#         level_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') | round(0) }}"
+#         turn_on:
+#           service: notify.notify
+#           data:
+#             message: "Fake light turned on!"
+#         turn_off:
+#           service: notify.notify
+#           data:
+#             message: "Fake light turned off!"
 
-#  - platform: sensehat
+# #  - platform: sensehat
 
-# ==================================================================================================
-#
-# Scenes
-#
-# ==================================================================================================
-scene:
-  name: "[Light] Enable Common Automations"
-  entities:
-    automation.light_set_light_mode_circadian:
-      state: 'on'
-    automation.light_set_light_mode_guests:
-      state: 'on'
-    automation.light_set_light_mode_migraine:
-      state: 'on'
-    automation.light_set_light_mode_darken_house:
-      state: 'on'
+# # ==================================================================================================
+# #
+# # Scenes
+# #
+# # ==================================================================================================
+# scene:
+#   name: "[Light] Enable Common Automations"
+#   entities:
+#     automation.light_set_light_mode_circadian:
+#       state: 'on'
+#     automation.light_set_light_mode_guests:
+#       state: 'on'
+#     automation.light_set_light_mode_migraine:
+#       state: 'on'
+#     automation.light_set_light_mode_darken_house:
+#       state: 'on'
 
-# ==================================================================================================
-#
-# Update home assistant scenes
-#
-# ==================================================================================================
-script:
-  light_update_scene_homeassistant_circadian:
-    alias: "[Light] Update Home Assistant Scenes (Circadian)"
-    sequence:
-      - service: rest_command.light_update_basement_scene_homeassistant
-        data:
-          scene_id: "wct01qioygY1j89"
-          username: !secret hue2_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-          bulb_03_on_state: "true"
-          bulb_04_on_state: "true"
-          bulb_05_on_state: "true"
-          bulb_06_on_state: "true"
-          bulb_07_on_state: "true"
-          bulb_08_on_state: "true"
-          bulb_09_on_state: "true"
-          bulb_10_on_state: "true"
-          bulb_11_on_state: "true"
-          bulb_12_on_state: "true"
-          bulb_13_on_state: "true"
+# # ==================================================================================================
+# #
+# # Update home assistant scenes
+# #
+# # ==================================================================================================
+# script:
+#   light_update_scene_homeassistant_circadian:
+#     alias: "[Light] Update Home Assistant Scenes (Circadian)"
+#     sequence:
+#       - service: rest_command.light_update_basement_scene_homeassistant
+#         data:
+#           scene_id: "wct01qioygY1j89"
+#           username: !secret hue2_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
+#           bulb_03_on_state: "true"
+#           bulb_04_on_state: "true"
+#           bulb_05_on_state: "true"
+#           bulb_06_on_state: "true"
+#           bulb_07_on_state: "true"
+#           bulb_08_on_state: "true"
+#           bulb_09_on_state: "true"
+#           bulb_10_on_state: "true"
+#           bulb_11_on_state: "true"
+#           bulb_12_on_state: "true"
+#           bulb_13_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
-        data:
-          scene_id: "Foe7UChLJgWAZWE"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
-        data:
-          scene_id: "Ho1gLz3G1oapF6z"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
+#         data:
+#           scene_id: "Foe7UChLJgWAZWE"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
+#         data:
+#           scene_id: "Ho1gLz3G1oapF6z"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
-        data:
-          scene_id: "zr8ixsEYzTlD53i"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
-        data:
-          scene_id: "OCrZppa5t98Hlnd"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "zr8ixsEYzTlD53i"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "OCrZppa5t98Hlnd"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
-        data:
-          scene_id: "lWy-DMekfBnrLSu"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-      - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
-        data:
-          scene_id: "bPMgpBKmlEUqMRc"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "lWy-DMekfBnrLSu"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "bPMgpBKmlEUqMRc"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
 
-      - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
-        data:
-          scene_id: "XIpkjatAPzszIBY"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
-        data:
-          scene_id: "RYBofU8D0xfz-J6"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "XIpkjatAPzszIBY"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "RYBofU8D0xfz-J6"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
 
-      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
-        data:
-          scene_id: "j10CCgzz0-DpX7w"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
-        data:
-          scene_id: "-vntxqGkxUZ4bZ8"
-          username: !secret hue1_username
-          color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-          brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "j10CCgzz0-DpX7w"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "-vntxqGkxUZ4bZ8"
+#           username: !secret hue1_username
+#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
+#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
+#           bulb_01_on_state: "true"
 
-  light_update_scene_homeassistant_darkenhouse:
-    alias: "[Light] Update Home Assistant Scenes (Darken House)"
-    sequence:
-      - service: rest_command.light_update_basement_scene_homeassistant
-        data:
-          scene_id: "wct01qioygY1j89"
-          username: !secret hue2_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-          bulb_03_on_state: "true"
-          bulb_04_on_state: "true"
-          bulb_05_on_state: "true"
-          bulb_06_on_state: "true"
-          bulb_07_on_state: "true"
-          bulb_08_on_state: "true"
-          bulb_09_on_state: "true"
-          bulb_10_on_state: "true"
-          bulb_11_on_state: "true"
-          bulb_12_on_state: "true"
-          bulb_13_on_state: "true"
+#   light_update_scene_homeassistant_darkenhouse:
+#     alias: "[Light] Update Home Assistant Scenes (Darken House)"
+#     sequence:
+#       - service: rest_command.light_update_basement_scene_homeassistant
+#         data:
+#           scene_id: "wct01qioygY1j89"
+#           username: !secret hue2_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
+#           bulb_03_on_state: "true"
+#           bulb_04_on_state: "true"
+#           bulb_05_on_state: "true"
+#           bulb_06_on_state: "true"
+#           bulb_07_on_state: "true"
+#           bulb_08_on_state: "true"
+#           bulb_09_on_state: "true"
+#           bulb_10_on_state: "true"
+#           bulb_11_on_state: "true"
+#           bulb_12_on_state: "true"
+#           bulb_13_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
-        data:
-          scene_id: "Foe7UChLJgWAZWE"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
-        data:
-          scene_id: "Ho1gLz3G1oapF6z"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
+#         data:
+#           scene_id: "Foe7UChLJgWAZWE"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
+#         data:
+#           scene_id: "Ho1gLz3G1oapF6z"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
-        data:
-          scene_id: "zr8ixsEYzTlD53i"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-      - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
-        data:
-          scene_id: "OCrZppa5t98Hlnd"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "zr8ixsEYzTlD53i"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
+#       - service: rest_command.light_update_master_bedroom_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "OCrZppa5t98Hlnd"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#           bulb_02_on_state: "true"
 
-      - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
-        data:
-          scene_id: "lWy-DMekfBnrLSu"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-      - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
-        data:
-          scene_id: "bPMgpBKmlEUqMRc"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
+#       - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "lWy-DMekfBnrLSu"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#       - service: rest_command.light_update_master_bedroom_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "bPMgpBKmlEUqMRc"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
   
-      - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
-        data:
-          scene_id: "XIpkjatAPzszIBY"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
-        data:
-          scene_id: "RYBofU8D0xfz-J6"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "XIpkjatAPzszIBY"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_1_scene_homeassistant
+#         data:
+#           scene_id: "RYBofU8D0xfz-J6"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
   
-      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
-        data:
-          scene_id: "j10CCgzz0-DpX7w"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
-      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
-        data:
-          scene_id: "-vntxqGkxUZ4bZ8"
-          username: !secret hue1_username
-          color: '"ct": 454'
-          brightness: '"bri": 25 }}'
-          bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "j10CCgzz0-DpX7w"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
+#       - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+#         data:
+#           scene_id: "-vntxqGkxUZ4bZ8"
+#           username: !secret hue1_username
+#           color: '"ct": 454'
+#           brightness: '"bri": 25 }}'
+#           bulb_01_on_state: "true"
 
-# ==================================================================================================
-#
-# Sensors
-#
-# ==================================================================================================
-sensor:
-  - platform: template
-    sensors:
-      circadian_temperature:
-        friendly_name: "Circadian Color Temperature"
-        value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
-        unit_of_measurement: "°K"
-  - platform: template
-    sensors:
-      circadian_brightness:
-        friendly_name: "Circadian Brightness"
-        value_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') }}"
-        unit_of_measurement: "%"
-  - platform: template
-    sensors:
-      circadian_mired:
-        friendly_name: "Circadian Mired"
-        value_template: "{{ 1000000 // state_attr('sensor.circadian_values','colortemp') | int }}"
-  - platform: template
-    sensors:
-      circadian_brightness_value:
-        friendly_name: "Circadian Brightness Value"
-        value_template: "{{ states('sensor.circadian_brightness') | int * 254 // 100 }}"
+# # ==================================================================================================
+# #
+# # Sensors
+# #
+# # ==================================================================================================
+# sensor:
+#   - platform: template
+#     sensors:
+#       circadian_temperature:
+#         friendly_name: "Circadian Color Temperature"
+#         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
+#         unit_of_measurement: "°K"
+#   - platform: template
+#     sensors:
+#       circadian_brightness:
+#         friendly_name: "Circadian Brightness"
+#         value_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') }}"
+#         unit_of_measurement: "%"
+#   - platform: template
+#     sensors:
+#       circadian_mired:
+#         friendly_name: "Circadian Mired"
+#         value_template: "{{ 1000000 // state_attr('sensor.circadian_values','colortemp') | int }}"
+#   - platform: template
+#     sensors:
+#       circadian_brightness_value:
+#         friendly_name: "Circadian Brightness Value"
+#         value_template: "{{ states('sensor.circadian_brightness') | int * 254 // 100 }}"
         
-switch:
-  # ================================
-  #
-  # Basementroom
-  #
-  # ===============================
-  - platform: circadian_lighting
-    name: "circadian_light"
-    lights_ct:
-      - light.circadian_light
+# switch:
+#   # ================================
+#   #
+#   # Basementroom
+#   #
+#   # ===============================
+#   - platform: circadian_lighting
+#     name: "circadian_light"
+#     lights_ct:
+#       - light.circadian_light
  

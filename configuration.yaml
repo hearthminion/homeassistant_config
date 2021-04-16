@@ -54,6 +54,7 @@ homeassistant:
       trusted_networks:
         - !secret trusted_net1
         - !secret trusted_net2
+        - !secret trusted_net3
       allow_bypass_login: true
 #    - type: command_line
 #      command:

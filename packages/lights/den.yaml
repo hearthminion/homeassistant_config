@@ -1,602 +1,602 @@
-# # ==================================================================================================
-# #
-# # Den Lighting Configuration
-# #
-# # Lights:
-# #   - light.den_ceiling_bulb
-# #     light id: 8
-# #   - light.den_couch_lamp_1_bulb
-# #     light id: 7
-# #   - light.den_couch_lamp_2_bulb
-# #     light id: 6
-# #   - light.den_fireplace_bulb
-# #     light id: 25
-# #   - light.dining_area_ceiling_bulb
-# #     light id: 31
-# #   - light.entryway_ceiling_bulb
-# #     light id: 13
-# #   - light.kitchen_ceiling_bulb
-# #     light id: 10
-# #   - light.kitchen_island_ceiling_bulb
-# #     light id: 24
-# #   - light.living_area_ceiling_bulb
-# #     light id: 26
-# #
-# # Light Groups:
-# #   - light.den_ceiling
-# #   - light.den_couch_lamp_1
-# #   - light.den_couch_lamp_2
-# #   - light.den_fireplace
-# #   - light.dining_area_ceiling
-# #   - light.entryway_ceiling
-# #   - light.kitchen_ceiling
-# #   - light.kitchen_island_ceiling
-# #   - light.living_area_ceiling
-# #   - light.main_room
-# #
-# # ==================================================================================================
+# ==================================================================================================
+#
+# Den Lighting Configuration
+#
+# Lights:
+#   - light.den_ceiling_bulb
+#     light id: 8
+#   - light.den_couch_lamp_1_bulb
+#     light id: 7
+#   - light.den_couch_lamp_2_bulb
+#     light id: 6
+#   - light.den_fireplace_bulb
+#     light id: 25
+#   - light.dining_area_ceiling_bulb
+#     light id: 31
+#   - light.entryway_ceiling_bulb
+#     light id: 13
+#   - light.kitchen_ceiling_bulb
+#     light id: 10
+#   - light.kitchen_island_ceiling_bulb
+#     light id: 24
+#   - light.living_area_ceiling_bulb
+#     light id: 26
+#
+# Light Groups:
+#   - light.den_ceiling
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_fireplace
+#   - light.dining_area_ceiling
+#   - light.entryway_ceiling
+#   - light.kitchen_ceiling
+#   - light.kitchen_island_ceiling
+#   - light.living_area_ceiling
+#   - light.main_room
+#
+# ==================================================================================================
 
-# # ==================================================================================================
-# #
-# # Automations:
-# #
-# # ==================================================================================================
-# automation:
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Couch Lamp 2
-#   #
-#   # Light Group:
-#   #   - light.den_couch_lamp_2
-#   #
-#   # Automations:
-#   #   -
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Den Couch Lamp 2: Circadian Lighting (With Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
-#         to: "on"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         entity_id:
-#           - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
-#       - service: switch.turn_off
-#         entity_id:
-#           - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
+# ==================================================================================================
+#
+# Automations:
+#
+# ==================================================================================================
+automation:
+  # ================================================================================================
+  #
+  # Light fixture: Den Couch Lamp 2
+  #
+  # Light Group:
+  #   - light.den_couch_lamp_2
+  #
+  # Automations:
+  #   -
+  #
+  # ================================================================================================
+  - alias: "[Light] Den Couch Lamp 2: Circadian Lighting (With Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        entity_id:
+          - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
+      - service: switch.turn_off
+        entity_id:
+          - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
 
-#   - id: "1579090724953"
-#     alias: "[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         entity_id:
-#           - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
-#       - service: switch.turn_off
-#         entity_id:
-#           - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
+  - id: "1579090724953"
+    alias: "[Light] Den Couch Lamp 2: Circadian Lighting (without Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_den_couch_lamp_2_autobrightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        entity_id:
+          - switch.circadian_lighting_den_couch_lamp_2_without_brightness_adjustment
+      - service: switch.turn_off
+        entity_id:
+          - switch.circadian_lighting_den_couch_lamp_2_with_brightness_adjustment
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Couch Lamp 1
-#   #
-#   # Light Group:
-#   #   - light.den_couch_lamp_1
-#   #
-#   # Automations:
-#   #   -
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (with Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
-#         to: "on"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
+  # ================================================================================================
+  #
+  # Light fixture: Den Couch Lamp 1
+  #
+  # Light Group:
+  #   - light.den_couch_lamp_1
+  #
+  # Automations:
+  #   -
+  #
+  # ================================================================================================
+  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (with Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
 
-#   - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
+  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Fireplace Lights
-#   #
-#   # Lights:
-#   #   - 
-#   #   - 
-#   #   - 
-#   #
-#   # Automations:
-#   #   - 
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Den Fireplace: Circadian Lighting (with Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_den_fireplace_autobrightness
-#         to: "on"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_fireplace_with_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_fireplace_without_brightness_adjustment
+  # ================================================================================================
+  #
+  # Light fixture: Fireplace Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ================================================================================================
+  - alias: "[Light] Den Fireplace: Circadian Lighting (with Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_den_fireplace_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_fireplace_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_fireplace_without_brightness_adjustment
 
-#   - alias: "[Light] Den Fireplace: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_fireplace_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_fireplace_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_fireplace_with_brightness_adjustment
+  - alias: "[Light] Den Fireplace: Circadian Lighting (without Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_den_fireplace_autobrightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_fireplace_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_fireplace_with_brightness_adjustment
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Ceiling Lights
-#   #
-#   # Lights:
-#   #   - 
-#   #   - 
-#   #   - 
-#   #
-#   # Automations:
-#   #   - 
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Den Ceiling: Circadian Lighting (with Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_den_ceiling_autobrightness
-#         to: "on"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
+  # ================================================================================================
+  #
+  # Light fixture: Den Ceiling Lights
+  #
+  # Lights:
+  #   - 
+  #   - 
+  #   - 
+  #
+  # Automations:
+  #   - 
+  #
+  # ================================================================================================
+  - alias: "[Light] Den Ceiling: Circadian Lighting (with Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_den_ceiling_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
 
-#   - alias: "[Light] Den Ceiling: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_ceiling_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
+  - alias: "[Light] Den Ceiling: Circadian Lighting (without Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_den_ceiling_autobrightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
 
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Circadian (with Brightness adjustments)
-#   #
-#   # - In the morning when the sun rises to 18 degrees below the horizon
-#   #   enable
-#   # ================================================================================================
-#   - alias: "[Light] Den Tower Lamp Circadian Lighting (with Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_den_tower_lamp_autobrightness
-#         to: "on"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_tower_lamp_with_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Circadian (with Brightness adjustments)
+  #
+  # - In the morning when the sun rises to 18 degrees below the horizon
+  #   enable
+  # ================================================================================================
+  - alias: "[Light] Den Tower Lamp Circadian Lighting (with Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_den_tower_lamp_autobrightness
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_tower_lamp_with_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
 
-#   - alias: "[Light] Den Tower Lamp: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_tower_lamp_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_tower_lamp_with_brightness_adjustment
+  - alias: "[Light] Den Tower Lamp: Circadian Lighting (without Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_den_tower_lamp_autobrightness
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.circadian_lighting_tower_lamp_with_brightness_adjustment
 
-# # ==================================================================================================
-# #
-# # Binary Sensor
-# #
-# # ==================================================================================================
-# binary_sensor:
-#   - platform: template
-#     sensors:
+# ==================================================================================================
+#
+# Binary Sensor
+#
+# ==================================================================================================
+binary_sensor:
+  - platform: template
+    sensors:
 
-#       light_den_couch_lamp_1_autobrightness:
-#         friendly_name: "[Light] Den Couch Lamp 1 Autobrightness"
-#         value_template: >-
-#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_max") | int )
-#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_couch_lamp_1", "brightness") == None or
-#                is_state_attr("light.den_couch_lamp_1", "brightness", "unknown")  or
-#                is_state("light.den_couch_lamp_1", "off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_couch_lamp_1","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_couch_lamp_1","color_temp") }}
+      light_den_couch_lamp_1_autobrightness:
+        friendly_name: "[Light] Den Couch Lamp 1 Autobrightness"
+        value_template: >-
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.den_couch_lamp_1", "brightness") == None or
+               is_state_attr("light.den_couch_lamp_1", "brightness", "unknown")  or
+               is_state("light.den_couch_lamp_1", "off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.den_couch_lamp_1","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_couch_lamp_1","color_temp") }}
 
-#       light_den_couch_lamp_2_autobrightness:
-#         friendly_name: "[Light] Den Couch Lamp 2 Autobrightness"
-#         value_template: >-
-#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_max") | int )
-#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_couch_lamp_2", "brightness") == None or
-#                is_state_attr("light.den_couch_lamp_2", "brightness", "unknown")  or
-#                is_state("light.den_couch_lamp_2","off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_couch_lamp_2","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_couch_lamp_2","color_temp") }}
+      light_den_couch_lamp_2_autobrightness:
+        friendly_name: "[Light] Den Couch Lamp 2 Autobrightness"
+        value_template: >-
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.den_couch_lamp_2", "brightness") == None or
+               is_state_attr("light.den_couch_lamp_2", "brightness", "unknown")  or
+               is_state("light.den_couch_lamp_2","off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.den_couch_lamp_2","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_couch_lamp_2","color_temp") }}
 
-#       light_den_ceiling_autobrightness:
-#         friendly_name: "[Light] Den Ceiling Autobrightness"
-#         value_template: >-
-#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness_max") | int )
-#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_ceiling", "brightness") == None or
-#                is_state_attr("light.den_ceiling", "brightness", "unknown")  or
-#                is_state("light.den_ceiling", "off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_ceiling","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_ceiling","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_ceiling","color_temp") }}
+      light_den_ceiling_autobrightness:
+        friendly_name: "[Light] Den Ceiling Autobrightness"
+        value_template: >-
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.den_ceiling", "brightness") == None or
+               is_state_attr("light.den_ceiling", "brightness", "unknown")  or
+               is_state("light.den_ceiling", "off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_ceiling","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_ceiling_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.den_ceiling","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_ceiling","color_temp") }}
 
-#       light_den_fireplace_autobrightness:
-#         friendly_name: "[Light] Den Fireplace Autobrightness"
-#         value_template: >-
-#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness_max") | int )
-#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_fireplace", "brightness") == None or
-#                is_state_attr("light.den_fireplace", "brightness", "unknown")  or
-#                is_state("light.den_fireplace", "off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_fireplace","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness") | int - 4 }}
-#           #xy_color: >-
-#           #  {{ state_attr("light.den_fireplace","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_fireplace","color_temp") }}
-#       light_den_table_lamp_autobrightness:
-#         friendly_name: "[Light] Den Table Lamp Autobrightness"
-#         value_template: >-
-#           {{ ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness_max") | int )
-#              and ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           circadian_brightness: >-
-#             {{ state_attr("switch.circadian_lighting_den_table_lamp_with_brightness_adjustment","brightness") | round(0) }}
-#           brightness: >-
-#             {% if state_attr("light.den_table_lamp", "brightness") == None or
-#                is_state_attr("light.den_table_lamp", "brightness", "unknown")  or
-#                is_state("light.den_table_lamp", "off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_table_lamp","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness") | int - 4 }}
-#           #xy_color: >-
-#           #  {{ state_attr("light.den_table_lamp","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_table_lamp","color_temp") }}
+      light_den_fireplace_autobrightness:
+        friendly_name: "[Light] Den Fireplace Autobrightness"
+        value_template: >-
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.den_fireplace", "brightness") == None or
+               is_state_attr("light.den_fireplace", "brightness", "unknown")  or
+               is_state("light.den_fireplace", "off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_fireplace","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_fireplace_autobrightness", "brightness") | int - 4 }}
+          #xy_color: >-
+          #  {{ state_attr("light.den_fireplace","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_fireplace","color_temp") }}
+      light_den_table_lamp_autobrightness:
+        friendly_name: "[Light] Den Table Lamp Autobrightness"
+        value_template: >-
+          {{ ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness_max") | int )
+             and ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          circadian_brightness: >-
+            {{ state_attr("switch.circadian_lighting_den_table_lamp_with_brightness_adjustment","brightness") | round(0) }}
+          brightness: >-
+            {% if state_attr("light.den_table_lamp", "brightness") == None or
+               is_state_attr("light.den_table_lamp", "brightness", "unknown")  or
+               is_state("light.den_table_lamp", "off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_table_lamp","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_table_lamp_autobrightness", "brightness") | int - 4 }}
+          #xy_color: >-
+          #  {{ state_attr("light.den_table_lamp","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_table_lamp","color_temp") }}
 
-#       light_den_tower_lamp_autobrightness:
-#         friendly_name: "[Light] Den Tower Lamp Autobrightness"
-#         value_template: >-
-#           {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness_max") | int )
-#              and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness_min") | int ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_tower_lamp", "brightness") == None or
-#                is_state_attr("light.den_tower_lamp", "brightness", "unknown")  or
-#                is_state("light.den_tower_lamp", "off") %}
-#               {{ ( states("sensor.circadian_brightness") | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_tower_lamp","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_tower_lamp","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_tower_lamp","color_temp") }}
+      light_den_tower_lamp_autobrightness:
+        friendly_name: "[Light] Den Tower Lamp Autobrightness"
+        value_template: >-
+          {{ ( states("sensor.circadian_brightness") | int ) < ( state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness_max") | int )
+             and ( states("sensor.circadian_brightness") | int ) > ( state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness_min") | int ) }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.den_tower_lamp", "brightness") == None or
+               is_state_attr("light.den_tower_lamp", "brightness", "unknown")  or
+               is_state("light.den_tower_lamp", "off") %}
+              {{ ( states("sensor.circadian_brightness") | int ) }}
+            {% else %}
+              {{ ( state_attr("light.den_tower_lamp","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_den_tower_lamp_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.den_tower_lamp","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.den_tower_lamp","color_temp") }}
 
-# # ==================================================================================================
-# #
-# # Input Select
-# #
-# # ==================================================================================================
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
 
-# # ==================================================================================================
-# #
-# # Rest Command
-# #
-# # ==================================================================================================
-# rest_command:
+# ==================================================================================================
+#
+# Rest Command
+#
+# ==================================================================================================
+rest_command:
 
-#   light_update_den_couch_lamp_1_scene_homeassistant:
-#     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-#     method: put
-#     payload: '{ "lightstates": { "7": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }}}'
-#     verify_ssl: false
+  light_update_den_couch_lamp_1_scene_homeassistant:
+    url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    method: put
+    payload: '{ "lightstates": { "7": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }}}'
+    verify_ssl: false
 
-#   light_update_den_couch_lamp_2_scene_homeassistant:
-#     url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-#     method: put
-#     payload: '{ "lightstates": { "6": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }}}'
-#     verify_ssl: false
+  light_update_den_couch_lamp_2_scene_homeassistant:
+    url: "https://hue1.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+    method: put
+    payload: '{ "lightstates": { "6": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }}}'
+    verify_ssl: false
 
-# # ==================================================================================================
-# #
-# # Scenes:
-# #   - Darken Room
-# #   - Migraine
-# #
-# # ==================================================================================================
-# scene:
-#   - id: "1587751320837"
-#     name: "[Light] Enable Den Automations"
-#     entities:
-#       automation.light_den_couch_lamp_1_circadian_lighting_with_brightness_adjustment:
-#         state: 'on'
-#       automation.light_den_couch_lamp_1_circadian_lighting_without_brightness_adjustment:
-#         state: 'on'
-#       automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
-#         state: 'on'
-#       automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
-#         state: 'on'
+# ==================================================================================================
+#
+# Scenes:
+#   - Darken Room
+#   - Migraine
+#
+# ==================================================================================================
+scene:
+  - id: "1587751320837"
+    name: "[Light] Enable Den Automations"
+    entities:
+      automation.light_den_couch_lamp_1_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_den_couch_lamp_1_circadian_lighting_without_brightness_adjustment:
+        state: 'on'
+      automation.light_den_couch_lamp_2_circadian_lighting_with_brightness_adjustment:
+        state: 'on'
+      automation.light_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
+        state: 'on'
 
-# # ==================================================================================================
-# #
-# #
-# #
-# # ==================================================================================================
-# switch:
-#   # ================================================================================================
-#   #
-#   # Den
-#   #
-#   # ================================================================================================
-#   - platform: circadian_lighting
-#     name: "Den Couch Lamp 1 (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_couch_lamp_1
-#     disable_brightness_adjust: true
+# ==================================================================================================
+#
+#
+#
+# ==================================================================================================
+switch:
+  # ================================================================================================
+  #
+  # Den
+  #
+  # ================================================================================================
+  - platform: circadian_lighting
+    name: "Den Couch Lamp 1 (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_1
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Couch Lamp 1 (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_couch_lamp_1
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Couch Lamp 1 (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_1
+    disable_brightness_adjust: false
+    min_brightness: 1
 
-#   - platform: circadian_lighting
-#     name: "Den Couch Lamp 2 (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_couch_lamp_2
-#     disable_brightness_adjust: true
+  - platform: circadian_lighting
+    name: "Den Couch Lamp 2 (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_2
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Couch Lamp 2 (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_couch_lamp_2
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Couch Lamp 2 (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_couch_lamp_2
+    disable_brightness_adjust: false
+    min_brightness: 1
 
-#   - platform: circadian_lighting
-#     name: "Den Fireplace (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_fireplace
-#     disable_brightness_adjust: true
+  - platform: circadian_lighting
+    name: "Den Fireplace (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_fireplace
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Fireplace (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_fireplace
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Fireplace (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_fireplace
+    disable_brightness_adjust: false
+    min_brightness: 1
 
-#   - platform: circadian_lighting
-#     name: "Den Ceiling (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_ceiling
-#     disable_brightness_adjust: true
+  - platform: circadian_lighting
+    name: "Den Ceiling (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_ceiling
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Ceiling (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_ceiling
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Ceiling (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_ceiling
+    disable_brightness_adjust: false
+    min_brightness: 1
 
-#   - platform: circadian_lighting
-#     name: "Den Tower Lamp (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_tower_lamp
-#     disable_brightness_adjust: true
+  - platform: circadian_lighting
+    name: "Den Tower Lamp (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_tower_lamp
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Tower Lamp (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_tower_lamp
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Tower Lamp (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_tower_lamp
+    disable_brightness_adjust: false
+    min_brightness: 1
 
-#   - platform: circadian_lighting
-#     name: "Den Table Lamp (without Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_table_lamp
-#     disable_brightness_adjust: true
+  - platform: circadian_lighting
+    name: "Den Table Lamp (without Brightness Adjustment)"
+    lights_ct:
+      - light.den_table_lamp
+    disable_brightness_adjust: true
 
-#   - platform: circadian_lighting
-#     name: "Den Table Lamp (with Brightness Adjustment)"
-#     lights_ct:
-#       - light.den_table_lamp
-#     disable_brightness_adjust: false
-#     min_brightness: 1
+  - platform: circadian_lighting
+    name: "Den Table Lamp (with Brightness Adjustment)"
+    lights_ct:
+      - light.den_table_lamp
+    disable_brightness_adjust: false
+    min_brightness: 1

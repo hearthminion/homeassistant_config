@@ -36,7 +36,7 @@
               entities:
                 - entity: binary_sensor.user0002_status
                 - entity: person.user0002
-            - break
+            - type: custom:layout-break
 # ======================================================================
 #
 # Column 1: Device Status
@@ -66,7 +66,7 @@
                     highlights: [{"from": 70, "to": 100,"color": "rgba(50, 200, 50, .75)"},{"from": 0, "to": 20,"color": "rgba(200, 50, 50, .75)"}]
                     borders: true
                     barBeginCircle: false
-            - break
+            - type: custom:layout-break
             - type: history-graph
               title: Phone
               entities:

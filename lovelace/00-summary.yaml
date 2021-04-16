@@ -59,7 +59,7 @@
                       state: 'on'
                     - entity_id: "sensor.garbage_day"
                       state: '1'
-              - break
+              - type: custom:layout-break
 # ==================================================================================================
 #
 # Column 2
@@ -78,7 +78,7 @@
                 entity: sensor.speedtest_download
                 name: Speedtest
                 max: 220
-              - break
+              - type: custom:layout-break
 # ==================================================================================================
 #
 # Column 3

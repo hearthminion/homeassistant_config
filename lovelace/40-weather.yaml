@@ -136,7 +136,7 @@
                       borderShadowWidth: 0
                       animationDuration: 1500
 
-              - break
+              - type: custom:layout-break
 
               - type: entities
                 title: Current Weather
@@ -148,7 +148,7 @@
                   - entity: sensor.openweathermap_snow
                   - entity: sensor.nws_precip_probability
                   
-              - break
+              - type: custom:layout-break
               - type: horizontal-stack
                 cards:
                   - type: sensor

@@ -35,7 +35,7 @@
                   - entity: light.living_area_ceiling
                   - entity: light.main_room
 
-              - break
+              - type: custom:layout-break
 
               - type: entities
                 title: Master Bedroom
@@ -60,7 +60,7 @@
                 entities:
                   - entity: light.hallway
 
-              - break
+              - type: custom:layout-break
 
               - type: entities
                 title: Bedroom 2
@@ -82,7 +82,7 @@
                 entities:
                   - entity: light.bathroom_2
 
-              - break
+              - type: custom:layout-break
 
               - type: entities
                 title: Basement

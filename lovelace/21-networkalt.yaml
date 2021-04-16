@@ -39,7 +39,7 @@
                     entity: binary_sensor.lelantos
                   - type: entity-button
                     entity: binary_sensor.uranus
-              - break
+              - type: custom:layout-break
 
 # ======================================================================
 #
@@ -111,7 +111,7 @@
                   - type: entity-button
                     entity: vacuum.roomba
 
-              - break
+              - type: custom:layout-break
 
 # ======================================================================
 #
@@ -148,7 +148,7 @@
                     entity: binary_sensor.salvation
                   - type: entity-button
                     entity: binary_sensor.warspite
-              - break
+              - type: custom:layout-break
 # ======================================================================
 #
 # Column 4:

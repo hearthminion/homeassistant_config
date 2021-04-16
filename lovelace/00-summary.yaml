@@ -73,6 +73,7 @@
                   - entity: sensor.utc
                   - entity: sensor.sensehat_temperature
                   - entity: sensor.sensehat_humidity
+                  - entity: sensor.sensehat_pressure
               - type: gauge
                 entity: sensor.speedtest_download
                 name: Speedtest

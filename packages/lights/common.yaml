@@ -121,34 +121,34 @@ automation:
         option: "Guests"
       service: input_select.select_option
 
-  - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
-    #initial_state: false
-    description: "This allows switches to turn on to the correct color temp and brightness"
-    trigger:
-      - platform: time_pattern
-        minutes: "/5"
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-    action:
-        service: script.light_update_scene_homeassistant_circadian
+  # - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
+  #   #initial_state: false
+  #   description: "This allows switches to turn on to the correct color temp and brightness"
+  #   trigger:
+  #     - platform: time_pattern
+  #       minutes: "/5"
+  #   condition:
+  #     condition: and
+  #     conditions:
+  #       - condition: template
+  #         value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+  #   action:
+  #       service: script.light_update_scene_homeassistant_circadian
 
-  - alias: "[Light] Update 'HomeAssistant' scene for darken house"
-    #initial_state: false
-    description: "This allows switches to turn on to the correct color temp and brightness"
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        to: "Darken House"
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Darken House') }}"
-    action:
-        service: script.light_update_scene_homeassistant_darkenhouse
+  # - alias: "[Light] Update 'HomeAssistant' scene for darken house"
+  #   #initial_state: false
+  #   description: "This allows switches to turn on to the correct color temp and brightness"
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_select.light_mode
+  #       to: "Darken House"
+  #   condition:
+  #     condition: and
+  #     conditions:
+  #       - condition: template
+  #         value_template: "{{ is_state('input_select.light_mode', 'Darken House') }}"
+  #   action:
+  #       service: script.light_update_scene_homeassistant_darkenhouse
 
 # ==================================================================================================
 #

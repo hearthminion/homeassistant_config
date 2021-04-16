@@ -13,7 +13,7 @@
       value_template: "{{ states('sensor.hestia_sensehat_humidity') | float * 9/5 + 32 | round(1) }}"
       unit_of_measurement: '°F'
     sensehat_pressure:
-      value_template: "{{ states('sensor.hestia_sensehat_pressure') | float / 33.864 | round(2) }}"
+      value_template: "{{ states('sensor.hestia_sensehat_pressure') | float / 33.864 }}"
       unit_of_measurement: 'inHg'
     sensehat_humidity:
       value_template: "{{ states('sensor.hestia_sensehat_humidity') | round(1) }}"

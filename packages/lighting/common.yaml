@@ -159,9 +159,9 @@ automation:
 # ==================================================================================================
 adaptive_lighting:
   # Minimum color temperature to set
-  min_colortemp: 2200
+  min_color_temp: 2200
   # Maximum color temperature to set
-  max_colortemp: 6500
+  max_color_temp: 6500
   # Positive/Negative offset to sunrise/sunset
   # String: (-)HH:MM:SS
   # Default: None

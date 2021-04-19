@@ -13,8 +13,28 @@
   device_class: battery
 
 - platform: mqtt
+  name: "hestia_sensehat_temp_c"
   state_topic: "homeassistant/sensor/hestia/sensehat/state"
-  name: "hestia_sensehat"
+  value_template: "{{ value_json.temperature_celcius }}"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: "hestia_sensehat_temp_f"
+  state_topic: "homeassistant/sensor/hestia/sensehat/state"
+  value_template: "{{ value_json.temperature_fahrenheit }}"
+  unit_of_measurement: "°F"
+
+- platform: mqtt
+  name: "hestia_sensehat_pressure_mbar"
+  state_topic: "homeassistant/sensor/hestia/sensehat/state"
+  value_template: "{{ value_json.pressure_mbar }}"
+  unit_of_measurement: "mbar"
+
+- platform: mqtt
+  name: "hestia_sensehat_pressure_inhg"
+  state_topic: "homeassistant/sensor/hestia/sensehat/state"
+  value_template: "{{ value_json.pressure_inhg }}"
+  unit_of_measurement: "inHg"
 
 - platform: mqtt
   state_topic: "homeassistant/sensor/hestia/sensehat/temperature"

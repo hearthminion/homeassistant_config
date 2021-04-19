@@ -37,8 +37,8 @@
   unit_of_measurement: "inHg"
 
 - platform: mqtt
-  state_topic: "homeassistant/sensor/hestia/sensehat/pressure"
-  name: "hestia_sensehat_pressure"
+  state_topic: "homeassistant/sensor/hestia/sensehat/state"
+  name: "hestia_sensehat_humidity"
   value_template: "{{ value_json.humidity }}"
   unit_of_measurement: "%"
 

@@ -14,23 +14,23 @@
 adaptive_lighting:
   - name: "Basement"
     lights:
-      - lights.basement
+      - light.basement
     min_color_temp: 2200
     max_color_temp: 6500
 
 automation:
   - id: '1587762496178'
-     initial_state: false
-     alias: '[Light] Basement: Turn Off Lights At Night'
-     description: ''
-     trigger:
-       - at: '21:30'
-         platform: time
-     condition: []
-     action:
-       - service: light.turn_off
-         data:
-           entity_id: light.basement
+    initial_state: false
+    alias: '[Light] Basement: Turn Off Lights At Night'
+    description: ''
+    trigger:
+      - at: '21:30'
+        platform: time
+    condition: []
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.basement
 
 # ======================================================================
 #

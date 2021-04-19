@@ -22,7 +22,7 @@
 adaptive_lighting:
   - name: "Master Bedroom Lamp 2"
     lights:
-      - light.master_bedroom__lamp_2
+      - light.master_bedroom_lamp_2
     initial_transition: 0
     min_color_temp: 2200
     max_color_temp: 6500

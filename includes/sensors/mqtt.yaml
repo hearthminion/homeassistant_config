@@ -13,6 +13,10 @@
   device_class: battery
 
 - platform: mqtt
+  state_topic: "homeassistant/sensor/hestia/sensehat/state"
+  name: "hestia_sensehat"
+
+- platform: mqtt
   state_topic: "homeassistant/sensor/hestia/sensehat/temperature"
   name: "hestia_sensehat_temperature"
 

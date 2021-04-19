@@ -1,33 +1,42 @@
-# # ==================================================================================================
-# #
-# # Master Bedroom Light Configuration
-# #
-# # Lights:
-# #   light.main_lamp_1: Master Bedroom Lamp 1 Lightbulb 1
-# #   light.main_lamp_2: Master Bedroom Lamp 2 Lightbulb 1
-# #   light.main_lamp_4: Master Bedroom Ceiling Lightbulb 2
-# #   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
-# #   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
-# #   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
-# #
-# # Light Groups:
-# #   - light.den_couch_lamp_1
-# #   - light.den_couch_lamp_2
-# #   - light.den_ceiling
-# #   - light.den_fireplace
-# #   - light.den_tower_lamp
-# #   - light.den_table_lamp
-# #
-# # ==================================================================================================
+# ==================================================================================================
+#
+# Master Bedroom Light Configuration
+#
+# Lights:
+#   light.main_lamp_1: Master Bedroom Lamp 1 Lightbulb 1
+#   light.main_lamp_2: Master Bedroom Lamp 2 Lightbulb 1
+#   light.main_lamp_4: Master Bedroom Ceiling Lightbulb 2
+#   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
+#   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
+#   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "Master Bedroom Lamp 2"
+    lights:
+      - light.master_bedroom__lamp_2
+    initial_transition: 0
+    min_color_temp: 2200
+    max_color_temp: 6500
+    take_over_control: true
+    detect_non_ha_changes: true
 
-# # ==================================================================================================
-# #
-# # Automations
-# #
-# #
-# #
-# # ==================================================================================================
-# automation:
+# ==================================================================================================
+#
+# Automations
+#
+#
+#
+# ==================================================================================================
+automation:
 #   # ======================================================================
 #   #
 #   # Light fixture: Master Ceiling Lights
@@ -211,18 +220,18 @@
 #           entity_id:
 #             - switch.circadian_lighting_master_bedroom_lamp_1_with_brightness_adjustment
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Master Bedroom Lamp 2
-#   #
-#   # Lights:
-#   #   -
-#   #   -
-#   #
-#   # Automations:
-#   #   - 
-#   #
-#   # ================================================================================================
+  # ================================================================================================
+  #
+  # Light fixture: Master Bedroom Lamp 2
+  #
+  # Lights:
+  #   -
+  #   -
+  #
+  # Automations:
+  #   - 
+  #
+  # ================================================================================================
 #   - id: "1577577061265"
 #     alias: "[Light] Master Bedroom Lamp 2: Circadian Lighting (with Brightness Adjustment)"
 #     description: ""
@@ -288,18 +297,18 @@
 #       - entity_id: input_boolean.special_migraine_mode
 #         service: input_boolean.turn_on
 
-#   - id: "1583021078875"
-#     alias: "[Light] Master Bedroom Lamp 2 at Night"
-#     description: "Turn on Master Bedroom Lamp 2 at night"
-#     initial_state: false
-#     trigger:
-#       - event: sunset
-#         platform: sun
-#     condition: []
-#     action:
-#       - data: {}
-#         entity_id: light.master_bedroom_lamp_2
-#         service: light.turn_on
+  - id: "1583021078875"
+    alias: "[Light] Master Bedroom Lamp 2 at Night"
+    description: "Turn on Master Bedroom Lamp 2 at night"
+    initial_state: false
+    trigger:
+      - event: sunset
+        platform: sun
+    condition: []
+    action:
+      - data: {}
+        entity_id: light.master_bedroom_lamp_2
+        service: light.turn_on
 #   # ================================================================================================
 #   #
 #   # Light fixture: Master Closet

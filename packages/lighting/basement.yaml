@@ -15,8 +15,11 @@ adaptive_lighting:
   - name: "Basement"
     lights:
       - light.basement
+    initial_transition: 0
     min_color_temp: 2200
     max_color_temp: 6500
+    take_over_control: true
+    detect_non_ha_changes: true
 
 automation:
   - id: '1587762496178'
@@ -95,12 +98,12 @@ input_select:
 # 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
 #
 # ==================================================================================================
-rest_command:
-  light_update_basement_scene_homeassistant:
-    url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-    method: put
-    payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
-    verify_ssl: false
+# rest_command:
+#   light_update_basement_scene_homeassistant:
+#     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+#     method: put
+#     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
+#     verify_ssl: false
 
 # ======================================================================
 #
@@ -190,6 +193,7 @@ scene:
           - 0.689
           - 0.309
         brightness: 64
+
   - id: "1576960043395"
     name: "Basement: Migraine"
     entities:
@@ -258,4 +262,3 @@ scene:
           - 0.17
           - 0.7
         brightness: 128
-

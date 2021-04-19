@@ -1,40 +1,49 @@
-# # ==================================================================================================
-# #
-# # Den Lighting Configuration
-# #
-# # Lights:
-# #   - light.den_ceiling_bulb
-# #     light id: 8
-# #   - light.den_couch_lamp_1_bulb
-# #     light id: 7
-# #   - light.den_couch_lamp_2_bulb
-# #     light id: 6
-# #   - light.den_fireplace_bulb
-# #     light id: 25
-# #   - light.dining_area_ceiling_bulb
-# #     light id: 31
-# #   - light.entryway_ceiling_bulb
-# #     light id: 13
-# #   - light.kitchen_ceiling_bulb
-# #     light id: 10
-# #   - light.kitchen_island_ceiling_bulb
-# #     light id: 24
-# #   - light.living_area_ceiling_bulb
-# #     light id: 26
-# #
-# # Light Groups:
-# #   - light.den_ceiling
-# #   - light.den_couch_lamp_1
-# #   - light.den_couch_lamp_2
-# #   - light.den_fireplace
-# #   - light.dining_area_ceiling
-# #   - light.entryway_ceiling
-# #   - light.kitchen_ceiling
-# #   - light.kitchen_island_ceiling
-# #   - light.living_area_ceiling
-# #   - light.main_room
-# #
-# # ==================================================================================================
+# ==================================================================================================
+#
+# Den Lighting Configuration
+#
+# Lights:
+#   - light.den_ceiling_bulb
+#     light id: 8
+#   - light.den_couch_lamp_1_bulb
+#     light id: 7
+#   - light.den_couch_lamp_2_bulb
+#     light id: 6
+#   - light.den_fireplace_bulb
+#     light id: 25
+#   - light.dining_area_ceiling_bulb
+#     light id: 31
+#   - light.entryway_ceiling_bulb
+#     light id: 13
+#   - light.kitchen_ceiling_bulb
+#     light id: 10
+#   - light.kitchen_island_ceiling_bulb
+#     light id: 24
+#   - light.living_area_ceiling_bulb
+#     light id: 26
+#
+# Light Groups:
+#   - light.den_ceiling
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_fireplace
+#   - light.dining_area_ceiling
+#   - light.entryway_ceiling
+#   - light.kitchen_ceiling
+#   - light.kitchen_island_ceiling
+#   - light.living_area_ceiling
+#   - light.main_room
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "Den Couch Lamp 2"
+    lights:
+      - light.den_couch_lamp_2
+    initial_transition: 0
+    min_color_temp: 2200
+    max_color_temp: 6500
+    take_over_control: true
+    detect_non_ha_changes: true
 
 # # ==================================================================================================
 # #

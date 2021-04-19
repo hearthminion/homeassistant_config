@@ -10,7 +10,7 @@
 - platform: template
   sensors:
     sensehat_temperature:
-      value_template: "{{ states('sensor.hestia_sensehat_temperature_fahrenheit') }}"
+      value_template: "{{ states('sensor.hestia_sensehat_temp_f') }}"
       unit_of_measurement: "°F"
     sensehat_pressure:
       value_template: "{{ states('sensor.hestia_sensehat_pressure_inHg') }}"

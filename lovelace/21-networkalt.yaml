@@ -158,21 +158,36 @@
                 cards:
                   - type: markdown
                     content: "Z-Wave"
-              - type: horizontal-stack
-                cards:
-                  - type: entity-button
-                    entity: switch.power_strip_01_switch
-                  - type: entity-button
-                    entity: switch.power_strip_02_switch
-                  - type: entity-button
-                    entity: switch.power_strip_03_switch
-                  - type: entity-button
-                    entity: switch.power_strip_04_switch
-              - type: horizontal-stack
-                cards:
-                  - type: entity-button
-                    entity: switch.power_switch_01_switch
-                  - type: entity-button
-                    entity: switch.14284_outdoor_smart_switch_switch
-                  - type: entity-button
-                    entity: switch.28169_plug_in_one_outlet_smart_switch_switch
+              - type: entities
+                entities:
+                  - entity: switch.nodeid_2_switch_1
+                  - entity: switch.nodeid_2_switch_2
+                  - entity: switch.nodeid_2_switch_3
+                  - entity: switch.nodeid_2_switch_4
+                  - entity: switch.nodeid_2_switch_5
+              - type: entities
+                entities:
+                  - entity: switch.nodeid_3_switch_1
+                  - entity: switch.nodeid_3_switch_2
+                  - entity: switch.nodeid_3_switch_3
+                  - entity: switch.nodeid_3_switch_4
+                  - entity: switch.nodeid_3_switch_5
+              - type: entities
+                entities:
+                  - entity: switch.nodeid_4_switch_1
+                  - entity: switch.nodeid_4_switch_2
+                  - entity: switch.nodeid_4_switch_3
+                  - entity: switch.nodeid_4_switch_4
+                  - entity: switch.nodeid_4_switch_5
+              - type: entities
+                entities:
+                  - entity: switch.nodeid_5_switch_1
+                  - entity: switch.nodeid_5_switch_2
+                  - entity: switch.nodeid_5_switch_3
+                  - entity: switch.nodeid_5_switch_4
+                  - entity: switch.nodeid_5_switch_5
+              - type: entities
+                entities:
+                  - entity: switch.nodeid_6_switch
+                  - entity: switch.nodeid_7_switch
+                  - entity: switch.nodeid_8_switch

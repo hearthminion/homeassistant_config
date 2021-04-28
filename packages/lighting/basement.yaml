@@ -1,0 +1,246 @@
+# ======================================================================
+#
+# Basement
+#
+# Lights:
+#   - light.basement_lamp_
+#   - light.basement_lamp_
+#   - light.basement_lamp_
+#
+# Light Groups:
+#   - light.basement
+#
+# ======================================================================
+adaptive_lighting:
+  - name: "Basement"
+    lights:
+      - light.basement
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+    take_over_control: true
+    detect_non_ha_changes: true
+
+automation:
+  - id: '1587762496178'
+    initial_state: false
+    alias: '[Light] Basement: Turn Off Lights At Night'
+    description: ''
+    trigger:
+      - at: '21:30'
+        platform: time
+    condition: []
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.basement
+
+# ======================================================================
+#
+#
+#
+# ======================================================================
+input_select:
+  hue_scene_basement_bedroom:
+    name: "[Light] Hue Basement Scene"
+    icon: mdi:palette
+    initial: "Circadian"
+    options:
+      - Arctic aurora
+      - Sevanna sunset
+      - Tropical twilight
+      - Spring blossom
+      - Relax
+      - Read
+      - Concentrate
+      - Energize
+      - Bright
+      - Dimmed
+      - Nightlight
+      - Motown
+      - Midsomer Sun
+      - Midwinter
+      - Ocean Dawn
+      - Emerald Isle
+      - Mountain Breeze
+      - Spring lake
+      - Moonlight
+      - Starlight
+      - Soho
+      - Golden Pond
+      - Frosty Dawn
+      - Fairfax
+      - Autumn Gold
+      - Palm Beach
+      - Lake Mist
+      - Chinatown
+      - Tokyo
+      - Sunday Morning
+      - Ibiza
+      - Nebula
+      - Galaxy
+      - Ruby Glow
+      - Winter mountain
+      - Blue Lagoon
+      - Honolulu
+      - Lake Placid
+      - Osaka
+      - Sundowner
+      - Blood Moon
+      - Circadian
+      - Night Mode
+      - Migraine
+
+# ==================================================================================================
+#
+# Rest Command
+#
+# 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
+#
+# ==================================================================================================
+# rest_command:
+#   light_update_basement_scene_homeassistant:
+#     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+#     method: put
+#     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
+#     verify_ssl: false
+
+# ======================================================================
+#
+# Scenes
+#
+# Notes:
+#
+# Brightness settings:
+#  100% = 255
+#   75% = 192
+#   50% = 128
+#   25% =  64
+#
+# Colors:
+#   Red = xy [0.689,0.309]
+# Green = xy [0.17,0.7]
+#
+# ======================================================================
+scene:
+  - id: "1587760070294"
+    name: "[Light] Enable Basement Automations"
+    entities:
+      automation.light_basement_turn_off_lights_at_night:
+        state: "on"
+
+  - id: "1576892024578"
+    name: "Basement: Darken Room"
+    entities:
+      light.hue_color_lamp_2_2:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.basement_bulb_1:
+        state: "off"
+      light.basement_lamp_2:
+        state: "off"
+      light.basement_lamp_3:
+        state: "off"
+      light.basement_stairwell_bulb:
+        state: "off"
+      light.cave_lamp_2_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.den_ceiling_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_3:
+        state: "off"
+      light.den_lamp_1_bulb:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.hue_ambiance_lamp_2:
+        state: "off"
+      light.hue_color_lamp_1:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.hue_color_lamp_2:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.hue_color_lamp_3:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+
+  - id: "1576960043395"
+    name: "Basement: Migraine"
+    entities:
+      light.hue_color_lamp_2_2:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
+      light.basement_bulb_1:
+        state: "off"
+      light.basement_bulb_2:
+        state: "off"
+      light.basement_bulb_3:
+        state: "off"
+      light.basement_lamp_2:
+        state: "off"
+      light.basement_lamp_3:
+        state: "off"
+      light.basement_stairwell_bulb:
+        state: "off"
+      light.cave_lamp_2_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
+      light.den_ceiling_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_3:
+        state: "off"
+      light.den_lamp_1_bulb:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
+      light.hue_ambiance_lamp_2:
+        state: "off"
+      light.hue_color_lamp_1:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
+      light.hue_color_lamp_2:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128
+      light.hue_color_lamp_3:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 128

@@ -8,9 +8,9 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 2021.4.4
-# Version: 2021.4.1
+# Version: 2021.4.2
 # Package-Requires: ()
-# Last-Updated: Mon Dec  7 11:00 2020 (-0500)
+# Last-Updated: Mon Apr  28 13:30 2021 (-0500)
 #           By: Geoff S Derber
 #     Update #: 66
 # URL: https://github.com/hearthminion/homeassistant/
@@ -121,16 +121,16 @@ logger: !include includes/system/logger.yaml
 recorder: !include includes/system/recorder.yaml
 system_log: !include includes/system/system_log.yaml
 
-calendar:
-  - platform: caldav
-    username: !secret caldav_username
-    password: !secret caldav_password
-    url: !secret caldav_url
-    verify_ssl: false
-    custom_calendars:
-      - name: Migraine
-        calendar: "Migraine Log"
-        search: ".*"
+# calendar:
+#   - platform: caldav
+#     username: !secret caldav_username
+#     password: !secret caldav_password
+#     url: !secret caldav_url
+#     verify_ssl: false
+#     custom_calendars:
+#       - name: Migraine
+#         calendar: "Migraine Log"
+#         search: ".*"
 
 device_tracker:
   - platform: bluetooth_tracker

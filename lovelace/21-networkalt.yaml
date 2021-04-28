@@ -158,59 +158,36 @@
                 cards:
                   - type: markdown
                     content: "Z-Wave"
-              - type: horizontal-stack
+              - type: entities
                 cards:
-                  - type: entity-button
-                    entity: switch.nodeid_2_switch_1
-                  - type: entity-button
-                    entity: switch.nodeid_2_switch_2
-                  - type: entity-button
-                    entity: switch.nodeid_2_switch_3
-                  - type: entity-button
-                    entity: switch.nodeid_2_switch_4
-                  - type: entity-button
-                    entity: switch.nodeid_2_switch_5
-              - type: horizontal-stack
+                  - entity: switch.nodeid_2_switch_1
+                  - entity: switch.nodeid_2_switch_2
+                  - entity: switch.nodeid_2_switch_3
+                  - entity: switch.nodeid_2_switch_4
+                  - entity: switch.nodeid_2_switch_5
+              - type: entities
                 cards:
-                  - type: entity-button
                     entity: switch.nodeid_3_switch_1
-                  - type: entity-button
                     entity: switch.nodeid_3_switch_2
-                  - type: entity-button
                     entity: switch.nodeid_3_switch_3
-                  - type: entity-button
                     entity: switch.nodeid_3_switch_4
-                  - type: entity-button
                     entity: switch.nodeid_3_switch_5
-              - type: horizontal-stack
+              - type: entities
                 cards:
-                  - type: entity-button
                     entity: switch.nodeid_4_switch_1
-                  - type: entity-button
                     entity: switch.nodeid_4_switch_2
-                  - type: entity-button
                     entity: switch.nodeid_4_switch_3
-                  - type: entity-button
                     entity: switch.nodeid_4_switch_4
-                  - type: entity-button
                     entity: switch.nodeid_4_switch_5
-              - type: horizontal-stack
+              - type: entities
                 cards:
-                  - type: entity-button
                     entity: switch.nodeid_5_switch_1
-                  - type: entity-button
                     entity: switch.nodeid_5_switch_2
-                  - type: entity-button
                     entity: switch.nodeid_5_switch_3
-                  - type: entity-button
                     entity: switch.nodeid_5_switch_4
-                  - type: entity-button
                     entity: switch.nodeid_5_switch_5
-              - type: horizontal-stack
+              - type: entities
                 cards:
-                  - type: entity-button
                     entity: switch.nodeid_6_switch
-                  - type: entity-button
                     entity: switch.nodeid_7_switch
-                  - type: entity-button
                     entity: switch.nodeid_8_switch

@@ -161,18 +161,56 @@
               - type: horizontal-stack
                 cards:
                   - type: entity-button
-                    entity: switch.power_strip_01_switch
+                    entity: switch.nodeid_2_switch_1
                   - type: entity-button
-                    entity: switch.power_strip_02_switch
+                    entity: switch.nodeid_2_switch_2
                   - type: entity-button
-                    entity: switch.power_strip_03_switch
+                    entity: switch.nodeid_2_switch_3
                   - type: entity-button
-                    entity: switch.power_strip_04_switch
+                    entity: switch.nodeid_2_switch_4
+                  - type: entity-button
+                    entity: switch.nodeid_2_switch_5
               - type: horizontal-stack
                 cards:
                   - type: entity-button
-                    entity: switch.power_switch_01_switch
+                    entity: switch.nodeid_3_switch_1
                   - type: entity-button
-                    entity: switch.14284_outdoor_smart_switch_switch
+                    entity: switch.nodeid_3_switch_2
                   - type: entity-button
-                    entity: switch.28169_plug_in_one_outlet_smart_switch_switch
+                    entity: switch.nodeid_3_switch_3
+                  - type: entity-button
+                    entity: switch.nodeid_3_switch_4
+                  - type: entity-button
+                    entity: switch.nodeid_3_switch_5
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: switch.nodeid_4_switch_1
+                  - type: entity-button
+                    entity: switch.nodeid_4_switch_2
+                  - type: entity-button
+                    entity: switch.nodeid_4_switch_3
+                  - type: entity-button
+                    entity: switch.nodeid_4_switch_4
+                  - type: entity-button
+                    entity: switch.nodeid_4_switch_5
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: switch.nodeid_5_switch_1
+                  - type: entity-button
+                    entity: switch.nodeid_5_switch_2
+                  - type: entity-button
+                    entity: switch.nodeid_5_switch_3
+                  - type: entity-button
+                    entity: switch.nodeid_5_switch_4
+                  - type: entity-button
+                    entity: switch.nodeid_5_switch_5
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: switch.nodeid_6_switch
+                  - type: entity-button
+                    entity: switch.nodeid_7_switch
+                  - type: entity-button
+                    entity: switch.nodeid_8_switch

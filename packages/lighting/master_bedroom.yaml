@@ -23,7 +23,7 @@ adaptive_lighting:
   - name: "Master Bedroom Lamp 2"
     lights:
       - light.master_bedroom_lamp_2
-    initial_transition: 0
+    initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
     take_over_control: true
@@ -589,21 +589,17 @@ automation:
 # #
 # # ======================================================================
 
-# # ======================================================================
-# #
-# # Scenes
-# #
-# # ======================================================================
-# scene:
-#   - id: '1587750936415'
-#     name: "[Light] Enable Master Bedroom Automations"
-#     entities:
-#       automation.light_master_bedroom_lamp_2_at_night:
-#         state: 'on'
-#       automation.light_master_bedroom_lamp_2_circadian_lighting_with_brightness_adjustment:
-#         state: 'on'
-#       automation.light_master_bedroom_lamp_2_circadian_lighting_without_brightness_adjustment:
-#         state: 'on'
+# ======================================================================
+#
+# Scenes
+#
+# ======================================================================
+scene:
+  - id: '1587750936415'
+    name: "[Light] Enable Master Bedroom Automations"
+    entities:
+      automation.light_master_bedroom_lamp_2_at_night:
+        state: 'on'
 
 # #   - id: "1576887377088"
 # #     name: "[Light] Master Bedroom: Migraine"

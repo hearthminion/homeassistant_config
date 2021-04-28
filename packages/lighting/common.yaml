@@ -14,18 +14,17 @@ homeassistant:
 #
 # ==================================================================================================
 automation:
-  # - id: "1587755245580"
-  #   alias: "Enable Light Automations"
-  #   description: ""
-  #   trigger:
-  #     - event: start
-  #       platform: homeassistant
-  #   condition: []
-  #   action:
-  #     - scene: scene.light_enable_basement_automations
-  #     - scene: scene.light_enable_common_automations
-  #     - scene: scene.light_enable_den_automations
-  #     - scene: scene.light_enable_master_bedroom_automations
+  - id: "1587755245580"
+    alias: "Enable Light Automations"
+    description: ""
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.light_enable_basement_automations
+      - scene: scene.light_enable_common_automations
+      - scene: scene.light_enable_master_bedroom_automations
 
   # ================================================================================================
   #
@@ -96,30 +95,30 @@ automation:
           entity_id: input_select.light_mode
           option: "Migraine"
 
-  # # ================================================================================================
-  # #
-  # # Set Lighting Mode: Guests
-  # #
-  # # Trigger:
-  # # - Input Boolean: Special Guest Mode is set to true
-  # #
-  # # Actions:
-  # # -
-  # #
-  # # ================================================================================================
-  # - alias: "[Light] Set Light Mode: Guests"
-  #   description: ""
-  #   trigger:
-  #   - platform: state
-  #     entity_id: input_boolean.special_guest_present
-  #     from: "off"
-  #     to: "on"
-  #   condition: []
-  #   action:
-  #     data:
-  #       entity_id: input_select.light_mode
-  #       option: "Guests"
-  #     service: input_select.select_option
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Guests
+  #
+  # Trigger:
+  # - Input Boolean: Special Guest Mode is set to true
+  #
+  # Actions:
+  # -
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Guests"
+    description: ""
+    trigger:
+    - platform: state
+      entity_id: input_boolean.special_guest_present
+      from: "off"
+      to: "on"
+    condition: []
+    action:
+      data:
+        entity_id: input_select.light_mode
+        option: "Guests"
+      service: input_select.select_option
 
   # - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
   #   #initial_state: false
@@ -152,43 +151,6 @@ automation:
 
 # ==================================================================================================
 #
-# Custom Component: Adaptive Lighting
-#
-# https://github.com/basnijholt/adaptive-lighting/
-#
-# ==================================================================================================
-adaptive_lighting:
-  # Minimum color temperature to set
-  min_color_temp: 2200
-  # Maximum color temperature to set
-  max_color_temp: 6500
-  # Positive/Negative offset to sunrise/sunset
-  # String: (-)HH:MM:SS
-  # Default: None
-  #sunrise_offset:
-  #sunset_offset
-  # Time for sunrise / sunset
-  # Time: HH:MM:SS
-  # Default: Actual Sunrise/Sunset time
-  #sunrise_time:
-  #sunset_time:
-  # Latitude / Longitude / Elevation
-  # Lat and Long used to determine sunrise / sunset / elevation
-  # Default: Use Home Assistant Provided lat, long, elevation
-  #latitudue:
-  #longitude:
-  #elevation:
-  # Frequency at which the lights should be updated
-  # Positive Integer: # (Seconds)
-  # Default: 300 (300 seconds = 5 minutes)
-  #interval:
-  # Transition time for light changes
-  # Float: # (Seconds)
-  # Default: 60 (60 seconds =  1 minute)
-  #transition
-
-# ==================================================================================================
-#
 # Input select
 #
 # ==================================================================================================
@@ -211,12 +173,12 @@ input_select:
 # Light Groups
 #
 # ==================================================================================================
-# light:
-#   - platform: group
-#     name: All lights
-#     entities:
-#       - light.basement
-#       - light.main_floor
+light:
+  - platform: group
+    name: All lights
+    entities:
+      - light.basement
+      - light.main_floor
 #   - platform: template
 #     lights:
 #       circadian_light:

@@ -15,7 +15,7 @@ adaptive_lighting:
   - name: "Basement"
     lights:
       - light.basement
-    initial_transition: 0
+    initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
     take_over_control: true
@@ -113,7 +113,7 @@ input_select:
 #
 # Brightness settings:
 #  100% = 255
-#   75% = 
+#   75% = 192
 #   50% = 128
 #   25% =  64
 #

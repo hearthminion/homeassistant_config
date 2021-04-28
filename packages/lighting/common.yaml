@@ -1,125 +1,124 @@
-# # ==================================================================================================
-# #
-# # common settings
-# #
-# # ==================================================================================================
-# homeassistant:
-#   customize_glob:
-#     "light.*bulb*":
-#       hidden:  true
+# ==================================================================================================
+#
+# common settings
+#
+# ==================================================================================================
+homeassistant:
+  customize_glob:
+    "light.*bulb*":
+      hidden:  true
 
-# # ==================================================================================================
-# #
-# # automations
-# #
-# # ==================================================================================================
-# automation:
-#   # - id: "1587755245580"
-#   #   alias: "Enable Light Automations"
-#   #   description: ""
-#   #   trigger:
-#   #     - event: start
-#   #       platform: homeassistant
-#   #   condition: []
-#   #   action:
-#   #     - scene: scene.light_enable_basement_automations
-#   #     - scene: scene.light_enable_common_automations
-#   #     - scene: scene.light_enable_den_automations
-#   #     - scene: scene.light_enable_master_bedroom_automations
+# ==================================================================================================
+#
+# automations
+#
+# ==================================================================================================
+automation:
+  - id: "1587755245580"
+    alias: "Enable Light Automations"
+    description: ""
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.light_enable_basement_automations
+      - scene: scene.light_enable_common_automations
+      - scene: scene.light_enable_master_bedroom_automations
 
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Circadian
-#   #
-#   # Trigger:
-#   # - In the morning when the sun rises to 18 degrees below the horizon
-#   #   enable
-#   #
-#   # Actions:
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Set Light Mode: Circadian"
-#     description: ""
-#     trigger:
-#       - platform: numeric_state
-#         entity_id: sun.sun
-#         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-#         above: -18
-#     action:
-#       - service: input_select.select_option
-#         data_template:
-#           entity_id: input_select.light_mode
-#           option: "Circadian"
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Circadian
+  #
+  # Trigger:
+  # - In the morning when the sun rises to 18 degrees below the horizon
+  #   enable
+  #
+  # Actions:
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Circadian"
+    description: ""
+    trigger:
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        above: -18
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Circadian"
 
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Darken House
-#   #
-#   # Trigger:
-#   # - When the timer that begins the nighttime routine finishes
-#   #
-#   # Actions:
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Set Light Mode: Darken House"
-#     description: ""
-#     trigger:
-#       - platform: event
-#         event_type: timer.finished
-#         event_data:
-#           entity_id: timer.lights_off
-#     condition: []
-#     action:
-#       - service: input_select.select_option
-#         data_template:
-#           entity_id: input_select.light_mode
-#           option: "Darken House"
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Darken House
+  #
+  # Trigger:
+  # - When the timer that begins the nighttime routine finishes
+  #
+  # Actions:
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Darken House"
+    description: ""
+    trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.lights_off
+    condition: []
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Darken House"
 
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Migraine
-#   #
-#   # Trigger:
-#   # - Input Boolean: Special Migraine Mode is set to true
-#   #
-#   # Actions:
-#   # - 
-#   # ================================================================================================
-#   - alias: "[Light] Set Light Mode: Migraine"
-#     trigger:
-#       platform: state
-#       entity_id: input_boolean.special_migraine_mode
-#       to: "on"
-#     action:
-#       - service: input_select.select_option
-#         data_template:
-#           entity_id: input_select.light_mode
-#           option: "Migraine"
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Migraine
+  #
+  # Trigger:
+  # - Input Boolean: Special Migraine Mode is set to true
+  #
+  # Actions:
+  # - 
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Migraine"
+    trigger:
+      platform: state
+      entity_id: input_boolean.special_migraine_mode
+      to: "on"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Migraine"
 
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Guests
-#   #
-#   # Trigger:
-#   # - Input Boolean: Special Guest Mode is set to true
-#   #
-#   # Actions:
-#   # -
-#   #
-#   # ================================================================================================
-#   - alias: "[Light] Set Light Mode: Guests"
-#     description: ""
-#     trigger:
-#     - platform: state
-#       entity_id: input_boolean.special_guest_present
-#       from: "off"
-#       to: "on"
-#     condition: []
-#     action:
-#       data:
-#         entity_id: input_select.light_mode
-#         option: "Guests"
-#       service: input_select.select_option
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Guests
+  #
+  # Trigger:
+  # - Input Boolean: Special Guest Mode is set to true
+  #
+  # Actions:
+  # -
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Guests"
+    description: ""
+    trigger:
+    - platform: state
+      entity_id: input_boolean.special_guest_present
+      from: "off"
+      to: "on"
+    condition: []
+    action:
+      data:
+        entity_id: input_select.light_mode
+        option: "Guests"
+      service: input_select.select_option
 
   # - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
   #   #initial_state: false
@@ -152,71 +151,34 @@
 
 # ==================================================================================================
 #
-# Custom Component: Circadian Lighting
-#
-# https://github.com/claytonjn/hass-circadian_lighting
+# Input select
 #
 # ==================================================================================================
-circadian_lighting:
-  # Minimum color temperature to set
-  min_colortemp: 2200
-  # Maximum color temperature to set
-  max_colortemp: 6500
-  # Positive/Negative offset to sunrise/sunset
-  # String: (-)HH:MM:SS
-  # Default: None
-  #sunrise_offset:
-  #sunset_offset
-  # Time for sunrise / sunset
-  # Time: HH:MM:SS
-  # Default: Actual Sunrise/Sunset time
-  #sunrise_time:
-  #sunset_time:
-  # Latitude / Longitude / Elevation
-  # Lat and Long used to determine sunrise / sunset / elevation
-  # Default: Use Home Assistant Provided lat, long, elevation
-  #latitudue:
-  #longitude:
-  #elevation:
-  # Frequency at which the lights should be updated
-  # Positive Integer: # (Seconds)
-  # Default: 300 (300 seconds = 5 minutes)
-  #interval:
-  # Transition time for light changes
-  # Float: # (Seconds)
-  # Default: 60 (60 seconds =  1 minute)
-  #transition
+input_select:
+  light_mode:
+    name: "Light Mode"
+    options:
+      - "Circadian"
+      - "Darken House"
+      - "Migraine"
+      - "Sleeping (Migraine)"
+      - "Night Out"
+      - "Guests"
+      - "Other"
+    #initial: "Circadian"
+    #icon: "mdi:light"
 
-# # ==================================================================================================
-# #
-# # Input select
-# #
-# # ==================================================================================================
-# input_select:
-#   light_mode:
-#     name: "Light Mode"
-#     options:
-#       - "Circadian"
-#       - "Darken House"
-#       - "Migraine"
-#       - "Sleeping (Migraine)"
-#       - "Night Out"
-#       - "Guests"
-#       - "Other"
-#     #initial: "Circadian"
-#     #icon: "mdi:light"
-
-# # ==================================================================================================
-# #
-# # Light Groups
-# #
-# # ==================================================================================================
-# light:
-#   - platform: group
-#     name: All lights
-#     entities:
-#       - light.basement
-#       - light.main_floor
+# ==================================================================================================
+#
+# Light Groups
+#
+# ==================================================================================================
+light:
+  - platform: group
+    name: All lights
+    entities:
+      - light.basement
+      - light.main_floor
 #   - platform: template
 #     lights:
 #       circadian_light:
@@ -231,24 +193,24 @@ circadian_lighting:
 #           data:
 #             message: "Fake light turned off!"
 
-# #  - platform: sensehat
+#  - platform: sensehat
 
-# # ==================================================================================================
-# #
-# # Scenes
-# #
-# # ==================================================================================================
-# scene:
-#   name: "[Light] Enable Common Automations"
-#   entities:
-#     automation.light_set_light_mode_circadian:
-#       state: 'on'
-#     automation.light_set_light_mode_guests:
-#       state: 'on'
-#     automation.light_set_light_mode_migraine:
-#       state: 'on'
-#     automation.light_set_light_mode_darken_house:
-#       state: 'on'
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+scene:
+  name: "[Light] Enable Common Automations"
+  entities:
+    automation.light_set_light_mode_circadian:
+      state: 'on'
+    automation.light_set_light_mode_guests:
+      state: 'on'
+    automation.light_set_light_mode_migraine:
+      state: 'on'
+    automation.light_set_light_mode_darken_house:
+      state: 'on'
 
 # # ==================================================================================================
 # #
@@ -461,13 +423,13 @@ circadian_lighting:
 # # Sensors
 # #
 # # ==================================================================================================
-sensor:
-  - platform: template
-    sensors:
-      circadian_temperature:
-        friendly_name: "Circadian Color Temperature"
-        value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
-        unit_of_measurement: "°K"
+# sensor:
+#   - platform: template
+#     sensors:
+#       circadian_temperature:
+#         friendly_name: "Circadian Color Temperature"
+#         value_template: "{{ state_attr('sensor.circadian_values','colortemp') | round(0) }}"
+#         unit_of_measurement: "°K"
 #   - platform: template
 #     sensors:
 #       circadian_brightness:

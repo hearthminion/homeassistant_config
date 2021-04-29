@@ -253,6 +253,6 @@ scene:
 sensor:
   - platform: template
     sensors:
-      light_basement_color:
+      light_basement_xy_color:
         friendly_name: "[Light] Basement: XY Color"
         value_template: "{{ state_attr('light.basement_color','xy_color') }}"

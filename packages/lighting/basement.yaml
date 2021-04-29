@@ -130,7 +130,7 @@ scene:
         state: "on"
 
   - id: "1576892024578"
-    name: "Basement: Darken Room"
+    name: "[Light] Basement: Darken Room"
     entities:
       light.hue_color_lamp_2_2:
         state: "on"
@@ -186,7 +186,7 @@ scene:
         brightness: 64
 
   - id: "1576960043395"
-    name: "Basement: Migraine"
+    name: "[Light] Basement: Migraine"
     entities:
       light.hue_color_lamp_2_2:
         state: "on"

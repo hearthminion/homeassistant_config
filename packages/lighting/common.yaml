@@ -3,10 +3,10 @@
 # common settings
 #
 # ==================================================================================================
-homeassistant:
-  customize_glob:
-    "light.*bulb*":
-      hidden:  true
+# homeassistant:
+#   customize_glob:
+#     "light.*bulb*":
+#       hidden:  true
 
 # ==================================================================================================
 #
@@ -15,7 +15,7 @@ homeassistant:
 # ==================================================================================================
 automation:
   - id: "1587755245580"
-    alias: "Enable Light Automations"
+    alias: "[Light] Enable Lighting Automations"
     description: ""
     trigger:
       - event: start
@@ -432,15 +432,4 @@ light:
 #       circadian_brightness_value:
 #         friendly_name: "Circadian Brightness Value"
 #         value_template: "{{ states('sensor.circadian_brightness') | int * 254 // 100 }}"
-        
-# switch:
-#   # ================================
-#   #
-#   # Basementroom
-#   #
-#   # ===============================
-#   - platform: circadian_lighting
-#     name: "circadian_light"
-#     lights_ct:
-#       - light.circadian_light
  

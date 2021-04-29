@@ -186,3 +186,5 @@ scene:
       state: 'on'
     automation.light_set_light_mode_darken_house:
       state: 'on'
+    automation.light_enable_migrain_mode:
+      state: 'on'

@@ -5,17 +5,17 @@
 # - In the morning when the sun rises to 18 degrees below the horizon
 #   enable
 # ======================================================================
-# - id: "1607138332140"
-#   alias: "Turn Off Migraine Mode"
-#   description: ""
-#   trigger:
-#   - at: 04:00:00
-#     platform: time
-#   condition: []
-#   action:
-#   - data:
-#       entity_id: input_boolean.special_migraine_mode
-#     service: input_boolean.turn_off
+- id: "1607138332140"
+  alias: "Turn Off Migraine Mode"
+  description: ""
+  trigger:
+  - at: 04:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.special_migraine_mode
+    service: input_boolean.turn_off
 
 # ======================================================================
 #
@@ -24,92 +24,92 @@
 # - In the morning when the sun rises to 18 degrees below the horizon
 #   enable
 # ======================================================================
-# - id: "1606847390094"
-#   alias: "Start Sleep Timer"
-#   description: "Starts a timer upon going to bed."
-#   trigger:
-#     - platform: time
-#       at: "21:00:00"
-#     - platform: state
-#       entity_id: light.all_lights
-#       to: "off"
-#     - platform: state
-#       entity_id: light.master_bedroom_lamp_1
-#       from: "on"
-#       to: "off"
-#     - platform: state
-#       entity_id: light.master_bedroom_lamp_2
-#       from: "on"
-#       to: "off"
-#   condition:
-#     - condition: time
-#       after: "21:00:00"
-#     - condition: state
-#       entity_id: light.master_bedroom_lamp_2
-#       state: "off"
-#     - condition: state
-#       entity_id: light.master_bedroom_lamp_1
-#       state: "off"
-#   action:
-#     - service: timer.start
-#       data:
-#         entity_id: timer.lights_off
+- id: "1606847390094"
+  alias: "Start Sleep Timer"
+  description: "Starts a timer upon going to bed."
+  trigger:
+    - platform: time
+      at: "21:00:00"
+    - platform: state
+      entity_id: light.all_lights
+      to: "off"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_1
+      from: "on"
+      to: "off"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_2
+      from: "on"
+      to: "off"
+  condition:
+    - condition: time
+      after: "21:00:00"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_2
+      state: "off"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_1
+      state: "off"
+  action:
+    - service: timer.start
+      data:
+        entity_id: timer.lights_off
 
-# - id: "1606847637745"
-#   alias: "Turn off Master Bedroom TV Power"
-#   description: ""
-#   trigger:
-#     - platform: time
-#       at: "21:00:00"
-#     - platform: state
-#       entity_id: sensor.nodeid_4_electric_w_value_3
-#       to: "0"
-#     - platform: state
-#       entity_id: light.master_bedroom_lamp_1
-#       from: "on"
-#       to: "off"
-#     - platform: state
-#       entity_id: light.master_bedroom_lamp_2
-#       from: "on"
-#       to: "off"
-#     - platform: state
-#       entity_id: media_player.samsung_bd_f5900
-#       from: "on"
-#       to: "off"
-#   condition:
-#     - condition: device
-#       device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
-#       domain: media_player
-#       entity_id: media_player.samsung_bd_f5900
-#       type: is_off
-#     - condition: time
-#       after: "21:00:00"
-#     - condition: state
-#       entity_id: light.master_bedroom_lamp_2
-#       state: "off"
-#     - condition: state
-#       entity_id: light.master_bedroom_lamp_1
-#       state: "off"
-#     - condition: numeric_state
-#       entity_id: sensor.nodeid_4_electric_w_value_3
-#       below: "5"
-#   action:
-#     - type: turn_off
-#       device_id: df96863a0f8bfe05ddaba286433fd95b
-#       entity_id: switch.nodeid_4_switch_3
-#       domain: switch
-#   mode: single
+- id: "1606847637745"
+  alias: "Turn off Master Bedroom TV Power"
+  description: ""
+  trigger:
+    - platform: time
+      at: "21:00:00"
+    - platform: state
+      entity_id: sensor.nodeid_4_electric_w_value_3
+      to: "0"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_1
+      from: "on"
+      to: "off"
+    - platform: state
+      entity_id: light.master_bedroom_lamp_2
+      from: "on"
+      to: "off"
+    - platform: state
+      entity_id: media_player.samsung_bd_f5900
+      from: "on"
+      to: "off"
+  condition:
+    - condition: device
+      device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
+      domain: media_player
+      entity_id: media_player.samsung_bd_f5900
+      type: is_off
+    - condition: time
+      after: "21:00:00"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_2
+      state: "off"
+    - condition: state
+      entity_id: light.master_bedroom_lamp_1
+      state: "off"
+    - condition: numeric_state
+      entity_id: sensor.nodeid_4_electric_w_value_3
+      below: "5"
+  action:
+    - type: turn_off
+      device_id: df96863a0f8bfe05ddaba286433fd95b
+      entity_id: switch.nodeid_4_switch_3
+      domain: switch
+  mode: single
 
-# - id: "1607180392829"
-#   alias: "Turn on master bedroom TV power"
-#   description: ""
-#   trigger:
-#     - platform: sun
-#       event: sunrise
-#   condition: []
-#   action:
-#     - type: turn_on
-#       device_id: df96863a0f8bfe05ddaba28643395b
-#       entity_id: switch.nodeid_4_switch_3
-#       domain: switch
-#   mode: single
+- id: "1607180392829"
+  alias: "Turn on master bedroom TV power"
+  description: ""
+  trigger:
+    - platform: sun
+      event: sunrise
+  condition: []
+  action:
+    - type: turn_on
+      device_id: df96863a0f8bfe05ddaba28643395b
+      entity_id: switch.nodeid_4_switch_3
+      domain: switch
+  mode: single

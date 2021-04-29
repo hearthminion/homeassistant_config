@@ -120,19 +120,19 @@ automation:
         option: "Guests"
       service: input_select.select_option
 
-  # - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
-  #   #initial_state: false
-  #   description: "This allows switches to turn on to the correct color temp and brightness"
-  #   trigger:
-  #     - platform: time_pattern
-  #       minutes: "/5"
-  #   condition:
-  #     condition: and
-  #     conditions:
-  #       - condition: template
-  #         value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-  #   action:
-  #       service: script.light_update_scene_homeassistant_circadian
+  - alias: "[Light] Update 'HomeAssistant' scene for circadian cycle"
+    #initial_state: false
+    description: "This allows switches to turn on to the correct color temp and brightness"
+    trigger:
+      - platform: time_pattern
+        minutes: "/5"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+        service: script.light_update_scene_homeassistant_circadian
 
   # - alias: "[Light] Update 'HomeAssistant' scene for darken house"
   #   #initial_state: false
@@ -179,19 +179,6 @@ light:
     entities:
       - light.basement
       - light.main_floor
-#   - platform: template
-#     lights:
-#       circadian_light:
-#         friendly_name: "Circadian Light used for testing"
-#         level_template: "{{ state_attr('switch.circadian_lighting_circadian_light','brightness') | round(0) }}"
-#         turn_on:
-#           service: notify.notify
-#           data:
-#             message: "Fake light turned on!"
-#         turn_off:
-#           service: notify.notify
-#           data:
-#             message: "Fake light turned off!"
 
 #  - platform: sensehat
 
@@ -212,34 +199,34 @@ scene:
     automation.light_set_light_mode_darken_house:
       state: 'on'
 
-# # ==================================================================================================
-# #
-# # Update home assistant scenes
-# #
-# # ==================================================================================================
-# script:
-#   light_update_scene_homeassistant_circadian:
-#     alias: "[Light] Update Home Assistant Scenes (Circadian)"
-#     sequence:
-#       - service: rest_command.light_update_basement_scene_homeassistant
-#         data:
-#           scene_id: "wct01qioygY1j89"
-#           username: !secret hue2_username
-#           color: '"ct": {{ states("sensor.circadian_mired") | int }}'
-#           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
-#           bulb_01_on_state: "true"
-#           bulb_02_on_state: "true"
-#           bulb_03_on_state: "true"
-#           bulb_04_on_state: "true"
-#           bulb_05_on_state: "true"
-#           bulb_06_on_state: "true"
-#           bulb_07_on_state: "true"
-#           bulb_08_on_state: "true"
-#           bulb_09_on_state: "true"
-#           bulb_10_on_state: "true"
-#           bulb_11_on_state: "true"
-#           bulb_12_on_state: "true"
-#           bulb_13_on_state: "true"
+# ==================================================================================================
+#
+# Update home assistant scenes
+#
+# ==================================================================================================
+script:
+  light_update_scene_homeassistant_circadian:
+    alias: "[Light] Update Home Assistant Scenes (Circadian)"
+    sequence:
+      - service: rest_command.light_update_basement_scene_homeassistant
+        data:
+          scene_id: "wct01qioygY1j89"
+          username: !secret hue2_username
+          color: '"ct": {{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}'
+          brightness: '"bri": {{ states_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}'
+          bulb_01_on_state: "true"
+          bulb_02_on_state: "true"
+          bulb_03_on_state: "true"
+          bulb_04_on_state: "true"
+          bulb_05_on_state: "true"
+          bulb_06_on_state: "true"
+          bulb_07_on_state: "true"
+          bulb_08_on_state: "true"
+          bulb_09_on_state: "true"
+          bulb_10_on_state: "true"
+          bulb_11_on_state: "true"
+          bulb_12_on_state: "true"
+          bulb_13_on_state: "true"
 
 #       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
 #         data:
@@ -320,28 +307,28 @@ scene:
 #           brightness: '"bri": {{ states("sensor.circadian_brightness_value") | int }}'
 #           bulb_01_on_state: "true"
 
-#   light_update_scene_homeassistant_darkenhouse:
-#     alias: "[Light] Update Home Assistant Scenes (Darken House)"
-#     sequence:
-#       - service: rest_command.light_update_basement_scene_homeassistant
-#         data:
-#           scene_id: "wct01qioygY1j89"
-#           username: !secret hue2_username
-#           color: '"ct": 454'
-#           brightness: '"bri": 25 }}'
-#           bulb_01_on_state: "true"
-#           bulb_02_on_state: "true"
-#           bulb_03_on_state: "true"
-#           bulb_04_on_state: "true"
-#           bulb_05_on_state: "true"
-#           bulb_06_on_state: "true"
-#           bulb_07_on_state: "true"
-#           bulb_08_on_state: "true"
-#           bulb_09_on_state: "true"
-#           bulb_10_on_state: "true"
-#           bulb_11_on_state: "true"
-#           bulb_12_on_state: "true"
-#           bulb_13_on_state: "true"
+  # light_update_scene_homeassistant_darkenhouse:
+  #   alias: "[Light] Update Home Assistant Scenes (Darken House)"
+  #   sequence:
+  #     - service: rest_command.light_update_basement_scene_homeassistant
+  #       data:
+  #         scene_id: "wct01qioygY1j89"
+  #         username: !secret hue2_username
+  #         color: '"ct": 454'
+  #         brightness: '"bri": 25 }}'
+  #         bulb_01_on_state: "true"
+  #         bulb_02_on_state: "true"
+  #         bulb_03_on_state: "true"
+  #         bulb_04_on_state: "true"
+  #         bulb_05_on_state: "true"
+  #         bulb_06_on_state: "true"
+  #         bulb_07_on_state: "true"
+  #         bulb_08_on_state: "true"
+  #         bulb_09_on_state: "true"
+  #         bulb_10_on_state: "true"
+  #         bulb_11_on_state: "true"
+  #         bulb_12_on_state: "true"
+  #         bulb_13_on_state: "true"
 
 #       - service: rest_command.light_update_master_bedroom_chair_scene_homeassistant
 #         data:

@@ -284,18 +284,18 @@ automation:
 #         entity_id:
 #           - switch.circadian_lighting_master_bedroom_lamp_2_with_brightness_adjustment
 
-#   - id: "1577071503214"
-#     alias: "[Light] Master Bedroom Lamp 2: Enable Migrain Mode"
-#     description: ""
-#     initial_state: false
-#     trigger:
-#       - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
-#         platform: state
-#         to: (0.17, 0.7)
-#     condition: []
-#     action:
-#       - entity_id: input_boolean.special_migraine_mode
-#         service: input_boolean.turn_on
+  - id: "1577071503214"
+    alias: "[Light] Master Bedroom Lamp 2: Enable Migrain Mode"
+    description: ""
+    initial_state: false
+    trigger:
+      - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
+        platform: state
+        to: (0.17, 0.7)
+    condition: []
+    action:
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
 
   - id: "1583021078875"
     alias: "[Light] Master Bedroom Lamp 2 at Night"

@@ -106,6 +106,10 @@
   trigger:
     - platform: sun
       event: sunrise
+    - platform: state
+      entity_id: media_player.samsung_bd_f5900
+      from: "off"
+      to: "on"
   condition: []
   action:
     - type: turn_on

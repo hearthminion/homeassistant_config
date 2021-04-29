@@ -186,17 +186,17 @@ light:
 # Scenes
 #
 # ==================================================================================================
-scene:
-  name: "[Light] Enable Common Automations"
-  entities:
-    automation.light_set_light_mode_circadian:
-      state: 'on'
-    automation.light_set_light_mode_guests:
-      state: 'on'
-    automation.light_set_light_mode_migraine:
-      state: 'on'
-    automation.light_set_light_mode_darken_house:
-      state: 'on'
+# scene:
+#   name: "[Light] Enable Common Automations"
+#   entities:
+#     automation.light_set_light_mode_circadian:
+#       state: 'on'
+#     automation.light_set_light_mode_guests:
+#       state: 'on'
+#     automation.light_set_light_mode_migraine:
+#       state: 'on'
+#     automation.light_set_light_mode_darken_house:
+#       state: 'on'
 
 # ==================================================================================================
 #

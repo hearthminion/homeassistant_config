@@ -13,17 +13,17 @@
 # automations
 #
 # ==================================================================================================
-automation:
-  - id: "1587755245580"
-    alias: "[Light] Enable Lighting Automations"
-    description: ""
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
-      - scene: scene.light_enable_basement_automations
-      - scene: scene.light_enable_master_bedroom_automations
+# automation:
+#   - id: "1587755245580"
+#     alias: "[Light] Enable Lighting Automations"
+#     description: ""
+#     trigger:
+#       - event: start
+#         platform: homeassistant
+#     condition: []
+#     action:
+#       - scene: scene.light_enable_basement_automations
+#       - scene: scene.light_enable_master_bedroom_automations
 
   # # ================================================================================================
   # #

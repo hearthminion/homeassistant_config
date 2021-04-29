@@ -37,19 +37,6 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  - id: "1577071503214"
-    alias: "[Light] Master Bedroom Lamp 2: Enable Migrain Mode"
-    description: ""
-    initial_state: false
-    trigger:
-      - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
-        platform: state
-        to: (0.17, 0.7)
-    condition: []
-    action:
-      - entity_id: input_boolean.special_migraine_mode
-        service: input_boolean.turn_on
-
   - id: "1583021078875"
     alias: "[Light] Master Bedroom Lamp 2 at Night"
     description: "Turn on Master Bedroom Lamp 2 at night"
@@ -74,3 +61,18 @@ scene:
     entities:
       automation.light_master_bedroom_lamp_2_at_night:
         state: 'on'
+
+# ======================================================================
+#
+# Sensors
+#
+# ======================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_master_bedroom_lamp_1_xy_color:
+        friendly_name: "[Light] Master Lamp 1: XY Color"
+        value_template: "{{ state_attr('light.main_lamp_1','xy_color') }}"
+      light_master_bedroom_lamp_2_xy_color:
+        friendly_name: "[Light] Master Lamp 2: XY Color"
+        value_template: "{{ state_attr('light.main_lamp_2','xy_color') }}"

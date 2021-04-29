@@ -85,6 +85,22 @@ automation:
           entity_id: input_select.light_mode
           option: "Migraine"
 
+  - id: "1577071503214"
+    alias: "[Light] Lights: Enable Migraine Mode"
+    description: ""
+    initial_state: false
+    trigger:
+      - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
+        platform: state
+        to: (0.17, 0.7)
+      - entity_id: sensor.light_basement_xy_color
+        platform: state
+        to: (0.17, 0.7)
+    condition: []
+    action:
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
+
   # ================================================================================================
   #
   # Set Lighting Mode: Guests

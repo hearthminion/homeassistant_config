@@ -244,3 +244,15 @@ scene:
           - 0.17
           - 0.7
         brightness: 128
+
+# ==================================================================================================
+#
+# Sensors
+#
+# ==================================================================================================
+sensor:
+  - platform: template
+    sensors:
+      light_basement_color:
+        friendly_name: "[Light] Basement: XY Color"
+        value_template: "{{ state_attr('light.basement_color','xy_color') }}"

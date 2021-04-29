@@ -35,12 +35,12 @@
 #   - light.main_room
 #
 # ==================================================================================================
-adaptive_lighting:
-  - name: "Den Couch Lamp 2"
-    lights:
-      - light.den_couch_lamp_2
-    initial_transition: 1
-    min_color_temp: 2200
-    max_color_temp: 6500
-    take_over_control: true
-    detect_non_ha_changes: true
+# adaptive_lighting:
+#   - name: "Den Couch Lamp 2"
+#     lights:
+#       - light.den_couch_lamp_2
+#     initial_transition: 1
+#     min_color_temp: 2200
+#     max_color_temp: 6500
+#     take_over_control: true
+#     detect_non_ha_changes: true

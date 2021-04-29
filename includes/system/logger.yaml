@@ -1,6 +1,6 @@
-default: warn
+default: debug
 logs:
   homeassistant.util.packages: warn
-  rest_command.basement_scene_homeassistant_update: debug
+  #rest_command.basement_scene_homeassistant_update: debug
   #homeassistant.components.rest_command: debug
   #homeassistant.components.nmap_tracker.device_tracker: debug

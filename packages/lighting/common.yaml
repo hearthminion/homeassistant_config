@@ -3,10 +3,10 @@
 # common settings
 #
 # ==================================================================================================
-# homeassistant:
-#   customize_glob:
-#     "light.*bulb*":
-#       hidden:  true
+homeassistant:
+  customize_glob:
+    "light.*bulb*":
+      hidden:  true
 
 # ==================================================================================================
 #
@@ -172,12 +172,12 @@ input_select:
 # Light Groups
 #
 # ==================================================================================================
-light:
-  - platform: group
-    name: All lights
-    entities:
-      - light.basement
-      - light.main_floor
+# light:
+#   - platform: group
+#     name: All lights
+#     entities:
+#       - light.basement
+#       - light.main_floor
 
 #  - platform: sensehat
 

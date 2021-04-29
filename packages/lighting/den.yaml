@@ -44,4 +44,3 @@ adaptive_lighting:
     max_color_temp: 6500
     take_over_control: true
     detect_non_ha_changes: true
-

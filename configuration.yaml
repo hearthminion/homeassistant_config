@@ -77,7 +77,7 @@ counter:
 frontend:
 history: !include includes/system/history.yaml
 image:
-input_boolean:
+input_boolean: !include includes/input_bool.yaml
 input_datetime:
 input_number:
 input_select:

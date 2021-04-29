@@ -6,21 +6,6 @@
 
 # ==================================================================================================
 #
-# Input Boolean
-#
-# ==================================================================================================
-input_boolean:
-  special_migraine_mode:
-    name: Migraine Mode
-    initial: off
-    icon: mdi:hospital-box
-  special_guest_present:
-    name: Guests are present
-    initial: off
-    icon: mdi:human
-
-# ==================================================================================================
-#
 # Input select
 #
 # ==================================================================================================
@@ -41,9 +26,9 @@ input_select:
 # Light Groups
 #
 # ==================================================================================================
-light:
-  - platform: group
-    name: "All lights"
-    entities:
-      - light.basement
-      - light.main_floor
+# light:
+#   - platform: group
+#     name: "All lights"
+#     entities:
+#       - light.basement
+#       - light.main_floor

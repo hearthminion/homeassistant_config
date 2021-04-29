@@ -1,0 +1,21 @@
+automation:
+    alias: "Christmas Automations"
+    description: ""
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.christmas_enable_light_automations
+
+scene:
+  name: "[Christmas] Enable Light Automations"
+  entities:
+    automation.christmas_lights_off:
+      state: 'on'
+    automation.christmas_lights_on:
+      state: 'on'
+    automation.outdoor_christmas_lights_off:
+      state: 'on'
+    automation.christmas_activate_christmas_outdoor_lights_on_scene:
+      state: 'on'

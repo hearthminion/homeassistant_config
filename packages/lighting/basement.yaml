@@ -129,118 +129,118 @@ scene:
       automation.light_basement_turn_off_lights_at_night:
         state: "on"
 
-  - id: "1576892024578"
-    name: "[Light] Basement: Darken Room"
-    entities:
-      light.hue_color_lamp_2_2:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.den_ceiling_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_3:
-        state: "off"
-      light.den_lamp_1_bulb:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_ambiance_lamp_2:
-        state: "off"
-      light.hue_color_lamp_1:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_color_lamp_2:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_color_lamp_3:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
+  # - id: "1576892024578"
+  #   name: "[Light] Basement: Darken Room"
+  #   entities:
+  #     light.hue_color_lamp_2_2:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
+  #     light.basement_bulb_1:
+  #       state: "off"
+  #     light.basement_lamp_2:
+  #       state: "off"
+  #     light.basement_lamp_3:
+  #       state: "off"
+  #     light.basement_stairwell_bulb:
+  #       state: "off"
+  #     light.cave_lamp_2_bulb_2:
+  #       state: "off"
+  #     light.den_ceiling_bulb_1:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
+  #     light.den_ceiling_bulb_2:
+  #       state: "off"
+  #     light.den_ceiling_bulb_3:
+  #       state: "off"
+  #     light.den_lamp_1_bulb:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
+  #     light.hue_ambiance_lamp_2:
+  #       state: "off"
+  #     light.hue_color_lamp_1:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
+  #     light.hue_color_lamp_2:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
+  #     light.hue_color_lamp_3:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.689
+  #         - 0.309
+  #       brightness: 64
 
-  - id: "1576960043395"
-    name: "[Light] Basement: Migraine"
-    entities:
-      light.hue_color_lamp_2_2:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_bulb_2:
-        state: "off"
-      light.basement_bulb_3:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.den_ceiling_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_3:
-        state: "off"
-      light.den_lamp_1_bulb:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_ambiance_lamp_2:
-        state: "off"
-      light.hue_color_lamp_1:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_color_lamp_2:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_color_lamp_3:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
+  # - id: "1576960043395"
+  #   name: "[Light] Basement: Migraine"
+  #   entities:
+  #     light.hue_color_lamp_2_2:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128
+  #     light.basement_bulb_1:
+  #       state: "off"
+  #     light.basement_bulb_2:
+  #       state: "off"
+  #     light.basement_bulb_3:
+  #       state: "off"
+  #     light.basement_lamp_2:
+  #       state: "off"
+  #     light.basement_lamp_3:
+  #       state: "off"
+  #     light.basement_stairwell_bulb:
+  #       state: "off"
+  #     light.cave_lamp_2_bulb_2:
+  #       state: "off"
+  #     light.den_ceiling_bulb_1:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128
+  #     light.den_ceiling_bulb_2:
+  #       state: "off"
+  #     light.den_ceiling_bulb_3:
+  #       state: "off"
+  #     light.den_lamp_1_bulb:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128
+  #     light.hue_ambiance_lamp_2:
+  #       state: "off"
+  #     light.hue_color_lamp_1:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128
+  #     light.hue_color_lamp_2:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128
+  #     light.hue_color_lamp_3:
+  #       state: "on"
+  #       xy_color:
+  #         - 0.17
+  #         - 0.7
+  #       brightness: 128

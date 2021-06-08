@@ -5,7 +5,6 @@ include:
   domains:
     - automation
     - calendar
-    - circadian_lighting
     - climate
     - device_tracker
     - input_boolean
@@ -16,8 +15,9 @@ include:
     - binary_sensor.light_*
     - sensor.openweathermap*
     - sensor.nodeid*
+    - switch.nodeid*
     - sensor.skin_type_*
-    - switch.circadian*
+    - switch.adaptive*
     - sensor.dark_sky*
     - sensor.nws*
     - sensor.sensehat*

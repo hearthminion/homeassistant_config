@@ -74,7 +74,7 @@ binary_sensor:
         friendly_name: "[Light] Basement Autobrightness"
         value_template: >-
           {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
-          ( state_attr("binary_sensor.light_basement_autuobrightness", "brightness_max") | int )
+          ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
              and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
              }}

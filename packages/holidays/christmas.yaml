@@ -11,11 +11,11 @@ automation:
 scene:
   name: "[Christmas] Enable Light Automations"
   entities:
-    automation.christmas_lights_off:
+    automation.christmas_activate_christmas_lights_off_scene:
       state: 'on'
-    automation.christmas_lights_on:
+    automation.christmas_activate_christmas_lights_on_scene:
       state: 'on'
-    automation.outdoor_christmas_lights_off:
+    automation.christmas_activate_christmas_outdoor_lights_off_scene:
       state: 'on'
     automation.christmas_activate_christmas_outdoor_lights_on_scene:
       state: 'on'

@@ -1,0 +1,24 @@
+# ======================================================================
+#
+# Master Bathroom Lighting Configuration
+#
+# Lights:
+#   light.main_lamp_10: Kitchen Ceiling Lightbulb
+#   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+#
+# Light Groups:
+#   - light.den_couch_lamp_1
+#   - light.den_couch_lamp_2
+#   - light.den_ceiling
+#   - light.den_fireplace
+#   - light.den_tower_lamp
+#   - light.den_table_lamp
+#
+# ======================================================================
+adaptive_lighting:
+  - name: "Master Bathroom (Inner)"
+    lights:
+      - light.master_bathroom_inner
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500

@@ -16,4 +16,4 @@
     panel: true
     cards:
       - type: iframe
-        url: http://localhost:8091/mesh/
+        url: http://zwave:8091/mesh/

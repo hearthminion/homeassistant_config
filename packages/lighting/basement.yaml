@@ -63,39 +63,6 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_basement
     mode: single
 
-# ==================================================================================================
-#
-# Binary Sensors
-#
-# ==================================================================================================
-template:
-  - binary_sensor:
-      name: "[Light] Basement Autobrightness"
-        state: >-
-          {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
-          ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
-             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
-             ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
-             }}
-        attributes:
-          brightness: >-
-            {% if state_attr("light.basement", "brightness") == None or
-               is_state_attr("light.basement","brightness", "unknown")  or
-               is_state("light.basement", "off") -%}
-              {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
-            {%- else %}
-              {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
-            {% endif %}
-          brightness_max: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
-          brightness_min: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
-          xy_color: >-
-            {{ state_attr("light.basement","xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.basement","color_temp") }}
-
-
 # ======================================================================
 #
 #
@@ -308,12 +275,35 @@ scene:
 
 # ==================================================================================================
 #
-# Sensors
+# Templates
 #
 # ==================================================================================================
-sensor:
-  - platform: template
-    sensors:
-      light_basement_xy_color:
-        friendly_name: "[Light] Basement: XY Color"
-        value_template: "{{ state_attr('light.basement_color','xy_color') }}"
+template:
+  - binary_sensor:
+      - name: "[Light] Basement Autobrightness"
+        state: >-
+          {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
+          ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
+             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
+             ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
+             }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.basement", "brightness") == None or
+               is_state_attr("light.basement","brightness", "unknown")  or
+               is_state("light.basement", "off") -%}
+              {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
+            {%- else %}
+              {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.basement","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.basement","color_temp") }}
+  - sensor:
+      - name: "[Light] Basement: XY Color"
+        state: "{{ state_attr('light.basement_color','xy_color') }}"

@@ -277,17 +277,24 @@ scene:
 #
 # Templates
 #
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
 # ==================================================================================================
-template:
-  - binary_sensor:
-      - name: "[Light] Basement Autobrightness"
-        state: >-
+binary_sensor:
+  - platform: template
+    sensors:
+      light_basement_autobrightness:
+        friendly_name: "[Light] Basement Autobrightness"
+        value_template: >-
           {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
           ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
              and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
              }}
-        attributes:
+        attribute_templates:
           brightness: >-
             {% if state_attr("light.basement", "brightness") == None or
                is_state_attr("light.basement","brightness", "unknown")  or
@@ -304,6 +311,10 @@ template:
             {{ state_attr("light.basement","xy_color") }}
           color_temp: >-
             {{ state_attr("light.basement","color_temp") }}
-  - sensor:
-      - name: "[Light] Basement: XY Color"
+
+sensor:
+  - platform: template
+    sensors:
+      light_basement_xy_color:
+        friendly_name: "[Light] Basement: XY Color"
         state: "{{ state_attr('light.basement_color','xy_color') }}"

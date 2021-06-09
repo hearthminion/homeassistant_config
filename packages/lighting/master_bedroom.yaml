@@ -101,10 +101,12 @@ scene:
 # Templates
 #
 # ==================================================================================================
-template:
-  - binary_sensor:
-      - name: "[Light] Master Bedroom Lamp 1 Autobrightness"
-        state: >-
+binary_sensor:
+  - platform: template
+    sensors:
+      light_master_bedroom_lamp_1_autobrightness:
+        friendly_name: "[Light] Master Bedroom Lamp 1 Autobrightness"
+        value_template: >-
           {{ (
                state_attr("switch.adaptive_lighting_master_bedroom_lamp_1", "brightness_pct") | int ) <
                ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_max")
@@ -112,7 +114,7 @@ template:
              and ( state_attr("switch.adaptive_lighting_master_bedroom_lamp_1", "brightness_pct") | int ) >
              ( state_attr("binary_sensor.light_master_bedroom_lamp_1_autobrightness", "brightness_min") | int
              ) }}
-        attributes:
+        attribute_templates:
           brightness: >-
             {% if state_attr("light.master_bedroom_lamp_1", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_1", "brightness", "unknown") or
@@ -130,8 +132,9 @@ template:
           color_temp: >-
             {{ state_attr("light.master_bedroom_lamp_1", "color_temp") }}
 
-      - name: "[Light] Master Bedroom Lamp 2 Autobrightness"
-        state: >-
+      light_master_bedroom_lamp_2_autobrightness:
+        friendly_name: "[Light] Master Bedroom Lamp 2 Autobrightness"
+        value_template: >-
           {{ (
                state_attr("switch.adaptive_lighting_master_bedroom_lamp_2", "brightness_pct") | int ) <
                ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_max")
@@ -139,7 +142,7 @@ template:
              and ( state_attr("switch.adaptive_lighting_master_bedroom_lamp_2", "brightness_pct") | int ) >
              ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_min") | int
              ) }}
-        attributes:
+        attribute_teemplates:
           brightness: >-
             {% if state_attr("light.master_bedroom_lamp_2", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_2", "brightness", "unknown") or
@@ -180,9 +183,13 @@ template:
 #           color_temp: >-
 #             {{ state_attr("light.master_bedroom_ceiling","color_temp") }}
 
-  - sensor:
-      - name: "[Light] Master Lamp 1: XY Color"
-        state: "{{ state_attr('light.main_lamp_1','xy_color') }}"
-      - name: "[Light] Master Lamp 2: XY Color"
-        state: "{{ state_attr('light.main_lamp_2','xy_color') }}"
+sensor:
+  - platform: template
+    sensor:
+      light_master_lamp_1_xy_color:
+        friendly_name: "[Light] Master Lamp 1: XY Color"
+        value_template: "{{ state_attr('light.main_lamp_1','xy_color') }}"
+      light_master_lamp_2_xy_color:
+        friendly_name: "[Light] Master Lamp 2: XY Color"
+        value_template: "{{ state_attr('light.main_lamp_2','xy_color') }}"
 

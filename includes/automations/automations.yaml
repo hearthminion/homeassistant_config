@@ -56,7 +56,7 @@
         entity_id: timer.lights_off
 
 - id: "1606847637745"
-  alias: "Turn off Master Bedroom TV Power"
+  alias: "Turn Off Master Bedroom TV Power"
   description: ""
   trigger:
     - platform: time
@@ -101,7 +101,7 @@
   mode: single
 
 - id: "1607180392829"
-  alias: "Turn on master bedroom TV power"
+  alias: "Turn On Master Bedroom TV power"
   description: ""
   trigger:
     - platform: sun

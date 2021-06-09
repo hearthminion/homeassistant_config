@@ -95,6 +95,7 @@ scene:
       automation.light_master_bedroom_lamp_2_at_night:
         state: 'on'
 
+
 # ==================================================================================================
 #
 # Templates

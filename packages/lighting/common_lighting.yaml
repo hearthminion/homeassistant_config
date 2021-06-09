@@ -19,6 +19,7 @@ automation:
   - id: '1619734236722'
     alias: '[Light] Enable Adaptive Lighting'
     description: ''
+    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -36,6 +37,7 @@ automation:
   - id: '1619734579144'
     alias: '[Light] Disable Adaptive Lighting'
     description: ''
+    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -63,6 +65,7 @@ automation:
   # ================================================================================================
   - alias: "[Light] Set Light Mode: Circadian"
     description: ""
+    initial_state: false
     trigger:
       - platform: numeric_state
         entity_id: sun.sun
@@ -86,6 +89,7 @@ automation:
   # ================================================================================================
   - alias: "[Light] Set Light Mode: Darken House"
     description: ""
+    initial_state: false
     trigger:
       - platform: event
         event_type: timer.finished
@@ -109,6 +113,8 @@ automation:
   # - 
   # ================================================================================================
   - alias: "[Light] Set Light Mode: Migraine"
+    description: ""
+    initial_state: false
     trigger:
       platform: state
       entity_id: input_boolean.special_migraine_mode
@@ -120,7 +126,7 @@ automation:
           option: "Migraine"
 
   - id: "1577071503214"
-    alias: "[Light] Lights: Enable Migraine Mode"
+    alias: "[Light] Enable Migraine Mode"
     description: ""
     initial_state: false
     trigger:
@@ -148,6 +154,7 @@ automation:
   # ================================================================================================
   - alias: "[Light] Set Light Mode: Guests"
     description: ""
+    initial_state: false
     trigger:
     - platform: state
       entity_id: input_boolean.special_guest_present
@@ -221,4 +228,8 @@ scene:
     automation.light_set_light_mode_darken_house:
       state: 'on'
     automation.light_enable_migrain_mode:
+      state: 'on'
+    automation.light_enable_adaptive_lighting:
+      state: 'on'
+    automation.light_disable_adaptive_lighting:
       state: 'on'

@@ -317,4 +317,4 @@ sensor:
     sensors:
       light_basement_xy_color:
         friendly_name: "[Light] Basement: XY Color"
-        state: "{{ state_attr('light.basement_color','xy_color') }}"
+        value_template: "{{ state_attr('light.basement_color','xy_color') }}"

@@ -142,7 +142,7 @@ binary_sensor:
              and ( state_attr("switch.adaptive_lighting_master_bedroom_lamp_2", "brightness_pct") | int ) >
              ( state_attr("binary_sensor.light_master_bedroom_lamp_2_autobrightness", "brightness_min") | int
              ) }}
-        attribute_teemplates:
+        attribute_templates:
           brightness: >-
             {% if state_attr("light.master_bedroom_lamp_2", "brightness") == None or
                is_state_attr("light.master_bedroom_lamp_2", "brightness", "unknown") or

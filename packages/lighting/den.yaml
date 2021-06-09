@@ -102,7 +102,7 @@ automation:
   #   -
   #
   # ================================================================================================
-  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (with Brightness Adjustment)"
+  - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (Toggle Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -123,27 +123,6 @@ automation:
         data:
           entity_id:
             - switch.adaptive_lighting_master_bedroom_lamp_1_with_brightness_adjustment
-
-#   - alias: "[Light] Den Couch Lamp 1: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_main_couch_lamp_1_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_couch_lamp_1_with_brightness_adjustment
 
 #   # ================================================================================================
 #   #
@@ -182,27 +161,6 @@ automation:
 #           entity_id:
 #             - switch.circadian_lighting_den_fireplace_without_brightness_adjustment
 
-#   - alias: "[Light] Den Fireplace: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_fireplace_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_fireplace_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_fireplace_with_brightness_adjustment
-
 #   # ================================================================================================
 #   #
 #   # Light fixture: Den Ceiling Lights
@@ -240,27 +198,6 @@ automation:
 #           entity_id:
 #             - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
 
-#   - alias: "[Light] Den Ceiling: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_ceiling_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_ceiling_with_brightness_adjustment
-
 #   # ================================================================================================
 #   #
 #   # Set Lighting Mode: Circadian (with Brightness adjustments)
@@ -292,26 +229,6 @@ automation:
 #           entity_id:
 #             - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
 
-#   - alias: "[Light] Den Tower Lamp: Circadian Lighting (without Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.light_den_tower_lamp_autobrightness
-#         to: "off"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: switch.turn_on
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_den_tower_lamp_without_brightness_adjustment
-#       - service: switch.turn_off
-#         data:
-#           entity_id:
-#             - switch.circadian_lighting_tower_lamp_with_brightness_adjustment
 
 # ==================================================================================================
 #

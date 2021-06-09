@@ -1,5 +1,5 @@
 automation:
-    alias: "Christmas Automations"
+  - alias: "[Christmas] Enable Automations"
     description: ""
     trigger:
       - event: start

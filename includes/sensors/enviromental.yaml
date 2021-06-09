@@ -145,3 +145,8 @@
 #     - temperature
 #     - humidity
 #     - pressure
+
+- platform: openweathermap_all
+  api_key: !secret openweathermap_api
+  latitude: !secret home_lat
+  longitude: !secret home_long

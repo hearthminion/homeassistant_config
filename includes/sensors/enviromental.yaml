@@ -140,12 +140,6 @@
 - platform: season
   type: astronomical
 
-# - platform: sensehat
-#   display_options:
-#     - temperature
-#     - humidity
-#     - pressure
-
 - platform: openweathermap_all
   api_key: !secret openweathermap_api
   latitude: !secret home_lat

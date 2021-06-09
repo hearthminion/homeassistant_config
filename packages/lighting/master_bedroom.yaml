@@ -185,7 +185,7 @@ binary_sensor:
 
 sensor:
   - platform: template
-    sensor:
+    sensors:
       light_master_lamp_1_xy_color:
         friendly_name: "[Light] Master Lamp 1: XY Color"
         value_template: "{{ state_attr('light.main_lamp_1','xy_color') }}"

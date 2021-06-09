@@ -39,5 +39,5 @@
       state: "{{ state_attr('weather.kahn_hourly','forecast')[0]['precipitation_probability'] }}"
       unit_of_measurement: "%"
     - name: "Sun elevation"
-      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      state: "{{ state_attr('sun.sun', 'elevation') }}"
       unit_of_measurement: '°'

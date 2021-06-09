@@ -48,7 +48,6 @@ automation:
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.light_basement_autobrightness
-        to: "{{ brightness_mode }}"
     variables:
       brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
     condition:

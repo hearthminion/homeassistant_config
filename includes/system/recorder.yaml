@@ -22,7 +22,7 @@ include:
     - sensor.nws*
     - sensor.sensehat*
     - sensor.air_quality_*
-    - sensor.pollin_*
+    - sensor.pollen_*
   entities:
     - binary_sensor.protection_window_3
     - binary_sensor.roomba_bin_full

@@ -18,9 +18,3 @@
     sensehat_humidity:
       value_template: "{{ states('sensor.hestia_sensehat_humidity') }}"
       unit_of_measurement: '%'
-
-- platform: template
-  sensors:
-    sun_elevation:
-      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-      unit_of_measurement: '°'

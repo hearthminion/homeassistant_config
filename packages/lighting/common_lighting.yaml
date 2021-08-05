@@ -1,0 +1,235 @@
+# ==================================================================================================
+#
+# common settings
+#
+# ==================================================================================================
+automation:
+  - id: "1587755245580"
+    alias: "[Light] Enable Lighting Automations"
+    description: ""
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.light_enable_basement_automations
+      - scene: scene.light_enable_common_automations
+      - scene: scene.light_enable_master_bedroom_automations
+
+  - id: '1619734236722'
+    alias: '[Light] Enable Adaptive Lighting'
+    description: ''
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: Circadian
+    condition: []
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.adaptive_lighting_basement
+            - switch.adaptive_lighting_den_couch_lamp_2
+            - switch.adaptive_lighting_master_bedroom_lamp_2
+    mode: single
+
+  - id: '1619734579144'
+    alias: '[Light] Disable Adaptive Lighting'
+    description: ''
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        from: Circadian
+    condition: []
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.adaptive_lighting_basement
+            - switch.adaptive_lighting_den_couch_lamp_2
+            - switch.adaptive_lighting_master_bedroom_lamp_2
+    mode: single
+
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Circadian
+  #
+  # Trigger:
+  # - In the morning when the sun rises to 18 degrees below the horizon
+  #   enable
+  #
+  # Actions:
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Circadian"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        above: -18
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Circadian"
+
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Darken House
+  #
+  # Trigger:
+  # - When the timer that begins the nighttime routine finishes
+  #
+  # Actions:
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Darken House"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.lights_off
+    condition: []
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Darken House"
+
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Migraine
+  #
+  # Trigger:
+  # - Input Boolean: Special Migraine Mode is set to true
+  #
+  # Actions:
+  # - 
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Migraine"
+    description: ""
+    initial_state: false
+    trigger:
+      platform: state
+      entity_id: input_boolean.special_migraine_mode
+      to: "on"
+    action:
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.light_mode
+          option: "Migraine"
+
+  - id: "1577071503214"
+    alias: "[Light] Enable Migraine Mode"
+    description: ""
+    initial_state: false
+    trigger:
+      - entity_id: sensor.light_master_bedroom_lamp_2_xy_color
+        platform: state
+        to: (0.17, 0.7)
+      - entity_id: sensor.light_basement_xy_color
+        platform: state
+        to: (0.17, 0.7)
+    condition: []
+    action:
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
+
+  # ================================================================================================
+  #
+  # Set Lighting Mode: Guests
+  #
+  # Trigger:
+  # - Input Boolean: Special Guest Mode is set to true
+  #
+  # Actions:
+  # -
+  #
+  # ================================================================================================
+  - alias: "[Light] Set Light Mode: Guests"
+    description: ""
+    initial_state: false
+    trigger:
+    - platform: state
+      entity_id: input_boolean.special_guest_present
+      from: "off"
+      to: "on"
+    condition: []
+    action:
+      data:
+        entity_id: input_select.light_mode
+        option: "Guests"
+      service: input_select.select_option
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+  special_migraine_mode:
+    name: Migraine Mode
+    initial: off
+    icon: mdi:hospital-box
+  special_guest_present:
+    name: Guests are present
+    initial: off
+    icon: mdi:human
+
+# ==================================================================================================
+#
+# Input select
+#
+# ==================================================================================================
+input_select:
+  light_mode:
+    name: "Light Mode"
+    options:
+      - "Circadian"
+      - "Darken House"
+      - "Migraine"
+      - "Sleeping (Migraine)"
+      - "Night Out"
+      - "Guests"
+      - "Other"
+
+# ==================================================================================================
+#
+# Light Groups
+#
+# ==================================================================================================
+light:
+  - platform: group
+    name: "All lights"
+    entities:
+      - light.basement
+      - light.main_floor
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+scene:
+  name: "[Light] Enable Common Automations"
+  entities:
+    automation.light_set_light_mode_circadian:
+      state: 'on'
+    automation.light_set_light_mode_guests:
+      state: 'on'
+    automation.light_set_light_mode_migraine:
+      state: 'on'
+    automation.light_set_light_mode_darken_house:
+      state: 'on'
+    automation.light_enable_migrain_mode:
+      state: 'on'
+    automation.light_enable_adaptive_lighting:
+      state: 'on'
+    automation.light_disable_adaptive_lighting:
+      state: 'on'

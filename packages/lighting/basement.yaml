@@ -1,4 +1,4 @@
-# ======================================================================
+# ==================================================================================================
 #
 # Basement
 #
@@ -10,7 +10,7 @@
 # Light Groups:
 #   - light.basement
 #
-# ======================================================================
+# ==================================================================================================
 adaptive_lighting:
   - name: "Basement"
     lights:
@@ -18,13 +18,18 @@ adaptive_lighting:
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-    take_over_control: true
-    detect_non_ha_changes: true
 
+# ==================================================================================================
+#
+# Automations
+#
+#
+#
+# ==================================================================================================
 automation:
   - id: '1587762496178'
-    initial_state: false
     alias: '[Light] Basement: Turn Off Lights At Night'
+    initial_state: false
     description: ''
     trigger:
       - at: '21:30'
@@ -34,6 +39,28 @@ automation:
       - service: light.turn_off
         data:
           entity_id: light.basement
+
+  - alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_basement_autobrightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_basement
+    mode: single
 
 # ======================================================================
 #
@@ -91,19 +118,19 @@ input_select:
       - Night Mode
       - Migraine
 
-# ==================================================================================================
-#
-# Rest Command
-#
-# 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
-#
-# ==================================================================================================
-# rest_command:
-#   light_update_basement_scene_homeassistant:
-#     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-#     method: put
-#     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
-#     verify_ssl: false
+# # ==================================================================================================
+# #
+# # Rest Command
+# #
+# # 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
+# #
+# # ==================================================================================================
+# # rest_command:
+# #   light_update_basement_scene_homeassistant:
+# #     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+# #     method: put
+# #     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
+# #     verify_ssl: false
 
 # ======================================================================
 #
@@ -128,9 +155,11 @@ scene:
     entities:
       automation.light_basement_turn_off_lights_at_night:
         state: "on"
+      automation.light_basement_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
 
   - id: "1576892024578"
-    name: "Basement: Darken Room"
+    name: "[Light] Basement: Darken Room"
     entities:
       light.hue_color_lamp_2_2:
         state: "on"
@@ -186,7 +215,7 @@ scene:
         brightness: 64
 
   - id: "1576960043395"
-    name: "Basement: Migraine"
+    name: "[Light] Basement: Migraine"
     entities:
       light.hue_color_lamp_2_2:
         state: "on"
@@ -244,3 +273,49 @@ scene:
           - 0.17
           - 0.7
         brightness: 128
+
+# ==================================================================================================
+#
+# Templates
+#
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
+# ==================================================================================================
+binary_sensor:
+  - platform: template
+    sensors:
+      light_basement_autobrightness:
+        friendly_name: "[Light] Basement Autobrightness"
+        value_template: >-
+          {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
+          ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
+             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
+             ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
+             }}
+        attribute_templates:
+          brightness: >-
+            {% if state_attr("light.basement", "brightness") == None or
+               is_state_attr("light.basement","brightness", "unknown")  or
+               is_state("light.basement", "off") -%}
+              {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
+            {%- else %}
+              {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.basement","xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.basement","color_temp") }}
+
+sensor:
+  - platform: template
+    sensors:
+      light_basement_xy_color:
+        friendly_name: "[Light] Basement: XY Color"
+        value_template: "{{ state_attr('light.basement_color','xy_color') }}"

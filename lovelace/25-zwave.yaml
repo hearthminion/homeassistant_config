@@ -15,5 +15,5 @@
     icon: mdi:z-wave
     panel: true
     cards:
-      - type: 'custom:ozw-network-visualization-card'
-        integration: ozw
+      - type: iframe
+        url: http://zwave:8091/mesh/

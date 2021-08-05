@@ -15,20 +15,17 @@
     icon: mdi:floor-plan
     panel: true
     cards:
-      - type: custom:layout-card
-        layout: vertical
+      - type: horizontal-stack
         cards:
-          - type: horizontal-stack
-            cards:
-              - type: 'custom:floorplan-card'
-                full_height: true
-                config:
-                  image: /local/images/floorplan.svg
-                  log_level: no
-                  console_log_level: info
-                  defaults:
-                    hover_action: hover-info
-                    tap_action: more-info
+          - type: 'custom:floorplan-card'
+            full_height: true
+            config:
+              image: /local/images/floorplan.svg
+              log_level: no
+              console_log_level: info
+              defaults:
+                hover_action: hover-info
+                tap_action: more-info
 #                       rules:
 #                         - entity: light.garage
 #                           element: light.garage

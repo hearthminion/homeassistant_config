@@ -11,6 +11,11 @@ Circadian Lighting slowly synchronizes your color changing lights with the regul
 
 ### Home Assistant Components
 #### [Automation]
+##### Disable Brightness control during the day
+##### Enable Brightness control during the evening
+##### Disable Circadian Lighting
+##### Enable Circadian Lighting
+
 #### [Input Select]
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
 #### [Scenes]

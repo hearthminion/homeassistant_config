@@ -9,12 +9,12 @@
     data_template:
       message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
-- id: '1576717665597'
-  alias: Daily Reboot
-  description: ''
-  trigger:
-    - at: '3:00:00'
-      platform: time
-  condition: []
-  action:
-    - service: hassio.host_reboot
+# - id: '1576717665597'
+#   alias: Daily Reboot
+#   description: ''
+#   trigger:
+#     - at: '3:00:00'
+#       platform: time
+#   condition: []
+#   action:
+#     - service: hassio.host_reboot

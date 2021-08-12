@@ -67,7 +67,7 @@
                   - type: entity-button
                     entity: binary_sensor.calliope
                   - type: entity-button
-                    entity: binary_sensor.dionysus
+                    entity: switch.dionysus
                   - type: entity-button
                     entity: binary_sensor.demeter
               - type: horizontal-stack
@@ -85,9 +85,9 @@
                   - type: entity-button
                     entity: binary_sensor.iris
                   - type: entity-button
-                    entity: binary_sensor.mnemosyne
+                    entity: switch.mnemosyne
                   - type: entity-button
-                    entity: binary_sensor.morpheus
+                    entity: switch.morpheus
                   - type: entity-button
                     entity: binary_sensor.nyx
               - type: horizontal-stack

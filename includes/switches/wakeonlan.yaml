@@ -1,0 +1,16 @@
+---
+- platform: wake_on_lan
+  name: "Mnemosyne"
+  host: 10.0.1.41
+  mac: 70:85:c2:8d:51:f5
+
+- platform: wake_on_lan
+  name: "Dionysus"
+  host: 10.0.2.1
+  mac: 78:24:af:37:38:97
+
+- platform: wake_on_lan
+  name: "Morpheus"
+  host: 10.0.1.5
+  mac: f6:ea:2f:c9:54:79
+

@@ -188,6 +188,5 @@
                   - entity: switch.nodeid_5_switch_5
               - type: entities
                 entities:
-                  - entity: switch.nodeid_6_switch
                   - entity: switch.nodeid_7_switch
                   - entity: switch.nodeid_8_switch

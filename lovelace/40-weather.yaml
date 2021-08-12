@@ -146,7 +146,7 @@
                   - entity: sensor.openweathermap_cloud_coverage
                   - entity: sensor.openweathermap_rain
                   - entity: sensor.openweathermap_snow
-                  - entity: sensor.nws_precip_probability
+                  - entity: sensor.nws_precipitation_probability
                   
               - type: custom:layout-break
               - type: horizontal-stack

@@ -93,15 +93,3 @@
 # Seasons
 - platform: season
   type: astronomical
-
-# ==================================================================================================
-#
-# While this seems like a cool custom component.  It's currently broken.
-#
-# Site: https://github.com/viktak/ha-cc-openweathermap_all
-#
-# ==================================================================================================
-# - platform: openweathermap_all
-#   api_key: !secret openweathermap_api
-#   latitude: !secret home_lat
-#   longitude: !secret home_long

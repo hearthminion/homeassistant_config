@@ -13,25 +13,47 @@ include:
     - weather
   entity_globs:
     - binary_sensor.light_*
-    - sensor.openweathermap*
+    - sensor.air_quality_*
+    - sensor.dark_sky*
     - sensor.nodeid*
-    - switch.nodeid*
+    - sensor.nws*
+    - sensor.openweathermap*
+    - sensor.pollen_*
+    - sensor.sensehat*
     - sensor.skin_type_*
     - switch.adaptive*
-    - sensor.dark_sky*
-    - sensor.nws*
-    - sensor.sensehat*
-    - sensor.air_quality_*
-    - sensor.pollen_*
+    - switch.nodeid*
   entities:
+    - binary_sensor.aether
+    - binary_sensor.angelia
+    - binary_sensor.aphrodite
+    - binary_sensor.calliope
+    - binary_sensor.calypso
+    - binary_sensor.cerberus
+    - binary_sensor.chaos
+    - binary_sensor.deathstar
+    - binary_sensor.defiance
+    - binary_sensor.demeter
+    - binary_sensor.helios
+    - binary_sensor.hera
+    - binary_sensor.hestia
+    - binary_sensor.independence
+    - binary_sensor.iris
+    - binary_sensor.lelantos
+    - binary_sensor.liberty
+    - binary_sensor.persephone
     - binary_sensor.protection_window_3
+    - binary_sensor.redemption
     - binary_sensor.roomba_bin_full
+    - binary_sensor.salvation
+    - binary_sensor.selene
+    - binary_sensor.uranus
+    - binary_sensor.user0001_laptop
+    - binary_sensor.user0002_laptop
+    - binary_sensor.zeus
     - input_select.light_mode
     - input_select.user0001_status_dropdown
     - input_select.user0002_status_dropdown
-    - sensor.circadian_brightness
-    - sensor.circadian_temperature
-    - sensor.circadian_values
     - sensor.cnmf741c_743c
     - sensor.current_ozone_level_3
     - sensor.current_uv_index_3
@@ -41,6 +63,9 @@ include:
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
+    - switch.dionysus
+    - switch.mnemosyne
+    - switch.morpheus
     - timer.lights_off
     - vacuum.roomba
 exclude:

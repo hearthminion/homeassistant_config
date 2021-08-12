@@ -18,3 +18,19 @@
     sensehat_humidity:
       value_template: "{{ states('sensor.hestia_sensehat_humidity') }}"
       unit_of_measurement: '%'
+   openweathermap_pressure_inhg:
+     friendly_name: "OpenWeatherMap Pressure"
+     value_template: '{{ states("sensor.openweathermap_pressure") | float / 33.864 | round(2) }}'
+     unit_of_measurement: 'inHg'
+   openweathermap_wind_speed_mph:
+     friendly_name: "OpenWeatherMap Wind Speed"
+     value_template: '{{ states("sensor.openweathermap_wind_speed") | float * 2.236936 | round(2) }}'
+     unit_of_measurement: 'mph'
+   nws_visibility:
+     friendly_name: "NWS Visibility"
+     value_template: "{{ state_attr('weather.kahn_hourly','visibility') }}"
+     unit_of_measurement: "mi"
+   nws_precip_probability:
+     friendly_name: "NWS Precipitation Probability"
+     value_template: "{{ state_attr('weather.kahn_hourly','forecast')[0]['precipitation_probability'] }}"
+     unit_of_measurement: "%"

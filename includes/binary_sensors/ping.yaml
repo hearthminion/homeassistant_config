@@ -1,4 +1,5 @@
-# binary_sensor.yaml ---
+---
+# binary_sensor.yaml
 # 
 # Filename: ping.yaml
 # Description: 
@@ -163,12 +164,6 @@
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 
-- platform: ping
-  host: 10.0.2.1
-  name: Dionysus
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
 - platform : ping
   host: 10.0.1.21
   name: Helios
@@ -190,18 +185,6 @@
 - platform: ping
   host: 10.0.1.15
   name: Iris
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-- platform: ping
-  host: 10.0.1.41
-  name: Mnemosyne
-  count: 1               # Number of packets to send
-  #scan_interval: 5       # Polling Interval
-
-- platform: ping
-  host: 10.0.1.5
-  name: Morpheus
   count: 1               # Number of packets to send
   #scan_interval: 5       # Polling Interval
 

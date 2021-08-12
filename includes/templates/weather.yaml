@@ -26,10 +26,10 @@
     - name: "Darksky Pressure 7d"
       state: '{{ states.sensor.dark_sky_pressure_7d.state | float / 33.864 | round(2) }}'
       unit_of_measurement: 'inHg'
-    - name: "OpenWeatherMap Pressure"
+    - name: "OpenWeatherMap Pressure (inHg)"
       state: '{{ states("sensor.openweathermap_pressure") | float / 33.864 | round(2) }}'
       unit_of_measurement: 'inHg'
-    - name: "OpenWeatherMap Wind Speed"
+    - name: "OpenWeatherMap Wind Speed (MPH)"
       state: '{{ states("sensor.openweathermap_wind_speed") | float * 2.236936 | round(2) }}'
       unit_of_measurement: 'mph'
     - name: "NWS Visibility"

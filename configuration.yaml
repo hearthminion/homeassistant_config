@@ -164,11 +164,6 @@ geo_location:
     feed_type: 'past_day_all_earthquakes'
     radius: 300
 
-climate:
-  - platform: honeywell
-    username: !secret honeywell_user
-    password: !secret honeywell_pass
-
 lovelace: !include includes/lovelace.yaml
 
 # ======================================================================

@@ -8,9 +8,9 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 2021.4.4
-# Version: 2021.7.4
+# Version: 2021.10.0
 # Package-Requires: ()
-# Last-Updated: Mon Apr  28 13:30 2021 (-0500)
+# Last-Updated: Fri Oct  15 10:27 2021 (-0500)
 #           By: Geoff S Derber
 #     Update #: 66
 # URL: https://github.com/hearthminion/homeassistant/
@@ -138,17 +138,6 @@ device_tracker:
     consider_home: 120
     interval_seconds: 40
 
-  # Re-enable nmap tracker
-  # Add "interval_seconds" parameter to slow down frequency of scans
-  # See:
-  #   - https://github.com/home-assistant/core/issues/33281
-  #   - https://community.home-assistant.io/t/0-107-6-broke-device-tracker/181234/
-  #
-  # Alternatively, reduce the size of number of hosts to scan
-  - platform: nmap_tracker
-    hosts: 10.0.99.0/24
-    home_interval: 3
-
   - platform: ping
     hosts:
       user0001_laptop_wifi: 10.0.2.41
@@ -174,11 +163,6 @@ geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
-
-climate:
-  - platform: honeywell
-    username: !secret honeywell_user
-    password: !secret honeywell_pass
 
 lovelace: !include includes/lovelace.yaml
 

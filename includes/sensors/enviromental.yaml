@@ -1,5 +1,6 @@
-- platform: darksky
-  api_key: !secret darksky
+- platform: pirateweather
+  api_key: !secret pirateweather
+  scan_interval: '00:30:00'
   forecast:
     - 0
   monitored_conditions:
@@ -32,15 +33,10 @@
     - moon_phase
     - nearest_storm_distance
     - nearest_storm_bearing
-  scan_interval:
-    days: 0
-    hours: 0
-    minutes: 5
-    seconds: 0
-    milliseconds: 0
 
-- platform: darksky
-  api_key: !secret darksky
+- platform: pirateweather
+  api_key: !secret pirateweather
+  scan_interval: '06:00:00'
   forecast:
     - 1
     - 2
@@ -79,13 +75,6 @@
     - moon_phase
     - nearest_storm_distance
     - nearest_storm_bearing
-  scan_interval:
-    days: 1
-    hours: 0
-    minutes: 0
-    seconds: 0
-    milliseconds: 0
-
     #time_of_day:
 
 - platform: moon

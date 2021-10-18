@@ -92,9 +92,9 @@
                 cards:
                   - type: sensor
                     name: "Nearest Storm Distance"
-                    entity: sensor.dark_sky_nearest_storm_distance
+                    entity: sensor.pirateweather_nearest_storm_distance
                   - type: custom:canvas-gauge-card
-                    entity: sensor.dark_sky_nearest_storm_bearing
+                    entity: sensor.pirateweather_nearest_storm_bearing
                     card_height: 220
                     gauge:
                       type: "radial-gauge"

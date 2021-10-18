@@ -6,8 +6,9 @@
     cards:
       - type: vertical-stack
         cards:
-          - type: custom:layout-card
-            layout: vertical
+          - type: custom:vertical-layout
+            view_layout:
+              column: 3
             cards:
 # ==================================================================================================
 #
@@ -90,11 +91,7 @@
 #
 # ==================================================================================================
               - type: weather-forecast
-                entity: weather.openweathermap
-              - type: weather-forecast
-                entity: weather.kahn_daynight
-              - type: weather-forecast
-                entity: weather.kahn_hourly
+                entity: weather.pirateweather
               - type: entities
                 entities:
                   - type: weblink

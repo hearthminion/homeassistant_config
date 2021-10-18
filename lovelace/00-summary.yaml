@@ -6,9 +6,10 @@
     cards:
       - type: vertical-stack
         cards:
-          - type: custom:vertical-layout
-            view_layout:
-              column: 3
+          - type: custom:layout-card
+            layout-type: custom:vertical-layout
+            layout:
+              max_col: 3
             cards:
 # ==================================================================================================
 #

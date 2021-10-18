@@ -167,7 +167,7 @@
 # Column 3
 #
 # ==================================================================================================
-             - type: horizontal-stack
+              - type: horizontal-stack
                 cards:
                   - type: sensor
                     entity: sensor.current_uv_index_3

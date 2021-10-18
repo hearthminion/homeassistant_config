@@ -12,7 +12,9 @@
       - type: vertical-stack
         cards:
           - type: custom:layout-card
-            layout: auto
+            layout-type: custom:vertical-layout
+            layout:
+              max_col: 4
             cards:
               - type: custom:auto-entities
                 card:

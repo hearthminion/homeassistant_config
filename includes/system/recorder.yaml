@@ -14,10 +14,11 @@ include:
   entity_globs:
     - binary_sensor.light_*
     - sensor.air_quality_*
-    - sensor.dark_sky*
+    - sensor.climacell_*
     - sensor.nodeid*
     - sensor.nws*
     - sensor.openweathermap*
+    - sensor.pirateweather*
     - sensor.pollen_*
     - sensor.sensehat*
     - sensor.skin_type_*

@@ -11,7 +11,9 @@
     - type: vertical-stack
       cards:
         - type: custom:layout-card
-          layout: vertical
+          layout-type: custom:vertical-layout
+          layout:
+            max_col: 2
           cards:
 # ======================================================================
 #
@@ -34,7 +36,7 @@
             - type: custom:layout-break
 # ======================================================================
 #
-# Column 1: Device Status
+# Column 2: Device Status
 #
 # ======================================================================
             # - type: history-graph

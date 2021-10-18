@@ -8,7 +8,7 @@
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
 # Home Assistant Version: 2021.4.4
-# Version: 2021.10.0
+# Version: 2021.10.1
 # Package-Requires: ()
 # Last-Updated: Fri Oct  15 10:27 2021 (-0500)
 #           By: Geoff S Derber
@@ -156,8 +156,8 @@ owntracks:
   events_only: false
 
 weather:
-  - platform: darksky
-    api_key: !secret darksky
+  - platform: pirateweather
+    api_key: !secret pirateweather
 
 geo_location:
   - platform: usgs_earthquakes_feed

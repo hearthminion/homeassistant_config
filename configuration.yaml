@@ -156,8 +156,8 @@ owntracks:
   events_only: false
 
 weather:
-  - platform: darksky
-    api_key: !secret darksky
+  - platform: pirateweather
+    api_key: !secret pirateweather
 
 geo_location:
   - platform: usgs_earthquakes_feed

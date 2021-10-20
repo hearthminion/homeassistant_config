@@ -6,7 +6,7 @@
 # ======================================================================
 title: Network Devices Alt
 icon: mdi:lan
-panel: true
+panel: false
 path: network_alt
 cards:
   - type: vertical-stack

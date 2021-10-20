@@ -41,7 +41,7 @@ cards:
               - entity: light.master_bedroom_lamp_1
               - entity: light.master_bedroom_lamp_2
           - type: custom:fold-entity-row
-            head: light.master_bathroom
+            head: light.master_bathroom_inner
             show_header_toggle: false
             entities:
               - entity: light.master_bathroom_inner

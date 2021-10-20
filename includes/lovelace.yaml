@@ -11,7 +11,7 @@ resources:
     type: module 
   - url: /hacsfiles/state-switch.js
     type: module
-  - url: /community_plugin/dual-gauge-card/dual-gauge-card.js
+  - url: /hacsfiles/dual-gauge-card/dual-gauge-card.js
     type: js
   - url: /hacsfiles/config-template-card.js
     type: module
@@ -23,9 +23,9 @@ resources:
     type: module
   - url: /hacsfiles/bignumber-card.js
     type: js
-  - url: /hacsfiles/ozw-network-visualization-card/ozw-network-visualization-card.js
-    type: module
   - url: /hacsfiles/slider-entity-row.js
     type: module
   - url: /hacsfiles/ha-floorplan/floorplan.js
     type: module
+  - url: /hacsfiles/custom-brand-icons/custom-brand-icons.js
+    type: js

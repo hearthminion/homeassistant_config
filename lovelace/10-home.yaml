@@ -9,85 +9,43 @@
 #
 #
 # ======================================================================
-#  - title: Home
-    title: Home
-    path: home
-    icon: mdi:home
-    panel: true
+title: Home
+path: home
+icon: mdi:home
+panel: true
+cards:
+  - type: vertical-stack
     cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:layout-card
-            layout-type: custom:vertical-layout
-            layout:
-              max_col: 4
-            cards:
-              - type: entities
-                title: Main Room Lights
-                show_header_toggle: false
-                entities:
-                  - entity: light.den_ceiling
-                  - entity: light.den_couch_lamp_1
-                  - entity: light.den_couch_lamp_2
-                  - entity: light.den_fireplace
-                  - entity: light.dining_area_ceiling
-                  - entity: light.entryway_ceiling
-                  - entity: light.kitchen_ceiling
-                  - entity: light.kitchen_island_ceiling
-                  - entity: light.living_area_ceiling
-                  - entity: light.main_room
-
-              - type: custom:layout-break
-
-              - type: entities
-                title: Master Bedroom
-                show_header_toggle: false
-                entities:
-                  - entity: light.master_bedroom
-                  - entity: light.master_bedroom_chair
-                  - entity: light.master_bedroom_closet
-                  - entity: light.master_bedroom_lamp_1
-                  - entity: light.master_bedroom_lamp_2
-
-              - type: entities
-                title: Master Bathroom
-                show_header_toggle: false
-                entities:
-                  - entity: light.master_bathroom_inner
-                  - entity: light.master_bathroom_outer
-
-              - type: entities
-                title: Hallway
-                show_header_toggle: false
-                entities:
-                  - entity: light.hallway
-
-              - type: custom:layout-break
-
-              - type: entities
-                title: Bedroom 2
-                show_header_toggle: false
-                entities:
-                  - entity: light.bedroom_2
-                  - entity: light.bedroom_2_closet
-
-              - type: entities
-                title: Bedroom 3
-                show_header_toggle: false
-                entities:
-                  - entity: light.bedroom_3
-                  - entity: light.bedroom_3_closet
-
-              - type: entities
-                title: Bathroom 2
-                show_header_toggle: false
-                entities:
-                  - entity: light.bathroom_2
-
-              - type: custom:layout-break
-
-              - type: entities
-                title: Basement
-                show_header_toggle: false
-                entities:
-                  - entity: light.basement
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - type: custom:fold-entity-row
+            head: light.main_room
+            entities:
+              - entity: light.den_ceiling
+              - entity: light.den_couch_lamp_1
+              - entity: light.den_couch_lamp_2
+              - entity: light.den_fireplace
+              - entity: light.dining_area_ceiling
+              - entity: light.entryway_ceiling
+              - entity: light.kitchen_ceiling
+              - entity: light.kitchen_island_ceiling
+              - entity: light.living_area_ceiling
+              - entity: light.hue_color_candle_1
+          - type: custom:fold-entity-row
+            head: light.master_bedroom
+            show_header_toggle: false
+            entities:
+              - entity: light.master_bedroom_chair
+              - entity: light.master_bedroom_lamp_1
+              - entity: light.master_bedroom_lamp_2
+          - type: custom:fold-entity-row
+            head: light.master_bathroom
+            show_header_toggle: false
+            entities:
+              - entity: light.master_bathroom_inner
+              - entity: light.master_bathroom_outer
+          - entity: light.hallway
+          - entity: light.bathroom_2
+          - entity: light.basement

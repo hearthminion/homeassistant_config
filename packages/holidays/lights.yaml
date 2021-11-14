@@ -7,7 +7,7 @@ automation:
       - platform: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        above: -18
+        above: -6
     condition: []
     action:
       - scene: scene.christmas_lights_on
@@ -61,6 +61,10 @@ scene:
         node_id: 7
         friendly_name: "Plug-in Outdoor Smart Switch: Switch"
         state: "on"
+      switch.nodeid_34_switch:
+        node_id: 34
+        friendly_name: "Christmas Tree Lights: Switch"
+        state: "on"
 
   - id: "1606782193777"
     name: "[Christmas] Lights Off"
@@ -72,6 +76,10 @@ scene:
       switch.nodeid_7_switch:
         node_id: 7
         friendly_name: "Plug-in Outdoor Smart Switch: Switch"
+        state: "off"
+      switch.nodeid_34_switch:
+        node_id: 34
+        friendly_name: "Christmas Tree Lights: Switch"
         state: "off"
 
   - id: "1576958171165"

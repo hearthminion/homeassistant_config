@@ -2,12 +2,10 @@ automation:
   - id: "1606841326257"
     alias: "[Christmas] Activate 'Christmas Lights On' Scene"
     initial_state: false
-    description: "Turns on all Christmas lights at astronomical dawn."
+    description: "Turns on all Christmas lights at 6:00 A.M."
     trigger:
-      - platform: numeric_state
-        entity_id: sun.sun
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        above: -6
+      - platform: time
+        at: "06:00:00"
     condition: []
     action:
       - scene: scene.christmas_lights_on
@@ -16,7 +14,7 @@ automation:
   - id: "1576628018411"
     alias: "[Christmas] Activate 'Christmas Lights Off' Scene"
     initial_state: false
-    description: ""
+    description: "Turns off all Christmas lights at 9:30 P.M."
     trigger:
       - platform: time
         at: "21:30:00"
@@ -28,7 +26,7 @@ automation:
   - id: "1607003903288"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
     initial_state: false
-    description: ""
+    description: "Turns on outdoor Christmas lights at sunset."
     trigger:
       - platform: sun
         event: sunset
@@ -40,7 +38,7 @@ automation:
   - id: "1606782092296"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
     initial_state: false
-    description: ""
+    description: "Turns off outdoor Christmas lights at sunrise."
     trigger:
       - platform: sun
         event: sunrise

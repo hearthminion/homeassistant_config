@@ -13,6 +13,7 @@ include:
     - weather
   entity_globs:
     - binary_sensor.light_*
+    - binary_sensor.nodeid*
     - sensor.air_quality_*
     - sensor.climacell_*
     - sensor.nodeid*

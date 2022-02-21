@@ -86,6 +86,7 @@ logbook:
 map:
 media_source:
 mobile_app:
+my:
 person:
 scene: !include scenes.yaml
 script: !include scripts.yaml

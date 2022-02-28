@@ -21,31 +21,31 @@ cards:
         show_header_toggle: false
         entities:
           - type: custom:fold-entity-row
-            head: light.main_room
+            head: light.mf_great_room
             entities:
-              - entity: light.den_ceiling
-              - entity: light.den_couch_lamp_1
-              - entity: light.den_couch_lamp_2
-              - entity: light.den_fireplace
-              - entity: light.dining_area_ceiling
-              - entity: light.entryway_ceiling
-              - entity: light.kitchen_ceiling
-              - entity: light.kitchen_island_ceiling
-              - entity: light.living_area_ceiling
-              - entity: light.hue_color_candle_1
+              - entity: light.mf_den_ceiling
+              - entity: light.mf_den_couch_lamp_1
+              - entity: light.mf_den_couch_lamp_2
+              - entity: light.mf_den_fireplace
+              - entity: light.mf_dining_area_ceiling
+              - entity: light.mf_entryway_ceiling
+              - entity: light.mf_kitchen_ceiling
+              - entity: light.mf_kitchen_island_ceiling
+              - entity: light.mf_living_area_ceiling
+              - entity: light.mf_den_small_desk_lamp_bulb
           - type: custom:fold-entity-row
-            head: light.master_bedroom
+            head: light.mf_bedroom_1
             show_header_toggle: false
             entities:
-              - entity: light.master_bedroom_chair
-              - entity: light.master_bedroom_lamp_1
-              - entity: light.master_bedroom_lamp_2
+              - entity: light.mf_bedroom_1_ceiling_fixture
+              - entity: light.mf_bedroom_1_lamp_1
+              - entity: light.mf_bedroom_1_lamp_2
           - type: custom:fold-entity-row
-            head: light.master_bathroom_inner
+            head: light.mf_bathroom_1_inner
             show_header_toggle: false
             entities:
-              - entity: light.master_bathroom_inner
-              - entity: light.master_bathroom_outer
-          - entity: light.hallway
-          - entity: light.bathroom_2
+              - entity: light.mf_bathroom_1_inner
+              - entity: light.mf_bathroom_1_outer
+          - entity: light.mf_hallway
+          - entity: light.mf_bathroom_2
           - entity: light.basement

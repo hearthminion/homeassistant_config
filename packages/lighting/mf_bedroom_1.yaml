@@ -58,7 +58,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.light_master_bedroom_lamp_2_brightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_master_bedroom_lamp_2_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -68,10 +68,10 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_master_bedroom_lamp_2_with_brightness_adjustment
+            - switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
 
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
-    alias: "[Light] Master Bedroom Lamp 2 at Night"
+    alias: "[Light] MF: Master Bedroom Lamp 2 at Night"
     description: "Turn on Master Bedroom Lamp 2 at night"
     initial_state: false
     trigger:
@@ -80,7 +80,7 @@ automation:
     condition: []
     action:
       - data: {}
-        entity_id: light.master_bedroom_lamp_2
+        entity_id: light.mf_bedroom_1_lamp_2
         service: light.turn_on
 
 # ==================================================================================================

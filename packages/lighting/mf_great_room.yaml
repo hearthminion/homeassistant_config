@@ -416,7 +416,7 @@ template:
           color_temp: >-
             {{ state_attr("light.mf_den_couch_lamp_1", "color_temp") }}
 
-      - id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
+      - unique_id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
         name: "[Light] MF: Den Couch Lamp 2 (Autobrightness)"
         state: >-
           {{ (

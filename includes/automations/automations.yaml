@@ -94,9 +94,10 @@
       entity_id: sensor.nodeid_4_electric_w_value_3
       below: "5"
   action:
-    - type: turn_off
-      entity_id: switch.nodeid_4_switch_3
-      domain: switch
+    - service: "switch.turn_off"
+      data:
+        entity_id:
+            - switch.nodeid_4_switch_3
   mode: single
 
 - id: "e63c0e77-1904-4a46-a73c-6982837270a8"
@@ -111,7 +112,8 @@
       to: "on"
   condition: []
   action:
-    - type: turn_on
-      entity_id: switch.nodeid_4_switch_3
-      domain: switch
+    - service: "switch.turn_on"
+      data:
+        entity_id:
+            - switch.nodeid_4_switch_3
   mode: single

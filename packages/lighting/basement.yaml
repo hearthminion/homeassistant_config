@@ -26,42 +26,67 @@ adaptive_lighting:
 #
 #
 # ==================================================================================================
-# automation:
-#   - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
-#     alias: '[Light] Basement: Turn Off Lights At Night'
-#     initial_state: false
-#     description: ''
-#     trigger:
-#       - at: '21:30'
-#         platform: time
-#     condition: []
-#     action:
-#       - service: light.turn_off
-#         data:
-#           entity_id: light.basement
+automation:
+  - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
+    alias: '[Light] Basement: Turn Off Lights At Night'
+    initial_state: false
+    description: ''
+    trigger:
+      - at: '21:30'
+        platform: time
+    condition: []
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.basement
 
-#   - id: "fa05d4ef-c8be-425a-b3e8-8418270d5009"
-#     alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_basement_autobrightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_adapt_brightness_basement
-#     mode: single
+  - id: "fa05d4ef-c8be-425a-b3e8-8418270d5009"
+    alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_basement_autobrightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_basement
+    mode: single
+
+  - id: "0f6a057d-afa4-4688-bee2-28226441e6f8"
+    alias: "[Light] Basement - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_2
+    mode: single
+
+ #- id: "eaae85d0-24f0-4309-aba3-dd17225f97e7"
+
 
 # # ======================================================================
 # #
@@ -317,7 +342,3 @@ template:
             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
-          xy_color: >-
-            {{ state_attr("light.basement", "xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.basement", "color_temp") }}

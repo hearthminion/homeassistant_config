@@ -1,4 +1,4 @@
-default: debug
+default: warn
 logs:
   homeassistant.helpers.template: debug
   homeassistant.components.template.template_entity: debug

@@ -388,8 +388,8 @@ adaptive_lighting:
 # ==================================================================================================
 template:
   - binary_sensor:
-      - id: "61149df3-3363-4717-a1f0-bdea867113b2"
-        name: "[Light] MF: Den Couch Lamp 1 (Autobrightness)"
+      - name: "[Light] MF: Den Couch Lamp 1 (Autobrightness)"
+        unique_id: "61149df3-3363-4717-a1f0-bdea867113b2"
         state: >-
           {{ (
                state_attr("switch.adaptive_lighting_mf_den_couch_lamp_1", "brightness_pct") | int ) <

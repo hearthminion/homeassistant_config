@@ -26,97 +26,98 @@ adaptive_lighting:
 #
 #
 # ==================================================================================================
-automation:
-  - id: '1587762496178'
-    alias: '[Light] Basement: Turn Off Lights At Night'
-    initial_state: false
-    description: ''
-    trigger:
-      - at: '21:30'
-        platform: time
-    condition: []
-    action:
-      - service: light.turn_off
-        data:
-          entity_id: light.basement
+# automation:
+#   - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
+#     alias: '[Light] Basement: Turn Off Lights At Night'
+#     initial_state: false
+#     description: ''
+#     trigger:
+#       - at: '21:30'
+#         platform: time
+#     condition: []
+#     action:
+#       - service: light.turn_off
+#         data:
+#           entity_id: light.basement
 
-  - alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        to: "Circadian"
-      - platform: state
-        entity_id: binary_sensor.light_basement_autobrightness
-    variables:
-      brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-    action:
-      - service: "switch.turn_{{ brightness_mode }}"
-        data:
-          entity_id:
-            - switch.adaptive_lighting_adapt_brightness_basement
-    mode: single
+#   - id: "fa05d4ef-c8be-425a-b3e8-8418270d5009"
+#     alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
+#     initial_state: false
+#     trigger:
+#       - platform: state
+#         entity_id: input_select.light_mode
+#         to: "Circadian"
+#       - platform: state
+#         entity_id: binary_sensor.light_basement_autobrightness
+#     variables:
+#       brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: template
+#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+#     action:
+#       - service: "switch.turn_{{ brightness_mode }}"
+#         data:
+#           entity_id:
+#             - switch.adaptive_lighting_adapt_brightness_basement
+#     mode: single
 
-# ======================================================================
-#
-#
-#
-# ======================================================================
-input_select:
-  hue_scene_basement_bedroom:
-    name: "[Light] Hue Basement Scene"
-    icon: mdi:palette
-    initial: "Circadian"
-    options:
-      - Arctic aurora
-      - Sevanna sunset
-      - Tropical twilight
-      - Spring blossom
-      - Relax
-      - Read
-      - Concentrate
-      - Energize
-      - Bright
-      - Dimmed
-      - Nightlight
-      - Motown
-      - Midsomer Sun
-      - Midwinter
-      - Ocean Dawn
-      - Emerald Isle
-      - Mountain Breeze
-      - Spring lake
-      - Moonlight
-      - Starlight
-      - Soho
-      - Golden Pond
-      - Frosty Dawn
-      - Fairfax
-      - Autumn Gold
-      - Palm Beach
-      - Lake Mist
-      - Chinatown
-      - Tokyo
-      - Sunday Morning
-      - Ibiza
-      - Nebula
-      - Galaxy
-      - Ruby Glow
-      - Winter mountain
-      - Blue Lagoon
-      - Honolulu
-      - Lake Placid
-      - Osaka
-      - Sundowner
-      - Blood Moon
-      - Circadian
-      - Night Mode
-      - Migraine
+# # ======================================================================
+# #
+# #
+# #
+# # ======================================================================
+# input_select:
+#   hue_scene_basement_bedroom:
+#     name: "[Light] Hue Basement Scene"
+#     icon: mdi:palette
+#     initial: "Circadian"
+#     options:
+#       - Arctic aurora
+#       - Sevanna sunset
+#       - Tropical twilight
+#       - Spring blossom
+#       - Relax
+#       - Read
+#       - Concentrate
+#       - Energize
+#       - Bright
+#       - Dimmed
+#       - Nightlight
+#       - Motown
+#       - Midsomer Sun
+#       - Midwinter
+#       - Ocean Dawn
+#       - Emerald Isle
+#       - Mountain Breeze
+#       - Spring lake
+#       - Moonlight
+#       - Starlight
+#       - Soho
+#       - Golden Pond
+#       - Frosty Dawn
+#       - Fairfax
+#       - Autumn Gold
+#       - Palm Beach
+#       - Lake Mist
+#       - Chinatown
+#       - Tokyo
+#       - Sunday Morning
+#       - Ibiza
+#       - Nebula
+#       - Galaxy
+#       - Ruby Glow
+#       - Winter mountain
+#       - Blue Lagoon
+#       - Honolulu
+#       - Lake Placid
+#       - Osaka
+#       - Sundowner
+#       - Blood Moon
+#       - Circadian
+#       - Night Mode
+#       - Migraine
 
 # # ==================================================================================================
 # #
@@ -132,190 +133,190 @@ input_select:
 # #     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
 # #     verify_ssl: false
 
-# ======================================================================
-#
-# Scenes
-#
-# Notes:
-#
-# Brightness settings:
-#  100% = 255
-#   75% = 192
-#   50% = 128
-#   25% =  64
-#
-# Colors:
-#   Red = xy [0.689,0.309]
-# Green = xy [0.17,0.7]
-#
-# ======================================================================
-scene:
-  - id: "1587760070294"
-    name: "[Light] Enable Basement Automations"
-    entities:
-      automation.light_basement_turn_off_lights_at_night:
-        state: "on"
-      automation.light_basement_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
+# # ==================================================================================================
+# #
+# # Scenes
+# #
+# # Notes:
+# #
+# # Brightness settings:
+# #  100% = 255
+# #   75% = 192
+# #   50% = 128
+# #   25% =  64
+# #
+# # Colors:
+# #   Red = xy [0.689,0.309]
+# # Green = xy [0.17,0.7]
+# #
+# # ======================================================================
+# scene:
+#   - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
+#     name: "[Light] Enable Basement Automations"
+#     entities:
+#       automation.light_basement_turn_off_lights_at_night:
+#         state: "on"
+#       automation.light_basement_adaptive_lighting_toggle_brightness_adjustment:
+#         state: "on"
 
-  - id: "1576892024578"
-    name: "[Light] Basement: Darken Room"
-    entities:
-      light.hue_color_lamp_2_2:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.den_ceiling_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_3:
-        state: "off"
-      light.den_lamp_1_bulb:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_ambiance_lamp_2:
-        state: "off"
-      light.hue_color_lamp_1:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_color_lamp_2:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.hue_color_lamp_3:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
+#   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
+#     name: "[Light] Basement: Darken Room"
+#     entities:
+#       light.hue_color_lamp_2_2:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
+#       light.basement_bulb_1:
+#         state: "off"
+#       light.basement_lamp_2:
+#         state: "off"
+#       light.basement_lamp_3:
+#         state: "off"
+#       light.basement_stairwell_bulb:
+#         state: "off"
+#       light.cave_lamp_2_bulb_2:
+#         state: "off"
+#       light.den_ceiling_bulb_1:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
+#       light.den_ceiling_bulb_2:
+#         state: "off"
+#       light.den_ceiling_bulb_3:
+#         state: "off"
+#       light.den_lamp_1_bulb:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
+#       light.hue_ambiance_lamp_2:
+#         state: "off"
+#       light.hue_color_lamp_1:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
+#       light.hue_color_lamp_2:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
+#       light.hue_color_lamp_3:
+#         state: "on"
+#         xy_color:
+#           - 0.689
+#           - 0.309
+#         brightness: 64
 
-  - id: "1576960043395"
-    name: "[Light] Basement: Migraine"
-    entities:
-      light.hue_color_lamp_2_2:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_bulb_2:
-        state: "off"
-      light.basement_bulb_3:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.den_ceiling_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_3:
-        state: "off"
-      light.den_lamp_1_bulb:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_ambiance_lamp_2:
-        state: "off"
-      light.hue_color_lamp_1:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_color_lamp_2:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
-      light.hue_color_lamp_3:
-        state: "on"
-        xy_color:
-          - 0.17
-          - 0.7
-        brightness: 128
+#   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
+#     name: "[Light] Basement: Migraine"
+#     entities:
+#       light.hue_color_lamp_2_2:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
+#       light.basement_bulb_1:
+#         state: "off"
+#       light.basement_bulb_2:
+#         state: "off"
+#       light.basement_bulb_3:
+#         state: "off"
+#       light.basement_lamp_2:
+#         state: "off"
+#       light.basement_lamp_3:
+#         state: "off"
+#       light.basement_stairwell_bulb:
+#         state: "off"
+#       light.cave_lamp_2_bulb_2:
+#         state: "off"
+#       light.den_ceiling_bulb_1:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
+#       light.den_ceiling_bulb_2:
+#         state: "off"
+#       light.den_ceiling_bulb_3:
+#         state: "off"
+#       light.den_lamp_1_bulb:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
+#       light.hue_ambiance_lamp_2:
+#         state: "off"
+#       light.hue_color_lamp_1:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
+#       light.hue_color_lamp_2:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
+#       light.hue_color_lamp_3:
+#         state: "on"
+#         xy_color:
+#           - 0.17
+#           - 0.7
+#         brightness: 128
 
-# ==================================================================================================
-#
-# Templates
-#
-# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
-# to work inside packages.
-#
-# https://www.home-assistant.io/integrations/template/
-#
-# ==================================================================================================
-binary_sensor:
-  - platform: template
-    sensors:
-      light_basement_autobrightness:
-        friendly_name: "[Light] Basement Autobrightness"
-        value_template: >-
-          {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
-          ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
-             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
-             ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
-             }}
-        attribute_templates:
-          brightness: >-
-            {% if state_attr("light.basement", "brightness") == None or
-               is_state_attr("light.basement","brightness", "unknown")  or
-               is_state("light.basement", "off") -%}
-              {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
-            {%- else %}
-              {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
-            {% endif %}
-          brightness_max: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
-          brightness_min: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
-          xy_color: >-
-            {{ state_attr("light.basement","xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.basement","color_temp") }}
+# # ==================================================================================================
+# #
+# # Templates
+# #
+# # Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# # to work inside packages.
+# #
+# # https://www.home-assistant.io/integrations/template/
+# #
+# # ==================================================================================================
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       light_basement_autobrightness:
+#         friendly_name: "[Light] Basement Autobrightness"
+#         value_template: >-
+#           {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
+#           ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
+#              and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
+#              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
+#              }}
+#         attribute_templates:
+#           brightness: >-
+#             {% if state_attr("light.basement", "brightness") == None or
+#                is_state_attr("light.basement","brightness", "unknown")  or
+#                is_state("light.basement", "off") -%}
+#               {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
+#             {%- else %}
+#               {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
+#             {% endif %}
+#           brightness_max: >-
+#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
+#           brightness_min: >-
+#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
+#           xy_color: >-
+#             {{ state_attr("light.basement","xy_color") }}
+#           color_temp: >-
+#             {{ state_attr("light.basement","color_temp") }}
 
-sensor:
-  - platform: template
-    sensors:
-      light_basement_xy_color:
-        friendly_name: "[Light] Basement: XY Color"
-        value_template: "{{ state_attr('light.basement_color','xy_color') }}"
+# sensor:
+#   - platform: template
+#     sensors:
+#       light_basement_xy_color:
+#         friendly_name: "[Light] Basement: XY Color"
+#         value_template: "{{ state_attr('light.basement_color','xy_color') }}"

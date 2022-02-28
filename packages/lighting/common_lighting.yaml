@@ -221,7 +221,7 @@ scene:
         state: 'on'
       automation.light_set_light_mode_darken_house:
         state: 'on'
-      automation.light_enable_migrain_mode:
+      automation.light_enable_migraine_mode:
         state: 'on'
       automation.light_adaptive_lighting_toggle:
         state: 'on'

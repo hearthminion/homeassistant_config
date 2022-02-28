@@ -251,7 +251,7 @@ template:
           color_temp: >-
             {{ state_attr("light.mf_bedroom_1_lamp_2", "color_temp") }}
 
-      - unique_id: "77e8421d-25eb-413e-905f-8887b4d91e77"
+      - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
         name: "[Light] Master Bedroom Color Mode"
         state: "{{ state_attr('light.mf_bedroom_1','color_mode') == 'xy' }}"
 

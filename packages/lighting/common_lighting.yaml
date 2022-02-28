@@ -4,17 +4,17 @@
 #
 # ==================================================================================================
 automation:
-  # - id: "65d7e60e-4e39-460b-a319-b65f497b6465"
-  #   alias: "[Light] Enable Lighting Automations"
-  #   description: ""
-  #   trigger:
-  #     - event: start
-  #       platform: homeassistant
-  #   condition: []
-  #   action:
-  #     - scene: scene.light_enable_basement_automations
-  #     - scene: scene.light_enable_common_automations
-  #     - scene: scene.light_enable_master_bedroom_automations
+  - id: "65d7e60e-4e39-460b-a319-b65f497b6465"
+    alias: "[Light] Enable Lighting Automations"
+    description: ""
+    trigger:
+      - event: start
+        platform: homeassistant
+    condition: []
+    action:
+      - scene: scene.light_enable_basement_automations
+      - scene: scene.light_enable_common_automations
+      - scene: scene.light_enable_master_bedroom_automations
 
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
     alias: "[Light] Adaptive Lighting (Toggle)"
@@ -35,8 +35,8 @@ automation:
         data:
           entity_id:
             - switch.adaptive_lighting_basement
-            - switch.adaptive_lighting_den_couch_lamp_2
-            - switch.adaptive_lighting_master_bedroom_lamp_2
+            #- switch.adaptive_lighting_den_couch_lamp_2
+            #- switch.adaptive_lighting_mf_bedroom_1_lamp_2
 
   # ================================================================================================
   #
@@ -223,9 +223,7 @@ scene:
         state: 'on'
       automation.light_enable_migrain_mode:
         state: 'on'
-      automation.light_enable_adaptive_lighting:
-        state: 'on'
-      automation.light_disable_adaptive_lighting:
+      automation.light_adaptive_lighting_toggle:
         state: 'on'
 
 template:

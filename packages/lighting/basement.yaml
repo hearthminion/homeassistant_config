@@ -183,31 +183,33 @@ automation:
 # #     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
 # #     verify_ssl: false
 
-# # ==================================================================================================
-# #
-# # Scenes
-# #
-# # Notes:
-# #
-# # Brightness settings:
-# #  100% = 255
-# #   75% = 192
-# #   50% = 128
-# #   25% =  64
-# #
-# # Colors:
-# #   Red = xy [0.689,0.309]
-# # Green = xy [0.17,0.7]
-# #
-# # ======================================================================
-# scene:
-#   - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
-#     name: "[Light] Enable Basement Automations"
-#     entities:
-#       automation.light_basement_turn_off_lights_at_night:
-#         state: "on"
-#       automation.light_basement_adaptive_lighting_toggle_brightness_adjustment:
-#         state: "on"
+# ==================================================================================================
+#
+# Scenes
+#
+# Notes:
+#
+# Brightness settings:
+#  100% = 255
+#   75% = 192
+#   50% = 128
+#   25% =  64
+#
+# Colors:
+#   Red = xy [0.689,0.309]
+# Green = xy [0.17,0.7]
+#
+# ======================================================================
+scene:
+  - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
+    name: "[Light] Enable Basement Automations"
+    entities:
+      automation.light_basement_turn_off_lights_at_night:
+        state: "on"
+      automation.light_basement_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_basement_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
 
 #   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
 #     name: "[Light] Basement: Darken Room"

@@ -58,118 +58,120 @@ adaptive_lighting:
 # 
 #
 # ==================================================================================================
-# automation:
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Couch Lamp 2
-#   #
-#   # Light Group:
-#   #   - light.den_couch_lamp_2
-#   #
-#   # Automations:
-#   #   -
-#   #
-#   # ================================================================================================
-#   - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
-#     alias: "[Light] MF: Den Couch Lamp 2 - Adaptive Lighting (Toggle Brightness Adjustment)"
-#     description: ""
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_mf_den_couch_lamp_2_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_mf_den_couch_lamp_2_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_mf_den_couch_lamp_2_with_brightness_adjustment
+automation:
+  # ================================================================================================
+  #
+  # Light fixture: Den Couch Lamp 2
+  #
+  # Light Group:
+  #   - light.den_couch_lamp_2
+  #
+  # Automations:
+  #   -
+  #
+  # ================================================================================================
+  - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
+    alias: "[Light] MF: Den Couch Lamp 2 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_mf_den_couch_lamp_2_brightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_mf_den_couch_lamp_2_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_mf_den_couch_lamp_2_with_brightness_adjustment
 
-#   - id: "5d497792-9062-446c-836f-d033bb7686a9"
-#     alias: "[Light] MF: Den Couch Lamp 2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-#     description: ""
-#     trigger:
-#         - platform: event
-#           event_type: hue_event
-#           event_data:
-#             id: mf_den_couch_lamp_2_switch_button
-#             subtype: 3
-#         - platform: event
-#           event_type: hue_event
-#           event_data:
-#             id: mf_den_couch_lamp_2_switch_button
-#             subtype: 2
-#     condition: []
-#     action:
-#       - service: switch.turn_off
-#         data: {}
-#         target:
-#           entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_2
-#     mode: single
+  - id: "5d497792-9062-446c-836f-d033bb7686a9"
+    alias: "[Light] MF: Den Couch Lamp 2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf_den_couch_lamp_2_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf_den_couch_lamp_2_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_2
+    mode: single
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Couch Lamp 1
-#   #
-#   # Light Group:
-#   #   - light.den_couch_lamp_1
-#   #
-#   # Automations:
-#   #   -
-#   #
-#   # ================================================================================================
-#   - id: "ab8e3063-5b76-4146-980f-d945c1d9eebd"
-#     alias: "[Light] MF: Den Couch Lamp 1 - Adaptive Lighting (Toggle Brightness Adjustment)"
-#     description: ""
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_mf_den_couch_lamp_1_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_mf_den_couch_lamp_1_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_mf_den_couch_lamp_1_with_brightness_adjustment
+  # ================================================================================================
+  #
+  # Light fixture: Den Couch Lamp 1
+  #
+  # Light Group:
+  #   - light.den_couch_lamp_1
+  #
+  # Automations:
+  #   -
+  #
+  # ================================================================================================
+  - id: "ab8e3063-5b76-4146-980f-d945c1d9eebd"
+    alias: "[Light] MF: Den Couch Lamp 1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_mf_den_couch_lamp_1_brightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_mf_den_couch_lamp_1_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_mf_den_couch_lamp_1_with_brightness_adjustment
 
-#   - id: "859d806f-611d-431a-a3cc-fec03a761795"
-#     alias: "[Light] MF: Den Couch Lamp 1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-#     description: ''
-#     trigger:
-#         - platform: event
-#           event_type: hue_event
-#           event_data:
-#             id: mf_den_couch_lamp_1_switch_button
-#             subtype: 3
-#         - platform: event
-#           event_type: hue_event
-#           event_data:
-#             id: mf_den_couch_lamp_1_switch_button
-#             subtype: 2
-#     condition: []
-#     action:
-#       - service: switch.turn_off
-#         data: {}
-#         target:
-#           entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_1
-#     mode: single
+  - id: "859d806f-611d-431a-a3cc-fec03a761795"
+    alias: "[Light] MF: Den Couch Lamp 1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    description: ''
+    initial_state: false
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf_den_couch_lamp_1_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf_den_couch_lamp_1_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_1
+    mode: single
 
 #   # ================================================================================================
 #   #

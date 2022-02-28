@@ -443,3 +443,16 @@ template:
             {{ state_attr("light.mf_den_couch_lamp_2", "xy_color") }}
           color_temp: >-
             {{ state_attr("light.mf_den_couch_lamp_2", "color_temp") }}
+
+      - unique_id: "34c07133-565d-4368-99d4-587b129800b5"
+        name: "[Light] MF: Great Room Color Mode"
+        state: "{{ state_attr('light.mf_great_room','color_mode') == 'xy' }}"
+
+  - sensor:
+      - unique_id: "4a80505d-9bd2-405b-82e7-0babe7472038"
+        name: "[Light] Basement Color"
+        state: "{{ state_attr('light.den_couch_lamp_1', 'xy_color') }}"
+
+      - unique_id: "3e2b59e0-884f-405f-8b9b-4ce79e6a55eb"
+        name: "[Light] Basement Color"
+        state: "{{ state_attr('light.den_couch_lamp_2', 'xy_color') }}"

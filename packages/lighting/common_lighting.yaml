@@ -42,7 +42,6 @@ automation:
       - platform: state
         entity_id: input_select.light_mode
         from: Circadian
-    condition: []
     variables:
       brightness_mode: "{{ states('binary_sensor.light_master_bedroom_lamp_2_autobrightness') }}"
     condition:
@@ -250,4 +249,4 @@ template:
   - binary_sensor:
       - unique_id: "4fd1dd66-c51b-474d-9de7-da4dfd5cc398"
         name: "Circadian Mode"
-        state: "{{ state('input_select.light_mode') == 'Circadian' }}"
+        state: "{{ states('input_select.light_mode') == 'Circadian' }}"

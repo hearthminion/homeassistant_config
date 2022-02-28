@@ -1,5 +1,6 @@
 automation:
-  - alias: "[Christmas] Enable Automations"
+  - id: "2b71d034-526c-448f-a444-c8ac87dcac94"
+    alias: "[Christmas] Enable Automations"
     description: ""
     trigger:
       - event: start
@@ -9,13 +10,14 @@ automation:
       - scene: scene.christmas_enable_light_automations
 
 scene:
-  name: "[Christmas] Enable Light Automations"
-  entities:
-    automation.christmas_activate_christmas_lights_off_scene:
-      state: 'on'
-    automation.christmas_activate_christmas_lights_on_scene:
-      state: 'on'
-    automation.christmas_activate_christmas_outdoor_lights_off_scene:
-      state: 'on'
-    automation.christmas_activate_christmas_outdoor_lights_on_scene:
-      state: 'on'
+  - id: "832aa014-6c04-44d8-a244-99501f907a18"
+    name: "[Christmas] Enable Light Automations"
+    entities:
+      automation.christmas_activate_christmas_lights_off_scene:
+        state: 'on'
+      automation.christmas_activate_christmas_lights_on_scene:
+        state: 'on'
+      automation.christmas_activate_christmas_outdoor_lights_off_scene:
+        state: 'on'
+      automation.christmas_activate_christmas_outdoor_lights_on_scene:
+        state: 'on'

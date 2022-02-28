@@ -39,49 +39,49 @@ adaptive_lighting:
     min_color_temp: 2200
     max_color_temp: 6500
 
-# # ==================================================================================================
-# #
-# # Automations
-# #
-# #
-# #
-# # ==================================================================================================
-# automation:
-#   - id: "848efd5b-0d62-496b-8da2-ff2beb51155c"
-#     alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Toggle Brightness Adjustment)"
-#     description: ""
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_master_bedroom_lamp_2_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_master_bedroom_lamp_2_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_master_bedroom_lamp_2_with_brightness_adjustment
+# ==================================================================================================
+#
+# Automations
+#
+#
+#
+# ==================================================================================================
+automation:
+  - id: "848efd5b-0d62-496b-8da2-ff2beb51155c"
+    alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Toggle Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_master_bedroom_lamp_2_brightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_master_bedroom_lamp_2_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_master_bedroom_lamp_2_with_brightness_adjustment
 
-#   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
-#     alias: "[Light] Master Bedroom Lamp 2 at Night"
-#     description: "Turn on Master Bedroom Lamp 2 at night"
-#     initial_state: false
-#     trigger:
-#       - event: sunset
-#         platform: sun
-#     condition: []
-#     action:
-#       - data: {}
-#         entity_id: light.master_bedroom_lamp_2
-#         service: light.turn_on
+  - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
+    alias: "[Light] Master Bedroom Lamp 2 at Night"
+    description: "Turn on Master Bedroom Lamp 2 at night"
+    initial_state: false
+    trigger:
+      - event: sunset
+        platform: sun
+    condition: []
+    action:
+      - data: {}
+        entity_id: light.master_bedroom_lamp_2
+        service: light.turn_on
 
 # # ==================================================================================================
 # #
@@ -195,8 +195,8 @@ adaptive_lighting:
 
 template:
   - binary_sensor:
-      - name: "[Light] MF: Master Bedroom Lamp 1 (Autobrightness)"
-        unique_id: "d03e7d81-3a2e-4ffe-b2bf-962ead50cd1c"
+      - unique_id: "d03e7d81-3a2e-4ffe-b2bf-962ead50cd1c"
+        name: "[Light] MF: Master Bedroom Lamp 1 (Autobrightness)"
         state: >-
           {{ (
                state_attr("switch.adaptive_lighting_mf_bedroom_1_lamp_1", "brightness_pct") | int ) <

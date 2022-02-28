@@ -275,48 +275,49 @@ adaptive_lighting:
 #           - 0.7
 #         brightness: 128
 
-# # ==================================================================================================
-# #
-# # Templates
-# #
-# # Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
-# # to work inside packages.
-# #
-# # https://www.home-assistant.io/integrations/template/
-# #
-# # ==================================================================================================
-# binary_sensor:
-#   - platform: template
-#     sensors:
-#       light_basement_autobrightness:
-#         friendly_name: "[Light] Basement Autobrightness"
-#         value_template: >-
-#           {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
-#           ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max") | int )
-#              and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
-#              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int )
-#              }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.basement", "brightness") == None or
-#                is_state_attr("light.basement","brightness", "unknown")  or
-#                is_state("light.basement", "off") -%}
-#               {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int ) }}
-#             {%- else %}
-#               {{ ( state_attr("light.basement","brightness") / 255 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.basement","xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.basement","color_temp") }}
-
 # sensor:
 #   - platform: template
 #     sensors:
 #       light_basement_xy_color:
 #         friendly_name: "[Light] Basement: XY Color"
 #         value_template: "{{ state_attr('light.basement_color','xy_color') }}"
+
+# ==================================================================================================
+#
+# Templates
+#
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - id: "64ca8117-0ecc-4dab-b821-b67f08fe10f0"
+        name: "[Light] Basement Autobrightness"
+        state: >-
+          {{ (
+               state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) <
+               ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max")
+               | int )
+             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
+             ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.basement", "brightness") == None or
+               is_state_attr("light.basement", "brightness", "unknown") or
+               is_state("light.basement", "off") %}
+              {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int | int ) }}
+            {% else %}
+              {{ ( state_attr("light.basement","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.basement", "xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.basement", "color_temp") }}

@@ -20,21 +20,21 @@
 #
 # ==================================================================================================
 adaptive_lighting:
-  - name: "Main: Master Bedroom Lamp 1"
+  - name: "MF: Master Bedroom Lamp 1"
     lights:
-      - light.main_bedroom_1_lamp_1
+      - light.mf_bedroom_1_lamp_1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "Main: Master Bedroom Lamp 2"
+  - name: "MF: Master Bedroom Lamp 2"
     lights:
-      - light.main_bedroom_1_lamp_2
+      - light.mf_bedroom_1_lamp_2
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "Main: Master Bedroom Ceiling"
+  - name: "MF: Master Bedroom Ceiling"
     lights:
-      - light.main_bedroom_1_ceiling_fixture
+      - light.mf_bedroom_1_ceiling_fixture
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500

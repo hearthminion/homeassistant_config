@@ -271,97 +271,6 @@ adaptive_lighting:
 #             - switch.adaptive_lighting_mf_den_couch_lamp_1_with_brightness_adjustment
 
 
-# # ==================================================================================================
-# #
-# # Binary Sensor
-# #
-# # ==================================================================================================
-# binary_sensor:
-#   - platform: template
-#     sensors:
-#       light_mf_den_couch_lamp_1_autobrightness:
-#         friendly_name: "[Light] Den Couch Lamp 1 Autobrightness"
-#         value_template: >-
-#           {{ (
-#                state_attr("switch.adaptive_lighting_den_couch_lamp_1", "brightness_pct") | int ) <
-#                ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_max")
-#                | int )
-#              and ( state_attr("switch.adaptive_lighting_den_couch_lamp_1", "brightness_pct") | int ) >
-#              ( state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness_min") | int
-#              ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_couch_lamp_1", "brightness") == None or
-#                is_state_attr("light.den_couch_lamp_1", "brightness", "unknown") or
-#                is_state("light.den_couch_lamp_1", "off") %}
-#               {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_1_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_couch_lamp_1", "xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_couch_lamp_1", "color_temp") }}
-
-#       light_mf_den_couch_lamp_2_autobrightness:
-#         friendly_name: "[Light] Den Couch Lamp 2 Autobrightness"
-#         value_template: >-
-#           {{ (
-#                state_attr("switch.adaptive_lighting_den_couch_lamp_2", "brightness_pct") | int ) <
-#                ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_max")
-#                | int )
-#              and ( state_attr("switch.adaptive_lighting_den_couch_lamp_2", "brightness_pct") | int ) >
-#              ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_min") | int
-#              ) }}
-#         attribute_templates:
-#           brightness: >-
-#             {% if state_attr("light.den_couch_lamp_2", "brightness") == None or
-#                is_state_attr("light.den_couch_lamp_2", "brightness", "unknown") or
-#                is_state("light.den_couch_lamp_2", "off") %}
-#               {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int | int ) }}
-#             {% else %}
-#               {{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
-#           xy_color: >-
-#             {{ state_attr("light.den_couch_lamp_2", "xy_color") }}
-#           color_temp: >-
-#             {{ state_attr("light.den_couch_lamp_2", "color_temp") }}
-
-      # light_mf_den_couch_lamp_2_autobrightness:
-      #   friendly_name: "[Light] Den Couch Lamp 2 Autobrightness"
-      #   value_template: >-
-      #     {{ (
-      #          state_attr("switch.adaptive_lighting_den_couch_lamp_2", "brightness_pct") | int ) <
-      #          ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_max")
-      #          | int )
-      #        and ( state_attr("switch.adaptive_lighting_den_couch_lamp_2", "brightness_pct") | int ) >
-      #        ( state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness_min") | int
-      #        ) }}
-      #   attribute_templates:
-      #     brightness: >-
-      #       {% if state_attr("light.den_couch_lamp_2", "brightness") == None or
-      #          is_state_attr("light.den_couch_lamp_2", "brightness", "unknown") or
-      #          is_state("light.den_couch_lamp_2", "off") %}
-      #         {{ ( state_attr("switch.adaptive_lighting_basement", "brightness_pct" ) | int | int ) }}
-      #       {% else %}
-      #         {{ ( state_attr("light.den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
-      #       {% endif %}
-      #     brightness_max: >-
-      #       {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
-      #     brightness_min: >-
-      #       {{ state_attr("binary_sensor.light_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
-      #     xy_color: >-
-      #       {{ state_attr("light.den_couch_lamp_2", "xy_color") }}
-      #     color_temp: >-
-      #       {{ state_attr("light.den_couch_lamp_2", "color_temp") }}
 
 #       light_den_fireplace_autobrightness:
 #         friendly_name: "[Light] Den Fireplace Autobrightness"
@@ -471,3 +380,66 @@ adaptive_lighting:
 #     entities:
 #       automation.light_mf_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
 #         state: 'on'
+
+# ==================================================================================================
+#
+# Templates
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - id: "61149df3-3363-4717-a1f0-bdea867113b2"
+        name: "[Light] MF: Den Couch Lamp 1 (Autobrightness)"
+        state: >-
+          {{ (
+               state_attr("switch.adaptive_lighting_mf_den_couch_lamp_1", "brightness_pct") | int ) <
+               ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_max")
+               | int )
+             and ( state_attr("switch.adaptive_lighting_mf_den_couch_lamp_1", "brightness_pct") | int ) >
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_min") | int
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.mf_den_couch_lamp_1", "brightness") == None or
+               is_state_attr("light.mf_den_couch_lamp_1", "brightness", "unknown") or
+               is_state("light.mf_den_couch_lamp_1", "off") %}
+              {{ ( state_attr("switch.adaptive_lighting_mf_den_couch_lamp_1", "brightness_pct" ) | int | int ) }}
+            {% else %}
+              {{ ( state_attr("light.mf_den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.mf_den_couch_lamp_1", "xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.mf_den_couch_lamp_1", "color_temp") }}
+
+      - id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
+        name: "[Light] MF: Den Couch Lamp 2 (Autobrightness)"
+        state: >-
+          {{ (
+               state_attr("switch.adaptive_lighting_mf_den_couch_lamp_2", "brightness_pct") | int ) <
+               ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_max")
+               | int )
+             and ( state_attr("switch.adaptive_lighting_mf_den_couch_lamp_2", "brightness_pct") | int ) >
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_min") | int
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.mf_den_couch_lamp_2", "brightness") == None or
+               is_state_attr("light.mf_den_couch_lamp_2", "brightness", "unknown") or
+               is_state("light.mf_den_couch_lamp_2", "off") %}
+              {{ ( state_attr("switch.adaptive_lighting_mf_den_couch_lamp_2", "brightness_pct" ) | int | int ) }}
+            {% else %}
+              {{ ( state_attr("light.mf_den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
+          xy_color: >-
+            {{ state_attr("light.mf_den_couch_lamp_2", "xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.mf_den_couch_lamp_2", "color_temp") }}

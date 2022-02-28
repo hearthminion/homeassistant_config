@@ -348,5 +348,5 @@ template:
 
   - sensor:
       - unique_id: "8970dec0-877b-4cbd-a98b-0f708475377a"
-        name: "[Light] Master Bedroom Lamp 2 Color"
-        state: "{{ state_attr('light.mf_bedroom_1_lamp_2', 'xy_color') }}"
+        name: "[Light] Basement Color"
+        state: "{{ state_attr('light.basement', 'xy_color') }}"

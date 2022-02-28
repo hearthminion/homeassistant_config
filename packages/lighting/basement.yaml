@@ -342,3 +342,6 @@ template:
             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int - 4 }}
+      - unique_id: "77e8421d-25eb-413e-905f-8887b4d91e77"
+        name: "[Light] Basement Color Mode"
+        state: "{{ state_attr('light.basement','color_mode') == 'xy' }}"

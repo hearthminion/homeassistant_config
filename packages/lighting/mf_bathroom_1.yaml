@@ -23,7 +23,7 @@ adaptive_lighting:
     min_color_temp: 2200
     max_color_temp: 6500
 
-lights:
+light:
   - platform: group
     name: "MF: Master Bathroom"
     lights:

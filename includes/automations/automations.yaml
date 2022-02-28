@@ -5,7 +5,7 @@
 # - In the morning when the sun rises to 18 degrees below the horizon
 #   enable
 # ==================================================================================================
-- id: "1607138332140"
+- id: "c538b51a-b47f-41b6-b85c-57cd0efade1c"
   alias: "Turn Off Migraine Mode"
   description: ""
   trigger:
@@ -24,7 +24,7 @@
 # - In the morning when the sun rises to 18 degrees below the horizon
 #   enable
 # ==================================================================================================
-- id: "1606847390094"
+- id: "918ded3c-579d-4b16-8511-f89d881b0103"
   alias: "Start Sleep Timer"
   description: "Starts a timer upon going to bed."
   trigger:
@@ -55,7 +55,7 @@
       data:
         entity_id: timer.lights_off
 
-- id: "1606847637745"
+- id: "6ed4807a-3951-412e-be81-5d6d74a77d14"
   alias: "Turn Off Master Bedroom TV Power"
   description: ""
   trigger:
@@ -95,12 +95,11 @@
       below: "5"
   action:
     - type: turn_off
-      device_id: df96863a0f8bfe05ddaba286433fd95b
       entity_id: switch.nodeid_4_switch_3
       domain: switch
   mode: single
 
-- id: "1607180392829"
+- id: "e63c0e77-1904-4a46-a73c-6982837270a8"
   alias: "Turn On Master Bedroom TV power"
   description: ""
   trigger:
@@ -113,7 +112,6 @@
   condition: []
   action:
     - type: turn_on
-      device_id: df96863a0f8bfe05ddaba28643395b
       entity_id: switch.nodeid_4_switch_3
       domain: switch
   mode: single

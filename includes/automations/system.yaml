@@ -1,4 +1,5 @@
-- alias: 'Update Available Notifications'
+- id: "d136bd43-cd41-47bb-8e36-fb65d7c81fbd"
+  alias: 'Update Available Notifications'
   trigger:
     platform: state
     entity_id: binary_sensor.updater

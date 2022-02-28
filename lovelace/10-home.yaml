@@ -41,7 +41,7 @@ cards:
               - entity: light.mf_bedroom_1_lamp_1
               - entity: light.mf_bedroom_1_lamp_2
           - type: custom:fold-entity-row
-            head: light.mf_master_bathroom
+            head: light.mf_master_bat[<0;71;15Mhroom
             show_header_toggle: false
             entities:
               - entity: light.mf_bathroom_1_inner

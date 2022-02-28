@@ -26,6 +26,6 @@ adaptive_lighting:
 light:
   - platform: group
     name: "MF: Master Bathroom"
-    lights:
+    entities:
       - light.mf_bathroom_1_inner
       - light.mf_bathroom_1_outer

@@ -413,10 +413,6 @@ template:
             {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int - 4 }}
-          xy_color: >-
-            {{ state_attr("light.mf_den_couch_lamp_1", "xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.mf_den_couch_lamp_1", "color_temp") }}
 
       - unique_id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
         name: "[Light] MF: Den Couch Lamp 2 (Autobrightness)"
@@ -441,10 +437,6 @@ template:
             {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int - 4 }}
-          xy_color: >-
-            {{ state_attr("light.mf_den_couch_lamp_2", "xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.mf_den_couch_lamp_2", "color_temp") }}
 
       - unique_id: "34c07133-565d-4368-99d4-587b129800b5"
         name: "[Light] MF: Great Room Color Mode"
@@ -452,9 +444,9 @@ template:
 
   - sensor:
       - unique_id: "4a80505d-9bd2-405b-82e7-0babe7472038"
-        name: "[Light] Basement Color"
+        name: "[Light] Den Couch Lamp 1 Color"
         state: "{{ state_attr('light.den_couch_lamp_1', 'xy_color') }}"
 
       - unique_id: "3e2b59e0-884f-405f-8b9b-4ce79e6a55eb"
-        name: "[Light] Basement Color"
+        name: "[Light] Den Couch Lamp Color"
         state: "{{ state_attr('light.den_couch_lamp_2', 'xy_color') }}"

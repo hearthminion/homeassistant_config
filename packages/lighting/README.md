@@ -308,3 +308,11 @@ Images come from [Unsplash](https://unsplash.com/)
 
 # References
 - [DIY Hue Scenes in Home Assistant using the deCONZ integration](https://www.jeroendruwe.be/diy-hue-scenes-in-home-assistant-using-the-deconz-integration/) Jeroen Drewé
+- [Scenes and Groups](https://community.home-assistant.io/t/scenes-and-groups/41948)
+- [Entities Card - Setting Hue Scene](https://community.home-assistant.io/t/entities-card-setting-hue-scene/137886)
+- [Using Home Assistant and Philips Hue to create a full colour sunrise](https://149walnut.com/2017-12-using-home-assistant-and-philips-hue-to-create-a-full-colour-sunrise-alarm-clock/)
+- [Turning on a scene directly from a Lovelace button](https://community.home-assistant.io/t/turning-on-a-scene-directly-from-a-lovelace-button/263056)
+- [Scenes operating as a switch](https://community.home-assistant.io/t/scenes-operating-as-a-switch/237228)
+- [Scenes - Home Assistant](https://www.home-assistant.io/integrations/scene/)
+- [Philips hue dynamic scenes](https://community.home-assistant.io/t/philips-hue-dynamic-scenes/345000)
+- [Hue scenes mimicked in Ha (and on Buttons, was Tiles)](https://community.home-assistant.io/t/hue-scenes-mimicked-in-ha-and-on-buttons-was-tiles/93570/27)

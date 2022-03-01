@@ -211,61 +211,47 @@ scene:
       automation.light_basement_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
 
-#   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
-#     name: "[Light] Basement: Darken Room"
-#     entities:
-#       light.hue_color_lamp_2_2:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
-#       light.basement_bulb_1:
-#         state: "off"
-#       light.basement_lamp_2:
-#         state: "off"
-#       light.basement_lamp_3:
-#         state: "off"
-#       light.basement_stairwell_bulb:
-#         state: "off"
-#       light.cave_lamp_2_bulb_2:
-#         state: "off"
-#       light.den_ceiling_bulb_1:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
-#       light.den_ceiling_bulb_2:
-#         state: "off"
-#       light.den_ceiling_bulb_3:
-#         state: "off"
-#       light.den_lamp_1_bulb:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
-#       light.hue_ambiance_lamp_2:
-#         state: "off"
-#       light.hue_color_lamp_1:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
-#       light.hue_color_lamp_2:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
-#       light.hue_color_lamp_3:
-#         state: "on"
-#         xy_color:
-#           - 0.689
-#           - 0.309
-#         brightness: 64
+  - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
+    name: "[Light] Basement: Darken Room"
+    entities:
+      light.bf_den_lamp_2:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.basement_bulb_1:
+        state: "off"
+      light.basement_bulb_2:
+        state: "off"
+      light.basement_bulb_3:
+        state: "off"
+      light.basement_lamp_2:
+        state: "off"
+      light.basement_lamp_3:
+        state: "off"
+      light.basement_stairwell_bulb:
+        state: "off"
+      light.cave_lamp_2_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.den_ceiling_bulb_2:
+        state: "off"
+      light.den_ceiling_bulb_3:
+        state: "off"
+      light.den_lamp_1_bulb:
+        state: "off"
+      light.hue_ambiance_lamp_2:
+        state: "off"
+      light.hue_ambiance_lamp_3:
+        state: "off"
+      light.hue_ambiance_lamp_4:
+        state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] Basement: Migraine"
@@ -307,6 +293,68 @@ scene:
       light.hue_ambiance_lamp_3:
         state: "off"
       light.hue_ambiance_lamp_4:
+        state: "off"
+
+  - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"
+    name: "[Light] Basement: Bright"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "22b7c3af-0991-4f83-b2b2-6d51f1df089c"
+    name: "[Light] Basement: Concentrate"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "9e5f60ca-caae-41b3-bd7b-7fce33bcc436"
+    name: "[Light] Basement: Dimmed"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "126a563d-3826-4d00-81e1-abca1a6869b2"
+    name: "[Light] Basement: Energize"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "50d190ae-8d62-4716-ac9c-3ef5757a1009"
+    name: "[Light] Basement: Nightlight"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "3e72d0b5-c2f2-4f4e-87df-67bc7c63882d"
+    name: "[Light] Basement: Read"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "fbe2e3db-c839-42d6-86de-c879baf8673e"
+    name: "[Light] Basement: Dimmed"
+    entities:
+      light.basement:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "b448b6d9-fc73-4f87-8cd9-f0df64dd350d"
+    name: "[Light] Basement: Off"
+    entities:
+      light.basement:
         state: "off"
 
 # sensor:

@@ -68,17 +68,243 @@ Used to generate uuids for automations, scenes, etc.
 
 ## Default Hue Scene Photos
 
-All images come from [Unsplash](https://unsplash.com/)
+Images come from [Unsplash](https://unsplash.com/)
+
+### Amber Bloom
+- image:
+  by:
+
+### Arctic Aurora
+- image:
+  by: David Gil
+
+### Autumn Gold
+- image:
+  by: Dana Moos
+
+### Blood Moon
+- image:
+  by: Andrea Reiman
+
+### Blue Lagoon
+- image:
+  by:
+
+### Blue Planet
+- image:
+  by:
+
+### Chinatown
+- image:
+  by: Pascal Terjan
+
+### City of Love
+- image:
+  by:
+
+### Color Burst
+- image:
+  by:
+
+### Crystaline
+- image:
+  by:
+
+### Disturbia
+- image:
+  by:
+
+### Emerald Isle
+- image: https://unsplash.com/photos/cuhu-aAdzs0
+  by: [Jasmin Causevic](https://unsplash.com/@duplich)
+
+### Fairfax
+- image:
+  by:
+
+### Festive Fun
+- image:
+  by:
+
+### Forest Adventure
+- image:
+  by:
+
+### Frosty Dawn
+- image:
+  by:
 
 ### Galaxy
 - image: https://unsplash.com/photos/QeoXkIesiCo
-  by: Manouchehr Hejazi
-  https://unsplash.com/@patrol
+  by: [Manouchehr Hejazi](https://unsplash.com/@patrol)
+
+### Glitz and glam
+- image:
+  by:
 
 ### Golden Pond
 - image: https://unsplash.com/photos/b4SRwTQget8
-  by: Claudia Viloria
-  https://unsplash.com/@viloria
+  by: [Claudia Viloria](https://unsplash.com/@viloria)
+
+### Golden Star
+- image:
+  by:
+
+### Hal
+- image:
+  by:
+
+### Honolulu
+- image: https://unsplash.com/photos/2-Bq_AGZyr8
+  by: [Amit Nayak](https://unsplash.com/@amitnayak)
+
+### Ibiza
+- image:
+  by: Michal Grosicki
+
+### Lake Placid
+- image:
+  by:
+
+### Lake Mist
+- image:
+  by: [Ales Krivec](https://unsplash.com/@aleskrivec)
+
+### Lily
+- image:
+  by:
+
+### Lovebirds
+- image:
+  by:
+
+### Magento
+- image:
+  by:
+
+### Midsummer Sun
+- image:
+  by: [Susanne Nilsson](https://unsplash.com/@kosthjalpen/likes)
+
+### Midwinter
+- image:
+  by:
+
+### Moonlight
+- image: https://unsplash.com/photos/6msS8vT5pzw
+  by: [Benjamin Child](https://unsplash.com/@bchild311)
+
+### Mountain Breeze
+- image:
+  by:
+
+### Motown
+- image:
+  by:
+
+### Nebula
+- image: https://unsplash.com/photos/33FlT2A83H4
+  by: [Ernest Karchmit](https://unsplash.com/@ekarchmit)
+
+### Ocean Dawn
+- image: https://unsplash.com/photos/EEDLURXCpqg
+  by: [Anastasia Taioglou](https://unsplash.com/@thenata)
+
+### Orange Fields
+- image:
+  by:
+
+### Osaka
+- image: https://unsplash.com/photos/saxby7Bioxc
+  by: [Alex Knight](https://unsplash.com/@agk42)
+
+### Palm Beach
+- image:
+  by:
+
+### Painted Sky
+- image:
+  by:
+
+### Promise
+- image:
+  by:
+
+### Ruby Glow
+- image: https://unsplash.com/photos/nE2gf1scItI
+  by: [Martin Jernberg](https://unsplash.com/@martinjernberg)
+
+### Ruby Romance
+- image:
+  by:
+
+### Rosy Sparks
+- image:
+  by:
+
+### Savanna Sunset
+- image:
+  by: Lady DragonflyCC
+
+### Smitten
+- image:
+  by:
+
+### Soho
+- image: https://unsplash.com/photos/RnCPiXixooY
+  by: [Efe Kurnaz](https://unsplash.com/@efekurnaz)
+
+### Silent Night
+- image:
+  by:
+
+### Spring Blossom
+- image:
+  by: Oimax
+
+### Spring Lake
+- image:
+  by: Shirsendu Nayak
+
+### Starlight
+- image: https://unsplash.com/photos/ln5drpv_ImI
+  by: [Vincentiu Solomon](https://unsplash.com/@vincentiu)
+
+### Sunday Morning
+- image: https://unsplash.com/photos/S3UCfaKTNZQ
+  by: [Carsten Stalljohann](https://unsplash.com/@pascelcrow)
+
+### Sundown
+- image: https://unsplash.com/photos/1HplMDoRvTo
+  by: [Cristina Gottardi](https://unsplash.com/@cristina_gottardi)
+
+### Tokyo
+- image:
+  by:
+
+### Tropical Twilight
+- image:
+  by: Roman Till
+
+### Tyrell
+- image:
+  by:
+
+### Under the Tree
+- image:
+  by:
+
+### Vapor Wave
+- image:
+  by:
+
+### Winter Beauty
+- image:
+  by:
+
+### Winter Mountain
+- image:
+  by:
 
 # References
 - [DIY Hue Scenes in Home Assistant using the deCONZ integration](https://www.jeroendruwe.be/diy-hue-scenes-in-home-assistant-using-the-deconz-integration/) Jeroen Drewé

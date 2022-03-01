@@ -95,6 +95,64 @@ scene:
       automation.light_master_bedroom_lamp_2_at_night:
         state: "on"
 
+  # ================================================================================================
+  #
+  # Lamp 1 Scenes
+  #
+  # ================================================================================================
+  - id: "d0380075-67cf-415e-a079-1c66fabc40fb"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Migraine"
+    entities:
+      light.mf_bedroom_1_lamp_1_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 64
+      light.mf_bedroom_1_lamp_1_bulb_2:
+        state: "off"
+
+  - id: "66453b6a-f834-4e8b-8211-1d669e61bcc8"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Darken Room"
+    entities:
+      light.mf_bedroom_1_lamp_1_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.mf_bedroom_1_lamp_1_bulb_2:
+        state: "off"
+
+  # ================================================================================================
+  #
+  # Lamp 2 Scenes
+  #
+  # ================================================================================================
+  - id: "1836a0ae-050e-476c-b8d6-aea5fd639f10"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Migraine"
+    entities:
+      light.mf_bedroom_1_lamp_2_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 64
+      light.mf_bedroom_1_lamp_2_bulb_2:
+        state: "off"
+
+  - id: "e92369eb-f339-49d7-af93-64b9cad81fd7"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Darken Room"
+    entities:
+      light.mf_bedroom_1_lamp_2_bulb_1:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+      light.mf_bedroom_1_lamp_2_bulb_2:
+        state: "off"
+
 # ==================================================================================================
 #
 # Template binary_sensors and sensors

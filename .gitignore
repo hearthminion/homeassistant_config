@@ -58,3 +58,4 @@ customize.yaml
 core
 secrets.yaml
 secrets.yaml.*
+wget-log

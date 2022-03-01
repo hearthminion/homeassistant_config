@@ -70,240 +70,123 @@ Used to generate uuids for automations, scenes, etc.
 
 Images come from [Unsplash](https://unsplash.com/)
 
-### Amber Bloom
-- image:
+- Amber Bloom
   by:
-
-### Arctic Aurora
-- image:
+- Arctic Aurora
   by: David Gil
-
-### Autumn Gold
-- image:
+- Autumn Gold
   by: Dana Moos
-
-### Blood Moon
-- image:
+- Blood Moon
   by: Andrea Reiman
-
-### Blue Lagoon
-- image:
+- Blue Lagoon
   by:
-
-### Blue Planet
-- image:
+- Blue Planet
   by:
-
-### Chinatown
-- image:
+- Chinatown
   by: Pascal Terjan
-
-### City of Love
-- image:
+- City of Love
   by:
-
-### Color Burst
-- image:
+- Color Burst
   by:
-
-### Crystaline
-- image:
+- Crystaline
   by:
-
-### Disturbia
-- image:
+- Disturbia
   by:
-
-### Emerald Isle
-- image: https://unsplash.com/photos/cuhu-aAdzs0
+- [Emerald Isle](https://unsplash.com/photos/cuhu-aAdzs0)
   by: [Jasmin Causevic](https://unsplash.com/@duplich)
-
-### Fairfax
-- image:
+- Fairfax
   by:
-
-### Festive Fun
-- image:
+- Festive Fun
   by:
-
-### Forest Adventure
-- image:
+- Forest Adventure
   by:
-
-### Frosty Dawn
-- image:
+- Frosty Dawn
   by:
-
-### Galaxy
-- image: https://unsplash.com/photos/QeoXkIesiCo
+- [Galaxy](https://unsplash.com/photos/QeoXkIesiCo)
   by: [Manouchehr Hejazi](https://unsplash.com/@patrol)
-
-### Glitz and glam
-- image:
+- Glitz and glam
   by:
-
-### Golden Pond
-- image: https://unsplash.com/photos/b4SRwTQget8
+- [Golden Pond](https://unsplash.com/photos/b4SRwTQget8)
   by: [Claudia Viloria](https://unsplash.com/@viloria)
-
-### Golden Star
-- image:
+- Golden Star
   by:
-
-### Hal
-- image:
+- Hal
   by:
-
-### Honolulu
-- image: https://unsplash.com/photos/2-Bq_AGZyr8
+- [Honolulu](https://unsplash.com/photos/2-Bq_AGZyr8)
   by: [Amit Nayak](https://unsplash.com/@amitnayak)
-
-### Ibiza
-- image:
+- Ibiza
   by: Michal Grosicki
-
-### Lake Placid
-- image:
+- Lake Placid
   by:
-
-### Lake Mist
-- image:
+- Lake Mist
   by: [Ales Krivec](https://unsplash.com/@aleskrivec)
-
-### Lily
-- image:
+- Lily
   by:
-
-### Lovebirds
-- image:
+- Lovebirds
   by:
-
-### Magento
-- image:
+- Magento
   by:
-
-### Midsummer Sun
-- image:
+- Midsummer Sun
   by: [Susanne Nilsson](https://unsplash.com/@kosthjalpen/likes)
-
-### Midwinter
-- image:
+- Midwinter
   by:
-
-### Moonlight
-- image: https://unsplash.com/photos/6msS8vT5pzw
+- [Moonlight](https://unsplash.com/photos/6msS8vT5pzw)
   by: [Benjamin Child](https://unsplash.com/@bchild311)
-
-### Mountain Breeze
-- image:
+- Mountain Breeze
   by:
-
-### Motown
-- image:
+- Motown
   by:
-
-### Nebula
-- image: https://unsplash.com/photos/33FlT2A83H4
+- [Nebula](https://unsplash.com/photos/33FlT2A83H4)
   by: [Ernest Karchmit](https://unsplash.com/@ekarchmit)
-
-### Ocean Dawn
-- image: https://unsplash.com/photos/EEDLURXCpqg
+- [Ocean Dawn](https://unsplash.com/photos/EEDLURXCpqg)
   by: [Anastasia Taioglou](https://unsplash.com/@thenata)
-
-### Orange Fields
-- image:
+- Orange Fields
   by:
-
-### Osaka
-- image: https://unsplash.com/photos/saxby7Bioxc
+- [Osaka](https://unsplash.com/photos/saxby7Bioxc)
   by: [Alex Knight](https://unsplash.com/@agk42)
-
-### Palm Beach
-- image:
+- Palm Beach
   by:
-
-### Painted Sky
-- image:
+- Painted Sky
   by:
-
-### Promise
-- image:
+- Promise
   by:
-
-### Ruby Glow
-- image: https://unsplash.com/photos/nE2gf1scItI
+- [Ruby Glow](https://unsplash.com/photos/nE2gf1scItI)
   by: [Martin Jernberg](https://unsplash.com/@martinjernberg)
-
-### Ruby Romance
-- image:
+- Ruby Romance
   by:
-
-### Rosy Sparks
-- image:
+- Rosy Sparks
   by:
-
-### Savanna Sunset
-- image:
+- Savanna Sunset
   by: Lady DragonflyCC
-
-### Smitten
-- image:
+- Smitten
   by:
-
-### Soho
-- image: https://unsplash.com/photos/RnCPiXixooY
+- [Soho](https://unsplash.com/photos/RnCPiXixooY)
   by: [Efe Kurnaz](https://unsplash.com/@efekurnaz)
-
-### Silent Night
-- image:
+- Silent Night
   by:
-
-### Spring Blossom
-- image:
+- Spring Blossom
   by: Oimax
-
-### Spring Lake
-- image:
+- Spring Lake
   by: Shirsendu Nayak
-
-### Starlight
-- image: https://unsplash.com/photos/ln5drpv_ImI
+- [Starlight](https://unsplash.com/photos/ln5drpv_ImI)
   by: [Vincentiu Solomon](https://unsplash.com/@vincentiu)
-
-### Sunday Morning
-- image: https://unsplash.com/photos/S3UCfaKTNZQ
+- [Sunday Morning](https://unsplash.com/photos/S3UCfaKTNZQ)
   by: [Carsten Stalljohann](https://unsplash.com/@pascelcrow)
-
-### Sundown
-- image: https://unsplash.com/photos/1HplMDoRvTo
+- [Sundown](https://unsplash.com/photos/1HplMDoRvTo)
   by: [Cristina Gottardi](https://unsplash.com/@cristina_gottardi)
-
-### Tokyo
-- image:
+- Tokyo
   by:
-
-### Tropical Twilight
-- image:
+- Tropical Twilight
   by: Roman Till
-
-### Tyrell
-- image:
+- Tyrell
   by:
-
-### Under the Tree
-- image:
+- Under the Tree
   by:
-
-### Vapor Wave
-- image:
+- Vapor Wave
   by:
-
-### Winter Beauty
-- image:
+- Winter Beauty
   by:
-
-### Winter Mountain
-- image:
+- Winter Mountain
   by:
 
 # References

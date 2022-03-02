@@ -28,11 +28,12 @@ Used to generate uuids for automations, scenes, etc.
 #### [Scenes](https://www.home-assistant.io/integrations/scene/)
 ##### Darken
 
-This sets the lights to Red at 25% brightness.
+This sets the lights to Red at 25% brightness.  Inspired by Navy's "Darken Ship" interior lighting for nighttime.
 
 xy_color:
   - 0.689
   - 0.309
+  
 ##### Migraine
 
 This sets the lights to Green at 25% brightness.

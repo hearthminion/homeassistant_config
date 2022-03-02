@@ -34,21 +34,21 @@
       entity_id: light.all_lights
       to: "off"
     - platform: state
-      entity_id: light.master_bedroom_lamp_1
+      entity_id: light.mf_bedroom_1_lamp_1
       from: "on"
       to: "off"
     - platform: state
-      entity_id: light.master_bedroom_lamp_2
+      entity_id: light.mf_bedroom_1_lamp_2
       from: "on"
       to: "off"
   condition:
     - condition: time
       after: "21:00:00"
     - condition: state
-      entity_id: light.master_bedroom_lamp_2
+      entity_id: light.mf_bedroom_1_lamp_1
       state: "off"
     - condition: state
-      entity_id: light.master_bedroom_lamp_1
+      entity_id: light.mf_bedroom_1_lamp_2
       state: "off"
   action:
     - service: timer.start
@@ -65,11 +65,11 @@
       entity_id: sensor.nodeid_4_electric_w_value_3
       to: "0"
     - platform: state
-      entity_id: light.master_bedroom_lamp_1
+      entity_id: light.mf_bedroom_1_lamp_1
       from: "on"
       to: "off"
     - platform: state
-      entity_id: light.master_bedroom_lamp_2
+      entity_id: light.mf_bedroom_1_lamp_2
       from: "on"
       to: "off"
     - platform: state
@@ -77,22 +77,20 @@
       from: "on"
       to: "off"
   condition:
-    - condition: device
-      device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
-      domain: media_player
-      entity_id: media_player.samsung_bd_f5900
-      type: is_off
     - condition: time
       after: "21:00:00"
     - condition: state
-      entity_id: light.master_bedroom_lamp_2
+      entity_id: light.mf_bedroom_1_lamp_1
       state: "off"
     - condition: state
-      entity_id: light.master_bedroom_lamp_1
+      entity_id: light.mf_bedroom_1_lamp_2
       state: "off"
     - condition: numeric_state
       entity_id: sensor.nodeid_4_electric_w_value_3
       below: "5"
+    - platform: state
+      entity_id: media_player.samsung_bd_f5900
+      state: "off"
   action:
     - service: "switch.turn_off"
       data:

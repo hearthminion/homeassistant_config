@@ -77,6 +77,11 @@
       from: "on"
       to: "off"
   condition:
+    - condition: device
+      device_id: 30ff6de20a8f11ebaec1b7b1859d29d6
+      domain: media_player
+      entity_id: media_player.samsung_bd_f5900
+      type: is_off
     - condition: time
       after: "21:00:00"
     - condition: state
@@ -88,9 +93,6 @@
     - condition: numeric_state
       entity_id: sensor.nodeid_4_electric_w_value_3
       below: "5"
-    - platform: state
-      entity_id: media_player.samsung_bd_f5900
-      state: "off"
   action:
     - service: "switch.turn_off"
       data:

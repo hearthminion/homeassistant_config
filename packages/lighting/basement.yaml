@@ -192,7 +192,8 @@ rest_command:
   light_update_basement_scene_homeassistant:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
-    header: "hue-application-key: {{ username }}"
+    headers:
+      authorization: "hue-application-key: {{ username }}"
     payload: '{ "lightstates": {
       "e687cdcb-7022-4d66-9763-ec5ead8f8808": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} },
       "068c9cd1-0128-423b-b0f4-e9bc57e0308e": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} },

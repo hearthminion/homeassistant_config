@@ -17,15 +17,9 @@
 - [License](#license)
 
 ## Description
-Home Assistant Version: 0.117.5
+Home Assistant Version: 2022.2
 
 ## Installation
-
-## User Interface
-### Base
-### Lovelace UI
-#### Addon Cards
-- [Popup Card](https://github.com/thomasloven/lovelace-popup-card)
 
 ## My Setup
 ### Controller
@@ -45,31 +39,32 @@ Home Assistant Version: 0.117.5
 ##### Locks
 - [Schlage Connect](https://www.schlage.com/en/home/smart-locks/connect.html)
 
-#### Integrations
-##### Built In
-###### Binary Sensors
-####### [Ping](https://home-assistant.io/)
-####### [Template](https://home-assistant.io/)
-###### Device Trackers
-####### [Owntracks](https://home-assistant.io/)
-###### [MQTT](https://home-assistant.io)
-###### Sensors
-####### [Darksky](https://home-assistant.io/) This will be replaced in the future.
-####### [Moon](https://home-assistant.io/)
-####### [MQTT](https://home-assistant.io/)
-####### [Season](https://home-assistant.io/)
-####### [Template](https://home-assistant.io/)
-####### [Time and Date](https://home-assistant.io/)
-####### [Worldclock](https://home-assistant.io/)
-####### [Uptime](https://home-assistant.io/)
-###### [Sun](https://home-assistant.io/)
-###### []
+### Integrations
+#### Builtin
+- [Ping](https://www.home-assistant.io/integrations/ping/)
+- [Template](https://www.home-assistant.io/integrations/template/)
+- [Owntracks](https://www.home-assistant.io/integrations/owntracks/)
+- [MQTT](https://www.home-assistant.io/integrations/mqtt/)
+- [Moon](https://www.home-assistant.io/integrations/moon/)
+- [MQTT](https://www.home-assistant.io/integrations/sensor.mqtt/)
+- [Season](https://www.home-assistant.io/integrations/season/)
+- [Time and Date](https://www.home-assistant.io/integrations/time_date/)
+- [Worldclock](https://www.home-assistant.io/integrations/worldclock/)
+- [Uptime](https://www.home-assistant.io/integrations/uptime/)
+- [Sun](https://www.home-assistant.io/integrations/sun/)
 
-##### Custom
-###### [HACS](https://github.com/)
-###### [Car Wash Sensor](https://github.com)
-###### [Garbage Collection](https://github.com)
-###### [Circadian Lighting](https://github.com)
+#### Custom
+- [HACS](https://github.com/)
+- [Car Wash Sensor](https://github.com)
+- [Garbage Collection](https://github.com)
+- [Adaptive Lighting](https://github.com)
+- [Pirate Weather](https://home-assistant.io/)
+
+### User Interface
+#### Builtin
+#### Custom (Requires HACS, see below)
+- [Popup Card](https://github.com/thomasloven/lovelace-popup-card)
+- [Floorplan](https://github.com/pkozul/ha-floorplan)
 
 ## Features and Advantages
 ...
@@ -89,7 +84,6 @@ Home Assistant Version: 0.117.5
 
 ## Useful Links
 - [Awesome HA](https://www.awesome-ha.com/)
-- [Floorplan](https://github.com/pkozul/ha-floorplan)
 - [Home Assistant Podcast](https://hasspodcast.io)
 - [Phil Hawthorne](https://philhawthorne.com)
 - [Rohan Karamandi](https://pages.karamandi.com)

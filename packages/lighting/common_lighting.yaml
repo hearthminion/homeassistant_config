@@ -168,7 +168,7 @@ automation:
   #
   # ================================================================================================
   - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
-    alias: "[Light] Update HomeAssistant on Hue Bridge"
+    alias: "[Light] Update HomeAssistant Scene on Hue Bridges"
     description: ""
     initial_state: false
     trigger:
@@ -180,13 +180,13 @@ automation:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
         - condition: state
-          entitiy_id: switch.adaptive_lighting_basement
+          entitiy: switch.adaptive_lighting_basement
           state: "on"
         - condition: state
-          entity_id: switch.adaptive_lighting_mf_den_couch_lamp_2
+          entity: switch.adaptive_lighting_mf_den_couch_lamp_2
           state: "on"
         - condition: state
-          entity_id: switch.adaptive_lighting_mf_bedroom_1_lamp_2
+          entity: switch.adaptive_lighting_mf_bedroom_1_lamp_2
           state: "on"
     action:
       - service: script.turn_on

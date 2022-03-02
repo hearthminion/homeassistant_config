@@ -160,6 +160,28 @@ automation:
         option: "Guests"
       service: input_select.select_option
 
+  # ================================================================================================
+  #
+  # Update HomeAssistant Scene on Hue Bridge
+  #
+  # Runs every 5 minutes while light mode is "circadian"
+  #
+  # ================================================================================================
+  # - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
+  #   alias: "[Light] Update HomeAssistant on Hue Bridge"
+  #   description: ""
+  #   trigger:
+  #     - platform: time_pattern
+  #       minutes: "/5"
+  #   condition:
+  #     condition: and
+  #     conditions:
+  #       - condition: template
+  #         value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+  #   action:
+  #     - service: script.turn_on
+  #       data: 
+
 # ==================================================================================================
 #
 # Input Boolean
@@ -225,6 +247,29 @@ scene:
         state: 'on'
       automation.light_adaptive_lighting_toggle:
         state: 'on'
+
+script:
+  light_update_scene_homeassistant_circadian:
+    alias: "[Light] Update Home Assistant Scenes (Circadian)"
+    sequence:
+      - service: rest_command.light_update_basement_scene_homeassistant
+        data:
+          scene_id: "2432a16d-f38e-44d0-8e9a-dfd9fc8c52ab"
+          username: !secret hue2_username
+          color: '"ct": {{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}'
+          brightness: '"bri": {{ states_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}'
+          bulb_01_on_state: "true"
+          bulb_02_on_state: "true"
+          bulb_03_on_state: "true"
+          bulb_04_on_state: "true"
+          bulb_05_on_state: "true"
+          bulb_06_on_state: "true"
+          bulb_07_on_state: "true"
+          bulb_08_on_state: "true"
+          bulb_09_on_state: "true"
+          bulb_10_on_state: "true"
+          bulb_11_on_state: "true"
+          bulb_12_on_state: "true"
 
 template:
   - binary_sensor:

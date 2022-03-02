@@ -173,15 +173,41 @@ automation:
 #
 # Rest Command
 #
-# 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
+# Light IDs:
+# - 01: e687cdcb-7022-4d66-9763-ec5ead8f8808
+# - 02: 068c9cd1-0128-423b-b0f4-e9bc57e0308e
+# - 03: 65a17417-29b9-4978-9145-0d3ce5e94c01
+# - 04: 84e56e8b-a96f-4a25-9715-4ecc0921ab8d
+# - 05: 12fe02ef-c867-4eae-982e-f8fdf9e0ba23
+# - 06: e464775c-3b2b-453d-b7cf-e7def42610f6
+# - 07: 2b238059-189a-4f70-b33a-6b6948b70dc7
+# - 08: b02df779-caaa-446a-8e0e-e73e069f9cbd
+# - 09: 5d9e8921-1307-4181-826e-55c3a05e14ac
+# - 10: ae1340a6-0178-4eb5-8b4a-c166abd7a297
+# - 11: 557f80c4-02a7-4944-8591-53eb8c33cb95
+# - 12: 8677b6df-8d08-4eba-a4c5-927d3321915d
 #
 # ==================================================================================================
-# rest_command:
-#   light_update_basement_scene_homeassistant:
-#     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-#     method: put
-#     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
-#     verify_ssl: false
+rest_command:
+  light_update_basement_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    header: "hue-application-key: {{ username }}"
+    payload: '{ "lightstates": {
+      "e687cdcb-7022-4d66-9763-ec5ead8f8808": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} },
+      "068c9cd1-0128-423b-b0f4-e9bc57e0308e": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} },
+      "65a17417-29b9-4978-9145-0d3ce5e94c01": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} },
+      "84e56e8b-a96f-4a25-9715-4ecc0921ab8d": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} },
+      "12fe02ef-c867-4eae-982e-f8fdf9e0ba23": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} },
+      "e464775c-3b2b-453d-b7cf-e7def42610f6": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} },
+      "2b238059-189a-4f70-b33a-6b6948b70dc7": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} },
+      "b02df779-caaa-446a-8e0e-e73e069f9cbd": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} },
+      "5d9e8921-1307-4181-826e-55c3a05e14ac": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} },
+      "ae1340a6-0178-4eb5-8b4a-c166abd7a297": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} },
+      "557f80c4-02a7-4944-8591-53eb8c33cb95": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} },
+      "8677b6df-8d08-4eba-a4c5-927d3321915d": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }
+      }}'
+    verify_ssl: false
 
 # ==================================================================================================
 #

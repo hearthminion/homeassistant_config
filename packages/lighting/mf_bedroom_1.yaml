@@ -85,6 +85,32 @@ automation:
 
 # ==================================================================================================
 #
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_mf_bedroom_1_lamp_2_scene_homeassistant:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid":"e7e3a4b4-c9ac-4841-929f-7330da707855","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_02_on_state }} },
+          "target":{"rid":"95a7a21c-f290-4c7a-97ce-f13d8c856e4b","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+# ==================================================================================================
+#
 # Scenes
 #
 # ==================================================================================================

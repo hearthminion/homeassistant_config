@@ -195,7 +195,7 @@ rest_command:
     headers:
       hue-application-key: "{{ username }}"
     payload: '{
-          "id":"cd29377b-333f-4e4d-97ef-5d2a8989c7ac",
+          "id":"{{ scene_id }}",
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },

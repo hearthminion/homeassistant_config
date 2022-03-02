@@ -283,6 +283,14 @@ script:
           bulb_10_on_state: '"on":{"on":true}'
           bulb_11_on_state: '"on":{"on":true}'
           bulb_12_on_state: '"on":{"on":true}'
+      - service: rest_command.light_update_mf_bedroom_1_lamp_2_scene_homeassistant
+        data:
+          scene_id: "95a7a21c-f290-4c7a-97ce-f13d8c856e4b"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
+          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
+          bulb_01_on_state: '"on":{"on":true}'
+          bulb_02_on_state: '"on":{"on":true}'
 
 template:
   - binary_sensor:

@@ -384,7 +384,9 @@ scene:
   - id: "e2b63d06-9725-4e40-87ef-8feba9956177"
     name: "[Light] MF: Enable Den Automations"
     entities:
-      automation.light_mf_den_couch_lamp_2_circadian_lighting_without_brightness_adjustment:
+      automation.light_mf_den_couch_lamp_2_adaptive_lighting_toggle_brightness_adjustment:
+        state: 'on'
+      automation.light_mf_den_couch_lamp_2_adaptive_lighting_turn_off_brightness_adjustment:
         state: 'on'
 
   # ================================================================================================

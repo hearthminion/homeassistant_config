@@ -143,7 +143,9 @@ scene:
         state: "on"
       automation.light_master_bedroom_lamp_2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-
+      automation.light_master_bedroom_lamp_2_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
+        
   # ================================================================================================
   #
   # Lamp 1 Scenes

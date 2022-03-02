@@ -194,7 +194,6 @@ rest_command:
     method: put
     headers:
       hue-application-key: "{{ username }}"
-      accept: "application/json"
     payload: '{ "actions":[
       {
          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },

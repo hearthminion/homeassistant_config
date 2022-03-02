@@ -169,19 +169,19 @@ automation:
 #       - Night Mode
 #       - Migraine
 
-# # ==================================================================================================
-# #
-# # Rest Command
-# #
-# # 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
-# #
-# # ==================================================================================================
-# # rest_command:
-# #   light_update_basement_scene_homeassistant:
-# #     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
-# #     method: put
-# #     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
-# #     verify_ssl: false
+# ==================================================================================================
+#
+# Rest Command
+#
+# 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
+#
+# ==================================================================================================
+# rest_command:
+#   light_update_basement_scene_homeassistant:
+#     url: "https://hue2.iot.home/api/{{ username }}/scenes/{{ scene_id }}"
+#     method: put
+#     payload: '{ "lightstates": { "4": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} }, "5": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} }, "6": { "on": "{{ bulb_03_on_state }}", {{ color }}, {{ brightness }} }, "7": { "on": "{{ bulb_04_on_state }}", {{ color }}, {{ brightness }} }, "8": { "on": "{{ bulb_05_on_state }}", {{ color }}, {{ brightness }} }, "9": { "on": "{{ bulb_06_on_state }}", {{ color }}, {{ brightness }} }, "10": { "on": "{{ bulb_07_on_state }}", {{ color }}, {{ brightness }} }, "11": { "on": "{{ bulb_08_on_state }}", {{ color }}, {{ brightness }} }, "12": { "on": "{{ bulb_09_on_state }}", {{ color }}, {{ brightness }} }, "14": { "on": "{{ bulb_10_on_state }}", {{ color }}, {{ brightness }} }, "15": { "on": "{{ bulb_11_on_state }}", {{ color }}, {{ brightness }} }, "16": { "on": "{{ bulb_12_on_state }}", {{ color }}, {{ brightness }} }, "17": { "on": "{{ bulb_13_on_state }}", {{ color }}, {{ brightness }} }}}'
+#     verify_ssl: false
 
 # ==================================================================================================
 #
@@ -344,7 +344,7 @@ scene:
         brightness: 255
 
   - id: "fbe2e3db-c839-42d6-86de-c879baf8673e"
-    name: "[Light] Basement: Dimmed"
+    name: "[Light] Basement: Relax"
     entities:
       light.basement:
         state: "on"
@@ -356,13 +356,6 @@ scene:
     entities:
       light.basement:
         state: "off"
-
-# sensor:
-#   - platform: template
-#     sensors:
-#       light_basement_xy_color:
-#         friendly_name: "[Light] Basement: XY Color"
-#         value_template: "{{ state_attr('light.basement_color','xy_color') }}"
 
 # ==================================================================================================
 #

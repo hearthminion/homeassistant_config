@@ -42,7 +42,7 @@ xy_color:
   - 0.17
   - 0.7
 
-#### [Templates]
+#### [Templates](https://www.home-assistant.io/integrations/template/)
 
 
 ## Features

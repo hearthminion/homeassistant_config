@@ -78,6 +78,7 @@
       to: "off"
   condition:
     - condition: device
+      device_id: 2dd8093f00c36e870221900a12933923
       domain: media_player
       entity_id: media_player.samsung_bd_f5900
       type: is_off

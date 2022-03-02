@@ -212,7 +212,7 @@ scene:
         state: "on"
 
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
-    name: "[Light] Basement: Darken Room"
+    name: "[Light] Basement: Darken"
     entities:
       light.bf_den_lamp_2:
         state: "on"

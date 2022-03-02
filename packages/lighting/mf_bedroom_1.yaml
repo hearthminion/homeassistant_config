@@ -113,7 +113,7 @@ scene:
         state: "off"
 
   - id: "66453b6a-f834-4e8b-8211-1d669e61bcc8"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Darken Room"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Darken"
     entities:
       light.mf_bedroom_1_lamp_1_bulb_1:
         state: "on"
@@ -122,6 +122,68 @@ scene:
           - 0.309
         brightness: 64
       light.mf_bedroom_1_lamp_1_bulb_2:
+        state: "off"
+
+  - id: "06d149e8-b2ec-43ff-96fe-4bf48014d8ad"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Bright"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "8f3aae5b-c4d6-4c24-8e09-947f51398b6c"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Concentrate"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "13795b8f-7a5f-4150-9e82-319a3b45ed13"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Dimmed"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "10b32f48-d3aa-47a2-89c9-84756d17c960"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Energize"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "3c12122d-8471-431e-b10e-b4ae11728f97"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Nightlight"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "b5353749-f92f-4974-9550-247f93a06820"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Read"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "aefd3be3-e983-49b5-8b97-4b3a083d77ab"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Relax"
+    entities:
+      light.mf_bedroom_1_lamp_1:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "b9065ae7-5046-47e2-888c-7e3255337346"
+    name: "[Light] MF: Master Bedroom Lamp 1 - Off"
+    entities:
+      light.mf_bedroom_1_lamp_1:
         state: "off"
 
   # ================================================================================================
@@ -142,7 +204,7 @@ scene:
         state: "off"
 
   - id: "e92369eb-f339-49d7-af93-64b9cad81fd7"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Darken Room"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Darken"
     entities:
       light.mf_bedroom_1_lamp_2_bulb_1:
         state: "on"
@@ -151,6 +213,155 @@ scene:
           - 0.309
         brightness: 64
       light.mf_bedroom_1_lamp_2_bulb_2:
+        state: "off"
+
+  - id: "06d149e8-b2ec-43ff-96fe-4bf48014d8ad"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Bright"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "8f3aae5b-c4d6-4c24-8e09-947f51398b6c"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Concentrate"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "13795b8f-7a5f-4150-9e82-319a3b45ed13"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Dimmed"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "10b32f48-d3aa-47a2-89c9-84756d17c960"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Energize"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "3c12122d-8471-431e-b10e-b4ae11728f97"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Nightlight"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "b5353749-f92f-4974-9550-247f93a06820"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Read"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "aefd3be3-e983-49b5-8b97-4b3a083d77ab"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Relax"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "b9065ae7-5046-47e2-888c-7e3255337346"
+    name: "[Light] MF: Master Bedroom Lamp 2 - Off"
+    entities:
+      light.mf_bedroom_1_lamp_2:
+        state: "off"
+
+  # ================================================================================================
+  #
+  # Ceiling Fixture
+  #
+  # ================================================================================================
+  - id: "1576c6b9-16a4-47b6-b0bf-bdfb26454cbd"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Migraine"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        xy_color:
+          - 0.17
+          - 0.7
+        brightness: 64
+
+  - id: "8c7b4e25-486a-46e9-a344-a973254ba4d7"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Darken"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        xy_color:
+          - 0.689
+          - 0.309
+        brightness: 64
+
+  - id: "72a7b482-a657-499a-bc00-05c1a2b4262c"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Bright"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "bbeb9d3b-5a5c-4194-8963-0c8ec8f2407f"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Concentrate"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "90e4115f-a8e2-4354-af82-a5b10992277f"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Dimmed"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "52e2196c-c222-434d-8f58-ca9a598ad359"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Energize"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "2df23591-b05e-401b-80c8-f419f4864f96"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Nightlight"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "d70c11f6-768e-4036-8e95-755a98b207dd"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Read"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "887b1e4d-9f65-45b1-9974-5e3e2d34fa8a"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Relax"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "6b214d35-6da1-44ed-bbbd-8ec4cbbff627"
+    name: "[Light] MF: Master Bedroom Ceiling Fixture - Off"
+    entities:
+      light.mf_bedroom_ceiling_fixture:
         state: "off"
 
 # ==================================================================================================

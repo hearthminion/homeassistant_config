@@ -75,22 +75,6 @@ automation:
     initial_state: false
     description: ""
     trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        from: "Circadian"
-    condition: []
-    action:
-      - service: switch.turn_off
-        data: {}
-        target:
-          entity_id: switch.adaptive_lighting_mf_bedroom_1_lamp_2
-    mode: single
-
-  - id: "5d58d05e-e061-4649-b573-6ac307f4ee97"
-    alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
-    description: ""
-    trigger:
         - platform: event
           event_type: hue_event
           event_data:
@@ -108,6 +92,29 @@ automation:
         target:
           entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
     mode: single
+
+  # - id: "5d58d05e-e061-4649-b573-6ac307f4ee97"
+  #   alias: "[Light] Master Bedroom Lamp 2: Turn Off Adaptive Lighting"
+  #   initial_state: false
+  #   description: ""
+  #   trigger:
+  #       - platform: event
+  #         event_type: hue_event
+  #         event_data:
+  #           id: bf_great_room_switch_button
+  #           subtype: 3
+  #       - platform: event
+  #         event_type: hue_event
+  #         event_data:
+  #           id: bf_great_room_switch_button
+  #           subtype: 2
+  #   condition: []
+  #   action:
+  #     - service: switch.turn_off
+  #       data: {}
+  #       target:
+  #         entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
+  #   mode: single
 
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
     alias: "[Light] MF: Master Bedroom Lamp 2 at Night"

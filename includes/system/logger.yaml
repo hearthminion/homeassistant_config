@@ -1,7 +1,7 @@
-default: debug
-logs:
-  homeassistant.helpers.template: debug
-  homeassistant.components.template.template_entity: debug
+default: warn
+#logs:
+#  homeassistant.helpers.template: debug
+#  homeassistant.components.template.template_entity: debug
   #homeassistant.config: debug
   #homeassistant.util.packages: debug
   #rest_command.basement_scene_homeassistant_update: debug

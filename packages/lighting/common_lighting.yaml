@@ -291,6 +291,13 @@ script:
           brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
           bulb_01_on_state: '"on":{"on":true}'
           bulb_02_on_state: '"on":{"on":true}'
+      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+        data:
+          scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
+          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
+          bulb_01_on_state: '"on":{"on":true}'
 
 template:
   - binary_sensor:

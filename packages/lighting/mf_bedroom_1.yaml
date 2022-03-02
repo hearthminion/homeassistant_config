@@ -70,6 +70,29 @@ automation:
           entity_id:
             - switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
 
+  - id: "92bc214d-271f-41e2-9ec4-8acc93475bb5"
+    alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Turn Off Brightness Adjustment)"
+    initial_state: false
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
+    mode: single
+
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
     alias: "[Light] MF: Master Bedroom Lamp 2 at Night"
     description: "Turn on Master Bedroom Lamp 2 at night"
@@ -119,6 +142,8 @@ scene:
     name: "[Light] Enable Master Bedroom Automations"
     entities:
       automation.light_master_bedroom_lamp_2_at_night:
+        state: "on"
+      automation.light_master_bedroom_lamp_2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
 
   # ================================================================================================

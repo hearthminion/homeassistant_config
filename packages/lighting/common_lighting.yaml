@@ -260,7 +260,14 @@ scene:
         state: 'on'
       automation.light_adaptive_lighting_toggle:
         state: 'on'
+      automation.light_update_homeassistant_scene_on_hue_bridges:
+        state: 'on'
 
+# ==================================================================================================
+#
+# Scripts
+#
+# ==================================================================================================
 script:
   light_update_scene_homeassistant_circadian:
     alias: "[Light] Update Home Assistant Scenes (Circadian)"

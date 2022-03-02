@@ -256,8 +256,8 @@ script:
         data:
           scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
           username: !secret hue2_username
-          color: '"color_temperature":{"mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}}'
-          brightness: '"dimming":{"brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}}'
+          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
+          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
           bulb_01_on_state: '"on":{"on":true}"'
           bulb_02_on_state: '"on":{"on":true}"'
           bulb_03_on_state: '"on":{"on":true}"'

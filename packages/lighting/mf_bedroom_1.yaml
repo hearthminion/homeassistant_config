@@ -124,7 +124,7 @@ scene:
       light.mf_bedroom_1_lamp_1_bulb_2:
         state: "off"
 
-  - id: "06d149e8-b2ec-43ff-96fe-4bf48014d8ad"
+  - id: "bf87d6ac-3a90-4092-8931-012522dc4397"
     name: "[Light] MF: Master Bedroom Lamp 1 - Bright"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -132,7 +132,7 @@ scene:
         color_temp: 367
         brightness: 255
 
-  - id: "8f3aae5b-c4d6-4c24-8e09-947f51398b6c"
+  - id: "d8ce6ef4-fb6c-4a5b-b1da-fa87d14a77e9"
     name: "[Light] MF: Master Bedroom Lamp 1 - Concentrate"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -140,7 +140,7 @@ scene:
         color_temp: 230
         brightness: 255
 
-  - id: "13795b8f-7a5f-4150-9e82-319a3b45ed13"
+  - id: "68e0f129-74ea-4e29-90e5-af5a1e8e861f"
     name: "[Light] MF: Master Bedroom Lamp 1 - Dimmed"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -148,7 +148,7 @@ scene:
         color_temp: 369
         brightness: 76
 
-  - id: "f436b1bb-f936-457f-b094-b27236d086dd"
+  - id: "3556a43c-91c4-436b-b40e-81919e25e931"
     name: "[Light] MF: Master Bedroom Lamp 1 - Energize"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -156,7 +156,7 @@ scene:
         color_temp: 156
         brightness: 255
 
-  - id: "3c12122d-8471-431e-b10e-b4ae11728f97"
+  - id: "276fe8f5-8e97-4f7d-900d-61f52679b457"
     name: "[Light] MF: Master Bedroom Lamp 1 - Nightlight"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -164,7 +164,7 @@ scene:
         color_temp: 454
         brightness: 1
 
-  - id: "b5353749-f92f-4974-9550-247f93a06820"
+  - id: "936f4109-bfaf-40a5-8d67-1d85707bc412"
     name: "[Light] MF: Master Bedroom Lamp 1 - Read"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -172,7 +172,7 @@ scene:
         color_temp: 343
         brightness: 255
 
-  - id: "aefd3be3-e983-49b5-8b97-4b3a083d77ab"
+  - id: "ce0efdd4-0dc4-4b60-9a5d-53585166a9b3"
     name: "[Light] MF: Master Bedroom Lamp 1 - Relax"
     entities:
       light.mf_bedroom_1_lamp_1:
@@ -180,7 +180,7 @@ scene:
         color_temp: 447
         brightness: 145
 
-  - id: "b9065ae7-5046-47e2-888c-7e3255337346"
+  - id: "db3d818a-ec93-48f9-ba1d-16b3440acc0f"
     name: "[Light] MF: Master Bedroom Lamp 1 - Off"
     entities:
       light.mf_bedroom_1_lamp_1:

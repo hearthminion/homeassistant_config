@@ -102,9 +102,7 @@ automation:
         platform: sun
     condition: []
     action:
-      - data: {}
-        entity_id: light.mf_bedroom_1_lamp_2
-        service: light.turn_on
+      - scene: scene.mf_master_bedroom_lamp_2_homeassistant
 
 # ==================================================================================================
 #

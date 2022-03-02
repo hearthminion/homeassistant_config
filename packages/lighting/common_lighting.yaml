@@ -257,7 +257,7 @@ script:
           scene_id: "2432a16d-f38e-44d0-8e9a-dfd9fc8c52ab"
           username: !secret hue2_username
           color: '"ct": {{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}'
-          brightness: '"bri": {{ states_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}'
+          brightness: '"bri": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}'
           bulb_01_on_state: "true"
           bulb_02_on_state: "true"
           bulb_03_on_state: "true"

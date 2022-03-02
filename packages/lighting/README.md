@@ -25,7 +25,22 @@ Used to generate uuids for automations, scenes, etc.
 
 #### [Input Select]
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
-#### [Scenes]
+#### [Scenes](https://www.home-assistant.io/integrations/scene/)
+##### Darken
+
+This sets the lights to Red at 25% brightness.
+
+xy_color:
+  - 0.689
+  - 0.309
+##### Migraine
+
+This sets the lights to Green at 25% brightness.
+
+xy_color:
+  - 0.17
+  - 0.7
+
 #### [Templates]
 
 
@@ -33,7 +48,6 @@ Used to generate uuids for automations, scenes, etc.
 ### Features
 #### Automations
 #### Scenes
-##### Darken Room
 #### Switches
 
 ## Default Hue Scene Definitions
@@ -196,6 +210,5 @@ Images come from [Unsplash](https://unsplash.com/)
 - [Using Home Assistant and Philips Hue to create a full colour sunrise](https://149walnut.com/2017-12-using-home-assistant-and-philips-hue-to-create-a-full-colour-sunrise-alarm-clock/)
 - [Turning on a scene directly from a Lovelace button](https://community.home-assistant.io/t/turning-on-a-scene-directly-from-a-lovelace-button/263056)
 - [Scenes operating as a switch](https://community.home-assistant.io/t/scenes-operating-as-a-switch/237228)
-- [Scenes - Home Assistant](https://www.home-assistant.io/integrations/scene/)
 - [Philips hue dynamic scenes](https://community.home-assistant.io/t/philips-hue-dynamic-scenes/345000)
 - [Hue scenes mimicked in Ha (and on Buttons, was Tiles)](https://community.home-assistant.io/t/hue-scenes-mimicked-in-ha-and-on-buttons-was-tiles/93570/27)

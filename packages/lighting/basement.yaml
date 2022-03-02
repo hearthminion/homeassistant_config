@@ -193,9 +193,9 @@ rest_command:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
-      authorization: "hue-application-key: {{ username }}"
+      hue-application-key: "{{ username }}"
       accept: "application/json"
-      payload: '{ "actions":[
+    payload: '{ "actions":[
       {
          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}

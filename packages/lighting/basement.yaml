@@ -194,56 +194,57 @@ rest_command:
     method: put
     headers:
       hue-application-key: "{{ username }}"
-    payload: '{ "actions":[
-      {
-         "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
-         "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_02_on_state }} },
-         "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_03_on_state }} },
-         "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_04_on_state }} },
-         "target":{"rid":"65a17417-29b9-4978-9145-0d3ce5e94c01","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_05_on_state }} },
-         "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_06_on_state }} },
-         "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_07_on_state }} },
-         "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_08_on_state }} },
-         "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_09_on_state }} },
-         "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_10_on_state }} },
-         "target":{"rid":"84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_11_on_state }} },
-         "target":{"rid":"5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
-         },{
-         "action":{ {{ color }},{{ brightness }},{{ bulb_12_on_state }} },
-         "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
-      }
-      ],
-      "group":{"rid":"4789c565-2e72-4506-80aa-cfa4be63e7e8","rtype":"zone"},
-      "id":"cd29377b-333f-4e4d-97ef-5d2a8989c7ac",
-      "id_v1":"/scenes/FeLBGg4OiptLHtH",
-      "metadata":{"name":"HomeAssistant"},
-      "palette":{"color":[],"color_temperature":[{ {{ color }},{{ brightness }} }],"dimming":[]},
-      "speed":0.6031746031746031,
-      "type":"scene"
-      }'
+    payload: '{
+          "id":"cd29377b-333f-4e4d-97ef-5d2a8989c7ac",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_02_on_state }} },
+          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_03_on_state }} },
+          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_04_on_state }} },
+          "target":{"rid":"65a17417-29b9-4978-9145-0d3ce5e94c01","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_05_on_state }} },
+          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_06_on_state }} },
+          "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_07_on_state }} },
+          "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_08_on_state }} },
+          "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_09_on_state }} },
+          "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_10_on_state }} },
+          "target":{"rid":"84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_11_on_state }} },
+          "target":{"rid":"5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_12_on_state }} },
+          "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
+          }
+          ]
+          }'
     verify_ssl: false
     content_type: "application/json"
 
+#       "group":{"rid":"4789c565-2e72-4506-80aa-cfa4be63e7e8","rtype":"zone"},
+#       "id_v1":"/scenes/FeLBGg4OiptLHtH",
+#       "palette":{"color":[],"color_temperature":[{ {{ color }},{{ brightness }} }],"dimming":[]},
+#       "speed":0.6031746031746031,
+#       "metadata":{"name":"HomeAssistant"},
+#       "type":"scene"
 
 # ==================================================================================================
 #

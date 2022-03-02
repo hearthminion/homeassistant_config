@@ -205,7 +205,7 @@ rest_command:
       "id":"cd29377b-333f-4e4d-97ef-5d2a8989c7ac",
       "id_v1":"/scenes/FeLBGg4OiptLHtH",
       "metadata":{"name":"HomeAssistant"},
-      "palette":{"color":[],"color_temperature":[{{{ color }},{{ brightness }}}],"dimming":[]},
+      "palette":{"color":[],"color_temperature":[{ {{ color }},{{ brightness }} }],"dimming":[]},
       "speed":0.6031746031746031,
       "type":"scene"
       }'

@@ -254,22 +254,22 @@ script:
     sequence:
       - service: rest_command.light_update_basement_scene_homeassistant
         data:
-          scene_id: "2432a16d-f38e-44d0-8e9a-dfd9fc8c52ab"
+          scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
           username: !secret hue2_username
-          color: '"mirek": {{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}'
-          brightness: '"bri": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}'
-          bulb_01_on_state: "true"
-          bulb_02_on_state: "true"
-          bulb_03_on_state: "true"
-          bulb_04_on_state: "true"
-          bulb_05_on_state: "true"
-          bulb_06_on_state: "true"
-          bulb_07_on_state: "true"
-          bulb_08_on_state: "true"
-          bulb_09_on_state: "true"
-          bulb_10_on_state: "true"
-          bulb_11_on_state: "true"
-          bulb_12_on_state: "true"
+          color: '"color_temperature":{"mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }}}'
+          brightness: '"dimming":{"brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }}}'
+          bulb_01_on_state: '"on":{"on":true}"'
+          bulb_02_on_state: '"on":{"on":true}"'
+          bulb_03_on_state: '"on":{"on":true}"'
+          bulb_04_on_state: '"on":{"on":true}"'
+          bulb_05_on_state: '"on":{"on":true}"'
+          bulb_06_on_state: '"on":{"on":true}"'
+          bulb_07_on_state: '"on":{"on":true}"'
+          bulb_08_on_state: '"on":{"on":true}"'
+          bulb_09_on_state: '"on":{"on":true}"'
+          bulb_10_on_state: '"on":{"on":true}"'
+          bulb_11_on_state: '"on":{"on":true}"'
+          bulb_12_on_state: '"on":{"on":true}"'
 
 template:
   - binary_sensor:

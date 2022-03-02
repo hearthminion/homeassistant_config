@@ -194,6 +194,7 @@ rest_command:
     method: put
     headers:
       authorization: "hue-application-key: {{ username }}"
+      accept: "application/json"
     payload: '{ "lightstates": {
       "e687cdcb-7022-4d66-9763-ec5ead8f8808": { "on": "{{ bulb_01_on_state }}", {{ color }}, {{ brightness }} },
       "068c9cd1-0128-423b-b0f4-e9bc57e0308e": { "on": "{{ bulb_02_on_state }}", {{ color }}, {{ brightness }} },

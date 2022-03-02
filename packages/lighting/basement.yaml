@@ -239,13 +239,6 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-#       "group":{"rid":"4789c565-2e72-4506-80aa-cfa4be63e7e8","rtype":"zone"},
-#       "id_v1":"/scenes/FeLBGg4OiptLHtH",
-#       "palette":{"color":[],"color_temperature":[{ {{ color }},{{ brightness }} }],"dimming":[]},
-#       "speed":0.6031746031746031,
-#       "metadata":{"name":"HomeAssistant"},
-#       "type":"scene"
-
 # ==================================================================================================
 #
 # Scenes
@@ -262,7 +255,7 @@ rest_command:
 #   Red = xy [0.689,0.309]
 # Green = xy [0.17,0.7]
 #
-# ======================================================================
+# ==================================================================================================
 scene:
   - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
     name: "[Light] Enable Basement Automations"

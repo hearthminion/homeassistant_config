@@ -148,7 +148,7 @@ scene:
         color_temp: 369
         brightness: 76
 
-  - id: "10b32f48-d3aa-47a2-89c9-84756d17c960"
+  - id: "f436b1bb-f936-457f-b094-b27236d086dd"
     name: "[Light] MF: Master Bedroom Lamp 1 - Energize"
     entities:
       light.mf_bedroom_1_lamp_1:

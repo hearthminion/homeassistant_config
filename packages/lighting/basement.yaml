@@ -426,7 +426,7 @@ template:
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max")
-               | int )
+               | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int(100)
              ) }}

@@ -479,7 +479,7 @@ template:
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_max")
-               | int(104)) )
+               | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
              ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_min") | int(96)
              ) }}

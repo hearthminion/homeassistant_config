@@ -503,49 +503,49 @@ template:
         unique_id: "61149df3-3363-4717-a1f0-bdea867113b2"
         state: >-
           {{ (
-               states("sensor.global_dummy_light_brightness") | int(default(100)) ) <
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_max")
-               | int(default(104)) )
-             and ( states("sensor.global_dummy_light_brightness") | int(default(104)) ) >
-             ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_min") | int(default(96))
+               | int(104)) )
+             and ( states("sensor.global_dummy_light_brightness") | int(104)) ) >
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_min") | int(96))
              ) }}
         attributes:
           brightness: >-
             {% if state_attr("light.mf_den_couch_lamp_1", "brightness") == None or
                is_state_attr("light.mf_den_couch_lamp_1", "brightness", "unknown") or
                is_state("light.mf_den_couch_lamp_1", "off") %}
-              {{ ( states("sensor.global_dummy_light_brightness") | int(default(100)) ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.mf_den_couch_lamp_1","brightness") / 254 * 100 ) | int(default(100)) }}
+              {{ ( state_attr("light.mf_den_couch_lamp_1","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int(default(100)) + 4 }}
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int(default(100)) - 4 }}
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
         name: "[Light] MF: Den Couch Lamp 2 (Autobrightness)"
         state: >-
           {{ (
-               states("sensor.global_dummy_light_brightness") | int(default(100)) ) <
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_max")
-               | int(default(104)) )
-             and ( states("sensor.global_dummy_light_brightness") | int(default(100)) ) >
-             ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_min") | int(default(96))
+               | int(104)) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_min") | int(96))
              ) }}
         attributes:
           brightness: >-
             {% if state_attr("light.mf_den_couch_lamp_2", "brightness") == None or
                is_state_attr("light.mf_den_couch_lamp_2", "brightness", "unknown") or
                is_state("light.mf_den_couch_lamp_2", "off") %}
-              {{ ( states("sensor.global_dummy_light_brightness") | int(default(100)) ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.mf_den_couch_lamp_2","brightness") / 254 * 100 ) | int(default(100)) }}
+              {{ ( state_attr("light.mf_den_couch_lamp_2","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int(default(100)) + 4 }}
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int(default(100)) - 4 }}
+            {{ state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "34c07133-565d-4368-99d4-587b129800b5"
         name: "[Light] MF: Great Room Color Mode"

@@ -1,0 +1,124 @@
+scene:
+  - id: "301b7d3c-fbfb-4ab0-9651-9b0ab8975923"
+    name: "[Light] BF: Storage CF1 - Bright"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "e57c58a1-d67c-4b3e-b3cc-5fc5b5f2dfa8"
+    name: "[Light] BF: Storage CF1 - Concentrate"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "99987242-6193-4979-8b0b-cb5183bdd4b4"
+    name: "[Light] BF: Storage CF1 - Dimmed"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "225942a1-46e5-4f56-8601-82b330feedf1"
+    name: "[Light] BF: Storage CF1 - Energize"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "6d106105-81f0-40ce-ac20-fd657d077604"
+    name: "[Light] BF: Storage CF1 - Nightlight"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "81b6851f-da69-4978-bb95-f9778ce71430"
+    name: "[Light] BF: Storage CF1 - Read"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "94a9cdf6-b5c8-4e18-9e27-6c73afd3b2bc"
+    name: "[Light] BF: Storage CF1 - Relax"
+    entities:
+      light.bf_storage_cf1:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "1721d956-f298-438e-ab09-903ad0fe9241"
+    name: "[Light] BF: Storage CF1 - Off"
+    entities:
+      light.bf_storage_cf1:
+        state: "off"
+
+  - id: "181bc46d-f225-4471-a598-03c268d9b452"
+    name: "[Light] BF: Storage CF2 - Bright"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "be099008-6d97-43e9-b623-20df117ffb30"
+    name: "[Light] BF: Storage CF2 - Concentrate"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "30381511-f6c0-4473-ba66-ff2d7cad1e26"
+    name: "[Light] BF: Storage CF2 - Dimmed"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "7de3f9b0-2c0c-4594-801f-febb3fb53c46"
+    name: "[Light] BF: Storage CF2 - Energize"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "32e6ff32-76b0-45bb-924e-bf9b59bb0902"
+    name: "[Light] BF: Storage CF2 - Nightlight"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "c5ab8bba-74ed-4014-9a59-0d9bda259454"
+    name: "[Light] BF: Storage CF2 - Read"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "a43a0ab5-d0b1-49ac-b607-3c1cbc93a969"
+    name: "[Light] BF: Storage CF2 - Relax"
+    entities:
+      light.bf_storage_cf2:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "e7cf9951-216f-4869-9b57-d3e465346156"
+    name: "[Light] BF: Storage CF2 - Off"
+    entities:
+      light.bf_storage_cf2:
+        state: "off"

@@ -1,0 +1,62 @@
+scene:
+  - id: "5c92577b-ab66-4192-a23e-23a12164dcb8"
+    name: "[Light] BF: Hallway - Bright"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "64f013d5-3abf-44ef-a802-c20ad5e9214b"
+    name: "[Light] BF: Hallway - Concentrate"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "04418671-9d32-4668-9b19-67ac3f9aa199"
+    name: "[Light] BF: Hallway - Dimmed"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "cc7765a6-d698-4d13-9751-fab21ec6c4c9"
+    name: "[Light] BF: Hallway - Energize"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "452cc28b-b56a-4e43-b7c7-a4383913a11e"
+    name: "[Light] BF: Hallway - Nightlight"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "e9053d2b-ce86-4385-8e05-36391973f3ff"
+    name: "[Light] BF: Hallway - Read"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "e3870fe7-1366-4ac8-acbe-4161eaa64260"
+    name: "[Light] BF: Hallway - Relax"
+    entities:
+      light.bf_hallway:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "a58ea71d-b262-40fb-9aef-b116272fa81c"
+    name: "[Light] BF: Hallway - Off"
+    entities:
+      light.bf_hallway:
+        state: "off"

@@ -1,0 +1,125 @@
+scene:
+  - id: "afedd813-67a6-4ebf-8449-14e8fdf2d840"
+    name: "[Light] BF: Kitchen - Bright"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "da69350e-8276-4dda-bf81-f58b10b5f94a"
+    name: "[Light] BF: Kitchen - Concentrate"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "e6e20c99-54de-43b5-b374-c40a654d970c"
+    name: "[Light] BF: Kitchen - Dimmed"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "64e9e1be-5998-482f-809b-ff7fe3adbb21"
+    name: "[Light] BF: Kitchen - Energize"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "9885473f-a4ad-4de5-b912-e723687f2523"
+    name: "[Light] BF: Kitchen - Nightlight"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "64567801-323e-4a27-b596-469a242a9d5b"
+    name: "[Light] BF: Kitchen - Read"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "bff3e48f-93c1-4150-baa1-f4e03b28244d"
+    name: "[Light] BF: Kitchen - Relax"
+    entities:
+      light.bf_kitchen:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "bcb11048-50d9-4fd9-ae7b-e4640f00a1dc"
+    name: "[Light] BF: Kitchen - Off"
+    entities:
+      light.bf_kitchen:
+        state: "off"
+
+  - id: "f6c2adea-b563-4471-9df1-8f8f28e5840f"
+    name: "[Light] BF: Kitchen CF1 - Bright"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "a156b0b7-9d29-43d9-8a7d-0ded02795bec"
+    name: "[Light] BF: Kitchen CF1 - Concentrate"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "9bd0f2f0-de64-43d8-89b8-4abaef685b63"
+    name: "[Light] BF: Kitchen CF1 - Dimmed"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "7e3cc08c-20bb-47e9-950a-5b5669c01494"
+    name: "[Light] BF: Kitchen CF1 - Energize"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "f71b8e0e-1e44-4d07-917b-3aabba5de42e"
+    name: "[Light] BF: Kitchen CF1 - Nightlight"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "d4cf58ff-1b46-4012-baec-a4ea29cdd282"
+    name: "[Light] BF: Kitchen CF1 - Read"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "2d8c5fb3-74fb-4e13-84f0-d9373c0f8d40"
+    name: "[Light] BF: Kitchen CF1 - Relax"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "ed45fcae-e480-4747-9f2e-408c199e019e"
+    name: "[Light] BF: Kitchen CF1 - Off"
+    entities:
+      light.bf_kitchen_cf1:
+        state: "off"
+

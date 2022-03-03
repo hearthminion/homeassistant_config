@@ -108,23 +108,6 @@ automation:
   #           - switch.adaptive_lighting_adapt_brightness_basement
   #   mode: single
 
-  - id: "8feabd65-c6f7-4496-8779-32101909db2f"
-    alias: "[Light] Basement: Toggle Adaptive Lighting"
-    description: ""
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.circadian_mode
-    variables:
-      circadian_mode: "{{ states('binary_sensor.circadian_mode') }}"
-    condition: []
-    action:
-      - service: "switch.turn_{{ circadian_mode }}"
-        data:
-          entity_id:
-            - switch.adaptive_lighting_basement
-    mode: single
-
 # # ======================================================================
 # #
 # #

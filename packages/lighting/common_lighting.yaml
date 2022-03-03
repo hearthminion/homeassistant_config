@@ -1,6 +1,19 @@
 # ==================================================================================================
 #
-# common settings
+# Settings, automations, etc that are common to all lights in all rooms.
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "Global: Dummy Light"
+    lights:
+      - light.global_dummy_light
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+
+# ==================================================================================================
+#
+# Automations
 #
 # ==================================================================================================
 automation:
@@ -239,6 +252,14 @@ light:
       - light.basement
       - light.main_floor
 
+
+  - plateform: template
+    lights:
+      global_dummy_light:
+        friendly_name: "Global Dummy Light"
+        level_template: "{{ sensor.global_dummy_light_brightness }}"
+        temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
+
 # ==================================================================================================
 #
 # Scenes
@@ -311,3 +332,25 @@ template:
       - unique_id: "4fd1dd66-c51b-474d-9de7-da4dfd5cc398"
         name: "Circadian Mode"
         state: "{{ states('input_select.light_mode') == 'Circadian' }}"
+  - sensor:
+      - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"
+        name: "Global Dummy Light Brightness"
+        state: >-
+          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") == None or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "unknown") or
+          is_state("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "off") %}
+            100
+          {% else %}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") }}
+          {% endif %}
+      - unique_id: "0e8a672a-9db0-40bd-9727-d0b206802b80"
+        name: "Global Dummy Light Color Temperature"
+        state: >-
+          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") == None or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "unknown") or
+          is_state("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "off") %}
+            367
+          {% else %}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") }}
+          {% endif %}
+

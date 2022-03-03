@@ -505,9 +505,9 @@ template:
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_max")
-               | int(104)) )
-             and ( states("sensor.global_dummy_light_brightness") | int(104)) ) >
-             ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_min") | int(96))
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_1_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-
@@ -529,9 +529,9 @@ template:
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
                ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_max")
-               | int(104)) )
+               | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_min") | int(96))
+             ( state_attr("binary_sensor.light_mf_den_couch_lamp_2_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-

@@ -47,6 +47,63 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
+
+  # ================================================================================================
+  #
+  # Lamp 1 Automations
+  #
+  # ================================================================================================
+  - id: "f9c73d20-47d4-40d4-9292-f6d8e07e5600"
+    alias: "[Light] Master Bedroom Lamp 1: Adaptive Lighting (Toggle Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_master_bedroom_lamp_1_brightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_1
+
+  - id: "ab85e3af-0d30-4f26-baaa-0960fdfb5a35"
+    alias: "[Light] Master Bedroom Lamp 1: Adaptive Lighting (Turn Off Brightness Adjustment)"
+    initial_state: false
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_1
+    mode: single
+
+  # ================================================================================================
+  #
+  # Lamp 2 Automations
+  #
+  # ================================================================================================
   - id: "848efd5b-0d62-496b-8da2-ff2beb51155c"
     alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
@@ -93,29 +150,6 @@ automation:
           entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
     mode: single
 
-  # - id: "5d58d05e-e061-4649-b573-6ac307f4ee97"
-  #   alias: "[Light] Master Bedroom Lamp 2: Turn Off Adaptive Lighting"
-  #   initial_state: false
-  #   description: ""
-  #   trigger:
-  #       - platform: event
-  #         event_type: hue_event
-  #         event_data:
-  #           id: bf_great_room_switch_button
-  #           subtype: 3
-  #       - platform: event
-  #         event_type: hue_event
-  #         event_data:
-  #           id: bf_great_room_switch_button
-  #           subtype: 2
-  #   condition: []
-  #   action:
-  #     - service: switch.turn_off
-  #       data: {}
-  #       target:
-  #         entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
-  #   mode: single
-
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
     alias: "[Light] MF: Master Bedroom Lamp 2 at Night"
     description: "Turn on Master Bedroom Lamp 2 at night"
@@ -133,6 +167,25 @@ automation:
 #
 # ==================================================================================================
 rest_command:
+  light_update_mf_bedroom_1_lamp_1_scene_homeassistant:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid":"e7e3a4b4-c9ac-4841-929f-7330da707855","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ bulb_02_on_state }} },
+          "target":{"rid":"95a7a21c-f290-4c7a-97ce-f13d8c856e4b","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
   light_update_mf_bedroom_1_lamp_2_scene_homeassistant:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
@@ -501,6 +554,34 @@ template:
           color_temp: >-
             {{ state_attr("light.mf_bedroom_1_lamp_2", "color_temp") }}
 
+      - unique_id: "81afb5be-19ad-48f5-a54b-99e3ddd20fe0"
+        name: "[Light] MF: Master Bedroom Ceiling Fixture (Autobrightness)"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness_min") | int(96)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.mf_bedroom_1_ceiling_fixture", "brightness") == None or
+               is_state_attr("light.mf_bedroom_1_ceiling_fixture", "brightness", "unknown") or
+               is_state("light.mf_bedroom_1_ceiling_fixture", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.mf_bedroom_1_ceiling_fixture","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness") | int(100) - 4 }}
+          xy_color: >-
+            {{ state_attr("light.mf_bedroom_1_ceiling_fixture", "xy_color") }}
+          color_temp: >-
+            {{ state_attr("light.mf_bedroom_1_ceiling_fixture", "color_temp") }}
+
       - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
         name: "[Light] Master Bedroom Color Mode"
         state: "{{ state_attr('light.mf_bedroom_1','color_mode') == 'xy' }}"
@@ -514,3 +595,7 @@ template:
       - unique_id: "8970dec0-877b-4cbd-a98b-0f708475377a"
         name: "[Light] Master Bedroom Lamp 2 Color"
         state: "{{ state_attr('light.mf_bedroom_1_lamp_2', 'xy_color') }}"
+
+      - unique_id: "37cff5fc-5d44-49c1-afc5-667149a88bed"
+        name: "[Light] Master Bedroom Lamp 1 Color"
+        state: "{{ state_attr('light.mf_bedroom_1_ceiling_fixture', 'xy_color') }}"

@@ -285,6 +285,22 @@ automation:
 #
 # ==================================================================================================
 rest_command:
+  light_update_mf_den_couch_lamp_1_scene_homeassistant:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid":"0bdf5862-6217-4ab3-b9d3-bed4daf06f7c","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
   light_update_mf_den_couch_lamp_2_scene_homeassistant:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put

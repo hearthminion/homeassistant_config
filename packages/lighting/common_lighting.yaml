@@ -251,23 +251,6 @@ light:
       - light.basement
       - light.main_floor
 
-  # - plateform: template
-  #   lights:
-  #     global_dummy_light:
-  #       friendly_name: "Global Dummy Light"
-  #       unique_id: "4ed8f4ef-f335-4925-8046-8db9b6c8e80c"
-  #       value_template: "on"
-  #       level_template: "{{ sensor.global_dummy_light_brightness }}"
-  #       temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
-  #       turn_on:
-  #         service: notify.notify
-  #         data_template:
-  #           message: "Dummy Light Turned On"
-  #       turn_off:
-  #         service: notify.notify
-  #         data_template:
-  #           message: "Dummy Light Turned Off"
-
 # ==================================================================================================
 #
 # Scenes
@@ -305,8 +288,8 @@ script:
         data:
           scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
           username: !secret hue2_username
-          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
-          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           bulb_01_on_state: '"on":{"on":true}'
           bulb_02_on_state: '"on":{"on":true}'
           bulb_03_on_state: '"on":{"on":true}'
@@ -323,16 +306,23 @@ script:
         data:
           scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
           username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
-          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           bulb_01_on_state: '"on":{"on":true}'
           bulb_02_on_state: '"on":{"on":true}'
+      - service: rest_command.light_update_mf_den_couch_lamp_1_scene_homeassistant
+        data:
+          scene_id: "e04163e6-cc84-4cc2-bb90-d7c299ca135d"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          bulb_01_on_state: '"on":{"on":true}'
       - service: rest_command.light_update_mf_den_couch_lamp_2_scene_homeassistant
         data:
           scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
           username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ state_attr("switch.adaptive_lighting_basement", "color_temp_mired") | int }} }'
-          brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           bulb_01_on_state: '"on":{"on":true}'
 
 template:

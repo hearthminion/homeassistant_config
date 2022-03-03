@@ -253,20 +253,21 @@ light:
       - light.main_floor
 
 
-  - plateform: template
-    lights:
-      global_dummy_light:
-        friendly_name: "Global Dummy Light"
-        level_template: "{{ sensor.global_dummy_light_brightness }}"
-        temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
-        turn_on:
-          service: notify.notify
-          data_template:
-            message: "Dummy Light Turned On"
-        turn_off:
-          service: notify.notify
-          data_template:
-            message: "Dummy Light Turned Off"
+  # - plateform: template
+  #   lights:
+  #     global_dummy_light:
+  #       friendly_name: "Global Dummy Light"
+  #       unique_id: "4ed8f4ef-f335-4925-8046-8db9b6c8e80c"
+  #       level_template: "{{ sensor.global_dummy_light_brightness }}"
+  #       temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
+  #       turn_on:
+  #         service: notify.notify
+  #         data_template:
+  #           message: "Dummy Light Turned On"
+  #       turn_off:
+  #         service: notify.notify
+  #         data_template:
+  #           message: "Dummy Light Turned Off"
 
 # ==================================================================================================
 #
@@ -349,7 +350,7 @@ template:
           is_state("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "off") %}
             100
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") }}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int }}
           {% endif %}
       - unique_id: "0e8a672a-9db0-40bd-9727-d0b206802b80"
         name: "Global Dummy Light Color Temperature"
@@ -359,6 +360,6 @@ template:
           is_state("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "off") %}
             367
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") }}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int }}
           {% endif %}
 

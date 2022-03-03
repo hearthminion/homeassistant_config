@@ -328,7 +328,7 @@ scene:
     name: "[Light] BF: Den Lamp 2 - Bright"
     entities:
       light.bf_den_lamp_2:
-      state: "on"
+        state: "on"
         color_temp: 367
         brightness: 255
 

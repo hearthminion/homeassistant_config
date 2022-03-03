@@ -265,85 +265,73 @@ scene:
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
     name: "[Light] Basement: Darken"
     entities:
-      light.bf_den_lamp_2:
+      light.bf_den_lamp_2_bulb:
         state: "on"
         xy_color:
           - 0.689
           - 0.309
         brightness: 64
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_bulb_2:
-        state: "off"
-      light.basement_bulb_3:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
+      light.bf_den_cf1_bulb:
         state: "on"
         xy_color:
           - 0.689
           - 0.309
         brightness: 64
-      light.den_ceiling_bulb_2:
+      light.bf_den_cf2_bulb:
         state: "off"
-      light.den_ceiling_bulb_3:
+      light.bf_den_lamp_1_bulb:
         state: "off"
-      light.den_lamp_1_bulb:
+      light.bf_den_lamp3_bulb_1:
         state: "off"
-      light.hue_ambiance_lamp_2:
+      light.bf_den_lamp3_bulb_2:
         state: "off"
-      light.hue_ambiance_lamp_3:
+      light.bf_hallway_cf_bulb_1:
         state: "off"
-      light.hue_ambiance_lamp_4:
+      light.bf_hallway_cf_bulb_3:
+        state: "off"
+      light.bf_kitchen_cf1_bulb:
+        state: "off"
+      light.bf_stairwell_bulb:
+        state: "off"
+      light.bf_storage1_cf1_bulb:
+        state: "off"
+      light.bf_storage1_cf2_bulb:
         state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] Basement: Migraine"
     entities:
-      light.bf_den_lamp_2:
+      light.bf_den_lamp_2_bulb:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.basement_bulb_1:
-        state: "off"
-      light.basement_bulb_2:
-        state: "off"
-      light.basement_bulb_3:
-        state: "off"
-      light.basement_lamp_2:
-        state: "off"
-      light.basement_lamp_3:
-        state: "off"
-      light.basement_stairwell_bulb:
-        state: "off"
-      light.cave_lamp_2_bulb_2:
-        state: "off"
-      light.den_ceiling_bulb_1:
+      light.bf_den_cf1_bulb:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.den_ceiling_bulb_2:
+      light.bf_den_cf2_bulb:
         state: "off"
-      light.den_ceiling_bulb_3:
+      light.bf_den_lamp_1_bulb:
         state: "off"
-      light.den_lamp_1_bulb:
+      light.bf_den_lamp3_bulb_1:
         state: "off"
-      light.hue_ambiance_lamp_2:
+      light.bf_den_lamp3_bulb_2:
         state: "off"
-      light.hue_ambiance_lamp_3:
+      light.bf_hallway_cf_bulb_1:
         state: "off"
-      light.hue_ambiance_lamp_4:
+      light.bf_hallway_cf_bulb_3:
+        state: "off"
+      light.bf_kitchen_cf1_bulb:
+        state: "off"
+      light.bf_stairwell_bulb:
+        state: "off"
+      light.bf_storage1_cf1_bulb:
+        state: "off"
+      light.bf_storage1_cf2_bulb:
         state: "off"
 
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"

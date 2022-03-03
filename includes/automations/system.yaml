@@ -1,14 +1,14 @@
-- id: "d136bd43-cd41-47bb-8e36-fb65d7c81fbd"
-  alias: 'Update Available Notifications'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.updater
-    from: 'off'
-    to: 'on'
-  action:
-    service: notify.notify
-    data_template:
-      message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+# - id: "d136bd43-cd41-47bb-8e36-fb65d7c81fbd"
+#   alias: 'Update Available Notifications'
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.updater
+#     from: 'off'
+#     to: 'on'
+#   action:
+#     service: notify.notify
+#     data_template:
+#       message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
 # - id: '1576717665597'
 #   alias: Daily Reboot

@@ -95,7 +95,6 @@ sun:
 system_health:
 tag:
 timer: !include includes/timers.yaml
-updater:
 zeroconf:
 zone:
 

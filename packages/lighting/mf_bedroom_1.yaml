@@ -449,10 +449,10 @@ template:
         name: "[Light] MF: Master Bedroom Lamp 1 (Autobrightness)"
         state: >-
           {{ (
-               states("sensor.global_dummy_light_brightness") | int ) <
+               states("sensor.global_dummy_light_brightness") | default(100) | int ) <
                ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_max")
                | int )
-             and ( states("sensor.global_dummy_light_brightness") | int ) >
+             and ( states("sensor.global_dummy_light_brightness") | default(100) | int ) >
              ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_min") | int
              ) }}
         attributes:
@@ -460,7 +460,7 @@ template:
             {% if state_attr("light.mf_bedroom_1_lamp_1", "brightness") == None or
                is_state_attr("light.mf_bedroom_1_lamp_1", "brightness", "unknown") or
                is_state("light.mf_bedroom_1_lamp_1", "off") %}
-              {{ ( states("sensor.global_dummy_light_brightness") | int | int ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | default(100) | int ) }}
             {% else %}
               {{ ( state_attr("light.mf_bedroom_1_lamp_1","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -477,10 +477,10 @@ template:
         name: "[Light] MF: Master Bedroom Lamp 2 (Autobrightness)"
         state: >-
           {{ (
-               states("sensor.global_dummy_light_brightness") | int ) <
+               states("sensor.global_dummy_light_brightness") | default(100) | int ) <
                ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_max")
                | int )
-             and ( states("sensor.global_dummy_light_brightness") | int ) >
+             and ( states("sensor.global_dummy_light_brightness") | default(100) | int ) >
              ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_min") | int
              ) }}
         attributes:
@@ -488,7 +488,7 @@ template:
             {% if state_attr("light.mf_bedroom_1_lamp_2", "brightness") == None or
                is_state_attr("light.mf_bedroom_1_lamp_2", "brightness", "unknown") or
                is_state("light.mf_bedroom_1_lamp_2", "off") %}
-              {{ ( states("sensor.global_dummy_light_brightness") | int | int ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | default(100) | int ) }}
             {% else %}
               {{ ( state_attr("light.mf_bedroom_1_lamp_2","brightness") / 254 * 100 ) | int }}
             {% endif %}

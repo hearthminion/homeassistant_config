@@ -259,6 +259,14 @@ light:
         friendly_name: "Global Dummy Light"
         level_template: "{{ sensor.global_dummy_light_brightness }}"
         temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
+        turn_on:
+          service: notify.notify
+          data_template:
+            message: "Dummy Light Turned On"
+        turn_off:
+          service: notify.notify
+          data_template:
+            message: "Dummy Light Turned Off"
 
 # ==================================================================================================
 #

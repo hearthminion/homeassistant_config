@@ -278,6 +278,8 @@ scene:
         state: "on"
       automation.light_basement_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
+      automation.light_basement_toggle_adaptive_lighting:
+        state: "on"
 
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
     name: "[Light] Basement: Darken"

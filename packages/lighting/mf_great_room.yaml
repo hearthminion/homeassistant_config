@@ -116,6 +116,23 @@ automation:
           entity_id: switch.adaptive_lighting_adapt_brightness_den_couch_lamp_2
     mode: single
 
+  - id: "65f52255-2ca8-4228-acdf-e3f114d0e33d"
+    alias: "[Light] MF: Den Couch Lamp 2 - Toggle Adaptive Lighting"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.circadian_mode
+    variables:
+      circadian_mode: "{{ states('binary_sensor.circadian_mode') }}"
+    condition: []
+    action:
+      - service: "switch.turn_{{ circadian_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_mf_den_couch_lamp_2
+    mode: single
+
   # ================================================================================================
   #
   # Light fixture: Den Couch Lamp 1

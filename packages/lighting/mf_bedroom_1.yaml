@@ -160,7 +160,7 @@ rest_command:
 # ==================================================================================================
 scene:
   - id: "ad077505-0081-4ecc-ae1e-a566b42c5f53"
-    name: "[Light] Enable Master Bedroom Automations"
+    name: "[Light] MF: Enable Master Bedroom Automations"
     entities:
       automation.light_master_bedroom_lamp_2_at_night:
         state: "on"

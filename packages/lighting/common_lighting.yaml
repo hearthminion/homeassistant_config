@@ -27,7 +27,8 @@ automation:
     action:
       - scene: scene.light_enable_basement_automations
       - scene: scene.light_enable_common_automations
-      - scene: scene.light_enable_master_bedroom_automations
+      - scene: scene.light_mf_enable_bedroom_1_automations
+      - scene: scene.light_mf_enable_den_automations
 
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
     alias: "[Light] Adaptive Lighting (Toggle)"
@@ -35,11 +36,7 @@ automation:
     initial_state: false
     trigger:
       - platform: state
-        entity_id: input_select.light_mode
-        to: Circadian
-      - platform: state
-        entity_id: input_select.light_mode
-        from: Circadian
+        entity_id: binary_sensor.circadian_mode
     variables:
       circadian_mode: "{{ states('binary_sensor.circadian_mode') }}"
     condition: []

@@ -258,6 +258,7 @@ light:
       global_dummy_light:
         friendly_name: "Global Dummy Light"
         unique_id: "4ed8f4ef-f335-4925-8046-8db9b6c8e80c"
+        value_template: "on"
         level_template: "{{ sensor.global_dummy_light_brightness }}"
         temperature_template: "{{ sensor.global_dummy_light_color_temperature }}"
         turn_on:

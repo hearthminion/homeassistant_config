@@ -585,7 +585,7 @@ template:
             {% if state_attr("light.mf_den_couch_lamp_1", "brightness") == None or
                is_state_attr("light.mf_den_couch_lamp_1", "brightness", "unknown") or
                is_state("light.mf_den_couch_lamp_1", "off") %}
-              {{ ( state("sensor.global_dummy_light_brightness") | int | int ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | int | int ) }}
             {% else %}
               {{ ( state_attr("light.mf_den_couch_lamp_1","brightness") / 254 * 100 ) | int }}
             {% endif %}
@@ -609,7 +609,7 @@ template:
             {% if state_attr("light.mf_den_couch_lamp_2", "brightness") == None or
                is_state_attr("light.mf_den_couch_lamp_2", "brightness", "unknown") or
                is_state("light.mf_den_couch_lamp_2", "off") %}
-              {{ ( state("sensor.global_dummy_light_brightness") | int | int ) }}
+              {{ ( states("sensor.global_dummy_light_brightness") | int | int ) }}
             {% else %}
               {{ ( state_attr("light.mf_den_couch_lamp_2","brightness") / 254 * 100 ) | int }}
             {% endif %}

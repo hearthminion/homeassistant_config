@@ -114,7 +114,7 @@ scene:
       light.bf_den:
         state: "off"
 
-  - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
+  - id: "036daf4c-026f-417b-b3e3-9bba14f040bb"
     name: "[Light] BF: Den CF1 - Darken"
     entities:
       light.bf_den_cf1_bulb:
@@ -124,7 +124,7 @@ scene:
           - 0.309
         brightness: 64
 
-  - id: "23d13269-6154-4b8d-9fbc-473e1cd5cade"
+  - id: "46d0a045-e847-449e-9c88-673fb91ee142"
     name: "[Light] BF: Den CF1 - Migraine"
     entities:
       light.bf_den_cf1_bulb:

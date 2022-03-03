@@ -349,7 +349,7 @@ template:
           is_state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "off") %}
             100
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int(default(100)) }}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int(100) }}
           {% endif %}
         unit_of_measurement: "%"
       - unique_id: "0e8a672a-9db0-40bd-9727-d0b206802b80"
@@ -360,5 +360,5 @@ template:
           is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "off") %}
             367
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(default(367)) }}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}

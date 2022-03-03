@@ -16,7 +16,7 @@
 #
 # ======================================================================
 adaptive_lighting:
-  - name: "Master Bathroom (Inner)"
+  - name: "MF: Master Bathroom (Inner)"
     lights:
       - light.mf_bathroom_1_inner
     initial_transition: 1

@@ -344,11 +344,11 @@ automation:
 #           color_temp: >-
 #             {{ state_attr("light.den_tower_lamp","color_temp") }}
 
-# # ==================================================================================================
-# #
-# # Input Select
-# #
-# # ==================================================================================================
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
 
 # ==================================================================================================
 #
@@ -356,7 +356,7 @@ automation:
 #
 # ==================================================================================================
 rest_command:
-  light_update_den_couch_lamp_2_scene_homeassistant:
+  light_update_mf_den_couch_lamp_2_scene_homeassistant:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -628,5 +628,5 @@ template:
         state: "{{ state_attr('light.den_couch_lamp_1', 'xy_color') }}"
 
       - unique_id: "3e2b59e0-884f-405f-8b9b-4ce79e6a55eb"
-        name: "[Light] Den Couch Lamp Color"
+        name: "[Light] Den Couch Lamp 2 Color"
         state: "{{ state_attr('light.den_couch_lamp_2', 'xy_color') }}"

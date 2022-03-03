@@ -5,8 +5,6 @@
 # ==================================================================================================
 adaptive_lighting:
   - name: "Global: Dummy Light"
-    lights:
-      - light.global_dummy_light
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
@@ -47,6 +45,10 @@ automation:
             - switch.adaptive_lighting_basement
             - switch.adaptive_lighting_den_couch_lamp_2
             - switch.adaptive_lighting_mf_bedroom_1_lamp_2
+            #- switch.adaptive_lighting_bathroom_1_inner
+            #- switch.adaptive_lighting_mf_den_couch_lamp_1
+            #- switch.adaptive_lighting_mf_bedroom_1_ceiling
+            #- switch.adaptive_lighting_mf_bedroom_1_lamp_1
 
   # ================================================================================================
   #
@@ -325,7 +327,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int }} }'
           bulb_01_on_state: '"on":{"on":true}'
           bulb_02_on_state: '"on":{"on":true}'
-      - service: rest_command.light_update_den_couch_lamp_2_scene_homeassistant
+      - service: rest_command.light_update_mf_den_couch_lamp_2_scene_homeassistant
         data:
           scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
           username: !secret hue1_username

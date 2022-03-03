@@ -93,9 +93,6 @@ automation:
   #   initial_state: false
   #   trigger:
   #     - platform: state
-  #       entity_id: input_select.light_mode
-  #       to: "Circadian"
-  #     - platform: state
   #       entity_id: binary_sensor.light_basement_color_mode
   #   variables:
   #     brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
@@ -111,7 +108,19 @@ automation:
   #           - switch.adaptive_lighting_adapt_brightness_basement
   #   mode: single
 
-
+  - id: "8feabd65-c6f7-4496-8779-32101909db2f"
+    alias: "[Light] Basement: Toggle Adaptive Lighting"
+      - platform: state
+        entity_id: binary_sensor.circadian_mode
+    variables:
+      circadian_mode: "{{ states('binary_sensor.circadian_mode') }}"
+    condition: []
+    action:
+      - service: "switch.turn_{{ circadian_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_basement
+    mode: single
 
 # # ======================================================================
 # #
@@ -429,10 +438,10 @@ template:
         name: "[Light] Basement Autobrightness"
         state: >-
           {{ (
-               state("sensor.global_dummy_light_brightness") | int ) <
+               states("sensor.global_dummy_light_brightness") | int ) <
                ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max")
                | int )
-             and ( state_attr("switch.adaptive_lighting_basement", "brightness_pct") | int ) >
+             and ( states("sensor.global_dummy_light_brightness") | int ) >
              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int
              ) }}
         attributes:

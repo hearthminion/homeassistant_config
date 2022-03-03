@@ -449,10 +449,10 @@ template:
         name: "[Light] MF: Master Bedroom Lamp 1 (Autobrightness)"
         state: >-
           {{ (
-               state("sensor.global_dummy_light_brightness") | int ) <
+               states("sensor.global_dummy_light_brightness") | int ) <
                ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_max")
                | int )
-             and ( state_attr("switch.adaptive_lighting_mf_bedroom_1_lamp_1", "brightness_pct") | int ) >
+             and ( states("sensor.global_dummy_light_brightness") | int ) >
              ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_min") | int
              ) }}
         attributes:
@@ -477,10 +477,10 @@ template:
         name: "[Light] MF: Master Bedroom Lamp 2 (Autobrightness)"
         state: >-
           {{ (
-               state("sensor.global_dummy_light_brightness") | int ) <
+               states("sensor.global_dummy_light_brightness") | int ) <
                ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_max")
                | int )
-             and ( state_attr("switch.adaptive_lighting_mf_bedroom_1_lamp_2", "brightness_pct") | int ) >
+             and ( states("sensor.global_dummy_light_brightness") | int ) >
              ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_min") | int
              ) }}
         attributes:

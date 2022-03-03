@@ -363,4 +363,3 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int }}
           {% endif %}
-

@@ -124,7 +124,7 @@ scene:
           - 0.309
         brightness: 64
 
-  - id: "46d0a045-e847-449e-9c88-673fb91ee142"
+  - id: "23d13269-6154-4b8d-9fbc-473e1cd5cade"
     name: "[Light] BF: Den CF1 - Migraine"
     entities:
       light.bf_den_cf1_bulb:

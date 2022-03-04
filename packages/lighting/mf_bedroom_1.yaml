@@ -245,8 +245,8 @@ scene:
       light.mf_bedroom_1_lamp_1_bulb_1:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
       light.mf_bedroom_1_lamp_1_bulb_2:
         state: "off"
@@ -336,8 +336,8 @@ scene:
       light.mf_bedroom_1_lamp_2_bulb_1:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
       light.mf_bedroom_1_lamp_2_bulb_2:
         state: "off"
@@ -425,8 +425,8 @@ scene:
       light.mf_bedroom_ceiling_fixture:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
 
   - id: "72a7b482-a657-499a-bc00-05c1a2b4262c"

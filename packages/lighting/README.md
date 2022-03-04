@@ -31,8 +31,8 @@ Used to generate uuids for automations, scenes, etc.
 This sets the lights to Red at 25% brightness.  Inspired by Navy's "Darken Ship" interior lighting for nighttime.
 
 xy_color:
-  - 0.689
-  - 0.309
+  - 0.6915
+  - 0.3083
   
 ##### Migraine
 

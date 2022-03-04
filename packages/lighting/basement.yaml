@@ -259,7 +259,7 @@ rest_command:
 #   25% =  64
 #
 # Colors:
-#   Red = xy [0.689,0.309]
+#   Red = xy [0.6915,0.3083]
 # Green = xy [0.17,0.7]
 #
 # ==================================================================================================
@@ -276,42 +276,6 @@ scene:
 
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
     name: "[Light] Basement: Darken"
-    entities:
-      light.bf_den_lamp_2_bulb:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.bf_den_cf1_bulb:
-        state: "on"
-        xy_color:
-          - 0.689
-          - 0.309
-        brightness: 64
-      light.bf_den_cf2_bulb:
-        state: "off"
-      light.bf_den_lamp_1_bulb:
-        state: "off"
-      light.bf_den_lamp3_bulb_1:
-        state: "off"
-      light.bf_den_lamp3_bulb_2:
-        state: "off"
-      light.bf_hallway_cf_bulb_1:
-        state: "off"
-      light.bf_hallway_cf_bulb_3:
-        state: "off"
-      light.bf_kitchen_cf1_bulb:
-        state: "off"
-      light.bf_stairwell_bulb:
-        state: "off"
-      light.bf_storage1_cf1_bulb:
-        state: "off"
-      light.bf_storage1_cf2_bulb:
-        state: "off"
-
-  - id: "11c3894f-9023-494a-a468-5571ce52ee4f"
-    name: "[Light] Basement: Darken (Alt)"
     entities:
       light.bf_den_lamp_2_bulb:
         state: "on"

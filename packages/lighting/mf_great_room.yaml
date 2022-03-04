@@ -345,8 +345,8 @@ scene:
       light.mf_den_couch_lamp_1:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
 
   - id: "8843858d-20ac-4ed4-bd1d-657a39206ace"
@@ -432,8 +432,8 @@ scene:
       light.mf_den_couch_lamp_2:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
 
   - id: "5d637a2a-67c9-48ba-81fa-24cce9b4f091"

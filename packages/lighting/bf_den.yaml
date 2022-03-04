@@ -16,14 +16,14 @@ scene:
       light.bf_den_lamp_2_bulb:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
       light.bf_den_cf1_bulb:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
       light.bf_den_cf2_bulb:
         state: "off"
@@ -126,8 +126,8 @@ scene:
       light.bf_den_cf1_bulb:
         state: "on"
         xy_color:
-          - 0.689
-          - 0.309
+          - 0.6915
+          - 0.3083
         brightness: 64
 
   - id: "a39d81fa-b875-4810-a587-273af02a7841"

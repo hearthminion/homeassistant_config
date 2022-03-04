@@ -1,7 +1,13 @@
 ---
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
 scene:
   # - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
-  #   name: "[Light] Enable Basement Automations"
+  #   name: "[Light] BF: Den - Enable Automations"
   #   entities:
 
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
@@ -124,7 +130,7 @@ scene:
           - 0.309
         brightness: 64
 
-  - id: "23d13269-6154-4b8d-9fbc-473e1cd5cade"
+  - id: "a39d81fa-b875-4810-a587-273af02a7841"
     name: "[Light] BF: Den CF1 - Migraine"
     entities:
       light.bf_den_cf1_bulb:

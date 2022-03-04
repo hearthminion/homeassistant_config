@@ -310,6 +310,42 @@ scene:
       light.bf_storage1_cf2_bulb:
         state: "off"
 
+  - id: "11c3894f-9023-494a-a468-5571ce52ee4f"
+    name: "[Light] Basement: Darken (Alt)"
+    entities:
+      light.bf_den_lamp_2_bulb:
+        state: "on"
+        xy_color:
+          - 0.6915
+          - 0.3083
+        brightness: 64
+      light.bf_den_cf1_bulb:
+        state: "on"
+        xy_color:
+          - 0.6915
+          - 0.3083
+        brightness: 64
+      light.bf_den_cf2_bulb:
+        state: "off"
+      light.bf_den_lamp_1_bulb:
+        state: "off"
+      light.bf_den_lamp3_bulb_1:
+        state: "off"
+      light.bf_den_lamp3_bulb_2:
+        state: "off"
+      light.bf_hallway_cf_bulb_1:
+        state: "off"
+      light.bf_hallway_cf_bulb_3:
+        state: "off"
+      light.bf_kitchen_cf1_bulb:
+        state: "off"
+      light.bf_stairwell_bulb:
+        state: "off"
+      light.bf_storage1_cf1_bulb:
+        state: "off"
+      light.bf_storage1_cf2_bulb:
+        state: "off"
+
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] Basement: Migraine"
     entities:

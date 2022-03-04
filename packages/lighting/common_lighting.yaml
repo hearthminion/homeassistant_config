@@ -284,6 +284,16 @@ script:
   light_update_scene_homeassistant_circadian:
     alias: "[Light] Update Home Assistant Scenes (Circadian)"
     sequence:
+
+      - service: rest_command.light_update_mf_bedroom_1_lamp_2_scene_homeassistant
+        data:
+          scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          bulb_01_on_state: '"on":{"on":true}'
+          bulb_02_on_state: '"on":{"on":true}'
+
       - service: rest_command.light_update_basement_scene_homeassistant
         data:
           scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
@@ -302,14 +312,11 @@ script:
           bulb_10_on_state: '"on":{"on":true}'
           bulb_11_on_state: '"on":{"on":true}'
           bulb_12_on_state: '"on":{"on":true}'
-      - service: rest_command.light_update_mf_bedroom_1_lamp_2_scene_homeassistant
-        data:
-          scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
-          username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          bulb_01_on_state: '"on":{"on":true}'
-          bulb_02_on_state: '"on":{"on":true}'
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait 1s"
+        delay: 1
+
       - service: rest_command.light_update_mf_den_couch_lamp_1_scene_homeassistant
         data:
           scene_id: "e04163e6-cc84-4cc2-bb90-d7c299ca135d"
@@ -334,18 +341,18 @@ script:
           username: !secret hue2_username
           color: '"color": { "xy": { "x": 0.17, "y": 0.7 } }'
           brightness: '"dimming":{ "brightness": 25.0 }'
-          bulb_01_on_state: '"on":{"on":true}'
-          bulb_02_on_state: '"on":{"on":true}'
-          bulb_03_on_state: '"on":{"on":true}'
+          bulb_01_on_state: '"on":{"on":false}'
+          bulb_02_on_state: '"on":{"on":false}'
+          bulb_03_on_state: '"on":{"on":false}'
           bulb_04_on_state: '"on":{"on":true}'
-          bulb_05_on_state: '"on":{"on":true}'
-          bulb_06_on_state: '"on":{"on":true}'
+          bulb_05_on_state: '"on":{"on":false}'
+          bulb_06_on_state: '"on":{"on":false}'
           bulb_07_on_state: '"on":{"on":true}'
-          bulb_08_on_state: '"on":{"on":true}'
-          bulb_09_on_state: '"on":{"on":true}'
-          bulb_10_on_state: '"on":{"on":true}'
-          bulb_11_on_state: '"on":{"on":true}'
-          bulb_12_on_state: '"on":{"on":true}'
+          bulb_08_on_state: '"on":{"on":false}'
+          bulb_09_on_state: '"on":{"on":false}'
+          bulb_10_on_state: '"on":{"on":false}'
+          bulb_11_on_state: '"on":{"on":false}'
+          bulb_12_on_state: '"on":{"on":false}'
 
   light_update_scene_homeassistant_migraine:
     alias: "[Light] Update Home Assistant Scenes (Migraine)"
@@ -356,18 +363,18 @@ script:
           username: !secret hue2_username
           color: '"color": { "xy": { "x": 0.17, "y": 0.7 } }'
           brightness: '"dimming":{ "brightness": 25 }'
-          bulb_01_on_state: '"on":{"on":true}'
-          bulb_02_on_state: '"on":{"on":true}'
-          bulb_03_on_state: '"on":{"on":true}'
+          bulb_01_on_state: '"on":{"on":false}'
+          bulb_02_on_state: '"on":{"on":false}'
+          bulb_03_on_state: '"on":{"on":false}'
           bulb_04_on_state: '"on":{"on":true}'
-          bulb_05_on_state: '"on":{"on":true}'
-          bulb_06_on_state: '"on":{"on":true}'
+          bulb_05_on_state: '"on":{"on":false}'
+          bulb_06_on_state: '"on":{"on":false}'
           bulb_07_on_state: '"on":{"on":true}'
-          bulb_08_on_state: '"on":{"on":true}'
-          bulb_09_on_state: '"on":{"on":true}'
-          bulb_10_on_state: '"on":{"on":true}'
-          bulb_11_on_state: '"on":{"on":true}'
-          bulb_12_on_state: '"on":{"on":true}'
+          bulb_08_on_state: '"on":{"on":false}'
+          bulb_09_on_state: '"on":{"on":false}'
+          bulb_10_on_state: '"on":{"on":false}'
+          bulb_11_on_state: '"on":{"on":false}'
+          bulb_12_on_state: '"on":{"on":false}'
 
 template:
   - binary_sensor:

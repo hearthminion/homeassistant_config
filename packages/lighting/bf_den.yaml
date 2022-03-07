@@ -185,7 +185,7 @@ automation:
     mode: single
 
   - id: "c1598496-1a45-4199-bc5b-64d11ba6b393"
-    alias: "[Light] BF: Den Lamp22 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "[Light] BF: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state

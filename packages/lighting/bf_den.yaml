@@ -1,8 +1,192 @@
 ---
+# ==================================================================================================
+#
+# BF: Den
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "BF: Den CF1"
+    lights:
+      - light.bf_den_cf1
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+  - name: "BF: Den CF2"
+    lights:
+      - light.bf_den_cf2
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+  - name: "BF: Den CF1"
+    lights:
+      - light.bf_den_lamp1
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+  - name: "BF: Den CF2"
+    lights:
+      - light.bf_den_lamp2
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+  - name: "BF: Den CF3"
+    lights:
+      - light.bf_den_lamp3
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+
+
+# ==================================================================================================
+#
+# Automations
+#
+# ==================================================================================================
+#automations:
+#  - 
+
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_bf_den_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_bf_den_lamp1_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_bf_den_lamp2_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_bf_den_lamp3_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_bf_den_cf1_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_bf_den_cf2_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
 
 # ==================================================================================================
 #
 # Scenes
+#
+# Hue Groups:
+#   - den_lamp1: e8c3191a-6cf0-4339-9fd6-a86761162a30
+#     
+#
+#
+#
 #
 # ==================================================================================================
 scene:
@@ -453,3 +637,144 @@ scene:
     entities:
       light.bf_den_lamp_3:
         state: "off"
+
+# ==================================================================================================
+#
+# Templates
+#
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - unique_id: "4e73e461-0de2-4211-a0a0-daba7d34b223"
+        name: "[Light] BF: Den CF1 - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_den_cf1_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_den_cf1_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_den_cf1", "brightness") == None or
+               is_state_attr("light.bf_den_cf1", "brightness", "unknown") or
+               is_state("light.bf_den_cf1", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_den_cf1","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "e7ce778a-148f-455e-8c58-373bc2c07c20"
+        name: "[Light] BF: Den CF2 - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_den_cf2_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_den_cf2_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_den_cf2", "brightness") == None or
+               is_state_attr("light.bf_den_cf2", "brightness", "unknown") or
+               is_state("light.bf_den_cf2", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_den_cf2","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf_den_cf2_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf_den_cf2_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "40ffe195-8dce-429b-9d93-86ab7b7a0c64"
+        name: "[Light] BF: Den Lamp1 - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_den_lamp1_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_den_lamp1_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_den_lamp1", "brightness") == None or
+               is_state_attr("light.bf_den_lamp1", "brightness", "unknown") or
+               is_state("light.bf_den_lamp1", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_den_lamp1","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp1_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp1_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "c941d9d2-85ef-4148-b52a-1020a94c2225"
+        name: "[Light] BF: Den Lamp2 - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_den_lamp2_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_den_lamp2_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_den_lamp2", "brightness") == None or
+               is_state_attr("light.bf_den_lamp2", "brightness", "unknown") or
+               is_state("light.bf_den_lamp2", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_den_lamp2","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp2_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp2_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "d35877fb-db1e-47e0-bce0-a2517e0e8b92"
+        name: "[Light] BF: Den Lamp3 - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_den_lamp3_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_den_lamp3_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_den_lamp3", "brightness") == None or
+               is_state_attr("light.bf_den_lamp3", "brightness", "unknown") or
+               is_state("light.bf_den_lamp3", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_den_lamp3","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp3_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf_den_lamp3_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "8026215e-768b-48e6-86af-7053c91ac3f6"
+        name: "[Light] BF: Den - Color Mode"
+        state: "{{ state_attr('light.bf_den','color_mode') == 'xy' }}"
+
+  - sensor:
+      - unique_id: "70e951ee-3ef0-488c-b426-6a77326b904a"
+        name: "[Light] BF: Den Color"
+        state: "{{ state_attr('light.bf_den', 'xy_color') }}"

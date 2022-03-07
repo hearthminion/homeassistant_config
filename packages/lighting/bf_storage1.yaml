@@ -6,14 +6,14 @@
 adaptive_lighting:
   - name: "BF: Storage1 CF1"
     lights:
-      - light.bf_kitchen_cf1
+      - light.bf_storage1_cf1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
 
-  - name: "BF: Storage1 CF1"
+  - name: "BF: Storage1 CF2"
     lights:
-      - light.bf_kitchen_cf1
+      - light.bf_storage1_cf2
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500

@@ -108,11 +108,47 @@ automation:
   #           - switch.adaptive_lighting_adapt_brightness_basement
   #   mode: single
 
-# # ======================================================================
-# #
-# #
-# #
-# # ======================================================================
+
+  # ================================================================================================
+  #
+  # 
+  #
+  # This doesn't actually work.
+  #
+  # The goal is to disable adaptive lighting, if button 1 on a hue dimmer switch is pressed more
+  # than 1 time within 10 seconds.
+  #
+  # I will also need to re-enable adaptive lighting if I so choose.  (Prior to the daily reset at
+  # 4 am.)
+  #
+  # ================================================================================================
+  - id: "b7592a97-117b-406b-9cc1-0c0747536190"
+    alias: "[Light] Basement: Turn Off Adaptive Lighting"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf_great_room_switch_button
+            subtype: 1
+            type: short_release
+    condition:
+      - condition: template
+        value_template: >-
+          "{{ ((now().timestamp() - as_timestamp(state_attr('automation.test', 'last_triggered'))) < 10 ) }}"
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_basement
+          mode: single
+
+
+# ======================================================================
+#
+# Input Select
+#
+# ======================================================================
 # input_select:
 #   hue_scene_basement_bedroom:
 #     name: "[Light] Hue Basement Scene"
@@ -205,40 +241,96 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_02_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_03_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_04_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"3781ec36-a5a4-4d11-9965-5f453a3004b4","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_05_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_06_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_07_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_08_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_09_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_10_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_11_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
           },{
-          "action":{ {{ color }},{{ brightness }},{{ bulb_12_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_basement_scene_homeassistant_complex:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb_01_color }},{{ bulb_01_brightness }},{{ bulb_01_on_state }} },
+          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
+          },{
+          "action":{ {{ bulb_02_color }},{{ bulb_02_brightness }},{{ bulb_02_on_state }} },
+          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
+          },{
+          "action":{ {{ bulb_03_color }},{{ bulb_03_brightness }},{{ bulb_03_on_state }} },
+          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          },{
+          "action":{ {{ bulb_04_color }},{{ bulb_04_brightness }},{{ bulb_04_on_state }} },
+          "target":{"rid":"3781ec36-a5a4-4d11-9965-5f453a3004b4","rtype":"light"}
+          },{
+          "action":{ {{ bulb_05_color }},{{ bulb_05_brightness }},{{ bulb_05_on_state }} },
+          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
+          },{
+          "action":{ {{ bulb_06_color }},{{ bulb_06_brightness }},{{ bulb_06_on_state }} },
+          "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          },{
+          "action":{ {{ bulb_07_color }},{{ bulb_07_brightness }},{{ bulb_07_on_state }} },
+          "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          },{
+          "action":{ {{ bulb_08_color }},{{ bulb_08_brightness }},{{ bulb_08_on_state }} },
+          "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          },{
+          "action":{ {{ bulb_09_color }},{{ bulb_09_brightness }},{{ bulb_09_on_state }} },
+          "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          },{
+          "action":{ {{ bulb_10_color }},{{ bulb_10_brightness }},{{ bulb_10_on_state }} },
+          "target":{"rid":"84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
+          },{
+          "action":{ {{ bulb_11_color }},{{ bulb_11_brightness }},{{ bulb_11_on_state }} },
+          "target":{"rid":"5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
+          },{
+          "action":{ {{ bulb_12_color }},{{ bulb_12_brightness }},{{ bulb_12_on_state }} },
           "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
           }
           ]

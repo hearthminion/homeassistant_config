@@ -42,7 +42,7 @@ adaptive_lighting:
 # Automations
 #
 # ==================================================================================================
-automations:
+automation:
   - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
     alias: "[Light] BF: Den CF1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false

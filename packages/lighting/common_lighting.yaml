@@ -348,7 +348,7 @@ script:
       - service: rest_command.light_update_bf_den_lamp2_scene_homeassistant
         data:
           scene_id: "c9b7da7b-1cb7-42c5-b9d4-55d9daf0bd64"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -375,7 +375,7 @@ script:
       - service: rest_command.light_update_bf_den_lamp3_scene_homeassistant
         data:
           scene_id: "486010da-61a3-45d7-b37d-5102a9fb3694"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -386,7 +386,7 @@ script:
       - service: rest_command.light_update_bf_den_cf1_scene_homeassistant
         data:
           scene_id: "8192ffdb-57ba-4843-bbef-844b9b6df5d8"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -397,7 +397,7 @@ script:
       - service: rest_command.light_update_bf_den_cf2_scene_homeassistant
         data:
           scene_id: "d0decaba-82b2-4475-8747-a636a373ef1e"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -463,7 +463,7 @@ script:
       - service: rest_command.light_update_bf_den_scene_homeassistant
         data:
           scene_id: "0f9f63be-31df-4505-9987-501832f400a8"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'

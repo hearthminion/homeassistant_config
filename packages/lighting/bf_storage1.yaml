@@ -1,3 +1,28 @@
+# ==================================================================================================
+#
+# Basement Floor: Hallway
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "BF: Storage1 CF1"
+    lights:
+      - light.bf_kitchen_cf1
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+
+  - name: "BF: Storage1 CF1"
+    lights:
+      - light.bf_kitchen_cf1
+    initial_transition: 1
+    min_color_temp: 2200
+    max_color_temp: 6500
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
 scene:
   - id: "301b7d3c-fbfb-4ab0-9651-9b0ab8975923"
     name: "[Light] BF: Storage CF1 - Bright"

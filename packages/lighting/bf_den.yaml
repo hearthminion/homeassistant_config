@@ -17,19 +17,19 @@ adaptive_lighting:
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "BF: Den CF1"
+  - name: "BF: Den Lamp1"
     lights:
       - light.bf_den_lamp1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "BF: Den CF2"
+  - name: "BF: Den Lamp2"
     lights:
       - light.bf_den_lamp2
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "BF: Den CF3"
+  - name: "BF: Den Lamp3"
     lights:
       - light.bf_den_lamp3
     initial_transition: 1

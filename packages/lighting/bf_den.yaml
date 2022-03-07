@@ -293,27 +293,27 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
           }
           ]
@@ -330,7 +330,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
           }
           ]
@@ -347,7 +347,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
           }
           ]
@@ -364,11 +364,11 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
           },
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
           }
           ]
@@ -385,7 +385,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
           }
           ]
@@ -402,7 +402,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
           }
           ]

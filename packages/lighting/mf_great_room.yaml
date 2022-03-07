@@ -294,7 +294,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"0bdf5862-6217-4ab3-b9d3-bed4daf06f7c","rtype":"light"}
           }
           ]
@@ -310,7 +310,7 @@ rest_command:
           "id":"{{ scene_id }}",
           "actions":[
           {
-          "action":{ {{ color }},{{ brightness }},{{ bulb_01_on_state }} },
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"b71eb26f-4d78-404a-a51a-49043497b63c","rtype":"light"}
           }
           ]

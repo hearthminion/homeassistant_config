@@ -2,6 +2,17 @@
 
 ## Description
 
+This package manages the lights.
+
+The lights are configured into several modes:
+- Circadian
+- Darken
+- Migraine
+- Guests (Not yet implemented)
+- Migraine (Sleeping) (Not yet implemented)
+- Night Out (Not yet implemented)
+- Other (Not yet implemented)
+
 ## Installation
 ### Home Assistant Custom Integrations
 #### [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
@@ -17,7 +28,7 @@ The adaptive_lighting platform changes the settings of your lights throughout th
 Used to generate uuids for automations, scenes, etc.
 
 ### Home Assistant Components
-#### [Automation]
+#### [Automation](https://www.home-assistant.io/docs/automation/)
 ##### Disable Brightness control during the day
 ##### Enable Brightness control during the evening
 ##### Disable Circadian Lighting
@@ -26,6 +37,10 @@ Used to generate uuids for automations, scenes, etc.
 #### [Input Select]
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
 #### [Scenes](https://www.home-assistant.io/integrations/scene/)
+##### HomeAssistant
+
+This scene is managed by HomeAssistant it's settings are updating throughout the day depending on the light mode that is set.
+
 ##### Darken
 
 This sets the lights to Red at 25% brightness.  Inspired by Navy's "Darken Ship" interior lighting for nighttime.
@@ -44,6 +59,31 @@ xy_color:
 
 #### [Templates](https://www.home-assistant.io/integrations/template/)
 
+
+
+
+### Philips Hue Configuration
+
+#### Groups
+
+Each light fixture is created as a zone.
+Each room is created as a room.
+
+#### Scenes
+Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I created.
+##### Default Hue Scenes
+- [Bright](#Bright)
+- [Concentrate](#Concentrate)
+- [Dimmed](#Dimmed)
+- [Energize](#Energize)
+- [Nightlight](#Nightlight)
+- [Read](#Read)
+- [Relax](#Relax)
+
+##### Custom Scenes
+- HomeAssistant
+- [Darken](#Darken)
+- [Migraine](#Migraine)
 
 ## Features
 ### Features

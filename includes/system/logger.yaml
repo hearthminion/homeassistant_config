@@ -1,5 +1,5 @@
 default: warn
-#logs:
+logs:
 #  homeassistant.helpers.template: debug
 #  homeassistant.components.template.template_entity: debug
   #homeassistant.config: debug

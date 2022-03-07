@@ -39,6 +39,7 @@ automation:
       - service: light.turn_off
         data:
           entity_id: light.basement
+    mode: single
 
   - id: "fa05d4ef-c8be-425a-b3e8-8418270d5009"
     alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
@@ -141,7 +142,7 @@ automation:
         data: {}
         target:
           entity_id: switch.adaptive_lighting_basement
-          mode: single
+    mode: single
 
 
 # ======================================================================

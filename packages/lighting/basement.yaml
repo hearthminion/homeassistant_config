@@ -283,12 +283,6 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-# ==================================================================================================
-#
-# Rest Commands
-#
-# ==================================================================================================
-rest_command:
   light_update_basement_scene_homeassistant_complex:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put

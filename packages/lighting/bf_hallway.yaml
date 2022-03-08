@@ -153,6 +153,14 @@ rest_command:
 #
 # ==================================================================================================
 scene:
+  - id: "e893eca7-3305-4ddd-8cef-8d698c022082"
+    name: "[Light] BF: Hallway - Enable Automations"
+    entities:
+      automation.light_bf_hallway_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf_hallway_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
+
   - id: "5c92577b-ab66-4192-a23e-23a12164dcb8"
     name: "[Light] BF: Hallway - Bright"
     entities:

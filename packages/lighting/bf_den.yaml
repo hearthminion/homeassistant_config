@@ -423,20 +423,19 @@ rest_command:
 #
 # ==================================================================================================
 scene:
- - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
-   name: "[Light] BF: Den - Enable Automations"
-   entities:
-     automation.light_bf_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
-       state: "on"
-     automation.light_bf_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
-       state: "on"
-     automation.light_bf_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
-       state: "on"
-     automation.light_bf_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
-       state: "on"
-     automation.light_bf_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
-       state: "on"
-
+  - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
+    name: "[Light] BF: Den - Enable Automations"
+    entities:
+      automation.light_bf_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
   
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
     name: "[Light] BF: Den - Darken"

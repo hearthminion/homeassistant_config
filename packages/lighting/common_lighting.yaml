@@ -42,13 +42,51 @@ automation:
       - service: "switch.turn_{{ circadian_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_basement
-            - switch.adaptive_lighting_den_couch_lamp_2
+            - switch.adaptive_lighting_bf_den_cf1
+            - switch.adaptive_lighting_bf_den_cf2
+            - switch.adaptive_lighting_bf_den_lamp1
+            - switch.adaptive_lighting_bf_den_lamp2
+            - switch.adaptive_lighting_bf_den_lamp3
+            - switch.adaptive_lighting_bf_hallway
+            - switch.adaptive_lighting_bf_kitchen_cf1
+            - switch.adaptive_lighting_bf_storage1_cf1
+            - switch.adaptive_lighting_bf_storage1_cf2
             - switch.adaptive_lighting_mf_bedroom_1_lamp_2
+            - switch.adaptive_lighting_mf_den_couch_lamp_2
             #- switch.adaptive_lighting_bathroom_1_inner
             #- switch.adaptive_lighting_mf_den_couch_lamp_1
             #- switch.adaptive_lighting_mf_bedroom_1_ceiling
             #- switch.adaptive_lighting_mf_bedroom_1_lamp_1
+
+  # ================================================================================================
+  #
+  #
+  #
+  # This automation is to ensure that the adaptive lighting switch for the global dummy light is
+  # NEVER turned off.  This 'light' is used for sensor purposes only, and all other automations
+  # will break if it is ever turned off.
+  #
+  # ================================================================================================
+  - id: "7e6a8e75-fa0a-43f9-8d47-98295ccafc07"
+    alias: "[Light] Global Dummy Light - Adaptive Lighting (Turn On)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: switch.adaptive_lighting_global_dummy_light
+        from: "on"
+        to: "off"
+      - platform: state
+        entity_id: switch.adaptive_lighting_adapt_brightness_global_dummy_light
+        from: "on"
+        to: "off"
+    condition: []
+    action:
+      - service: "switch.turn_on"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_global_dummy_light
+            - switch.adaptive_lighting_adapt_brightness_global_dummy_light
 
   # ================================================================================================
   #
@@ -70,6 +108,7 @@ automation:
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         above: -18
+    condition: []
     action:
       - service: input_select.select_option
         data_template:
@@ -134,7 +173,7 @@ automation:
       - entity_id: sensor.light_mf_den_couch_lamp_2_color
         platform: state
         to: (0.17, 0.7)
-      - entity_id: sensor.light_basement_color
+      - entity_id: sensor.light_bf_den_color
         platform: state
         to: (0.17, 0.7)
       - entity_id: sensor.light_mf_bedroom_1_lamp_2_color
@@ -454,6 +493,17 @@ script:
       - service: rest_command.light_update_bf_den_scene_homeassistant
         data:
           scene_id: "0f9f63be-31df-4505-9987-501832f400a8"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - alias: "Wait 1s"
+        delay: 1
+
+      - service: rest_command.light_update_hallway_scene_homeassistant
+        data:
+          scene_id: "bfd009cc-04c3-4ec1-9b84-3e4cf7a1f26b"
           username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'

@@ -903,9 +903,9 @@ template:
               {{ ( state_attr("light.bf_den_cf1","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.light_bf_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.light_bf_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "e7ce778a-148f-455e-8c58-373bc2c07c20"
         name: "[Light] BF: Den CF2 - Autobrightness"

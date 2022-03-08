@@ -503,7 +503,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_hallway_scene_homeassistant
+      - service: rest_command.light_update_bf_hallway_scene_homeassistant
         data:
           scene_id: "bfd009cc-04c3-4ec1-9b84-3e4cf7a1f26b"
           username: !secret hue2_username

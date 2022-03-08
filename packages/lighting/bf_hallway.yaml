@@ -11,6 +11,12 @@ adaptive_lighting:
     min_color_temp: 2200
     max_color_temp: 6500
 
+# ==================================================================================================
+#
+# Automations
+#
+# ==================================================================================================
+# automation:
   # - id: "fa05d4ef-c8be-425a-b3e8-8418270d5009"
   #   alias: "[Light] Basement: Adaptive Lighting (Toggle Brightness Adjustment)"
   #   initial_state: false
@@ -114,6 +120,32 @@ adaptive_lighting:
   #         entity_id: switch.adaptive_lighting_basement
   #   mode: single
 
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_bf_hallway_scene_homeassistant:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
 
 # ==================================================================================================
 #
@@ -193,37 +225,37 @@ scene:
 # https://www.home-assistant.io/integrations/template/
 #
 # ==================================================================================================
-# template:
-#   - binary_sensor:
-#       - unique_id: "64ca8117-0ecc-4dab-b821-b67f08fe10f0"
-#         name: "[Light] Basement Autobrightness"
-#         state: >-
-#           {{ (
-#                states("sensor.global_dummy_light_brightness") | int(100) ) <
-#                ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_max")
-#                | int(104) )
-#              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-#              ( state_attr("binary_sensor.light_basement_autobrightness", "brightness_min") | int(100)
-#              ) }}
-#         attributes:
-#           brightness: >-
-#             {% if state_attr("light.basement", "brightness") == None or
-#                is_state_attr("light.basement", "brightness", "unknown") or
-#                is_state("light.basement", "off") %}
-#               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
-#             {% else %}
-#               {{ ( state_attr("light.basement","brightness") / 254 * 100 ) | int(100) }}
-#             {% endif %}
-#           brightness_max: >-
-#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) + 4 }}
-#           brightness_min: >-
-#             {{ state_attr("binary_sensor.light_basement_autobrightness", "brightness") | int(100) - 4 }}
+template:
+  - binary_sensor:
+      - unique_id: "555f45d7-a9da-4df6-9578-804c1aba5415"
+        name: "[Light] BF: Hallway Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf_hallway_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf_hallway_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf_hallway", "brightness") == None or
+               is_state_attr("light.bf_hallway", "brightness", "unknown") or
+               is_state("light.bf_hallway", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf_hallway","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf_hallway_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf_hallway_autobrightness", "brightness") | int(100) - 4 }}
 
-#       - unique_id: "77e8421d-25eb-413e-905f-8887b4d91e77"
-#         name: "[Light] Basement Color Mode"
-#         state: "{{ state_attr('light.basement','color_mode') == 'xy' }}"
+      - unique_id: "77e8421d-25eb-413e-905f-8887b4d91e77"
+        name: "[Light] BF: Hallway Color Mode"
+        state: "{{ state_attr('light.bf_hallway','color_mode') == 'xy' }}"
 
-#   - sensor:
-#       - unique_id: "c3ba92a2-de79-41fa-b818-3809a4750d3a"
-#         name: "[Light] Basement Color"
-#         state: "{{ state_attr('light.basement', 'xy_color') }}"
+  - sensor:
+      - unique_id: "cdc049d4-981e-472f-abcd-f279960ff70c"
+        name: "[Light] BF: Hallway Color"
+        state: "{{ state_attr('light.bf_hallway', 'xy_color') }}"

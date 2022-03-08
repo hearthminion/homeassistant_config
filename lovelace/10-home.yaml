@@ -14,38 +14,61 @@ path: home
 icon: mdi:home
 panel: true
 cards:
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
-      - type: entities
-        title: Lights
-        show_header_toggle: false
-        entities:
-          - type: custom:fold-entity-row
-            head: light.mf_great_room
-            entities:
-              - entity: light.mf_den_ceiling
-              - entity: light.mf_den_couch_lamp_1
-              - entity: light.mf_den_couch_lamp_2
-              - entity: light.mf_den_fireplace
-              - entity: light.mf_dining_area_ceiling
-              - entity: light.mf_entryway_ceiling
-              - entity: light.mf_kitchen_ceiling
-              - entity: light.mf_kitchen_island_ceiling
-              - entity: light.mf_living_area_ceiling
-              - entity: light.mf_den_small_desk_lamp_bulb
-          - type: custom:fold-entity-row
-            head: light.mf_bedroom_1
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Main Floor Lights
             show_header_toggle: false
             entities:
-              - entity: light.mf_bedroom_1_ceiling_fixture
-              - entity: light.mf_bedroom_1_lamp_1
-              - entity: light.mf_bedroom_1_lamp_2
-          - type: custom:fold-entity-row
-            head: light.mf_master_bathroom
+              - type: custom:fold-entity-row
+                head: light.mf_great_room
+                entities:
+                  - entity: light.mf_den_ceiling
+                  - entity: light.mf_den_couch_lamp_1
+                  - entity: light.mf_den_couch_lamp_2
+                  - entity: light.mf_den_fireplace
+                  - entity: light.mf_dining_room
+                  - entity: light.mf_entryway
+                  - entity: light.mf_kitchen_ceiling
+                  - entity: light.mf_kitchen_island
+                  - entity: light.mf_living_room
+                  - entity: light.mf_den_small_desk_lamp_bulb
+              - type: custom:fold-entity-row
+                head: light.mf_bedroom_1
+                show_header_toggle: false
+                entities:
+                  - entity: light.mf_bedroom_1_ceiling_fixture
+                  - entity: light.mf_bedroom_1_lamp_1
+                  - entity: light.mf_bedroom_1_lamp_2
+              - type: custom:fold-entity-row
+                head: light.mf_master_bathroom
+                show_header_toggle: false
+                entities:
+                  - entity: light.mf_bathroom_1_inner
+                  - entity: light.mf_bathroom_1_outer
+              - entity: light.mf_hallway
+              - entity: light.mf_bathroom_2
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Basement Lights
             show_header_toggle: false
             entities:
-              - entity: light.mf_bathroom_1_inner
-              - entity: light.mf_bathroom_1_outer
-          - entity: light.mf_hallway
-          - entity: light.mf_bathroom_2
-          - entity: light.basement
+              - type: custom:fold-entity-row
+                head: light.bf_den
+                entities:
+                  - entity: light.bf_den_cf1
+                  - entity: light.bf_den_cf2
+                  - entity: light.mf_den_lamp1
+                  - entity: light.mf_den_lamp2
+                  - entity: light.mf_den_lamp2
+              - type: custom:fold-entity-row
+                head: light.bf_kitchen
+                entities:
+                  - entity: light.bf_kitchen_cf1
+                  - entity: light.bf_storage1_cf1
+                  - entity: light.bf_storage1_cf2
+              - entity: light.bf_hallway
+              - entity: light.bf_stairwell

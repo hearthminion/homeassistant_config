@@ -61,9 +61,9 @@ cards:
                 entities:
                   - entity: light.bf_den_cf1
                   - entity: light.bf_den_cf2
-                  - entity: light.mf_den_lamp1
-                  - entity: light.mf_den_lamp2
-                  - entity: light.mf_den_lamp2
+                  - entity: light.bf_den_lamp1
+                  - entity: light.bf_den_lamp2
+                  - entity: light.bf_den_lamp2
               - type: custom:fold-entity-row
                 head: light.bf_kitchen
                 entities:

@@ -31,9 +31,14 @@ automation:
     action:
       - service: light.turn_off
         data:
-          entity_id: light.basement
+          entity_id: light.bf1_all
     mode: single
 
+light:
+  - platform: group
+    name: "BF: All"
+    entities:
+      - light.bf1_all
 
 # ======================================================================
 #

@@ -17,7 +17,7 @@ adaptive_lighting:
 # ==================================================================================================
 automation:
   - id: "65d7e60e-4e39-460b-a319-b65f497b6465"
-    alias: "[Light] Enable Lighting Automations"
+    alias: "[Light] Lighting Automations - Enable"
     description: ""
     trigger:
       - event: start
@@ -168,7 +168,7 @@ automation:
           option: "Migraine"
 
   - id: "387e7772-a2c3-4d29-b524-8aa36fbc65b2"
-    alias: "[Light] Enable Migraine Mode"
+    alias: "[Light] Migraine Mode - Enable"
     description: ""
     initial_state: false
     trigger:
@@ -280,8 +280,8 @@ light:
   - platform: group
     name: "All lights"
     entities:
-      - light.basement
-      - light.main_floor
+      - light.bf_all
+      - light.mf_all
 
 # ==================================================================================================
 #
@@ -290,7 +290,7 @@ light:
 # ==================================================================================================
 scene:
   - id: "e697c216-b8c7-4825-9f40-4fd01d220d40"
-    name: "[Light] Enable Common Automations"
+    name: "[Light] Common Automations - Enable"
     entities:
       automation.light_set_light_mode_circadian:
         state: 'on'

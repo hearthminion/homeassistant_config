@@ -29,10 +29,10 @@ Used to generate uuids for automations, scenes, etc.
 
 ### Home Assistant Components
 #### [Automation](https://www.home-assistant.io/docs/automation/)
-##### Disable Brightness control during the day
-##### Enable Brightness control during the evening
-##### Disable Circadian Lighting
-##### Enable Circadian Lighting
+- Toggle Adaptive Lighting Brightness switch if autobrightness binary sensor changes state
+- Turn off Adaptive Lighting Brightness switch if Hue Dimmer Switch buttons 2 or 3 are pressed.
+- Toggle Adaptive lighting based on if Circadian Mode is true or false
+- Run [Update HomeAssistant Scene](#Update Home Assistant Scene) script every 5 minutes
 
 #### [Input Select]
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
@@ -57,9 +57,37 @@ xy_color:
   - 0.17
   - 0.7
 
+#### [Scripts](https://www.home-assistant.io/docs/scripts/)
+
+##### Update Home Assistant Scene
+
+This updates the 'HomeAssistant' scene on the Hue Bridge.
+
+- If the lighting mode is 'Circadian' it runs every 5 minutes, and updates the color_temp and brightness to stay in sync with adaptive lighting.
+- If the lighting mode is 'Migraine' ... (TBD)
+  I personally like the lights to be Green at 25% brightness.  However, if I am in a room by myself, I do not want to plunge everyone else in the house into dim green lighting.
+  
+- If the lighting mode is 'Darken' it runs once and sets the lights to Red at 25% brightness.
+
+- If the lighting mode is 'Guest' I do not want adaptive lighting to decrease brightness after sunset.  Remaining requirements are TBD.  Thinking about a slow decrease in brightness say 20% over a 3 hr period starting at sunset.
+
+
+
+##### Update Darken Scene
+This is not run very often, but it is there to ensure that on the Hue Bridge xy_color is set as per [Darken](#Darken)
+
+##### Update Migraine Scene
+This is not run very often, but it is there to ensure that on the Hue Bridge xy_color is set as per [Migraine](#Migraine)
+
 #### [Templates](https://www.home-assistant.io/integrations/template/)
 
+##### Binary Sensors
+- autobrightness: Returns true if the lights brightness is +/- 4% of the adaptive lighting brightness setting, else returns false.
+- color_mode: Returns true if the lights in 'xy_color' mode, else return false.
+- circadian_mode: Returns True if input_select.lighting_mode == 'Circadian' else returns false.
 
+##### Sensors
+- color: Returns lights xy_color value.
 
 
 ### Philips Hue Configuration
@@ -68,6 +96,24 @@ xy_color:
 
 Each light fixture is created as a zone.
 Each room is created as a room.
+Each Bridge has a zone for all lights.
+
+Rooms and Zones are name in the following manner:
+
+2 letters floor: MF or BF
+1 number: Hub # for that floor
+
+Room(#)
+
+Fixture#
+
+Example:
+MF1: Bedroom1 CF1 = Main Floor, Hub1, Bedroom1, Ceiling Fixture 1
+BF1: Den Lamp1 = Basement Floor, Hub1, Den, Lamp 1
+
+In the home assistant configuration, I rename the entity ids to match:
+light.mf1_bedroom1_cf1
+light.bf1_den_lamp1
 
 #### Scenes
 Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I created.
@@ -81,7 +127,7 @@ Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I cre
 - [Relax](#Relax)
 
 ##### Custom Scenes
-- HomeAssistant
+- [HomeAssistant](#HomeAssistant)
 - [Darken](#Darken)
 - [Migraine](#Migraine)
 

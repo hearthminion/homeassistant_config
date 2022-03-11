@@ -187,7 +187,7 @@ rest_command:
           }'
     verify_ssl: false
     content_type: "application/json"
-    
+
   light_update_mf1_bedroom1_lamp2_scene:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put

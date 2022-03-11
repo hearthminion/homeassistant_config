@@ -167,6 +167,13 @@ Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I cre
 - color_temp: 447
 - brightness: 145
 
+## Default Hue Dynamic Scenes
+
+These are scenes with effects
+
+### Candle
+### Fireplace
+
 ## Default Hue Scene Photos
 
 Images come from [Unsplash](https://unsplash.com/)

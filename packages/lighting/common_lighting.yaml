@@ -324,7 +324,7 @@ script:
     alias: "[Light] Update Home Assistant Scenes (Circadian)"
     sequence:
 
-      - service: rest_command.light_update_basement_scene_homeassistant
+      - service: rest_command.light_update_bf1_all_scene
         data:
           scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
           username: !secret hue2_username
@@ -332,7 +332,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      # - service: rest_command.light_update_main_floor_bedrooms_scene_homeassistant
+      # - service: rest_command.light_update_mf1_all
       #   data:
       #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
       #     username: !secret hue2_username
@@ -340,7 +340,7 @@ script:
       #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
       #     on_state: '"on":{"on":true}'
 
-      # - service: rest_command.light_update_main_floor_great_room_scene_homeassistant
+      # - service: rest_command.light_update_mf2_all
       #   data:
       #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
       #     username: !secret hue2_username
@@ -352,7 +352,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_lamp1_scene_homeassistant
+      - service: rest_command.light_update_bf1_den_lamp1_scene
         data:
           scene_id: "dfe07596-feed-47bd-a6ef-fdeb8fa5f97b"
           username: !secret hue2_username
@@ -360,7 +360,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      # - service: rest_command.light_update_mf_bedroom_1_lamp_1_scene_homeassistant
+      # - service: rest_command.light_update_mf1_bedroom1_lamp1_scene
       #   data:
       #     scene_id: ""
       #     username: !secret hue1_username
@@ -368,7 +368,7 @@ script:
       #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
       #     on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf_den_couch_lamp_1_scene_homeassistant
+      - service: rest_command.light_update_mf1_den_lamp1_scene
         data:
           scene_id: "74901b3e-36a0-4037-981d-c591f5e26fae"
           username: !secret hue1_username
@@ -379,7 +379,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_lamp2_scene_homeassistant
+      - service: rest_command.light_update_bf1_den_lamp2_scene
         data:
           scene_id: "c9b7da7b-1cb7-42c5-b9d4-55d9daf0bd64"
           username: !secret hue2_username
@@ -387,7 +387,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf_den_couch_lamp_2_scene_homeassistant
+      - service: rest_command.light_update_mf1_den_lamp2_scene
         data:
           scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
           username: !secret hue1_username
@@ -395,7 +395,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf_bedroom_1_lamp_2_scene_homeassistant
+      - service: rest_command.light_update_mf1_bedroom1_lamp2_scene
         data:
           scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
           username: !secret hue1_username
@@ -406,7 +406,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_lamp3_scene_homeassistant
+      - service: rest_command.light_update_bf1_den_lamp3_scene
         data:
           scene_id: "486010da-61a3-45d7-b37d-5102a9fb3694"
           username: !secret hue2_username
@@ -417,7 +417,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_cf1_scene_homeassistant
+      - service: rest_command.light_update_bf1_den_cf1_scene
         data:
           scene_id: "8192ffdb-57ba-4843-bbef-844b9b6df5d8"
           username: !secret hue2_username
@@ -428,7 +428,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_cf2_scene_homeassistant
+      - service: rest_command.light_update_bf1_den_cf2_scene
         data:
           scene_id: "d0decaba-82b2-4475-8747-a636a373ef1e"
           username: !secret hue2_username
@@ -439,7 +439,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # - service: rest_command.light_update_bf_kitchen_cf1_scene_homeassistant
+      # - service: rest_command.light_update_bf1_kitchen_cf1_scene
       #   data:
       #     scene_id: "6834d2a0-86ac-45bf-98ee-54d2ed34ce89"
       #     username: !secret hue1_username
@@ -450,7 +450,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # - service: rest_command.light_update_bf_storage1_cf1_scene_homeassistant
+      # - service: rest_command.light_update_bf1_storage1_cf1_scene
       #   data:
       #     scene_id: "d39787a3-3cdd-454d-be3b-9677260d0335"
       #     username: !secret hue1_username
@@ -461,7 +461,7 @@ script:
       # - alias: "Wait 1s"
       #   delay: 1
 
-      # - service: rest_command.light_update_bf_storage1_cf2_scene_homeassistant
+      # - service: rest_command.light_update_bf1_storage1_cf2_scene
       #   data:
       #     scene_id: "c04e59af-076b-4508-bb56-428b82f6ef8a"
       #     username: !secret hue1_username
@@ -472,7 +472,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # - service: rest_command.light_update_bf_stairwell_scene_homeassistant
+      # - service: rest_command.light_update_bf1_stairwell_scene
       #   data:
       #     scene_id: "1f6a1c2d-7341-4af1-ba63-5d95fcde2923"
       #     username: !secret hue1_username
@@ -483,7 +483,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # - service: rest_command.light_update_bf_kitchen_scene_homeassistant
+      # - service: rest_command.light_update_bf1_kitchen_scene
       #   data:
       #     scene_id: "219d0744-3281-4c45-9ec5-eba633e84531"
       #     username: !secret hue1_username
@@ -494,7 +494,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_den_scene_homeassistant
+      - service: rest_command.light_update1_bf_den_scene
         data:
           scene_id: "0f9f63be-31df-4505-9987-501832f400a8"
           username: !secret hue2_username
@@ -505,7 +505,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_bf_hallway_scene_homeassistant
+      - service: rest_command.light_update_bf1_hallway_scene
         data:
           scene_id: "bfd009cc-04c3-4ec1-9b84-3e4cf7a1f26b"
           username: !secret hue2_username

@@ -126,7 +126,7 @@ automation:
 #
 # ==================================================================================================
 rest_command:
-  light_update_bf1_hallway_scene_homeassistant:
+  light_update_bf1_hallway_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:

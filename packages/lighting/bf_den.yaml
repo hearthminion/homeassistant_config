@@ -284,7 +284,7 @@ automation:
 #
 # ==================================================================================================
 rest_command:
-  light_update_bf1_den_scene_homeassistant:
+  light_update_bf1_den_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -321,7 +321,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_bf1_den_lamp1_scene_homeassistant:
+  light_update_bf1_den_lamp1_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -338,7 +338,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_bf1_den_lamp2_scene_homeassistant:
+  light_update_bf1_den_lamp2_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -355,7 +355,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_bf1_den_lamp3_scene_homeassistant:
+  light_update_bf1_den_lamp3_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -376,7 +376,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_bf1_den_cf1_scene_homeassistant:
+  light_update_bf1_den_cf1_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -393,7 +393,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_bf1_den_cf2_scene_homeassistant:
+  light_update_bf1_den_cf2_scene:
     url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:

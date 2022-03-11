@@ -4,9 +4,9 @@
 # Master Bedroom Light Configuration
 #
 # Lights:
-#   light.main_lamp_1: Master Bedroom Lamp 1 Lightbulb 1
-#   light.main_lamp_2: Master Bedroom Lamp 2 Lightbulb 1
-#   light.main_lamp_4: Master Bedroom Ceiling Lightbulb 2
+#   light.main_lamp_1: Master Bedroom Lamp1 Lightbulb 1
+#   light.main_lamp_2: Master Bedroom Lamp2 Lightbulb 1
+#   light.main_lamp_4: Master Bedroom CF1 Lightbulb 1
 #   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
 #   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
 #   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
@@ -21,21 +21,21 @@
 #
 # ==================================================================================================
 adaptive_lighting:
-  - name: "MF: Master Bedroom Lamp 1"
+  - name: "MF1: Master Bedroom Lamp1"
     lights:
-      - light.mf_bedroom1_lamp1
+      - light.mf1_bedroom1_lamp1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "MF: Master Bedroom Lamp 2"
+  - name: "MF1: Master Bedroom Lamp2"
     lights:
-      - light.mf_bedroom1_lamp2
+      - light.mf1_bedroom1_lamp2
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
-  - name: "MF: Master Bedroom Ceiling"
+  - name: "MF1: Master Bedroom CF1"
     lights:
-      - light.mf_bedroom1_cf1
+      - light.mf1_bedroom1_cf1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
@@ -55,7 +55,7 @@ automation:
   #
   # ================================================================================================
   - id: "f9c73d20-47d4-40d4-9292-f6d8e07e5600"
-    alias: "[Light] Master Bedroom Lamp 1: Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "[Light] Master Bedroom Lamp1: Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -63,9 +63,9 @@ automation:
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_master_bedroom_lamp_1_brightness
+        entity_id: binary_sensor.light_master_bedroom_lamp1_brightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.light_mf1_bedroom1_lamp1_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -75,10 +75,10 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_1
+            - switch.adaptive_lighting_adapt_brightness_mf1_bedroom1_lamp1
 
   - id: "ab85e3af-0d30-4f26-baaa-0960fdfb5a35"
-    alias: "[Light] Master Bedroom Lamp 1: Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "[Light] Master Bedroom Lamp1: Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -97,7 +97,7 @@ automation:
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_1
+          entity_id: switch.adaptive_lighting_adapt_brightness_mf1_bedroom1_lamp1
     mode: single
 
   # ================================================================================================
@@ -106,7 +106,7 @@ automation:
   #
   # ================================================================================================
   - id: "848efd5b-0d62-496b-8da2-ff2beb51155c"
-    alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "[Light] Master Bedroom Lamp2: Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -114,9 +114,9 @@ automation:
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_master_bedroom_lamp_2_brightness
+        entity_id: binary_sensor.light_master_bedroom_lamp2_brightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.light_mf1_bedroom1_lamp2_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -126,10 +126,10 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
+            - switch.adaptive_lighting_adapt_brightness_mf1_bedroom1_lamp2
 
   - id: "92bc214d-271f-41e2-9ec4-8acc93475bb5"
-    alias: "[Light] Master Bedroom Lamp 2: Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "[Light] Master Bedroom Lamp2: Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -148,19 +148,19 @@ automation:
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_mf_bedroom_1_lamp_2
+          entity_id: switch.adaptive_lighting_adapt_brightness_mf1_bedroom1_lamp2
     mode: single
 
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
-    alias: "[Light] MF: Master Bedroom Lamp 2 at Night"
-    description: "Turn on Master Bedroom Lamp 2 at night"
+    alias: "[Light] MF1: Master Bedroom Lamp2 at Night"
+    description: "Turn on Master Bedroom Lamp2 at night"
     initial_state: false
     trigger:
       - event: sunset
         platform: sun
     condition: []
     action:
-      - scene: scene.mf_master_bedroom_lamp_2_homeassistant
+      - scene: scene.mf1_master_bedroom_lamp2_homeassistant
 
 # ==================================================================================================
 #
@@ -168,7 +168,7 @@ automation:
 #
 # ==================================================================================================
 rest_command:
-  light_update_mf_bedroom_1_lamp_1_scene_homeassistant:
+  light_update_mf1_bedroom1_lamp1_scene:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -187,7 +187,8 @@ rest_command:
           }'
     verify_ssl: false
     content_type: "application/json"
-  light_update_mf_bedroom_1_lamp_2_scene_homeassistant:
+    
+  light_update_mf1_bedroom1_lamp2_scene:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -214,13 +215,13 @@ rest_command:
 # ==================================================================================================
 scene:
   - id: "ad077505-0081-4ecc-ae1e-a566b42c5f53"
-    name: "[Light] MF: Enable Master Bedroom Automations"
+    name: "[Light] MF1: Enable Master Bedroom Automations"
     entities:
-      automation.light_master_bedroom_lamp_2_at_night:
+      automation.light_master_bedroom_lamp2_at_night:
         state: "on"
-      automation.light_master_bedroom_lamp_2_adaptive_lighting_toggle_brightness_adjustment:
+      automation.light_master_bedroom_lamp2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_master_bedroom_lamp_2_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.light_master_bedroom_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
 
   # ================================================================================================
@@ -229,89 +230,89 @@ scene:
   #
   # ================================================================================================
   - id: "d0380075-67cf-415e-a079-1c66fabc40fb"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Migraine"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Migraine"
     entities:
-      light.mf_bedroom_1_lamp_1_bulb_1:
+      light.mf1_bedroom1_lamp1_bulb1:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.mf_bedroom_1_lamp_1_bulb_2:
+      light.mf1_bedroom1_lamp1_bulb2:
         state: "off"
 
   - id: "66453b6a-f834-4e8b-8211-1d669e61bcc8"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Darken"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Darken"
     entities:
-      light.mf_bedroom_1_lamp_1_bulb_1:
+      light.mf1_bedroom1_lamp1_bulb1:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.mf_bedroom_1_lamp_1_bulb_2:
+      light.mf1_bedroom1_lamp1_bulb2:
         state: "off"
 
   - id: "bf87d6ac-3a90-4092-8931-012522dc4397"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Bright"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Bright"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 367
         brightness: 255
 
   - id: "d8ce6ef4-fb6c-4a5b-b1da-fa87d14a77e9"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Concentrate"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Concentrate"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 230
         brightness: 255
 
   - id: "68e0f129-74ea-4e29-90e5-af5a1e8e861f"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Dimmed"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Dimmed"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 369
         brightness: 76
 
   - id: "3556a43c-91c4-436b-b40e-81919e25e931"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Energize"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Energize"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 156
         brightness: 255
 
   - id: "276fe8f5-8e97-4f7d-900d-61f52679b457"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Nightlight"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Nightlight"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 454
         brightness: 1
 
   - id: "936f4109-bfaf-40a5-8d67-1d85707bc412"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Read"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Read"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 343
         brightness: 255
 
   - id: "ce0efdd4-0dc4-4b60-9a5d-53585166a9b3"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Relax"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Relax"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "on"
         color_temp: 447
         brightness: 145
 
   - id: "db3d818a-ec93-48f9-ba1d-16b3440acc0f"
-    name: "[Light] MF: Master Bedroom Lamp 1 - Off"
+    name: "[Light] MF1: Master Bedroom Lamp1 - Off"
     entities:
-      light.mf_bedroom_1_lamp_1:
+      light.mf1_bedroom1_lamp1:
         state: "off"
 
   # ================================================================================================
@@ -320,89 +321,89 @@ scene:
   #
   # ================================================================================================
   - id: "1836a0ae-050e-476c-b8d6-aea5fd639f10"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Migraine"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Migraine"
     entities:
-      light.mf_bedroom_1_lamp_2_bulb_1:
+      light.mf1_bedroom1_lamp2_bulb1:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.mf_bedroom_1_lamp_2_bulb_2:
+      light.mf1_bedroom1_lamp2_bulb2:
         state: "off"
 
   - id: "e92369eb-f339-49d7-af93-64b9cad81fd7"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Darken"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Darken"
     entities:
-      light.mf_bedroom_1_lamp_2_bulb_1:
+      light.mf1_bedroom1_lamp2_bulb1:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.mf_bedroom_1_lamp_2_bulb_2:
+      light.mf1_bedroom1_lamp2_bulb2:
         state: "off"
 
   - id: "06d149e8-b2ec-43ff-96fe-4bf48014d8ad"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Bright"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Bright"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 367
         brightness: 255
 
   - id: "8f3aae5b-c4d6-4c24-8e09-947f51398b6c"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Concentrate"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Concentrate"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 230
         brightness: 255
 
   - id: "13795b8f-7a5f-4150-9e82-319a3b45ed13"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Dimmed"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Dimmed"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 369
         brightness: 76
 
   - id: "10b32f48-d3aa-47a2-89c9-84756d17c960"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Energize"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Energize"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 156
         brightness: 255
 
   - id: "3c12122d-8471-431e-b10e-b4ae11728f97"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Nightlight"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Nightlight"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 454
         brightness: 1
 
   - id: "b5353749-f92f-4974-9550-247f93a06820"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Read"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Read"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 343
         brightness: 255
 
   - id: "aefd3be3-e983-49b5-8b97-4b3a083d77ab"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Relax"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Relax"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         color_temp: 447
         brightness: 145
 
   - id: "b9065ae7-5046-47e2-888c-7e3255337346"
-    name: "[Light] MF: Master Bedroom Lamp 2 - Off"
+    name: "[Light] MF1: Master Bedroom Lamp2 - Off"
     entities:
-      light.mf_bedroom_1_lamp_2:
+      light.mf1_bedroom1_lamp2:
         state: "off"
 
   # ================================================================================================
@@ -411,9 +412,9 @@ scene:
   #
   # ================================================================================================
   - id: "1576c6b9-16a4-47b6-b0bf-bdfb26454cbd"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Migraine"
+    name: "[Light] MF1: Master Bedroom CF1 - Migraine"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         xy_color:
           - 0.17
@@ -421,9 +422,9 @@ scene:
         brightness: 64
 
   - id: "8c7b4e25-486a-46e9-a344-a973254ba4d7"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Darken"
+    name: "[Light] MF1: Master Bedroom CF1 - Darken"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         xy_color:
           - 0.6915
@@ -431,65 +432,65 @@ scene:
         brightness: 64
 
   - id: "72a7b482-a657-499a-bc00-05c1a2b4262c"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Bright"
+    name: "[Light] MF1: Master Bedroom CF1 - Bright"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 367
         brightness: 255
 
   - id: "bbeb9d3b-5a5c-4194-8963-0c8ec8f2407f"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Concentrate"
+    name: "[Light] MF1: Master Bedroom CF1 - Concentrate"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 230
         brightness: 255
 
   - id: "90e4115f-a8e2-4354-af82-a5b10992277f"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Dimmed"
+    name: "[Light] MF1: Master Bedroom CF1 - Dimmed"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 369
         brightness: 76
 
   - id: "52e2196c-c222-434d-8f58-ca9a598ad359"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Energize"
+    name: "[Light] MF1: Master Bedroom CF1 - Energize"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 156
         brightness: 255
 
   - id: "2df23591-b05e-401b-80c8-f419f4864f96"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Nightlight"
+    name: "[Light] MF1: Master Bedroom CF1 - Nightlight"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 454
         brightness: 1
 
   - id: "d70c11f6-768e-4036-8e95-755a98b207dd"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Read"
+    name: "[Light] MF1: Master Bedroom CF1 - Read"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 343
         brightness: 255
 
   - id: "887b1e4d-9f65-45b1-9974-5e3e2d34fa8a"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Relax"
+    name: "[Light] MF1: Master Bedroom CF1 - Relax"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "on"
         color_temp: 447
         brightness: 145
 
   - id: "6b214d35-6da1-44ed-bbbd-8ec4cbbff627"
-    name: "[Light] MF: Master Bedroom Ceiling Fixture - Off"
+    name: "[Light] MF1: Master Bedroom CF1 - Off"
     entities:
-      light.mf_bedroom_ceiling_fixture:
+      light.mf1_bedroom_cf1:
         state: "off"
 
 # ==================================================================================================
@@ -500,103 +501,103 @@ scene:
 template:
   - binary_sensor:
       - unique_id: "d03e7d81-3a2e-4ffe-b2bf-962ead50cd1c"
-        name: "[Light] MF: Master Bedroom Lamp 1 (Autobrightness)"
+        name: "[Light] MF1: Master Bedroom Lamp1 (Autobrightness)"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.light_mf1_bedroom1_lamp1_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness_min") | int(96)
+             ( state_attr("binary_sensor.light_mf1_bedroom1_lamp1_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-
-            {% if state_attr("light.mf_bedroom_1_lamp_1", "brightness") == None or
-               is_state_attr("light.mf_bedroom_1_lamp_1", "brightness", "unknown") or
-               is_state("light.mf_bedroom_1_lamp_1", "off") %}
+            {% if state_attr("light.mf1_bedroom1_lamp1", "brightness") == None or
+               is_state_attr("light.mf1_bedroom1_lamp1", "brightness", "unknown") or
+               is_state("light.mf1_bedroom1_lamp1", "off") %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.mf_bedroom_1_lamp_1","brightness") / 254 * 100 ) | int(100) }}
+              {{ ( state_attr("light.mf1_bedroom1_lamp1","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_lamp_1_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp1_autobrightness", "brightness") | int(100) - 4 }}
           xy_color: >-
-            {{ state_attr("light.mf_bedroom_1_lamp_1", "xy_color") }}
+            {{ state_attr("light.mf1_bedroom1_lamp1", "xy_color") }}
           color_temp: >-
-            {{ state_attr("light.mf_bedroom_1_lamp_1", "color_temp") }}
+            {{ state_attr("light.mf1_bedroom1_lamp1", "color_temp") }}
 
       - unique_id: "2d72d588-2e84-474e-bb1a-362d1c4ff334"
-        name: "[Light] MF: Master Bedroom Lamp 2 (Autobrightness)"
+        name: "[Light] MF1: Master Bedroom Lamp2 (Autobrightness)"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness_min") | int(96)
+             ( state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-
-            {% if state_attr("light.mf_bedroom_1_lamp_2", "brightness") == None or
-               is_state_attr("light.mf_bedroom_1_lamp_2", "brightness", "unknown") or
-               is_state("light.mf_bedroom_1_lamp_2", "off") %}
+            {% if state_attr("light.mf1_bedroom1_lamp2", "brightness") == None or
+               is_state_attr("light.mf1_bedroom1_lamp2", "brightness", "unknown") or
+               is_state("light.mf1_bedroom1_lamp2", "off") %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.mf_bedroom_1_lamp_2","brightness") / 254 * 100 ) | int(100) }}
+              {{ ( state_attr("light.mf1_bedroom1_lamp2","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_lamp_2_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness") | int(100) - 4 }}
           xy_color: >-
-            {{ state_attr("light.mf_bedroom_1_lamp_2", "xy_color") }}
+            {{ state_attr("light.mf1_bedroom1_lamp2", "xy_color") }}
           color_temp: >-
-            {{ state_attr("light.mf_bedroom_1_lamp_2", "color_temp") }}
+            {{ state_attr("light.mf1_bedroom1_lamp2", "color_temp") }}
 
       - unique_id: "81afb5be-19ad-48f5-a54b-99e3ddd20fe0"
-        name: "[Light] MF: Master Bedroom Ceiling Fixture (Autobrightness)"
+        name: "[Light] MF1: Master Bedroom CF1 (Autobrightness)"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness_min") | int(96)
+             ( state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-
-            {% if state_attr("light.mf_bedroom_1_ceiling_fixture", "brightness") == None or
-               is_state_attr("light.mf_bedroom_1_ceiling_fixture", "brightness", "unknown") or
-               is_state("light.mf_bedroom_1_ceiling_fixture", "off") %}
+            {% if state_attr("light.mf1_bedroom1_cf1", "brightness") == None or
+               is_state_attr("light.mf1_bedroom1_cf1", "brightness", "unknown") or
+               is_state("light.mf1_bedroom1_cf1", "off") %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.mf_bedroom_1_ceiling_fixture","brightness") / 254 * 100 ) | int(100) }}
+              {{ ( state_attr("light.mf1_bedroom1_cf1","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_mf_bedroom_1_ceiling_fixture_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness") | int(100) - 4 }}
           xy_color: >-
-            {{ state_attr("light.mf_bedroom_1_ceiling_fixture", "xy_color") }}
+            {{ state_attr("light.mf1_bedroom1_cf1", "xy_color") }}
           color_temp: >-
-            {{ state_attr("light.mf_bedroom_1_ceiling_fixture", "color_temp") }}
+            {{ state_attr("light.mf1_bedroom1_cf1", "color_temp") }}
 
       - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
         name: "[Light] Master Bedroom Color Mode"
-        state: "{{ state_attr('light.mf_bedroom_1','color_mode') == 'xy' }}"
+        state: "{{ state_attr('light.mf1_bedroom1','color_mode') == 'xy' }}"
 
   - sensor:
 
       - unique_id: "101b21a5-0f36-4171-ae6d-38552da993c1"
-        name: "[Light] MF: Master Bedroom Lamp1 Color"
-        state: "{{ state_attr('light.mf_bedroom_1_lamp_1', 'xy_color') }}"
+        name: "[Light] MF1: Master Bedroom Lamp1 Color"
+        state: "{{ state_attr('light.mf1_bedroom1_lamp1', 'xy_color') }}"
 
       - unique_id: "8970dec0-877b-4cbd-a98b-0f708475377a"
-        name: "[Light] MF: Master Bedroom Lamp2 Color"
-        state: "{{ state_attr('light.mf_bedroom_1_lamp_2', 'xy_color') }}"
+        name: "[Light] MF1: Master Bedroom Lamp2 Color"
+        state: "{{ state_attr('light.mf1_bedroom1_lamp2', 'xy_color') }}"
 
       - unique_id: "37cff5fc-5d44-49c1-afc5-667149a88bed"
-        name: "[Light] MF: Master Bedroom CF1 Color"
-        state: "{{ state_attr('light.mf_bedroom_1_ceiling_fixture', 'xy_color') }}"
+        name: "[Light] MF1: Master Bedroom CF1 Color"
+        state: "{{ state_attr('light.mf1_bedroom1_cf1', 'xy_color') }}"

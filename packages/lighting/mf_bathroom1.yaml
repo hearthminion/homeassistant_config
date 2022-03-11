@@ -16,16 +16,16 @@
 #
 # ======================================================================
 adaptive_lighting:
-  - name: "MF: Master Bathroom (Inner)"
+  - name: "MF1: Master Bathroom (Inner)"
     lights:
-      - light.mf_bathroom_1_inner
+      - light.mf1_bathroom1_inner
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
 
 light:
   - platform: group
-    name: "MF: Master Bathroom"
+    name: "MF1: Master Bathroom"
     entities:
-      - light.mf_bathroom_1_inner
-      - light.mf_bathroom_1_outer
+      - light.mf1_bathroom1_inner
+      - light.mf1_bathroom1_outer

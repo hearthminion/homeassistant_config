@@ -63,27 +63,6 @@ automation:
           entity_id: switch.adaptive_lighting_adapt_brightness_bf1_hallway
     mode: single
 
-  # Temporarily disable until I can figure out how to reverse the variable definition.
-  # IE, when states('binary_sensor.light_basement_color_mode') is off, the variable should be 'on'
-  # - id: "4c6e9101-a48b-480f-bd66-ad4b5fe13ac2"
-  #   alias: "[Light] Basement: Adaptive Lighting (Toggle)"
-  #   initial_state: false
-  #   trigger:
-  #     - platform: state
-  #       entity_id: binary_sensor.light_basement_color_mode
-  #   variables:
-  #     brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
-  #   condition:
-  #     condition: and
-  #     conditions:
-  #       - condition: template
-  #         value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-  #   action:
-  #     - service: "switch.turn_{{ brightness_mode }}"
-  #       data:
-  #         entity_id:
-  #           - switch.adaptive_lighting_adapt_brightness_basement
-  #   mode: single
 
 
   # ================================================================================================

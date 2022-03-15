@@ -168,3 +168,4 @@ lovelace: !include includes/lovelace.yaml
 
 # ======================================================================
 # configuration.yaml ends here
+...

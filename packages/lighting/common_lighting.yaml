@@ -5,6 +5,11 @@
 #
 # ==================================================================================================
 adaptive_lighting:
+  - name: "Global: Dummy Light (Color)"
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
   - name: "Global: Dummy Light"
     initial_transition: 1
     min_color_temp: 2200

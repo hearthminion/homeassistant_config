@@ -25,19 +25,19 @@ adaptive_lighting:
     lights:
       - light.mf1_bedroom1_lamp1
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
   - name: "MF1: Master Bedroom Lamp2"
     lights:
       - light.mf1_bedroom1_lamp2
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
   - name: "MF1: Master Bedroom CF1"
     lights:
       - light.mf1_bedroom1_cf1
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
 
 # ==================================================================================================
@@ -290,7 +290,7 @@ scene:
     entities:
       light.mf1_bedroom1_lamp1:
         state: "on"
-        color_temp: 454
+        color_temp: 500
         brightness: 1
 
   - id: "936f4109-bfaf-40a5-8d67-1d85707bc412"
@@ -323,26 +323,22 @@ scene:
   - id: "1836a0ae-050e-476c-b8d6-aea5fd639f10"
     name: "[Light] MF1: Master Bedroom Lamp2 - Migraine"
     entities:
-      light.mf1_bedroom1_lamp2_bulb1:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.mf1_bedroom1_lamp2_bulb2:
-        state: "off"
 
   - id: "e92369eb-f339-49d7-af93-64b9cad81fd7"
     name: "[Light] MF1: Master Bedroom Lamp2 - Darken"
     entities:
-      light.mf1_bedroom1_lamp2_bulb1:
+      light.mf1_bedroom1_lamp2:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.mf1_bedroom1_lamp2_bulb2:
-        state: "off"
 
   - id: "06d149e8-b2ec-43ff-96fe-4bf48014d8ad"
     name: "[Light] MF1: Master Bedroom Lamp2 - Bright"
@@ -492,6 +488,12 @@ scene:
     entities:
       light.mf1_bedroom_cf1:
         state: "off"
+
+# ==================================================================================================
+#
+# Scripts
+#
+# ==================================================================================================
 
 # ==================================================================================================
 #

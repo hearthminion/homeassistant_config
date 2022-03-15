@@ -340,6 +340,68 @@ scene:
       automation.light_global_dummy_light_adaptive_lighting_turn_on:
         state: 'on'
 
+  - id: "f0bb567c-050e-4499-b46e-99697efa5de7"
+    name: "[Light] Global: All - Bright"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "8a92e9aa-49e5-4bbd-a4ea-dba3bbc2563d"
+    name: "[Light] Global: All - Concentrate"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "64e2926b-5a5d-4589-92aa-4d753ed2c685"
+    name: "[Light] Global: All - Dimmed"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "84c9f8e2-a645-483b-9d63-e16d200546a8"
+    name: "[Light] Global: All - Energize"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "f7fd82cd-02f2-4c17-b5c5-be6611659130"
+    name: "[Light] Global: All - Nightlight"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "32aed744-19d7-4260-a1dc-bb172493f0e9"
+    name: "[Light] Global: All - Read"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "295a2eed-8920-4163-8759-12b0637e9697"
+    name: "[Light] Global: All - Relax"
+    entities:
+      light.all_lights:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "2a718d75-7592-445e-9693-88bebf0f40c3"
+    name: "[Light] Global: All - Off"
+    entities:
+      light.all_lights:
+        state: "off"
+
 # ==================================================================================================
 #
 # Scripts

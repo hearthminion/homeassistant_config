@@ -249,7 +249,7 @@ scene:
   - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
     name: "[Light] BF1: All - Enable Automations"
     entities:
-      automation.light_basement_turn_off_lights_at_night:
+      automation.light_bf1_all_turn_off_lights_at_night:
         state: "on"
 
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
@@ -327,7 +327,7 @@ scene:
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"
     name: "[Light] BF1: All - Bright"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 367
         brightness: 255
@@ -335,7 +335,7 @@ scene:
   - id: "22b7c3af-0991-4f83-b2b2-6d51f1df089c"
     name: "[Light] BF1: All - Concentrate"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 230
         brightness: 255
@@ -343,7 +343,7 @@ scene:
   - id: "9e5f60ca-caae-41b3-bd7b-7fce33bcc436"
     name: "[Light] BF1: All - Dimmed"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 369
         brightness: 76
@@ -351,7 +351,7 @@ scene:
   - id: "126a563d-3826-4d00-81e1-abca1a6869b2"
     name: "[Light] BF1: All - Energize"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 156
         brightness: 255
@@ -359,7 +359,7 @@ scene:
   - id: "50d190ae-8d62-4716-ac9c-3ef5757a1009"
     name: "[Light] BF1: All - Nightlight"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 454
         brightness: 1
@@ -367,7 +367,7 @@ scene:
   - id: "3e72d0b5-c2f2-4f4e-87df-67bc7c63882d"
     name: "[Light] BF1: All - Read"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 343
         brightness: 255
@@ -375,7 +375,7 @@ scene:
   - id: "fbe2e3db-c839-42d6-86de-c879baf8673e"
     name: "[Light] BF1: All - Relax"
     entities:
-      light.basement:
+      light.bf1_all:
         state: "on"
         color_temp: 447
         brightness: 145
@@ -383,5 +383,67 @@ scene:
   - id: "b448b6d9-fc73-4f87-8cd9-f0df64dd350d"
     name: "[Light] BF1: All - Off"
     entities:
-      light.basement:
+      light.bf1_all:
+        state: "off"
+
+  - id: "f8c94b9d-ab8b-4c1e-8b75-51b2b59e4102"
+    name: "[Light] BF: All - Bright"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 367
+        brightness: 255
+
+  - id: "e57eee01-207c-4017-9cd4-496fbc8f4ac1"
+    name: "[Light] BF: All - Concentrate"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "7e61a7e6-b675-415c-a18b-e5d4cd273e28"
+    name: "[Light] BF: All - Dimmed"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "be46d867-6b91-4022-9d04-5ebc660594e6"
+    name: "[Light] BF: All - Energize"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "4261918a-3873-4fc7-8b44-fe170d3b977b"
+    name: "[Light] BF: All - Nightlight"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "e4a5152c-f811-462e-b870-6a38d4e009f1"
+    name: "[Light] BF: All - Read"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "02404dae-8c2a-43a3-b9b7-c9eea54554ca"
+    name: "[Light] BF: All - Relax"
+    entities:
+      light.bf_all:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "5e623fd7-f173-469f-9f8c-29bfefa486ec"
+    name: "[Light] BF: All - Off"
+    entities:
+      light.bf_all:
         state: "off"

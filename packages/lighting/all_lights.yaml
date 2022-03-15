@@ -642,7 +642,7 @@ script:
         data:
           scene_id: "486010da-61a3-45d7-b37d-5102a9fb3694"
           username: !secret hue2_username
-           color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
+          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
           brightness: '"dimming":{ "brightness": 25.0 }'
          on_state: '"on":{"on":true}'
 

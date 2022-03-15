@@ -312,11 +312,11 @@ automation:
   # Temporarily disable until I can figure out how to reverse the variable definition.
   # IE, when states('binary_sensor.light_basement_color_mode') is off, the variable should be 'on'
   - id: "4c6e9101-a48b-480f-bd66-ad4b5fe13ac2"
-    alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Toggle)"
+    alias: "[Light] BF1: Den - Adaptive Lighting (Toggle)"
     initial_state: false
     trigger:
       - platform: state
-        entity_id: binary_sensor.light_basement_color_mode
+        entity_id: binary_sensor.light_bf1_den_color_mode
     variables:
       brightness_mode: >-
         {% if states('binary_sensor.light_bf1_den_color_mode') == 'on' %}
@@ -488,15 +488,27 @@ scene:
   - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
     name: "[Light] BF1: Den - Enable Automations"
     entities:
+      automation.light_bf1_den_adaptive_lighting_toggle:
+        state: "on"
       automation.light_bf1_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf1_den_cf1_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
       automation.light_bf1_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
+      automation.light_bf1_den_cf2_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
       automation.light_bf1_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf1_den_lamp1_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
       automation.light_bf1_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
+      automation.light_bf1_den_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
       automation.light_bf1_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf1_den_lamp3_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
 
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"

@@ -328,7 +328,7 @@ rest_command:
 # ==================================================================================================
 scene:
   - id: "e2b63d06-9725-4e40-87ef-8feba9956177"
-    name: "[Light] MF2: Enable Den Automations"
+    name: "[Light] MF2: Den - Enable Automations"
     entities:
       automation.light_mf2_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
         state: 'on'

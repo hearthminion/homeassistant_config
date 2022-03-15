@@ -29,11 +29,11 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - scene: scene.light_enable_basement_automations
-      - scene: scene.light_enable_common_automations
-      - scene: scene.light_mf_enable_bedroom_1_automations
-      - scene: scene.light_mf_enable_den_automations
-      - scene: scene.light_bf_den_enable_automations
+      - scene: scene.light_bf1_den_enable_automations
+      - scene: scene.light_bf1_hallway_enable_automations
+      - scene: scene.light_global_all_enable_automations
+      - scene: scene.light_mf1_bedroom1_enable_automations
+      - scene: scene.light_mf2_den_enable_automations
 
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
     alias: "[Light] Global: All Lights - Adaptive Lighting (Toggle)"
@@ -171,9 +171,9 @@ automation:
     description: ""
     initial_state: false
     trigger:
-      platform: state
-      entity_id: input_boolean.special_migraine_mode
-      to: "on"
+      - platform: state
+        entity_id: input_boolean.special_migraine_mode
+        to: "on"
     action:
       - service: input_select.select_option
         data_template:
@@ -194,11 +194,7 @@ automation:
       - entity_id: sensor.light_mf_bedroom_1_lamp_2_color
         platform: state
         to: (0.17, 0.7)
-    condition:
-      - condition: or
-        conditions:
-          - condition: "{{ state_attr('light.mf2_den_lamp1','brightness') == '64' }}"
-
+    condition: []
     action:
       - entity_id: input_boolean.special_migraine_mode
         service: input_boolean.turn_on
@@ -219,10 +215,10 @@ automation:
     description: ""
     initial_state: false
     trigger:
-    - platform: state
-      entity_id: input_boolean.special_guest_present
-      from: "off"
-      to: "on"
+      - platform: state
+        entity_id: input_boolean.special_guest_present
+        from: "off"
+        to: "on"
     condition: []
     action:
       data:
@@ -238,7 +234,7 @@ automation:
   #
   # ================================================================================================
   - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
-    alias: "[Light] Update HomeAssistant Scene on Hue Bridges"
+    alias: "[Light] Update HomeAssistant Scene on Hue Bridges (Circadian)"
     description: ""
     initial_state: false
     trigger:
@@ -250,6 +246,24 @@ automation:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
+      - service: script.turn_on
+        data: {}
+        target:
+          entity_id: script.light_update_scene_homeassistant_circadian
+    mode: single
+
+  - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
+    alias: "[Light] Update HomeAssistant Scene on Hue Bridges (Migraine)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Migraine"
+    condition: []
+    action:
+      - alias: "Wait 5s"
+        delay: 5
       - service: script.turn_on
         data: {}
         target:
@@ -307,7 +321,7 @@ light:
 # ==================================================================================================
 scene:
   - id: "e697c216-b8c7-4825-9f40-4fd01d220d40"
-    name: "[Light] Common Automations - Enable"
+    name: "[Light] Global: All - Enable Automations"
     entities:
       automation.light_set_light_mode_circadian:
         state: 'on'
@@ -741,6 +755,7 @@ template:
       - unique_id: "4fd1dd66-c51b-474d-9de7-da4dfd5cc398"
         name: "Circadian Mode"
         state: "{{ states('input_select.light_mode') == 'Circadian' }}"
+
   - sensor:
       - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"
         name: "Global Dummy Light Brightness"
@@ -753,13 +768,33 @@ template:
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int(100) }}
           {% endif %}
         unit_of_measurement: "%"
+
       - unique_id: "0e8a672a-9db0-40bd-9727-d0b206802b80"
         name: "Global Dummy Light Color Temperature"
         state: >-
           {% if state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") == None or
           is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "unknown") or
           is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "off") %}
-            367
+            {% if states('input_select.light_mode') == 'Migraine' %}
+              454
+            {% else %}
+              367
+            {% endif %}
+          {% else %}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
+          {% endif %}
+
+      - unique_id: "b1d5d4a1-b617-4984-b951-0ce70cdf9c52"
+        name: "Global Dummy Light (Color) Color Temperature"
+        state: >-
+          {% if state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired") == None or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired", "unknown") or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired", "off") %}
+            {% if states('input_select.light_mode') == 'Migraine' %}
+              500
+            {% else %}
+              367
+            {% endif %}
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}

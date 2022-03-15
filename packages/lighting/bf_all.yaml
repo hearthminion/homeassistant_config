@@ -21,7 +21,7 @@
 # ==================================================================================================
 automation:
   - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
-    alias: '[Light] Basement: Turn Off Lights At Night'
+    alias: '[Light] BF1: All - Turn Off Lights At Night'
     initial_state: false
     description: ''
     trigger:
@@ -247,13 +247,13 @@ rest_command:
 # ==================================================================================================
 scene:
   - id: "29d35002-68ed-4cfe-bcd3-552e55c219c1"
-    name: "[Light] Enable Basement Automations"
+    name: "[Light] BF1: All - Enable Automations"
     entities:
       automation.light_basement_turn_off_lights_at_night:
         state: "on"
 
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
-    name: "[Light] Basement: Darken"
+    name: "[Light] BF1: All - Darken"
     entities:
       light.bf_den_lamp_2_bulb:
         state: "on"
@@ -289,7 +289,7 @@ scene:
         state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
-    name: "[Light] Basement: Migraine"
+    name: "[Light] BF1: All - Migraine"
     entities:
       light.bf_den_lamp_2_bulb:
         state: "on"
@@ -325,7 +325,7 @@ scene:
         state: "off"
 
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"
-    name: "[Light] Basement: Bright"
+    name: "[Light] BF1: All - Bright"
     entities:
       light.basement:
         state: "on"
@@ -333,7 +333,7 @@ scene:
         brightness: 255
 
   - id: "22b7c3af-0991-4f83-b2b2-6d51f1df089c"
-    name: "[Light] Basement: Concentrate"
+    name: "[Light] BF1: All - Concentrate"
     entities:
       light.basement:
         state: "on"
@@ -341,7 +341,7 @@ scene:
         brightness: 255
 
   - id: "9e5f60ca-caae-41b3-bd7b-7fce33bcc436"
-    name: "[Light] Basement: Dimmed"
+    name: "[Light] BF1: All - Dimmed"
     entities:
       light.basement:
         state: "on"
@@ -349,7 +349,7 @@ scene:
         brightness: 76
 
   - id: "126a563d-3826-4d00-81e1-abca1a6869b2"
-    name: "[Light] Basement: Energize"
+    name: "[Light] BF1: All - Energize"
     entities:
       light.basement:
         state: "on"
@@ -357,7 +357,7 @@ scene:
         brightness: 255
 
   - id: "50d190ae-8d62-4716-ac9c-3ef5757a1009"
-    name: "[Light] Basement: Nightlight"
+    name: "[Light] BF1: All - Nightlight"
     entities:
       light.basement:
         state: "on"
@@ -365,7 +365,7 @@ scene:
         brightness: 1
 
   - id: "3e72d0b5-c2f2-4f4e-87df-67bc7c63882d"
-    name: "[Light] Basement: Read"
+    name: "[Light] BF1: All - Read"
     entities:
       light.basement:
         state: "on"
@@ -373,7 +373,7 @@ scene:
         brightness: 255
 
   - id: "fbe2e3db-c839-42d6-86de-c879baf8673e"
-    name: "[Light] Basement: Relax"
+    name: "[Light] BF1: All - Relax"
     entities:
       light.basement:
         state: "on"
@@ -381,7 +381,7 @@ scene:
         brightness: 145
 
   - id: "b448b6d9-fc73-4f87-8cd9-f0df64dd350d"
-    name: "[Light] Basement: Off"
+    name: "[Light] BF1: All - Off"
     entities:
       light.basement:
         state: "off"

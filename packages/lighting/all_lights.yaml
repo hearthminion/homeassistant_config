@@ -29,6 +29,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
+      - scene: scene.light_bf1_all_enable_automations
       - scene: scene.light_bf1_den_enable_automations
       - scene: scene.light_bf1_hallway_enable_automations
       - scene: scene.light_global_all_enable_automations
@@ -461,7 +462,7 @@ script:
       #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
       #     on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf1_den_lamp1_scene
+      - service: rest_command.light_update_mf2_den_lamp1_scene
         data:
           scene_id: "74901b3e-36a0-4037-981d-c591f5e26fae"
           username: !secret hue1_username
@@ -480,7 +481,7 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf1_den_lamp2_scene
+      - service: rest_command.light_update_mf2_den_lamp2_scene
         data:
           scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
           username: !secret hue1_username

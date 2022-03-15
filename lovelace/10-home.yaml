@@ -57,10 +57,17 @@ cards:
                   - entity: light.bf1_den_lamp2
                   - entity: light.bf1_den_lamp2
               - type: custom:fold-entity-row
-                head: light.bf_kitchen
+                head: light.bf1_kitchen
                 entities:
                   - entity: light.bf1_kitchen_cf1
-                  - entity: light.bf1_storage1_cf1
-                  - entity: light.bf1_storage1_cf2
               - entity: light.bf1_hallway
               - entity: light.bf1_stairwell
+              - type: custom:fold-entity-row
+                head: light.bf1_storage1
+                entities:
+                  - entity: light.bf1_storage1_cf1
+                  - entity: light.bf1_storage1_cf2
+              - type: custom:fold-entity-row
+                head: light.bf1_storage2
+                entities:
+                  - entity: light.bf1_storage2_lamp1

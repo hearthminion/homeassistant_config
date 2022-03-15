@@ -309,8 +309,6 @@ automation:
   # All light fixtures
   #
   # ================================================================================================
-  # Temporarily disable until I can figure out how to reverse the variable definition.
-  # IE, when states('binary_sensor.light_basement_color_mode') is off, the variable should be 'on'
   - id: "4c6e9101-a48b-480f-bd66-ad4b5fe13ac2"
     alias: "[Light] BF1: Den - Adaptive Lighting (Toggle)"
     initial_state: false

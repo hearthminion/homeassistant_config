@@ -644,7 +644,7 @@ script:
           username: !secret hue2_username
           color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
           brightness: '"dimming":{ "brightness": 25.0 }'
-         on_state: '"on":{"on":true}'
+          on_state: '"on":{"on":true}'
 
       - alias: "Wait 1s"
         delay: 1

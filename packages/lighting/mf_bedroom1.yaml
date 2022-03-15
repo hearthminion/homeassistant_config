@@ -221,7 +221,7 @@ scene:
         state: "on"
       automation.light_mf1_bedroom1_lamp2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_mf1_bedroom_lamp_2_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.light_mf1_bedroom1_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
 
   # ================================================================================================

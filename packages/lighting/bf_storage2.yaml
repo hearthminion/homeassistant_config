@@ -5,10 +5,11 @@
 #
 # ==================================================================================================
 adaptive_lighting:
-  - name: BF1: Storage2 Lamp1
+  - name: "BF1: Storage2 Lamp1"
     lights:
       - light.bf1_storage2_lamp1
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
 
+...

@@ -23,33 +23,33 @@ cards:
             show_header_toggle: false
             entities:
               - type: custom:fold-entity-row
-                head: light.mf_great_room
+                head: light.mf2_great_room
                 entities:
-                  - entity: light.mf_den_ceiling
-                  - entity: light.mf_den_couch_lamp_1
-                  - entity: light.mf_den_couch_lamp_2
-                  - entity: light.mf_den_fireplace
-                  - entity: light.mf_dining_room
-                  - entity: light.mf_entryway
-                  - entity: light.mf_kitchen_ceiling
-                  - entity: light.mf_kitchen_island
-                  - entity: light.mf_living_room
-                  - entity: light.mf_den_small_desk_lamp_bulb
+                  - entity: light.mf2_den_ceiling
+                  - entity: light.mf2_den_lamp_1
+                  - entity: light.mf2_den_lamp_2
+                  - entity: light.mf2_den_fireplace
+                  - entity: light.mf2_dining_room
+                  - entity: light.mf2_entryway
+                  - entity: light.mf2_kitchen_ceiling
+                  - entity: light.mf2_kitchen_island
+                  - entity: light.mf2_living_room
+                  - entity: light.mf2_den_small_desk_lamp_bulb
               - type: custom:fold-entity-row
-                head: light.mf_bedroom_1
+                head: light.mf1_bedroom_1
                 show_header_toggle: false
                 entities:
-                  - entity: light.mf_bedroom_1_ceiling_fixture
-                  - entity: light.mf_bedroom_1_lamp_1
-                  - entity: light.mf_bedroom_1_lamp_2
+                  - entity: light.mf1_bedroom1_cf1
+                  - entity: light.mf1_bedroom1_lamp1
+                  - entity: light.mf1_bedroom1_lamp2
               - type: custom:fold-entity-row
-                head: light.mf_master_bathroom
+                head: light.mf1_master_bathroom
                 show_header_toggle: false
                 entities:
-                  - entity: light.mf_bathroom_1_inner
-                  - entity: light.mf_bathroom_1_outer
-              - entity: light.mf_hallway
-              - entity: light.mf_bathroom_2
+                  - entity: light.mf1_bathroom1_inner
+                  - entity: light.mf1_bathroom1_outer
+              - entity: light.mf1_hallway
+              - entity: light.mf1_bathroom2
       - type: vertical-stack
         cards:
           - type: entities

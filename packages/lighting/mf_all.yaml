@@ -4,3 +4,4 @@ light:
     name: "MF: All"
     entities:
       - light.mf1_all
+      - light.mf2_all

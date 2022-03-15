@@ -25,18 +25,10 @@ cards:
               - type: custom:fold-entity-row
                 head: light.mf2_great_room
                 entities:
-                  - entity: light.mf2_den_ceiling
-                  - entity: light.mf2_den_lamp_1
-                  - entity: light.mf2_den_lamp_2
-                  - entity: light.mf2_den_fireplace
-                  - entity: light.mf2_dining_room
-                  - entity: light.mf2_entryway
-                  - entity: light.mf2_kitchen_ceiling
-                  - entity: light.mf2_kitchen_island
-                  - entity: light.mf2_living_room
-                  - entity: light.mf2_den_small_desk_lamp_bulb
+                  - entity: light.mf2_den_lamp1
+                  - entity: light.mf2_den_lamp2
               - type: custom:fold-entity-row
-                head: light.mf1_bedroom_1
+                head: light.mf1_bedroom1
                 show_header_toggle: false
                 entities:
                   - entity: light.mf1_bedroom1_cf1
@@ -57,18 +49,18 @@ cards:
             show_header_toggle: false
             entities:
               - type: custom:fold-entity-row
-                head: light.bf_den
+                head: light.bf1_den
                 entities:
-                  - entity: light.bf_den_cf1
-                  - entity: light.bf_den_cf2
-                  - entity: light.bf_den_lamp1
-                  - entity: light.bf_den_lamp2
-                  - entity: light.bf_den_lamp2
+                  - entity: light.bf1_den_cf1
+                  - entity: light.bf1_den_cf2
+                  - entity: light.bf1_den_lamp1
+                  - entity: light.bf1_den_lamp2
+                  - entity: light.bf1_den_lamp2
               - type: custom:fold-entity-row
                 head: light.bf_kitchen
                 entities:
-                  - entity: light.bf_kitchen_cf1
-                  - entity: light.bf_storage1_cf1
-                  - entity: light.bf_storage1_cf2
-              - entity: light.bf_hallway
-              - entity: light.bf_stairwell
+                  - entity: light.bf1_kitchen_cf1
+                  - entity: light.bf1_storage1_cf1
+                  - entity: light.bf1_storage1_cf2
+              - entity: light.bf1_hallway
+              - entity: light.bf1_stairwell

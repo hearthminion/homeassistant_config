@@ -549,10 +549,6 @@ template:
             {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_mf1_bedroom1_lamp2_autobrightness", "brightness") | int(100) - 4 }}
-          xy_color: >-
-            {{ state_attr("light.mf1_bedroom1_lamp2", "xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.mf1_bedroom1_lamp2", "color_temp") }}
 
       - unique_id: "81afb5be-19ad-48f5-a54b-99e3ddd20fe0"
         name: "[Light] MF1: Master Bedroom CF1 (Autobrightness)"
@@ -577,10 +573,6 @@ template:
             {{ state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_mf1_bedroom1_cf1_autobrightness", "brightness") | int(100) - 4 }}
-          xy_color: >-
-            {{ state_attr("light.mf1_bedroom1_cf1", "xy_color") }}
-          color_temp: >-
-            {{ state_attr("light.mf1_bedroom1_cf1", "color_temp") }}
 
       - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
         name: "[Light] Master Bedroom Color Mode"

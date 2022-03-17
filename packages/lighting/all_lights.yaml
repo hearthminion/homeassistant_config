@@ -847,7 +847,8 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}
-
+        state_class: measurement
+        
       - unique_id: "b1d5d4a1-b617-4984-b951-0ce70cdf9c52"
         name: "Global Dummy Light (Color) Color Temperature"
         state: >-
@@ -862,6 +863,7 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}
+        state_class: measurement
 
       - unique_id: "48f9f765-7fa8-4b6c-b18b-9a0ab378f57c"
         name: "Global Dummy Light Color Temperature (Kelvin)"
@@ -877,6 +879,8 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(367) }}
           {% endif %}
+        state_class: measurement
+        unit_of_measurement: "°K"
 
       - unique_id: "15cc3369-343d-4f3e-bbdd-c0e3cafa90dc"
         name: "Global Dummy Light (Color) Color Temperature (Kelvin)"
@@ -892,3 +896,5 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(367) }}
           {% endif %}
+        state_class: measurement
+        unit_of_measurement: "°K"

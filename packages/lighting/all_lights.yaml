@@ -862,3 +862,33 @@ template:
           {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}
+
+      - unique_id: "48f9f765-7fa8-4b6c-b18b-9a0ab378f57c"
+        name: "Global Dummy Light Color Temperature (Kelvin)"
+        state: >-
+          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") == None or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin", "unknown") or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin", "off") %}
+            {% if states('input_select.light_mode') == 'Migraine' %}
+              2200
+            {% else %}
+              2700
+            {% endif %}
+          {% else %}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(367) }}
+          {% endif %}
+
+      - unique_id: "15cc3369-343d-4f3e-bbdd-c0e3cafa90dc"
+        name: "Global Dummy Light (Color) Color Temperature (Kelvin)"
+        state: >-
+          {% if state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin") == None or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin", "unknown") or
+          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin", "off") %}
+            {% if states('input_select.light_mode') == 'Migraine' %}
+              2000
+            {% else %}
+              2700
+            {% endif %}
+          {% else %}
+            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(367) }}
+          {% endif %}

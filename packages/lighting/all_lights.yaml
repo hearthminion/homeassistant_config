@@ -416,6 +416,7 @@ scene:
 script:
   light_update_scene_homeassistant_circadian:
     alias: "[Light] Update Home Assistant Scenes (Circadian)"
+    mode: single
     sequence:
 
       - service: rest_command.light_update_bf1_all_scene
@@ -619,13 +620,13 @@ script:
     alias: "[Light] Update Home Assistant Scenes (Migraine)"
     sequence:
 
-      - service: rest_command.light_update_bf1_all_scene
-        data:
-          scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
+      # - service: rest_command.light_update_bf1_all_scene
+      #   data:
+      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
+      #     username: !secret hue2_username
+      #     color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
+      #     brightness: '"dimming":{ "brightness": 25.0 }'
+      #     on_state: '"on":{"on":true}'
 
       # - service: rest_command.light_update_mf1_all
       #   data:
@@ -644,16 +645,16 @@ script:
       #     on_state: '"on":{"on":true}'
 
       # We now add a delay to not overwhelm the bridge
-      - alias: "Wait 1s"
-        delay: 1
+      # - alias: "Wait 1s"
+      #   delay: 1
 
-      - service: rest_command.light_update_bf1_den_lamp1_scene
-        data:
-          scene_id: "dfe07596-feed-47bd-a6ef-fdeb8fa5f97b"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
+      # - service: rest_command.light_update_bf1_den_lamp1_scene
+      #   data:
+      #     scene_id: "dfe07596-feed-47bd-a6ef-fdeb8fa5f97b"
+      #     username: !secret hue2_username
+      #     color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
+      #     brightness: '"dimming":{ "brightness": 25.0 }'
+      #     on_state: '"on":{"on":true}'
 
       # - service: rest_command.light_update_mf1_bedroom1_lamp1_scene
       #   data:

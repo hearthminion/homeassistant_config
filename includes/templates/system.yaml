@@ -1,0 +1,6 @@
+---
+- binary_sensor:
+    - unique_id: "bc387400-c181-4a6d-a423-3785891aef36"
+      name: "Updater"
+      state: >-
+        {{ states(sensor.current_version) != states(sensor.home_assistant_website) }}

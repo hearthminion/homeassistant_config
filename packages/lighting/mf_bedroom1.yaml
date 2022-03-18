@@ -162,6 +162,36 @@ automation:
     action:
       - scene: scene.mf1_master_bedroom_lamp2_homeassistant
 
+  # ================================================================================================
+  #
+  # Whole Room Automations
+  #
+  # ================================================================================================
+  - id: "1f336880-8fe0-4641-a202-f85565f91a30"
+    alias: "[Light] MF1: Master Bedroom - Adaptive Lighting (Toggle)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.light_bf1_den_color_mode
+    variables:
+      adaptive_mode: >-
+        {% if states('binary_sensor.light_mf1_bedroom1_color_mode') == 'on' %}
+          off
+        {% else %}
+          on
+        {% endif %}
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ adaptive_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_mf1_bedroom1_lamp2
+    mode: single
+
 # ==================================================================================================
 #
 # Rest Commands
@@ -373,7 +403,7 @@ scene:
     entities:
       light.mf1_bedroom1_lamp2:
         state: "on"
-        color_temp: 454
+        color_temp: 500
         brightness: 1
 
   - id: "b5353749-f92f-4974-9550-247f93a06820"
@@ -460,7 +490,7 @@ scene:
     entities:
       light.mf1_bedroom_cf1:
         state: "on"
-        color_temp: 454
+        color_temp: 500
         brightness: 1
 
   - id: "d70c11f6-768e-4036-8e95-755a98b207dd"

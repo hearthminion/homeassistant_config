@@ -848,7 +848,7 @@ template:
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}
         state_class: measurement
-        
+
       - unique_id: "b1d5d4a1-b617-4984-b951-0ce70cdf9c52"
         name: "Global Dummy Light (Color) Color Temperature"
         state: >-

@@ -174,3 +174,22 @@ template:
 
 In this case I manually set the unique_id using ```uuidgen -r```, this is not required.  Some of
 this code may be redundant.
+
+### Create automation to run the update script
+
+```
+  - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
+    alias: "[Light] Update HomeAssistant Scene on Hue Bridges (Circadian)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: time_pattern
+        minutes: "/5"
+    condition: []
+    action:
+      - service: script.turn_on
+        data: {}
+        target:
+          entity_id: script.light_update_scene_homeassistant
+    mode: single
+```

@@ -13,17 +13,19 @@ The file to read through is core.config_entries.  You are looking for a section 
 ```
 {
   "entry_id": "0123456789abcd",
-.. "version": 1,
+  "version": 1,
   "domain": "hue",
   "title": "Hue Bridge",
   "data": {
     "host": "{{ hue_bridge }}",
-    *"api_key": "{{ hue_application_key }}"*,  <- THIS LINE
+    "api_key": "{{ hue_application_key }}",
     "api_version": 2
-..},
+  },
 ...
 }
 ```
+
+The line with *api_key* is your hue_application_key.
 
 In this example the key is stored as a secret in secrets.yaml as 'hue_username'
 

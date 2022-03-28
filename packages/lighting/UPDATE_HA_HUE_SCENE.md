@@ -71,7 +71,12 @@ rest_command:
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "4294ad46-44e2-4df9-974e-d28c65fb308a","rtype":"light"}
-   }
+          }
+      ]
+      }'
+    verify_ssl: false
+    content_type: "application/json"
+
 ```
 
 Each light bulb in the scene will require an action.  The rid you will get from scenes.json, by looking
@@ -167,5 +172,5 @@ template:
         state_class: measurement
 ```
 
-In this case I manuually set the unique_id using ```uuidgen -r```, this is not required.  Some of
+In this case I manually set the unique_id using ```uuidgen -r```, this is not required.  Some of
 this code may be redundant.

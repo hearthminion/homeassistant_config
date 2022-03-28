@@ -10,7 +10,7 @@ The hue application key used for authentication to the bridge.
 You can find this in your home-assistant config inside the storage directory. eg: /srv/homeassistant/config/.storage/
 The file to read through is core.config_entries.  You are looking for a section that looks like:
 
-'''
+```
 {
   "entry_id": "0123456789abcd",
 .. "version": 1,
@@ -23,7 +23,7 @@ The file to read through is core.config_entries.  You are looking for a section 
 ..},
 ...
 }
-'''
+```
 
 In this example the key is stored as a secret in secrets.yaml as 'hue_username'
 
@@ -48,7 +48,7 @@ selected in your scene is the correct one.
 ## Edit your Home Assistant Configuration
 
 ### Create rest_command integration
-'''
+```
 rest_command:
   light_update_den_scene:
     url: "https://{{ hue_bridge }}/clip/v2/resource/scene/{{ scene_id }}"
@@ -70,7 +70,7 @@ rest_command:
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid": "4294ad46-44e2-4df9-974e-d28c65fb308a","rtype":"light"}
    }
-'''
+```
 
 Each light bulb in the scene will require an action.  The rid you will get from scenes.json, by looking
 for the light bulb associated with the scene to be updated.
@@ -85,7 +85,7 @@ rest command sequentially with 1 second between each call.
 In addition, by using a script, I can send variables to the rest command to make the rest command
 more versatile, for updating in other scenarios.
 
-'''
+```
 script:
   light_update_scene_homeassistant:
     alias: "[Light] Update Home Assistant Scenes"
@@ -115,7 +115,7 @@ script:
         delay: 1
 
 ...
-'''
+```
 
 You'll get the scene_id from scenes.json.  Look through the file to identify the scene_id for the
 scene you wish Home Assistant to update.
@@ -125,19 +125,19 @@ scene you wish Home Assistant to update.
 This entity is *always* on.  I created this because if the entities are switched off, their
 attributes are not available for scripting.  I wanted an entity that was guaranteed to always be on.
 
-'''
+```
 adaptive_lighting:
   - name: "Global: Dummy Light"
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
-'''
+```
 
 ### Create template sensors
 
 This may be redundant, You can theoretically use the state attributes directly in the above script.
 
-'''
+```
 template:
   - sensor:
       - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"
@@ -163,7 +163,7 @@ template:
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
           {% endif %}
         state_class: measurement
-'''
+```
 
-In this case I manuually set the unique_id using '''uuidgen -r''', this is not required.  Some of
+In this case I manuually set the unique_id using ```uuidgen -r```, this is not required.  Some of
 this code may be redundant.

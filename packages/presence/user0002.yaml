@@ -62,6 +62,6 @@ template:
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"
         name: "User0002: Velocity"
-        state: "{{ state_attr('device_tracker.user0002_phone', 'velocity' }}"
+        state: "{{ state_attr('device_tracker.user0002_phone', 'velocity') }}"
         state_class: measurement
         unit_of_measurement: kph

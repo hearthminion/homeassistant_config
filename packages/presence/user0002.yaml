@@ -1,55 +1,35 @@
 binary_sensor:
   - platform: bayesian
-    name: user0002_status
+    name: "User0002: Bayesian - Home"
     prior: 0.375
     probability_threshold: 0.9
     device_class: "presence"
     observations:
+      # User0002: Phone GPS (Owntracks)
       - entity_id: "device_tracker.user0002_phone"
         prob_given_true: 0.9
         prob_given_false: 0.1
         platform: "state"
         to_state: "home"
+      # User0002: Phone Wifi
       - entity_id: "device_tracker.b8_d7_af_78_0f_3c"
         prob_given_true: 0.9
-        prob_given_false: 0.2
+        prob_given_false: 0.1
         platform: "state"
         to_state: "home"
-      - entity_id: "device_tracker.galaxy_note8_2"
-        prob_given_true: 0.9
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
-      - entity_id: "device_tracker.e4_e4_ab_f0_3e_cc"
-        prob_given_true: 0.7
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
-      - entity_id: "device_tracker.user0002_ipad"
-        prob_given_true: 0.7
-        prob_given_false: 0.3
-        platform: "state"
-        to_state: "home"
-      - entity_id: "device_tracker.user0002_laptop_1_wifi"
-        prob_given_true: 0.6
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
-      - entity_id: "device_tracker.user0002_laptop_2_wifi"
-        prob_given_true: 0.6
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
-      - entity_id: "device_tracker.atlas"
-        prob_given_true: 0.6
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
+      # User0002:
       - entity_id: "device_tracker.00_bb_3a_ec_53_f8"
         prob_given_true: 0.6
         prob_given_false: 0.4
         platform: "state"
         to_state: "home"
+  - platform: bayesian
+    name: "User0002: Baysian - Away"
+    prior: 0.1
+    probability_threshold: 0.9
+    device_class: "presenence"
+    observations:
+      - entity_id: ""
 
 input_select:
   # Example configuration.yaml entry
@@ -77,3 +57,11 @@ person:
       - device_tracker.e4_e4_ab_f0_3e_cc
       - device_tracker.user0002_ipad
       - device_tracker.00_bb_3a_ec_53_f8
+
+template:
+  - sensor:
+      - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"
+        name: "User0002: Velocity"
+        state: "{{ state_attr('device_tracker.user0002_phone', 'velocity' }}"
+        state_class: measurement
+        unit_of_measurement: kph

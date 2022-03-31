@@ -287,6 +287,12 @@ scene:
         state: "off"
       light.bf_storage1_cf2_bulb:
         state: "off"
+      light.bf_storage2_lamp1_bulb:
+        state: "off"
+      light.bf_storage2_lamp2_bulb:
+        state: "off"
+      light.bf_storage2_lamp3_bulb:
+        state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] BF1: All - Migraine"
@@ -322,6 +328,12 @@ scene:
       light.bf_storage1_cf1_bulb:
         state: "off"
       light.bf_storage1_cf2_bulb:
+        state: "off"
+      light.bf_storage2_lamp1_bulb:
+        state: "off"
+      light.bf_storage2_lamp2_bulb:
+        state: "off"
+      light.bf_storage2_lamp3_bulb:
         state: "off"
 
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"

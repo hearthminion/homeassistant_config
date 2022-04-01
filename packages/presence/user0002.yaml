@@ -25,8 +25,12 @@ binary_sensor:
     observations:
       - entity_id: "binary_sensor.user0002_distance_quarter_km"
         prob_given_true: "0.9"
+        platform: "state"
+        to_state: "on"
       - entity_id: "binary_sensor.user0002_moving"
         prob_given_true: "0.9"
+        platform: "state"
+        to_state: "on"
      
 
 input_select:

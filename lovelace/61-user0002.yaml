@@ -31,6 +31,8 @@
                 - entity: device_tracker.user0002_ipad
                 - entity: device_tracker.nmap_tracker_76_24_cf_31_46_75
                 - entity: binary_sensor.user0002_laptop
+                - entity: binary_sensor.user0002_bayesian_home
+                - entity: binary_sensor.user0002_bayesian_away
             - type: history-graph
               title: user0002
               hours_to_show: 24
@@ -82,10 +84,10 @@
             - type: history-graph
               title: iPad
               entities:
-                - entity: device_tracker.e4_e4_ab_f0_3e_cc
-                  name: Wifi
                 - entity: device_tracker.user0002_ipad
-                  name: Bluetooth
+                  name: App
+                - entity: device_tracker.nmap_tracker_76_24_cf_31_46_75
+                  name: Wifi
             - type: history-graph
               title: Laptop
               entities:

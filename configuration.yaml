@@ -78,6 +78,7 @@ frontend:
 history: !include includes/system/history.yaml
 image:
 input_boolean:
+input_button:
 input_datetime:
 input_number:
 input_select:
@@ -112,6 +113,7 @@ discovery: !include includes/system/discovery.yaml
 # ==================================================================================================
 automation old: !include_dir_merge_list includes/automations/
 scene old: !include_dir_merge_list includes/scenes/
+input_boolean manual: !include includes/input_boolean.yaml
 
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/

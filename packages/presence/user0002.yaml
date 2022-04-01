@@ -68,6 +68,6 @@ template:
         state_class: measurement
         unit_of_measurement: km
 
-     - unique_id: "79617b70-87f2-4a65-a3a3-a901cfa3b031"
-       name: "User0002: Phone Charging Status"
-       state: "{{ state_attr('device_tracker.user0002_phone', 'battery_status') }}"
+      - unique_id: "79617b70-87f2-4a65-a3a3-a901cfa3b031"
+        name: "User0002: Phone Charging Status"
+        state: "{{ state_attr('device_tracker.user0002_phone', 'battery_status') }}"

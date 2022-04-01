@@ -17,6 +17,12 @@ binary_sensor:
         prob_given_false: 0.1
         platform: "state"
         to_state: "home"
+      # User0002: Phone Bluetooth"
+      - entity_id: "device_tracker.galaxy_note8_2"
+        prob_given_true: 0.6
+        prob_given_false: 0.4
+        platform: "state"
+        to_state: "home"
   - platform: bayesian
     name: "User0002: Bayesian - Away"
     prior: 0.1

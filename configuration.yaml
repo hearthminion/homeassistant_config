@@ -146,10 +146,6 @@ device_tracker:
     count: 1
     interval_seconds: 60
 
-  - platform: bluetooth_tracker
-
-  - platform: bluetooth_le_tracker
-
 owntracks:
   max_gps_accuracy: 200
   waypoints: true

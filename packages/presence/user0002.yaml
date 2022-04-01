@@ -59,12 +59,12 @@ template:
         state: >-
           {{ state_attr('binary_sensor.user0002_bayesian_home', 'probability') >
              state_attr('binary_sensor.user0002_bayesian_away', 'probability') }}
-        state_class: presence
+        device_class: presence
 
       - unique_id: "912c3e59-bfe0-42a2-aa48-14dba4b31b30"
         name: "User0002: Phone Charging Status"
         state: "{{ ( states('sensor.user0002_phone_charging_status') > 1 ) }}"
-        state_class: battery_charging
+        device_class: battery_charging
 
       - unique_id: "264b827f-06df-475a-8d14-e8f57413fa45"
         name: "User0002: Distance - Quarter KM"
@@ -73,7 +73,7 @@ template:
       - unique_id: "b9fbe5d1-c1a4-4058-8f0c-eb45ea86d016"
         name: "User0002: Moving"
         state: "{{ ( states('sensor.user0002_velocity') > 0 ) }}"
-        state_class: moving
+        device_class: moving
 
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"

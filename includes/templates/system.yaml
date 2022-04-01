@@ -4,3 +4,7 @@
       name: "Updater"
       state: >-
         {{ states('sensor.current_version') != states('sensor.home_assistant_website') }}
+
+    - unique_id: "6ac254a8-3e3d-4ad7-bf70-2ef890a2637d"
+      name: "Daylight Saving Time"
+      state: "{{ now().timetuple().tm_isdst > 0 }}"

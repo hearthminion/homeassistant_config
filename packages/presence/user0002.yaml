@@ -110,4 +110,4 @@ template:
         name: "User0002: Phone Battery"
         state: "{{ state_attr('device_tracker.user0002_phone', 'battery_level') }}"
         state_class: measurement
-        unit_of_measurement: %
+        unit_of_measurement: "%"

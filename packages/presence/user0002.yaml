@@ -17,12 +17,6 @@ binary_sensor:
         prob_given_false: 0.1
         platform: "state"
         to_state: "home"
-      # User0002:
-      - entity_id: "device_tracker.00_bb_3a_ec_53_f8"
-        prob_given_true: 0.6
-        prob_given_false: 0.4
-        platform: "state"
-        to_state: "home"
   # - platform: bayesian
   #   name: "User0002: Bayesian - Away"
   #   prior: 0.1
@@ -32,7 +26,6 @@ binary_sensor:
   #     - entity_id: ""
 
 input_select:
-  # Example configuration.yaml entry
   user0002_status_dropdown:
     name: "User0002 Status Dropdown"
     options:
@@ -50,13 +43,6 @@ person:
     device_trackers:
       - device_tracker.user0002_phone
       - device_tracker.b8_d7_af_78_0f_3c
-      - device_tracker.galaxy_note8_2
-      - device_tracker.user0002_laptop_1_wifi
-      - device_tracker.user0002_laptop_2_wifi
-      - device_tracker.atlas
-      - device_tracker.e4_e4_ab_f0_3e_cc
-      - device_tracker.user0002_ipad
-      - device_tracker.00_bb_3a_ec_53_f8
 
 template:
   # - binary_sensor:

@@ -59,15 +59,15 @@ person:
       - device_tracker.00_bb_3a_ec_53_f8
 
 template:
-  - binary_sensor:
-      - unique_id: "375f2267-3ba5-4fa6-b960-9e31a7364875"
-        name: "User0002: Status"
-        state: >-
-          {% if input_select.user0002_status_dropdown == "Home" %}
-            Home
-          {% else %}
-            Away
-          {% endif %}
+  # - binary_sensor:
+  #     - unique_id: "375f2267-3ba5-4fa6-b960-9e31a7364875"
+  #       name: "User0002: Status"
+  #       state: >-
+  #         {% if .user0002_status_dropdown == "Home" %}
+  #           Home
+  #         {% else %}
+  #           Away
+  #         {% endif %}
 
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"

@@ -27,7 +27,7 @@ binary_sensor:
     name: "User0002: Bayesian - Away"
     prior: 0.1
     probability_threshold: 0.9
-    device_class: "presenence"
+    device_class: "presence"
     observations:
       - entity_id: "device_tracker.user0002_phone"
         prob_given_true: 0.1

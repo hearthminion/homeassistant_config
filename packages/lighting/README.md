@@ -6,7 +6,7 @@ This package manages the lights.
 
 The lights are configured into several modes:
 - Circadian
-- Darken
+- Darken (Partially implemented, the scene exists)
 - Migraine
 - Guests (Not yet implemented)
 - Migraine (Sleeping) (Not yet implemented)
@@ -18,7 +18,9 @@ The lights are configured into several modes:
 #### [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
 Author: basnijholt
 
-The adaptive_lighting platform changes the settings of your lights throughout the day. It uses the position of the sun to calculate the color temperature and brightness that is most fitting for that time of the day. Scientific research has shown that this helps to maintain your natural circadian rhythm (your biological clock) and might lead to improved sleep, mood, and general well-being.
+The adaptive_lighting platform changes the settings of your lights throughout the day. It uses the position of the sun to calculate the color temperature and brightness that is most fitting for that time of the day.
+
+I selected this over [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting) because this integration has a switch to toggle brightness adjustments, and Circadian Lighting does not.  This resulting in an automation that rather than switching brightness control on and off, would require two circadian switches per light fixture, one with brightness adjustment on and on off, and the automation would swap which circadian switch was turned on at any given time.
 
 ### Other tools used
 #### [Color Thief](https://lokeshdhakar.com/projects/color-thief/)
@@ -31,11 +33,31 @@ Used to generate uuids for automations, scenes, etc.
 #### [Automation](https://www.home-assistant.io/docs/automation/)
 - Toggle Adaptive Lighting Brightness switch if autobrightness binary sensor changes state
 - Turn off Adaptive Lighting Brightness switch if Hue Dimmer Switch buttons 2 or 3 are pressed.
+- Toggle Adaptive lighting switch if autocolortemp binary sensor changes state
 - Toggle Adaptive lighting based on if Circadian Mode is true or false
+- Turn on Migraine Mode if lights are set manually set to green
+- Turn on [Light Previously Green](#Light Previously Green) if Migraine Mode is activated
+- Turn on [Light Previously Green](#Light Previously Green) at Midnight
+- Set Light mode to Circadian at 4 am
 - Run [Update HomeAssistant Scene](#Update Home Assistant Scene) script every 5 minutes
 
-#### [Input Select]
+#### [Input Boolean](https://www.home-assistant.io/integrations/input_boolean/)
+##### Light Previously Green
+
+This tracks if a light has been turned green at some point during the day.
+
+#### [Input Select](https://www.home-assistant.io/integrations/input_select/)
+##### Light Mode
+
+Tracks current lighting mode
+
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
+##### Update HomeAssistant Scene
+This updates all lights in the group when all lights have the exact same configuration.
+
+##### Update HomeAssistant Scene Complex
+This updates lights when each light has a different configuration.
+
 #### [Scenes](https://www.home-assistant.io/integrations/scene/)
 ##### HomeAssistant
 
@@ -58,7 +80,6 @@ xy_color:
   - 0.7
 
 #### [Scripts](https://www.home-assistant.io/docs/scripts/)
-
 ##### Update Home Assistant Scene
 
 This updates the 'HomeAssistant' scene on the Hue Bridge.
@@ -71,8 +92,6 @@ This updates the 'HomeAssistant' scene on the Hue Bridge.
 
 - If the lighting mode is 'Guest' I do not want adaptive lighting to decrease brightness after sunset.  Remaining requirements are TBD.  Thinking about a slow decrease in brightness say 20% over a 3 hr period starting at sunset.
 
-
-
 ##### Update Darken Scene
 This is not run very often, but it is there to ensure that on the Hue Bridge xy_color is set as per [Darken](#Darken)
 
@@ -80,7 +99,6 @@ This is not run very often, but it is there to ensure that on the Hue Bridge xy_
 This is not run very often, but it is there to ensure that on the Hue Bridge xy_color is set as per [Migraine](#Migraine)
 
 #### [Templates](https://www.home-assistant.io/integrations/template/)
-
 ##### Binary Sensors
 - autobrightness: Returns true if the lights brightness is +/- 4% of the adaptive lighting brightness setting, else returns false.
 - color_mode: Returns true if the lights in 'xy_color' mode, else return false.
@@ -107,16 +125,18 @@ Room(#)
 
 Fixture#
 
-Example:
+Examples:
 MF1: Bedroom1 CF1 = Main Floor, Hub1, Bedroom1, Ceiling Fixture 1
+MF2: Den CF1 = Main Floor, Hub2, Den, Ceiling Fixture 1
 BF1: Den Lamp1 = Basement Floor, Hub1, Den, Lamp 1
 
 In the home assistant configuration, I rename the entity ids to match:
 light.mf1_bedroom1_cf1
+light.mf2_den_cf1
 light.bf1_den_lamp1
 
 #### Scenes
-Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I created.
+Each group of lights has 8-12 scenes defined, the 7 basic hue scenes, plus 3 I created.
 ##### Default Hue Scenes
 - [Bright](#Bright)
 - [Concentrate](#Concentrate)
@@ -125,11 +145,13 @@ Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I cre
 - [Nightlight](#Nightlight)
 - [Read](#Read)
 - [Relax](#Relax)
+- [Candle](#Candle) If applicable (Newer bulbs only)
+- [Fireplace](#Fireplace) If applicable (Newer bulbs only)
 
 ##### Custom Scenes
 - [HomeAssistant](#HomeAssistant)
-- [Darken](#Darken)
-- [Migraine](#Migraine)
+- [Darken](#Darken) If applicable (Color bulbs only)
+- [Migraine](#Migraine) If applicable (Color bulbs only)
 
 ## Features
 ### Features
@@ -156,7 +178,7 @@ Each group of lights has 10 scenes defined, the 7 basic hue scenes, plus 3 I cre
 - brightness: 255
 
 ### Nightlight
-- color_temp: 454
+- color_temp: 500 (Color Bulbs) or  454 (Ambiance Bulbs)
 - brightness: 1
 
 ### Read

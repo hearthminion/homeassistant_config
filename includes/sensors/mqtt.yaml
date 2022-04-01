@@ -6,13 +6,6 @@
   device_class: battery
 
 - platform: mqtt
-  state_topic: "owntracks/user0002/phone"
-  name: "user0002_phone_battery"
-  unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
-  device_class: battery
-
-- platform: mqtt
   name: "hestia_sensehat_temp_c"
   state_topic: "homeassistant/sensor/hestia/sensehat/state"
   value_template: "{{ value_json.temperature_celcius }}"

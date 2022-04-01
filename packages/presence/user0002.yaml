@@ -13,8 +13,8 @@ binary_sensor:
         to_state: "home"
       # User0002: Phone Wifi
       - entity_id: "device_tracker.b8_d7_af_78_0f_3c"
-        prob_given_true: 0.9
-        prob_given_false: 0.1
+        prob_given_true: 0.7
+        prob_given_false: 0.3
         platform: "state"
         to_state: "home"
       # User0002: Phone Bluetooth"
@@ -30,13 +30,13 @@ binary_sensor:
     device_class: "presenence"
     observations:
       - entity_id: "binary_sensor.user0002_distance_quarter_km"
-        prob_given_true: "0.9"
+        prob_given_true: 0.9
         platform: "state"
         to_state: "on"
       - entity_id: "binary_sensor.user0002_moving"
-        prob_given_true: "0.9"
+        prob_given_true: 0.9
         platform: "state"
-        to_state: "on"
+        to_state: "moving"
      
 
 input_select:
@@ -81,6 +81,14 @@ template:
         state: "{{ ( states('sensor.user0002_velocity') | float > 0 ) }}"
         device_class: moving
 
+      - unique_id: "28df0aa2-d5d5-498b-8c07-6da70c61d1da"
+        name: "User0002: Laptop"
+        state: >-
+          {{ is_state("device_tracker.user0002_laptop_1_wifi", "home")
+          or is_state("device_tracker.user0002_laptop_2_wifi", "home") }}
+        device_class: connectivity
+
+
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"
         name: "User0002: Velocity"
@@ -97,3 +105,9 @@ template:
       - unique_id: "79617b70-87f2-4a65-a3a3-a901cfa3b031"
         name: "User0002: Phone Charging Status"
         state: "{{ state_attr('device_tracker.user0002_phone', 'battery_status') }}"
+
+      - unique_id: "239738c6-44b1-448f-a281-01d1a6135f08"
+        name: "User0002: Phone Battery"
+        state: "{{ state_attr('device_tracker.user0002_phone', 'battery_level') }}"
+        state_class: measurement
+        unit_of_measurement: %

@@ -1,6 +1,6 @@
 binary_sensor:
   - platform: bayesian
-    name: "User0002: Bayesian"
+    name: "User0002: Bayesian - Home"
     prior: 0.375
     probability_threshold: 0.9
     device_class: "presence"
@@ -23,7 +23,7 @@ binary_sensor:
   #   probability_threshold: 0.9
   #   device_class: "presenence"
   #   observations:
-  #     - entity_id: ""
+      
 
 input_select:
   user0002_status_dropdown:
@@ -45,15 +45,16 @@ person:
       - device_tracker.b8_d7_af_78_0f_3c
 
 template:
-  # - binary_sensor:
-  #     - unique_id: "375f2267-3ba5-4fa6-b960-9e31a7364875"
-  #       name: "User0002: Status"
-  #       state: >-
-  #         {% if .user0002_status_dropdown == "Home" %}
-  #           Home
-  #         {% else %}
-  #           Away
-  #         {% endif %}
+  - binary_sensor:
+      - unique_id: "375f2267-3ba5-4fa6-b960-9e31a7364875"
+        name: "User0002: Status"
+        state: >-
+          {% if state_attr('binary_sensor.user0002_bayesian_home', 'probability') >
+               state_attr('binary_sensor.user0002_bayesian_away', 'probability') %}
+            Home
+          {% else %}
+            Away
+          {% endif %}
 
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"

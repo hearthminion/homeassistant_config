@@ -25,6 +25,8 @@ include:
     - sensor.skin_type_*
     - switch.adaptive*
     - switch.nodeid*
+    - binary_sensor.user00*
+    - sensor.user00*
   entities:
     - binary_sensor.aether
     - binary_sensor.angelia

@@ -1,6 +1,6 @@
 binary_sensor:
   - platform: bayesian
-    name: "User0002: Status"
+    name: "User0002: Bayesian"
     prior: 0.375
     probability_threshold: 0.9
     device_class: "presence"
@@ -24,7 +24,7 @@ binary_sensor:
         platform: "state"
         to_state: "home"
   # - platform: bayesian
-  #   name: "User0002: Baysian - Away"
+  #   name: "User0002: Bayesian - Away"
   #   prior: 0.1
   #   probability_threshold: 0.9
   #   device_class: "presenence"
@@ -59,9 +59,29 @@ person:
       - device_tracker.00_bb_3a_ec_53_f8
 
 template:
+  - binary_sensor:
+      - unique_id: "375f2267-3ba5-4fa6-b960-9e31a7364875"
+        name: "User0002: Status"
+        state: >-
+          {% if input_select.user0002_status_dropdown == "Home" %}
+            Home
+          {% else %}
+            Away
+          {% endif %}
+
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"
         name: "User0002: Velocity"
         state: "{{ state_attr('device_tracker.user0002_phone', 'velocity') }}"
         state_class: measurement
         unit_of_measurement: kph
+
+      - unique_id: "232a0a08-6650-41c8-bcbd-ac3d1875d538"
+        name: "User0002: Distance"
+        state: "{{ distance('device_tracker.user0002_phone') }}"
+        state_class: measurement
+        unit_of_measurement: km
+
+     - unique_id: "79617b70-87f2-4a65-a3a3-a901cfa3b031"
+       name: "User0002: Phone Charging Status"
+       state: "{{ state_attr('device_tracker.user0002_phone', 'battery_status') }}"

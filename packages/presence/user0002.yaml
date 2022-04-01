@@ -56,6 +56,15 @@ template:
             Away
           {% endif %}
 
+      - unique_id: "912c3e59-bfe0-42a2-aa48-14dba4b31b30"
+        name: "User0002: Phone Charging"
+        state: >-
+          {% if state('sensor.user0002_phone_charging_status') > 1 %}
+            On
+          {% else %}
+            Off
+          {% endif %}
+
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"
         name: "User0002: Velocity"

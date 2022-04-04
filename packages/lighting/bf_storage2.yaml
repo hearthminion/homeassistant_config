@@ -5,25 +5,79 @@
 #
 # ==================================================================================================
 adaptive_lighting:
-  - name: "BF1: Storage2 Lamp1"
+  - name: "BF1: Storage2"
     lights:
-      - light.bf1_storage2_lamp1
+      - light.bf1_storage2
     initial_transition: 1
     min_color_temp: 2200
     max_color_temp: 6500
 
-  - name: "BF1: Storage2 Lamp2"
-    lights:
-      - light.bf1_storage2_lamp2
-    initial_transition: 1
-    min_color_temp: 2200
-    max_color_temp: 6500
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+scene:
+  - id: "22c803f2-3284-4d1a-83f1-201167eba219"
+    name: "[Light] BF1: Storage2 - Bright"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 367
+        brightness: 255
 
-  - name: "BF1: Storage2 Lamp3"
-    lights:
-      - light.bf1_storage2_lamp3
-    initial_transition: 1
-    min_color_temp: 2200
-    max_color_temp: 6500
+  - id: "32fcc65a-bc7a-49e3-ac2d-751695ce3cac"
+    name: "[Light] BF1: Storage2 - Concentrate"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 230
+        brightness: 255
+
+  - id: "eb098334-a363-4836-9eb7-fbf3f212c5de"
+    name: "[Light] BF1: Storage2 - Dimmed"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 369
+        brightness: 76
+
+  - id: "d539cb7c-044c-4770-a7e9-a721c3c6e53e"
+    name: "[Light] BF1: Storage2 - Energize"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 156
+        brightness: 255
+
+  - id: "e1c21a4a-20a9-433d-b06c-0c6453c168d2"
+    name: "[Light] BF1: Storage2 - Nightlight"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 454
+        brightness: 1
+
+  - id: "e5b6331d-36c0-4507-a998-60d991e13577"
+    name: "[Light] BF1: Storage2 - Read"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 343
+        brightness: 255
+
+  - id: "d82c0769-5981-4837-8bc8-5f3c43cdf6f0"
+    name: "[Light] BF1: Storage2 - Relax"
+    entities:
+      light.bf1_storage2:
+        state: "on"
+        color_temp: 447
+        brightness: 145
+
+  - id: "bad38526-c948-4686-b3d0-f92492888aad"
+    name: "[Light] BF1: Storage2 - Off"
+    entities:
+      light.bf1_storage2:
+        state: "off"
 
 ...

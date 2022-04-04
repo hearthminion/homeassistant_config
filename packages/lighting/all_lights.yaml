@@ -56,12 +56,10 @@ automation:
             - switch.adaptive_lighting_bf1_den_lamp2
             - switch.adaptive_lighting_bf1_den_lamp3
             - switch.adaptive_lighting_bf1_hallway
-            - switch.adaptive_lighting_bf1_kitchen_cf1
-            - switch.adaptive_lighting_bf1_storage1_cf1
-            - switch.adaptive_lighting_bf1_storage1_cf2
-            - switch.adaptive_lighting_bf1_storage2_lamp1
-            - switch.adaptive_lighting_bf1_storage2_lamp2
-            - switch.adaptive_lighting_bf1_storage2_lamp3
+            - switch.adaptive_lighting_bf1_kitchen
+            - switch.adaptive_lighting_bf1_stairwell
+            - switch.adaptive_lighting_bf1_storage1
+            - switch.adaptive_lighting_bf1_storage2
             - switch.adaptive_lighting_mf1_bedroom1_lamp2
             - switch.adaptive_lighting_mf2_den_lamp2
             #- switch.adaptive_lighting_mf1_bathroom1_inner
@@ -273,6 +271,42 @@ automation:
         target:
           entity_id: script.light_update_scene_homeassistant_circadian
     mode: single
+
+  # ================================================================================================
+  #
+  # Starts a 30 minute timer when all lights are turned off
+  #
+  # ================================================================================================
+  - id: "918ded3c-579d-4b16-8511-f89d881b0103"
+    alias: "Start Sleep Timer"
+    description: "Starts a timer upon going to bed."
+    trigger:
+      - platform: time
+        at: "21:00:00"
+      - platform: state
+        entity_id: light.all_lights
+        to: "off"
+      - platform: state
+        entity_id: light.mf1_bedroom1_lamp1
+        from: "on"
+        to: "off"
+      - platform: state
+        entity_id: light.mf1_bedroom1_lamp2
+        from: "on"
+        to: "off"
+    condition:
+      - condition: time
+        after: "21:00:00"
+      - condition: state
+        entity_id: light.mf1_bedroom1_lamp1
+        state: "off"
+      - condition: state
+        entity_id: light.mf1_bedroom1_lamp2
+        state: "off"
+    action:
+      - service: timer.start
+        data:
+          entity_id: timer.lights_off
 
 # ==================================================================================================
 #
@@ -886,3 +920,13 @@ template:
           {% endif %}
         state_class: measurement
         unit_of_measurement: "°K"
+
+# ==================================================================================================
+#
+# Timers
+#
+# ==================================================================================================
+timer:
+  lights_off:
+    name: 'Lights off timer'
+    duration: '00:30:00'

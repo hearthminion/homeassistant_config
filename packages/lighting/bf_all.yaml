@@ -21,7 +21,7 @@
 # ==================================================================================================
 automation:
   - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
-    alias: '[Light] BF1: All - Turn Off Lights At Night'
+    alias: '[Light] BF: All - Turn Off Lights At Night'
     initial_state: false
     description: ''
     trigger:
@@ -31,14 +31,8 @@ automation:
     action:
       - service: light.turn_off
         data:
-          entity_id: light.bf1_all
+          entity_id: light.bf_all
     mode: single
-
-light:
-  - platform: group
-    name: "BF: All"
-    entities:
-      - light.bf1_all
 
 # ======================================================================
 #
@@ -95,6 +89,12 @@ light:
 #       - Circadian
 #       - Night Mode
 #       - Migraine
+
+light:
+  - platform: group
+    name: "BF: All"
+    entities:
+      - light.bf1_all
 
 # ==================================================================================================
 #

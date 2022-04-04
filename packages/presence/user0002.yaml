@@ -2,7 +2,7 @@ binary_sensor:
   - platform: bayesian
     name: "User0002: Bayesian - Home"
     prior: 0.375
-    probability_threshold: 0.9
+    probability_threshold: 0.8
     device_class: "presence"
     observations:
       # User0002: Phone GPS (Owntracks)
@@ -35,14 +35,15 @@ binary_sensor:
         platform: "state"
         to_state: "away"
       - entity_id: "binary_sensor.user0002_distance_quarter_km"
-        prob_given_true: 0.9
+        prob_given_true: 0.1
+        prob_given_false: 0.9
         platform: "state"
         to_state: "on"
       - entity_id: "binary_sensor.user0002_moving"
-        prob_given_true: 0.9
+        prob_given_true: 0.1
+        prob_given_false: 0.9
         platform: "state"
         to_state: "moving"
-     
 
 input_select:
   user0002_status_dropdown:
@@ -92,7 +93,6 @@ template:
           {{ is_state("device_tracker.user0002_laptop_1_wifi", "home")
           or is_state("device_tracker.user0002_laptop_2_wifi", "home") }}
         device_class: connectivity
-
 
   - sensor:
       - unique_id: "4f1abd71-a0d3-45f4-a87a-3059c924f462"

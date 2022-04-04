@@ -76,3 +76,8 @@ binary_sensor:
     after_offset: "-00:30"
     before: "sunset"
 
+  - platform: tod
+    name: "Stupid O'clock"
+    after: "23:00"
+    before: "05:00"
+

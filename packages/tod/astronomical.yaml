@@ -28,12 +28,12 @@ template:
       - unique_id: "4c8a9596-fa74-4fbe-b4e9-6ed8c75af3a9"
         name: "Day"
         state: >-
-          {{ state_attr('sun.sun', 'elevation')) > 0 }}
+          {{ (state_attr('sun.sun', 'elevation')) > 0 }}
 
       - unique_id: "31ffbcee-2a63-45db-b5a5-f686064822cb"
         name: "Night"
         state: >-
-          {{ state_attr('sun.sun', 'elevation')) < 0 }}
+          {{ (state_attr('sun.sun', 'elevation')) < 0 }}
 
       - unique_id: "381dc7c5-7210-440b-a1c9-87cfe819fd21"
         name: "Blue Hour"

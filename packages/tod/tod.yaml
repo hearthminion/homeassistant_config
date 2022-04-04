@@ -67,12 +67,12 @@ binary_sensor:
   - platform: tod
     name: "Predawn"
     after: "sunrise"
-    after_ofset: "-00:30"
+    after_offset: "-00:30"
     before: "sunrise"
 
   - platform: tod
     name: "Predusk"
     after: "sunset"
-    after_ofset: "-00:30"
+    after_offset: "-00:30"
     before: "sunset"
 

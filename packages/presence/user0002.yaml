@@ -29,21 +29,16 @@ binary_sensor:
     probability_threshold: 0.9
     device_class: "presence"
     observations:
-      - entity_id: "device_tracker.user0002_phone"
-        prob_given_true: 0.1
-        prob_given_false: 0.9
-        platform: "state"
-        to_state: "away"
       - entity_id: "binary_sensor.user0002_distance_quarter_km"
         prob_given_true: 0.1
         prob_given_false: 0.9
         platform: "state"
-        to_state: "on"
+        to_state: "off"
       - entity_id: "binary_sensor.user0002_moving"
         prob_given_true: 0.1
         prob_given_false: 0.9
         platform: "state"
-        to_state: "moving"
+        to_state: "stopped"
 
 input_select:
   user0002_status_dropdown:

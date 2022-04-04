@@ -17,44 +17,6 @@
       entity_id: input_boolean.special_migraine_mode
     service: input_boolean.turn_off
 
-# ==================================================================================================
-#
-# Set Lighting Mode: Circadian (with Brightness adjustments)"
-#
-# - In the morning when the sun rises to 18 degrees below the horizon
-#   enable
-# ==================================================================================================
-- id: "918ded3c-579d-4b16-8511-f89d881b0103"
-  alias: "Start Sleep Timer"
-  description: "Starts a timer upon going to bed."
-  trigger:
-    - platform: time
-      at: "21:00:00"
-    - platform: state
-      entity_id: light.all_lights
-      to: "off"
-    - platform: state
-      entity_id: light.mf_bedroom_1_lamp_1
-      from: "on"
-      to: "off"
-    - platform: state
-      entity_id: light.mf_bedroom_1_lamp_2
-      from: "on"
-      to: "off"
-  condition:
-    - condition: time
-      after: "21:00:00"
-    - condition: state
-      entity_id: light.mf_bedroom_1_lamp_1
-      state: "off"
-    - condition: state
-      entity_id: light.mf_bedroom_1_lamp_2
-      state: "off"
-  action:
-    - service: timer.start
-      data:
-        entity_id: timer.lights_off
-
 - id: "6ed4807a-3951-412e-be81-5d6d74a77d14"
   alias: "Turn Off Master Bedroom TV Power"
   description: ""

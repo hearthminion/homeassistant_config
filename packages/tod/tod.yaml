@@ -1,0 +1,78 @@
+binary_sensor:
+  - platform: tod
+    name: "Before Noon"
+    after: "00:00"
+    before: "12:00"
+
+  - platform: tod
+    name: "Early Morning"
+    after: "02:00"
+    before: "06:00"
+
+  - platform: tod
+    name: "Morning"
+    after: "02:00"
+    before: "09:00"
+
+  - platform: tod
+    name: "Mid-morning"
+    after: "09:00"
+    before: "10:30"
+
+  - platform: tod
+    name: "Late Morning"
+    after: "10:30"
+    before: "12:00"
+
+  - platform: tod
+    name: "Afternoon"
+    after: "12:00"
+    before: "17:00"
+
+  - platform: tod
+    name: "Early afternoon"
+    after: "12:01"
+    before: "14:00"
+
+  - platform: tod
+    name: "Mid Afternoon"
+    after: "14:00"
+    before: "16:00"
+
+  - platform: tod
+    name: "Late Afternoon"
+    after: "16:00"
+    before: "17:00"
+
+  - platform: tod
+    name: "Early Evening"
+    after: "17:00"
+    before: "18:30"
+
+  - platform: tod
+    name: "Evening"
+    after: "17:00"
+    before: "23:00"
+
+  - platform: tod
+    name: "Late Evening"
+    after: "21:00"
+    before: "23:00"
+
+  - platform: tod
+    name: "Witching Hour"
+    after: "00:00"
+    before: "01:00"
+
+  - platform: tod
+    name: "Predawn"
+    after: "sunrise"
+    after_ofset: "-00:30"
+    before: "sunrise"
+
+  - platform: tod
+    name: "Predusk"
+    after: "sunset"
+    after_ofset: "-00:30"
+    before: "sunset"
+

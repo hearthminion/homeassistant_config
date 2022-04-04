@@ -1,0 +1,49 @@
+---
+template:
+  - binary_sensor:
+      - unique_id: "8f189983-f19b-431b-8f01-56a4ce532562"
+        name: "Twilight"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -18.01 ) and
+             (state_attr('sun.sun', 'elevation') < 0 ) %}
+
+      - unique_id: "3e77a9c4-3896-4eac-b4dc-9d8197ebdafd"
+        name: "Astronomical Twilight"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -18.01 ) and
+             (state_attr('sun.sun', 'elevation') < -12.00 ) %}
+
+      - unique_id: "6ef280e8-c2ff-4cfc-a938-716baf431080"
+        name: "Nautical Twilight"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -12.01 ) and
+             (state_attr('sun.sun', 'elevation') < -6.00 ) %}
+
+      - unique_id: "ebaf6190-1542-460d-8517-944f6166d808"
+        name: "Civil Twilight"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -6.01 ) and
+             (state_attr('sun.sun', 'elevation') < 0.00 ) %}
+
+      - unique_id: "4c8a9596-fa74-4fbe-b4e9-6ed8c75af3a9"
+        name: "Day"
+        state: >-
+          {% ( state_attr('sun.sun', 'elevation') > 0 ) %}
+
+      - unique_id: "31ffbcee-2a63-45db-b5a5-f686064822cb"
+        name: "Night"
+        state: >-
+          {% ( state_attr('sun.sun', 'elevation') < 0 ) %}
+
+      - unique_id: "381dc7c5-7210-440b-a1c9-87cfe819fd21"
+        name: "Blue Hour"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -8 ) and
+             (state_attr('sun.sun', 'elevation') < -4 ) %}
+
+      - unique_id: "70e78898-7187-4004-ab6a-9e4c6556fe44"
+        name: "Golden Hour"
+        state: >-
+          {% (state_attr('sun.sun', 'elevation') > -6 ) and
+             (state_attr('sun.sun', 'elevation') < 6 ) %}
+

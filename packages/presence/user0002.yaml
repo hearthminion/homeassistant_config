@@ -38,7 +38,7 @@ binary_sensor:
         prob_given_true: 0.1
         prob_given_false: 0.9
         platform: "state"
-        to_state: "stopped"
+        to_state: "off"
 
 input_select:
   user0002_status_dropdown:

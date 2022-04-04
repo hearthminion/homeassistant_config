@@ -80,4 +80,3 @@ binary_sensor:
     name: "Stupid O'clock"
     after: "23:00"
     before: "05:00"
-

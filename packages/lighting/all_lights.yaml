@@ -907,17 +907,7 @@ template:
       - unique_id: "15cc3369-343d-4f3e-bbdd-c0e3cafa90dc"
         name: "Global Dummy Light (Color) Color Temperature (Kelvin)"
         state: >-
-          {% if state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin") == None or
-             is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin", "unknown") or
-             is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin", "off") %}
-            {% if states('input_select.light_mode') == 'Migraine' %}
-              2000
-            {% else %}
-              2700
-            {% endif %}
-          {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_kelvin") | int(2700) }}
-          {% endif %}
         state_class: measurement
         unit_of_measurement: "°K"
 

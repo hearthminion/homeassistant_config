@@ -885,7 +885,8 @@ script:
     alias: Flash lights
     sequence:
       - service: light.turn_on
-        entity_id: "light.{{ light }}"
+        data_template:
+          entity_id: "light.{{ light }}"
       - repeat:
           count: 60
           sequence:

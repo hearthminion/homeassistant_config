@@ -36,6 +36,12 @@ automation:
       - scene: scene.light_mf1_bedroom1_enable_automations
       - scene: scene.light_mf2_den_enable_automations
 
+  # ================================================================================================
+  #
+  # TODO: Set default for circadian_mode variable (In the case that binary_sensor.circadian_mode
+  # returns "unavailable"
+  #
+  # ================================================================================================
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
     alias: "[Light] Global: All Lights - Adaptive Lighting (Toggle)"
     description: ''
@@ -184,7 +190,7 @@ automation:
 
   - id: "387e7772-a2c3-4d29-b524-8aa36fbc65b2"
     alias: "[Light] Migraine Mode - Enable"
-    description: ""
+    description: "This automation turns on migraine mode based on light changes."
     initial_state: false
     trigger:
       - entity_id: sensor.light_mf2_den_lamp2_color
@@ -356,7 +362,7 @@ scene:
         state: 'on'
       automation.light_enable_migraine_mode:
         state: 'on'
-      automation.light_adaptive_lighting_toggle:
+      automation.light_global_all_lights_adaptive_lighting_toggle:
         state: 'on'
       automation.light_update_homeassistant_scene_on_hue_bridges:
         state: 'on'

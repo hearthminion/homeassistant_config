@@ -1,3 +1,4 @@
+---
 template:
   - sensor:
       - unique_id: "e4d63dc8-48de-46f3-b838-1d3449283cef"

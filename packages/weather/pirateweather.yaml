@@ -1,4 +1,4 @@
-sensors:
+sensor:
   - platform: pirateweather
     api_key: !secret pirateweather
     scan_interval: '00:30:00'

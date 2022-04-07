@@ -1,10 +1,10 @@
-binary_sensors:
+binary_sensor:
   - platform: car_wash
     weather: weather.kahn_daynight
 
 sun:
 
-sensors:
+sensor:
   - platform: moon
 
   # Seasons

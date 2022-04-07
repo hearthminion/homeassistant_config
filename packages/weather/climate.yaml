@@ -2,7 +2,7 @@ template:
   - sensors:
       - unique_id: "e4d63dc8-48de-46f3-b838-1d3449283cef"
         name: "Thermostat Temperature"
-        state: "{{ state_attr('climate.thermostat','current_temperature') | round(1) }}"
+        state: "{{ state_attr('climate.thermostat', 'current_temperature') | round(1) }}"
         unit_of_measurement: '°F'
 
       - unique_id: "1fffbfbf-c0a5-43ca-a5d3-e9173cbc2a53"

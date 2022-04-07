@@ -1,0 +1,34 @@
+binary_sensors:
+  - platform: car_wash
+    weather: weather.kahn_daynight
+
+sun:
+
+sensors:
+  - platform: moon
+
+  # Seasons
+  - platform: season
+    type: astronomical
+
+  - platform: season
+    type: meteorological
+
+template:
+  - binary_sensor:
+      - unique_id: "7de08353-b672-41eb-aed1-eca95d808d4d"
+        name: "Sun Up"
+        state: >-
+          {{ is_state("sun.sun", "above_horizon") }}
+        icon: >-
+          {% if is_state("binary_sensor.sun_up", "on") %}
+            mdi:weather-sunset-up
+          {% else %}
+            mdi:weather-sunset-down
+          {% endif %}
+
+  - sensor:
+      - unique_id: "b3187f1a-daf3-468d-a18a-579801f0d078"
+        name: "Sun elevation"
+        state: "{{ state_attr('sun.sun', 'elevation') }}"
+        unit_of_measurement: '°'

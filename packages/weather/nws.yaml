@@ -1,0 +1,11 @@
+template:
+  - sensor:
+      - unique_id: "8d9e719d-9a32-4e06-9471-b5e2fa0ac4f4"
+        name: "NWS Visibility"
+        state: "{{ state_attr('weather.kahn_hourly','visibility') }}"
+        unit_of_measurement: "mi"
+
+      - unique_id: "1b2e6a94-6990-4aec-9421-ee6f8b3d1c7f"
+        name: "NWS Precipitation Probability"
+        state: "{{ state_attr('weather.kahn_hourly','forecast')[0]['precipitation_probability'] }}"
+        unit_of_measurement: "%"

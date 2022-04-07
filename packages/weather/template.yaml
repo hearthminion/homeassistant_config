@@ -1,0 +1,14 @@
+weather:
+  - platform: template
+    name: "My Weather Station"
+    unique_id: "f8cdd695-ac15-45a6-9fd0-d33729bb9c46"
+    condition_template: "{{ states('weather.openweathermap') }}"
+    temperature_template: "{{ states('sensor.pirateweather_temperature') }}"
+    humidity_template: "{{ states('sensor.pirateweather_humidity') }}"
+    #attribution_template:
+    pressure_template: "{{ states('sensor.khan_barometric_pressure') }}"
+    wind_speed_template: "{{ states('sensor.pirateweather_wind_speed') }}"
+    wind_bearing_template: "{{ states('sensor.pirateweather_wind_bearing') }}"
+    ozone_template: "{{ states('sensor.pirateweather_ozone') }}"
+    visibility_template: "{{ states('sensor.pirateweather_visibility') }}"
+    forecast_template: "{{ state_attr('weather.pirateweather','forecast') }}"

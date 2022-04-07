@@ -1,5 +1,5 @@
 template:
-  - sensors:
+  - sensor:
       - unique_id: "e4d63dc8-48de-46f3-b838-1d3449283cef"
         name: "Thermostat Temperature"
         state: "{{ state_attr('climate.thermostat', 'current_temperature') | round(1) }}"

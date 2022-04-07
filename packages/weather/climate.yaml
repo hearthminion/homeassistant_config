@@ -1,20 +1,26 @@
-- platform: template
-  sensors:
-    thermostat_temperature:
-      value_template: "{{ state_attr('climate.thermostat','current_temperature') | round(1) }}"
-      unit_of_measurement: '°F'
-    thermostat_humidity:
-      value_template: "{{ state_attr('climate.thermostat','current_humidity') | round(1) }}"
-      unit_of_measurement: '%'
+template:
+  - sensors:
+      - unique_id: "e4d63dc8-48de-46f3-b838-1d3449283cef"
+        name: "Thermostat Temperature"
+        state: "{{ state_attr('climate.thermostat','current_temperature') | round(1) }}"
+        unit_of_measurement: '°F'
 
-- platform: template
-  sensors:
-    sensehat_temperature:
-      value_template: "{{ states('sensor.hestia_sensehat_temp_f') }}"
-      unit_of_measurement: "°F"
-    sensehat_pressure:
-      value_template: "{{ states('sensor.hestia_sensehat_pressure_inHg') }}"
-      unit_of_measurement: 'inHg'
-    sensehat_humidity:
-      value_template: "{{ states('sensor.hestia_sensehat_humidity') }}"
-      unit_of_measurement: '%'
+      - unique_id: "1fffbfbf-c0a5-43ca-a5d3-e9173cbc2a53"
+        name: "Thermostat Humidity"
+        state: "{{ state_attr('climate.thermostat','current_humidity') | round(1) }}"
+        unit_of_measurement: '%'
+
+      - unique_id: "2b7e2350-1004-44a6-98da-16a2e0a9e166"
+        name: "Sensehat Temperature"
+        state: "{{ states('sensor.hestia_sensehat_temp_f') }}"
+        unit_of_measurement: "°F"
+
+      - unique_id: "02dc4e17-5776-405d-96f0-2e445f88e96c"
+        name: "Sensehat Pressure"
+        state: "{{ states('sensor.hestia_sensehat_pressure_inHg') }}"
+        unit_of_measurement: 'inHg'
+
+      - unique_id: "2a42f5fb-1949-4ee2-bb8e-a241a4b30ea7"
+        name: "Sensehat Humidity"
+        state: "{{ states('sensor.hestia_sensehat_humidity') }}"
+        unit_of_measurement: '%'

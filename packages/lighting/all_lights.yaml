@@ -187,13 +187,13 @@ automation:
     description: ""
     initial_state: false
     trigger:
-      - entity_id: sensor.light_mf_den_couch_lamp_2_color
+      - entity_id: sensor.light_mf2_den_lamp2_color
         platform: state
         to: (0.17, 0.7)
-      - entity_id: sensor.light_bf_den_color
+      - entity_id: sensor.light_bf1_den_color
         platform: state
         to: (0.17, 0.7)
-      - entity_id: sensor.light_mf_bedroom_1_lamp_2_color
+      - entity_id: sensor.light_mf1_bedroom1_lamp2_color
         platform: state
         to: (0.17, 0.7)
     condition: []
@@ -846,61 +846,25 @@ template:
       - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"
         name: "Global Dummy Light Brightness"
         state: >-
-          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") == None or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "unknown") or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "off") %}
-            100
-          {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int(100) }}
-          {% endif %}
         unit_of_measurement: "%"
 
       - unique_id: "0e8a672a-9db0-40bd-9727-d0b206802b80"
         name: "Global Dummy Light Color Temperature"
         state: >-
-          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") == None or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "unknown") or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired", "off") %}
-            {% if states('input_select.light_mode') == 'Migraine' %}
-              454
-            {% else %}
-              367
-            {% endif %}
-          {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
-          {% endif %}
         state_class: measurement
 
       - unique_id: "b1d5d4a1-b617-4984-b951-0ce70cdf9c52"
         name: "Global Dummy Light (Color) Color Temperature"
         state: >-
-          {% if state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired") == None or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired", "unknown") or
-          is_state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired", "off") %}
-            {% if states('input_select.light_mode') == 'Migraine' %}
-              500
-            {% else %}
-              367
-            {% endif %}
-          {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light_color", "color_temp_mired") | int(367) }}
-          {% endif %}
         state_class: measurement
 
       - unique_id: "48f9f765-7fa8-4b6c-b18b-9a0ab378f57c"
         name: "Global Dummy Light Color Temperature (Kelvin)"
         state: >-
-          {% if state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") == None or
-             is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin", "unknown") or
-             is_state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin", "off") %}
-            {% if states('input_select.light_mode') == 'Migraine' %}
-              2200
-            {% else %}
-              2700
-            {% endif %}
-          {% else %}
             {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(2700) }}
-          {% endif %}
         state_class: measurement
         unit_of_measurement: "°K"
 

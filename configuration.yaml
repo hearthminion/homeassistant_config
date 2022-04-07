@@ -7,12 +7,12 @@
 # Author: Geoff S Derber
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
-# Home Assistant Version: 2021.4.4
-# Version: 2022.02.0
+# Home Assistant Version: 2022.4.4
+# Version: 2022.04.0
 # Package-Requires: ()
-# Last-Updated: Fri Oct  15 10:27 2021 (-0500)
+# Last-Updated: Thu Apr 07 09:02 2022 (-0400)
 #           By: Geoff S Derber
-#     Update #: 66
+#     Update #: 67
 # URL: https://github.com/hearthminion/homeassistant/
 # Doc URL: 
 # Keywords: Home Assistant
@@ -66,14 +66,23 @@ homeassistant:
 # I do not want everything enabled from default config.  Items not used that are part of
 # default_config:
 #   - cloud
+#   - backup (I have this done via two git repos, the yaml config repo available via github, and
+#            a private repo for the .storage directory)
+#   - dhcp
+#   - energy
+#   - stream
+#   - usb
 #
 # Documentation: https://www.home-assistant.io/integrations/default_config/
 #
 # ==================================================================================================
 automation: !include automations.yaml
+#backup:
 #cloud: Disabled
 config:
 counter:
+#dhcp:
+#energy:
 frontend:
 history: !include includes/system/history.yaml
 image:
@@ -92,10 +101,11 @@ person:
 scene: !include scenes.yaml
 script: !include scripts.yaml
 ssdp:
-sun:
+#stream:
 system_health:
 tag:
 timer: !include includes/timers.yaml
+#usb:
 zeroconf:
 zone:
 
@@ -156,10 +166,6 @@ owntracks:
     - user0002
   mqtt_topic: "owntracks/#"
   events_only: false
-
-weather:
-  - platform: pirateweather
-    api_key: !secret pirateweather
 
 geo_location:
   - platform: usgs_earthquakes_feed

@@ -18,7 +18,7 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
+  - id: "a627f708-2baf-43a5-b771-b4f2f1701105"
     alias: "[Light] BF1: Storage1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -41,7 +41,7 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_storage1
     mode: single
 
-  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+  - id: "61192490-3ad9-4b16-bdcf-5f2cc2615afd"
     alias: "[Light] BF1: Storage1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
@@ -172,7 +172,7 @@ scene:
 # ==================================================================================================
 template:
   - binary_sensor:
-      - unique_id: "c1c5bcb6-ed31-4482-871b-1f210b2e453e"
+      - unique_id: "0f4ece11-2159-460a-a814-964f1894bd16"
         name: "[Light] BF1: Storage1 Autobrightness"
         state: >-
           {{ (
@@ -201,7 +201,7 @@ template:
         state: "{{ state_attr('light.bf1_storage1','color_mode') == 'xy' }}"
 
   - sensor:
-      - unique_id: "65f6cd80-55d1-4c56-b4b5-4fc92b6c3354"
+      - unique_id: "a042ecbe-48a2-4d4c-b0e7-0abb048a8468"
         name: "[Light] BF1: Storage1 Color"
         state: "{{ state_attr('light.bf1_storage1', 'xy_color') }}"
 

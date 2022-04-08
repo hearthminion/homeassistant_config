@@ -18,7 +18,7 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
+  - id: "8aa338d4-6186-4948-9f04-e3ab3867d48d"
     alias: "[Light] BF1: Stairwell - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -41,7 +41,7 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_stairwell
     mode: single
 
-  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+  - id: "b979cb2f-3728-415d-8ef3-4e97511b9bd7"
     alias: "[Light] BF1: Stairwell - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
@@ -168,7 +168,7 @@ scene:
 # ==================================================================================================
 template:
   - binary_sensor:
-      - unique_id: "c1c5bcb6-ed31-4482-871b-1f210b2e453e"
+      - unique_id: "5f8e0a31-8253-4f68-a1b0-669c858e41d0"
         name: "[Light] BF1: Stairwell Autobrightness"
         state: >-
           {{ (
@@ -192,11 +192,11 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_stairwell_autobrightness", "brightness") | int(100) - 4 }}
 
-      - unique_id: "9e40bf29-e87f-43e3-9368-49c842204d88"
+      - unique_id: "83efc366-95c0-4043-824b-981877bd16c7"
         name: "[Light] BF1: Stairwell Color Mode"
         state: "{{ state_attr('light.bf1_stairwell','color_mode') == 'xy' }}"
 
   - sensor:
-      - unique_id: "65f6cd80-55d1-4c56-b4b5-4fc92b6c3354"
+      - unique_id: "7c4d59da-df7b-4de7-8531-5f30d81d3cfb"
         name: "[Light] BF1: Stairwell Color"
         state: "{{ state_attr('light.bf1_stairwell', 'xy_color') }}"

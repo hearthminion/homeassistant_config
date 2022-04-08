@@ -71,7 +71,7 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_den_cf1
     mode: single
 
-  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29"
     alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""

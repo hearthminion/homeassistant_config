@@ -208,10 +208,10 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e7e3a4b4-c9ac-4841-929f-7330da707855","rtype":"light"}
+          "target":{"rid":"879c70e6-8212-452b-bda5-659943158edb","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"95a7a21c-f290-4c7a-97ce-f13d8c856e4b","rtype":"light"}
+          "target":{"rid":"0bdf5862-6217-4ab3-b9d3-bed4daf06f7c","rtype":"light"}
           }
           ]
           }'
@@ -231,7 +231,7 @@ rest_command:
           "target":{"rid":"e7e3a4b4-c9ac-4841-929f-7330da707855","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"95a7a21c-f290-4c7a-97ce-f13d8c856e4b","rtype":"light"}
+          "target":{"rid":"b71eb26f-4d78-404a-a51a-49043497b63c","rtype":"light"}
           }
           ]
           }'

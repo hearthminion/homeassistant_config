@@ -14,6 +14,86 @@ adaptive_lighting:
 
 # ==================================================================================================
 #
+# Automations
+#
+# ==================================================================================================
+automation:
+  - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
+    alias: "[Light] BF1: Storage1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_bf1_storage1_autobrightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_bf1_storage1_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+    mode: single
+
+  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+    alias: "[Light] BF1: Storage1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    initial_state: false
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+    mode: single
+
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_bf1_storage1_scene:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+# ==================================================================================================
+#
 # Scenes
 #
 # ==================================================================================================
@@ -80,5 +160,49 @@ scene:
       light.bf1_storage1:
         state: "off"
 
+# ==================================================================================================
+#
+# Templates
+#
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - unique_id: "c1c5bcb6-ed31-4482-871b-1f210b2e453e"
+        name: "[Light] BF1: Storage1 Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf1_storage1", "brightness") == None or
+               is_state_attr("light.bf1_storage1", "brightness", "unknown") or
+               is_state("light.bf1_storage1", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf1_storage1","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "9e40bf29-e87f-43e3-9368-49c842204d88"
+        name: "[Light] BF1: Storage1 Color Mode"
+        state: "{{ state_attr('light.bf1_storage1','color_mode') == 'xy' }}"
+
+  - sensor:
+      - unique_id: "65f6cd80-55d1-4c56-b4b5-4fc92b6c3354"
+        name: "[Light] BF1: Storage1 Color"
+        state: "{{ state_attr('light.bf1_storage1', 'xy_color') }}"
 
 ...

@@ -343,13 +343,18 @@ automation:
 # Input Boolean
 #
 # ==================================================================================================
-# input_boolean:
-#   light_bf1_den_lamp2_green_event:
-#     name: "[Light] BF1: Den Lamp 2 - Green Event"
-#     inital: false
-#   light_bf1_den_cf1_green_event:
-#     name: "[Light] BF1: CF1 - Green Event"
-#     initial: false
+input_boolean:
+
+  # ================================================================================================
+  #
+  # The next two input_boolean entities are used to track if the light has been turned green today
+  #
+  # ================================================================================================
+  light_bf1_den_lamp2_green_event:
+    name: "[Light] BF1: Den Lamp 2 - Green Event"
+
+  light_bf1_den_cf1_green_event:
+    name: "[Light] BF1: CF1 - Green Event"
 
 # ==================================================================================================
 #
@@ -1001,6 +1006,17 @@ template:
             {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "62828fad-c7ff-488d-b4e8-8abc61557edb"
+        name: "[Light] BF1: Den CF1 - Scene Bright"
+        state: >-
+          {% if is_state_attr("light.bf1_den_cf1", "brightness", "255") and
+                is_state_attr("light.bf1_den_cf1", "color_temp", "367") %}
+                on
+          {% else %}
+                off
+          {% endif %}
+
 
       - unique_id: "e7ce778a-148f-455e-8c58-373bc2c07c20"
         name: "[Light] BF1: Den CF2 - Autobrightness"

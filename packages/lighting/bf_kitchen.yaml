@@ -11,12 +11,101 @@ adaptive_lighting:
     min_color_temp: 2200
     max_color_temp: 6500
 
+
+# ==================================================================================================
+#
+# Automations
+#
+# ==================================================================================================
+automation:
+  - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
+    alias: "[Light] BF1: Kitchen - Adaptive Lighting (Toggle Brightness Adjustment)"
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_bf1_kitchen_autobrightness
+    variables:
+      brightness_mode: "{{ states('binary_sensor.light_bf1_kitchen_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_bf1_kitchen
+    mode: single
+
+  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+    alias: "[Light] BF1: Kitchen - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    initial_state: false
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.adaptive_lighting_adapt_brightness_bf1_kitchen
+    mode: single
+
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  light_update_bf1_kitchen_scene:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
 # ==================================================================================================
 #
 # Scenes
 #
 # ==================================================================================================
 scene:
+  # - id: "87ceb42c-8c58-49f6-bea9-01c8f4dbbd29"
+  #   name: "[Light] BF1: Kitchen - Enable Automations"
+  #   entities:
+  #     automation.light_bf1_kitchen_adaptive_lighting_toggle_brightness_adjustment:
+  #       state: "on"
+  #     automation.light_bf1_kitchen_adaptive_lighting_turn_off_brightness_adjustment:
+  #       state: "on"
+
   - id: "afedd813-67a6-4ebf-8449-14e8fdf2d840"
     name: "[Light] BF1: Kitchen - Bright"
     entities:
@@ -79,65 +168,47 @@ scene:
       light.bf1_kitchen:
         state: "off"
 
-  - id: "f6c2adea-b563-4471-9df1-8f8f28e5840f"
-    name: "[Light] BF1: Kitchen CF1 - Bright"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 367
-        brightness: 255
+# ==================================================================================================
+#
+# Templates
+#
+# Need to eventually convert these into the new 'template:' style.  This currently doesn't seem
+# to work inside packages.
+#
+# https://www.home-assistant.io/integrations/template/
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - unique_id: "c1c5bcb6-ed31-4482-871b-1f210b2e453e"
+        name: "[Light] BF1: Kitchen Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf1_kitchen_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf1_kitchen_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf1_kitchen", "brightness") == None or
+               is_state_attr("light.bf1_kitchen", "brightness", "unknown") or
+               is_state("light.bf1_kitchen", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf1_kitchen","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf1_kitchen_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf1_kitchen_autobrightness", "brightness") | int(100) - 4 }}
 
-  - id: "a156b0b7-9d29-43d9-8a7d-0ded02795bec"
-    name: "[Light] BF1: Kitchen CF1 - Concentrate"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 230
-        brightness: 255
+      - unique_id: "9e40bf29-e87f-43e3-9368-49c842204d88"
+        name: "[Light] BF1: Kitchen Color Mode"
+        state: "{{ state_attr('light.bf1_kitchen','color_mode') == 'xy' }}"
 
-  - id: "9bd0f2f0-de64-43d8-89b8-4abaef685b63"
-    name: "[Light] BF1: Kitchen CF1 - Dimmed"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 369
-        brightness: 76
-
-  - id: "7e3cc08c-20bb-47e9-950a-5b5669c01494"
-    name: "[Light] BF1: Kitchen CF1 - Energize"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 156
-        brightness: 255
-
-  - id: "f71b8e0e-1e44-4d07-917b-3aabba5de42e"
-    name: "[Light] BF1: Kitchen CF1 - Nightlight"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 454
-        brightness: 1
-
-  - id: "d4cf58ff-1b46-4012-baec-a4ea29cdd282"
-    name: "[Light] BF1: Kitchen CF1 - Read"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 343
-        brightness: 255
-
-  - id: "2d8c5fb3-74fb-4e13-84f0-d9373c0f8d40"
-    name: "[Light] BF1: Kitchen CF1 - Relax"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "on"
-        color_temp: 447
-        brightness: 145
-
-  - id: "ed45fcae-e480-4747-9f2e-408c199e019e"
-    name: "[Light] BF1: Kitchen CF1 - Off"
-    entities:
-      light.bf1_kitchen_cf1:
-        state: "off"
-
+  - sensor:
+      - unique_id: "65f6cd80-55d1-4c56-b4b5-4fc92b6c3354"
+        name: "[Light] BF1: Kitchen Color"
+        state: "{{ state_attr('light.bf1_kitchen', 'xy_color') }}"

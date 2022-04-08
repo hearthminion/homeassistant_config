@@ -92,6 +92,7 @@ automation:
 
 light:
   - platform: group
+    unique_id: "06ca56aa-d248-4620-878f-2aa54fe54d8b"
     name: "BF: All"
     entities:
       - light.bf1_all

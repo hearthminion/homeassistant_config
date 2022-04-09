@@ -68,7 +68,6 @@ automation:
           {% set hue_group = states('input_select.bf1_hue_group') %}
           {{ states.scene
             | selectattr('attributes.group_name','eq',hue_group)
-            | selectattr('attributes.is_dynamic','eq',true)
             | map(attribute='name')
             | list }}
 

@@ -309,6 +309,72 @@ automation:
         data:
           entity_id: timer.lights_off
 
+
+  # ================================================================================================
+  #
+  #
+  #
+  # ================================================================================================
+  - id: "e92ba251-e2f1-44ed-880f-9786b07c9c98"
+    alias: "[Light] All: Auto populate Hue group input select"
+    mode: restart
+    trigger:
+      platform: event
+      event_type: delayed_homeassistant_start
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.hue_group
+      data:
+        options: >
+          {{ states.light
+            | selectattr('attributes.is_hue_group','eq',true)
+            | map(attribute='name')
+            | list }}
+
+  - id: "768e2a2c-4be8-4822-9440-93945cf106bb"
+    alias: "[Light] All: Auto populate Hue basic scene input select"
+    mode: restart
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+      - platform: state
+        entity_id: input_select.hue_group
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.hue_basic_scene
+      data:
+        options: >
+          {% set hue_group = states('input_select.hue_group') %}
+          {{ states.scene
+            | selectattr('attributes.group_name','eq',hue_group)
+            | selectattr('attributes.is_dynamic','eq',false)
+            | map(attribute='name')
+            | list }}
+
+  - id: "739ebd7a-cda1-4b99-81f8-ce568864893a"
+    alias: "[Light] All: Auto populate Hue dynamic scene input select"
+    mode: restart
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+      - platform: state
+        entity_id: input_select.hue_group
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.hue_dynamic_scene
+      data:
+        options: >
+          {% set hue_group = states('input_select.hue_group') %}
+          {{ states.scene
+            | selectattr('attributes.group_name','eq',hue_group)
+            | selectattr('attributes.is_dynamic','eq',true)
+            | map(attribute='name')
+            | list }}
+
+
 # ==================================================================================================
 #
 # Input Number
@@ -344,6 +410,22 @@ input_select:
       - "Night Out"
       - "Guests"
       - "Other"
+
+input_select:
+  hue_group:
+    name: "[Light] All: Select Hue Group"
+    options:
+      - "BF1: All"
+
+  hue_basic_scene:
+    name: "[Light] All: Hue Basic Scene"
+    options:
+      - Bright
+
+  hue_dynamic_scene:
+    name: "[Light] All: Hue Dynamic Scene"
+    options:
+      - Bright
 
 # ==================================================================================================
 #
@@ -959,6 +1041,59 @@ script:
                 entity_id: "light.{{ light }}"
     mode: restart
 
+  activate_hue_dynamic_scene:
+    alias: "[Light] All: Activate Hue dynamic scene"
+    mode: restart
+    icon: mdi:power
+    sequence:
+      - condition: >
+          {{is_state('binary_sensor.light_all_selected_hue_group_active_scene','off')}}
+# first record current state of lights in the selected group
+      - service: scene.create
+        data:
+          scene_id: before_dynamic_scene
+          snapshot_entities:
+            - >
+              {% set select = states('input_select.hue_group')|slugify %}
+              {% set group ='light.' + select %}
+              {{group}}
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          speed: >
+            {{states('input_number.hue_dynamic_scene_speed')|int}}
+          brightness: >
+            {{states('input_number.hue_dynamic_scene_brightness')|int}}
+        target:
+          entity_id: >
+            {% set select = states('input_select.hue_dynamic_scene')|slugify %}
+            {{'scene.' + select}}
+
+  deactivate_hue_dynamic_scene:
+    alias: "[Light] All: Deactivate Hue dynamic scene"
+    mode: restart
+    icon: mdi:power-off
+    sequence:
+      - condition: >
+          {{is_state('binary_sensor.light_all_selected_hue_group_active_scene','on')}}
+      - service: hue.activate_scene
+        data:
+          dynamic: false
+        target:
+          entity_id: >
+            {% set select = states('input_select.hue_dynamic_scene')|slugify %}
+            {{'scene.' + select}}
+# reset the lights to the state before the dynamic scene activation
+      - service: scene.turn_on
+        target:
+          entity_id: scene.before_dynamic_scene
+#      - service: light.turn_on
+#        data:
+#          profile: relax
+#        target:
+#          entity_id: >
+#            {{'light.' + states('input_select.hue_group')|slugify}}
+
 # ==================================================================================================
 #
 # Templates
@@ -969,6 +1104,27 @@ template:
       - unique_id: "4fd1dd66-c51b-474d-9de7-da4dfd5cc398"
         name: "Circadian Mode"
         state: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+
+      - unique_id: "1fb06868-f4c9-4d0b-be18-7299a9f1fd25"
+        name: "[Light] All: Selected Hue group active scene"
+        state: >
+          {% set select = states('input_select.hue_group')|slugify %}
+          {% set group ='light.' + select %}
+          {{is_state_attr(group,'dynamics',true)}}
+
+      - unique_id: "9b9548fe-448e-40ea-bf3d-360bc1f1b36f"
+        name: "[Light] All: Selected Hue group has active scenes available"
+        state: >
+          {% set hue_group = states('input_select.hue_group') %}
+          {{states.scene
+          |selectattr('attributes.group_name','eq',hue_group)
+          |selectattr('attributes.is_dynamic','eq',true)|list|length != 0}}
+
+      - unique_id: "61549b92-7137-44bd-adab-3834eb1c634f"
+        name: "[Light] All: Hue groups dynamic scening"
+        state: >
+          {{states.light|selectattr('attributes.dynamics','eq',true)|list|length != 0}}
+
 
   - sensor:
       - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"

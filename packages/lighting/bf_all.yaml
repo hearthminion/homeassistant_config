@@ -46,10 +46,10 @@ automation:
         entity_id: input_select.bf1_hue_group
       data:
         options: >
-# expand(integration_entities('Philips Hue 1'))
-          {{states.light
-            |selectattr('attributes.is_hue_group','eq',true)
-            |map(attribute='name')|list}}
+          {{ states.light
+            | selectattr('attributes.is_hue_group','eq',true)
+            | map(attribute='name')
+            | list }}
 
   - id: "768e2a2c-4be8-4822-9440-93945cf106bb"
     alias: "[Light] BF1: Auto populate Hue dynamic scene input select"
@@ -65,11 +65,12 @@ automation:
         entity_id: input_select.hue_dynamic_scene
       data:
         options: >
-          {% set hue_group = states('input_select.bf1_hue_group') %}
-          {{states.scene
-            |selectattr('attributes.group_name','eq',hue_group)
-            |selectattr('attributes.is_dynamic','eq',true)
-            |map(attribute='name')|list}}
+          {% set bf1_hue_group = states('input_select.bf1_hue_group') %}
+          {{ states.scene
+            | selectattr('attributes.group_name','eq',hue_group)
+            | selectattr('attributes.is_dynamic','eq',true)
+            | map(attribute='name')
+            | list }}
 
 # ======================================================================
 #

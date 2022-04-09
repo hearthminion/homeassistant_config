@@ -196,7 +196,7 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness") | int(100) - 4 }}
 
-      - unique_id: "9e40bf29-e87f-43e3-9368-49c842204d88"
+      - unique_id: "a6010d67-12b3-4c8f-99c5-ba5977ed0854"
         name: "[Light] BF1: Storage1 Color Mode"
         state: "{{ state_attr('light.bf1_storage1','color_mode') == 'xy' }}"
 

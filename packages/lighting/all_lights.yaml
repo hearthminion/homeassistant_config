@@ -338,6 +338,7 @@ input_select:
 # ==================================================================================================
 light:
   - platform: group
+    unique_id: "5c122025-674c-4e1e-ac01-a6a0e73f24e6"
     name: "All lights"
     entities:
       - light.bf_all

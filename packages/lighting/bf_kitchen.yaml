@@ -18,7 +18,7 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
+  - id: "fa732465-ad55-45a0-8880-6fea977a47f9"
     alias: "[Light] BF1: Kitchen - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
@@ -41,7 +41,7 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_kitchen
     mode: single
 
-  - id: "5767f02e-cf98-4a58-935d-23008b0c4b29U"
+  - id: "37bbc65c-5a6c-48cd-9aa5-cc6b087340e9"
     alias: "[Light] BF1: Kitchen - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""

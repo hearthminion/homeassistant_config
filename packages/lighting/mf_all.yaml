@@ -1,6 +1,7 @@
 ---
 light:
   - platform: group
+    unique_id: "1062582c-9e65-4d77-9f94-1b6488f6b6ff"
     name: "MF: All"
     entities:
       - light.mf1_all

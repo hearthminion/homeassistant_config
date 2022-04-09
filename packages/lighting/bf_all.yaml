@@ -62,7 +62,7 @@ automation:
     action:
       service: input_select.set_options
       target:
-        entity_id: input_select.hue_dynamic_scene
+        entity_id: input_select.bf1_hue_dynamic_scene
       data:
         options: >
           {% set bf1_hue_group = states('input_select.bf1_hue_group') %}

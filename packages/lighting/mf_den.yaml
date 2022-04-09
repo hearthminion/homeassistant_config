@@ -330,8 +330,7 @@ rest_command:
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
-          },
-          {
+          },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
           }

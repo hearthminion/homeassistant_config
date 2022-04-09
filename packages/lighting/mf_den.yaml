@@ -284,6 +284,8 @@ automation:
 #
 # Rest Command
 #
+# - light.mf2_den_lamp1_bulb1: e1becc60-2dea-4b73-9578-ea56d7340d30
+#
 # ==================================================================================================
 rest_command:
   light_update_mf2_den_lamp1_scene:

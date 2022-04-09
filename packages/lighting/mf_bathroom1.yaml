@@ -3,8 +3,10 @@
 # Master Bathroom Lighting Configuration
 #
 # Lights:
-#   light.main_lamp_10: Kitchen Ceiling Lightbulb
-#   light.main_lamp_24: Kitchen Island Ceiling Lightbulb
+#   light.mf1_bathroom1_inner_cf1_bulb1: b2c73c00-1188-4f93-a23e-0267cc038594
+#   light.mf1_bathroom1_inner_cf1_bulb2: 3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080"
+#   light.mf1_bathroom1_inner_cf1_bulb3: d1577871-2836-45c4-bbd9-de9423d526f5
+#   light.mf1_bathroom1_outer_cf1_bulb1: fa761fe2-c6e6-4d58-a71c-59f76f54b504
 #
 # Light Groups:
 #   - light.den_couch_lamp_1

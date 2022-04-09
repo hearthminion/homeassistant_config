@@ -34,62 +34,66 @@ automation:
           entity_id: light.bf_all
     mode: single
 
+  - id: "e92ba251-e2f1-44ed-880f-9786b07c9c98"
+    alias: "[Light] BF1: Auto populate Hue group input select"
+    mode: restart
+    trigger:
+      platform: event
+      event_type: delayed_homeassistant_start
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.bf1_hue_group
+      data:
+        options: >
+# expand(integration_entities('Philips Hue 1'))
+          {{states.light
+            |selectattr('attributes.is_hue_group','eq',true)
+            |map(attribute='name')|list}}
+
+  - id: "768e2a2c-4be8-4822-9440-93945cf106bb"
+    alias: "[Light] BF1: Auto populate Hue dynamic scene input select"
+    mode: restart
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+      - platform: state
+        entity_id: input_select.bf1_hue_group
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.hue_dynamic_scene
+      data:
+        options: >
+          {% set hue_group = states('input_select.bf1_hue_group') %}
+          {{states.scene
+            |selectattr('attributes.group_name','eq',hue_group)
+            |selectattr('attributes.is_dynamic','eq',true)
+            |map(attribute='name')|list}}
+
 # ======================================================================
 #
 # Input Select
 #
 # ======================================================================
-# input_select:
-#   hue_scene_basement_bedroom:
-#     name: "[Light] Hue Basement Scene"
-#     icon: mdi:palette
-#     initial: "Circadian"
-#     options:
-#       - Arctic aurora
-#       - Sevanna sunset
-#       - Tropical twilight
-#       - Spring blossom
-#       - Relax
-#       - Read
-#       - Concentrate
-#       - Energize
-#       - Bright
-#       - Dimmed
-#       - Nightlight
-#       - Motown
-#       - Midsomer Sun
-#       - Midwinter
-#       - Ocean Dawn
-#       - Emerald Isle
-#       - Mountain Breeze
-#       - Spring lake
-#       - Moonlight
-#       - Starlight
-#       - Soho
-#       - Golden Pond
-#       - Frosty Dawn
-#       - Fairfax
-#       - Autumn Gold
-#       - Palm Beach
-#       - Lake Mist
-#       - Chinatown
-#       - Tokyo
-#       - Sunday Morning
-#       - Ibiza
-#       - Nebula
-#       - Galaxy
-#       - Ruby Glow
-#       - Winter mountain
-#       - Blue Lagoon
-#       - Honolulu
-#       - Lake Placid
-#       - Osaka
-#       - Sundowner
-#       - Blood Moon
-#       - Circadian
-#       - Night Mode
-#       - Migraine
+input_select:
+  bf1_hue_group:
+    name: "[Light] BF1: Select Hue Group"
+    options:
+      - "BF1: All"
 
+  bf1_hue_dynamic_scene:
+    name: "[Light] BF1: Hue Dynamic Scene"
+    options:
+      - Bright
+
+
+
+# ==================================================================================================
+#
+# Light
+#
+# ==================================================================================================
 light:
   - platform: group
     unique_id: "06ca56aa-d248-4620-878f-2aa54fe54d8b"
@@ -460,3 +464,93 @@ scene:
     entities:
       light.bf_all:
         state: "off"
+
+# ==================================================================================================
+#
+# Scripts
+#
+# ==================================================================================================
+script:
+  activate_bf1_hue_dynamic_scene:
+    alias: "[Light] BF1: Activate Hue dynamic scene"
+    mode: restart
+    icon: mdi:power
+    sequence:
+      - condition: >
+          {{is_state('binary_sensor.light_bf1_selected_hue_group_active_scene','off')}}
+# first record current state of lights in the selected group
+      - service: scene.create
+        data:
+          scene_id: before_dynamic_scene
+          snapshot_entities:
+            - >
+              {% set select = states('input_select.bf1_hue_group')|slugify %}
+              {% set group ='light.' + select %}
+              {{group}}
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          speed: >
+            {{states('input_number.hue_dynamic_scene_speed')|int}}
+          brightness: >
+            {{states('input_number.hue_dynamic_scene_brightness')|int}}
+        target:
+          entity_id: >
+            {% set select = states('input_select.hue_dynamic_scene')|slugify %}
+            {{'scene.' + select}}
+
+  deactivate_bf1_hue_dynamic_scene:
+    alias: "[Light] BF1: Deactivate Hue dynamic scene"
+    mode: restart
+    icon: mdi:power-off
+    sequence:
+      - condition: >
+          {{is_state('binary_sensor.light_bf1_selected_hue_group_active_scene','on')}}
+      - service: hue.activate_scene
+        data:
+          dynamic: false
+        target:
+          entity_id: >
+            {% set select = states('input_select.hue_dynamic_scene')|slugify %}
+            {{'scene.' + select}}
+# reset the lights to the state before the dynamic scene activation
+      - service: scene.turn_on
+        target:
+          entity_id: scene.before_dynamic_scene
+#      - service: light.turn_on
+#        data:
+#          profile: relax
+#        target:
+#          entity_id: >
+#            {{'light.' + states('input_select.hue_group')|slugify}}
+
+#            {% set select = states('input_select.hue_dynamic_scene')%}
+#            {{states.scene
+#             |selectattr('attributes.friendly_name','eq',select)
+#             |map(attribute='entity_id')|join}}
+# ==================================================================================================
+#
+# Templates
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - unique_id: "1fb06868-f4c9-4d0b-be18-7299a9f1fd25"
+        name: "[Light] BF1: Selected Hue group active scene"
+        state: >
+          {% set select = states('input_select.bf1_hue_group')|slugify %}
+          {% set group ='light.' + select %}
+          {{is_state_attr(group,'dynamics',true)}}
+
+      - unique_id: "9b9548fe-448e-40ea-bf3d-360bc1f1b36f"
+        name: "[Light] BF1: Selected Hue group has active scenes available"
+        state: >
+          {% set hue_group = states('input_select.bf1_hue_group') %}
+          {{states.scene
+          |selectattr('attributes.group_name','eq',bf1_hue_group)
+          |selectattr('attributes.is_dynamic','eq',true)|list|length != 0}}
+
+      - unique_id: "61549b92-7137-44bd-adab-3834eb1c634f"
+        name: "[Light] BF1: Hue groups dynamic scening"
+        state: >
+          {{states.light|selectattr('attributes.dynamics','eq',true)|list|length != 0}}

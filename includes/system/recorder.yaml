@@ -72,9 +72,7 @@ include:
     - switch.morpheus
     - timer.lights_off
     - vacuum.roomba
-    - sensor.global_dummy_light_color_color_temperature
     - sensor.global_dummy_light_color_temperature
-    - sensor.global_dummy_light_color_color_temperature_kelvin
     - sensor.global_dummy_light_color_temperature_kelvin
     - sensor.global_dummy_light_brightness
 exclude:

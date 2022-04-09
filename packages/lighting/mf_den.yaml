@@ -296,7 +296,7 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"0bdf5862-6217-4ab3-b9d3-bed4daf06f7c","rtype":"light"}
+          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
           }
           ]
           }'
@@ -312,12 +312,35 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"b71eb26f-4d78-404a-a51a-49043497b63c","rtype":"light"}
+          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
           }
           ]
           }'
     verify_ssl: false
     content_type: "application/json"
+
+  light_update_mf2_den_scene:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+
 
 # ==================================================================================================
 #

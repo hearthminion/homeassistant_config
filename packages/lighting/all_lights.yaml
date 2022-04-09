@@ -500,7 +500,7 @@ script:
       - service: rest_command.light_update_mf2_den_scene
         data:
           scene_id: "398ffc64-071c-4fa1-a33f-4ef8cc4f89f5"
-          username: !secret hue2_username
+          username: !secret hue1_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'

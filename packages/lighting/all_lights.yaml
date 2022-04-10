@@ -981,44 +981,6 @@ script:
           brightness: '"dimming":{ "brightness": 25.0 }'
           on_state: '"on":{"on":true}'
 
-  # ================================================================================================
-  #
-  # Creates a 'rainbow loop' for light entity
-  #
-  # ================================================================================================
-  rainbow_lights:
-    alias: Rainbow lights
-    variables:
-      colors: '{{ [[0.217,0.077], [0.157,0.05], [0.136,0.04], [0.137,0.065], [0.141,0.137],
-        [0.146,0.238], [0.151,0.343], [0.157,0.457], [0.164,0.591], [0.17,0.703], [0.172,0.747],
-        [0.199,0.724], [0.269,0.665], [0.36,0.588], [0.444,0.517], [0.527,0.447], [0.612,0.374],
-        [0.677,0.319], [0.701,0.299], [0.667,0.284], [0.581,0.245], [0.477,0.196], [0.385,0.155],
-        [0.301,0.116], [0.217,0.077]] }}'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          xy_color: '{{ colors[(now().second/2.5)|round(0)] }}'
-          entity_id: light.{{ light }}
-          transition: 1
-      - repeat:
-          count: '{{ count|int * 2 -1 }}'
-          sequence:
-            - delay: 1
-            - service: light.turn_on
-              data_template:
-                xy_color: '{{ colors[(now().second/2.5)|round(0)] }}'
-                entity_id: light.{{ light }}
-                transition: 1
-    mode: restart
-
-  rainbow_lights_for_bf1_den_lamp2:
-    alias: Rainbow Lights BF1 Den Lamp2
-    sequence:
-    - service: script.rainbow_lights
-      data:
-        light: bf1_den_lamp2_bulb1
-        count: 3
-    mode: single
 
   # ================================================================================================
   #
@@ -1040,6 +1002,12 @@ script:
                 entity_id: "light.{{ light }}"
     mode: restart
 
+  # ================================================================================================
+  #
+  # The next two scripts save the current light state before activating a hue scene, and
+  # upon deactivation restore the previous state.
+  #
+  # ================================================================================================
   activate_hue_dynamic_scene:
     alias: "[Light] All: Activate Hue dynamic scene"
     mode: restart
@@ -1047,7 +1015,7 @@ script:
     sequence:
       - condition: >
           {{is_state('binary_sensor.light_all_selected_hue_group_active_scene','off')}}
-# first record current state of lights in the selected group
+      # first record current state of lights in the selected group
       - service: scene.create
         data:
           scene_id: before_dynamic_scene
@@ -1082,16 +1050,10 @@ script:
           entity_id: >
             {% set select = states('input_select.hue_dynamic_scene')|slugify %}
             {{'scene.' + select}}
-# reset the lights to the state before the dynamic scene activation
+      # reset the lights to the state before the dynamic scene activation
       - service: scene.turn_on
         target:
           entity_id: scene.before_dynamic_scene
-#      - service: light.turn_on
-#        data:
-#          profile: relax
-#        target:
-#          entity_id: >
-#            {{'light.' + states('input_select.hue_group')|slugify}}
 
 # ==================================================================================================
 #

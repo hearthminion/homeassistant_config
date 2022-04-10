@@ -411,7 +411,6 @@ input_select:
       - "Guests"
       - "Other"
 
-input_select:
   hue_group:
     name: "[Light] All: Select Hue Group"
     options:

@@ -27,11 +27,11 @@
       entity_id: sensor.nodeid_4_electric_w_value_3
       to: "0"
     - platform: state
-      entity_id: light.mf_bedroom_1_lamp_1
+      entity_id: light.mf1_bedroom1_lamp1
       from: "on"
       to: "off"
     - platform: state
-      entity_id: light.mf_bedroom_1_lamp_2
+      entity_id: light.mf1_bedroom1_lamp2
       from: "on"
       to: "off"
     - platform: state
@@ -47,10 +47,10 @@
     - condition: time
       after: "21:00:00"
     - condition: state
-      entity_id: light.mf_bedroom_1_lamp_1
+      entity_id: light.mf1_bedroom1_lamp1
       state: "off"
     - condition: state
-      entity_id: light.mf_bedroom_1_lamp_2
+      entity_id: light.mf1_bedroom1_lamp2
       state: "off"
     - condition: numeric_state
       entity_id: sensor.nodeid_4_electric_w_value_3

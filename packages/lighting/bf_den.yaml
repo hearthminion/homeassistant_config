@@ -530,7 +530,7 @@ scene:
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
     name: "[Light] BF1: Den - Darken"
     entities:
-      light.bf1_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.6915
@@ -544,7 +544,7 @@ scene:
         brightness: 64
       light.bf1_den_cf2_bulb:
         state: "off"
-      light.bf1_den_lamp_1_bulb:
+      light.bf1_den_lamp1_bulb:
         state: "off"
       light.bf1_den_lamp3_bulb_1:
         state: "off"
@@ -554,7 +554,7 @@ scene:
   - id: "23d13269-6154-4b8d-9fbc-473e1cd5cade"
     name: "[Light] BF1: Den - Migraine"
     entities:
-      light.bf1_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.17
@@ -568,7 +568,7 @@ scene:
         brightness: 64
       light.bf1_den_cf2_bulb:
         state: "off"
-      light.bf1_den_lamp_1_bulb:
+      light.bf1_den_lamp1_bulb:
         state: "off"
       light.bf1_den_lamp3_bulb_1:
         state: "off"
@@ -768,7 +768,7 @@ scene:
   - id: "1a45d737-39cd-4785-82d6-b4f90e122e69"
     name: "[Light] BF1: Den Lamp 1 - Bright"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 367
         brightness: 255
@@ -776,7 +776,7 @@ scene:
   - id: "12648b84-93d3-43a2-b4fd-d2805dd98407"
     name: "[Light] BF1: Den Lamp 1 - Concentrate"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 230
         brightness: 255
@@ -784,7 +784,7 @@ scene:
   - id: "9adff70c-2589-4cc7-ab52-389b579c1636"
     name: "[Light] BF1: Den Lamp 1 - Dimmed"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 369
         brightness: 76
@@ -792,7 +792,7 @@ scene:
   - id: "ed74691e-a94e-4977-a8c7-ccc7c908ed2e"
     name: "[Light] BF1: Den Lamp 1 - Energize"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 156
         brightness: 255
@@ -800,7 +800,7 @@ scene:
   - id: "5031e294-15bb-4099-af30-0fda31c4881e"
     name: "[Light] BF1: Den Lamp 1 - Nightlight"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 454
         brightness: 1
@@ -808,7 +808,7 @@ scene:
   - id: "a417a1da-8906-4e36-bb73-243a3d15cb01"
     name: "[Light] BF1: Den Lamp 1 - Read"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 343
         brightness: 255
@@ -816,7 +816,7 @@ scene:
   - id: "5e1229fa-ef48-456d-8235-510c059251ab"
     name: "[Light] BF1: Den Lamp 1 - Relax"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "on"
         color_temp: 447
         brightness: 145
@@ -824,13 +824,13 @@ scene:
   - id: "0051519b-8dae-4000-87c0-b9580ef29a3f"
     name: "[Light] BF1: Den Lamp 1 - Off"
     entities:
-      light.bf1_den_lamp_1:
+      light.bf1_den_lamp1:
         state: "off"
 
   - id: "5af2c88c-f065-4136-bb30-4e7f215539be"
     name: "[Light] BF1: Den Lamp 2 - Darken"
     entities:
-      light.bf1_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.689
@@ -840,7 +840,7 @@ scene:
   - id: "8cfbff74-659b-4127-9d62-055c7f673415"
     name: "[Light] BF1: Den Lamp 2 - Migraine"
     entities:
-      light.bf1_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.17
@@ -850,7 +850,7 @@ scene:
   - id: "9aae763e-377d-4685-bb2f-52f7f97a32d9"
     name: "[Light] BF1: Den Lamp 2 - Bright"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 367
         brightness: 255
@@ -858,7 +858,7 @@ scene:
   - id: "27fadaf9-5df4-4ac3-b3d7-a95723dddd9f"
     name: "[Light] BF1: Den Lamp 2 - Concentrate"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 230
         brightness: 255
@@ -866,7 +866,7 @@ scene:
   - id: "976303bd-e643-459a-a480-60b92a8b07a2"
     name: "[Light] BF1: Den Lamp 2 - Dimmed"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 369
         brightness: 76
@@ -874,7 +874,7 @@ scene:
   - id: "2ee3d1e8-5886-4d3a-a181-1d9e951263d2"
     name: "[Light] BF1: Den Lamp 2 - Energize"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 156
         brightness: 255
@@ -882,7 +882,7 @@ scene:
   - id: "2ce26df1-6bc7-4df9-80bb-93d983348ae5"
     name: "[Light] BF1: Den Lamp 2 - Nightlight"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 454
         brightness: 1
@@ -890,7 +890,7 @@ scene:
   - id: "756fb577-e196-4e5f-b122-3283b8376c51"
     name: "[Light] BF1: Den Lamp 2 - Read"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 343
         brightness: 255
@@ -898,7 +898,7 @@ scene:
   - id: "065eae2b-dc07-4cd6-9071-524504cf02bc"
     name: "[Light] BF1: Den Lamp 2 - Relax"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "on"
         color_temp: 447
         brightness: 145
@@ -906,13 +906,13 @@ scene:
   - id: "8656bfea-0550-4612-a69f-a1b274b47964"
     name: "[Light] BF1: Den Lamp 2 - Off"
     entities:
-      light.bf1_den_lamp_2:
+      light.bf1_den_lamp2:
         state: "off"
 
   - id: "68462efd-312d-4dec-b0af-8e523d293f0a"
     name: "[Light] BF1: Den Lamp 3 - Bright"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 367
         brightness: 255
@@ -920,7 +920,7 @@ scene:
   - id: "5515a484-53f8-4f9f-8d26-9f64345553d0"
     name: "[Light] BF1: Den Lamp 3 - Concentrate"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 230
         brightness: 255
@@ -928,7 +928,7 @@ scene:
   - id: "20ee9e12-337b-471b-bd3d-1d5093b0e9aa"
     name: "[Light] BF1: Den Lamp 3 - Dimmed"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 369
         brightness: 76
@@ -936,7 +936,7 @@ scene:
   - id: "5cb22ee2-1ccb-4bd8-9345-e150afd9bd03"
     name: "[Light] BF1: Den Lamp 3 - Energize"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 156
         brightness: 255
@@ -944,7 +944,7 @@ scene:
   - id: "749a98a7-69f7-4f3d-bcad-60747052f6e5"
     name: "[Light] BF1: Den Lamp 3 - Nightlight"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 454
         brightness: 1
@@ -952,7 +952,7 @@ scene:
   - id: "b8c793f0-deba-4f70-9930-76c8c2374211"
     name: "[Light] BF1: Den Lamp 3 - Read"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 343
         brightness: 255
@@ -960,7 +960,7 @@ scene:
   - id: "f3c6ad5d-6de9-4049-a385-f96be736f240"
     name: "[Light] BF1: Den Lamp 3 - Relax"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "on"
         color_temp: 447
         brightness: 145
@@ -968,7 +968,7 @@ scene:
   - id: "e8f0a085-0893-47be-93ad-bbd69705d3ec"
     name: "[Light] BF1: Den Lamp 3 - Off"
     entities:
-      light.bf1_den_lamp_3:
+      light.bf1_den_lamp3:
         state: "off"
 
 # ==================================================================================================

@@ -41,13 +41,14 @@
 adaptive_lighting:
   - name: "MF2: Den Lamp1"
     lights:
-      - light.mf2_den_lamp_1
+      - light.mf2_den_lamp1
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
+    
   - name: "MF2: Den Lamp2"
     lights:
-      - light.mf2_den_lamp_2
+      - light.mf2_den_lamp2
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
@@ -285,6 +286,7 @@ automation:
 # Rest Command
 #
 # - light.mf2_den_lamp1_bulb1: e1becc60-2dea-4b73-9578-ea56d7340d30
+# - light.mf2_den_lamp2_bulb1: 
 #
 # ==================================================================================================
 rest_command:

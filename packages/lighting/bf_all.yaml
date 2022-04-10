@@ -205,85 +205,85 @@ scene:
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
     name: "[Light] BF1: All - Darken"
     entities:
-      light.bf_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.bf_den_cf1_bulb:
+      light.bf1den_cf1_bulb:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.bf_den_cf2_bulb:
+      light.bf1_den_cf2_bulb:
         state: "off"
-      light.bf_den_lamp_1_bulb:
+      light.bf1_den_lamp1_bulb:
         state: "off"
-      light.bf_den_lamp3_bulb_1:
+      light.bf1_den_lamp3_bulb_1:
         state: "off"
-      light.bf_den_lamp3_bulb_2:
+      light.bf1_den_lamp3_bulb_2:
         state: "off"
-      light.bf_hallway_cf_bulb_1:
+      light.bf1_hallway_cf_bulb_1:
         state: "off"
-      light.bf_hallway_cf_bulb_3:
+      light.bf1_hallway_cf_bulb_3:
         state: "off"
-      light.bf_kitchen_cf1_bulb:
+      light.bf1_kitchen_cf1_bulb:
         state: "off"
-      light.bf_stairwell_bulb:
+      light.bf1_stairwell_bulb:
         state: "off"
-      light.bf_storage1_cf1_bulb:
+      light.bf1_storage1_cf1_bulb:
         state: "off"
-      light.bf_storage1_cf2_bulb:
+      light.bf1_storage1_cf2_bulb:
         state: "off"
-      light.bf_storage2_lamp1_bulb:
+      light.bf1_storage2_lamp1_bulb:
         state: "off"
-      light.bf_storage2_lamp2_bulb:
+      light.bf1_storage2_lamp2_bulb:
         state: "off"
-      light.bf_storage2_lamp3_bulb:
+      light.bf1_storage2_lamp3_bulb:
         state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] BF1: All - Migraine"
     entities:
-      light.bf_den_lamp_2_bulb:
+      light.bf1_den_lamp2_bulb:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.bf_den_cf1_bulb:
+      light.bf1_den_cf1_bulb:
         state: "on"
         xy_color:
           - 0.17
           - 0.7
         brightness: 64
-      light.bf_den_cf2_bulb:
+      light.bf1_den_cf2_bulb:
         state: "off"
-      light.bf_den_lamp_1_bulb:
+      light.bf1_den_lamp1_bulb:
         state: "off"
-      light.bf_den_lamp3_bulb_1:
+      light.bf1_den_lamp3_bulb_1:
         state: "off"
-      light.bf_den_lamp3_bulb_2:
+      light.bf1_den_lamp3_bulb_2:
         state: "off"
-      light.bf_hallway_cf_bulb_1:
+      light.bf1_hallway_cf_bulb_1:
         state: "off"
-      light.bf_hallway_cf_bulb_3:
+      light.bf1_hallway_cf_bulb_3:
         state: "off"
-      light.bf_kitchen_cf1_bulb:
+      light.bf1_kitchen_cf1_bulb:
         state: "off"
-      light.bf_stairwell_bulb:
+      light.bf1_stairwell_bulb:
         state: "off"
-      light.bf_storage1_cf1_bulb:
+      light.bf1_storage1_cf1_bulb:
         state: "off"
-      light.bf_storage1_cf2_bulb:
+      light.bf1_storage1_cf2_bulb:
         state: "off"
-      light.bf_storage2_lamp1_bulb:
+      light.bf1_storage2_lamp1_bulb:
         state: "off"
-      light.bf_storage2_lamp2_bulb:
+      light.bf1_storage2_lamp2_bulb:
         state: "off"
-      light.bf_storage2_lamp3_bulb:
+      light.bf1_storage2_lamp3_bulb:
         state: "off"
 
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"

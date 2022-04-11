@@ -2,20 +2,14 @@ binary_sensor:
   - platform: car_wash
     weather: weather.kahn_daynight
 
-sun:
 
 sensor:
-  - platform: moon
-
   # Seasons
   - platform: season
     type: astronomical
 
   - platform: season
     type: meteorological
-
-  - platform: nws_alerts
-    zone_id: "GAC059,GAC219"
 
 template:
   - binary_sensor:

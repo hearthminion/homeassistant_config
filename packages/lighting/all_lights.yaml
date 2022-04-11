@@ -794,7 +794,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      - service: rest_command.light_update_hallway_cf_scene
+      - service: rest_command.light_update_mf1_hallway_cf_scene
         data:
           scene_id: "1b10ab73-db72-45b7-932f-0bef76fe86ce"
           username: !secret hue1_username

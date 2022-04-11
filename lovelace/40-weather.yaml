@@ -31,7 +31,7 @@
                     graph: line
                   - type: sensor
                     name: Pressure
-                    entity: sensor.openweathermap_pressure_inhg
+                    entity: sensor.openweathermap_pressure
                     graph: line
                   - type: sensor
                     name: Humidity
@@ -41,7 +41,7 @@
                 cards:
                   - type: sensor
                     name: "Wind Speed"
-                    entity: sensor.openweathermap_wind_speed_mph
+                    entity: sensor.openweathermap_wind_speed
                     graph: line
                   - type: sensor
                     name: Conditions

@@ -2,15 +2,6 @@ binary_sensor:
   - platform: car_wash
     weather: weather.kahn_daynight
 
-
-sensor:
-  # Seasons
-  - platform: season
-    type: astronomical
-
-  - platform: season
-    type: meteorological
-
 template:
   - binary_sensor:
       - unique_id: "7de08353-b672-41eb-aed1-eca95d808d4d"

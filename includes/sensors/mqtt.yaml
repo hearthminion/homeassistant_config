@@ -10,18 +10,21 @@
   state_topic: "homeassistant/sensor/hestia/sensehat/state"
   value_template: "{{ value_json.temperature_celcius }}"
   unit_of_measurement: "°C"
+  device_class: "temperature"
 
 - platform: mqtt
   name: "hestia_sensehat_temp_f"
   state_topic: "homeassistant/sensor/hestia/sensehat/state"
   value_template: "{{ value_json.temperature_fahrenheit }}"
   unit_of_measurement: "°F"
+  device_class: "temperature"
 
 - platform: mqtt
   name: "hestia_sensehat_pressure_mbar"
   state_topic: "homeassistant/sensor/hestia/sensehat/state"
   value_template: "{{ value_json.pressure_mbar }}"
   unit_of_measurement: "mbar"
+  device_class: "pressure"
 
 - platform: mqtt
   name: "hestia_sensehat_pressure_inhg"

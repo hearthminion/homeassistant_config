@@ -36,10 +36,10 @@ Used to generate uuids for automations, scenes, etc.
 - Toggle Adaptive lighting switch if autocolortemp binary sensor changes state
 - Toggle Adaptive lighting based on if Circadian Mode is true or false
 - Turn on Migraine Mode if lights are set manually set to green
-- Turn on [Light Previously Green](#Light Previously Green) if Migraine Mode is activated
-- Turn on [Light Previously Green](#Light Previously Green) at Midnight
+- Turn on [Light Previously Green](#light-previously-green) if Migraine Mode is activated
+- Turn on [Light Previously Green](#light-previously-green) at Midnight
 - Set Light mode to Circadian at 4 am
-- Run [Update HomeAssistant Scene](#Update Home Assistant Scene) script every 5 minutes
+- Run [Update HomeAssistant Scene](#update-home-assistant-scene) script every 5 minutes
 
 #### [Input Boolean](https://www.home-assistant.io/integrations/input_boolean/)
 ##### Light Previously Green
@@ -117,18 +117,15 @@ Each room is created as a room.
 Each Bridge has a zone for all lights.
 
 Rooms and Zones are name in the following manner:
-
-2 letters floor: MF or BF
-1 number: Hub # for that floor
-
-Room(#)
-
-Fixture#
+- 2 letters floor: MF or BF
+- 1 number: Hub # for that floor
+- Room(#)
+- Fixture#
 
 Examples:
-MF1: Bedroom1 CF1 = Main Floor, Hub1, Bedroom1, Ceiling Fixture 1
-MF2: Den CF1 = Main Floor, Hub2, Den, Ceiling Fixture 1
-BF1: Den Lamp1 = Basement Floor, Hub1, Den, Lamp 1
+- MF1: Bedroom1 CF1 = Main Floor, Hub1, Bedroom1, Ceiling Fixture 1
+- MF2: Den CF1 = Main Floor, Hub2, Den, Ceiling Fixture 1
+- BF1: Den Lamp1 = Basement Floor, Hub1, Den, Lamp 1
 
 In the home assistant configuration, I rename the entity ids to match:
 light.mf1_bedroom1_cf1
@@ -201,102 +198,102 @@ These are scenes with effects
 Images come from [Unsplash](https://unsplash.com/)
 
 - Amber Bloom
-  by:
-- Arctic Aurora
+  by: Aaron Burden
+- [Arctic Aurora](https://flic.kr/p/377PBM)
   by: David Gil
-- Autumn Gold
+- [Autumn Gold](https://flic.kr/p/8r8Pmd)
   by: Dana Moos
 - Blood Moon
   by: Andrea Reiman
 - Blue Lagoon
-  by:
+  by: Sarah Cassady
 - Blue Planet
-  by:
+  by: Shaah Shahidh
 - Chinatown
   by: Pascal Terjan
 - City of Love
-  by:
+  by: Fab Lentz
 - Color Burst
-  by:
-- Crystaline
-  by:
+  by: Gregoire Bertaud
+- Crystal line
+  by: Aaron Burden
 - Disturbia
-  by:
+  by: Milada Vigerova
 - [Emerald Isle](https://unsplash.com/photos/cuhu-aAdzs0)
   by: [Jasmin Causevic](https://unsplash.com/@duplich)
 - Fairfax
-  by:
+  by: Conner Murphy
 - Festive Fun
-  by:
+  by: Benjamin Muntz
 - Forest Adventure
-  by:
+  by: Nathan Queloz
 - Frosty Dawn
-  by:
+  by: Laura Taylor
 - [Galaxy](https://unsplash.com/photos/QeoXkIesiCo)
   by: [Manouchehr Hejazi](https://unsplash.com/@patrol)
 - Glitz and glam
-  by:
+  by: Sharon McCutcheon
 - [Golden Pond](https://unsplash.com/photos/b4SRwTQget8)
   by: [Claudia Viloria](https://unsplash.com/@viloria)
 - Golden Star
-  by:
+  by: Aaron Burden
 - Hal
-  by:
+  by: Cedric Klei
 - [Honolulu](https://unsplash.com/photos/2-Bq_AGZyr8)
   by: [Amit Nayak](https://unsplash.com/@amitnayak)
 - Ibiza
   by: Michal Grosicki
 - Lake Placid
-  by:
+  by: Mikkel Schmidt
 - Lake Mist
   by: [Ales Krivec](https://unsplash.com/@aleskrivec)
 - Lily
-  by:
+  by: Kat Jayne
 - Lovebirds
-  by:
+  by: Paul Cusick
 - Magento
   by:
-- Midsummer Sun
-  by: [Susanne Nilsson](https://unsplash.com/@kosthjalpen/likes)
+- [Midsummer Sun](https://flic.kr/p/AqoAwo)
+  by: Susanne Nilsson [Unsplash](https://unsplash.com/@kosthjalpen/likes) [Flickr]()
 - Midwinter
-  by:
+  by: Peter Lewis
 - [Moonlight](https://unsplash.com/photos/6msS8vT5pzw)
   by: [Benjamin Child](https://unsplash.com/@bchild311)
 - Mountain Breeze
-  by:
+  by: Oswaldo Martinez
 - Motown
-  by:
+  by: Greyson Joralemon
 - [Nebula](https://unsplash.com/photos/33FlT2A83H4)
   by: [Ernest Karchmit](https://unsplash.com/@ekarchmit)
 - [Ocean Dawn](https://unsplash.com/photos/EEDLURXCpqg)
   by: [Anastasia Taioglou](https://unsplash.com/@thenata)
 - Orange Fields
-  by:
+  by: Toomas Tartes
 - [Osaka](https://unsplash.com/photos/saxby7Bioxc)
   by: [Alex Knight](https://unsplash.com/@agk42)
 - Palm Beach
-  by:
+  by: Steven Pahel
 - Painted Sky
-  by:
+  by: Tandem X Visuals
 - Promise
-  by:
+  by: Sereja Ris
 - [Ruby Glow](https://unsplash.com/photos/nE2gf1scItI)
   by: [Martin Jernberg](https://unsplash.com/@martinjernberg)
 - Ruby Romance
-  by:
+  by: Jamie Street
 - Rosy Sparks
-  by:
-- Savanna Sunset
+  by: Wout Vanacker
+- [Savanna Sunset](https://flic.kr/p/aA9YwS)
   by: Lady DragonflyCC
 - Smitten
-  by:
+  by: Freestocks
 - [Soho](https://unsplash.com/photos/RnCPiXixooY)
   by: [Efe Kurnaz](https://unsplash.com/@efekurnaz)
 - Silent Night
-  by:
-- Spring Blossom
+  by: Christina Winter
+- [Spring Blossom](https://flic.kr/p/bxTCdj)
   by: Oimax
-- Spring Lake
+- [Spring Lake](https://flic.kr/p/yG45xm)
   by: Shirsendu Nayak
 - [Starlight](https://unsplash.com/photos/ln5drpv_ImI)
   by: [Vincentiu Solomon](https://unsplash.com/@vincentiu)
@@ -305,18 +302,18 @@ Images come from [Unsplash](https://unsplash.com/)
 - [Sundown](https://unsplash.com/photos/1HplMDoRvTo)
   by: [Cristina Gottardi](https://unsplash.com/@cristina_gottardi)
 - Tokyo
-  by:
-- Tropical Twilight
+  by: Benjamin Hung
+- [Tropical Twilight](https://flic.kr/p/qU66ru)
   by: Roman Till
 - Tyrell
-  by:
+  by: Drew Graham
 - Under the Tree
-  by:
+  by: Hert Niks
 - Vapor Wave
-  by:
+  by: Stephen Johnson
 - Winter Beauty
-  by:
-- Winter Mountain
+  by: Mikael Kristenson
+- [Winter Mountain](https://flic.kr/p/xscjjY)
   by:
 
 # References

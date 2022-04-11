@@ -237,7 +237,7 @@ automation:
   #
   # ================================================================================================
   - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
-    alias: "[Light] Update HomeAssistant Scene on Hue Bridges (Circadian)"
+    alias: "[Light] Update HomeAssistant Scene on Hue Bridges"
     description: ""
     initial_state: false
     trigger:
@@ -252,26 +252,23 @@ automation:
       - service: script.turn_on
         data: {}
         target:
-          entity_id: script.light_update_scene_homeassistant_circadian
+          entity_id: script.light_update_scene_homeassistant
     mode: single
 
-  - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
-    alias: "[Light] Update HomeAssistant Scene on Hue Bridges (Migraine)"
-    description: ""
-    initial_state: false
-    trigger:
-      - platform: state
-        entity_id: input_select.light_mode
-        to: "Migraine"
-    condition: []
-    action:
-      - alias: "Wait 5s"
-        delay: 5
-      - service: script.turn_on
-        data: {}
-        target:
-          entity_id: script.light_update_scene_homeassistant_circadian
-    mode: single
+  # - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
+  #   alias: "[Light] Update Migraine Scene on Hue Bridges"
+  #   description: ""
+  #   initial_state: false
+  #   trigger:
+  #     - platform: time
+  #       at: "23:00:00"
+  #   condition: []
+  #   action:
+  #     - service: script.turn_on
+  #       data: {}
+  #       target:
+  #         entity_id: script.light_update_scene_migraine
+  #   mode: single
 
   # ================================================================================================
   #

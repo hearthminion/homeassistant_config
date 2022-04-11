@@ -41,7 +41,7 @@
                 cards:
                   - type: sensor
                     name: "Wind Speed"
-                    entity: sensor.openweathermap_wind_speed
+                    entity: sensor.openweathermap_wind_speed_mph
                     graph: line
                   - type: sensor
                     name: Conditions

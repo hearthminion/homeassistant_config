@@ -195,14 +195,14 @@ These are scenes with effects
 
 ## Default Hue Scene Photos
 
-Images come from [Unsplash](https://unsplash.com/)
+Images come from [Unsplash](https://unsplash.com/) or [Flickr](https://flickr.com)
 
 - Amber Bloom
   by: Aaron Burden
 - [Arctic Aurora](https://flic.kr/p/377PBM)
-  by: David Gil
+  by: [David Gil](https://www.flickr.com/photos/deivis/)
 - [Autumn Gold](https://flic.kr/p/8r8Pmd)
-  by: Dana Moos
+  by: [Dana Moos](https://www.flickr.com/photos/dana_moos)
 - Blood Moon
   by: Andrea Reiman
 - Blue Lagoon
@@ -254,7 +254,7 @@ Images come from [Unsplash](https://unsplash.com/)
 - Magento
   by:
 - [Midsummer Sun](https://flic.kr/p/AqoAwo)
-  by: Susanne Nilsson [Unsplash](https://unsplash.com/@kosthjalpen/likes) [Flickr]()
+  by: [Susanne Nilsson](https://www.flickr.com/photos/infomastern/)
 - Midwinter
   by: Peter Lewis
 - [Moonlight](https://unsplash.com/photos/6msS8vT5pzw)
@@ -284,7 +284,7 @@ Images come from [Unsplash](https://unsplash.com/)
 - Rosy Sparks
   by: Wout Vanacker
 - [Savanna Sunset](https://flic.kr/p/aA9YwS)
-  by: Lady DragonflyCC
+  by: [Lady DragonflyCC](https://www.flickr.com/photos/ladydragonflyherworld/)
 - Smitten
   by: Freestocks
 - [Soho](https://unsplash.com/photos/RnCPiXixooY)
@@ -292,9 +292,9 @@ Images come from [Unsplash](https://unsplash.com/)
 - Silent Night
   by: Christina Winter
 - [Spring Blossom](https://flic.kr/p/bxTCdj)
-  by: Oimax
+  by: [Oimax](https://www.flickr.com/photos/oimax/)
 - [Spring Lake](https://flic.kr/p/yG45xm)
-  by: Shirsendu Nayak
+  by: [Shirsendu Nayak](https://www.flickr.com/photos/9s9)
 - [Starlight](https://unsplash.com/photos/ln5drpv_ImI)
   by: [Vincentiu Solomon](https://unsplash.com/@vincentiu)
 - [Sunday Morning](https://unsplash.com/photos/S3UCfaKTNZQ)
@@ -304,7 +304,7 @@ Images come from [Unsplash](https://unsplash.com/)
 - Tokyo
   by: Benjamin Hung
 - [Tropical Twilight](https://flic.kr/p/qU66ru)
-  by: Roman Till
+  by: [Roman Till](https://www.flickr.com/photos/130079987@N02/)
 - Tyrell
   by: Drew Graham
 - Under the Tree
@@ -314,7 +314,7 @@ Images come from [Unsplash](https://unsplash.com/)
 - Winter Beauty
   by: Mikael Kristenson
 - [Winter Mountain](https://flic.kr/p/xscjjY)
-  by:
+  by: [Image Catalog](https://www.flickr.com/photos/image-catalog/)
 
 # References
 - [DIY Hue Scenes in Home Assistant using the deCONZ integration](https://www.jeroendruwe.be/diy-hue-scenes-in-home-assistant-using-the-deconz-integration/) Jeroen Drewé

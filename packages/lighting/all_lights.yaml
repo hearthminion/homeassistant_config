@@ -813,7 +813,7 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-     - service: rest_command.light_update_hallway_lamp1_scene
+      - service: rest_command.light_update_hallway_lamp1_scene
         data:
           scene_id: "8ab64aef-f206-4d73-8fd8-47e280294f70"
           username: !secret hue1_username

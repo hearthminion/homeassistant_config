@@ -138,13 +138,13 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
+          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
+          "target":{"rid":"f45e5a8d-931c-435d-bc41-8dd0e8fa6682","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
           }
           ]
           }'

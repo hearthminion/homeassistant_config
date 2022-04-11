@@ -563,7 +563,7 @@ script:
       # ============================================================================================
       - service: rest_command.light_update_bf1_all_scene
         data:
-          scene_id: ""
+          scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
           username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'

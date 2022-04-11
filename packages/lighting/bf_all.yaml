@@ -52,29 +52,37 @@ light:
 #
 # Light IDs:
 # - 01: e687cdcb-7022-4d66-9763-ec5ead8f8808
-#   name: BF Kitchen CF1 Bulb
+#   name: BF1 Kitchen CF1 Bulb
 # - 02: 068c9cd1-0128-423b-b0f4-e9bc57e0308e
-#   name: BF Stairwell Bulb
-# - 03: 3781ec36-a5a4-4d11-9965-5f453a3004b4
-#   name: BF Storage1 CF2 Bulb
-# - 04: 84e56e8b-a96f-4a25-9715-4ecc0921ab8d
-#   name: BF Den Lamp 2 Bulb
-# - 05: 12fe02ef-c867-4eae-982e-f8fdf9e0ba23
-#   name: BF Storage1 Bulb 1
-# - 06: e464775c-3b2b-453d-b7cf-e7def42610f6
-#   name: BF Den Lamp 3 Bulb 1
-# - 07: 2b238059-189a-4f70-b33a-6b6948b70dc7
-#   name: BF Den CF1 Bulb
-# - 08: b02df779-caaa-446a-8e0e-e73e069f9cbd
-#   name: BF Den CF2 Bulb
-# - 09: 5d9e8921-1307-4181-826e-55c3a05e14ac
-#   name: BF Den Lamp 1 Bulb
-# - 10: ae1340a6-0178-4eb5-8b4a-c166abd7a297
-#   name: BF Hallway CF Bulb 1
-# - 11: 557f80c4-02a7-4944-8591-53eb8c33cb95
-#   name: BF Hallway CF Bulb 3
-# - 12: 8677b6df-8d08-4eba-a4c5-927d3321915d
-#   name: BF Den Lamp 3 Bulb 2
+#   name: BF1 Stairwell Bulb
+# - 03: 9393d087-3b37-4b3b-be15-49ad8d1da861
+#   name: BF1 Storage2 Lamp1 Bulb1
+# - 04: 3781ec36-a5a4-4d11-9965-5f453a3004b4
+#   name: BF1 Storage1 CF2 Bulb1
+# - 05: 8677b6df-8d08-4eba-a4c5-927d3321915d
+#   name: BF1 Den Lamp3 Bulb2
+# - 06: b159cfed-04ac-43b4-b390-2c3d1eb29ecb
+#   name: BF1 Hallway CF Bulb2
+# - 07: 84e56e8b-a96f-4a25-9715-4ecc0921ab8d
+#   name: BF1 Den Lamp2 Bulb1
+# - 08: 12fe02ef-c867-4eae-982e-f8fdf9e0ba23
+#   name: BF Storage1 CF1 Bulb1
+# - 09: e464775c-3b2b-453d-b7cf-e7def42610f6
+#   name: BF1 Den Lamp3 Bulb1
+# - 10: 2f340335-486f-4c67-921b-e7d8c33f581f
+#   name: BF1 Storage2 Lamp2 Bulb1
+# - 11: 2b238059-189a-4f70-b33a-6b6948b70dc7
+#   name: BF1 Den CF1 Bulb1
+# - 12: b02df779-caaa-446a-8e0e-e73e069f9cbd
+#   name: BF2 Den CF2 Bulb1
+# - 13: bbf6ca34-f834-4ffb-8f94-bb9165d0ed57
+#   name: BF1 Storage2 Lamp3 Bulb1
+# - 14: 5d9e8921-1307-4181-826e-55c3a05e14ac
+#   name: BF2 Den Lamp1 Bulb1
+# - 15: ae1340a6-0178-4eb5-8b4a-c166abd7a297
+#   name: BF2 Hallway CF Bulb1
+# - 16: 557f80c4-02a7-4944-8591-53eb8c33cb95
+#   name: BF2 Hallway CF Bulb3
 #
 # ==================================================================================================
 rest_command:
@@ -88,40 +96,52 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"3781ec36-a5a4-4d11-9965-5f453a3004b4","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          "target":{"rid":"9393d087-3b37-4b3b-be15-49ad8d1da861","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          "target":{"rid":"3781ec36-a5a4-4d11-9965-5f453a3004b4","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          "target":{"rid":"b159cfed-04ac-43b4-b390-2c3d1eb29ecb","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"e464775c-3b2b-453d-b7cf-e7def42610f6","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"2f340335-486f-4c67-921b-e7d8c33f581f","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"bbf6ca34-f834-4ffb-8f94-bb9165d0ed57","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
           },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"8677b6df-8d08-4eba-a4c5-927d3321915d","rtype":"light"}
+          "target":{"rid":"ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
           }
           ]
           }'

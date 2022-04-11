@@ -1,7 +1,7 @@
 ---
 # ==================================================================================================
 #
-# Great Lighting Configuration
+# Great Room: Den Area Lighting Configuration
 #
 # Lights:
 #   - light.mf_den_ceiling_bulb
@@ -175,106 +175,6 @@ automation:
           entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp1
     mode: single
 
-#   # ================================================================================================
-#   #
-#   # Light fixture: Fireplace Lights
-#   #
-#   # Lights:
-#   #   - 
-#   #   - 
-#   #   - 
-#   #
-#   # Automations:
-#   #   - 
-#   #
-#   # ================================================================================================
-#   - id: "b1a819a1-ffd0-4da3-9d16-0e8b3784aab4"
-#     alias: "[Light] Den Fireplace: Adaptive Lighting (Toggle Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_mf2_den_lamp1_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp1_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_mf2_den_lamp1_with_brightness_adjustment
-
-#   # ================================================================================================
-#   #
-#   # Light fixture: Den Ceiling Lights
-#   #
-#   # Lights:
-#   #   - 
-#   #   - 
-#   #   - 
-#   #
-#   # Automations:
-#   #   - 
-#   #
-#   # ================================================================================================
-#   - id: "a9f92c36-73f7-40cb-901e-2db2f2ee7608"
-#     alias: "[Light] Den Ceiling: Adaptive Lighting (with Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_mf2_den_lamp1_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp1_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_mf2_den_lamp1_with_brightness_adjustment
-
-#   # ================================================================================================
-#   #
-#   # Set Lighting Mode: Circadian (with Brightness adjustments)
-#   #
-#   # - In the morning when the sun rises to 18 degrees below the horizon
-#   #   enable
-#   # ================================================================================================
-#   - id: "0b2cebc3-9523-4096-b26a-481ee222d4b5"
-#     alias: "[Light] MF2: Den Tower Lamp: Adaptive Lighting (Toggle Brightness Adjustment)"
-#     initial_state: false
-#     trigger:
-#       - platform: state
-#         entity_id: input_select.light_mode
-#         to: "Circadian"
-#       - platform: state
-#         entity_id: binary_sensor.light_mf2_den_lamp1_brightness
-#     variables:
-#       brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp1_autobrightness') }}"
-#     condition:
-#       condition: and
-#       conditions:
-#         - condition: template
-#           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-#     action:
-#       - service: "switch.turn_{{ brightness_mode }}"
-#         data:
-#           entity_id:
-#             - switch.adaptive_lighting_mf2_den_lamp1_with_brightness_adjustment
-
-
 # ==================================================================================================
 #
 # Input Select
@@ -285,8 +185,12 @@ automation:
 #
 # Rest Command
 #
-# - light.mf2_den_lamp1_bulb1: e1becc60-2dea-4b73-9578-ea56d7340d30
-# - light.mf2_den_lamp2_bulb1: 
+# - 01: e1becc60-2dea-4b73-9578-ea56d7340d30
+#   name: MF2: Den Lamp1 Bulb1
+# - 02: f45e5a8d-931c-435d-bc41-8dd0e8fa6682
+#   name: MF2: Den Small Desk Lamp Bulb1
+# - 03: 941df8c2-1308-4746-8c22-e9f65faa450a
+#   name: MF2: Den Lamp2 Bulb1
 #
 # ==================================================================================================
 rest_command:
@@ -323,7 +227,7 @@ rest_command:
     verify_ssl: false
     content_type: "application/json"
 
-  light_update_mf2_den_scene:
+  light_update_mf2_den_lamp5_scene:
     url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
@@ -333,10 +237,7 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
+          "target":{"rid":"f45e5a8d-931c-435d-bc41-8dd0e8fa6682","rtype":"light"}
           }
           ]
           }'

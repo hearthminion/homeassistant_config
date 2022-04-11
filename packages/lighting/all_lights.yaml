@@ -554,31 +554,35 @@ scene:
 #
 # ==================================================================================================
 script:
-  light_update_scene_homeassistant_circadian:
-    alias: "[Light] Update Home Assistant Scenes (Circadian)"
+  light_update_scene_homeassistant:
+    alias: "[Light] Update Home Assistant Scenes"
     mode: single
     sequence:
 
+      # ============================================================================================
+      #
       # Whole Hub Scenes
+      #
+      # ============================================================================================
       - service: rest_command.light_update_bf1_all_scene
         data:
-          scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
+          scene_id: ""
           username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      # - service: rest_command.light_update_mf1_all
-      #   data:
-      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
+      - service: rest_command.light_update_mf1_all_scene
+        data:
+          scene_id: "00bcb261-964a-4ac3-82ac-3c74aa51d032"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
 
-      # - service: rest_command.light_update_mf2_all
+      # - service: rest_command.light_update_mf2_all_scene
       #   data:
-      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
+      #     scene_id: ""
       #     username: !secret hue1_username
       #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
       #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
@@ -588,7 +592,19 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # Den Scenes
+      # ============================================================================================
+      #
+      # Room Scenes
+      #
+      # ============================================================================================
+      - service: rest_command.light_update_mf1_bathroom1_inner_scene
+        data:
+          scene_id: "2432a16d-f38e-44d0-8e9a-dfd9fc8c52ab"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
       - service: rest_command.light_update_bf1_den_scene
         data:
           scene_id: "0f9f63be-31df-4505-9987-501832f400a8"
@@ -597,10 +613,10 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
           
-      - service: rest_command.light_update_mf2_den_scene
+      - service: rest_command.light_update_mf2_great_room_scene
         data:
           scene_id: "398ffc64-071c-4fa1-a33f-4ef8cc4f89f5"
-          username: !secret hue1_username
+          username: !secret hue3_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -608,12 +624,118 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # Hallway Scenes
+      - service: rest_command.light_update_mf1_bathroom1_outer_scene
+        data:
+          scene_id: "99e63811-fc9f-4ad0-b712-5dd575e1bc1b"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
       - service: rest_command.light_update_bf1_hallway_scene
         data:
           scene_id: "bfd009cc-04c3-4ec1-9b84-3e4cf7a1f26b"
           username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - alias: "Wait 1s"
+        delay: 1
+
+      - service: rest_command.light_update_mf1_bathroom2_scene
+        data:
+          scene_id: "708833ae-9008-4556-bc0f-643c36028f59"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - service: rest_command.light_update_bf1_kitchen_scene
+        data:
+          scene_id: "219d0744-3281-4c45-9ec5-eba633e84531"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - alias: "Wait 1s"
+        delay: 1
+
+      - service: rest_command.light_update_mf1_bedroom1_scene
+        data:
+          scene_id: "f2198ad0-543a-4471-9013-fa093ddfb733"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - service: rest_command.light_update_bf1_stairwell_scene
+        data:
+          scene_id: "1f6a1c2d-7341-4af1-ba63-5d95fcde2923"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - alias: "Wait 1s"
+        delay: 1
+
+      - service: rest_command.light_update_mf1_hallway_scene
+        data:
+          scene_id: "a929088b-0969-452b-8639-f6bda89e9cbb"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - service: rest_command.light_update_bf1_storage1_scene
+        data:
+          scene_id: "5fc4332e-99ab-4ef6-9f29-279dfd870845"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - alias: "Wait 1s"
+        delay: 1
+
+      # Storage 2 Scenes
+      - service: rest_command.light_update_bf2_storage_scene
+        data:
+          scene_id: "2c9205dd-a2e2-478f-9bd7-98f91ab7e2a3"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+
+      # ============================================================================================
+      #
+      # Light Fixtures
+      #
+      # ============================================================================================
+      - service: rest_command.light_update_mf1_bedroom1_cf1_scene
+        data:
+          scene_id: "8b693fc1-31a8-4d8a-96ee-0e5263c63a23"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - service: rest_command.light_update_bf1_den_cf1_scene
+        data:
+          scene_id: "8192ffdb-57ba-4843-bbef-844b9b6df5d8"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
+      - service: rest_command.light_update_mf2_den_lamp1_scene
+        data:
+          scene_id: "1ea99d32-fe4b-4309-b3df-e0bc86f921a9"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
@@ -629,32 +751,6 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - alias: "Wait 1s"
-        delay: 1
-
-      # Bedroom1 Lamp2
-      - service: rest_command.light_update_mf1_bedroom1_lamp2_scene
-        data:
-          scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
-          username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-
-      # Den CF1
-      - service: rest_command.light_update_bf1_den_cf1_scene
-        data:
-          scene_id: "8192ffdb-57ba-4843-bbef-844b9b6df5d8"
-          username: !secret hue2_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          on_state: '"on":{"on":true}'
-
-      # Den CF2
       - service: rest_command.light_update_bf1_den_cf2_scene
         data:
           scene_id: "d0decaba-82b2-4475-8747-a636a373ef1e"
@@ -663,10 +759,25 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
+      - service: rest_command.light_update_mf2_den_lamp2_scene
+        data:
+          scene_id: "f68c834d-9fa2-4c26-93d7-4e1be616bbce"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
       - alias: "Wait 1s"
         delay: 1
 
-      # Den Lamp1
+      - service: rest_command.light_update_mf1_bedroom1_lamp2_scene
+        data:
+          scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
       - service: rest_command.light_update_bf1_den_lamp1_scene
         data:
           scene_id: "dfe07596-feed-47bd-a6ef-fdeb8fa5f97b"
@@ -675,10 +786,10 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf2_den_lamp1_scene
+      - service: rest_command.light_update_mf2_den_lamp5_scene
         data:
-          scene_id: "1ea99d32-fe4b-4309-b3df-e0bc86f921a9"
-          username: !secret hue1_username
+          scene_id: "701a9848-82f0-42b7-a575-e3cda950932d"
+          username: !secret hue3_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
@@ -686,7 +797,14 @@ script:
       - alias: "Wait 1s"
         delay: 1
 
-      # Den Lamp2
+      - service: rest_command.light_update_hallway_cf_scene
+        data:
+          scene_id: "1b10ab73-db72-45b7-932f-0bef76fe86ce"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+
       - service: rest_command.light_update_bf1_den_lamp2_scene
         data:
           scene_id: "c9b7da7b-1cb7-42c5-b9d4-55d9daf0bd64"
@@ -695,18 +813,17 @@ script:
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - service: rest_command.light_update_mf2_den_lamp2_scene
+      - alias: "Wait 1s"
+        delay: 1
+
+     - service: rest_command.light_update_hallway_lamp1_scene
         data:
-          scene_id: "f68c834d-9fa2-4c26-93d7-4e1be616bbce"
+          scene_id: "8ab64aef-f206-4d73-8fd8-47e280294f70"
           username: !secret hue1_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
 
-      - alias: "Wait 1s"
-        delay: 1
-
-      # Den Lamp3
       - service: rest_command.light_update_bf1_den_lamp3_scene
         data:
           scene_id: "486010da-61a3-45d7-b37d-5102a9fb3694"
@@ -714,70 +831,6 @@ script:
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_kitchen_cf1_scene
-      #   data:
-      #     scene_id: "6834d2a0-86ac-45bf-98ee-54d2ed34ce89"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_storage1_cf1_scene
-      #   data:
-      #     scene_id: "d39787a3-3cdd-454d-be3b-9677260d0335"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      # - alias: "Wait 1s"
-      #   delay: 1
-
-      # - service: rest_command.light_update_bf1_storage1_cf2_scene
-      #   data:
-      #     scene_id: "c04e59af-076b-4508-bb56-428b82f6ef8a"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_stairwell_scene
-      #   data:
-      #     scene_id: "1f6a1c2d-7341-4af1-ba63-5d95fcde2923"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_kitchen_scene
-      #   data:
-      #     scene_id: "219d0744-3281-4c45-9ec5-eba633e84531"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - alias: "Wait 1s"
-        delay: 1
 
 
   # ================================================================================================
@@ -788,199 +841,9 @@ script:
   # are properly set.
   #
   # ================================================================================================
-  light_update_scene_homeassistant_migraine:
-    alias: "[Light] Update Home Assistant Scenes (Migraine)"
-    sequence:
-
-      # - service: rest_command.light_update_bf1_all_scene
-      #   data:
-      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
-      #     username: !secret hue2_username
-      #     color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-      #     brightness: '"dimming":{ "brightness": 25.0 }'
-      #     on_state: '"on":{"on":true}'
-
-      # - service: rest_command.light_update_mf1_all
-      #   data:
-      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
-      #     username: !secret hue2_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      # - service: rest_command.light_update_mf2_all
-      #   data:
-      #     scene_id: "cd29377b-333f-4e4d-97ef-5d2a8989c7ac"
-      #     username: !secret hue2_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      # We now add a delay to not overwhelm the bridge
-      # - alias: "Wait 1s"
-      #   delay: 1
-
-      # - service: rest_command.light_update_bf1_den_lamp1_scene
-      #   data:
-      #     scene_id: "dfe07596-feed-47bd-a6ef-fdeb8fa5f97b"
-      #     username: !secret hue2_username
-      #     color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-      #     brightness: '"dimming":{ "brightness": 25.0 }'
-      #     on_state: '"on":{"on":true}'
-
-      # - service: rest_command.light_update_mf1_bedroom1_lamp1_scene
-      #   data:
-      #     scene_id: "b0f852ac-bc4e-40f3-a06b-a08ae45060f3"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - service: rest_command.light_update_mf2_den_lamp1_scene
-        data:
-          scene_id: "74901b3e-36a0-4037-981d-c591f5e26fae"
-          username: !secret hue1_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update_bf1_den_lamp2_scene
-        data:
-          scene_id: "c9b7da7b-1cb7-42c5-b9d4-55d9daf0bd64"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - service: rest_command.light_update_mf1_den_lamp2_scene
-        data:
-          scene_id: "5930f3ac-b8c5-4ed9-a731-5cb2b0d329ad"
-          username: !secret hue1_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - service: rest_command.light_update_mf1_bedroom1_lamp2_scene
-        data:
-          scene_id: "c5edaba2-676c-4e27-a49a-248a7b670cf0"
-          username: !secret hue1_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update_bf1_den_lamp3_scene
-        data:
-          scene_id: "486010da-61a3-45d7-b37d-5102a9fb3694"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update_bf1_den_cf1_scene
-        data:
-          scene_id: "8192ffdb-57ba-4843-bbef-844b9b6df5d8"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update_bf1_den_cf2_scene
-        data:
-          scene_id: "d0decaba-82b2-4475-8747-a636a373ef1e"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_kitchen_cf1_scene
-      #   data:
-      #     scene_id: "6834d2a0-86ac-45bf-98ee-54d2ed34ce89"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_storage1_cf1_scene
-      #   data:
-      #     scene_id: "d39787a3-3cdd-454d-be3b-9677260d0335"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      # - alias: "Wait 1s"
-      #   delay: 1
-
-      # - service: rest_command.light_update_bf1_storage1_cf2_scene
-      #   data:
-      #     scene_id: "c04e59af-076b-4508-bb56-428b82f6ef8a"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_stairwell_scene
-      #   data:
-      #     scene_id: "1f6a1c2d-7341-4af1-ba63-5d95fcde2923"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      # - service: rest_command.light_update_bf1_kitchen_scene
-      #   data:
-      #     scene_id: "219d0744-3281-4c45-9ec5-eba633e84531"
-      #     username: !secret hue1_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update1_bf_den_scene
-        data:
-          scene_id: "0f9f63be-31df-4505-9987-501832f400a8"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
-      - alias: "Wait 1s"
-        delay: 1
-
-      - service: rest_command.light_update_bf1_hallway_scene
-        data:
-          scene_id: "bfd009cc-04c3-4ec1-9b84-3e4cf7a1f26b"
-          username: !secret hue2_username
-          color: '"color":{ "xy":{ "x": 0.17, "y": 0.7 }'
-          brightness: '"dimming":{ "brightness": 25.0 }'
-          on_state: '"on":{"on":true}'
-
+  # light_update_scene_migraine:
+  #   alias: "[Light] Update Migraine Scenes"
+  #   sequence:
 
   # ================================================================================================
   #

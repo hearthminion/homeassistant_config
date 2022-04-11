@@ -67,7 +67,11 @@ automation:
 
 # ==================================================================================================
 #
-# Rest Commands
+# Rest Command
+#
+# Light IDs:
+# - 01: e687cdcb-7022-4d66-9763-ec5ead8f8808
+#   name: BF1 Kitchen CF1 Bulb
 #
 # ==================================================================================================
 rest_command:
@@ -81,11 +85,7 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
           }
           ]
           }'

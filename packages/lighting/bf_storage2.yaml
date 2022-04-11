@@ -67,7 +67,15 @@ automation:
 
 # ==================================================================================================
 #
-# Rest Commands
+# Rest Command
+#
+# Light IDs:
+# - 03: 9393d087-3b37-4b3b-be15-49ad8d1da861
+#   name: BF1 Storage2 Lamp1 Bulb1
+# - 10: 2f340335-486f-4c67-921b-e7d8c33f581f
+#   name: BF1 Storage2 Lamp2 Bulb1
+# - 13: bbf6ca34-f834-4ffb-8f94-bb9165d0ed57
+#   name: BF1 Storage2 Lamp3 Bulb1
 #
 # ==================================================================================================
 rest_command:
@@ -81,11 +89,13 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
-          },
-          {
+          "target":{"rid":"9393d087-3b37-4b3b-be15-49ad8d1da861","rtype":"light"}
+          },{
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "ae1340a6-0178-4eb5-8b4a-c166abd7a297","rtype":"light"}
+          "target":{"rid":"2f340335-486f-4c67-921b-e7d8c33f581f","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"bbf6ca34-f834-4ffb-8f94-bb9165d0ed57","rtype":"light"}
           }
           ]
           }'

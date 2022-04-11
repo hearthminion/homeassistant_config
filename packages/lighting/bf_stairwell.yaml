@@ -67,7 +67,11 @@ automation:
 
 # ==================================================================================================
 #
-# Rest Commands
+# Rest Command
+#
+# Light IDs:
+# - 02: 068c9cd1-0128-423b-b0f4-e9bc57e0308e
+#   name: BF1 Stairwell Bulb
 #
 # ==================================================================================================
 rest_command:
@@ -81,7 +85,7 @@ rest_command:
           "actions":[
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
           }
           ]
           }'

@@ -6,3 +6,147 @@ light:
     entities:
       - light.mf1_all
       - light.mf2_all
+
+# ==================================================================================================
+#
+# Rest Command
+#
+# ==================================================================================================
+rest_command:
+  # ================================================================================================
+  #
+  # Light IDs:
+  # - 01: 285a8ccc-3b03-4bb1-95ad-da94ea5ddd30
+  #   name: MF1: Bathroom2 CF1 Bulb3
+  # - 02: 2fb5f88c-d173-4d81-87de-4c3b03c9a75e
+  #   name: MF1: Bedroom1 CF1 Bulb1
+  # - 03: 272dd946-6baa-466c-9ba4-e0ce5c9de6ee
+  #   name: MF1: Bathroom2 CF1 Bulb1
+  # - 04: 0a6f4c2e-2864-4a97-bffe-24f629b7008e
+  #   name: MF1: Hallway CF1 Bulb1
+  # - 05: b2c73c00-1188-4f93-a23e-0267cc038594
+  #   name: MF1: Bathroom1 (Inner) CF1 Bulb1
+  # - 06: 3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080
+  #   name: MF1: Bathroom1 (Inner) CF1 Bulb2
+  # - 07: e7e3a4b4-c9ac-4841-929f-7330da707855
+  #   name: MF1: Bedroom1 Lamp2 Bulb1
+  # - 08: 67647900-2f25-4d2d-965a-3fac2ef7b044
+  #   name: MF1: Hallway CF2 Bulb1
+  # - 09: f8ca7348-2fdc-4351-b554-85e776159c8f
+  #   name: MF1: Hallway CF1 Bulb2
+  # - 10: 264f5ee8-6cd0-4b5e-b1a8-3af7b07de307
+  #   name: MF1: Hallway CF2 Bulb2
+  # - 11: 879c70e6-8212-452b-bda5-659943158edb
+  #   name: MF1: Bedroom1 Lamp1 Bulb1
+  # - 12: d1577871-2836-45c4-bbd9-de9423d526f5
+  #   name: MF1: Bathroom1 (Inner) CF1 Bulb3
+  # - 13: d4e55d74-d520-48c8-af6b-45b9fe46075f
+  #   name: MF1: Bathroom2 CF1 Bulb2
+  # - 14: 0bdf5862-6217-4ab3-b9d3-bed4daf06f7c
+  #   name: MF1: Bedroom1 Lamp1 Bulb2
+  # - 15: b71eb26f-4d78-404a-a51a-49043497b63c
+  #   name: MF1: Bedroom1 Lamp2 Bulb2
+  # - 16: fa761fe2-c6e6-4d58-a71c-59f76f54b504
+  #   name: MF1: Bathroom1 (Outer) CF1 Bulb1
+  # - 17: 82416e7b-27a5-4ed2-a44b-3496bfed62a9
+  #   name: MF1: Hallway Lamp1 Bulb1
+  #
+  # ================================================================================================
+  light_update_mf1_all_scene:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"285a8ccc-3b03-4bb1-95ad-da94ea5ddd30","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"2fb5f88c-d173-4d81-87de-4c3b03c9a75e","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"272dd946-6baa-466c-9ba4-e0ce5c9de6ee","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"0a6f4c2e-2864-4a97-bffe-24f629b7008e","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"b2c73c00-1188-4f93-a23e-0267cc038594","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"e7e3a4b4-c9ac-4841-929f-7330da707855","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"67647900-2f25-4d2d-965a-3fac2ef7b044","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"f8ca7348-2fdc-4351-b554-85e776159c8f","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"264f5ee8-6cd0-4b5e-b1a8-3af7b07de307","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"879c70e6-8212-452b-bda5-659943158edb","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"d1577871-2836-45c4-bbd9-de9423d526f5","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"d4e55d74-d520-48c8-af6b-45b9fe46075f","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"0bdf5862-6217-4ab3-b9d3-bed4daf06f7c","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"b71eb26f-4d78-404a-a51a-49043497b63c","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"fa761fe2-c6e6-4d58-a71c-59f76f54b504","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"82416e7b-27a5-4ed2-a44b-3496bfed62a9","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  # ================================================================================================
+  #
+  # Light IDs:
+  # - 01: e1becc60-2dea-4b73-9578-ea56d7340d30
+  #   name: MF2: Den Lamp1 Bulb1
+  # - 02: f45e5a8d-931c-435d-bc41-8dd0e8fa6682
+  #   name: MF2: Den Small Desk Lamp Bulb1
+  # - 03: 941df8c2-1308-4746-8c22-e9f65faa450a
+  #   name: MF2: Den Lamp2 Bulb1
+  #
+  # ================================================================================================
+  light_update_mf2_all_scene:
+    url: "https://hue3.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"557f80c4-02a7-4944-8591-53eb8c33cb95","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"

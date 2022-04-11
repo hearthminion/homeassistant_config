@@ -31,3 +31,59 @@ light:
     entities:
       - light.mf1_bathroom1_inner
       - light.mf1_bathroom1_outer
+
+# ==================================================================================================
+#
+# Rest Command
+#
+# Light IDs:
+# - 05: b2c73c00-1188-4f93-a23e-0267cc038594
+#   name: MF1: Bathroom1 (Inner) CF1 Bulb1
+# - 06: 3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080
+#   name: MF1: Bathroom1 (Inner) CF1 Bulb2
+# - 12: d1577871-2836-45c4-bbd9-de9423d526f5
+#   name: MF1: Bathroom1 (Inner) CF1 Bulb3
+# - 16: fa761fe2-c6e6-4d58-a71c-59f76f54b504
+#   name: MF1: Bathroom1 (Outer) CF1 Bulb1
+#
+# ==================================================================================================
+rest_command:
+  light_update_mf1_bathroom1_inner_scene:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"b2c73c00-1188-4f93-a23e-0267cc038594","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"d1577871-2836-45c4-bbd9-de9423d526f5","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"
+
+  light_update_mf1_bathroom1_outer_scene:
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"fa761fe2-c6e6-4d58-a71c-59f76f54b504","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"

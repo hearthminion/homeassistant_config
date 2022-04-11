@@ -1,0 +1,39 @@
+---
+# ==================================================================================================
+#
+# Rest Commands
+#
+# Light IDs:
+# - 01: 285a8ccc-3b03-4bb1-95ad-da94ea5ddd30
+#   name: MF1: Bathroom2 CF1 Bulb3
+# - 03: 272dd946-6baa-466c-9ba4-e0ce5c9de6ee
+#   name: MF1: Bathroom2 CF1 Bulb1
+# - 13: d4e55d74-d520-48c8-af6b-45b9fe46075f
+#   name: MF1: Bathroom2 CF1 Bulb2
+#
+# ==================================================================================================
+rest_command:
+  light_update_mf1_bathroom2_scene:
+    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "285a8ccc-3b03-4bb1-95ad-da94ea5ddd30","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "272dd946-6baa-466c-9ba4-e0ce5c9de6ee","rtype":"light"}
+          },
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid": "d4e55d74-d520-48c8-af6b-45b9fe46075f","rtype":"light"}
+          }
+          ]
+          }'
+    verify_ssl: false
+    content_type: "application/json"

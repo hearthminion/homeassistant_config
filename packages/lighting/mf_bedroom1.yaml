@@ -196,11 +196,16 @@ automation:
 #
 # Rest Commands
 #
-# - light.mf1_bedroom1_cf1_bulb1: 2fb5f88c-d173-4d81-87de-4c3b03c9a75e
-# - light.mf1_bedroom1_lamp1_bulb1: 879c70e6-8212-452b-bda5-659943158edb
-# - light.mf1_bedroom1_lamp1_bulb2: 0bdf5862-6217-4ab3-b9d3-bed4daf06f7c
-# - light.mf1_bedroom1_lamp2_bulb1: e7e3a4b4-c9ac-4841-929f-7330da707855
-# - light.mf1_bedroom1_lamp2_bulb2: b71eb26f-4d78-404a-a51a-49043497b63c
+# - 02: 2fb5f88c-d173-4d81-87de-4c3b03c9a75e
+#   name: MF1: Bedroom1 CF1 Bulb1
+# - 07: e7e3a4b4-c9ac-4841-929f-7330da707855
+#   name: MF1: Bedroom1 Lamp2 Bulb1
+# - 11: 879c70e6-8212-452b-bda5-659943158edb
+#   name: MF1: Bedroom1 Lamp1 Bulb1
+# - 14: 0bdf5862-6217-4ab3-b9d3-bed4daf06f7c
+#   name: MF1: Bedroom1 Lamp1 Bulb2
+# - 15: b71eb26f-4d78-404a-a51a-49043497b63c
+#   name: MF1: Bedroom1 Lamp2 Bulb2
 #
 # ==================================================================================================
 rest_command:

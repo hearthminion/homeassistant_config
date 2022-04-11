@@ -1,0 +1,6 @@
+template:
+  - sensor:
+      - unique_id: "b3af4c6e-3d1c-457f-8b11-30feb1f52e2a"
+        name: "OpenWeatherMap Wind Speed (MPH)"
+        state: '{{ states("sensor.openweathermap_wind_speed") | float * 2.236936 | round(2) }}'
+        unit_of_measurement: 'mph'

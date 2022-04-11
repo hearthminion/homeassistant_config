@@ -124,16 +124,6 @@ template:
         state: '{{ states.sensor.pirateweather_pressure_7d.state | float / 33.864 | round(2) }}'
         unit_of_measurement: 'inHg'
 
-      - unique_id: "ec50ad17-3e15-4887-9f27-3f9f3e7acdae"
-        name: "OpenWeatherMap Pressure (inHg)"
-        state: '{{ states("sensor.openweathermap_pressure") | float / 33.864 | round(2) }}'
-        unit_of_measurement: 'inHg'
-
-      - unique_id: "b3af4c6e-3d1c-457f-8b11-30feb1f52e2a"
-        name: "OpenWeatherMap Wind Speed (MPH)"
-        state: '{{ states("sensor.openweathermap_wind_speed") | float * 2.236936 | round(2) }}'
-        unit_of_measurement: 'mph'
-
 weather:
   - platform: pirateweather
     api_key: !secret pirateweather

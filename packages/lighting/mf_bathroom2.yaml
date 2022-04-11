@@ -14,7 +14,7 @@
 # ==================================================================================================
 rest_command:
   light_update_mf1_bathroom2_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
+    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
     method: put
     headers:
       hue-application-key: "{{ username }}"

@@ -698,7 +698,7 @@ script:
         delay: 1
 
       # Storage 2 Scenes
-      - service: rest_command.light_update_bf2_storage_scene
+      - service: rest_command.light_update_bf1_storage2_scene
         data:
           scene_id: "2c9205dd-a2e2-478f-9bd7-98f91ab7e2a3"
           username: !secret hue2_username

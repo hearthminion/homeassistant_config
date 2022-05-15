@@ -58,7 +58,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.light_bf1_den_color_mode
     variables:
-      adaptive_mode: "{{ iif(is_state('binary_sensor.light_bf1_den_color_mode','on'), 'off','on' }}"
+      adaptive_mode: "{{ iif(is_state('binary_sensor.light_bf1_den_color_mode','on'), 'off','on') }}"
     condition:
       condition: and
       conditions:

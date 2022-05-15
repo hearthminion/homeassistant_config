@@ -1224,7 +1224,7 @@ template:
              ) }}
         attributes:
           brightness: >-
-            {% if (state_attr("light.bf1_den1_cf1", "brightness") is number %}
+            {% if state_attr("light.bf1_den1_cf1", "brightness") is number %}
               {{ ( state_attr("light.bf1_den_cf1", "brightness") / 254 * 100 ) | int(100) }}
             {% else %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}

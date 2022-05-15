@@ -198,14 +198,14 @@ automation:
     trigger:
       - platform: state
         entity_id: light.bf1_den_cf1
-        atrribute: xy_color
+        attribute: xy_color
         to: (0.23, 0.698)
     condition: []
     action:
       - entity_id: input_boolean.light_bf1_den_cf1_green_event
         service: input_boolean.turn_on
 
-  - id: "cb8b4633-4a47-477e-9391-240ba6c7d71c"
+  - id: "1638cbed-885f-435e-b200-324d14755a9cU"
     alias: "[Light] BF1: Den CF1 - Turn off Green tracker"
     initial_state: false
     description: ""

@@ -1,30 +1,39 @@
-# ======================================================================
+---
+# ==================================================================================================
 #
 # Master Bathroom Lighting Configuration
 #
-# Lights:
-#   light.mf1_bathroom1_inner_cf1_bulb1: b2c73c00-1188-4f93-a23e-0267cc038594
-#   light.mf1_bathroom1_inner_cf1_bulb2: 3f9a6d23-d966-4ccc-a6d1-39bbcdfd1080"
-#   light.mf1_bathroom1_inner_cf1_bulb3: d1577871-2836-45c4-bbd9-de9423d526f5
-#   light.mf1_bathroom1_outer_cf1_bulb1: fa761fe2-c6e6-4d58-a71c-59f76f54b504
-#
-# Light Groups:
-#   - light.den_couch_lamp_1
-#   - light.den_couch_lamp_2
-#   - light.den_ceiling
-#   - light.den_fireplace
-#   - light.den_tower_lamp
-#   - light.den_table_lamp
-#
-# ======================================================================
+# ==================================================================================================
 adaptive_lighting:
-  - name: "MF1: Master Bathroom (Inner)"
-    lights:
-      - light.mf1_bathroom1_inner
+  - name: "MF1: Bathroom1 (Inner)"
+    lights: []
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
 
+  - name: "MF1: Bathroom1 (Outer)"
+    lights: []
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+  light_mf1_bathroom1_inner_green_event:
+    name: "[Light] MF1: Bathroom1 (Inner) Green Event"
+
+  light_mf1_bathroom1_outer_green_event:
+    name: "[Light] MF1: Bathroom1 (Outer) Green Event"
+
+# ==================================================================================================
+#
+# Light Groups
+#
+# ==================================================================================================
 light:
   - platform: group
     name: "MF1: Master Bathroom"
@@ -87,3 +96,81 @@ rest_command:
           }'
     verify_ssl: false
     content_type: "application/json"
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+
+# ==================================================================================================
+#
+# Templates
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      - unique_id: "7d2b1660-4de9-47ef-b3a4-53e057ed8fc4"
+        name: "[Light] MF1: Bathroom1 (Inner) - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf1_den_cf1", "brightness") == None or
+               is_state_attr("light.bf1_den_cf1", "brightness", "unknown") or
+               is_state("light.bf1_den_cf1", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf1_den_cf1","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "404eb573-2329-4841-9228-eba522a0da56"
+        name: "[Light] MF1: Bathroom1 (Inner) - Scene Bright"
+        state: >-
+          {% if is_state_attr("light.bf1_den_cf1", "brightness", "255") and
+                is_state_attr("light.bf1_den_cf1", "color_temp", "367") %}
+                on
+          {% else %}
+                off
+          {% endif %}
+
+
+      - unique_id: "cadd88e5-e312-46f3-9a60-19c225c8a0d9"
+        name: "[Light] BF1: Bathroom1 (Outer) - Autobrightness"
+        state: >-
+          {{ (
+               states("sensor.global_dummy_light_brightness") | int(100) ) <
+               ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_max")
+               | int(104) )
+             and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
+             ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_min") | int(100)
+             ) }}
+        attributes:
+          brightness: >-
+            {% if state_attr("light.bf1_den_cf2", "brightness") == None or
+               is_state_attr("light.bf1_den_cf2", "brightness", "unknown") or
+               is_state("light.bf1_den_cf2", "off") %}
+              {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
+            {% else %}
+              {{ ( state_attr("light.bf1_den_cf2","brightness") / 254 * 100 ) | int(100) }}
+            {% endif %}
+          brightness_max: >-
+            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) + 4 }}
+          brightness_min: >-
+            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) - 4 }}
+
+  - sensor:
+      - unique_id: "db0e13cd-2f9a-46ea-af70-37c39bbd6fde"
+        name: "[Light] MF1: Bathroom1 (Inner) Color"
+        state: "{{ state_attr('light.mf1_bathroom1_inner', 'xy_color') }}"
+

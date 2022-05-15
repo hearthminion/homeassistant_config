@@ -9,6 +9,8 @@ adaptive_lighting:
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
+    #sunrise_time:
+    #sunset_time:
 
 # ==================================================================================================
 #
@@ -33,8 +35,7 @@ automation:
 
   # ================================================================================================
   #
-  # TODO: Set default for circadian_mode variable (In the case that binary_sensor.circadian_mode
-  # returns "unavailable"
+  #
   #
   # ================================================================================================
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
@@ -45,28 +46,28 @@ automation:
       - platform: state
         entity_id: binary_sensor.circadian_mode
     variables:
-      circadian_mode: "{{ states('binary_sensor.circadian_mode') }}"
+      circadian_mode: "{{ is_state('binary_sensor.circadian_mode','on') }}"
     condition: []
     action:
       - service: "switch.turn_{{ circadian_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_bf1_den_cf1
-            - switch.adaptive_lighting_bf1_den_cf2
-            - switch.adaptive_lighting_bf1_den_lamp1
-            - switch.adaptive_lighting_bf1_den_lamp2
-            - switch.adaptive_lighting_bf1_den_lamp3
-            - switch.adaptive_lighting_bf1_hallway
-            - switch.adaptive_lighting_bf1_kitchen
-            - switch.adaptive_lighting_bf1_stairwell
-            - switch.adaptive_lighting_bf1_storage1
-            - switch.adaptive_lighting_bf1_storage2
-            - switch.adaptive_lighting_mf1_bedroom1_lamp2
-            - switch.adaptive_lighting_mf2_den_lamp2
-            #- switch.adaptive_lighting_mf1_bathroom1_inner
-            #- switch.adaptive_lighting_mf2_den_couch_lamp_1
-            #- switch.adaptive_lighting_mf1_bedroom1_cf1
-            #- switch.adaptive_lighting_mf1_bedroom1_lamp1
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+            - switch.mf1_bathroom1_inner_adaptive_lighting
+            - switch.mf1_bedroom1_cf1_adaptive_lighting
+            - switch.mf1_bedroom1_lamp1_adaptive_lighting
+            - switch.mf1_bedroom1_lamp2_adaptive_lighting
+            - switch.mf2_den_lamp1_adaptive_lighting
+            - switch.mf2_den_lamp2_adaptive_lighting
 
   # ================================================================================================
   #
@@ -83,19 +84,15 @@ automation:
     initial_state: false
     trigger:
       - platform: state
-        entity_id: switch.adaptive_lighting_global_dummy_light
+        entity_id: switch.global_dummy_light_adaptive_lighting
         from: "on"
         to: "off"
       - platform: state
-        entity_id: switch.adaptive_lighting_adapt_brightness_global_dummy_light
+        entity_id: switch.global_dummy_light_adaptive_lighting_brightness
         from: "on"
         to: "off"
       - platform: state
-        entity_id: switch.adaptive_lighting_global_dummy_light_color
-        from: "on"
-        to: "off"
-      - platform: state
-        entity_id: switch.adaptive_lighting_adapt_brightness_global_dummy_light_color
+        entity_id: switch.global_dummy_light_adaptive_lighting_color
         from: "on"
         to: "off"
     condition: []
@@ -103,8 +100,9 @@ automation:
       - service: "switch.turn_on"
         data:
           entity_id:
-            - switch.adaptive_lighting_global_dummy_light
-            - switch.adaptive_lighting_adapt_brightness_global_dummy_light
+            - switch.global_dummy_light_adaptive_lighting
+            - switch.global_dummy_light_adaptive_lighting_brightness
+            - switch.global_dummy_light_adaptive_lighting_color
 
   # ================================================================================================
   #
@@ -188,15 +186,21 @@ automation:
     description: "This automation turns on migraine mode based on light changes."
     initial_state: false
     trigger:
-      - entity_id: sensor.light_mf2_den_lamp2_color
+      - entity_id: sensor.mf2_den_lamp1_color
         platform: state
-        to: (0.17, 0.7)
-      - entity_id: sensor.light_bf1_den_color
+        to: (0.23, 0.698)
+      - entity_id: sensor.mf2_den_lamp2_color
         platform: state
-        to: (0.17, 0.7)
-      - entity_id: sensor.light_mf1_bedroom1_lamp2_color
+        to: (0.23, 0.698)
+      - entity_id: sensor.bf1_den_color
         platform: state
-        to: (0.17, 0.7)
+        to: (0.23, 0.698)
+      - entity_id: sensor.mf1_bedroom1_lamp1_color
+        platform: state
+        to: (0.23, 0.698)
+      - entity_id: sensor.mf1_bedroom1_lamp2_color
+        platform: state
+        to: (0.23, 0.698)
     condition: []
     action:
       - entity_id: input_boolean.special_migraine_mode
@@ -951,10 +955,10 @@ template:
       - unique_id: "0639ee4e-55ff-41af-a903-ff6db2660b1e"
         name: "Global Dummy Light Brightness"
         state: >-
-          {% if is_state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct", "unknown") %}
-            100
+          {% if state_attr("switch.global_dummy_light_adaptive_lighting", "brightness_pct") is number %}
+            {{ state_attr("switch.global_dummy_light_adaptive_lighting", "brightness_pct") | int(100) }}
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "brightness_pct") | int(100) }}
+            100
           {% endif %}
         unit_of_measurement: "%"
 
@@ -962,9 +966,9 @@ template:
         name: "Global Dummy Light Color Temperature"
         state: >-
           {% if is_state("input_select.light_mode", "Migraine") %}
-            {{ max(state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367), 285) }}
+            {{ max(state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_mired") | int(367), 285) }}
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_mired") | int(367) }}
+            {{ state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_mired") | int(367) }}
           {% endif %}
         state_class: measurement
 
@@ -972,9 +976,9 @@ template:
         name: "Global Dummy Light Color Temperature (Kelvin)"
         state: >-
           {% if is_state("input_select.light_mode", "Migraine") %}
-            {{ min(state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(2700), 3500) }}
+            {{ min(state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin") | int(2700), 3500) }}
           {% else %}
-            {{ state_attr("switch.adaptive_lighting_global_dummy_light", "color_temp_kelvin") | int(2700) }}
+            {{ state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin") | int(2700) }}
           {% endif %}
         state_class: measurement
         unit_of_measurement: "°K"

@@ -98,13 +98,13 @@ rest_command:
 #
 # ==================================================================================================
 scene:
-  # - id: "87ceb42c-8c58-49f6-bea9-01c8f4dbbd29"
-  #   name: "[Light] BF1: Kitchen - Enable Automations"
-  #   entities:
-  #     automation.light_bf1_kitchen_adaptive_lighting_toggle_brightness_adjustment:
-  #       state: "on"
-  #     automation.light_bf1_kitchen_adaptive_lighting_turn_off_brightness_adjustment:
-  #       state: "on"
+  - id: "a9bbb214-ae85-4bef-a57d-d70b8f90fe1b"
+    name: "[Light] BF1: Kitchen - Enable Automations"
+    entities:
+      automation.light_bf1_kitchen_adaptive_lighting_toggle_brightness_adjustment:
+        state: "on"
+      automation.light_bf1_kitchen_adaptive_lighting_turn_off_brightness_adjustment:
+        state: "on"
 
   - id: "afedd813-67a6-4ebf-8449-14e8fdf2d840"
     name: "[Light] BF1: Kitchen - Bright"

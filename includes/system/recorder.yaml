@@ -12,21 +12,26 @@ include:
     - person
     - weather
   entity_globs:
-    - binary_sensor.light_*
-    - binary_sensor.nodeid*
+    - binary_sensor.bf*
+    - binary_sensor.global*
+    - binary_sensor.mf*
+    - binary_sensor.tod*
+    - binary_sensor.user00*
     - sensor.air_quality_*
+    - sensor.bf*
     - sensor.climacell_*
-    - sensor.nodeid*
+    - sensor.global*
+    - sensor.mf*
     - sensor.nws*
     - sensor.openweathermap*
     - sensor.pirateweather*
     - sensor.pollen_*
     - sensor.sensehat*
     - sensor.skin_type_*
-    - switch.adaptive*
-    - switch.nodeid*
-    - binary_sensor.user00*
+    - sensor.tod*
     - sensor.user00*
+    - switch.bf*
+    - switch.mf*
   entities:
     - binary_sensor.aether
     - binary_sensor.angelia
@@ -72,12 +77,7 @@ include:
     - switch.morpheus
     - timer.lights_off
     - vacuum.roomba
-    - sensor.global_dummy_light_color_temperature
-    - sensor.global_dummy_light_color_temperature_kelvin
-    - sensor.global_dummy_light_brightness
 exclude:
-  domains:
-    - updater
   entities:
     - binary_sensor.workday
     - sensor.current_version

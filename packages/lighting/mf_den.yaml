@@ -47,8 +47,7 @@ adaptive_lighting:
     max_color_temp: 6500
 
   - name: "MF2: Den Lamp2"
-    lights:
-      - light.mf2_den_lamp2
+    lights: []
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500

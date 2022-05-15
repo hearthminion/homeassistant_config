@@ -1,6 +1,24 @@
 ---
 # ==================================================================================================
 #
+# MF: Hallway Lighting Configuration
+#
+# ==================================================================================================
+adaptive_lighting:
+  - name: "MF1: Hallway CF"
+    lights: []
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
+  - name: "MF1: Hallway Lamp1"
+    lights: []
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
+# ==================================================================================================
+#
 # Rest Command
 #
 # Light IDs:

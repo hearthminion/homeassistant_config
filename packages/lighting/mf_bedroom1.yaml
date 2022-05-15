@@ -1,41 +1,38 @@
 ---
 # ==================================================================================================
 #
-# Master Bedroom Light Configuration
+# Bedroom 1 Light Configuration
 #
 # Lights:
-#   light.main_lamp_1: Master Bedroom Lamp1 Lightbulb 1
-#   light.main_lamp_2: Master Bedroom Lamp2 Lightbulb 1
-#   light.main_lamp_4: Master Bedroom CF1 Lightbulb 1
-#   light.main_lamp_14: Master Bedroom Lamp 1 Lightbulb 2
-#   light.main_lamp_15: Master Bedroom Lamp 2 Lightbulb 2
-#   light.main_lamp_16: Master Bedroom Ceiling Lightbulb 1
+#   light.mf1_bedroom1_cf1_bulb1
+#   light.mf1_bedroom1_lamp1_bulb1
+#   light.mf1_bedroom1_lamp1_bulb2
+#   light.mf1_bedroom1_lamp2_bulb1
+#   light.mf1_bedroom1_lamp2_bulb2
 #
 # Light Groups:
-#   - light.den_couch_lamp_1
-#   - light.den_couch_lamp_2
-#   - light.den_ceiling
-#   - light.den_fireplace
-#   - light.den_tower_lamp
-#   - light.den_table_lamp
+#   - light.mf1_bedroom1
+#   - light.mf1_bedroom1_cf1
+#   - light.mf1_bedroom1_lamp1
+#   - light.mf1_bedroom1_lamp2
 #
 # ==================================================================================================
 adaptive_lighting:
-  - name: "MF1: Master Bedroom Lamp1"
-    lights:
-      - light.mf1_bedroom1_lamp1
+  - name: "MF1: Master Bedroom CF1"
+    lights: []
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
+
+  - name: "MF1: Master Bedroom Lamp1"
+    lights: []
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
   - name: "MF1: Master Bedroom Lamp2"
     lights:
       - light.mf1_bedroom1_lamp2
-    initial_transition: 1
-    min_color_temp: 2000
-    max_color_temp: 6500
-  - name: "MF1: Master Bedroom CF1"
-    lights:
-      - light.mf1_bedroom1_cf1
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500

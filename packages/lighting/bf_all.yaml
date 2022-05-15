@@ -36,6 +36,36 @@ automation:
 
 # ==================================================================================================
 #
+#
+#
+# ==================================================================================================
+input_boolean:
+  bf1_all_lights:
+    name: "BF1: All Lights"
+
+input_select:
+  bf1_all_lights_scene:
+    options:
+      - scene.bf1_all_bright
+      - scene.bf1_all_candle
+      - scene.bf1_all_concentrate
+      - scene.bf1_all_darken
+      - scene.bf1_all_dimmed
+      - scene.bf1_all_energize
+      - scene.bf1_all_fireplace
+      - scene.bf1_all_homeassistant
+      - scene.bf1_all_migraine
+      - scene.bf1_all_nightlight
+      - scene.bf1_all_read
+      - scene.bf1_all_relax
+      - scene.bf1_all_dynamic
+
+  bf1_all_lights_dynamic_scenes:
+    options:
+      - Bright
+
+# ==================================================================================================
+#
 # Light
 #
 # ==================================================================================================
@@ -225,85 +255,89 @@ scene:
   - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
     name: "[Light] BF1: All - Darken"
     entities:
-      light.bf1_den_lamp2_bulb:
+      light.bf1_den_lamp2_bulb1:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.bf1den_cf1_bulb:
+      light.bf1den_cf1_bulb1:
         state: "on"
         xy_color:
           - 0.6915
           - 0.3083
         brightness: 64
-      light.bf1_den_cf2_bulb:
+      light.bf1_den_cf2_bulb1:
         state: "off"
-      light.bf1_den_lamp1_bulb:
+      light.bf1_den_lamp1_bulb1:
         state: "off"
       light.bf1_den_lamp3_bulb_1:
         state: "off"
       light.bf1_den_lamp3_bulb_2:
         state: "off"
-      light.bf1_hallway_cf_bulb_1:
+      light.bf1_hallway_cf1_bulb_1:
         state: "off"
-      light.bf1_hallway_cf_bulb_3:
+      light.bf1_hallway_cf1_bulb_2:
         state: "off"
-      light.bf1_kitchen_cf1_bulb:
+      light.bf1_hallway_cf1_bulb_3:
         state: "off"
-      light.bf1_stairwell_bulb:
+      light.bf1_kitchen_cf1_bulb1:
         state: "off"
-      light.bf1_storage1_cf1_bulb:
+      light.bf1_stairwell_cf1_bulb1:
         state: "off"
-      light.bf1_storage1_cf2_bulb:
+      light.bf1_storage1_cf1_bulb1:
         state: "off"
-      light.bf1_storage2_lamp1_bulb:
+      light.bf1_storage1_cf2_bulb1:
         state: "off"
-      light.bf1_storage2_lamp2_bulb:
+      light.bf1_storage2_lamp1_bulb1:
         state: "off"
-      light.bf1_storage2_lamp3_bulb:
+      light.bf1_storage2_lamp2_bulb1:
+        state: "off"
+      light.bf1_storage2_lamp3_bulb1:
         state: "off"
 
   - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
     name: "[Light] BF1: All - Migraine"
     entities:
-      light.bf1_den_lamp2_bulb:
+      light.bf1_den_lamp2_bulb1:
         state: "on"
         xy_color:
-          - 0.17
-          - 0.7
+          - 0.23
+          - 0.698
         brightness: 64
-      light.bf1_den_cf1_bulb:
+      light.bf1_den_cf1_bulb1:
         state: "on"
         xy_color:
-          - 0.17
-          - 0.7
+          - 0.23
+          - 0.698
         brightness: 64
-      light.bf1_den_cf2_bulb:
+      light.bf1_den_cf2_bulb1:
         state: "off"
-      light.bf1_den_lamp1_bulb:
+      light.bf1_den_lamp1_bulb1:
         state: "off"
       light.bf1_den_lamp3_bulb_1:
         state: "off"
       light.bf1_den_lamp3_bulb_2:
         state: "off"
-      light.bf1_hallway_cf_bulb_1:
+      light.bf1_hallway_cf1_bulb_1:
         state: "off"
-      light.bf1_hallway_cf_bulb_3:
+      light.bf1_hallway_cf1_bulb_2:
         state: "off"
-      light.bf1_kitchen_cf1_bulb:
+      light.bf1_hallway_cf1_bulb_3:
         state: "off"
-      light.bf1_stairwell_bulb:
+      light.bf1_kitchen_cf1_bulb1:
         state: "off"
-      light.bf1_storage1_cf1_bulb:
+      light.bf1_stairwell_cf1_bulb1:
         state: "off"
-      light.bf1_storage1_cf2_bulb:
+      light.bf1_storage1_cf1_bulb1:
         state: "off"
-      light.bf1_storage2_lamp1_bulb:
+      light.bf1_storage1_cf2_bulb1:
         state: "off"
-      light.bf1_storage2_lamp2_bulb:
+      light.bf1_storage2_lamp1_bulb1:
         state: "off"
-      light.bf1_storage2_lamp3_bulb:
+      light.bf1_storage2_lamp2_bulb1:
+        state: "off"
+      light.bf1_storage2_lamp3_bulb1:
         state: "off"
 
   - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"

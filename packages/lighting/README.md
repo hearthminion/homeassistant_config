@@ -4,14 +4,34 @@
 
 This package manages the lights.
 
-The lights are configured into several modes:
-- Circadian
-- Darken (Partially implemented, the scene exists)
-- Migraine
-- Guests (Not yet implemented)
-- Migraine (Sleeping) (Not yet implemented)
-- Night Out (Not yet implemented)
+### Light Modes
+
+#### Circadian
+
+This is the default mode.  It is part of the daily routine.
+
+#### Darken
+
+Partially implemented, the scene exists.  It too is part of the daily routine.  While adaptive lighting provides a "sleep" mode, to get the color I want, I would need to configure adaptive lighting to use "xy" mode for adjusting the light's color temperature.  In so doing, I lose the ability to check for other color scenes for disabling the color adjustment based on an "xy" mode alone.  The check becomes significantly more complicated.
+
+#### Migraine
+
+This is the most complicated mode.  It's a mixture of Circadian, and green lights.
+
+Once triggered, an automation starts that does the following actions:
+1. While current circadian color temperature is above 3500K, color adjustments are disabled.
+2. If light is on, and any light in the room is green, it is turned green.
+3. If light is on, and light is in "ct" mode, and color temperature is above 3500K: light color temperature set to 3500K.
+
+The goal is to not put everyone in the house into green lighting, while providing green lighting where desired.
+
+
+#### Guests (Not yet implemented)
+#### Migraine (Sleeping) (Not yet implemented)
+#### Night Out (Not yet implemented)
 - Other (Not yet implemented)
+
+
 
 ## Installation
 ### Home Assistant Custom Integrations
@@ -34,6 +54,7 @@ Used to generate uuids for automations, scenes, etc.
 - Toggle Adaptive Lighting Brightness switch if autobrightness binary sensor changes state
 - Turn off Adaptive Lighting Brightness switch if Hue Dimmer Switch buttons 2 or 3 are pressed.
 - Toggle Adaptive lighting switch if autocolortemp binary sensor changes state
+- Toggle Adaptive Lighting based on bulb state: 'xy_color' mode (Off) or 'colortemp' mode (On)
 - Toggle Adaptive lighting based on if Circadian Mode is true or false
 - Turn on Migraine Mode if lights are set manually set to green
 - Turn on [Light Previously Green](#light-previously-green) if Migraine Mode is activated
@@ -76,8 +97,10 @@ xy_color:
 This sets the lights to Green at 25% brightness.
 
 xy_color:
-  - 0.17
-  - 0.7
+  - 0.23
+  - 0.698
+  
+Note: Hue Color Gamut "Green" has xy_color of [0.17,0.7].  Which corresponds to approximately 510nm wavelength (RGB: 0,255,0).  The wavelength [tested](https://academic.oup.com/brain/article/139/7/1971/2464334) was 530nm with an error of +/- 10nm.  530nm is closer to RGB: 94, 255,0, which corresponds to xy_color of [0.23,0.698].  Using [0.23,0.698] puts the bulbs theoretically in the middle of the range.  Taking into consideration that I don't expect the bulbs to be perfectly calibrated, this increases the odds that the color produced will fall close if not within the +/- 10nm range.
 
 #### [Scripts](https://www.home-assistant.io/docs/scripts/)
 ##### Update Home Assistant Scene

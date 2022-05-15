@@ -107,19 +107,19 @@ template:
       - unique_id: "4cb829f2-0ed2-4905-a845-ce59f76293a9"
         name: "Astronomical Time of Day"
         state: >-
-          {% if is_state("binary_sensor.astronomical_dawn", "on") %}
+          {% if is_state("binary_sensor.tod_astronomical_dawn", "on") %}
             Astronomical Dawn
-          {% elif is_state("binary_sensor.nautical_dawn", "on") %}
+          {% elif is_state("binary_sensor.tod_nautical_dawn", "on") %}
             Nautical Dawn
-          {% elif is_state("binary_sensor.civil_dawn", "on") %}
+          {% elif is_state("binary_sensor.tod_civil_dawn", "on") %}
             Civil Dawn
-          {% elif is_state("binary_sensor.day", "on") %}
+          {% elif is_state("binary_sensor.tod_day", "on") %}
             Day
-          {% elif is_state("binary_sensor.civil_dusk", "on") %}
+          {% elif is_state("binary_sensor.tod_civil_dusk", "on") %}
             Civil Dusk
-          {% elif is_state("binary_sensor.nautical_dusk", "on") %}
+          {% elif is_state("binary_sensor.tod_nautical_dusk", "on") %}
             Nautical Dusk
-          {% elif is_state("binary_sensor.astronomical_dusk", "on") %}
+          {% elif is_state("binary_sensor.tod_astronomical_dusk", "on") %}
             Astronomical Dusk
           {% else %}
             Night

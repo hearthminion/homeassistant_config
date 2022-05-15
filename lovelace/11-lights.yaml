@@ -55,7 +55,7 @@ cards:
               - type: entities
                 title: Basement Lights
                 show_header_toggle: false
-                entitites:
+                entities:
                   - input_boolean.bf1_all_lights
               - type: horizontal-stack
                 cards:
@@ -71,7 +71,7 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_homeassistant
+                        option: scene.bf1_all_homeassistant
                   - type: button
                     name: Bright
                     entity: input_select.bf1_all_lights_scene
@@ -84,7 +84,7 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_bright
+                        option: scene.bf1_all_bright
                   - type: button
                     name: Concentrate
                     entity: input_select.bf1_all_lights_scene
@@ -97,7 +97,7 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_concentrate
+                        option: scene.bf1_all_concentrate
                   - type: button
                     name: Nightlight
                     entity: input_select.bf1_all_lights_scene
@@ -110,7 +110,7 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_nightlight
+                        option: scene.bf1_all_nightlight
                   - type: button
                     name: Migraine
                     entity: input_select.bf1_all_lights_scene
@@ -123,7 +123,7 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_migraine
+                        option: scene.bf1_all_migraine
                   - type: button
                     name: Candle
                     entity: input_select.bf1_all_lights_scene
@@ -136,12 +136,12 @@ cards:
                       service: input_select.select_option
                       service_data:
                         entity_id: input_select.bf1_all_lights_scene
-                        option: scene.bf1_all_lights_candle
+                        option: scene.bf1_all_candle
 
               - type: entities
                 title: Basement Den Lights
                 show_header_toggle: false
-                entitites:
+                entities:
                   - input_boolean.bf1_den
               - type: horizontal-stack
                 cards:

@@ -16,14 +16,14 @@ adaptive_lighting:
     lights:
       - light.bf1_den_cf2
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
 
   - name: "BF1: Den Lamp1"
     lights:
       - light.bf1_den_lamp1
     initial_transition: 1
-    min_color_temp: 2200
+    min_color_temp: 2000
     max_color_temp: 6500
 
   - name: "BF1: Den Lamp2"
@@ -93,7 +93,7 @@ automation:
       service: scene.turn_on
       data_template:
         entity_id: >
-          {{ states('input_select.bf1_den_scene') }}
+          {{ states('input_select.bf1_den_lights_scene') }}
     mode: single
 
   # ================================================================================================
@@ -481,6 +481,7 @@ input_boolean:
 # ==================================================================================================
 input_select:
   bf1_den_lights_scene:
+    name: "BF1: Den - Scene"
     options:
       - scene.bf1_den_bright
       - scene.bf1_den_candle
@@ -497,10 +498,12 @@ input_select:
       - scene.bf1_den_dynamic
 
   bf1_den_dynamic_scenes:
+    name: "BF1: Den - Dynamic Scene"
     options:
       - Bright
 
   bf1_den_cf1_scene:
+    name: "BF1: Den CF1 - Scene"
     options:
       - scene.bf1_den_cf1_bright
       - scene.bf1_den_cf1_concentrate
@@ -514,6 +517,7 @@ input_select:
       - scene.bf1_den_cf1_relax
 
   bf1_den_cf2_scene:
+    name: "BF1: Den CF2 - Scene"
     options:
       - scene.bf1_den_cf2_bright
       - scene.bf1_den_cf2_concentrate
@@ -525,6 +529,7 @@ input_select:
       - scene.bf1_den_cf2_relax
 
   bf1_den_lamp1_scene:
+    name: "BF1: Den Lamp1 - Scene"
     options:
       - scene.bf1_den_lamp1_bright
       - scene.bf1_den_lamp1_concentrate
@@ -536,6 +541,7 @@ input_select:
       - scene.bf1_den_lamp1_relax
 
   bf1_den_lamp2_scene:
+    name: "BF1: Den Lamp2 - Scene"
     options:
       - scene.bf1_den_lamp2_bright
       - scene.bf1_den_lamp2_candle
@@ -551,6 +557,7 @@ input_select:
       - scene.bf1_den_lamp2_relax
 
   bf1_den_lamp3_scene:
+    name: "BF1: Den Lamp3 - Scene"
     options:
       - scene.bf1_den_lamp3_bright
       - scene.bf1_den_lamp3_concentrate

@@ -45,6 +45,7 @@ input_boolean:
 
 input_select:
   bf1_all_lights_scene:
+    name: "BF1: All Lights - Scenes"
     options:
       - scene.bf1_all_bright
       - scene.bf1_all_candle
@@ -61,6 +62,7 @@ input_select:
       - scene.bf1_all_dynamic
 
   bf1_all_lights_dynamic_scenes:
+    name: "BF1: All Lights - Dynamic Scenes"
     options:
       - Bright
 

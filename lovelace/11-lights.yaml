@@ -156,7 +156,7 @@ cards:
                   - type: button
                     name: Read
                     entity: input_select.bf1_all_lights_scene
-                    icon: mdi:menu
+                    icon: mdi:microsoft-xbox-controller-menu
                     show_name: false
                     show_state: true
                     state_color: true
@@ -325,7 +325,7 @@ cards:
                   - type: button
                     name: Read
                     entity: input_select.bf1_den_lights_scene
-                    icon: mdi:menu
+                    icon: mdi:microsoft-xbox-controller-menu
                     show_name: false
                     show_state: true
                     state_color: true

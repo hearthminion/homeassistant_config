@@ -52,13 +52,13 @@ automation:
   #
   # ================================================================================================
   - id: "4c6e9101-a48b-480f-bd66-ad4b5fe13ac2"
-    alias: "[Light] BF1: Den - Adaptive Lighting (Toggle)"
+    alias: "BF1: Den - Adaptive Lighting (Toggle)"
     initial_state: false
     trigger:
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_color_mode
+        entity_id: binary_sensor.bf1_den_color_mode
     variables:
-      adaptive_mode: "{{ iif(is_state('binary_sensor.light_bf1_den_color_mode','on'), 'off','on') }}"
+      adaptive_mode: "{{ iif(is_state('binary_sensor.bf1_den_color_mode','on'), 'off','on') }}"
     condition:
       condition: and
       conditions:
@@ -81,7 +81,7 @@ automation:
     mode: single
 
   - id: "a068ce76-cc17-4d03-a706-5e72bdd7f542"
-    alias: "[Light] BF1: Den - Update Selected Scene"
+    alias: "BF1: Den - Update Selected Scene"
     initial_state: false
     trigger:
       - platform: state
@@ -102,16 +102,16 @@ automation:
   #
   # ================================================================================================
   - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
-    alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Den CF1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_cf1_autobrightness
+        entity_id: binary_sensor.bf1_den_cf1_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_cf1_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_cf1_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -125,7 +125,7 @@ automation:
     mode: single
 
   - id: "5767f02e-cf98-4a58-935d-23008b0c4b29"
-    alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Den CF1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -149,16 +149,16 @@ automation:
     mode: single
 
   - id: "4227c801-66c4-439f-ba9d-8a478d67a497"
-    alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Toggle Color Adjustment)"
+    alias: "BF1: Den CF1 - Adaptive Lighting (Toggle Color Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_cf1_autobrightness
+        entity_id: binary_sensor.bf1_den_cf1_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_cf1_autocolor') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_cf1_autocolor') }}"
     condition:
       condition: and
       conditions:
@@ -172,7 +172,7 @@ automation:
     mode: single
 
   - id: "7df3d18c-0692-4307-bd22-9d21f6fafc8f"
-    alias: "[Light] BF1: Den CF1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    alias: "BF1: Den CF1 - Adaptive Lighting (Turn Off Color Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -192,7 +192,7 @@ automation:
     mode: single
 
   - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
-    alias: "[Light] BF1: Den CF1 - Green Has Been On"
+    alias: "BF1: Den CF1 - Green Has Been On"
     description: ""
     initial_state: false
     trigger:
@@ -202,11 +202,11 @@ automation:
         to: (0.23, 0.698)
     condition: []
     action:
-      - entity_id: input_boolean.light_bf1_den_cf1_green_event
+      - entity_id: input_boolean.bf1_den_cf1_green_event
         service: input_boolean.turn_on
 
   - id: "1638cbed-885f-435e-b200-324d14755a9cU"
-    alias: "[Light] BF1: Den CF1 - Turn off Green tracker"
+    alias: "BF1: Den CF1 - Turn off Green tracker"
     initial_state: false
     description: ""
     trigger:
@@ -214,7 +214,7 @@ automation:
         platform: time
     condition: []
     action:
-      - entity_id: input_boolean.light_bf1_den_cf1_green_event
+      - entity_id: input_boolean.bf1_den_cf1_green_event
         service: input_boolean.turn_off
     mode: single
 
@@ -224,16 +224,16 @@ automation:
   #
   # ================================================================================================
   - id: "2bb7e80d-9401-4294-97fa-ed54926aaeae"
-    alias: "[Light] BF1: Den CF2 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Den CF2 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_cf2_autobrightness
+        entity_id: binary_sensor.bf1_den_cf2_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_cf2_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_cf2_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -247,7 +247,7 @@ automation:
     mode: single
 
   - id: "28bb11af-1d93-4271-bd3b-a64d72e5e861"
-    alias: "[Light] BF1: Den CF2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Den CF2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -276,16 +276,16 @@ automation:
   #
   # ================================================================================================
   - id: "856093cd-615e-481c-a8cb-c8625aa70f43"
-    alias: "[Light] BF1: Den Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Den Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_lamp1_autobrightness
+        entity_id: binary_sensor.bf1_den_lamp1_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_lamp1_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_lamp1_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -299,7 +299,7 @@ automation:
     mode: single
 
   - id: "85f03946-6f35-480b-81a7-6dde04d6b583"
-    alias: "[Light] BF1: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -328,7 +328,7 @@ automation:
   #
   # ================================================================================================
   - id: "c1598496-1a45-4199-bc5b-64d11ba6b393"
-    alias: "[Light] BF1: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
@@ -337,7 +337,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.bf1_den_lamp2_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_lamp2_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_lamp2_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -351,7 +351,7 @@ automation:
     mode: single
 
   - id: "8a16a438-7064-46e3-83f4-3c9c30286613"
-    alias: "[Light] BF1: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -375,11 +375,11 @@ automation:
     mode: single
 
   - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
-    alias: "[Light] BF1: Den Lamp2 - Green Tracker (Turn On)"
+    alias: "BF1: Den Lamp2 - Green Tracker (Turn On)"
     description: ""
     initial_state: false
     trigger:
-      - entity_id: sensor.light_bf1_den_cf1_color
+      - entity_id: sensor.bf1_den_cf1_color
         platform: state
         to: (0.23, 0.698)
     condition: []
@@ -388,7 +388,7 @@ automation:
         service: input_boolean.turn_on
 
   - id: "cb8b4633-4a47-477e-9391-240ba6c7d71c"
-    alias: "[Light] BF1: Den Lamp2 - Green Tracker (Turn Off)"
+    alias: "BF1: Den Lamp2 - Green Tracker (Turn Off)"
     initial_state: false
     description: ""
     trigger:
@@ -406,16 +406,16 @@ automation:
   #
   # ================================================================================================
   - id: "37ba0e30-fec3-42ad-ae96-ad6378ebf63a"
-    alias: "[Light] BF1: Den Lamp3 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Den Lamp3 - Adaptive Lighting (Toggle Brightness Adjustment)"
     initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_den_lamp3_autobrightness
+        entity_id: binary_sensor.bf1_den_lamp3_autobrightness
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_bf1_den_lamp3_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_den_lamp3_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -429,7 +429,7 @@ automation:
     mode: single
 
   - id: "1a482491-906a-4d50-ac19-3e0a1585ab5a"
-    alias: "[Light] BF1: Den Lamp3 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Den Lamp3 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     initial_state: false
     description: ""
     trigger:
@@ -452,6 +452,31 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_den_lamp3
     mode: single
 
+  # ================================================================================================
+  #
+  #
+  #
+  # ================================================================================================
+  - id: "55cd64c4-64f3-45e0-9e49-44c666ee5df1"
+    alias: "BF1: All - Auto populate Hue dynamic scene input select"
+    mode: restart
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+      - platform: state
+        entity_id: input_select.hue_group
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.bf1_den_dynamic_scenes
+      data:
+        options: >
+          {{ states.scene
+            | selectattr('attributes.group_name','eq','BF1: Den')
+            | selectattr('attributes.is_dynamic','eq',true)
+            | map(attribute='name')
+            | list }}
+
 # ==================================================================================================
 #
 # Input Boolean
@@ -460,7 +485,7 @@ automation:
 input_boolean:
 
   bf1_den_all_lights:
-    name: "[Light] BF1: Den - All"
+    name: "BF1: Den - All"
 
 
   # ================================================================================================
@@ -469,10 +494,28 @@ input_boolean:
   #
   # ================================================================================================
   bf1_den_cf1_green_event:
-    name: "[Light] BF1: Den CF1 - Green Event"
+    name: "BF1: Den CF1 - Green Event"
 
   bf1_den_lamp2_green_event:
-    name: "[Light] BF1: Den Lamp 2 - Green Event"
+    name: "BF1: Den Lamp 2 - Green Event"
+
+# ==================================================================================================
+#
+# Input Number
+#
+# ==================================================================================================
+input_number:
+  bf1_den_dynamic_scene_speed:
+    name: "BF1: Den - Dynamic Scene Speed"
+    min: 0
+    max: 100
+    step: 10
+
+  bf1_den_dynamic_scene_brightness:
+    name: "BF1: Den - Dynamic Scene Brightness"
+    min: 0
+    max: 255
+    step: 10
 
 # ==================================================================================================
 #
@@ -719,33 +762,33 @@ scene:
   #
   # ================================================================================================
   - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
-    name: "[Light] BF1: Den - Enable Automations"
+    name: "BF1: Den - Enable Automations"
     entities:
-      automation.light_bf1_den_adaptive_lighting_toggle:
+      automation.bf1_den_adaptive_lighting_toggle:
         state: "on"
-      automation.light_bf1_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
+      automation.bf1_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_cf1_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.bf1_den_cf1_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
+      automation.bf1_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_cf2_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.bf1_den_cf2_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
+      automation.bf1_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp1_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.bf1_den_lamp1_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
+      automation.bf1_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.bf1_den_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
+      automation.bf1_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
         state: "on"
-      automation.light_bf1_den_lamp3_adaptive_lighting_turn_off_brightness_adjustment:
+      automation.bf1_den_lamp3_adaptive_lighting_turn_off_brightness_adjustment:
         state: "on"
 
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
-    name: "[Light] BF1: Den - Darken"
+    name: "BF1: Den - Darken"
     entities:
       light.bf1_den_lamp2_bulb:
         state: "on"
@@ -769,7 +812,7 @@ scene:
         state: "off"
 
   - id: "23d13269-6154-4b8d-9fbc-473e1cd5cade"
-    name: "[Light] BF1: Den - Migraine"
+    name: "BF1: Den - Migraine"
     entities:
       light.bf1_den_lamp2_bulb:
         state: "on"
@@ -793,7 +836,7 @@ scene:
         state: "off"
 
   - id: "e22fe978-0ef1-40ff-8318-f823d40d4afc"
-    name: "[Light] BF1: Den - Bright"
+    name: "BF1: Den - Bright"
     entities:
       light.bf1_den:
         state: "on"
@@ -801,7 +844,7 @@ scene:
         brightness: 255
 
   - id: "56f372b6-6671-4822-944e-a3acf87e0d44"
-    name: "[Light] BF1: Den - Concentrate"
+    name: "BF1: Den - Concentrate"
     entities:
       light.bf1_den:
         state: "on"
@@ -809,7 +852,7 @@ scene:
         brightness: 255
 
   - id: "2a58b5f2-eaf2-42c2-8bdf-16803f3a353f"
-    name: "[Light] BF1: Den - Dimmed"
+    name: "BF1: Den - Dimmed"
     entities:
       light.bf1_den:
         state: "on"
@@ -817,7 +860,7 @@ scene:
         brightness: 76
 
   - id: "b82e0bc9-96c4-4f6c-a893-256845cc40f0"
-    name: "[Light] BF1: Den - Energize"
+    name: "BF1: Den - Energize"
     entities:
       light.bf1_den:
         state: "on"
@@ -825,7 +868,7 @@ scene:
         brightness: 255
 
   - id: "6cf4fe95-ab39-44a5-ae1b-c39fa505f4e6"
-    name: "[Light] BF1: Den - Nightlight"
+    name: "BF1: Den - Nightlight"
     entities:
       light.bf1_den:
         state: "on"
@@ -833,7 +876,7 @@ scene:
         brightness: 1
 
   - id: "61347ccd-2929-416c-8b44-ec3d0f79fe24"
-    name: "[Light] BF1: Den - Read"
+    name: "BF1: Den - Read"
     entities:
       light.bf1_den:
         state: "on"
@@ -841,7 +884,7 @@ scene:
         brightness: 255
 
   - id: "72a07da5-a6b2-403e-a26e-29322e5cd272"
-    name: "[Light] BF1: Den - Relax"
+    name: "BF1: Den - Relax"
     entities:
       light.bf1_den:
         state: "on"
@@ -849,13 +892,13 @@ scene:
         brightness: 145
 
   - id: "75ebf157-d318-48d2-849e-2adc16b83ff1"
-    name: "[Light] BF1: Den - Off"
+    name: "BF1: Den - Off"
     entities:
       light.bf1_den:
         state: "off"
 
   - id: "036daf4c-026f-417b-b3e3-9bba14f040bb"
-    name: "[Light] BF1: Den CF1 - Darken"
+    name: "BF1: Den CF1 - Darken"
     entities:
       light.bf1_den_cf1_bulb:
         state: "on"
@@ -865,7 +908,7 @@ scene:
         brightness: 64
 
   - id: "a39d81fa-b875-4810-a587-273af02a7841"
-    name: "[Light] BF1: Den CF1 - Migraine"
+    name: "BF1: Den CF1 - Migraine"
     entities:
       light.bf1_den_cf1_bulb:
         state: "on"
@@ -875,7 +918,7 @@ scene:
         brightness: 64
 
   - id: "892118cd-664d-4373-9d42-1a511fe39e4c"
-    name: "[Light] BF1: Den CF1 - Bright"
+    name: "BF1: Den CF1 - Bright"
     entities:
       light.bf1_den_cf1:
         state: "on"
@@ -883,7 +926,7 @@ scene:
         brightness: 255
 
   - id: "e5314906-7755-4632-a5c7-fbdb6ab3688b"
-    name: "[Light] BF1: Den CF1 - Concentrate"
+    name: "BF1: Den CF1 - Concentrate"
     entities:
       light.bf1_den_cf1:
         state: "on"
@@ -891,7 +934,7 @@ scene:
         brightness: 255
 
   - id: "a9f42803-c0a6-474d-8fe6-d0cc45942f05"
-    name: "[Light] BF1: Den CF1 - Dimmed"
+    name: "BF1: Den CF1 - Dimmed"
     entities:
       light.bf1_den_cf1:
         state: "on"
@@ -899,7 +942,7 @@ scene:
         brightness: 76
 
   - id: "96a5fc4b-bf8c-4bfc-99a5-22faac4718a3"
-    name: "[Light] BF1: Den CF1 - Energize"
+    name: "BF1: Den CF1 - Energize"
     entities:
       light.bf1_den_cf1:
         state: "on"
@@ -907,7 +950,7 @@ scene:
         brightness: 255
 
   - id: "093ab12a-6049-4b0a-bb17-d0c8a58339a2"
-    name: "[Light] BF1: Den CF1 - Relax"
+    name: "BF1: Den CF1 - Relax"
     entities:
       light.bf1_den_cf1:
         state: "on"
@@ -915,13 +958,13 @@ scene:
         brightness: 145
 
   - id: "1063de13-3010-49d8-ac0c-0faf52521723"
-    name: "[Light] BF1: Den CF1 - Off"
+    name: "BF1: Den CF1 - Off"
     entities:
       light.bf1_den_cf1:
         state: "off"
 
   - id: "05adc376-5509-46f2-b00b-0adcc56ff071"
-    name: "[Light] BF1: Den CF2 - Bright"
+    name: "BF1: Den CF2 - Bright"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -929,7 +972,7 @@ scene:
         brightness: 255
 
   - id: "739aba1d-601c-4136-a047-7e95929a4d22"
-    name: "[Light] BF1: Den CF2 - Concentrate"
+    name: "BF1: Den CF2 - Concentrate"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -937,7 +980,7 @@ scene:
         brightness: 255
 
   - id: "bb7348fe-6cca-429e-a2e7-0e0f27bf786e"
-    name: "[Light] BF1: Den CF2 - Dimmed"
+    name: "BF1: Den CF2 - Dimmed"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -945,7 +988,7 @@ scene:
         brightness: 76
 
   - id: "99597d73-4ff7-4d4b-868c-66cf04120715"
-    name: "[Light] BF1: Den CF2 - Energize"
+    name: "BF1: Den CF2 - Energize"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -953,7 +996,7 @@ scene:
         brightness: 255
 
   - id: "b0b2725d-eb16-4cf5-9e24-67199c52a9c1"
-    name: "[Light] BF1: Den CF2 - Nightlight"
+    name: "BF1: Den CF2 - Nightlight"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -961,7 +1004,7 @@ scene:
         brightness: 1
 
   - id: "cdbff247-8b71-4419-8965-9d40989ceb14"
-    name: "[Light] BF1: Den CF2 - Read"
+    name: "BF1: Den CF2 - Read"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -969,7 +1012,7 @@ scene:
         brightness: 255
 
   - id: "d54157d0-55e8-406c-92c4-f0e8f3dcdb43"
-    name: "[Light] BF1: Den CF2 - Relax"
+    name: "BF1: Den CF2 - Relax"
     entities:
       light.bf1_den_cf2:
         state: "on"
@@ -977,13 +1020,13 @@ scene:
         brightness: 145
 
   - id: "16ddbe1a-61c0-4acc-a62f-760ff80906ab"
-    name: "[Light] BF1: Den CF2 - Off"
+    name: "BF1: Den CF2 - Off"
     entities:
       light.bf1_den_cf2:
         state: "off"
 
   - id: "1a45d737-39cd-4785-82d6-b4f90e122e69"
-    name: "[Light] BF1: Den Lamp 1 - Bright"
+    name: "BF1: Den Lamp 1 - Bright"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -991,7 +1034,7 @@ scene:
         brightness: 255
 
   - id: "12648b84-93d3-43a2-b4fd-d2805dd98407"
-    name: "[Light] BF1: Den Lamp 1 - Concentrate"
+    name: "BF1: Den Lamp 1 - Concentrate"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -999,7 +1042,7 @@ scene:
         brightness: 255
 
   - id: "9adff70c-2589-4cc7-ab52-389b579c1636"
-    name: "[Light] BF1: Den Lamp 1 - Dimmed"
+    name: "BF1: Den Lamp 1 - Dimmed"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -1007,7 +1050,7 @@ scene:
         brightness: 76
 
   - id: "ed74691e-a94e-4977-a8c7-ccc7c908ed2e"
-    name: "[Light] BF1: Den Lamp 1 - Energize"
+    name: "BF1: Den Lamp 1 - Energize"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -1015,7 +1058,7 @@ scene:
         brightness: 255
 
   - id: "5031e294-15bb-4099-af30-0fda31c4881e"
-    name: "[Light] BF1: Den Lamp 1 - Nightlight"
+    name: "BF1: Den Lamp 1 - Nightlight"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -1023,7 +1066,7 @@ scene:
         brightness: 1
 
   - id: "a417a1da-8906-4e36-bb73-243a3d15cb01"
-    name: "[Light] BF1: Den Lamp 1 - Read"
+    name: "BF1: Den Lamp 1 - Read"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -1031,7 +1074,7 @@ scene:
         brightness: 255
 
   - id: "5e1229fa-ef48-456d-8235-510c059251ab"
-    name: "[Light] BF1: Den Lamp 1 - Relax"
+    name: "BF1: Den Lamp 1 - Relax"
     entities:
       light.bf1_den_lamp1:
         state: "on"
@@ -1039,13 +1082,13 @@ scene:
         brightness: 145
 
   - id: "0051519b-8dae-4000-87c0-b9580ef29a3f"
-    name: "[Light] BF1: Den Lamp 1 - Off"
+    name: "BF1: Den Lamp 1 - Off"
     entities:
       light.bf1_den_lamp1:
         state: "off"
 
   - id: "5af2c88c-f065-4136-bb30-4e7f215539be"
-    name: "[Light] BF1: Den Lamp 2 - Darken"
+    name: "BF1: Den Lamp 2 - Darken"
     entities:
       light.bf1_den_lamp2_bulb:
         state: "on"
@@ -1055,7 +1098,7 @@ scene:
         brightness: 64
 
   - id: "8cfbff74-659b-4127-9d62-055c7f673415"
-    name: "[Light] BF1: Den Lamp 2 - Migraine"
+    name: "BF1: Den Lamp 2 - Migraine"
     entities:
       light.bf1_den_lamp2_bulb:
         state: "on"
@@ -1065,7 +1108,7 @@ scene:
         brightness: 64
 
   - id: "1af10e06-b6da-47e1-844a-d57097429fed"
-    name: "[Light] BF1: Den Lamp 2 - Moonlight"
+    name: "BF1: Den Lamp 2 - Moonlight"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1075,7 +1118,7 @@ scene:
           - 0.2489
 
   - id: "9aae763e-377d-4685-bb2f-52f7f97a32d9"
-    name: "[Light] BF1: Den Lamp 2 - Bright"
+    name: "BF1: Den Lamp 2 - Bright"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1083,7 +1126,7 @@ scene:
         brightness: 255
 
   - id: "27fadaf9-5df4-4ac3-b3d7-a95723dddd9f"
-    name: "[Light] BF1: Den Lamp 2 - Concentrate"
+    name: "BF1: Den Lamp 2 - Concentrate"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1091,7 +1134,7 @@ scene:
         brightness: 255
 
   - id: "976303bd-e643-459a-a480-60b92a8b07a2"
-    name: "[Light] BF1: Den Lamp 2 - Dimmed"
+    name: "BF1: Den Lamp 2 - Dimmed"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1099,7 +1142,7 @@ scene:
         brightness: 76
 
   - id: "2ee3d1e8-5886-4d3a-a181-1d9e951263d2"
-    name: "[Light] BF1: Den Lamp 2 - Energize"
+    name: "BF1: Den Lamp 2 - Energize"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1107,15 +1150,15 @@ scene:
         brightness: 255
 
   - id: "2ce26df1-6bc7-4df9-80bb-93d983348ae5"
-    name: "[Light] BF1: Den Lamp 2 - Nightlight"
+    name: "BF1: Den Lamp 2 - Nightlight"
     entities:
       light.bf1_den_lamp2:
         state: "on"
-        color_temp: 454
+        color_temp: 500
         brightness: 1
 
   - id: "756fb577-e196-4e5f-b122-3283b8376c51"
-    name: "[Light] BF1: Den Lamp 2 - Read"
+    name: "BF1: Den Lamp 2 - Read"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1123,7 +1166,7 @@ scene:
         brightness: 255
 
   - id: "065eae2b-dc07-4cd6-9071-524504cf02bc"
-    name: "[Light] BF1: Den Lamp 2 - Relax"
+    name: "BF1: Den Lamp 2 - Relax"
     entities:
       light.bf1_den_lamp2:
         state: "on"
@@ -1131,13 +1174,13 @@ scene:
         brightness: 145
 
   - id: "8656bfea-0550-4612-a69f-a1b274b47964"
-    name: "[Light] BF1: Den Lamp 2 - Off"
+    name: "BF1: Den Lamp 2 - Off"
     entities:
       light.bf1_den_lamp2:
         state: "off"
 
   - id: "68462efd-312d-4dec-b0af-8e523d293f0a"
-    name: "[Light] BF1: Den Lamp 3 - Bright"
+    name: "BF1: Den Lamp 3 - Bright"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1145,7 +1188,7 @@ scene:
         brightness: 255
 
   - id: "5515a484-53f8-4f9f-8d26-9f64345553d0"
-    name: "[Light] BF1: Den Lamp 3 - Concentrate"
+    name: "BF1: Den Lamp 3 - Concentrate"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1153,7 +1196,7 @@ scene:
         brightness: 255
 
   - id: "20ee9e12-337b-471b-bd3d-1d5093b0e9aa"
-    name: "[Light] BF1: Den Lamp 3 - Dimmed"
+    name: "BF1: Den Lamp 3 - Dimmed"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1161,7 +1204,7 @@ scene:
         brightness: 76
 
   - id: "5cb22ee2-1ccb-4bd8-9345-e150afd9bd03"
-    name: "[Light] BF1: Den Lamp 3 - Energize"
+    name: "BF1: Den Lamp 3 - Energize"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1169,7 +1212,7 @@ scene:
         brightness: 255
 
   - id: "749a98a7-69f7-4f3d-bcad-60747052f6e5"
-    name: "[Light] BF1: Den Lamp 3 - Nightlight"
+    name: "BF1: Den Lamp 3 - Nightlight"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1177,7 +1220,7 @@ scene:
         brightness: 1
 
   - id: "b8c793f0-deba-4f70-9930-76c8c2374211"
-    name: "[Light] BF1: Den Lamp 3 - Read"
+    name: "BF1: Den Lamp 3 - Read"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1185,7 +1228,7 @@ scene:
         brightness: 255
 
   - id: "f3c6ad5d-6de9-4049-a385-f96be736f240"
-    name: "[Light] BF1: Den Lamp 3 - Relax"
+    name: "BF1: Den Lamp 3 - Relax"
     entities:
       light.bf1_den_lamp3:
         state: "on"
@@ -1193,7 +1236,7 @@ scene:
         brightness: 145
 
   - id: "e8f0a085-0893-47be-93ad-bbd69705d3ec"
-    name: "[Light] BF1: Den Lamp 3 - Off"
+    name: "BF1: Den Lamp 3 - Off"
     entities:
       light.bf1_den_lamp3:
         state: "off"
@@ -1211,7 +1254,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "8026215e-768b-48e6-86af-7053c91ac3f6"
-        name: "[Light] BF1: Den - Color Mode"
+        name: "BF1: Den - Color Mode"
         state: "{{ state_attr('light.bf1_den','color_mode') == 'xy' }}"
 
       # ============================================================================================
@@ -1220,14 +1263,14 @@ template:
       #
       # ============================================================================================
       - unique_id: "4e73e461-0de2-4211-a0a0-daba7d34b223"
-        name: "[Light] BF1: Den CF1 - Autobrightness"
+        name: "BF1: Den CF1 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.bf1_den_cf1_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_min") | int(96)
+             ( state_attr("binary_sensor.bf1_den_cf1_autobrightness", "brightness_min") | int(96)
              ) }}
         attributes:
           brightness: >-
@@ -1237,19 +1280,19 @@ template:
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "323a0a4f-8adc-485b-844c-91011ca27147"
-        name: "[Light] BF1: Den CF1 - Autocolor"
+        name: "BF1: Den CF1 - Autocolor"
         state: >-
           {{ (
                states("sensor.global_dummy_light_color_temperature") | int(367) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf1_autocolor", "color_temp_max")
+               ( state_attr("binary_sensor.bf1_den_cf1_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf1_autocolor", "color_temp_min") | int(363)
+             ( state_attr("binary_sensor.bf1_den_cf1_autocolor", "color_temp_min") | int(363)
              ) }}
         attributes:
           color_temp: >-
@@ -1259,18 +1302,18 @@ template:
               {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
             {% endif %}
           color_temp_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "color_temp") | int(367) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf1_autobrightness", "color_temp") | int(367) + 4 }}
           color_temp_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "color_temp") | int(367) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf1_autobrightness", "color_temp") | int(367) - 4 }}
 
       - unique_id: "62828fad-c7ff-488d-b4e8-8abc61557edb"
-        name: "[Light] BF1: Den CF1 - Scene Bright"
+        name: "BF1: Den CF1 - Scene Bright"
         state: >-
           {{ is_state_attr("light.bf1_den_cf1", "brightness", "255") and
              is_state_attr("light.bf1_den_cf1", "color_temp", "367") }}
 
       - unique_id: "62828fad-c7ff-488d-b4e8-8abc61557edb"
-        name: "[Light] BF1: Den CF1 - Scene Concentrate"
+        name: "BF1: Den CF1 - Scene Concentrate"
         state: >-
           {{ is_state_attr("light.bf1_den_cf1", "brightness", "255") and
              is_state_attr("light.bf1_den_cf1", "color_temp", "230") }}
@@ -1281,14 +1324,14 @@ template:
       #
       # ============================================================================================
       - unique_id: "e7ce778a-148f-455e-8c58-373bc2c07c20"
-        name: "[Light] BF1: Den CF2 - Autobrightness"
+        name: "BF1: Den CF2 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.bf1_den_cf2_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.bf1_den_cf2_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
@@ -1298,19 +1341,19 @@ template:
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf2_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf2_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "26f9a3ca-b6aa-43b3-a958-769f03953408"
-        name: "[Light] BF1: Den CF2 - Autocolor"
+        name: "BF1: Den CF2 - Autocolor"
         state: >-
           {{ (
                states("sensor.global_dummy_light_color_temperature") | int(367) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf2_autocolor", "color_temp_max")
+               ( state_attr("binary_sensor.bf1_den_cf2_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf2_autocolor", "color_temp_min") | int(363)
+             ( state_attr("binary_sensor.bf1_den_cf2_autocolor", "color_temp_min") | int(363)
              ) }}
         attributes:
           color_temp: >-
@@ -1320,9 +1363,9 @@ template:
               {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
             {% endif %}
           color_temp_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "color_temp") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf2_autobrightness", "color_temp") | int(100) + 4 }}
           color_temp_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "color_temp") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_cf2_autobrightness", "color_temp") | int(100) - 4 }}
 
 
       # ============================================================================================
@@ -1331,14 +1374,14 @@ template:
       #
       # ============================================================================================
       - unique_id: "40ffe195-8dce-429b-9d93-86ab7b7a0c64"
-        name: "[Light] BF1: Den Lamp1 - Autobrightness"
+        name: "BF1: Den Lamp1 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
@@ -1348,19 +1391,19 @@ template:
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "a34519fb-38b3-4771-8609-a3dae4ba21fa"
-        name: "[Light] BF1: Den LAMP1 - Autocolor"
+        name: "BF1: Den Lamp1 - Autocolor"
         state: >-
           {{ (
                states("sensor.global_dummy_light_color_temperature") | int(367) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp1_autocolor", "color_temp_max")
+               ( state_attr("binary_sensor.bf1_den_lamp1_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp1_autocolor", "color_temp_min") | int(363)
+             ( state_attr("binary_sensor.bf1_den_lamp1_autocolor", "color_temp_min") | int(363)
              ) }}
         attributes:
           color_temp: >-
@@ -1370,9 +1413,9 @@ template:
               {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
             {% endif %}
           color_temp_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "color_temp") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "color_temp") | int(100) + 4 }}
           color_temp_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp1_autobrightness", "color_temp") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp1_autobrightness", "color_temp") | int(100) - 4 }}
 
       # ============================================================================================
       #
@@ -1380,14 +1423,14 @@ template:
       #
       # ============================================================================================
       - unique_id: "c941d9d2-85ef-4148-b52a-1020a94c2225"
-        name: "[Light] BF1: Den Lamp2 - Autobrightness"
+        name: "BF1: Den Lamp2 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
@@ -1397,19 +1440,19 @@ template:
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "cfec1c05-a688-4f93-8618-427d7eefeac7"
-        name: "[Light] BF1: Den Lamp2 - Autocolor"
+        name: "BF1: Den Lamp2 - Autocolor"
         state: >-
           {{ (
                states("sensor.global_dummy_light_color_temperature") | int(367) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp2_autocolor", "color_temp_max")
+               ( state_attr("binary_sensor.bf1_den_lamp2_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp2_autocolor", "color_temp_min") | int(363)
+             ( state_attr("binary_sensor.bf1_den_lamp2_autocolor", "color_temp_min") | int(363)
              ) }}
         attributes:
           color_temp: >-
@@ -1419,9 +1462,9 @@ template:
               {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
             {% endif %}
           color_temp_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "color_temp") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "color_temp") | int(100) + 4 }}
           color_temp_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp2_autobrightness", "color_temp") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp2_autobrightness", "color_temp") | int(100) - 4 }}
 
       # ============================================================================================
       #
@@ -1429,14 +1472,14 @@ template:
       #
       # ============================================================================================
       - unique_id: "d35877fb-db1e-47e0-bce0-a2517e0e8b92"
-        name: "[Light] BF1: Den Lamp3 - Autobrightness"
+        name: "BF1: Den Lamp3 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
@@ -1446,19 +1489,19 @@ template:
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "42bff3a4-7a1f-425e-859e-5ba054684ed6"
-        name: "[Light] BF1: Den Lamp3 - Autocolor"
+        name: "BF1: Den Lamp3 - Autocolor"
         state: >-
           {{ (
                states("sensor.global_dummy_light_color_temperature") | int(367) ) <
-               ( state_attr("binary_sensor.light_bf1_den_lamp3_autocolor", "color_temp_max")
+               ( state_attr("binary_sensor.bf1_den_lamp3_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.light_bf1_den_lamp3_autocolor", "color_temp_min") | int(363)
+             ( state_attr("binary_sensor.bf1_den_lamp3_autocolor", "color_temp_min") | int(363)
              ) }}
         attributes:
           color_temp: >-
@@ -1468,9 +1511,9 @@ template:
               {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
             {% endif %}
           color_temp_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "color_temp") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "color_temp") | int(100) + 4 }}
           color_temp_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_lamp3_autobrightness", "color_temp") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.bf1_den_lamp3_autobrightness", "color_temp") | int(100) - 4 }}
 
   - sensor:
       # ============================================================================================
@@ -1479,7 +1522,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "70e951ee-3ef0-488c-b426-6a77326b904a"
-        name: "[Light] BF1: Den Color"
+        name: "BF1: Den Color"
         state: "{{ state_attr('light.bf1_den', 'xy_color') }}"
 
       # ============================================================================================
@@ -1488,7 +1531,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "337ca313-fe2a-48b6-a6f4-ddfe11fec06f"
-        name: "[Light] BF1: Den CF1 Color"
+        name: "BF1: Den CF1 Color"
         state: "{{ state_attr('light.bf1_den_cf1', 'xy_color') }}"
 
       # ============================================================================================
@@ -1497,7 +1540,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "0a8b5637-0b31-4e51-86d8-a9b27c8f74dc"
-        name: "[Light] BF1: Den CF2 Color"
+        name: "BF1: Den CF2 Color"
         state: "{{ state_attr('light.bf1_den_cf2', 'xy_color') }}"
 
       # ============================================================================================
@@ -1506,7 +1549,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "764b1552-4941-4907-a408-f7e6048a01f8"
-        name: "[Light] BF1: Den Lamp1 Color"
+        name: "BF1: Den Lamp1 Color"
         state: "{{ state_attr('light.bf1_den_lamp1', 'xy_color') }}"
 
       # ============================================================================================
@@ -1515,7 +1558,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "92495cab-1e50-440b-936b-b22f96b7939a"
-        name: "[Light] BF1: Den Lamp2 Color"
+        name: "BF1: Den Lamp2 Color"
         state: "{{ state_attr('light.bf1_den_lamp2', 'xy_color') }}"
 
       # ============================================================================================
@@ -1524,5 +1567,5 @@ template:
       #
       # ============================================================================================
       - unique_id: "38deaa3d-efea-4cdf-824d-deb2cd580039"
-        name: "[Light] BF1: Den Lamp3 Color"
+        name: "BF1: Den Lamp3 Color"
         state: "{{ state_attr('light.bf1_den_lamp3', 'xy_color') }}"

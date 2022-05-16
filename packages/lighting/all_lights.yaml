@@ -19,19 +19,19 @@ adaptive_lighting:
 # ==================================================================================================
 automation:
   - id: "65d7e60e-4e39-460b-a319-b65f497b6465"
-    alias: "[Light] Global: All Lights - Enable Automations"
+    alias: "Global: All Lights - Enable Automations"
     description: ""
     trigger:
       - event: start
         platform: homeassistant
     condition: []
     action:
-      - scene: scene.light_bf1_all_enable_automations
-      - scene: scene.light_bf1_den_enable_automations
-      - scene: scene.light_bf1_hallway_enable_automations
-      - scene: scene.light_global_all_enable_automations
-      - scene: scene.light_mf1_bedroom1_enable_automations
-      - scene: scene.light_mf2_den_enable_automations
+      - scene: scene.bf1_all_enable_automations
+      - scene: scene.bf1_den_enable_automations
+      - scene: scene.bf1_hallway_enable_automations
+      - scene: scene.global_all_enable_automations
+      - scene: scene.mf1_bedroom1_enable_automations
+      - scene: scene.mf2_den_enable_automations
 
   # ================================================================================================
   #
@@ -39,15 +39,17 @@ automation:
   #
   # ================================================================================================
   - id: "a3ed2024-e1a9-4ac8-8dca-80cc62812fcf"
-    alias: "[Light] Global: All Lights - Adaptive Lighting (Toggle)"
+    alias: "Global: All Lights - Adaptive Lighting (Toggle)"
     description: ''
     initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.circadian_mode
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state != trigger.from_state }}"
     variables:
       circadian_mode: "{{ is_state('binary_sensor.circadian_mode','on') }}"
-    condition: []
     action:
       - service: "switch.turn_{{ circadian_mode }}"
         data:
@@ -79,7 +81,7 @@ automation:
   #
   # ================================================================================================
   - id: "7e6a8e75-fa0a-43f9-8d47-98295ccafc07"
-    alias: "[Light] Global: Dummy Light - Adaptive Lighting (Turn On)"
+    alias: "Global: Dummy Light - Adaptive Lighting (Turn On)"
     description: ""
     initial_state: false
     trigger:
@@ -116,7 +118,7 @@ automation:
   #
   # ================================================================================================
   - id: "087bce7b-c92f-4c05-a3ba-22949cb79e61"
-    alias: "[Light] Set Light Mode: Circadian"
+    alias: "Set Light Mode: Circadian"
     description: ""
     initial_state: false
     trigger:
@@ -142,7 +144,7 @@ automation:
   #
   # ================================================================================================
   - id: "ed400d67-ffec-489a-9d90-1a589baa6910"
-    alias: "[Light] Set Light Mode: Darken House"
+    alias: "Set Light Mode: Darken House"
     description: ""
     initial_state: false
     trigger:
@@ -168,7 +170,7 @@ automation:
   # - 
   # ================================================================================================
   - id: "1b4dd01f-acb1-4462-b14a-7d818f12787b"
-    alias: "[Light] Set Light Mode: Migraine"
+    alias: "Set Light Mode: Migraine"
     description: ""
     initial_state: false
     trigger:
@@ -182,7 +184,7 @@ automation:
           option: "Migraine"
 
   - id: "387e7772-a2c3-4d29-b524-8aa36fbc65b2"
-    alias: "[Light] Migraine Mode - Enable"
+    alias: "Migraine Mode - Enable"
     description: "This automation turns on migraine mode based on light changes."
     initial_state: false
     trigger:
@@ -193,6 +195,9 @@ automation:
         platform: state
         to: (0.23, 0.698)
       - entity_id: sensor.bf1_den_color
+        platform: state
+        to: (0.23, 0.698)
+      - entity_id: sensor.mf1_bathroom1_inner_color
         platform: state
         to: (0.23, 0.698)
       - entity_id: sensor.mf1_bedroom1_lamp1_color
@@ -218,7 +223,7 @@ automation:
   #
   # ================================================================================================
   - id: "049e19ec-4370-427d-a080-8fece7a2ca6d"
-    alias: "[Light] Set Light Mode: Guests"
+    alias: "Set Light Mode: Guests"
     description: ""
     initial_state: false
     trigger:
@@ -241,7 +246,7 @@ automation:
   #
   # ================================================================================================
   - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
-    alias: "[Light] Update HomeAssistant Scene on Hue Bridges"
+    alias: "Update HomeAssistant Scene on Hue Bridges"
     description: ""
     initial_state: false
     trigger:
@@ -260,7 +265,7 @@ automation:
     mode: single
 
   # - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
-  #   alias: "[Light] Update Migraine Scene on Hue Bridges"
+  #   alias: "Update Migraine Scene on Hue Bridges"
   #   description: ""
   #   initial_state: false
   #   trigger:
@@ -310,72 +315,6 @@ automation:
         data:
           entity_id: timer.lights_off
 
-
-  # ================================================================================================
-  #
-  #
-  #
-  # ================================================================================================
-  - id: "e92ba251-e2f1-44ed-880f-9786b07c9c98"
-    alias: "[Light] All: Auto populate Hue group input select"
-    mode: restart
-    trigger:
-      platform: event
-      event_type: delayed_homeassistant_start
-    action:
-      service: input_select.set_options
-      target:
-        entity_id: input_select.hue_group
-      data:
-        options: >
-          {{ states.light
-            | selectattr('attributes.is_hue_group','eq',true)
-            | map(attribute='name')
-            | list }}
-
-  - id: "768e2a2c-4be8-4822-9440-93945cf106bb"
-    alias: "[Light] All: Auto populate Hue basic scene input select"
-    mode: restart
-    trigger:
-      - platform: event
-        event_type: delayed_homeassistant_start
-      - platform: state
-        entity_id: input_select.hue_group
-    action:
-      service: input_select.set_options
-      target:
-        entity_id: input_select.hue_basic_scene
-      data:
-        options: >
-          {% set hue_group = states('input_select.hue_group') %}
-          {{ states.scene
-            | selectattr('attributes.group_name','eq',hue_group)
-            | selectattr('attributes.is_dynamic','eq',false)
-            | map(attribute='name')
-            | list }}
-
-  - id: "739ebd7a-cda1-4b99-81f8-ce568864893a"
-    alias: "[Light] All: Auto populate Hue dynamic scene input select"
-    mode: restart
-    trigger:
-      - platform: event
-        event_type: delayed_homeassistant_start
-      - platform: state
-        entity_id: input_select.hue_group
-    action:
-      service: input_select.set_options
-      target:
-        entity_id: input_select.hue_dynamic_scene
-      data:
-        options: >
-          {% set hue_group = states('input_select.hue_group') %}
-          {{ states.scene
-            | selectattr('attributes.group_name','eq',hue_group)
-            | selectattr('attributes.is_dynamic','eq',true)
-            | map(attribute='name')
-            | list }}
-
-
 # ==================================================================================================
 #
 # Input Number
@@ -413,17 +352,17 @@ input_select:
       - "Other"
 
   hue_group:
-    name: "[Light] All: Select Hue Group"
+    name: "All: Select Hue Group"
     options:
       - "BF1: All"
 
   hue_basic_scene:
-    name: "[Light] All: Hue Basic Scene"
+    name: "All: Hue Basic Scene"
     options:
       - Bright
 
   hue_dynamic_scene:
-    name: "[Light] All: Hue Dynamic Scene"
+    name: "All: Hue Dynamic Scene"
     options:
       - Bright
 
@@ -447,7 +386,7 @@ light:
 # ==================================================================================================
 scene:
   - id: "e697c216-b8c7-4825-9f40-4fd01d220d40"
-    name: "[Light] Global: All - Enable Automations"
+    name: "Global: All - Enable Automations"
     entities:
       automation.light_set_light_mode_circadian:
         state: 'on'
@@ -467,7 +406,7 @@ scene:
         state: 'on'
 
   - id: "f0bb567c-050e-4499-b46e-99697efa5de7"
-    name: "[Light] Global: All - Bright"
+    name: "Global: All - Bright"
     entities:
       light.all_lights:
         state: "on"
@@ -475,7 +414,7 @@ scene:
         brightness: 255
 
   - id: "8a92e9aa-49e5-4bbd-a4ea-dba3bbc2563d"
-    name: "[Light] Global: All - Concentrate"
+    name: "Global: All - Concentrate"
     entities:
       light.all_lights:
         state: "on"
@@ -483,7 +422,7 @@ scene:
         brightness: 255
 
   - id: "64e2926b-5a5d-4589-92aa-4d753ed2c685"
-    name: "[Light] Global: All - Dimmed"
+    name: "Global: All - Dimmed"
     entities:
       light.all_lights:
         state: "on"
@@ -491,7 +430,7 @@ scene:
         brightness: 76
 
   - id: "84c9f8e2-a645-483b-9d63-e16d200546a8"
-    name: "[Light] Global: All - Energize"
+    name: "Global: All - Energize"
     entities:
       light.all_lights:
         state: "on"
@@ -499,7 +438,7 @@ scene:
         brightness: 255
 
   - id: "f7fd82cd-02f2-4c17-b5c5-be6611659130"
-    name: "[Light] Global: All - Nightlight"
+    name: "Global: All - Nightlight"
     entities:
       light.all_lights:
         state: "on"
@@ -507,7 +446,7 @@ scene:
         brightness: 1
 
   - id: "32aed744-19d7-4260-a1dc-bb172493f0e9"
-    name: "[Light] Global: All - Read"
+    name: "Global: All - Read"
     entities:
       light.all_lights:
         state: "on"
@@ -515,7 +454,7 @@ scene:
         brightness: 255
 
   - id: "295a2eed-8920-4163-8759-12b0637e9697"
-    name: "[Light] Global: All - Relax"
+    name: "Global: All - Relax"
     entities:
       light.all_lights:
         state: "on"
@@ -523,7 +462,7 @@ scene:
         brightness: 145
 
   - id: "2a718d75-7592-445e-9693-88bebf0f40c3"
-    name: "[Light] Global: All - Off"
+    name: "Global: All - Off"
     entities:
       light.all_lights:
         state: "off"
@@ -556,7 +495,7 @@ scene:
 # ==================================================================================================
 script:
   light_update_scene_homeassistant:
-    alias: "[Light] Update Home Assistant Scenes"
+    alias: "Update Home Assistant Scenes"
     mode: single
     sequence:
 
@@ -843,7 +782,7 @@ script:
   #
   # ================================================================================================
   # light_update_scene_migraine:
-  #   alias: "[Light] Update Migraine Scenes"
+  #   alias: "Update Migraine Scenes"
   #   sequence:
 
   # ================================================================================================
@@ -873,7 +812,7 @@ script:
   #
   # ================================================================================================
   activate_hue_dynamic_scene:
-    alias: "[Light] All: Activate Hue dynamic scene"
+    alias: "All: Activate Hue dynamic scene"
     mode: restart
     icon: mdi:power
     sequence:
@@ -901,7 +840,7 @@ script:
             {{'scene.' + select}}
 
   deactivate_hue_dynamic_scene:
-    alias: "[Light] All: Deactivate Hue dynamic scene"
+    alias: "All: Deactivate Hue dynamic scene"
     mode: restart
     icon: mdi:power-off
     sequence:
@@ -931,14 +870,14 @@ template:
         state: "{{ is_state('input_select.light_mode', 'Circadian') }}"
 
       - unique_id: "1fb06868-f4c9-4d0b-be18-7299a9f1fd25"
-        name: "[Light] All: Selected Hue group active scene"
+        name: "All: Selected Hue group active scene"
         state: >
           {% set select = states('input_select.hue_group')|slugify %}
           {% set group ='light.' + select %}
           {{is_state_attr(group,'dynamics',true)}}
 
       - unique_id: "9b9548fe-448e-40ea-bf3d-360bc1f1b36f"
-        name: "[Light] All: Selected Hue group has active scenes available"
+        name: "All: Selected Hue group has active scenes available"
         state: >
           {% set hue_group = states('input_select.hue_group') %}
           {{states.scene
@@ -946,7 +885,7 @@ template:
           |selectattr('attributes.is_dynamic','eq',true)|list|length != 0}}
 
       - unique_id: "61549b92-7137-44bd-adab-3834eb1c634f"
-        name: "[Light] All: Hue groups dynamic scening"
+        name: "All: Hue groups dynamic scening"
         state: >
           {{states.light|selectattr('attributes.dynamics','eq',true)|list|length != 0}}
 

@@ -34,6 +34,31 @@ automation:
           entity_id: light.bf_all
     mode: single
 
+  # ================================================================================================
+  #
+  #
+  #
+  # ================================================================================================
+  - id: "739ebd7a-cda1-4b99-81f8-ce568864893a"
+    alias: "BF1: All - Auto populate Hue dynamic scene input select"
+    mode: restart
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+      - platform: state
+        entity_id: input_select.hue_group
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.bf1_all_lights_dynamic_scenes
+      data:
+        options: >
+          {{ states.scene
+            | selectattr('attributes.group_name','eq','BF1: All')
+            | selectattr('attributes.is_dynamic','eq',true)
+            | map(attribute='name')
+            | list }}
+
 # ==================================================================================================
 #
 #
@@ -43,6 +68,29 @@ input_boolean:
   bf1_all_lights:
     name: "BF1: All Lights"
 
+# ==================================================================================================
+#
+# Input Number
+#
+# ==================================================================================================
+input_number:
+  bf1_all_dynamic_scene_speed:
+    name: "BF1: All - Dynamic Scene Speed"
+    min: 0
+    max: 100
+    step: 10
+
+  bf1_all_dynamic_scene_brightness:
+    name: "BF1: All - Dynamic Scene Brightness"
+    min: 0
+    max: 255
+    step: 10
+
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
 input_select:
   bf1_all_lights_scene:
     name: "BF1: All Lights - Scenes"

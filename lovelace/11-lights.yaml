@@ -230,7 +230,7 @@ cards:
                 cards:
                   - type: button
                     name: Home Assistant
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:sine-wave
                     show_name: false
                     show_state: true
@@ -239,11 +239,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_homeassistant
                   - type: button
                     name: Bright
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:brightness-7
                     show_name: false
                     show_state: true
@@ -252,11 +252,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_bright
                   - type: button
                     name: Concentrate
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:bullseye
                     show_name: false
                     show_state: true
@@ -265,11 +265,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_concentrate
                   - type: button
                     name: Nightlight
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:sleep
                     show_name: false
                     show_state: true
@@ -278,11 +278,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_nightlight
                   - type: button
                     name: Migraine
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:head-flash
                     show_name: false
                     show_state: true
@@ -291,11 +291,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_migraine
                   - type: button
                     name: Candle
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:candle
                     show_name: false
                     show_state: true
@@ -304,14 +304,14 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_candle
 
               - type: horizontal-stack
                 cards:
                   - type: button
                     name: Energize
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:lightning-bolt
                     show_name: false
                     show_state: true
@@ -320,11 +320,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_energize
                   - type: button
                     name: Read
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:microsoft-xbox-controller-menu
                     show_name: false
                     show_state: true
@@ -333,11 +333,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_read
                   - type: button
                     name: Relay
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:yin-yang
                     show_name: false
                     show_state: true
@@ -346,11 +346,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_relax
                   - type: button
                     name: Sleep
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:weather-night
                     show_name: false
                     show_state: true
@@ -359,11 +359,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_darken
                   - type: button
                     name: Dimmed
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:brightness-4
                     show_name: false
                     show_state: true
@@ -372,11 +372,11 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_dimmed
                   - type: button
                     name: Fireplace
-                    entity: input_select.bf1_den_lights_scene
+                    entity: input_select.bf1_den_scene
                     icon: mdi:fireplace
                     show_name: false
                     show_state: true
@@ -385,7 +385,7 @@ cards:
                       action: call-service
                       service: input_select.select_option
                       service_data:
-                        entity_id: input_select.bf1_den_lights_scene
+                        entity_id: input_select.bf1_den_scene
                         option: scene.bf1_den_fireplace
 
 

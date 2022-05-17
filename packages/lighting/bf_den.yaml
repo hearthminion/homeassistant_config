@@ -91,7 +91,7 @@ automation:
       service: scene.turn_on
       data_template:
         entity_id: >
-          {{ states('input_select.bf1_den_lights_scene') }}
+          {{ states('input_select.bf1_den_scene') }}
     mode: single
 
   - id: "55cd64c4-64f3-45e0-9e49-44c666ee5df1"

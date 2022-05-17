@@ -20,7 +20,6 @@ adaptive_lighting:
 automation:
   - id: "c8534c5e-94e1-4e97-a2e3-d1f585ba0043"
     alias: "[Light] BF1: Storage2 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -43,7 +42,6 @@ automation:
 
   - id: "89633b72-f251-4d8c-81f9-8eecdf71d72d"
     alias: "[Light] BF1: Storage2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event

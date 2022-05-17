@@ -18,21 +18,6 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  - id: "65d7e60e-4e39-460b-a319-b65f497b6465"
-    alias: "Global: All Lights - Enable Automations"
-    description: ""
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
-      - scene: scene.bf1_all_enable_automations
-      - scene: scene.bf1_den_enable_automations
-      - scene: scene.bf1_hallway_enable_automations
-      - scene: scene.global_all_enable_automations
-      - scene: scene.mf1_bedroom1_enable_automations
-      - scene: scene.mf2_den_enable_automations
-
   # ================================================================================================
   #
   #
@@ -385,26 +370,6 @@ light:
 #
 # ==================================================================================================
 scene:
-  - id: "e697c216-b8c7-4825-9f40-4fd01d220d40"
-    name: "Global: All - Enable Automations"
-    entities:
-      automation.light_set_light_mode_circadian:
-        state: 'on'
-      automation.light_set_light_mode_guests:
-        state: 'on'
-      automation.light_set_light_mode_migraine:
-        state: 'on'
-      automation.light_set_light_mode_darken_house:
-        state: 'on'
-      automation.light_enable_migraine_mode:
-        state: 'on'
-      automation.light_global_all_lights_adaptive_lighting_toggle:
-        state: 'on'
-      automation.light_update_homeassistant_scene_on_hue_bridges:
-        state: 'on'
-      automation.light_global_dummy_light_adaptive_lighting_turn_on:
-        state: 'on'
-
   - id: "f0bb567c-050e-4499-b46e-99697efa5de7"
     name: "Global: All - Bright"
     entities:

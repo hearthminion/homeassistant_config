@@ -19,7 +19,6 @@ adaptive_lighting:
 automation:
   - id: "416078c3-1f3a-4742-9974-205c1f2fe0ceu"
     alias: "[Light] BF1: Hallway - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -42,7 +41,6 @@ automation:
 
   - id: "25c326c4-7137-4899-8796-186d0fd42682"
     alias: "[Light] BF1: Hallway - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -142,14 +140,6 @@ rest_command:
 #
 # ==================================================================================================
 scene:
-  - id: "e893eca7-3305-4ddd-8cef-8d698c022082"
-    name: "[Light] BF1: Hallway - Enable Automations"
-    entities:
-      automation.light_bf1_hallway_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.light_bf1_hallway_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-
   - id: "5c92577b-ab66-4192-a23e-23a12164dcb8"
     name: "[Light] BF1: Hallway - Bright"
     entities:

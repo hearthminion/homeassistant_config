@@ -40,14 +40,14 @@
 # ==================================================================================================
 adaptive_lighting:
   - name: "MF2: Den Lamp1"
-    lights:
-      - light.mf2_den_lamp1
+    lights: []
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
 
   - name: "MF2: Den Lamp2"
-    lights: []
+    lights:
+      - light.mf2_den_lamp2
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500
@@ -253,14 +253,6 @@ rest_command:
 #
 # ==================================================================================================
 scene:
-  - id: "e2b63d06-9725-4e40-87ef-8feba9956177"
-    name: "[Light] MF2: Den - Enable Automations"
-    entities:
-      automation.light_mf2_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
-        state: 'on'
-      automation.light_mf2_den_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
-        state: 'on'
-
   # ================================================================================================
   #
   # Den Lamp1

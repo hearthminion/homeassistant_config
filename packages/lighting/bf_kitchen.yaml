@@ -20,7 +20,6 @@ adaptive_lighting:
 automation:
   - id: "fa732465-ad55-45a0-8880-6fea977a47f9"
     alias: "[Light] BF1: Kitchen - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -43,7 +42,6 @@ automation:
 
   - id: "37bbc65c-5a6c-48cd-9aa5-cc6b087340e9"
     alias: "[Light] BF1: Kitchen - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -98,14 +96,6 @@ rest_command:
 #
 # ==================================================================================================
 scene:
-  - id: "a9bbb214-ae85-4bef-a57d-d70b8f90fe1b"
-    name: "[Light] BF1: Kitchen - Enable Automations"
-    entities:
-      automation.light_bf1_kitchen_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.light_bf1_kitchen_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-
   - id: "afedd813-67a6-4ebf-8449-14e8fdf2d840"
     name: "[Light] BF1: Kitchen - Bright"
     entities:

@@ -20,7 +20,6 @@ adaptive_lighting:
 automation:
   - id: "8aa338d4-6186-4948-9f04-e3ab3867d48d"
     alias: "[Light] BF1: Stairwell - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -43,7 +42,6 @@ automation:
 
   - id: "b979cb2f-3728-415d-8ef3-4e97511b9bd7"
     alias: "[Light] BF1: Stairwell - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event

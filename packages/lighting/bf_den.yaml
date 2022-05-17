@@ -53,7 +53,6 @@ automation:
   # ================================================================================================
   - id: "4c6e9101-a48b-480f-bd66-ad4b5fe13ac2"
     alias: "BF1: Den - Adaptive Lighting (Toggle)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.bf1_den_color_mode
@@ -82,7 +81,6 @@ automation:
 
   - id: "a068ce76-cc17-4d03-a706-5e72bdd7f542"
     alias: "BF1: Den - Update Selected Scene"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.bf1_den_scene
@@ -103,7 +101,6 @@ automation:
   # ================================================================================================
   - id: "a295f04d-9e1e-4b57-80ae-b4dea525742d"
     alias: "BF1: Den CF1 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -126,7 +123,6 @@ automation:
 
   - id: "5767f02e-cf98-4a58-935d-23008b0c4b29"
     alias: "BF1: Den CF1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -150,7 +146,6 @@ automation:
 
   - id: "4227c801-66c4-439f-ba9d-8a478d67a497"
     alias: "BF1: Den CF1 - Adaptive Lighting (Toggle Color Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -173,7 +168,6 @@ automation:
 
   - id: "7df3d18c-0692-4307-bd22-9d21f6fafc8f"
     alias: "BF1: Den CF1 - Adaptive Lighting (Turn Off Color Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -194,7 +188,6 @@ automation:
   - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
     alias: "BF1: Den CF1 - Green Has Been On"
     description: ""
-    initial_state: false
     trigger:
       - platform: state
         entity_id: light.bf1_den_cf1
@@ -204,10 +197,10 @@ automation:
     action:
       - entity_id: input_boolean.bf1_den_cf1_green_event
         service: input_boolean.turn_on
+    mode: single
 
   - id: "1638cbed-885f-435e-b200-324d14755a9cU"
     alias: "BF1: Den CF1 - Turn off Green tracker"
-    initial_state: false
     description: ""
     trigger:
       - at: "04:00"
@@ -225,7 +218,6 @@ automation:
   # ================================================================================================
   - id: "2bb7e80d-9401-4294-97fa-ed54926aaeae"
     alias: "BF1: Den CF2 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -248,7 +240,6 @@ automation:
 
   - id: "28bb11af-1d93-4271-bd3b-a64d72e5e861"
     alias: "BF1: Den CF2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -277,7 +268,6 @@ automation:
   # ================================================================================================
   - id: "856093cd-615e-481c-a8cb-c8625aa70f43"
     alias: "BF1: Den Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -300,7 +290,6 @@ automation:
 
   - id: "85f03946-6f35-480b-81a7-6dde04d6b583"
     alias: "BF1: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -329,7 +318,6 @@ automation:
   # ================================================================================================
   - id: "c1598496-1a45-4199-bc5b-64d11ba6b393"
     alias: "BF1: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -352,7 +340,6 @@ automation:
 
   - id: "8a16a438-7064-46e3-83f4-3c9c30286613"
     alias: "BF1: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -377,7 +364,6 @@ automation:
   - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
     alias: "BF1: Den Lamp2 - Green Tracker (Turn On)"
     description: ""
-    initial_state: false
     trigger:
       - entity_id: sensor.bf1_den_cf1_color
         platform: state
@@ -389,7 +375,6 @@ automation:
 
   - id: "cb8b4633-4a47-477e-9391-240ba6c7d71c"
     alias: "BF1: Den Lamp2 - Green Tracker (Turn Off)"
-    initial_state: false
     description: ""
     trigger:
       - at: "04:00"
@@ -407,7 +392,6 @@ automation:
   # ================================================================================================
   - id: "37ba0e30-fec3-42ad-ae96-ad6378ebf63a"
     alias: "BF1: Den Lamp3 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -430,7 +414,6 @@ automation:
 
   - id: "1a482491-906a-4d50-ac19-3e0a1585ab5a"
     alias: "BF1: Den Lamp3 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -459,12 +442,9 @@ automation:
   # ================================================================================================
   - id: "55cd64c4-64f3-45e0-9e49-44c666ee5df1"
     alias: "BF1: All - Auto populate Hue dynamic scene input select"
-    mode: restart
     trigger:
       - platform: event
         event_type: delayed_homeassistant_start
-      - platform: state
-        entity_id: input_select.hue_group
     action:
       service: input_select.set_options
       target:
@@ -476,6 +456,7 @@ automation:
             | selectattr('attributes.is_dynamic','eq',true)
             | map(attribute='name')
             | list }}
+    mode: restart
 
 # ==================================================================================================
 #
@@ -761,32 +742,6 @@ scene:
   # Whole Room
   #
   # ================================================================================================
-  - id: "9cc0488f-1d35-4b8f-897e-91368bb47a4f"
-    name: "BF1: Den - Enable Automations"
-    entities:
-      automation.bf1_den_adaptive_lighting_toggle:
-        state: "on"
-      automation.bf1_den_cf1_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_cf1_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_cf2_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_cf2_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp1_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp1_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp2_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp3_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.bf1_den_lamp3_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-
   - id: "1a6bced9-d9d0-4bc5-ba4b-04856ab65016"
     name: "BF1: Den - Darken"
     entities:
@@ -1011,7 +966,8 @@ scene:
         color_temp: 343
         brightness: 255
 
-  - id: "d54157d0-55e8-406c-92c4-f0e8f3dcdb43"
+  - id: "d54157d0-55e8-
+    406c-92c4-f0e8f3dcdb43"
     name: "BF1: Den CF2 - Relax"
     entities:
       light.bf1_den_cf2:

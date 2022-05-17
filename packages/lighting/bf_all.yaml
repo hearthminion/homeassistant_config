@@ -22,7 +22,6 @@
 automation:
   - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
     alias: '[Light] BF: All - Turn Off Lights At Night'
-    initial_state: false
     description: ''
     trigger:
       - at: '21:30'
@@ -41,12 +40,10 @@ automation:
   # ================================================================================================
   - id: "739ebd7a-cda1-4b99-81f8-ce568864893a"
     alias: "BF1: All - Auto populate Hue dynamic scene input select"
-    mode: restart
+    description: ""
     trigger:
       - platform: event
         event_type: delayed_homeassistant_start
-      - platform: state
-        entity_id: input_select.hue_group
     action:
       service: input_select.set_options
       target:
@@ -58,7 +55,7 @@ automation:
             | selectattr('attributes.is_dynamic','eq',true)
             | map(attribute='name')
             | list }}
-
+    mode: restart
 # ==================================================================================================
 #
 #

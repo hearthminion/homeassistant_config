@@ -54,7 +54,6 @@ automation:
   - id: "f9c73d20-47d4-40d4-9292-f6d8e07e5600"
     alias: "MF1: Master Bedroom Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -76,7 +75,6 @@ automation:
 
   - id: "ab85e3af-0d30-4f26-baaa-0960fdfb5a35"
     alias: "MF1: Master Bedroom Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -105,7 +103,6 @@ automation:
   - id: "848efd5b-0d62-496b-8da2-ff2beb51155c"
     alias: "MF1: Master Bedroom Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
-    initial_state: false
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -127,7 +124,6 @@ automation:
 
   - id: "92bc214d-271f-41e2-9ec4-8acc93475bb5"
     alias: "MF1: Master Bedroom Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    initial_state: false
     description: ""
     trigger:
         - platform: event
@@ -151,7 +147,6 @@ automation:
   - id: "5db29ab1-0ad3-492d-9cb0-763c0d2e6561"
     alias: "MF1: Master Bedroom Lamp2 at Night"
     description: "Turn on Master Bedroom Lamp2 at night"
-    initial_state: false
     trigger:
       - event: sunset
         platform: sun
@@ -166,7 +161,6 @@ automation:
   # ================================================================================================
   - id: "1f336880-8fe0-4641-a202-f85565f91a30"
     alias: "MF1: Master Bedroom - Adaptive Lighting (Toggle)"
-    initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.mf1_bedroom1_color_mode
@@ -300,16 +294,6 @@ rest_command:
 #
 # ==================================================================================================
 scene:
-  - id: "ad077505-0081-4ecc-ae1e-a566b42c5f53"
-    name: "MF1: Master Bedroom - Enable Automations"
-    entities:
-      automation.mf1_bedroom1_lamp2_at_night:
-        state: "on"
-      automation.mf1_bedroom1_lamp2_adaptive_lighting_toggle_brightness_adjustment:
-        state: "on"
-      automation.mf1_bedroom1_lamp2_adaptive_lighting_turn_off_brightness_adjustment:
-        state: "on"
-
   # ================================================================================================
   #
   # Lamp 1 Scenes

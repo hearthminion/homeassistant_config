@@ -94,6 +94,25 @@ automation:
           {{ states('input_select.bf1_den_lights_scene') }}
     mode: single
 
+  - id: "55cd64c4-64f3-45e0-9e49-44c666ee5df1"
+    alias: "BF1: Den - Auto populate Hue dynamic scene input select"
+    trigger:
+      - platform: event
+        event_type: delayed_homeassistant_start
+    action:
+      service: input_select.set_options
+      target:
+        entity_id: input_select.bf1_den_dynamic_scenes
+      data:
+        options: >
+          {{ states.scene
+            | selectattr('attributes.group_name','eq','BF1: Den')
+            | selectattr('attributes.is_dynamic','eq',true)
+            | map(attribute='name')
+            | list }}
+    mode: restart
+
+
   # ================================================================================================
   #
   # BF1: Den CF1
@@ -440,23 +459,6 @@ automation:
   #
   #
   # ================================================================================================
-  - id: "55cd64c4-64f3-45e0-9e49-44c666ee5df1"
-    alias: "BF1: All - Auto populate Hue dynamic scene input select"
-    trigger:
-      - platform: event
-        event_type: delayed_homeassistant_start
-    action:
-      service: input_select.set_options
-      target:
-        entity_id: input_select.bf1_den_dynamic_scenes
-      data:
-        options: >
-          {{ states.scene
-            | selectattr('attributes.group_name','eq','BF1: Den')
-            | selectattr('attributes.is_dynamic','eq',true)
-            | map(attribute='name')
-            | list }}
-    mode: restart
 
 # ==================================================================================================
 #
@@ -591,6 +593,12 @@ input_select:
       - scene.bf1_den_lamp3_nightlight
       - scene.bf1_den_lamp3_read
       - scene.bf1_den_lamp3_relax
+
+# ==================================================================================================
+#
+# Template Lights
+#
+# ==================================================================================================
 
 # ==================================================================================================
 #

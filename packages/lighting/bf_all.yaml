@@ -20,11 +20,11 @@
 #
 # ==================================================================================================
 automation:
-  - id: '07bb38d4-9581-4268-a6cb-821f8dd9367e'
-    alias: '[Light] BF: All - Turn Off Lights At Night'
-    description: ''
+  - id: "07bb38d4-9581-4268-a6cb-821f8dd9367e"
+    alias: "[Light] BF: All - Turn Off Lights At Night"
+    description: ""
     trigger:
-      - at: '21:30'
+      - at: "21:30"
         platform: time
     condition: []
     action:
@@ -51,11 +51,27 @@ automation:
       data:
         options: >
           {{ states.scene
-            | selectattr('attributes.group_name','eq','BF1: All')
-            | selectattr('attributes.is_dynamic','eq',true)
-            | map(attribute='name')
+            | selectattr("attributes.group_name","eq","BF1: All")
+            | selectattr("attributes.is_dynamic","eq",true)
+            | map(attribute="name")
             | list }}
     mode: restart
+
+  - id: "754e17ab-94f2-48a0-ac5b-9e01fa156873"
+    alias: "BF1: All - Update Selected Scene"
+    trigger:
+      - platform: state
+        entity_id: input_select.bf1_all_lights_scene
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state != trigger.from_state }}"
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: >
+          {{ states('input_select.bf1_all_lights_scene') }}
+    mode: single
+
 # ==================================================================================================
 #
 #

@@ -3,15 +3,21 @@ purge_keep_days: 10
 auto_purge: true
 include:
   domains:
-    - automation
     - calendar
     - climate
     - device_tracker
-    - input_boolean
     - light
     - person
     - weather
   entity_globs:
+    - automation.bf*
+    - automation.mf*
+    - input_boolean.bf*
+    - input_boolean.mf*
+    - input_number.bf*
+    - input_number.mf*
+    - input_select.bf*
+    - input_select.mf*
     - binary_sensor.bf*
     - binary_sensor.global*
     - binary_sensor.mf*
@@ -29,7 +35,7 @@ include:
     - sensor.sensehat*
     - sensor.skin_type_*
     - sensor.tod*
-    - sensor.user00*
+    - sensor.user*
     - switch.bf*
     - switch.mf*
   entities:

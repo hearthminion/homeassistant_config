@@ -224,7 +224,7 @@ cards:
                 title: Basement Den Lights
                 show_header_toggle: false
                 entities:
-                  - input_boolean.bf1_den_all_lights
+                  - light.bf1_den_alt
 
               - type: horizontal-stack
                 cards:

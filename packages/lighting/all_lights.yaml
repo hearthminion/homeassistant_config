@@ -168,34 +168,6 @@ automation:
           entity_id: input_select.light_mode
           option: "Migraine"
 
-  - id: "387e7772-a2c3-4d29-b524-8aa36fbc65b2"
-    alias: "Migraine Mode - Enable"
-    description: "This automation turns on migraine mode based on light changes."
-    initial_state: false
-    trigger:
-      - entity_id: sensor.mf2_den_lamp1_color
-        platform: state
-        to: (0.23, 0.698)
-      - entity_id: sensor.mf2_den_lamp2_color
-        platform: state
-        to: (0.23, 0.698)
-      - entity_id: sensor.bf1_den_color
-        platform: state
-        to: (0.23, 0.698)
-      - entity_id: sensor.mf1_bathroom1_inner_color
-        platform: state
-        to: (0.23, 0.698)
-      - entity_id: sensor.mf1_bedroom1_lamp1_color
-        platform: state
-        to: (0.23, 0.698)
-      - entity_id: sensor.mf1_bedroom1_lamp2_color
-        platform: state
-        to: (0.23, 0.698)
-    condition: []
-    action:
-      - entity_id: input_boolean.special_migraine_mode
-        service: input_boolean.turn_on
-
   # ================================================================================================
   #
   # Set Lighting Mode: Guests

@@ -681,11 +681,11 @@ light:
         friendly_name: "BF1: Den (Alt)"
         unique_id: "80cb201a-52a0-48c3-992e-4bf8c4e51a1f"
         value_template: "{{ states('light.bf1_den') }}"
-        level_template: "{{ state_attr('light.bf1_den','brightness') | int }}"
-        temperature_template: "{{ state_attr('light.bf1_den','color_temp') | int }}"
+        level_template: "{{ state_attr('light.bf1_den','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.bf1_den','color_temp') | int(367) }}"
         color_template: "{{ state_attr('light.bf1_den','hs_color') }}"
-        min_mireds_template: "{{ state_attr('light.bf1_den','min_mireds') | int }}"
-        max_mireds_template: "{{ state_attr('light.bf1_den','max_mireds') | int }}"
+        min_mireds_template: "{{ state_attr('light.bf1_den','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.bf1_den','max_mireds') | int(500) }}"
         turn_on:
           service: scene.turn_on
           data_template:
@@ -695,6 +695,24 @@ light:
           service: light.turn_off
           target:
             entity_id: light.bf1_den
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_den
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_den
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_den
+          data:
+            hs_color: "{{ color }}"
 
 
 

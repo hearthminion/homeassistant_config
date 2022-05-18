@@ -680,7 +680,7 @@ light:
       bf1_den_alt:
         friendly_name: "BF1: Den (Alt)"
         unique_id: "80cb201a-52a0-48c3-992e-4bf8c4e51a1f"
-        value_template: "{{ states('light.bf1_den') }}"
+        value_template: "{{ is_state('light.bf1_den', 'on') }}"
         level_template: "{{ state_attr('light.bf1_den','brightness') | int(255) }}"
         temperature_template: "{{ state_attr('light.bf1_den','color_temp') | int(367) }}"
         color_template: "{{ state_attr('light.bf1_den','hs_color') }}"
@@ -712,7 +712,9 @@ light:
           target:
             entity_id: light.bf1_den
           data:
-            xy_color: "{{ xy_color }}"
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
         
 # ==================================================================================================
 #

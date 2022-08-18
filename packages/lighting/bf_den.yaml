@@ -1392,7 +1392,7 @@ template:
           {{ is_state_attr("light.bf1_den_cf1", "brightness", "255") and
              is_state_attr("light.bf1_den_cf1", "color_temp", "367") }}
 
-      - unique_id: "62828fad-c7ff-488d-b4e8-8abc61557edb"
+      - unique_id: "6793a217-c757-4da4-877e-518987b2c744"
         name: "BF1: Den CF1 - Scene Concentrate"
         state: >-
           {{ is_state_attr("light.bf1_den_cf1", "brightness", "255") and

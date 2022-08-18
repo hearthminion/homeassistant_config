@@ -272,6 +272,20 @@ automation:
         data:
           entity_id: timer.lights_off
 
+    - id: "17a6fc2f-4a58-4a12-ba58-1b332d4712db"
+      alias: "Reboot Hue Bridges"
+      description: "Reboots hue bridges overnight."
+      trigger:
+        - platform: time
+          at: "04:00:00"
+      condition: []
+      action:
+        - service: script.turn_on
+          data: {}
+          target:
+            entity_id: script.reboot_hue_bridge
+      mode: single
+
 # ==================================================================================================
 #
 # Input Number

@@ -1458,8 +1458,9 @@ template:
                ( state_attr("binary_sensor.bf1_den_cf2_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.bf1_den_cf2_autocolor", "color_temp_min") | int(363)
-             ) }}
+             ( state_attr("binary_sensor.bf1_den_cf2_autocolor", "color_temp_min")
+             | int(363))
+             and ( not(states("binary_sensor.bf1_den_color_mode")))}}
         attributes:
           color_temp: >-
             {% if state_attr("light.bf1_den_cf2", "color_temp") is number %}
@@ -1508,8 +1509,9 @@ template:
                ( state_attr("binary_sensor.bf1_den_lamp1_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.bf1_den_lamp1_autocolor", "color_temp_min") | int(363)
-             ) }}
+             ( state_attr("binary_sensor.bf1_den_lamp1_autocolor", "color_temp_min")
+             | int(363))
+             and ( not(states("binary_sensor.bf1_den_color_mode")))
         attributes:
           color_temp: >-
             {% if state_attr("light.bf1_den_lamp1", "color_temp") is number %}
@@ -1557,8 +1559,8 @@ template:
                ( state_attr("binary_sensor.bf1_den_lamp2_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.bf1_den_lamp2_autocolor", "color_temp_min") | int(363)
-             ) }}
+             ( state_attr("binary_sensor.bf1_den_lamp2_autocolor", "color_temp_min") | int(363))
+             and ( not(states("binary_sensor.bf1_den_color_mode")))
         attributes:
           color_temp: >-
             {% if state_attr("light.bf1_den_lamp2", "color_temp") is number %}
@@ -1606,8 +1608,8 @@ template:
                ( state_attr("binary_sensor.bf1_den_lamp3_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.bf1_den_lamp3_autocolor", "color_temp_min") | int(363)
-             ) }}
+             ( state_attr("binary_sensor.bf1_den_lamp3_autocolor", "color_temp_min") | int(363))
+             and ( not(states("binary_sensor.bf1_den_color_mode")))
         attributes:
           color_temp: >-
             {% if state_attr("light.bf1_den_lamp3", "color_temp") is number %}

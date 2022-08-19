@@ -478,7 +478,7 @@ automation:
 
   # ================================================================================================
   #
-  # BF1: Den Lamp1
+  # BF1: Den Lamp3
   #
   # ================================================================================================
   - id: "37ba0e30-fec3-42ad-ae96-ad6378ebf63a"
@@ -524,6 +524,30 @@ automation:
         target:
           entity_id:
             - switch.bf1_den_lamp3_adaptive_lighting_brightness
+    mode: single
+
+  - id: "dd5aa96f-4be1-40d0-98ca-3ff6c4096d4a"
+    alias: "BF1: Den Lamp2 - Green Tracker (Turn On)"
+    description: ""
+    trigger:
+      - entity_id: sensor.bf1_den_lamp3_color
+        platform: state
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - entity_id: input_boolean.bf1_den_lamp3_green_event
+        service: input_boolean.turn_on
+
+  - id: "d8a8ba7e-afcc-4e1d-9eb8-73b80d171473"
+    alias: "BF1: Den Lamp3 - Green Tracker (Turn Off)"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - entity_id: input_boolean.bf1_den_lamp3_green_event
+        service: input_boolean.turn_off
     mode: single
 
 # ==================================================================================================
@@ -1367,13 +1391,14 @@ template:
       - unique_id: "323a0a4f-8adc-485b-844c-91011ca27147"
         name: "BF1: Den CF1 - Autocolor"
         state: >-
-          {{ (
-               states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
                ( state_attr("binary_sensor.bf1_den_cf1_autocolor", "color_temp_max")
                | int(371) )
              and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
-             ( state_attr("binary_sensor.bf1_den_cf1_autocolor", "color_temp_min") | int(363)
-             ) }}
+               ( state_attr("binary_sensor.bf1_den_cf1_autocolor", "color_temp_min")
+               | int(363))
+             and ( not(states("binary_sensor.bf1_den_color_mode")))
+             }}
         attributes:
           color_temp: >-
             {% if state_attr("light.bf1_den_cf1", "color_temp") is number %}

@@ -140,6 +140,99 @@ cards:
 
               - type: horizontal-stack
                 cards:
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_homeassistant')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_bright')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_concentrate')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_nightlight')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_migraine')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_candle')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+
+              - type: horizontal-stack
+                cards:
                   - type: button
                     name: Energize
                     entity: input_select.bf1_all_lights_scene
@@ -219,6 +312,98 @@ cards:
                         entity_id: input_select.bf1_all_lights_scene
                         option: scene.bf1_all_fireplace
 
+              - type: horizontal-stack
+                cards:
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_energize')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_read')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_relax')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_sleep')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_dimmed')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
+                  - type: custom:botton-card
+                    entitiy: input_select.bf1_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.bf1_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states('input_select.bf1_all_lights_scene') == 'scene.bf1_all_fireplace')
+                              return "var(--paper-item-active-color)";
+                            return "var(--paper-card-background-color)";
+                            ]]]
 
               - type: entities
                 title: Basement Den Lights
@@ -232,8 +417,8 @@ cards:
                     name: Home Assistant
                     entity: input_select.bf1_den_scene
                     icon: mdi:sine-wave
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service

@@ -85,6 +85,7 @@ input_select:
       - scene.bf1_kitchen_read
       - scene.bf1_kitchen_relax
       - scene.bf1_kitchen_dynamic
+    initial: scene.bf1_kitchen_homeassistant
 
 # ==================================================================================================
 #

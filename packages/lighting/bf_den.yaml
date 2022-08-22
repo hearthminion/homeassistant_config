@@ -617,11 +617,6 @@ input_select:
       - scene.bf1_den_relax
       - scene.bf1_den_dynamic
 
-  bf1_den_dynamic_scenes:
-    name: "BF1: Den - Dynamic Scene"
-    options:
-      - Bright
-
   bf1_den_cf1_scene:
     name: "BF1: Den CF1 - Scene"
     options:

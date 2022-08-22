@@ -56,7 +56,7 @@ cards:
                 title: Basement Lights
                 show_header_toggle: false
                 entities:
-                  - input_boolean.bf1_all_lights
+                  - light.bf1_all_alt
               - type: horizontal-stack
                 cards:
                   - type: button

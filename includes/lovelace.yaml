@@ -1,6 +1,8 @@
 mode: yaml
 # Include external resources only add when mode is yaml, otherwise manage in the resources in the lovelace configuration panel.
 resources:
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
   - url: /hacsfiles/canvas-gauge-card/canvas-gauge-card.js
     type: module
   - url: /hacsfiles/lovelace-layout-card/layout-card.js

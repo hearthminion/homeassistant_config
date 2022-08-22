@@ -705,6 +705,7 @@ light:
         color_template: "{{ state_attr('light.bf1_den','hs_color') }}"
         min_mireds_template: "{{ state_attr('light.bf1_den','min_mireds') | int(100) }}"
         max_mireds_template: "{{ state_attr('light.bf1_den','max_mireds') | int(500) }}"
+        effect_list_template: "{{ state_attr('light.bf1_den', 'effect_list') }}"
         turn_on:
           service: scene.turn_on
           data_template:
@@ -734,6 +735,12 @@ light:
             hs_color:
               - "{{ hs[0] }}"
               - "{{ hs[1] }}"
+        set_effect:
+          - service: light.turn_on
+            data_template:
+              - light.bf1_den
+            effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
         
 # ==================================================================================================
 #

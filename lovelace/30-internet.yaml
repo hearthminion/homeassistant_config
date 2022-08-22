@@ -29,11 +29,11 @@
                   - type: gauge
                     entity: sensor.speedtest_download
                     name: Speedtest Download
-                    max: 220
+                    max: 320
                     severity:
                       red: 0
-                      yellow: 100
-                      green: 160
+                      yellow: 200
+                      green: 260
               - type: custom:layout-break
 
 # ======================================================================

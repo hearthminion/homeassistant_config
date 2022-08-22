@@ -65,6 +65,29 @@ automation:
 
 # ==================================================================================================
 #
+# Input Select
+#
+# ==================================================================================================
+input_select:
+  bf1_kitchen_lights_scene:
+    name: "BF1: Kitchen - Scene"
+    options:
+      - scene.bf1_kitchen_bright
+      - scene.bf1_kitchen_candle
+      - scene.bf1_kitchen_concentrate
+      - scene.bf1_kitchen_darken
+      - scene.bf1_kitchen_dimmed
+      - scene.bf1_kitchen_energize
+      - scene.bf1_kitchen_fireplace
+      - scene.bf1_kitchen_homeassistant
+      - scene.bf1_kitchen_migraine
+      - scene.bf1_kitchen_nightlight
+      - scene.bf1_kitchen_read
+      - scene.bf1_kitchen_relax
+      - scene.bf1_kitchen_dynamic
+
+# ==================================================================================================
+#
 # Rest Command
 #
 # Light IDs:

@@ -405,188 +405,364 @@ cards:
                             return "var(--paper-card-background-color)";
                             ]]]
 
-              - type: entities
-                title: Basement Den Lights
-                show_header_toggle: false
-                entities:
-                  - light.bf1_den_alt
-
-              - type: horizontal-stack
+              - type: vertical-stack
                 cards:
-                  - type: button
-                    name: Home Assistant
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:sine-wave
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_homeassistant
-                  - type: button
-                    name: Bright
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:brightness-7
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_bright
-                  - type: button
-                    name: Concentrate
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:bullseye
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_concentrate
-                  - type: button
-                    name: Nightlight
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:sleep
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_nightlight
-                  - type: button
-                    name: Migraine
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:head-flash
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_migraine
-                  - type: button
-                    name: Candle
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:candle
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_candle
 
-              - type: horizontal-stack
-                cards:
-                  - type: button
-                    name: Energize
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:lightning-bolt
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_energize
-                  - type: button
-                    name: Read
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:microsoft-xbox-controller-menu
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_read
-                  - type: button
-                    name: Relay
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:yin-yang
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_relax
-                  - type: button
-                    name: Sleep
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:weather-night
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_darken
-                  - type: button
-                    name: Dimmed
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:brightness-4
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_dimmed
-                  - type: button
-                    name: Fireplace
-                    entity: input_select.bf1_den_scene
-                    icon: mdi:fireplace
-                    show_name: true
-                    show_state: false
-                    state_color: true
-                    tap_action:
-                      action: call-service
-                      service: input_select.select_option
-                      service_data:
-                        entity_id: input_select.bf1_den_scene
-                        option: scene.bf1_den_fireplace
+                  - type: horizontal-stack
+                    cards:
 
+                      - type: entities
+                        title: Basement Den Lights
+                        show_header_toggle: false
+                        entities:
+                          - light.bf1_den_alt
+
+                      - type: horizontal-stack
+                        cards:
+                          - type: button
+                            name: Home Assistant
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:sine-wave
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_homeassistant
+                          - type: button
+                            name: Bright
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:brightness-7
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_bright
+                          - type: button
+                            name: Concentrate
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:bullseye
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_concentrate
+                          - type: button
+                            name: Nightlight
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:sleep
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_nightlight
+                          - type: button
+                            name: Migraine
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:head-flash
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_migraine
+                          - type: button
+                            name: Candle
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:candle
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_candle
+
+                      - type: horizontal-stack
+                        cards:
+                          - type: button
+                            name: Energize
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:lightning-bolt
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_energize
+                          - type: button
+                            name: Read
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:microsoft-xbox-controller-menu
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_read
+                          - type: button
+                            name: Relay
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:yin-yang
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_relax
+                          - type: button
+                            name: Sleep
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:weather-night
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_darken
+                          - type: button
+                            name: Dimmed
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:brightness-4
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_dimmed
+                          - type: button
+                            name: Fireplace
+                            entity: input_select.bf1_den_scene
+                            icon: mdi:fireplace
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_den_scene
+                                option: scene.bf1_den_fireplace
+
+                      - type: custom:fold-entity-row
+                        head: light.bf1_den
+                        entities:
+                          - entity: light.bf1_den_cf1
+                          - entity: light.bf1_den_cf2
+                          - entity: light.bf1_den_lamp1
+                          - entity: light.bf1_den_lamp2
+                          - entity: light.bf1_den_lamp3
+
+                  - type: horizontal-stack
+                    cards:
+
+                      - type: entities
+                        title: Basement Kitchen Lights
+                        show_header_toggle: false
+                        entities:
+                          - light.bf1_kitchen_alt
+
+                      - type: horizontal-stack
+                        cards:
+                          - type: button
+                            name: Home Assistant
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:sine-wave
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_homeassistant
+                          - type: button
+                            name: Bright
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:brightness-7
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_bright
+                          - type: button
+                            name: Concentrate
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:bullseye
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_concentrate
+                          - type: button
+                            name: Nightlight
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:sleep
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_nightlight
+                          - type: button
+                            name: Migraine
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:head-flash
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_migraine
+                          - type: button
+                            name: Candle
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:candle
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_candle
+
+                      - type: horizontal-stack
+                        cards:
+                          - type: button
+                            name: Energize
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:lightning-bolt
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_energize
+                          - type: button
+                            name: Read
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:microsoft-xbox-controller-menu
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_read
+                          - type: button
+                            name: Relay
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:yin-yang
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_relax
+                          - type: button
+                            name: Sleep
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:weather-night
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_darken
+                          - type: button
+                            name: Dimmed
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:brightness-4
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_dimmed
+                          - type: button
+                            name: Fireplace
+                            entity: input_select.bf1_kitchen_scene
+                            icon: mdi:fireplace
+                            show_name: true
+                            show_state: false
+                            state_color: true
+                            tap_action:
+                              action: call-service
+                              service: input_select.select_option
+                              service_data:
+                                entity_id: input_select.bf1_kitchen_scene
+                                option: scene.bf1_kitchen_fireplace
 
               - type: entities
                 title: Basement Lights
                 show_header_toggle: false
                 entities:
-                  - type: custom:fold-entity-row
-                    head: light.bf1_den
-                    entities:
-                      - entity: light.bf1_den_cf1
-                      - entity: light.bf1_den_cf2
-                      - entity: light.bf1_den_lamp1
-                      - entity: light.bf1_den_lamp2
-                      - entity: light.bf1_den_lamp3
-                  - entity: light.bf1_kitchen
                   - entity: light.bf1_hallway
                   - entity: light.bf1_stairwell
                   - entity: light.bf1_storage1

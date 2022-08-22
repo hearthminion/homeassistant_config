@@ -600,7 +600,7 @@ input_number:
 #
 # ==================================================================================================
 input_select:
-  bf1_den_lights_scene:
+  bf1_den_scene:
     name: "BF1: Den - Scene"
     options:
       - scene.bf1_den_bright

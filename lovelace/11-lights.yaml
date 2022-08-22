@@ -595,7 +595,7 @@ cards:
                         title: Basement Kitchen Lights
                         show_header_toggle: false
                         entities:
-                          - light.bf1_kitchen_alt
+                          - light.bf1_kitchen
 
                       - type: horizontal-stack
                         cards:

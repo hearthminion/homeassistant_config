@@ -1,0 +1,497 @@
+- id: '1647720545124'
+  name: Lovebirds
+  entities:
+    light.mf_entryway_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 102
+      color_temp: 443
+      hs_color:
+      - 29.599
+      - 82.123
+      rgb_color:
+      - 255
+      - 148
+      - 45
+      xy_color:
+      - 0.574
+      - 0.388
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bathroom1 (Inner) Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf_dining_area_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 102
+      color_temp: 443
+      hs_color:
+      - 29.599
+      - 82.123
+      rgb_color:
+      - 255
+      - 148
+      - 45
+      xy_color:
+      - 0.574
+      - 0.388
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bathroom1 (Inner) Bulb3'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bathroom1_inner_bulb_center:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 26.188
+      - 70.98
+      rgb_color:
+      - 255
+      - 153
+      - 74
+      xy_color:
+      - 0.5528
+      - 0.3806
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bathroom1 (Inner) CF1 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bathroom1_outer_cf1_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 31.622
+      - 87.059
+      rgb_color:
+      - 255
+      - 150
+      - 33
+      xy_color:
+      - 0.5787
+      - 0.393
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bathroom1 (Outer) CF1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bathroom2_bulb_center:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 26.188
+      - 70.98
+      rgb_color:
+      - 255
+      - 153
+      - 74
+      xy_color:
+      - 0.5528
+      - 0.3806
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bathroom2 CF1 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp1_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 31.622
+      - 87.059
+      rgb_color:
+      - 255
+      - 150
+      - 33
+      xy_color:
+      - 0.5787
+      - 0.393
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp2_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 35.254
+      - 69.412
+      rgb_color:
+      - 255
+      - 182
+      - 78
+      xy_color:
+      - 0.5149
+      - 0.4116
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp2 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf_kitchen_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 31.622
+      - 87.059
+      rgb_color:
+      - 255
+      - 150
+      - 33
+      xy_color:
+      - 0.5787
+      - 0.393
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Hallway CF1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf_kitchen_island_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 41.429
+      - 82.353
+      rgb_color:
+      - 255
+      - 190
+      - 45
+      xy_color:
+      - 0.5202
+      - 0.4369
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Hallway CF1 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf1_hallway_cf2_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 31.622
+      - 87.059
+      rgb_color:
+      - 255
+      - 150
+      - 33
+      xy_color:
+      - 0.5787
+      - 0.393
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Hallway CF2 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf_den_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 102
+      color_temp: 443
+      hs_color:
+      - 29.599
+      - 82.123
+      rgb_color:
+      - 255
+      - 148
+      - 45
+      xy_color:
+      - 0.574
+      - 0.388
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Hallway CF2 Bulb2 a'
+      supported_features: 40
+      state: 'on'
+    light.mf_living_area_ceiling_bulb:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 35.254
+      - 69.412
+      rgb_color:
+      - 255
+      - 182
+      - 78
+      xy_color:
+      - 0.5149
+      - 0.4116
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Master Bedroom CF1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp1_bulb2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 41.429
+      - 82.353
+      rgb_color:
+      - 255
+      - 190
+      - 45
+      xy_color:
+      - 0.5202
+      - 0.4369
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Master Bedroom Lamp1 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp2_bulb2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 35.254
+      - 69.412
+      rgb_color:
+      - 255
+      - 182
+      - 78
+      xy_color:
+      - 0.5149
+      - 0.4116
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Master Bedroom Lamp2 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf2_den_lamp1_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 41.429
+      - 82.353
+      rgb_color:
+      - 255
+      - 190
+      - 45
+      xy_color:
+      - 0.5202
+      - 0.4369
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF2: Den Lamp1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf2_den_lamp2_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 102
+      hs_color:
+      - 35.254
+      - 69.412
+      rgb_color:
+      - 255
+      - 182
+      - 78
+      xy_color:
+      - 0.5149
+      - 0.4116
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF2: Den Lamp2 Bulb1'
+      supported_features: 40
+      state: 'on'
+- id: '1650312999819'
+  name: Painted Sky
+  entities:
+    light.mf1_bedroom1_cf1_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 204
+      hs_color:
+      - 318
+      - 39.216
+      rgb_color:
+      - 255
+      - 155
+      - 225
+      xy_color:
+      - 0.391
+      - 0.251
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 CF1 Bulb1'
+      supported_features: 44
+      state: 'on'
+    light.mf1_bedroom1_lamp1_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 204
+      hs_color:
+      - 16.46
+      - 44.314
+      rgb_color:
+      - 255
+      - 173
+      - 142
+      xy_color:
+      - 0.4707
+      - 0.3508
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp1 Bulb1'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp1_bulb2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 204
+      hs_color:
+      - 278.438
+      - 50.196
+      rgb_color:
+      - 209
+      - 127
+      - 255
+      xy_color:
+      - 0.3106
+      - 0.1839
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp1 Bulb2'
+      supported_features: 40
+      state: 'on'
+    light.mf1_bedroom1_lamp2_bulb1:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp2 Bulb1'
+      supported_features: 40
+      color_mode: xy
+      brightness: 204
+      hs_color:
+      - 24.675
+      - 90.588
+      rgb_color:
+      - 255
+      - 119
+      - 24
+      xy_color:
+      - 0.6206
+      - 0.3615
+      state: 'on'
+    light.mf1_bedroom1_lamp2_bulb2:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - color_temp
+      - xy
+      mode: normal
+      dynamics: none
+      friendly_name: 'MF1: Bedroom1 Lamp2 Bulb2'
+      supported_features: 40
+      color_mode: xy
+      brightness: 204
+      hs_color:
+      - 255.652
+      - 63.137
+      rgb_color:
+      - 136
+      - 94
+      - 255
+      xy_color:
+      - 0.2214
+      - 0.1211
+      state: 'on'

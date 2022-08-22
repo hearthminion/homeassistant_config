@@ -151,7 +151,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_homeassistant')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_homeassistant")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -166,7 +166,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_bright')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_bright")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -181,7 +181,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_concentrate')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_concentrate")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -196,7 +196,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_nightlight')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_nightlight")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -211,7 +211,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_migraine')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_migraine")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -226,7 +226,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_candle')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_candle")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -325,7 +325,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_energize')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_energize")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -340,7 +340,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_read')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_read")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -355,7 +355,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_relax')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_relax")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -370,7 +370,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_sleep')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_sleep")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -385,7 +385,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_dimmed')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_dimmed")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -400,7 +400,7 @@ cards:
                       card:
                         - background-color: >
                             [[[
-                            if (states['input_select.bf1_all_lights_scene'].state == 'scene.bf1_all_fireplace')
+                            if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_fireplace")
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
@@ -511,7 +511,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_homeassistant')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_homeassistant")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -526,7 +526,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_bright')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_bright")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -541,7 +541,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_concentrate')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_concentrate")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -556,7 +556,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_nightlight')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_nightlight")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -571,7 +571,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_migraine')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_migraine")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -586,7 +586,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_candle')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_candle")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -686,7 +686,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_energize')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_energize")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -701,7 +701,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_read')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_read")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -716,7 +716,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_relax')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_relax")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -731,7 +731,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_sleep')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_sleep")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -746,7 +746,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_dimmed')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_dimmed")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -761,7 +761,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_den_scene'].state == 'scene.bf1_den_fireplace')
+                                    if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_fireplace")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -878,7 +878,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_homeassistant')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_homeassistant")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -893,7 +893,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_bright')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_bright")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -908,7 +908,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_concentrate')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_concentrate")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -923,7 +923,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_nightlight')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_nightlight")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -938,7 +938,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_migraine')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_migraine")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -953,7 +953,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_candle')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_candle")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1052,7 +1052,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_energize')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_energize")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1067,7 +1067,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_read')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_read")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1082,7 +1082,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_relax')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_relax")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1097,7 +1097,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_sleep')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_sleep")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1112,7 +1112,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_dimmed')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_dimmed")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]
@@ -1127,7 +1127,7 @@ cards:
                               card:
                                 - background-color: >
                                     [[[
-                                    if (states['input_select.bf1_kitchen_scene'].state == 'scene.bf1_kitchen_fireplace')
+                                    if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_fireplace")
                                       return "var(--paper-item-active-color)";
                                     return "var(--paper-card-background-color)";
                                     ]]]

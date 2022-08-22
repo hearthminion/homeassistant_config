@@ -124,7 +124,7 @@ input_select:
       - scene.bf1_all_dynamic
 
   bf1_dynamic_scenes:
-    name: "BF1: Den - Dynamic Scene"
+    name: "BF1: All - Dynamic Scene"
     options:
       - Blossom
       - Crocus
@@ -154,6 +154,11 @@ input_select:
       - Smitten
       - Glitz and glam
 
+  bf1_scene_sequences:
+    name: "BF1: All Scene Sequences"
+    options:
+      - None
+      - Serenity
 
 # ==================================================================================================
 #
@@ -617,5 +622,358 @@ script:
           entity_id: scene.bf1_all_beginnings
         metadata: {}
 
-  #bf1_all_lights_serenity:
+  bf_adv_daily_demo:
+    alias: "BF: All - Advanced Daily Demo"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
 
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 10s"
+        delay: 10
+      
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 21
+        target:
+          entity_id:
+            - scene.bf1_all_beginnings
+
+      - alias: "Wait 21s"
+        delay: 21
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 13
+        target:
+          entity_id:
+            - scene.bf1_all_first_light
+
+      - alias: "Wait 13s"
+        delay: 13
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 8
+        target:
+          entity_id:
+            - scene.bf1_all_horizon
+
+      - alias: "Wait 8s"
+        delay: 8
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 5
+        target:
+          entity_id:
+            - scene.bf1_all_horizon
+
+      - alias: "Wait 5s"
+        delay: 5
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 3
+        target:
+          entity_id:
+            - scene.bf1_all_valley_dawn
+
+      - alias: "Wait 8s"
+        delay: 3
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 2
+        target:
+          entity_id:
+            - scene.bf1_all_sunflare
+
+      - alias: "Wait 8s"
+        delay: 2
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 2
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 8s"
+        delay: 2
+
+      - service: light.turn_on
+        data:
+          color_temp: 153
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 25
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 8s"
+        delay: 30
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_sleep
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant
+
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+  bf_daily_demo:
+    alias: "BF: All - Daily Demo"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 10s"
+        delay: 10
+      
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 30s"
+        delay: 30
+
+      - service: light.turn_on
+        data:
+          color_temp: 153
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 25
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 8s"
+        delay: 30
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_sleep
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant
+
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+  bf1_all_lights_serenity:
+    alias: "BF: All - Serenity Sequence"
+    repeat:
+      while:
+        - condition: state
+          entity_id: input_select.bf_scene_sequence
+          state: "Serenity"
+    sequence:
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_galaxy
+
+      - alias: "Wait 10 minutes"
+        delay: 6
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_starlight
+
+      - alias: "Wait 10 minutes"
+        delay: 6
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_blood_moon
+
+      - alias: "Wait 10 minutes"
+        delay: 6
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_arctic_aurora
+
+      - alias: "Wait 10 minutes"
+        delay: 6
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_moonlight
+
+      - alias: "Wait 10 minutes"
+        delay: 6
+
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 6
+        target:
+          entity_id:
+            - scene.bf1_all_nebula
+
+      - alias: "Wait 10 minutes"
+        delay: 6

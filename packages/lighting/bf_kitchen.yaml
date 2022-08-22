@@ -104,7 +104,7 @@ light:
         color_template: "{{ state_attr('light.bf1_kitchen','hs_color') }}"
         min_mireds_template: "{{ state_attr('light.bf1_kitchen','min_mireds') | int(100) }}"
         max_mireds_template: "{{ state_attr('light.bf1_kitchen','max_mireds') | int(500) }}"
-        effect_list_template: "{{ state_attr('light.bf1_kitchen', 'effect_list') }}"
+        #effect_list_template: "{{ state_attr('light.bf1_kitchen', 'effect_list') }}"
         turn_on:
           service: scene.turn_on
           data_template:

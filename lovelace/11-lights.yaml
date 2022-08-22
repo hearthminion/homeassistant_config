@@ -101,7 +101,7 @@ cards:
                   - type: button
                     name: Nightlight
                     entity: input_select.bf1_all_lights_scene
-                    icon: mdi:sleep
+                    icon: mdi:weather-night
                     show_name: true
                     show_state: false
                     state_color: true
@@ -152,8 +152,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_homeassistant")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -167,8 +167,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_bright")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -182,8 +182,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_concentrate")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -197,8 +197,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_nightlight")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -212,8 +212,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_migraine")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -227,8 +227,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_candle")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
 
               - type: horizontal-stack
@@ -260,7 +260,7 @@ cards:
                         entity_id: input_select.bf1_all_lights_scene
                         option: scene.bf1_all_read
                   - type: button
-                    name: Relay
+                    name: Relax
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:yin-yang
                     show_name: true
@@ -275,7 +275,7 @@ cards:
                   - type: button
                     name: Sleep
                     entity: input_select.bf1_all_lights_scene
-                    icon: mdi:weather-night
+                    icon: mdi:sleep
                     show_name: true
                     show_state: false
                     state_color: true
@@ -326,8 +326,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_energize")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -341,8 +341,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_read")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -356,8 +356,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_relax")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -371,8 +371,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_sleep")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -386,8 +386,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_dimmed")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
                   - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
@@ -401,8 +401,8 @@ cards:
                         - background-color: >
                             [[[
                             if (states['input_select.bf1_all_lights_scene'].state == "scene.bf1_all_fireplace")
-                              return "var(--paper-item-active-color)";
-                            return "var(--paper-card-background-color)";
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
                             ]]]
 
               - type: horizontal-stack
@@ -461,7 +461,7 @@ cards:
                           - type: button
                             name: Nightlight
                             entity: input_select.bf1_den_scene
-                            icon: mdi:sleep
+                            icon: mdi:weather-night
                             show_name: true
                             show_state: false
                             state_color: true
@@ -512,8 +512,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_homeassistant")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -527,8 +527,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_bright")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -542,8 +542,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_concentrate")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -557,8 +557,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_nightlight")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -572,8 +572,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_migraine")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -587,8 +587,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_candle")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
 
 
@@ -621,7 +621,7 @@ cards:
                                 entity_id: input_select.bf1_den_scene
                                 option: scene.bf1_den_read
                           - type: button
-                            name: Relay
+                            name: Relax
                             entity: input_select.bf1_den_scene
                             icon: mdi:yin-yang
                             show_name: true
@@ -636,7 +636,7 @@ cards:
                           - type: button
                             name: Sleep
                             entity: input_select.bf1_den_scene
-                            icon: mdi:weather-night
+                            icon: mdi:sleep
                             show_name: true
                             show_state: false
                             state_color: true
@@ -645,7 +645,7 @@ cards:
                               service: input_select.select_option
                               service_data:
                                 entity_id: input_select.bf1_den_scene
-                                option: scene.bf1_den_darken
+                                option: scene.bf1_den_sleep
                           - type: button
                             name: Dimmed
                             entity: input_select.bf1_den_scene
@@ -687,8 +687,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_energize")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -702,8 +702,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_read")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -717,8 +717,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_relax")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -732,8 +732,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_sleep")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -747,8 +747,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_dimmed")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_den_scene
@@ -762,8 +762,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_den_scene'].state == "scene.bf1_den_fireplace")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
 
                       - type: custom:fold-entity-row
@@ -828,7 +828,7 @@ cards:
                           - type: button
                             name: Nightlight
                             entity: input_select.bf1_kitchen_scene
-                            icon: mdi:sleep
+                            icon: mdi:weather-night
                             show_name: true
                             show_state: false
                             state_color: true
@@ -879,8 +879,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_homeassistant")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -894,8 +894,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_bright")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -909,8 +909,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_concentrate")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -924,8 +924,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_nightlight")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -939,8 +939,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_migraine")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -954,8 +954,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_candle")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
 
                       - type: horizontal-stack
@@ -1002,7 +1002,7 @@ cards:
                           - type: button
                             name: Sleep
                             entity: input_select.bf1_kitchen_scene
-                            icon: mdi:weather-night
+                            icon: mdi:sleep
                             show_name: true
                             show_state: false
                             state_color: true
@@ -1011,7 +1011,7 @@ cards:
                               service: input_select.select_option
                               service_data:
                                 entity_id: input_select.bf1_kitchen_scene
-                                option: scene.bf1_kitchen_darken
+                                option: scene.bf1_kitchen_sleep
                           - type: button
                             name: Dimmed
                             entity: input_select.bf1_kitchen_scene
@@ -1053,8 +1053,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_energize")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -1068,8 +1068,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_read")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -1083,8 +1083,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_relax")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -1098,8 +1098,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_sleep")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -1113,8 +1113,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_dimmed")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
                           - type: custom:button-card
                             entitiy: input_select.bf1_kitchen_scene
@@ -1128,8 +1128,8 @@ cards:
                                 - background-color: >
                                     [[[
                                     if (states['input_select.bf1_kitchen_scene'].state == "scene.bf1_kitchen_fireplace")
-                                      return "var(--paper-item-active-color)";
-                                    return "var(--paper-card-background-color)";
+                                      return "var(--paper-item-icon-active-color)";
+                                    return "var(--primary-background-color)";
                                     ]]]
 
               - type: entities

@@ -88,6 +88,53 @@ input_select:
 
 # ==================================================================================================
 #
+# Template Lights
+#
+# ==================================================================================================
+light:
+  - platform: template
+    lights:
+      bf1_den_alt:
+        friendly_name: "BF1: Kitchen (Alt)"
+        unique_id: "e756cc56-1f05-4c4a-994b-849d9be9d58d"
+        value_template: "{{ is_state('light.bf1_kitchen', 'on') }}"
+        level_template: "{{ state_attr('light.bf1_kitchen','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.bf1_kitchen','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.bf1_kitchen','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.bf1_kitchen','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.bf1_kitchen','max_mireds') | int(500) }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.bf1_kitchen_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.bf1_kitchen
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_kitchen
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_kitchen
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_kitchen
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+
+# ==================================================================================================
+#
 # Rest Command
 #
 # Light IDs:

@@ -78,13 +78,16 @@ homeassistant:
 # ==================================================================================================
 automation: !include automations.yaml
 #backup:
+bluetooth:
 #cloud: Disabled
 config:
 counter:
 #dhcp:
 #energy:
 frontend:
+#hardware:
 history: !include includes/system/history.yaml
+homeassistant_alerts:
 image:
 input_boolean: !include includes/input_boolean.yaml
 input_button:
@@ -99,6 +102,7 @@ mobile_app:
 my:
 person:
 scene: !include scenes.yaml
+schedule:
 script: !include scripts.yaml
 ssdp:
 #stream:
@@ -106,12 +110,13 @@ system_health:
 tag:
 timer: !include includes/timers.yaml
 #usb:
+#webhook:
 zeroconf:
 zone:
 
 # Not part of default_config, but appears to need to be explicitely set if default_config is not
 discovery: !include includes/system/discovery.yaml
-  
+
 # ==================================================================================================
 #
 # Old Style Configurations

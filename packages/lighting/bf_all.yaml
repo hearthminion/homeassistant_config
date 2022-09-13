@@ -915,13 +915,13 @@ script:
       - alias: "Set Hue Scene Sequence to 'Serenity'"
         service: input_select.select_option
         data_template:
-          entity_id: input_select.bf_scene_sequence
+          entity_id: input_select.bf_scene_sequences
           option: "Serenity"
       - alias: "Cycle through Hue Serenity Scenes."
         repeat:
           while:
             - condition: state
-              entity_id: input_select.bf_scene_sequence
+              entity_id: input_select.bf_scene_sequences
               state: "Serenity"
             # Don't do it too many times
             - condition: template

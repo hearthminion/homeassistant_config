@@ -609,6 +609,11 @@ scene:
       light.bf_all:
         state: "off"
 
+# ==================================================================================================
+#
+# Scripts
+#
+# ==================================================================================================
 script:
   bf1_all_lights_sunrise:
     alias: "BF1: All - Sunrise sequence"
@@ -911,69 +916,69 @@ script:
         - condition: state
           entity_id: input_select.bf_scene_sequence
           state: "Serenity"
-    sequence:
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_galaxy
+      sequence:
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_galaxy
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6
 
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_starlight
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_starlight
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6
 
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_blood_moon
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_blood_moon
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6
 
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_arctic_aurora
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_arctic_aurora
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6
 
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_moonlight
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_moonlight
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6
 
-      - service: hue.activate_scene
-        data:
-          dynamic: true
-          transition: 6
-        target:
-          entity_id:
-            - scene.bf1_all_nebula
+        - service: hue.activate_scene
+          data:
+            dynamic: true
+            transition: 6
+          target:
+            entity_id:
+              - scene.bf1_all_nebula
 
-      - alias: "Wait 10 minutes"
-        delay: 6
+        - alias: "Wait 10 minutes"
+          delay: 6

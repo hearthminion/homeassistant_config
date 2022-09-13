@@ -17,7 +17,7 @@
 - [License](#license)
 
 ## Description
-Home Assistant Version: 2022.2
+Home Assistant Version: 2022.8
 
 ## Installation
 

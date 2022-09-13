@@ -154,8 +154,8 @@ input_select:
       - Smitten
       - Glitz and glam
 
-  bf1_scene_sequences:
-    name: "BF1: All Scene Sequences"
+  bf_scene_sequences:
+    name: "BF: All Scene Sequences"
     options:
       - None
       - Serenity

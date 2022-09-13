@@ -911,74 +911,84 @@ script:
 
   bf1_all_lights_serenity:
     alias: "BF: All - Serenity Sequence"
-    repeat:
-      while:
-        - condition: state
+    sequence:
+      - alias: "Set Hue Scene Sequence to 'Serenity'"
+        service: input_select.select_option
+        data_template:
           entity_id: input_select.bf_scene_sequence
-          state: "Serenity"
-      sequence:
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_galaxy
+          option: "Serenity"
+      - alias: "Cycle through Hue Serenity Scenes."
+        repeat:
+          while:
+            - condition: state
+              entity_id: input_select.bf_scene_sequence
+              state: "Serenity"
+            # Don't do it too many times
+            - condition: template
+              value_template: "{{ repeat.index <= 20 }}"
+          sequence:
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_galaxy
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6
 
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_starlight
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_starlight
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6
 
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_blood_moon
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_blood_moon
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6
 
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_arctic_aurora
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_arctic_aurora
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6
 
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_moonlight
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_moonlight
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6
 
-        - service: hue.activate_scene
-          data:
-            dynamic: true
-            transition: 6
-          target:
-            entity_id:
-              - scene.bf1_all_nebula
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 6
+              target:
+                entity_id:
+                  - scene.bf1_all_nebula
 
-        - alias: "Wait 10 minutes"
-          delay: 6
+            - alias: "Wait 10 minutes"
+              delay: 6

@@ -930,65 +930,73 @@ script:
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_galaxy
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
 
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_starlight
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
 
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_blood_moon
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
 
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_arctic_aurora
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
 
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_moonlight
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
 
             - service: hue.activate_scene
               data:
                 dynamic: true
-                transition: 6
+                transition: 1
               target:
                 entity_id:
                   - scene.bf1_all_nebula
 
             - alias: "Wait 10 minutes"
-              delay: 6
+              delay: 600
+
+      - alias: "Return to prior state."
+        service: hue.activate_scene
+        data:
+          transition: 1
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant

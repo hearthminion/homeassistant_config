@@ -426,7 +426,7 @@ scene:
 rest_command:
   hue_config:
     url: "{{ url1 }}/{{ url2 }}"
-    method: put
+    method: post
     payload: '{ {{ config }} }'
     verify_ssl: false
 

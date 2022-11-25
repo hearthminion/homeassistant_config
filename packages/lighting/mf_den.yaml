@@ -56,7 +56,7 @@ adaptive_lighting:
 #
 # Automations
 #
-# 
+#
 #
 # ==================================================================================================
 automation:
@@ -84,7 +84,6 @@ automation:
             - switch.mf2_den_lamp1_adaptive_lighting
             - switch.mf2_den_lamp2_adaptive_lighting
     mode: single
-
 
   # ================================================================================================
   #
@@ -251,7 +250,7 @@ automation:
         not_to:
           - "unknown"
           - "unavailable"
-   variables:
+    variables:
       brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp2_autobrightness') }}"
     condition:
       condition: and

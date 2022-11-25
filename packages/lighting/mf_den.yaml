@@ -245,7 +245,7 @@ automation:
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.light_mf2_den_lamp2_brightness
-         not_from:
+        not_from:
           - "unknown"
           - "unavailable"
         not_to:

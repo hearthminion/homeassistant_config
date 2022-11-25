@@ -72,7 +72,7 @@ automation:
   #
   # ================================================================================================
   - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
-    alias: "[Light] MF2: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -95,7 +95,7 @@ automation:
             - switch.adaptive_lighting_mf2_den_lamp2_with_brightness_adjustment
 
   - id: "5d497792-9062-446c-836f-d033bb7686a9"
-    alias: "[Light] MF2: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -129,7 +129,7 @@ automation:
   #
   # ================================================================================================
   - id: "ab8e3063-5b76-4146-980f-d945c1d9eebd"
-    alias: "[Light] MF2: Den Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
     initial_state: false
     trigger:
@@ -152,7 +152,7 @@ automation:
             - switch.adaptive_lighting_mf2_den_lamp1_with_brightness_adjustment
 
   - id: "859d806f-611d-431a-a3cc-fec03a761795"
-    alias: "[Light] MF2: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     description: ''
     initial_state: false
     trigger:
@@ -259,7 +259,7 @@ rest_command:
 # ==================================================================================================
 template:
   - binary_sensor:
-      - name: "[Light] MF2: Den Lamp1 (Autobrightness)"
+      - name: "MF2: Den Lamp1 (Autobrightness)"
         unique_id: "61149df3-3363-4717-a1f0-bdea867113b2"
         state: >-
           {{ (
@@ -284,7 +284,7 @@ template:
             {{ state_attr("binary_sensor.light_mf2_den_lamp1_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
-        name: "[Light] MF2: Den Lamp2 (Autobrightness)"
+        name: "MF2: Den Lamp2 (Autobrightness)"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -308,14 +308,14 @@ template:
             {{ state_attr("binary_sensor.light_mf2_den_lamp2_autobrightness", "brightness") | int(100) - 4 }}
 
       - unique_id: "34c07133-565d-4368-99d4-587b129800b5"
-        name: "[Light] MF2: Great Room Color Mode"
+        name: "MF2: Great Room Color Mode"
         state: "{{ state_attr('light.mf2_great_room','color_mode') == 'xy' }}"
 
   - sensor:
       - unique_id: "4a80505d-9bd2-405b-82e7-0babe7472038"
-        name: "[Light] MF2: Den Lamp1 Color"
+        name: "MF2: Den Lamp1 Color"
         state: "{{ state_attr('light.mf2_den_lamp1', 'xy_color') }}"
 
       - unique_id: "3e2b59e0-884f-405f-8b9b-4ce79e6a55eb"
-        name: "[Light] MF2: Den Lamp2 Color"
+        name: "MF2: Den Lamp2 Color"
         state: "{{ state_attr('light.mf2_den_lamp2', 'xy_color') }}"

@@ -69,7 +69,7 @@ automation:
             - switch.bf1_stairwell_adaptive_lighting_brightness
     mode: single
 
-  - id: "a2ddf847-00cb-4ba6-9cbd-93bb26f0c526"
+  - id: "3b8c3eb4-e3d5-4c3b-9c80-bf35ed49bb18"
     alias: "BF1: Stairwell - Adaptive Lighting (Toggle Color Adjustment)"
     trigger:
       - platform: state
@@ -98,7 +98,7 @@ automation:
             - switch.bf1_stairwell_adaptive_lighting_color
     mode: single
 
-  - id: "5c704d09-d7ae-4dc7-b6fb-560affb222f0"
+  - id: "89f9bedc-17cc-406a-bd95-e96362478b3d"
     alias: "BF1: Stairwell - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
@@ -117,7 +117,7 @@ automation:
             - switch.bf1_stairwell_adaptive_lighting_color
     mode: single
 
-  - id: "d8d30910-2195-409c-a068-d87ba2b48596"
+  - id: "3d28149f-8ff1-4eb3-9989-97e93726c629"
     alias: "BF1: Stairwell - Green Has Been On"
     description: ""
     trigger:
@@ -137,7 +137,7 @@ automation:
           entity_id: input_boolean.special_migraine_mode
     mode: single
 
-  - id: "bf2c0436-0a93-4f19-91cf-b3d5ae71d10b"
+  - id: "65c0f627-4ab4-4eee-b261-b462669bae53"
     alias: "BF1: Stairwell - Turn off Green tracker"
     description: ""
     trigger:

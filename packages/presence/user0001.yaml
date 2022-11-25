@@ -1,6 +1,7 @@
 binary_sensor:
   - platform: bayesian
-    name: user0001_status
+    unique_id: "748ded88-ad08-4368-95d3-a6e72c6d66cb"
+    name: "user0001_status"
     prior: 0.75
     probability_threshold: 0.91
     device_class: 'presence'

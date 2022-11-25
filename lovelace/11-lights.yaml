@@ -26,6 +26,363 @@ cards:
                 title: Main Floor Lights
                 show_header_toggle: false
                 entities:
+                  - light.mf_all_alt
+              - type: horizontal-stack
+                cards:
+                  - type: button
+                    name: Home Assistant
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:sine-wave
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_homeassistant
+                  - type: button
+                    name: Bright
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:brightness-7
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_bright
+                  - type: button
+                    name: Concentrate
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:bullseye
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_concentrate
+                  - type: button
+                    name: Nightlight
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:weather-night
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_nightlight
+                  - type: button
+                    name: Migraine
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:head-flash
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_migraine
+                  - type: button
+                    name: Candle
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:candle
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_candle
+
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_homeassistant")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_bright")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_concentrate")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_nightlight")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_migraine")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_candle")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+
+              - type: horizontal-stack
+                cards:
+                  - type: button
+                    name: Energize
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:lightning-bolt
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_energize
+                  - type: button
+                    name: Read
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:microsoft-xbox-controller-menu
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_read
+                  - type: button
+                    name: Relax
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:yin-yang
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_relax
+                  - type: button
+                    name: Sleep
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:sleep
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_darken
+                  - type: button
+                    name: Dimmed
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:brightness-4
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_dimmed
+                  - type: button
+                    name: Fireplace
+                    entity: input_select.mf_all_lights_scene
+                    icon: mdi:fireplace
+                    show_name: true
+                    show_state: false
+                    state_color: true
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        entity_id: input_select.mf_all_lights_scene
+                        option: scene.mf_all_fireplace
+
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_energize")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_read")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_relax")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_sleep")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_dimmed")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+                  - type: custom:button-card
+                    entitiy: input_select.mf_all_lights_scene
+                    aspect_ratio: 16/1
+                    color_type: card
+                    show_name: false
+                    triggers-update:
+                      - input_select.mf_all_lights_scene
+                    styles:
+                      card:
+                        - background-color: >
+                            [[[
+                            if (states['input_select.mf_all_lights_scene'].state == "scene.mf_all_fireplace")
+                              return "var(--paper-item-icon-active-color)";
+                            return "var(--primary-background-color)";
+                            ]]]
+
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: entities
+                title: Main Floor Lights
+                show_header_toggle: false
+                entities:
                   - type: custom:fold-entity-row
                     head: light.mf2_great_room
                     entities:

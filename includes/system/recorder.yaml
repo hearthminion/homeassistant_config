@@ -38,34 +38,9 @@ include:
     - sensor.user*
     - switch.bf*
     - switch.mf*
+    - switch.by*
+    - switch.fy*
   entities:
-    - binary_sensor.aether
-    - binary_sensor.angelia
-    - binary_sensor.aphrodite
-    - binary_sensor.calliope
-    - binary_sensor.calypso
-    - binary_sensor.cerberus
-    - binary_sensor.chaos
-    - binary_sensor.deathstar
-    - binary_sensor.defiance
-    - binary_sensor.demeter
-    - binary_sensor.helios
-    - binary_sensor.hera
-    - binary_sensor.hestia
-    - binary_sensor.independence
-    - binary_sensor.iris
-    - binary_sensor.lelantos
-    - binary_sensor.liberty
-    - binary_sensor.persephone
-    - binary_sensor.protection_window_3
-    - binary_sensor.redemption
-    - binary_sensor.roomba_bin_full
-    - binary_sensor.salvation
-    - binary_sensor.selene
-    - binary_sensor.uranus
-    - binary_sensor.user0001_laptop
-    - binary_sensor.user0002_laptop
-    - binary_sensor.zeus
     - input_select.light_mode
     - input_select.user0001_status_dropdown
     - input_select.user0002_status_dropdown
@@ -78,9 +53,9 @@ include:
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
-    - switch.dionysus
-    - switch.mnemosyne
-    - switch.morpheus
+    - switch.mythtvf01
+    - switch.mythtvb01
+    - switch.fs01
     - timer.lights_off
     - vacuum.roomba
 exclude:

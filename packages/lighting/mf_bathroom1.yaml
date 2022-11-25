@@ -135,7 +135,7 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.mf1_bathroom1_inner_autobrightness", "brightness") | int(100) - 4 }}
 
-      - unique_id: ""
+      - unique_id: "86b53ab7-d519-4cb3-aa7e-6c738b589bb2"
         name: "MF1: Bathroom1 (Inner) - Autocolor"
         state: >-
           {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
@@ -157,7 +157,7 @@ template:
           color_temp_min: >-
             {{ state_attr("binary_sensor.mf1_bathroom1_autocolor", "color_temp") | int(367) - 15 }}
 
-      - unique_id: "33dd3951-cb88-426d-869d-1bb8d06a8e98"
+      - unique_id: "ed020974-7eb9-433f-8d5d-920307415ed5"
         name: "MF1: Bathroom1 (Inner) - Color Mode"
         state: "{{ state_attr('light.mf1_bathroom1_inner','color_mode') == 'xy' }}"
 
@@ -195,7 +195,7 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.mf1_bathroom1_outer_autobrightness", "brightness") | int(100) - 4 }}
 
-      - unique_id: ""
+      - unique_id: "c0a83d91-4ac2-45f8-8e75-b70de54cb6fe"
         name: "MF1: Bathroom1 (Outer) - Autocolor"
         state: >-
           {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <

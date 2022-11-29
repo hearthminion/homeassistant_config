@@ -1,0 +1,26 @@
+- id: '1660584118258'
+  alias: Turn on Fan in the morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 1a570ebfe8b8919888bca7fcec6b8f9a
+    entity_id: switch.mf1_den_zwave1_switch
+    domain: switch
+  mode: single
+- id: '1660584153932'
+  alias: Turn off Fan at night
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 1a570ebfe8b8919888bca7fcec6b8f9a
+    entity_id: switch.mf1_den_zwave1_switch
+    domain: switch
+  mode: single

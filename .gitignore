@@ -59,3 +59,4 @@ core
 secrets.yaml
 secrets.yaml.*
 wget-log
+ip_bans.yaml

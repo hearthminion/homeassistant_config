@@ -19,13 +19,19 @@ adaptive_lighting:
 # ==================================================================================================
 automation:
   - id: "a627f708-2baf-43a5-b771-b4f2f1701105"
-    alias: "[Light] BF1: Storage1 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Storage1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.light_bf1_storage1_autobrightness
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
     variables:
       brightness_mode: "{{ states('binary_sensor.light_bf1_storage1_autobrightness') }}"
     condition:
@@ -37,11 +43,11 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+            - switch.bf1_storage1_adaptive_lighting_brightness
     mode: single
 
   - id: "61192490-3ad9-4b16-bdcf-5f2cc2615afd"
-    alias: "[Light] BF1: Storage1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Storage1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
     description: ""
     trigger:
         - platform: event
@@ -60,8 +66,99 @@ automation:
         data: {}
         target:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+            - switch.bf1_storage1_adaptive_lighting_brightness
     mode: single
+
+  - id: "a2ddf847-00cb-4ba6-9cbd-93bb26f0c526"
+    alias: "BF1: Storage1 - Adaptive Lighting (Toggle Color Adjustment)"
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.bf1_storage1_autocolor
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+    variables:
+      brightness_mode: "{{ states('binary_sensor.bf1_storage1_autocolor') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_storage1_adaptive_lighting_color
+    mode: single
+
+  - id: "5c704d09-d7ae-4dc7-b6fb-560affb222f0"
+    alias: "BF1: Storage1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 4
+            type: "long_release"
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_storage1_adaptive_lighting_color
+    mode: single
+
+  - id: "d8d30910-2195-409c-a068-d87ba2b48596"
+    alias: "BF1: Storage1 - Green Has Been On"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_storage1
+        attribute: xy_color
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_storage1_green_event
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.special_migraine_mode
+    mode: single
+
+  - id: "bf2c0436-0a93-4f19-91cf-b3d5ae71d10b"
+    alias: "BF1: Storage1 - Turn off Green tracker"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_storage1_green_event
+    mode: single
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+  bf1_storage1_green_event:
+    name: "BF1: Storage1 - Green Event"
 
 # ==================================================================================================
 #
@@ -100,68 +197,7 @@ rest_command:
 # Scenes
 #
 # ==================================================================================================
-scene:
-  - id: "301b7d3c-fbfb-4ab0-9651-9b0ab8975923"
-    name: "[Light] BF1: Storage1 - Bright"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 367
-        brightness: 255
-
-  - id: "e57c58a1-d67c-4b3e-b3cc-5fc5b5f2dfa8"
-    name: "[Light] BF1: Storage1 - Concentrate"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 230
-        brightness: 255
-
-  - id: "99987242-6193-4979-8b0b-cb5183bdd4b4"
-    name: "[Light] BF1: Storage1 - Dimmed"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 369
-        brightness: 76
-
-  - id: "225942a1-46e5-4f56-8601-82b330feedf1"
-    name: "[Light] BF1: Storage1 - Energize"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 156
-        brightness: 255
-
-  - id: "6d106105-81f0-40ce-ac20-fd657d077604"
-    name: "[Light] BF1: Storage1 - Nightlight"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 454
-        brightness: 1
-
-  - id: "81b6851f-da69-4978-bb95-f9778ce71430"
-    name: "[Light] BF1: Storage1 - Read"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 343
-        brightness: 255
-
-  - id: "94a9cdf6-b5c8-4e18-9e27-6c73afd3b2bc"
-    name: "[Light] BF1: Storage1 - Relax"
-    entities:
-      light.bf1_storage1:
-        state: "on"
-        color_temp: 447
-        brightness: 145
-
-  - id: "1721d956-f298-438e-ab09-903ad0fe9241"
-    name: "[Light] BF1: Storage1 - Off"
-    entities:
-      light.bf1_storage1:
-        state: "off"
+#scene:
 
 # ==================================================================================================
 #
@@ -176,7 +212,7 @@ scene:
 template:
   - binary_sensor:
       - unique_id: "0f4ece11-2159-460a-a814-964f1894bd16"
-        name: "[Light] BF1: Storage1 Autobrightness"
+        name: "BF1: Storage1 Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -199,13 +235,35 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_storage1_autobrightness", "brightness") | int(100) - 4 }}
 
+      - unique_id: "9cacc9b6-4bd6-4578-aa7a-6454268e9653"
+        name: "BF1: Storage1 - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.bf1_storage1_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.bf1_storage1_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.bf1_storage1", "color_temp") is number %}
+              {{ state_attr("light.bf1_storage1","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.bf1_storage1_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.bf1_storage1_autocolor", "color_temp") | int(367) - 15 }}
+
       - unique_id: "a6010d67-12b3-4c8f-99c5-ba5977ed0854"
-        name: "[Light] BF1: Storage1 Color Mode"
+        name: "BF1: Storage1 Color Mode"
         state: "{{ state_attr('light.bf1_storage1','color_mode') == 'xy' }}"
 
   - sensor:
       - unique_id: "a042ecbe-48a2-4d4c-b0e7-0abb048a8468"
-        name: "[Light] BF1: Storage1 Color"
+        name: "BF1: Storage1 Color"
         state: "{{ state_attr('light.bf1_storage1', 'xy_color') }}"
 
 ...

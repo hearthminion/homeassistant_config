@@ -19,13 +19,19 @@ adaptive_lighting:
 # ==================================================================================================
 automation:
   - id: "8aa338d4-6186-4948-9f04-e3ab3867d48d"
-    alias: "[Light] BF1: Stairwell - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Stairwell - Adaptive Lighting (Toggle Brightness Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_stairwell_autobrightness
+        entity_id: binary_sensor.bf1_stairwell_autobrightness
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
     variables:
       brightness_mode: "{{ states('binary_sensor.light_bf1_stairwell_autobrightness') }}"
     condition:
@@ -37,11 +43,11 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_stairwell
+            - switch.bf1_stairwell_adaptive_lighting_brightness
     mode: single
 
   - id: "b979cb2f-3728-415d-8ef3-4e97511b9bd7"
-    alias: "[Light] BF1: Stairwell - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Stairwell - Adaptive Lighting (Turn Off Brightness Adjustment)"
     description: ""
     trigger:
         - platform: event
@@ -60,8 +66,99 @@ automation:
         data: {}
         target:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_stairwell
+            - switch.bf1_stairwell_adaptive_lighting_brightness
     mode: single
+
+  - id: "3b8c3eb4-e3d5-4c3b-9c80-bf35ed49bb18"
+    alias: "BF1: Stairwell - Adaptive Lighting (Toggle Color Adjustment)"
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.bf1_stairwell_autocolor
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+    variables:
+      brightness_mode: "{{ states('binary_sensor.bf1_stairwell_autocolor') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_stairwell_adaptive_lighting_color
+    mode: single
+
+  - id: "89f9bedc-17cc-406a-bd95-e96362478b3d"
+    alias: "BF1: Stairwell - Adaptive Lighting (Turn Off Color Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 4
+            type: "long_release"
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_stairwell_adaptive_lighting_color
+    mode: single
+
+  - id: "3d28149f-8ff1-4eb3-9989-97e93726c629"
+    alias: "BF1: Stairwell - Green Has Been On"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_stairwell
+        attribute: xy_color
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_stairwell_green_event
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.special_migraine_mode
+    mode: single
+
+  - id: "65c0f627-4ab4-4eee-b261-b462669bae53"
+    alias: "BF1: Stairwell - Turn off Green tracker"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_stairwell_green_event
+    mode: single
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+  bf1_stairwell_green_event:
+    name: "BF1: Stairwell - Green Event"
 
 # ==================================================================================================
 #
@@ -95,68 +192,7 @@ rest_command:
 # Scenes
 #
 # ==================================================================================================
-scene:
-  - id: "89a9d18b-7d93-4775-91e9-12d82e1081bd"
-    name: "[Light] BF1: Stairwell - Bright"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 367
-        brightness: 255
-
-  - id: "2ae8e6e7-dcf5-4c5d-873d-731eb60fdd8e"
-    name: "[Light] BF1: Stairwell - Concentrate"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 230
-        brightness: 255
-
-  - id: "f4534e1d-2a43-4cb7-8bca-e5e4dce82178"
-    name: "[Light] BF1: Stairwell - Dimmed"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 369
-        brightness: 76
-
-  - id: "3d939f27-43af-44e2-b18c-55cbd91a19d6U"
-    name: "[Light] BF1: Stairwell - Energize"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 156
-        brightness: 255
-
-  - id: "d82be773-00d1-4ad7-a1c5-9e784165a0fe"
-    name: "[Light] BF1: Stairwell - Nightlight"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 454
-        brightness: 1
-
-  - id: "8344f689-e28f-4869-b405-a53ec7158c7a"
-    name: "[Light] BF1: Stairwell - Read"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 343
-        brightness: 255
-
-  - id: "5a9f8883-c6b8-472a-9a74-5b81a7204dd5"
-    name: "[Light] BF1: Stairwell - Relax"
-    entities:
-      light.bf1_stairwell:
-        state: "on"
-        color_temp: 447
-        brightness: 145
-
-  - id: "d701d267-2dcd-49ba-a2e9-b5d18f61ed81"
-    name: "[Light] BF1: Stairwell - Off"
-    entities:
-      light.bf1_stairwell:
-        state: "off"
+#scene:
 
 # ==================================================================================================
 #
@@ -171,7 +207,7 @@ scene:
 template:
   - binary_sensor:
       - unique_id: "5f8e0a31-8253-4f68-a1b0-669c858e41d0"
-        name: "[Light] BF1: Stairwell Autobrightness"
+        name: "BF1: Stairwell Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -194,11 +230,33 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_stairwell_autobrightness", "brightness") | int(100) - 4 }}
 
+      - unique_id: "148059bc-fc17-44aa-9e8c-1890619b6364"
+        name: "BF1: Stairwell - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.bf1_stairwell_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.bf1_stairwell_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.bf1_stairwell", "color_temp") is number %}
+              {{ state_attr("light.bf1_stairwell","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.bf1_stairwell_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.bf1_stairwell_autocolor", "color_temp") | int(367) - 15 }}
+
       - unique_id: "83efc366-95c0-4043-824b-981877bd16c7"
-        name: "[Light] BF1: Stairwell Color Mode"
+        name: "BF1: Stairwell Color Mode"
         state: "{{ state_attr('light.bf1_stairwell','color_mode') == 'xy' }}"
 
   - sensor:
       - unique_id: "7c4d59da-df7b-4de7-8531-5f30d81d3cfb"
-        name: "[Light] BF1: Stairwell Color"
+        name: "BF1: Stairwell Color"
         state: "{{ state_attr('light.bf1_stairwell', 'xy_color') }}"

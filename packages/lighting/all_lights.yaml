@@ -272,6 +272,20 @@ automation:
         data:
           entity_id: timer.lights_off
 
+  - id: "17a6fc2f-4a58-4a12-ba58-1b332d4712db"
+    alias: "Reboot Hue Bridges"
+    description: "Reboots hue bridges overnight."
+    trigger:
+      - platform: time
+        at: "04:00:00"
+    condition: []
+    action:
+      - service: script.turn_on
+        data: {}
+        target:
+          entity_id: script.reboot_hue_bridge
+    mode: single
+
 # ==================================================================================================
 #
 # Input Number
@@ -410,10 +424,19 @@ scene:
 #
 # ==================================================================================================
 rest_command:
-  hue1_config:
+  hue_config:
     url: "{{ url1 }}/{{ url2 }}"
-    method: put
+    method: post
     payload: '{ {{ config }} }'
+    verify_ssl: false
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+#scene:
+
 # ==================================================================================================
 #
 # Scripts
@@ -437,7 +460,7 @@ rest_command:
 #   - Storage1
 #   - Storage2
 # - Zones
-# 
+#
 #
 # ==================================================================================================
 script:
@@ -499,7 +522,7 @@ script:
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          
+
       - service: rest_command.light_update_mf2_great_room_scene
         data:
           scene_id: "398ffc64-071c-4fa1-a33f-4ef8cc4f89f5"

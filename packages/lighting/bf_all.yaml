@@ -78,9 +78,7 @@ automation:
 #
 #
 # ==================================================================================================
-input_boolean:
-  bf1_all_lights:
-    name: "BF1: All Lights"
+#input_boolean:
 
 # ==================================================================================================
 #
@@ -106,6 +104,23 @@ input_number:
 #
 # ==================================================================================================
 input_select:
+  # bf_all_lights_scene:
+  #   name: "BF1: All Lights - Scenes"
+  #   options:
+  #     - scene.bf1_all_bright
+  #     - scene.bf1_all_candle
+  #     - scene.bf1_all_concentrate
+  #     - scene.bf1_all_darken
+  #     - scene.bf1_all_dimmed
+  #     - scene.bf1_all_energize
+  #     - scene.bf1_all_fireplace
+  #     - scene.bf1_all_homeassistant
+  #     - scene.bf1_all_migraine
+  #     - scene.bf1_all_nightlight
+  #     - scene.bf1_all_read
+  #     - scene.bf1_all_relax
+  #     - scene.bf1_all_dynamic
+
   bf1_all_lights_scene:
     name: "BF1: All Lights - Scenes"
     options:
@@ -123,10 +138,42 @@ input_select:
       - scene.bf1_all_relax
       - scene.bf1_all_dynamic
 
-  bf1_all_lights_dynamic_scenes:
-    name: "BF1: All Lights - Dynamic Scenes"
+  bf1_dynamic_scenes:
+    name: "BF1: All - Dynamic Scene"
     options:
-      - Bright
+      - Blossom
+      - Crocus
+      - Precious
+      - Narcissa
+      - Honolulu
+      - Savanna sunset
+      - Golden pond
+      - Ruby glow
+      - Tropical twilight
+      - Miami
+      - Cancun
+      - Rio
+      - Chinatown
+      - Ibiza
+      - Osaka
+      - Tokyo
+      - Motown
+      - Fairfax
+      - Galaxy
+      - Starlight
+      - Blood moon
+      - Arctic aurora
+      - Moonlight
+      - Nebula
+      - Lovebirds
+      - Smitten
+      - Glitz and glam
+
+  bf_scene_sequences:
+    name: "BF: All Scene Sequences"
+    options:
+      - None
+      - Serenity
 
 # ==================================================================================================
 #
@@ -140,12 +187,60 @@ light:
     entities:
       - light.bf1_all
 
+  - platform: template
+    lights:
+      bf1_all_alt:
+        friendly_name: "BF1: All (Alt)"
+        unique_id: "58831bb7-9e66-4dee-b2bc-48e659c3f734"
+        value_template: "{{ is_state('light.bf1_all', 'on') }}"
+        level_template: "{{ state_attr('light.bf1_all','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.bf1_all','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.bf1_all','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.bf1_all','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
+        #effect_list_template: "{{ state_attr('light.bf1_all', 'effect_list') }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.bf1_all_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.bf1_all
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.bf1_all
+        #     effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
+
 # ==================================================================================================
 #
 # Rest Command
 #
 # Light IDs:
-# - 01: e687cdcb-7022-4d66-9763-ec5ead8f8808
+# - 01: 2b238059-189a-4f70-b33a-6b6948b70dc7
 #   name: BF1 Kitchen CF1 Bulb
 # - 02: 068c9cd1-0128-423b-b0f4-e9bc57e0308e
 #   name: BF1 Stairwell Bulb
@@ -316,214 +411,394 @@ scene:
       automation.light_bf1_all_turn_off_lights_at_night:
         state: "on"
 
-  - id: "68dcd95f-bf3f-42d7-bb84-6b50af2bb70e"
-    name: "[Light] BF1: All - Darken"
-    entities:
-      light.bf1_den_lamp2_bulb1:
-        state: "on"
-        xy_color:
-          - 0.6915
-          - 0.3083
-        brightness: 64
-      light.bf1den_cf1_bulb1:
-        state: "on"
-        xy_color:
-          - 0.6915
-          - 0.3083
-        brightness: 64
-      light.bf1_den_cf2_bulb1:
-        state: "off"
-      light.bf1_den_lamp1_bulb1:
-        state: "off"
-      light.bf1_den_lamp3_bulb_1:
-        state: "off"
-      light.bf1_den_lamp3_bulb_2:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_1:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_2:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_3:
-        state: "off"
-      light.bf1_kitchen_cf1_bulb1:
-        state: "off"
-      light.bf1_stairwell_cf1_bulb1:
-        state: "off"
-      light.bf1_storage1_cf1_bulb1:
-        state: "off"
-      light.bf1_storage1_cf2_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp1_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp2_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp3_bulb1:
-        state: "off"
+# ==================================================================================================
+#
+# Scripts
+#
+# ==================================================================================================
+script:
+  bf1_all_lights_sunrise:
+    alias: "BF1: All - Sunrise sequence"
+    mode: single
+    sequence:
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 600
+        target:
+          entity_id: scene.bf1_all_beginnings
+        metadata: {}
 
-  - id: "d8c9b5de-8ed7-4403-87ee-172feb15d9a5"
-    name: "[Light] BF1: All - Migraine"
-    entities:
-      light.bf1_den_lamp2_bulb1:
-        state: "on"
-        xy_color:
-          - 0.23
-          - 0.698
-        brightness: 64
-      light.bf1_den_cf1_bulb1:
-        state: "on"
-        xy_color:
-          - 0.23
-          - 0.698
-        brightness: 64
-      light.bf1_den_cf2_bulb1:
-        state: "off"
-      light.bf1_den_lamp1_bulb1:
-        state: "off"
-      light.bf1_den_lamp3_bulb_1:
-        state: "off"
-      light.bf1_den_lamp3_bulb_2:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_1:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_2:
-        state: "off"
-      light.bf1_hallway_cf1_bulb_3:
-        state: "off"
-      light.bf1_kitchen_cf1_bulb1:
-        state: "off"
-      light.bf1_stairwell_cf1_bulb1:
-        state: "off"
-      light.bf1_storage1_cf1_bulb1:
-        state: "off"
-      light.bf1_storage1_cf2_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp1_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp2_bulb1:
-        state: "off"
-      light.bf1_storage2_lamp3_bulb1:
-        state: "off"
+  bf_adv_daily_demo:
+    alias: "BF: All - Advanced Daily Demo"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
 
-  - id: "10fd713e-b10b-4e3d-833b-3ea63816b5de"
-    name: "[Light] BF1: All - Bright"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 367
-        brightness: 255
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
 
-  - id: "22b7c3af-0991-4f83-b2b2-6d51f1df089c"
-    name: "[Light] BF1: All - Concentrate"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 230
-        brightness: 255
+      - alias: "Wait 10s"
+        delay: 10
 
-  - id: "9e5f60ca-caae-41b3-bd7b-7fce33bcc436"
-    name: "[Light] BF1: All - Dimmed"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 369
-        brightness: 76
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 21
+        target:
+          entity_id:
+            - scene.bf1_all_beginnings
 
-  - id: "126a563d-3826-4d00-81e1-abca1a6869b2"
-    name: "[Light] BF1: All - Energize"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 156
-        brightness: 255
+      - alias: "Wait 21s"
+        delay: 21
 
-  - id: "50d190ae-8d62-4716-ac9c-3ef5757a1009"
-    name: "[Light] BF1: All - Nightlight"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 454
-        brightness: 1
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 13
+        target:
+          entity_id:
+            - scene.bf1_all_first_light
 
-  - id: "3e72d0b5-c2f2-4f4e-87df-67bc7c63882d"
-    name: "[Light] BF1: All - Read"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 343
-        brightness: 255
+      - alias: "Wait 13s"
+        delay: 13
 
-  - id: "fbe2e3db-c839-42d6-86de-c879baf8673e"
-    name: "[Light] BF1: All - Relax"
-    entities:
-      light.bf1_all:
-        state: "on"
-        color_temp: 447
-        brightness: 145
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 8
+        target:
+          entity_id:
+            - scene.bf1_all_horizon
 
-  - id: "b448b6d9-fc73-4f87-8cd9-f0df64dd350d"
-    name: "[Light] BF1: All - Off"
-    entities:
-      light.bf1_all:
-        state: "off"
+      - alias: "Wait 8s"
+        delay: 8
 
-  - id: "f8c94b9d-ab8b-4c1e-8b75-51b2b59e4102"
-    name: "[Light] BF: All - Bright"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 367
-        brightness: 255
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 5
+        target:
+          entity_id:
+            - scene.bf1_all_horizon
 
-  - id: "e57eee01-207c-4017-9cd4-496fbc8f4ac1"
-    name: "[Light] BF: All - Concentrate"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 230
-        brightness: 255
+      - alias: "Wait 5s"
+        delay: 5
 
-  - id: "7e61a7e6-b675-415c-a18b-e5d4cd273e28"
-    name: "[Light] BF: All - Dimmed"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 369
-        brightness: 76
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 3
+        target:
+          entity_id:
+            - scene.bf1_all_valley_dawn
 
-  - id: "be46d867-6b91-4022-9d04-5ebc660594e6"
-    name: "[Light] BF: All - Energize"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 156
-        brightness: 255
+      - alias: "Wait 8s"
+        delay: 3
 
-  - id: "4261918a-3873-4fc7-8b44-fe170d3b977b"
-    name: "[Light] BF: All - Nightlight"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 454
-        brightness: 1
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 2
+        target:
+          entity_id:
+            - scene.bf1_all_sunflare
 
-  - id: "e4a5152c-f811-462e-b870-6a38d4e009f1"
-    name: "[Light] BF: All - Read"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 343
-        brightness: 255
+      - alias: "Wait 8s"
+        delay: 2
 
-  - id: "02404dae-8c2a-43a3-b9b7-c9eea54554ca"
-    name: "[Light] BF: All - Relax"
-    entities:
-      light.bf_all:
-        state: "on"
-        color_temp: 447
-        brightness: 145
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 2
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
 
-  - id: "5e623fd7-f173-469f-9f8c-29bfefa486ec"
-    name: "[Light] BF: All - Off"
-    entities:
-      light.bf_all:
-        state: "off"
+      - alias: "Wait 8s"
+        delay: 2
+
+      - service: light.turn_on
+        data:
+          color_temp: 153
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 25
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 8s"
+        delay: 30
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_sleep
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant
+
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+  bf_daily_demo:
+    alias: "BF: All - Daily Demo"
+    sequence:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 10s"
+        delay: 10
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 30s"
+        delay: 30
+
+      - service: light.turn_on
+        data:
+          color_temp: 153
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 90
+          brightness: 100
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: light.turn_on
+        data:
+          color_temp: 500
+          transition: 30
+          brightness: 25
+        target:
+          entity_id:
+            - light.bf1_all
+
+      - alias: "Wait 8s"
+        delay: 30
+
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bf_all
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_sleep
+
+      - alias: "Wait 90s"
+        delay: 90
+
+      - service: hue.activate_scene
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant
+
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.bf1_den_cf1_adaptive_lighting
+            - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_lamp1_adaptive_lighting
+            - switch.bf1_den_lamp2_adaptive_lighting
+            - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_hallway_adaptive_lighting
+            - switch.bf1_kitchen_adaptive_lighting
+            - switch.bf1_stairwell_adaptive_lighting
+            - switch.bf1_storage1_adaptive_lighting
+            - switch.bf1_storage2_adaptive_lighting
+
+  bf1_all_lights_serenity:
+    alias: "BF: All - Serenity Sequence"
+    sequence:
+      - alias: "Set Hue Scene Sequence to 'Serenity'"
+        service: input_select.select_option
+        data_template:
+          entity_id: input_select.bf_scene_sequences
+          option: "Serenity"
+      - alias: "Cycle through Hue Serenity Scenes."
+        repeat:
+          while:
+            - condition: state
+              entity_id: input_select.bf_scene_sequences
+              state: "Serenity"
+            # Don't do it too many times
+            - condition: template
+              value_template: "{{ repeat.index <= 20 }}"
+          sequence:
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_galaxy
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_starlight
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_blood_moon
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_arctic_aurora
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_moonlight
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+            - service: hue.activate_scene
+              data:
+                dynamic: true
+                transition: 1
+              target:
+                entity_id:
+                  - scene.bf1_all_nebula
+
+            - alias: "Wait 10 minutes"
+              delay: 600
+
+      - alias: "Return to prior state."
+        service: hue.activate_scene
+        data:
+          transition: 1
+        target:
+          entity_id:
+            - scene.bf1_all_homeassistant

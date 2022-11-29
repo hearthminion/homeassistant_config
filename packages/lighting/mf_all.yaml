@@ -1,4 +1,67 @@
 ---
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
+input_select:
+  mf_all_lights_scene:
+    name: "MF: All Lights - Scenes"
+    options:
+      - scene.mf_all_bright
+      - scene.mf_all_candle
+      - scene.mf_all_concentrate
+      - scene.mf_all_darken
+      - scene.mf_all_dimmed
+      - scene.mf_all_energize
+      - scene.mf_all_fireplace
+      - scene.mf_all_homeassistant
+      - scene.mf_all_migraine
+      - scene.mf_all_nightlight
+      - scene.mf_all_read
+      - scene.mf_all_relax
+      - scene.mf_all_dynamic
+
+  mf1_all_lights_scene:
+    name: "MF1: All Lights - Scenes"
+    options:
+      - scene.mf1_all_bright
+      - scene.mf1_all_candle
+      - scene.mf1_all_concentrate
+      - scene.mf1_all_darken
+      - scene.mf1_all_dimmed
+      - scene.mf1_all_energize
+      - scene.mf1_all_fireplace
+      - scene.mf1_all_homeassistant
+      - scene.mf1_all_migraine
+      - scene.mf1_all_nightlight
+      - scene.mf1_all_read
+      - scene.mf1_all_relax
+      - scene.mf1_all_dynamic
+
+  mf2_all_lights_scene:
+    name: "MF2: All Lights - Scenes"
+    options:
+      - scene.mf2_all_bright
+      - scene.mf2_all_candle
+      - scene.mf2_all_concentrate
+      - scene.mf2_all_darken
+      - scene.mf2_all_dimmed
+      - scene.mf2_all_energize
+      - scene.mf2_all_fireplace
+      - scene.mf2_all_homeassistant
+      - scene.mf2_all_migraine
+      - scene.mf2_all_nightlight
+      - scene.mf2_all_read
+      - scene.mf2_all_relax
+      - scene.mf2_all_dynamic
+
+
+# ==================================================================================================
+#
+# Lights
+#
+# ==================================================================================================
 light:
   - platform: group
     unique_id: "1062582c-9e65-4d77-9f94-1b6488f6b6ff"
@@ -7,6 +70,151 @@ light:
       - light.mf1_all
       - light.mf2_all
 
+  - platform: template
+    lights:
+      mf1_all_alt:
+        friendly_name: "MF: All (Alt)"
+        unique_id: "aeda1528-cd29-466f-96f0-1f9650fb82ad"
+        value_template: "{{ is_state('light.mf_all', 'on') }}"
+        level_template: "{{ state_attr('light.mf_all','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.mf_all','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.mf_all','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.mf_all','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.mf_all','max_mireds') | int(500) }}"
+        #effect_list_template: "{{ state_attr('light.mf_all', 'effect_list') }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.mf_all_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.mf_all
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.mf_all
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.mf_all
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.mf_all
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.mf_all
+        #     effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
+
+  - platform: template
+    lights:
+      mf1_all_alt:
+        friendly_name: "MF1: All (Alt)"
+        unique_id: "68b6cf5d-c602-417a-9505-384378766f6a"
+        value_template: "{{ is_state('light.mf1_all', 'on') }}"
+        level_template: "{{ state_attr('light.mf1_all','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.mf1_all','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.mf1_all','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.mf1_all','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.mf1_all','max_mireds') | int(500) }}"
+        #effect_list_template: "{{ state_attr('light.mf1_all', 'effect_list') }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.mf1_all_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.mf1_all
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.mf1_all
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.mf1_all
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.mf1_all
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.mf1_all
+        #     effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
+
+  - platform: template
+    lights:
+      mf2_all_alt:
+        friendly_name: "MF2: All (Alt)"
+        unique_id: "20c2a40f-b850-4b6f-ac92-118dadbd3aed"
+        value_template: "{{ is_state('light.mf2_all', 'on') }}"
+        level_template: "{{ state_attr('light.mf2_all','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.mf2_all','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.mf2_all','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.mf2_all','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.mf2_all','max_mireds') | int(500) }}"
+        #effect_list_template: "{{ state_attr('light.mf2_all', 'effect_list') }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.mf2_all_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.mf2_all
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.mf2_all
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.mf2_all
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.mf2_all
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.mf2_all
+        #     effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
+
+  
 # ==================================================================================================
 #
 # Rest Command

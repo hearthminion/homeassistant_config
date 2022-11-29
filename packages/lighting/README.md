@@ -72,6 +72,11 @@ This tracks if a light has been turned green at some point during the day.
 
 Tracks current lighting mode
 
+#### [Light](https://www.home-assistant.io/integrations/light/)
+##### [Template Lights](https://www.home-assistant.io/integrations/light.template/)
+
+Template lights are used to be able to turn on the light to the last used scene.
+
 #### [Rest Command](https://www.home-assistant.io/integrations/rest_command/)
 ##### Update HomeAssistant Scene
 This updates all lights in the group when all lights have the exact same configuration.

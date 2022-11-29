@@ -1,0 +1,68 @@
+---
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+# scene:
+#   - id: "89a9d18b-7d93-4775-91e9-12d82e1081bd"
+#     name: "BF1: Stairwell - Bright"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 367
+#         brightness: 255
+
+#   - id: "2ae8e6e7-dcf5-4c5d-873d-731eb60fdd8e"
+#     name: "BF1: Stairwell - Concentrate"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 230
+#         brightness: 255
+
+#   - id: "f4534e1d-2a43-4cb7-8bca-e5e4dce82178"
+#     name: "BF1: Stairwell - Dimmed"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 369
+#         brightness: 76
+
+#   - id: "3d939f27-43af-44e2-b18c-55cbd91a19d6U"
+#     name: "BF1: Stairwell - Energize"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 156
+#         brightness: 255
+
+#   - id: "d82be773-00d1-4ad7-a1c5-9e784165a0fe"
+#     name: "BF1: Stairwell - Nightlight"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 454
+#         brightness: 1
+
+#   - id: "8344f689-e28f-4869-b405-a53ec7158c7a"
+#     name: "BF1: Stairwell - Read"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 343
+#         brightness: 255
+
+#   - id: "5a9f8883-c6b8-472a-9a74-5b81a7204dd5"
+#     name: "BF1: Stairwell - Relax"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "on"
+#         color_temp: 447
+#         brightness: 145
+
+#   - id: "d701d267-2dcd-49ba-a2e9-b5d18f61ed81"
+#     name: "BF1: Stairwell - Off"
+#     entities:
+#       light.bf1_stairwell:
+#         state: "off"

@@ -17,16 +17,56 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
+  # ================================================================================================
+  #
+  #
+  #
+  # This doesn't actually work.
+  #
+  # The goal is to disable adaptive lighting, if button 1 on a hue dimmer switch is pressed more
+  # than 1 time within 10 seconds.
+  #
+  # I will also need to re-enable adaptive lighting if I so choose.  (Prior to the daily reset at
+  # 4 am.)
+  #
+  # ================================================================================================
+  # - id: "b7592a97-117b-406b-9cc1-0c0747536190"
+  #   alias: "BF1: Hallway - Turn Off Adaptive Lighting"
+  #   description: ""
+  #   trigger:
+  #       - platform: event
+  #         event_type: hue_event
+  #         event_data:
+  #           id: bf1_great_room_switch_button
+  #           subtype: 1
+  #           type: short_release
+  #   condition:
+  #     - condition: template
+  #       value_template: >-
+  #         "{{ ((now().timestamp() - as_timestamp(state_attr('automation.test', 'last_triggered'))) < 10 ) }}"
+  #   action:
+  #     - service: switch.turn_off
+  #       data: {}
+  #       target:
+  #         entity_id: switch.bf1_hallway_adaptive_lighting
+  #   mode: single
+
   - id: "416078c3-1f3a-4742-9974-205c1f2fe0ceu"
-    alias: "[Light] BF1: Hallway - Adaptive Lighting (Toggle Brightness Adjustment)"
+    alias: "BF1: Hallway - Adaptive Lighting (Toggle Brightness Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
         to: "Circadian"
       - platform: state
-        entity_id: binary_sensor.light_bf1_hallway_autobrightness
+        entity_id: binary_sensor.bf1_hallway_autobrightness
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_basement_autobrightness') }}"
+      brightness_mode: "{{ states('binary_sensor.bf1_hallway_autobrightness') }}"
     condition:
       condition: and
       conditions:
@@ -34,13 +74,14 @@ automation:
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
       - service: "switch.turn_{{ brightness_mode }}"
-        data:
+        data: {}
+        target:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_hallway
+            - switch.bf1_hallway_adaptive_lighting_brightness
     mode: single
 
   - id: "25c326c4-7137-4899-8796-186d0fd42682"
-    alias: "[Light] BF1: Hallway - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    alias: "BF1: Hallway - Adaptive Lighting (Turn Off Brightness Adjustment)"
     description: ""
     trigger:
         - platform: event
@@ -58,44 +99,124 @@ automation:
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_bf1_hallway
+          entity_id:
+            - switch.bf1_hallway_adaptive_lighting_brightness
     mode: single
 
+  - id: "ad0428e8-91e2-4d90-9d56-f03f87637b96"
+    alias: "BF1: Hallway - Adaptive Lighting (Toggle Color Adjustment)"
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.bf1_den_cf1_autocolor
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+    variables:
+      brightness_mode: "{{ states('binary_sensor.bf1_hallway_autocolor') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_hallway_adaptive_lighting_color
+    mode: single
 
+  - id: "59725a68-f8f6-4ef9-9644-ff0d706673b4"
+    alias: "BF1: Hallway - Adaptive Lighting (Turn Off Color Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 4
+            type: "long_release"
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.bf1_hallway_adaptive_lighting_color
+    mode: single
 
-  # ================================================================================================
-  #
-  # 
-  #
-  # This doesn't actually work.
-  #
-  # The goal is to disable adaptive lighting, if button 1 on a hue dimmer switch is pressed more
-  # than 1 time within 10 seconds.
-  #
-  # I will also need to re-enable adaptive lighting if I so choose.  (Prior to the daily reset at
-  # 4 am.)
-  #
-  # ================================================================================================
-  # - id: "b7592a97-117b-406b-9cc1-0c0747536190"
-  #   alias: "[Light] Basement: Turn Off Adaptive Lighting"
-  #   description: ""
-  #   trigger:
-  #       - platform: event
-  #         event_type: hue_event
-  #         event_data:
-  #           id: bf1_great_room_switch_button
-  #           subtype: 1
-  #           type: short_release
-  #   condition:
-  #     - condition: template
-  #       value_template: >-
-  #         "{{ ((now().timestamp() - as_timestamp(state_attr('automation.test', 'last_triggered'))) < 10 ) }}"
-  #   action:
-  #     - service: switch.turn_off
-  #       data: {}
-  #       target:
-  #         entity_id: switch.adaptive_lighting_basement
-  #   mode: single
+  - id: "b68143cf-1e43-457c-8c62-3c8b90e08539"
+    alias: "BF1: Hallway - Green Has Been On"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_hallway
+        attribute: xy_color
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_hallway_green_event
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.special_migraine_mode
+    mode: single
+
+  - id: "c95b8157-a615-4f0b-950c-71f2fb541d27"
+    alias: "BF1: Hallway - Turn off Green tracker"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.bf1_hallway_green_event
+    mode: single
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+  bf1_hallway_green_event:
+    name: "BF1: Hallway - Green Event"
+
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
+input_select:
+  bf1_hallway_scene:
+    name: "BF1: Hallway - Scene"
+    options:
+      - scene.bf1_hallway_bright
+      - scene.bf1_hallway_candle
+      - scene.bf1_hallway_concentrate
+      - scene.bf1_hallway_darken
+      - scene.bf1_hallway_dimmed
+      - scene.bf1_hallway_energize
+      - scene.bf1_hallway_fireplace
+      - scene.bf1_hallway_homeassistant
+      - scene.bf1_hallway_migraine
+      - scene.bf1_hallway_nightlight
+      - scene.bf1_hallway_read
+      - scene.bf1_hallway_relax
+      - scene.bf1_hallway_dynamic
+    initial: scene.bf1_hallway_homeassistant
 
 # ==================================================================================================
 #
@@ -139,68 +260,7 @@ rest_command:
 # Scenes
 #
 # ==================================================================================================
-scene:
-  - id: "5c92577b-ab66-4192-a23e-23a12164dcb8"
-    name: "[Light] BF1: Hallway - Bright"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 367
-        brightness: 255
-
-  - id: "64f013d5-3abf-44ef-a802-c20ad5e9214b"
-    name: "[Light] BF1: Hallway - Concentrate"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 230
-        brightness: 255
-
-  - id: "04418671-9d32-4668-9b19-67ac3f9aa199"
-    name: "[Light] BF1: Hallway - Dimmed"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 369
-        brightness: 76
-
-  - id: "cc7765a6-d698-4d13-9751-fab21ec6c4c9"
-    name: "[Light] BF1: Hallway - Energize"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 156
-        brightness: 255
-
-  - id: "452cc28b-b56a-4e43-b7c7-a4383913a11e"
-    name: "[Light] BF1: Hallway - Nightlight"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 454
-        brightness: 1
-
-  - id: "e9053d2b-ce86-4385-8e05-36391973f3ff"
-    name: "[Light] BF1: Hallway - Read"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 343
-        brightness: 255
-
-  - id: "e3870fe7-1366-4ac8-acbe-4161eaa64260"
-    name: "[Light] BF1: Hallway - Relax"
-    entities:
-      light.bf1_hallway:
-        state: "on"
-        color_temp: 447
-        brightness: 145
-
-  - id: "a58ea71d-b262-40fb-9aef-b116272fa81c"
-    name: "[Light] BF1: Hallway - Off"
-    entities:
-      light.bf1_hallway:
-        state: "off"
+#scene:
 
 # ==================================================================================================
 #
@@ -215,7 +275,7 @@ scene:
 template:
   - binary_sensor:
       - unique_id: "555f45d7-a9da-4df6-9578-804c1aba5415"
-        name: "[Light] BF1: Hallway Autobrightness"
+        name: "BF1: Hallway Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -238,11 +298,33 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_hallway_autobrightness", "brightness") | int(100) - 4 }}
 
+      - unique_id: "4e1c4c9b-2152-4a32-9851-7749591ff635"
+        name: "BF1: Hallway - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.bf1_hallway_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.bf1_hallway_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.bf1_hallway", "color_temp") is number %}
+              {{ state_attr("light.bf1_hallway","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.bf1_hallway_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.bf1_hallway_autocolor", "color_temp") | int(367) - 15 }}
+
       - unique_id: "77e8421d-25eb-413e-905f-8887b4d91e77"
-        name: "[Light] BF1: Hallway Color Mode"
+        name: "BF1: Hallway Color Mode"
         state: "{{ state_attr('light.bf1_hallway','color_mode') == 'xy' }}"
 
   - sensor:
       - unique_id: "cdc049d4-981e-472f-abcd-f279960ff70c"
-        name: "[Light] BF1: Hallway Color"
+        name: "BF1: Hallway Color"
         state: "{{ state_attr('light.bf1_hallway', 'xy_color') }}"

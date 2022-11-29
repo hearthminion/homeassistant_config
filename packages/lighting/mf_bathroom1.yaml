@@ -102,6 +102,7 @@ rest_command:
 # Scenes
 #
 # ==================================================================================================
+#scene:
 
 # ==================================================================================================
 #
@@ -115,62 +116,112 @@ template:
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.mf1_bathroom1_inner_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.mf1_bathroom1_inner_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
-            {% if state_attr("light.bf1_den_cf1", "brightness") == None or
-               is_state_attr("light.bf1_den_cf1", "brightness", "unknown") or
-               is_state("light.bf1_den_cf1", "off") %}
+            {% if state_attr("light.mf1_bathroom1_inner", "brightness") == None or
+               is_state_attr("light.mf1_bathroom1_inner", "brightness", "unknown") or
+               is_state("light.mf1_bathroom1_inner", "off") %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
-              {{ ( state_attr("light.bf1_den_cf1","brightness") / 254 * 100 ) | int(100) }}
+              {{ ( state_attr("light.mf1_bathroom1_inner","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.mf1_bathroom1_inner_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf1_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.mf1_bathroom1_inner_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "86b53ab7-d519-4cb3-aa7e-6c738b589bb2"
+        name: "MF1: Bathroom1 (Inner) - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.mf1_bathroom1_inner_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.mf1_bathroom1_inner_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.mf1_bathroom1_inner", "color_temp") is number %}
+              {{ state_attr("light.mf1_bathroom1_inner","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.mf1_bathroom1_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.mf1_bathroom1_autocolor", "color_temp") | int(367) - 15 }}
+
+      - unique_id: "ed020974-7eb9-433f-8d5d-920307415ed5"
+        name: "MF1: Bathroom1 (Inner) - Color Mode"
+        state: "{{ state_attr('light.mf1_bathroom1_inner','color_mode') == 'xy' }}"
 
       - unique_id: "404eb573-2329-4841-9228-eba522a0da56"
         name: "[Light] MF1: Bathroom1 (Inner) - Scene Bright"
         state: >-
-          {% if is_state_attr("light.bf1_den_cf1", "brightness", "255") and
-                is_state_attr("light.bf1_den_cf1", "color_temp", "367") %}
+          {% if is_state_attr("light.mf1_bathroom1_inner", "brightness", "255") and
+                is_state_attr("light.mf1_bathroom_1_inner", "color_temp", "367") %}
                 on
           {% else %}
                 off
           {% endif %}
 
-
       - unique_id: "cadd88e5-e312-46f3-9a60-19c225c8a0d9"
-        name: "[Light] BF1: Bathroom1 (Outer) - Autobrightness"
+        name: "[Light] MF1: Bathroom1 (Outer) - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
-               ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_max")
+               ( state_attr("binary_sensor.mf1_bathroom1_outer_autobrightness", "brightness_max")
                | int(104) )
              and ( states("sensor.global_dummy_light_brightness") | int(100) ) >
-             ( state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness_min") | int(100)
+             ( state_attr("binary_sensor.mf1_bathroom1_outer_autobrightness", "brightness_min") | int(100)
              ) }}
         attributes:
           brightness: >-
-            {% if state_attr("light.bf1_den_cf2", "brightness") == None or
-               is_state_attr("light.bf1_den_cf2", "brightness", "unknown") or
-               is_state("light.bf1_den_cf2", "off") %}
+            {% if state_attr("light.mf1_bathroom1_outer", "brightness") == None or
+               is_state_attr("light.mf1_bathroom1_outer", "brightness", "unknown") or
+               is_state("light.mf1_bathroom1_outer", "off") %}
               {{ ( states("sensor.global_dummy_light_brightness") | int(100) ) }}
             {% else %}
               {{ ( state_attr("light.bf1_den_cf2","brightness") / 254 * 100 ) | int(100) }}
             {% endif %}
           brightness_max: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) + 4 }}
+            {{ state_attr("binary_sensor.mf1_bathroom1_outer_autobrightness", "brightness") | int(100) + 4 }}
           brightness_min: >-
-            {{ state_attr("binary_sensor.light_bf1_den_cf2_autobrightness", "brightness") | int(100) - 4 }}
+            {{ state_attr("binary_sensor.mf1_bathroom1_outer_autobrightness", "brightness") | int(100) - 4 }}
+
+      - unique_id: "c0a83d91-4ac2-45f8-8e75-b70de54cb6fe"
+        name: "MF1: Bathroom1 (Outer) - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.mf1_bathroom1_outer_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.mf1_bathroom1_outer_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.mf1_bathroom1_outer", "color_temp") is number %}
+              {{ state_attr("light.mf1_bathroom1_outer","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.mf1_bathroom1_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.mf1_bathroom1_autocolor", "color_temp") | int(367) - 15 }}
 
   - sensor:
       - unique_id: "db0e13cd-2f9a-46ea-af70-37c39bbd6fde"
-        name: "[Light] MF1: Bathroom1 (Inner) Color"
+        name: "MF1: Bathroom1 (Inner) Color"
         state: "{{ state_attr('light.mf1_bathroom1_inner', 'xy_color') }}"
 
+      - unique_id: "730965f2-8388-4545-8a9e-d587c732345a"
+        name: "MF1: Bathroom1 (Outer) Color"
+        state: "{{ state_attr('light.mf1_bathroom1_outer', 'xy_color') }}"

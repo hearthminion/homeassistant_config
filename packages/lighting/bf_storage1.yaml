@@ -43,7 +43,7 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+            - switch.bf1_storage1_adaptive_lighting_brightness
     mode: single
 
   - id: "61192490-3ad9-4b16-bdcf-5f2cc2615afd"
@@ -66,7 +66,7 @@ automation:
         data: {}
         target:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage1
+            - switch.bf1_storage1_adaptive_lighting_brightness
     mode: single
 
   - id: "a2ddf847-00cb-4ba6-9cbd-93bb26f0c526"

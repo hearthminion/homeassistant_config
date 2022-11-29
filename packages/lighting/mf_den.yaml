@@ -123,7 +123,7 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_mf2_den_lamp1_with_brightness_adjustment
+            - switch.mf2_den_lamp1_adaptive_lighting_brightness
 
   - id: "859d806f-611d-431a-a3cc-fec03a761795"
     alias: "MF2: Den Lamp1 - Adaptive Lighting (Turn Off Brightness Adjustment)"
@@ -145,7 +145,7 @@ automation:
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp1
+          entity_id: switch.mf2_den_lamp1_adaptive_lighting_brightness
     mode: single
 
   - id: "b9fe7cac-626f-4b52-b21b-f8641663cd6b"
@@ -261,7 +261,7 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_mf2_den_lamp2_with_brightness_adjustment
+            - switch.mf2_den_lamp2_adaptive_lighting_brightness
 
   - id: "5d497792-9062-446c-836f-d033bb7686a9"
     alias: "MF2: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
@@ -283,11 +283,11 @@ automation:
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp2
+          entity_id: switch.mf2_den_lamp2_adaptive_lighting_brightness
     mode: single
 
   - id: "933c412a-ac3c-4b91-b3ba-1e8ae220c3d8"
-    alias: "MF2: Den Lamp1 - Adaptive Lighting (Toggle Color Adjustment)"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Toggle Color Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -315,7 +315,7 @@ automation:
     mode: single
 
   - id: "99824920-0f70-421a-b753-d33dd76f1ebb"
-    alias: "MF2: Den Lamp1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
         - platform: event
@@ -334,7 +334,7 @@ automation:
     mode: single
 
   - id: "219fe325-27b2-4032-9b7c-88a24435bcf1"
-    alias: "MF2: Den Lamp1 - Green Has Been On"
+    alias: "MF2: Den Lamp2 - Green Has Been On"
     description: ""
     trigger:
       - platform: state
@@ -350,7 +350,7 @@ automation:
     mode: single
 
   - id: "e26d31dc-947b-4fb3-b8cb-6f3bc54e0828"
-    alias: "MF2: Den Lamp1 - Turn off Green tracker"
+    alias: "MF2: Den Lamp2 - Turn off Green tracker"
     description: ""
     trigger:
       - at: "04:00"

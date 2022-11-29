@@ -30,56 +30,56 @@ template:
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -18.01 and
              (state_attr('sun.sun', 'elevation')) < 0 and
-             states("binary_sensor.before_noon") }}
+             states("binary_sensor.tod_before_noon") }}
 
       - unique_id: "1d266919-118c-4b21-886d-df3060f2fc09"
         name: "Astronomical Dawn"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -18.01 and
              (state_attr('sun.sun', 'elevation')) < -12.00 and
-             states("binary_sensor.before_noon") }}
+             states("binary_sensor.tod_before_noon") }}
 
       - unique_id: "085fd8f5-0063-4861-9ec4-f93981033f11"
         name: "Nautical Dawn"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -12.01 and
              (state_attr('sun.sun', 'elevation')) < -6.00 and
-             states("binary_sensor.before_noon") }}
+             states("binary_sensor.tod_before_noon") }}
 
       - unique_id: "fbaaafc1-8dd7-4c89-87c2-2f790e4b86bc"
         name: "Civil Dawn"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -6.01 and
              (state_attr('sun.sun', 'elevation')) < 0.00 and
-             not(states("binary_sensor.before_noon")) }}
+             not(states("binary_sensor.tod_before_noon")) }}
 
       - unique_id: "3b07b0ce-4346-48e2-a801-3b9f1955f64c"
         name: "Dusk"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -18.01 and
              (state_attr('sun.sun', 'elevation')) < 0 and
-             not(states("binary_sensor.before_noon")) }}
+             not(states("binary_sensor.tod_before_noon")) }}
 
       - unique_id: "3f31c8bc-c13d-4c97-9005-9de4224042ed"
         name: "Astronomical Dusk"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -18.01 and
              (state_attr('sun.sun', 'elevation')) < -12.00 and
-             not(states("binary_sensor.before_noon")) }}
+             not(states("binary_sensor.tod_before_noon")) }}
 
       - unique_id: "536d1e93-f6e6-4d65-899c-6d86ffd47b00"
         name: "Nautical Dusk"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -12.01 and
              (state_attr('sun.sun', 'elevation')) < -6.00 and
-             not(states("binary_sensor.before_noon")) }}
+             not(states("binary_sensor.tod_before_noon")) }}
 
       - unique_id: "b48fecfd-7829-42f7-9b76-e9e5d7fa3218"
         name: "Civil Dusk"
         state: >-
           {{ (state_attr('sun.sun', 'elevation')) > -6.01 and
              (state_attr('sun.sun', 'elevation')) < 0.00 and
-             not(states("binary_sensor.before_noon")) }}
+             not(states("binary_sensor.tod_before_noon")) }}
 
       - unique_id: "4c8a9596-fa74-4fbe-b4e9-6ed8c75af3a9"
         name: "Day"

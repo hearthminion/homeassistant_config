@@ -257,7 +257,7 @@ automation:
     mode: single
 
   - id: "0da1744b-772f-4d8e-8f44-d46f3525a7df"
-    alias: "MF1: Bedroom1 LAMP1 - Adaptive Lighting (Toggle Color Adjustment)"
+    alias: "MF1: Bedroom1 Lamp1 - Adaptive Lighting (Toggle Color Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -285,7 +285,7 @@ automation:
     mode: single
 
   - id: "e37668ec-151e-426d-aecf-06d2db29c4bd"
-    alias: "MF1: Bedroom1 LAMP1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    alias: "MF1: Bedroom1 Lamp1 - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
         - platform: event
@@ -304,7 +304,7 @@ automation:
     mode: single
 
   - id: "c9a3c389-9165-4cca-9648-ed3739f0365b"
-    alias: "MF1: Bedroom1 LAMP1 - Green Has Been On"
+    alias: "MF1: Bedroom1 Lamp1 - Green Has Been On"
     description: ""
     trigger:
       - platform: state
@@ -320,7 +320,7 @@ automation:
     mode: single
 
   - id: "dff9accd-77ad-4b6a-9751-6aa9b631ce19"
-    alias: "MF1: Bedroom1 LAMP1 - Turn off Green tracker"
+    alias: "MF1: Bedroom1 Lamp1 - Turn off Green tracker"
     description: ""
     trigger:
       - at: "04:00"
@@ -602,7 +602,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "81afb5be-19ad-48f5-a54b-99e3ddd20fe0"
-        name: "MF1: Bedroom1 CF1 (Autobrightness)"
+        name: "MF1: Bedroom1 CF1 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -656,7 +656,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "d03e7d81-3a2e-4ffe-b2bf-962ead50cd1c"
-        name: "MF1: Bedroom1 Lamp1 (Autobrightness)"
+        name: "MF1: Bedroom1 Lamp1 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <
@@ -711,7 +711,7 @@ template:
       #
       # ============================================================================================
       - unique_id: "2d72d588-2e84-474e-bb1a-362d1c4ff334"
-        name: "MF1: Bedroom1 Lamp2 (Autobrightness)"
+        name: "MF1: Bedroom1 Lamp2 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <

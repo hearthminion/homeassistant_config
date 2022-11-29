@@ -161,7 +161,13 @@ automation:
         - platform: event
           event_type: hue_event
           event_data:
-            id: bf1_great_room_switch_button
+            id: mf1_bedroom1_lamp1_switch_button
+            subtype: 4
+            type: "long_release"
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf1_bedroom1_lamp2_switch_button
             subtype: 4
             type: "long_release"
     condition: []
@@ -291,7 +297,7 @@ automation:
         - platform: event
           event_type: hue_event
           event_data:
-            id: bf1_great_room_switch_button
+            id: mf1_bedroom1_lamp1_switch_button
             subtype: 4
             type: "long_release"
     condition: []
@@ -421,7 +427,7 @@ automation:
         - platform: event
           event_type: hue_event
           event_data:
-            id: bf1_great_room_switch_button
+            id: mf1_bedroom1_lamp2_switch_button
             subtype: 4
             type: "long_release"
     condition: []

@@ -149,7 +149,7 @@ automation:
     mode: single
 
   - id: "b9fe7cac-626f-4b52-b21b-f8641663cd6b"
-    alias: "MF2: Den LAMP1 - Adaptive Lighting (Toggle Color Adjustment)"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Toggle Color Adjustment)"
     trigger:
       - platform: state
         entity_id: input_select.light_mode
@@ -177,13 +177,13 @@ automation:
     mode: single
 
   - id: "1906cf37-d5cb-488b-bb55-9788343a39ad"
-    alias: "MF2: Den LAMP1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
         - platform: event
           event_type: hue_event
           event_data:
-            id: bf1_great_room_switch_button
+            id: mf2_den_lamp1_switch_button
             subtype: 4
             type: "long_release"
     condition: []
@@ -321,7 +321,7 @@ automation:
         - platform: event
           event_type: hue_event
           event_data:
-            id: bf1_great_room_switch_button
+            id: mf2_den_lamp2_switch_button
             subtype: 4
             type: "long_release"
     condition: []

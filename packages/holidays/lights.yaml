@@ -32,7 +32,7 @@ automation:
   - id: "678b965c-45ae-45df-b5fc-6f1b5aa7fdfb"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
     initial_state: false
-    description: "Turns on outdoor Christmas lights at sunset."
+    description: "Turns on outdoor Christmas lights."
     trigger:
       - platform: sun
         event: sunset
@@ -44,7 +44,7 @@ automation:
   - id: "7670c95b-1283-4a5d-8bc4-ad6977d5fa49"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
     initial_state: false
-    description: "Turns off outdoor Christmas lights at sunrise."
+    description: "Turns off outdoor Christmas lights."
     trigger:
       - platform: sun
         event: sunrise

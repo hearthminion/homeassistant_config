@@ -1,16 +1,15 @@
 ---
 - platform: wake_on_lan
-  name: "Mnemosyne"
-  host: 10.0.1.41
+  name: "MythTVB01"
+  host: 10.72.65.1
   mac: 70:85:c2:8d:51:f5
 
 - platform: wake_on_lan
-  name: "Dionysus"
-  host: 10.0.2.1
+  name: "MythTVF01"
+  host: 10.72.66.1
   mac: 78:24:af:37:38:97
 
 - platform: wake_on_lan
-  name: "Morpheus"
-  host: 10.0.1.5
+  name: "FS01"
+  host: 10.64.25.1
   mac: f6:ea:2f:c9:54:79
-

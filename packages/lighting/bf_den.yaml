@@ -219,7 +219,7 @@ automation:
         service: input_boolean.turn_on
     mode: single
 
-  - id: "1638cbed-885f-435e-b200-324d14755a9cU"
+  - id: "1638cbed-885f-435e-b200-324d14755a9c"
     alias: "BF1: Den CF1 - Turn off Green tracker"
     description: ""
     trigger:
@@ -281,7 +281,7 @@ automation:
             - switch.bf1_den_cf2_adaptive_lighting_brightness
     mode: single
 
-  - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
+  - id: "3f0566d8-ecfc-4913-be01-d80656aacdaa"
     alias: "BF1: Den CF1 - Green Has Been On"
     description: ""
     trigger:
@@ -297,7 +297,7 @@ automation:
         service: input_boolean.turn_on
     mode: single
 
-  - id: "1638cbed-885f-435e-b200-324d14755a9cU"
+  - id: "acc9c6fa-f6de-4d65-9bc9-0855d92851c4"
     alias: "BF1: Den CF1 - Turn off Green tracker"
     description: ""
     trigger:
@@ -432,7 +432,7 @@ automation:
             - switch.bf1_den_lamp2_adaptive_lighting_color
     mode: single
 
-  - id: "7df3d18c-0692-4307-bd22-9d21f6fafc8f"
+  - id: "f71b2aa4-c4a7-49a4-a7a9-05535a5e16c8"
     alias: "BF1: Den CF1 - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
@@ -452,7 +452,7 @@ automation:
     mode: single
 
 
-  - id: "d82d5d46-b56b-4587-8978-1fa151d2b666"
+  - id: "052c6a95-68a1-4c92-b2e4-0ee9d61d9841"
     alias: "BF1: Den Lamp2 - Green Tracker (Turn On)"
     description: ""
     trigger:

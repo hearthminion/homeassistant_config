@@ -262,7 +262,7 @@ template:
           color_temp_min: >-
             {{ state_attr("binary_sensor.bf1_storage2_autocolor", "color_temp") | int(367) - 15 }}
 
-      - unique_id: "33dd3951-cb88-426d-869d-1bb8d06a8e98"
+      - unique_id: "5e28eb79-8288-48b1-a2f7-ab0b860ac0ce"
         name: "BF1: Storage2 Color Mode"
         state: "{{ state_attr('light.bf1_storage2','color_mode') == 'xy' }}"
 

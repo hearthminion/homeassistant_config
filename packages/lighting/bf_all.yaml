@@ -179,7 +179,7 @@ light:
         color_template: "{{ state_attr('light.bf1_all','hs_color') }}"
         min_mireds_template: "{{ state_attr('light.bf1_all','min_mireds') | int(100) }}"
         max_mireds_template: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
-        effect_list_template: "{{ state_attr('light.bf1_all', 'effect_list') }}"
+        #effect_list_template: "{{ state_attr('light.bf1_all', 'effect_list') }}"
         turn_on:
           service: scene.turn_on
           data_template:

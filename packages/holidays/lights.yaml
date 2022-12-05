@@ -20,10 +20,10 @@ automation:
   - id: "b11661ac-4aaa-42cd-9b95-af4e99e76d60"
     alias: "[Christmas] Activate 'Christmas Lights Off' Scene"
     initial_state: false
-    description: "Turns off all Christmas lights at 9:30 P.M."
+    description: "Turns off all Christmas lights at 10:00 P.M."
     trigger:
       - platform: time
-        at: "21:30:00"
+        at: "22:00:00"
     condition: []
     action:
       - scene: scene.christmas_lights_off

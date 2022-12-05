@@ -79,7 +79,7 @@
               - type: gauge
                 entity: sensor.speedtest_download
                 name: Speedtest
-                max: 220
+                max: 320
               - type: custom:layout-break
 # ==================================================================================================
 #

@@ -76,7 +76,7 @@ automation:
   # CF 1 Automations
   #
   # ================================================================================================
-  - id: ""
+  - id: "db1af4b9-412b-4473-b28f-753dbcf2b30a"
     alias: "MF1: Bedroom1 CF1 - Adaptive Lighting (Toggle Brightness Adjustment)"
     description: ""
     trigger:

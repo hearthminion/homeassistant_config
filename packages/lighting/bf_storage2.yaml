@@ -69,7 +69,7 @@ automation:
             - switch.adaptive_lighting_adapt_brightness_bf1_storage2
     mode: single
 
-  - id: ""
+  - id: "a8bf6fba-c27a-491f-baaf-58c9a08b5177"
     alias: "BF1: Storage2 - Adaptive Lighting (Toggle Color Adjustment)"
     trigger:
       - platform: state
@@ -98,7 +98,7 @@ automation:
             - switch.bf1_storage2_adaptive_lighting_color
     mode: single
 
-  - id: ""
+  - id: "a09c9538-91f6-47f1-83fc-f4a823ca8dbc"
     alias: "BF1: Storage2 - Adaptive Lighting (Turn Off Color Adjustment)"
     description: ""
     trigger:
@@ -117,7 +117,7 @@ automation:
             - switch.bf1_storage2_adaptive_lighting_color
     mode: single
 
-  - id: ""
+  - id: "92243e2d-3188-48f7-a269-9b98b090a41b"
     alias: "BF1: Storage2 - Green Has Been On"
     description: ""
     trigger:
@@ -137,7 +137,7 @@ automation:
           entity_id: input_boolean.special_migraine_mode
     mode: single
 
-  - id: ""
+  - id: "46d6fe4b-6b26-43d2-a924-3a0865ae0dab"
     alias: "BF1: Storage2 - Turn off Green tracker"
     description: ""
     trigger:
@@ -240,7 +240,7 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_bf1_storage2_autobrightness", "brightness") | int(100) - 4 }}
 
-      - unique_id: ""
+      - unique_id: "0883217d-2483-4724-a484-828fb9978fea"
         name: "BF1: Storage2 - Autocolor"
         state: >-
           {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <

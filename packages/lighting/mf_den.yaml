@@ -469,8 +469,8 @@ template:
       # Whole Room Binary Sensors
       #
       # ============================================================================================
-      - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
-        name: "Bedroom1 Color Mode"
+      - unique_id: "6d965e04-4512-45c9-ab87-2476ea475d26"
+        name: "MF2: Den Color Mode"
         state: "{{ is_state_attr('light.mf1_bedroom1','color_mode', 'xy') }}"
 
       # ============================================================================================

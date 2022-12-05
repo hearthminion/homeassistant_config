@@ -432,6 +432,13 @@ rest_command:
 
 # ==================================================================================================
 #
+# Scenes
+#
+# ==================================================================================================
+#scene:
+
+# ==================================================================================================
+#
 # Scripts
 #
 # The scenes are in the order of:
@@ -453,7 +460,7 @@ rest_command:
 #   - Storage1
 #   - Storage2
 # - Zones
-# 
+#
 #
 # ==================================================================================================
 script:
@@ -515,7 +522,7 @@ script:
           color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          
+
       - service: rest_command.light_update_mf2_great_room_scene
         data:
           scene_id: "398ffc64-071c-4fa1-a33f-4ef8cc4f89f5"

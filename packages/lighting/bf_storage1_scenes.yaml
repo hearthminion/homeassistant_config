@@ -1,0 +1,68 @@
+---
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
+# scene:
+#   - id: "301b7d3c-fbfb-4ab0-9651-9b0ab8975923"
+#     name: "BF1: Storage1 - Bright"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 367
+#         brightness: 255
+
+#   - id: "e57c58a1-d67c-4b3e-b3cc-5fc5b5f2dfa8"
+#     name: "BF1: Storage1 - Concentrate"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 230
+#         brightness: 255
+
+#   - id: "99987242-6193-4979-8b0b-cb5183bdd4b4"
+#     name: "BF1: Storage1 - Dimmed"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 369
+#         brightness: 76
+
+#   - id: "225942a1-46e5-4f56-8601-82b330feedf1"
+#     name: "BF1: Storage1 - Energize"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 156
+#         brightness: 255
+
+#   - id: "6d106105-81f0-40ce-ac20-fd657d077604"
+#     name: "BF1: Storage1 - Nightlight"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 454
+#         brightness: 1
+
+#   - id: "81b6851f-da69-4978-bb95-f9778ce71430"
+#     name: "BF1: Storage1 - Read"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 343
+#         brightness: 255
+
+#   - id: "94a9cdf6-b5c8-4e18-9e27-6c73afd3b2bc"
+#     name: "BF1: Storage1 - Relax"
+#     entities:
+#       light.bf1_storage1:
+#         state: "on"
+#         color_temp: 447
+#         brightness: 145
+
+#   - id: "1721d956-f298-438e-ab09-903ad0fe9241"
+#     name: "BF1: Storage1 - Off"
+#     entities:
+#       light.bf1_storage1:
+#         state: "off"

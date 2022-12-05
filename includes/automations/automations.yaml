@@ -24,7 +24,7 @@
     - platform: time
       at: "21:00:00"
     - platform: state
-      entity_id: sensor.nodeid_4_electric_w_value_3
+      entity_id: sensor.mf1_bedroom1_zwave13_power
       to: "0"
     - platform: state
       entity_id: light.mf1_bedroom1_lamp1
@@ -35,15 +35,20 @@
       from: "on"
       to: "off"
     - platform: state
-      entity_id: media_player.samsung_bd_f5900
-      from: "on"
+      entity_id: media_player.mf1_bedroom1_bd_f5900
       to: "off"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 30
   condition:
-    - condition: device
-      device_id: 2dd8093f00c36e870221900a12933923
-      domain: media_player
-      entity_id: media_player.samsung_bd_f5900
-      type: is_off
+    - condition: state
+      entity_id: media_player.mf1_bedroom1_bd_f5900
+      state: "off"
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
     - condition: time
       after: "21:00:00"
     - condition: state
@@ -53,13 +58,13 @@
       entity_id: light.mf1_bedroom1_lamp2
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.nodeid_4_electric_w_value_3
+      entity_id: sensor.mf1_bedroom1_zwave13_power
       below: "5"
   action:
     - service: "switch.turn_off"
       data:
         entity_id:
-            - switch.nodeid_4_switch_3
+            - switch.mf1_bedroom1_zwave13_switch
   mode: single
 
 - id: "e63c0e77-1904-4a46-a73c-6982837270a8"
@@ -69,7 +74,7 @@
     - platform: sun
       event: sunrise
     - platform: state
-      entity_id: media_player.samsung_bd_f5900
+      entity_id: media_player.mf1_bedroom1_bd_f5900
       from: "off"
       to: "on"
   condition: []
@@ -77,5 +82,5 @@
     - service: "switch.turn_on"
       data:
         entity_id:
-            - switch.nodeid_4_switch_3
+            - switch.mf1_bedroom1_zwave13_switch
   mode: single

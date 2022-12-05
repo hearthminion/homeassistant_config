@@ -345,6 +345,12 @@ automation:
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.mf1_bedroom1_lamp2_autobrightness
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
     variables:
       brightness_mode: "{{ states('binary_sensor.mf1_bedroom1_lamp2_autobrightness') }}"
     condition:

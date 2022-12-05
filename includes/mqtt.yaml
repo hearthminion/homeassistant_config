@@ -1,0 +1,51 @@
+sensor:
+  - unique_id: "61df00e9-269a-418c-a1cf-8d9603d4dbfb"
+    name: "user0001_phone_battery"
+    state_topic: "owntracks/user0001/phone"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.batt }}'
+    device_class: battery
+
+  - unique_id: "5ed058c2-1299-4597-89ee-7847b36ff2d4"
+    name: "hestia_sensehat_temp_c"
+    state_topic: "homeassistant/sensor/hestia/sensehat/state"
+    value_template: "{{ value_json.temperature_celcius }}"
+    unit_of_measurement: "°C"
+    device_class: "temperature"
+
+  - unique_id: "d1dafa9c-05a0-40d5-8b9b-89ddc33928c9"
+    name: "hestia_sensehat_temp_f"
+    state_topic: "homeassistant/sensor/hestia/sensehat/state"
+    value_template: "{{ value_json.temperature_fahrenheit }}"
+    unit_of_measurement: "°F"
+    device_class: "temperature"
+
+  - unique_id: "1117c980-2079-4546-8818-8613f53aa252"
+    name: "hestia_sensehat_pressure_mbar"
+    state_topic: "homeassistant/sensor/hestia/sensehat/state"
+    value_template: "{{ value_json.pressure_mbar }}"
+    unit_of_measurement: "mbar"
+    device_class: "pressure"
+
+  - unique_id: "5ac0202a-8447-4f0b-84a6-5cd22b45926d"
+    name: "hestia_sensehat_pressure_inhg"
+    state_topic: "homeassistant/sensor/hestia/sensehat/state"
+    value_template: "{{ value_json.pressure_inhg }}"
+    unit_of_measurement: "inHg"
+
+  - unique_id: "4e3c4a91-54fd-44db-a3b6-6deeeb2d4e01"
+    name: "hestia_sensehat_humidity"
+    state_topic: "homeassistant/sensor/hestia/sensehat/state"
+    value_template: "{{ value_json.humidity }}"
+    unit_of_measurement: "%"
+
+  - unique_id: "4ab54e98-6175-4fc1-a502-7497f9964ceb"
+    name: "atlas battery"
+    state_topic: "sensors/atlas/sensors/Battery/value"
+    unit_of_measurement: "%"
+    device_class: battery
+
+  - unique_id: "428cfd4a-687b-4a5c-aaeb-2d0bec4346b0"
+    name: "atlas cpu temperature"
+    state_topic: "sensors/atlas/sensors/ath10k_hwmon_1/value"
+

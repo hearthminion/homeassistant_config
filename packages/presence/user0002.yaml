@@ -1,6 +1,7 @@
 binary_sensor:
   - platform: bayesian
-    name: "User0002: Bayesian - Home"
+    unique_id: "5afbdabe-281b-4714-8de0-965cf7392103"
+    name: "user0002_status"
     prior: 0.375
     probability_threshold: 0.8
     device_class: "presence"
@@ -23,22 +24,6 @@ binary_sensor:
         prob_given_false: 0.4
         platform: "state"
         to_state: "home"
-  - platform: bayesian
-    name: "User0002: Bayesian - Away"
-    prior: 0.1
-    probability_threshold: 0.9
-    device_class: "presence"
-    observations:
-      - entity_id: "binary_sensor.user0002_distance_quarter_km"
-        prob_given_true: 0.1
-        prob_given_false: 0.9
-        platform: "state"
-        to_state: "off"
-      - entity_id: "binary_sensor.user0002_moving"
-        prob_given_true: 0.1
-        prob_given_false: 0.9
-        platform: "state"
-        to_state: "off"
 
 input_select:
   user0002_status_dropdown:

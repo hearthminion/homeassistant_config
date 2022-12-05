@@ -28,3 +28,4 @@
                     - entity_id: group.*
                     - entity_id: sensor.*
                     - entity_id: binary_sensor.*
+                    - entity_id: scene.*

@@ -123,10 +123,36 @@ input_select:
       - scene.bf1_all_relax
       - scene.bf1_all_dynamic
 
-  bf1_all_lights_dynamic_scenes:
-    name: "BF1: All Lights - Dynamic Scenes"
+  bf1_dynamic_scenes:
+    name: "BF1: Den - Dynamic Scene"
     options:
-      - Bright
+      - Blossom
+      - Crocus
+      - Precious
+      - Narcissa
+      - Honolulu
+      - Savanna sunset
+      - Golden pond
+      - Ruby glow
+      - Tropical twilight
+      - Miami
+      - Cancun
+      - Rio
+      - Chinatown
+      - Ibiza
+      - Osaka
+      - Tokyo
+      - Motown
+      - Fairfax
+      - Galaxy
+      - Starlight
+      - Blood moon
+      - Arctic aurora
+      - Moonlight
+      - Nebula
+      - Lovebirds
+      - Smitten
+      - Glitz and glam
 
 # ==================================================================================================
 #
@@ -139,6 +165,55 @@ light:
     name: "BF: All"
     entities:
       - light.bf1_all
+
+light:
+  - platform: template
+    lights:
+      bf1_all_alt:
+        friendly_name: "BF1: All (Alt)"
+        unique_id: "58831bb7-9e66-4dee-b2bc-48e659c3f734"
+        value_template: "{{ is_state('light.bf1_all', 'on') }}"
+        level_template: "{{ state_attr('light.bf1_all','brightness') | int(255) }}"
+        temperature_template: "{{ state_attr('light.bf1_all','color_temp') | int(367) }}"
+        color_template: "{{ state_attr('light.bf1_all','hs_color') }}"
+        min_mireds_template: "{{ state_attr('light.bf1_all','min_mireds') | int(100) }}"
+        max_mireds_template: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
+        effect_list_template: "{{ state_attr('light.bf1_all', 'effect_list') }}"
+        turn_on:
+          service: scene.turn_on
+          data_template:
+            entity_id: >
+              {{ states('input_select.bf1_all_scene') }}
+        turn_off:
+          service: light.turn_off
+          target:
+            entity_id: light.bf1_all
+        set_level:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            color_temp: "{{ color_temp }}"
+        set_color:
+          service: light.turn_on
+          target:
+            entity_id: light.bf1_all
+          data:
+            hs_color:
+              - "{{ hs[0] }}"
+              - "{{ hs[1] }}"
+        set_effect:
+          - service: light.turn_on
+            data_template:
+              - light.bf1_all
+            effect: "{{ effect }}"
+        supports_transition_template: "{{ true }}"  
 
 # ==================================================================================================
 #
@@ -527,3 +602,19 @@ scene:
     entities:
       light.bf_all:
         state: "off"
+
+script:
+  bf1_all_lights_sunrise:
+    alias: "BF1: All - Sunrise sequence"
+    mode: single
+    sequence:
+      - service: hue.activate_scene
+        data:
+          dynamic: true
+          transition: 600
+        target:
+          entity_id: scene.bf1_all_beginnings
+        metadata: {}
+
+  #bf1_all_lights_serenity:
+

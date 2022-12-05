@@ -49,8 +49,12 @@
         hours: 0
         minutes: 1
         seconds: 0
-    - condition: time
-      after: "21:00:00"
+    - condition:
+      - or:
+          - condition: time
+            after: "21:00:00"
+          - condition: time
+            before: "04:00:00"
     - condition: state
       entity_id: light.mf1_bedroom1_lamp1
       state: "off"

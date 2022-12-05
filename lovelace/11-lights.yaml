@@ -63,8 +63,8 @@ cards:
                     name: Home Assistant
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:sine-wave
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -76,8 +76,8 @@ cards:
                     name: Bright
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:brightness-7
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -89,8 +89,8 @@ cards:
                     name: Concentrate
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:bullseye
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -102,8 +102,8 @@ cards:
                     name: Nightlight
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:sleep
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -115,8 +115,8 @@ cards:
                     name: Migraine
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:head-flash
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -128,8 +128,8 @@ cards:
                     name: Candle
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:candle
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -140,7 +140,7 @@ cards:
 
               - type: horizontal-stack
                 cards:
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -155,7 +155,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -170,7 +170,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -185,7 +185,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -200,7 +200,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -215,7 +215,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -237,8 +237,8 @@ cards:
                     name: Energize
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:lightning-bolt
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -250,8 +250,8 @@ cards:
                     name: Read
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:microsoft-xbox-controller-menu
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -263,8 +263,8 @@ cards:
                     name: Relay
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:yin-yang
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -276,8 +276,8 @@ cards:
                     name: Sleep
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:weather-night
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -289,8 +289,8 @@ cards:
                     name: Dimmed
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:brightness-4
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -302,8 +302,8 @@ cards:
                     name: Fireplace
                     entity: input_select.bf1_all_lights_scene
                     icon: mdi:fireplace
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -314,7 +314,7 @@ cards:
 
               - type: horizontal-stack
                 cards:
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -329,7 +329,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -344,7 +344,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -359,7 +359,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -374,7 +374,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -389,7 +389,7 @@ cards:
                               return "var(--paper-item-active-color)";
                             return "var(--paper-card-background-color)";
                             ]]]
-                  - type: custom:botton-card
+                  - type: custom:button-card
                     entitiy: input_select.bf1_all_lights_scene
                     aspect_ratio: 16/1
                     color_type: card
@@ -430,8 +430,8 @@ cards:
                     name: Bright
                     entity: input_select.bf1_den_scene
                     icon: mdi:brightness-7
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -443,8 +443,8 @@ cards:
                     name: Concentrate
                     entity: input_select.bf1_den_scene
                     icon: mdi:bullseye
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -456,8 +456,8 @@ cards:
                     name: Nightlight
                     entity: input_select.bf1_den_scene
                     icon: mdi:sleep
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -469,8 +469,8 @@ cards:
                     name: Migraine
                     entity: input_select.bf1_den_scene
                     icon: mdi:head-flash
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -482,8 +482,8 @@ cards:
                     name: Candle
                     entity: input_select.bf1_den_scene
                     icon: mdi:candle
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -498,8 +498,8 @@ cards:
                     name: Energize
                     entity: input_select.bf1_den_scene
                     icon: mdi:lightning-bolt
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -511,8 +511,8 @@ cards:
                     name: Read
                     entity: input_select.bf1_den_scene
                     icon: mdi:microsoft-xbox-controller-menu
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -524,8 +524,8 @@ cards:
                     name: Relay
                     entity: input_select.bf1_den_scene
                     icon: mdi:yin-yang
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -537,8 +537,8 @@ cards:
                     name: Sleep
                     entity: input_select.bf1_den_scene
                     icon: mdi:weather-night
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -550,8 +550,8 @@ cards:
                     name: Dimmed
                     entity: input_select.bf1_den_scene
                     icon: mdi:brightness-4
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service
@@ -563,8 +563,8 @@ cards:
                     name: Fireplace
                     entity: input_select.bf1_den_scene
                     icon: mdi:fireplace
-                    show_name: false
-                    show_state: true
+                    show_name: true
+                    show_state: false
                     state_color: true
                     tap_action:
                       action: call-service

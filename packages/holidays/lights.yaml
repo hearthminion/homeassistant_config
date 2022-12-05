@@ -72,7 +72,7 @@ scene:
   - id: "d7f5be4d-0de2-45b4-90d6-e9c47605c9c8"
     name: "[Christmas] Lights Off"
     entities:
-      switch.switch.mf1_den_zwave34_switch:
+      switch.mf1_den_zwave34_switch:
         state: "off"
       switch.by_zwave7_switch:
         state: "off"

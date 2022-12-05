@@ -62,60 +62,29 @@ adaptive_lighting:
 automation:
   # ================================================================================================
   #
-  # Light fixture: Den Lamp2
-  #
-  # Light Group:
-  #   - light.den_lamp2
-  #
-  # Automations:
-  #   -
+  # Whole Room
   #
   # ================================================================================================
-  - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
-    alias: "MF2: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
-    description: ""
-    initial_state: false
+  - id: "0dc03f6b-efc4-4165-8acc-d2bf702707eb"
+    alias: "MF2: Den - Adaptive Lighting (Toggle)"
     trigger:
       - platform: state
-        entity_id: input_select.light_mode
-        to: "Circadian"
-      - platform: state
-        entity_id: binary_sensor.light_mf2_den_lamp2_brightness
+        entity_id: binary_sensor.mf2_den_color_mode
     variables:
-      brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp2_autobrightness') }}"
+      adaptive_mode: "{{ iif(is_state('binary_sensor.mf2_den_color_mode','on'), 'off','on') }}"
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
-      - service: "switch.turn_{{ brightness_mode }}"
+      - service: "switch.turn_{{ adaptive_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_mf2_den_lamp2_with_brightness_adjustment
-
-  - id: "5d497792-9062-446c-836f-d033bb7686a9"
-    alias: "MF2: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
-    description: ""
-    initial_state: false
-    trigger:
-        - platform: event
-          event_type: hue_event
-          event_data:
-            id: mf2_den_lamp2_switch_button
-            subtype: 3
-        - platform: event
-          event_type: hue_event
-          event_data:
-            id: mf2_den_lamp2_switch_button
-            subtype: 2
-    condition: []
-    action:
-      - service: switch.turn_off
-        data: {}
-        target:
-          entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp2
+            - switch.mf2_den_lamp1_adaptive_lighting
+            - switch.mf2_den_lamp2_adaptive_lighting
     mode: single
+
 
   # ================================================================================================
   #
@@ -138,6 +107,12 @@ automation:
         to: "Circadian"
       - platform: state
         entity_id: binary_sensor.light_mf2_den_lamp1_brightness
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
     variables:
       brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp1_autobrightness') }}"
     condition:
@@ -173,6 +148,237 @@ automation:
         target:
           entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp1
     mode: single
+
+  - id: "b9fe7cac-626f-4b52-b21b-f8641663cd6b"
+    alias: "MF2: Den LAMP1 - Adaptive Lighting (Toggle Color Adjustment)"
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.mf2_den_Lamp1_autocolor
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+    variables:
+      brightness_mode: "{{ states('binary_sensor.mf2_den_Lamp1_autocolor') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.mf2_den_Lamp1_adaptive_lighting_color
+    mode: single
+
+  - id: "1906cf37-d5cb-488b-bb55-9788343a39ad"
+    alias: "MF2: Den LAMP1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 4
+            type: "long_release"
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.mf2_den_Lamp1_adaptive_lighting_color
+    mode: single
+
+  - id: "8f312960-1147-447f-a1f8-4b42a9381493"
+    alias: "MF2: Den LAMP1 - Green Has Been On"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.mf2_den_Lamp1
+        attribute: xy_color
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - entity_id: input_boolean.mf2_den_Lamp1_green_event
+        service: input_boolean.turn_on
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
+    mode: single
+
+  - id: "e4c15377-46a1-411d-b597-148dd0fe2bb1"
+    alias: "MF2: Den LAMP1 - Turn off Green tracker"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - entity_id: input_boolean.mf2_den_Lamp1_green_event
+        service: input_boolean.turn_off
+    mode: single
+
+  # ================================================================================================
+  #
+  # Light fixture: Den Lamp2
+  #
+  # Light Group:
+  #   - light.den_lamp2
+  #
+  # Automations:
+  #   -
+  #
+  # ================================================================================================
+  - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Toggle Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.light_mf2_den_lamp2_brightness
+         not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+   variables:
+      brightness_mode: "{{ states('binary_sensor.light_mf2_den_lamp2_autobrightness') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.adaptive_lighting_mf2_den_lamp2_with_brightness_adjustment
+
+  - id: "5d497792-9062-446c-836f-d033bb7686a9"
+    alias: "MF2: Den Lamp2 - Adaptive Lighting (Turn Off Brightness Adjustment)"
+    description: ""
+    initial_state: false
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf2_den_lamp2_switch_button
+            subtype: 3
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: mf2_den_lamp2_switch_button
+            subtype: 2
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.adaptive_lighting_adapt_brightness_den_lamp2
+    mode: single
+
+  - id: "933c412a-ac3c-4b91-b3ba-1e8ae220c3d8"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Toggle Color Adjustment)"
+    trigger:
+      - platform: state
+        entity_id: input_select.light_mode
+        to: "Circadian"
+      - platform: state
+        entity_id: binary_sensor.mf2_den_Lamp1_autocolor
+        not_from:
+          - "unknown"
+          - "unavailable"
+        not_to:
+          - "unknown"
+          - "unavailable"
+    variables:
+      brightness_mode: "{{ states('binary_sensor.mf2_den_Lamp1_autocolor') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ brightness_mode }}"
+        data:
+          entity_id:
+            - switch.mf2_den_Lamp1_adaptive_lighting_color
+    mode: single
+
+  - id: "99824920-0f70-421a-b753-d33dd76f1ebb"
+    alias: "MF2: Den Lamp1 - Adaptive Lighting (Turn Off Color Adjustment)"
+    description: ""
+    trigger:
+        - platform: event
+          event_type: hue_event
+          event_data:
+            id: bf1_great_room_switch_button
+            subtype: 4
+            type: "long_release"
+    condition: []
+    action:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id:
+            - switch.mf2_den_Lamp1_adaptive_lighting_color
+    mode: single
+
+  - id: "219fe325-27b2-4032-9b7c-88a24435bcf1"
+    alias: "MF2: Den Lamp1 - Green Has Been On"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.mf2_den_Lamp1
+        attribute: xy_color
+        to: (0.23, 0.698)
+    condition: []
+    action:
+      - entity_id: input_boolean.mf2_den_Lamp1_green_event
+        service: input_boolean.turn_on
+      - entity_id: input_boolean.special_migraine_mode
+        service: input_boolean.turn_on
+    mode: single
+
+  - id: "e26d31dc-947b-4fb3-b8cb-6f3bc54e0828"
+    alias: "MF2: Den Lamp1 - Turn off Green tracker"
+    description: ""
+    trigger:
+      - at: "04:00"
+        platform: time
+    condition: []
+    action:
+      - entity_id: input_boolean.mf2_den_Lamp1_green_event
+        service: input_boolean.turn_off
+    mode: single
+
+# ==================================================================================================
+#
+# Input Boolean
+#
+# ==================================================================================================
+input_boolean:
+
+  # ================================================================================================
+  #
+  # The next three input_boolean entities are used to track if the light has been turned green today
+  #
+  # ================================================================================================
+  mf2_den_lamp1_green_event:
+    name: "MF2: Den Lamp1 - Green Event"
+
+  mf2_den_lamp2_green_event:
+    name: "MF2: Den Lamp2 - Green Event"
 
 # ==================================================================================================
 #
@@ -259,6 +465,20 @@ rest_command:
 # ==================================================================================================
 template:
   - binary_sensor:
+      # ============================================================================================
+      #
+      # Whole Room Binary Sensors
+      #
+      # ============================================================================================
+      - unique_id: "969aceec-9cc3-4c11-926a-6d5eee3b940a"
+        name: "Bedroom1 Color Mode"
+        state: "{{ is_state_attr('light.mf1_bedroom1','color_mode', 'xy') }}"
+
+      # ============================================================================================
+      #
+      # Lamp 1 Binary Sensors
+      #
+      # ============================================================================================
       - name: "MF2: Den Lamp1 (Autobrightness)"
         unique_id: "61149df3-3363-4717-a1f0-bdea867113b2"
         state: >-
@@ -283,6 +503,33 @@ template:
           brightness_min: >-
             {{ state_attr("binary_sensor.light_mf2_den_lamp1_autobrightness", "brightness") | int(100) - 4 }}
 
+      - unique_id: "461afc48-a79a-435c-a459-b15b2d9dcf2f"
+        name: "MF2: Den Lamp1 - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.mf2_den_lamp1_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.mf2_den_lamp1_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.mf2_den_lamp1", "color_temp") is number %}
+              {{ state_attr("light.mf2_den_lamp1","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.mf2_den_lamp1_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.mf2_den_lamp1_autocolor", "color_temp") | int(367) - 15 }}
+
+      # ============================================================================================
+      #
+      # Lamp 2 Binary Sensors
+      #
+      # ============================================================================================
       - unique_id: "59aed0e9-54d2-4f94-a0e6-02899e1ff99b"
         name: "MF2: Den Lamp2 (Autobrightness)"
         state: >-
@@ -310,6 +557,28 @@ template:
       - unique_id: "34c07133-565d-4368-99d4-587b129800b5"
         name: "MF2: Great Room Color Mode"
         state: "{{ state_attr('light.mf2_great_room','color_mode') == 'xy' }}"
+
+      - unique_id: "2ec1efd0-c169-4211-8313-1c930b3f0616"
+        name: "MF2: Den Lamp2 - Autocolor"
+        state: >-
+          {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) <
+               ( state_attr("binary_sensor.mf2_den_lamp2_autocolor", "color_temp_max")
+               | int(382) )
+             and ( states("sensor.global_dummy_light_color_temperature") | int(367) ) >
+               ( state_attr("binary_sensor.mf2_den_lamp2_autocolor", "color_temp_min")
+               | int(352))
+             }}
+        attributes:
+          color_temp: >-
+            {% if state_attr("light.mf2_den_lamp2", "color_temp") is number %}
+              {{ state_attr("light.mf2_den_lamp2","color_temp") | int(367) }}
+            {% else %}
+              {{ ( states("sensor.global_dummy_light_color_temperature") | int(367) ) }}
+            {% endif %}
+          color_temp_max: >-
+            {{ state_attr("binary_sensor.mf2_den_lamp2_autocolor", "color_temp") | int(367) + 15 }}
+          color_temp_min: >-
+            {{ state_attr("binary_sensor.mf2_den_lamp2_autocolor", "color_temp") | int(367) - 15 }}
 
   - sensor:
       - unique_id: "4a80505d-9bd2-405b-82e7-0babe7472038"

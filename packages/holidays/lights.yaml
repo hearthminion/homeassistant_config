@@ -1,5 +1,11 @@
+---
+# ==================================================================================================
+#
+# Automations
+#
+# ==================================================================================================
 automation:
-  - id: "1606841326257"
+  - id: "51b89d95-4cd8-4834-acba-bfb796c119eb"
     alias: "[Christmas] Activate 'Christmas Lights On' Scene"
     initial_state: false
     description: "Turns on all Christmas lights at 6:00 A.M."
@@ -11,7 +17,7 @@ automation:
       - scene: scene.christmas_lights_on
     mode: single
 
-  - id: "1576628018411"
+  - id: "b11661ac-4aaa-42cd-9b95-af4e99e76d60"
     alias: "[Christmas] Activate 'Christmas Lights Off' Scene"
     initial_state: false
     description: "Turns off all Christmas lights at 9:30 P.M."
@@ -23,7 +29,7 @@ automation:
       - scene: scene.christmas_lights_off
     mode: single
 
-  - id: "1607003903288"
+  - id: "678b965c-45ae-45df-b5fc-6f1b5aa7fdfb"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
     initial_state: false
     description: "Turns on outdoor Christmas lights at sunset."
@@ -35,7 +41,7 @@ automation:
       - scene: scene.christmas_outdoor_lights_on
     mode: single
 
-  - id: "1606782092296"
+  - id: "7670c95b-1283-4a5d-8bc4-ad6977d5fa49"
     alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
     initial_state: false
     description: "Turns off outdoor Christmas lights at sunrise."
@@ -47,51 +53,40 @@ automation:
       - scene: scene.christmas_outdoor_lights_off
     mode: single
 
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
 scene:
-  - id: "1606841163904"
+  - id: "fb6cec0b-c060-4f4c-9554-3c65a12cd5ce"
     name: "[Christmas] Lights On"
     entities:
-      switch.nodeid_8_switch:
-        node_id: 8
-        friendly_name: "28169 Plug-In One-Outlet Smart Switch: Switch"
+      switch.mf1_den_zwave34_switch:
         state: "on"
-      switch.nodeid_7_switch:
-        node_id: 7
-        friendly_name: "Plug-in Outdoor Smart Switch: Switch"
+      switch.by_zwave7_switch:
         state: "on"
-      switch.nodeid_34_switch:
-        node_id: 34
-        friendly_name: "Christmas Tree Lights: Switch"
+      light.twinkly_a8a6fd:
         state: "on"
 
-  - id: "1606782193777"
+  - id: "d7f5be4d-0de2-45b4-90d6-e9c47605c9c8"
     name: "[Christmas] Lights Off"
     entities:
-      switch.nodeid_8_switch:
-        node_id: 8
-        friendly_name: "28169 Plug-In One-Outlet Smart Switch: Switch"
+      switch.switch.mf1_den_zwave34_switch:
         state: "off"
-      switch.nodeid_7_switch:
-        node_id: 7
-        friendly_name: "Plug-in Outdoor Smart Switch: Switch"
+      switch.by_zwave7_switch:
         state: "off"
-      switch.nodeid_34_switch:
-        node_id: 34
-        friendly_name: "Christmas Tree Lights: Switch"
+      light.twinkly_a8a6fd:
         state: "off"
 
-  - id: "1576958171165"
+  - id: "c881541b-8a2a-4d90-9e49-7771c7c1e7fe"
     name: "[Christmas] Outdoor Lights On"
     entities:
-      switch.nodeid_7_switch:
-        node_id: 7
-        friendly_name: "Plug-in Outdoor Smart Switch: Switch"
+      switch.by_zwave7_switch:
         state: "on"
 
-  - id: "1606782269331"
+  - id: "74176d81-64ef-4997-94c2-ca6421d60f5a"
     name: "[Christmas] Outdoor Lights Off"
     entities:
-      switch.nodeid_7_switch:
-        node_id: 7
-        friendly_name: "Plug-in Outdoor Smart Switch: Switch"
+      switch.by_zwave7_switch:
         state: "off"

@@ -132,6 +132,7 @@ scene old: !include_dir_merge_list includes/scenes/
 binary_sensor: !include_dir_merge_list includes/binary_sensors/
 group: !include_dir_merge_named includes/groups/
 logger: !include includes/system/logger.yaml
+mqtt: !include includes/mqtt.yaml
 recorder: !include includes/system/recorder.yaml
 sensor: !include_dir_merge_list includes/sensors/
 switch: !include_dir_merge_list includes/switches/

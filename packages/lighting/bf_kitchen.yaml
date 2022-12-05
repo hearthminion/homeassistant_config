@@ -134,11 +134,11 @@ light:
             hs_color:
               - "{{ hs[0] }}"
               - "{{ hs[1] }}"
-        set_effect:
-          - service: light.turn_on
-            data_template:
-              - light.bf1_kitchen
-            effect: "{{ effect }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.bf1_kitchen
+        #     effect: "{{ effect }}"
         supports_transition_template: "{{ true }}"  
 
 # ==================================================================================================

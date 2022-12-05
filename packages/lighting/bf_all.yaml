@@ -154,6 +154,7 @@ input_select:
       - Smitten
       - Glitz and glam
 
+
 # ==================================================================================================
 #
 # Light
@@ -208,11 +209,11 @@ light:
             hs_color:
               - "{{ hs[0] }}"
               - "{{ hs[1] }}"
-        set_effect:
-          - service: light.turn_on
-            data_template:
-              - light.bf1_all
-            effect: "{{ effect }}"
+        # set_effect:
+        #   - service: light.turn_on
+        #     data_template:
+        #       - light.bf1_all
+        #     effect: "{{ effect }}"
         supports_transition_template: "{{ true }}"  
 
 # ==================================================================================================

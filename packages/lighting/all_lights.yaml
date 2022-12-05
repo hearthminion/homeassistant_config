@@ -406,6 +406,16 @@ scene:
 
 # ==================================================================================================
 #
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  hue1_config:
+    url: "{{ url1 }}/{{ url2 }}"
+    method: put
+    payload: '{ {{ config }} }'
+# ==================================================================================================
+#
 # Scripts
 #
 # The scenes are in the order of:
@@ -794,6 +804,21 @@ script:
       - service: scene.turn_on
         target:
           entity_id: scene.before_dynamic_scene
+
+  reboot_hue_bridge:
+    alias: "Reboot Hue Bridges"
+    mode: single
+    sequence:
+      - service: rest_command.hue_config
+        data:
+          url1: !secret hue1_api_url
+          url2: "/config"
+          config: '"reboot":true'
+      - service: rest_command.hue_config
+        data:
+          url1: !secret hue2_api_url
+          url2: "/config"
+          config: '"reboot":true'
 
 # ==================================================================================================
 #

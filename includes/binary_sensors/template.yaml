@@ -1,0 +1,103 @@
+---
+# binary_sensor.yaml
+# 
+# Filename: ping.yaml
+# Description: 
+# Author: Geoff S Derber
+# Maintainer: 
+# Created: Sun Mar  3 12:12:38 2019 (-0500)
+# Version: 
+# Package-Requires: ()
+# Last-Updated: Sun Jun  9 11:13:06 2019 (-0400)
+#           By: Geoff S Derber
+#     Update #: 4
+# URL: 
+# Doc URL: 
+# Keywords: 
+# Compatibility: 
+# 
+# 
+
+# Commentary: 
+# 
+# 
+# 
+# 
+
+# Change Log:
+# 
+# 
+# 
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+# 
+# 
+
+# Code:
+
+- platform: template
+  sensors:
+    user0001_laptop:
+      device_class: connectivity
+      value_template: >-
+        {{ is_state("device_tracker.user0001_laptop_wifi", "home") }}
+
+    aether:
+      friendly_name: "Aether"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap1','on') }}"
+      icon_template: >-
+        {% if is_state("binary_sensor.wap1", "on") %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+    chaos:
+      friendly_name: "Chaos"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap2','on') }}"
+      icon_template: >-
+        {% if is_state("binary_sensor.wap2", "on") %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+    lelantos:
+      friendly_name: "Lelantos"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap3','on') }}"
+      icon_template: >-
+        {% if is_state("binary_sensor.wap3", "on") %}
+          mdi:access-point-network
+        {% else %}
+          mdi:access-point-network-off
+        {% endif %}
+    uranus:
+      friendly_name: "Uranus"
+      device_class: connectivity
+      value_template: "{{ is_state('binary_sensor.wap4','on') }}"
+      icon_template: >-
+        {% if is_state("binary_sensor.wap4", "on") %}
+        mdi:access-point-network
+        {% else %}
+        mdi:access-point-network-off
+        {% endif %}
+
+# ======================================================================
+#
+# Internet of Things
+#
+# ======================================================================
+#
+# ping.yaml ends here

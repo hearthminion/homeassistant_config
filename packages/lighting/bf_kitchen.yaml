@@ -69,7 +69,7 @@ automation:
 #
 # ==================================================================================================
 input_select:
-  bf1_kitchen_lights_scene:
+  bf1_kitchen_scene:
     name: "BF1: Kitchen - Scene"
     options:
       - scene.bf1_kitchen_bright

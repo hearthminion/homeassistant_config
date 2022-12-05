@@ -17,6 +17,40 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
+  # ================================================================================================
+  #
+  #
+  #
+  # This doesn't actually work.
+  #
+  # The goal is to disable adaptive lighting, if button 1 on a hue dimmer switch is pressed more
+  # than 1 time within 10 seconds.
+  #
+  # I will also need to re-enable adaptive lighting if I so choose.  (Prior to the daily reset at
+  # 4 am.)
+  #
+  # ================================================================================================
+  # - id: "b7592a97-117b-406b-9cc1-0c0747536190"
+  #   alias: "BF1: Hallway - Turn Off Adaptive Lighting"
+  #   description: ""
+  #   trigger:
+  #       - platform: event
+  #         event_type: hue_event
+  #         event_data:
+  #           id: bf1_great_room_switch_button
+  #           subtype: 1
+  #           type: short_release
+  #   condition:
+  #     - condition: template
+  #       value_template: >-
+  #         "{{ ((now().timestamp() - as_timestamp(state_attr('automation.test', 'last_triggered'))) < 10 ) }}"
+  #   action:
+  #     - service: switch.turn_off
+  #       data: {}
+  #       target:
+  #         entity_id: switch.bf1_hallway_adaptive_lighting
+  #   mode: single
+
   - id: "416078c3-1f3a-4742-9974-205c1f2fe0ceu"
     alias: "BF1: Hallway - Adaptive Lighting (Toggle Brightness Adjustment)"
     trigger:
@@ -150,40 +184,6 @@ automation:
         target:
           entity_id: input_boolean.bf1_hallway_green_event
     mode: single
-
-  # ================================================================================================
-  #
-  #
-  #
-  # This doesn't actually work.
-  #
-  # The goal is to disable adaptive lighting, if button 1 on a hue dimmer switch is pressed more
-  # than 1 time within 10 seconds.
-  #
-  # I will also need to re-enable adaptive lighting if I so choose.  (Prior to the daily reset at
-  # 4 am.)
-  #
-  # ================================================================================================
-  # - id: "b7592a97-117b-406b-9cc1-0c0747536190"
-  #   alias: "Basement: Turn Off Adaptive Lighting"
-  #   description: ""
-  #   trigger:
-  #       - platform: event
-  #         event_type: hue_event
-  #         event_data:
-  #           id: bf1_great_room_switch_button
-  #           subtype: 1
-  #           type: short_release
-  #   condition:
-  #     - condition: template
-  #       value_template: >-
-  #         "{{ ((now().timestamp() - as_timestamp(state_attr('automation.test', 'last_triggered'))) < 10 ) }}"
-  #   action:
-  #     - service: switch.turn_off
-  #       data: {}
-  #       target:
-  #         entity_id: switch.adaptive_lighting_basement
-  #   mode: single
 
 # ==================================================================================================
 #

@@ -43,7 +43,7 @@ automation:
       - service: "switch.turn_{{ brightness_mode }}"
         data:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage2
+            - switch.bf1_storage2_adaptive_lighting_brightness
     mode: single
 
   - id: "89633b72-f251-4d8c-81f9-8eecdf71d72d"
@@ -66,7 +66,7 @@ automation:
         data: {}
         target:
           entity_id:
-            - switch.adaptive_lighting_adapt_brightness_bf1_storage2
+            - switch.bf1_storage2_adaptive_lighting_brightness
     mode: single
 
   - id: "a8bf6fba-c27a-491f-baaf-58c9a08b5177"
@@ -217,7 +217,7 @@ rest_command:
 template:
   - binary_sensor:
       - unique_id: "a96450bb-3f44-483c-a521-c3896561c168"
-        name: "BF1: Storage2 Autobrightness"
+        name: "BF1: Storage2 - Autobrightness"
         state: >-
           {{ (
                states("sensor.global_dummy_light_brightness") | int(100) ) <

@@ -1,33 +1,3 @@
-[submodule "home-assistant-community-themes"]
-	path = home-assistant-community-themes
-	url = https://github.com/maartenpaauw/home-assistant-community-themes.git
-[submodule "themes/home-assistant-community-themes"]
-	path = ha_config/themes/home-assistant-community-themes
-	url = https://github.com/maartenpaauw/home-assistant-community-themes.git
-[submodule "lovelace/custom-lovelace"]
-	path = ha_config/www/custom-lovelace
-	url = https://github.com/ciotlosm/custom-lovelace
-[submodule "www/lovelace-slider-entity-row"]
-	path = ha_config/www/lovelace-slider-entity-row
-	url = https://github.com/thomasloven/lovelace-slider-entity-row
-[submodule "www/lovelace-popup-card"]
-	path = ha_config/www/lovelace-popup-card
-	url = https://github.com/thomasloven/lovelace-popup-card
-[submodule "www/lovelace-fold-entity-row"]
-	path = ha_config/www/lovelace-fold-entity-row
-	url = https://github.com/thomasloven/lovelace-fold-entity-row
-[submodule "www/lovelace-card-tools"]
-	path = ha_config/www/lovelace-card-tools
-	url = https://github.com/thomasloven/lovelace-card-tools
-[submodule "www/dual-gauge-card"]
-	path = ha_config/www/dual-gauge-card
-	url = https://github.com/Rocka84/dual-gauge-card
-[submodule "www/tracker-card"]
-	path = ha_config/www/tracker-card
-	url = https://github.com/custom-cards/tracker-card
-[submodule "custom_components/custom_updater"]
-	path = ha_config/custom_components/custom_updater
-	url = https://github.com/custom-components/custom_updater
 [submodule "packages/tod"]
 	path = packages/tod
 	url = https://github.com/hearthminion/homeassistant_package_times_of_day.git

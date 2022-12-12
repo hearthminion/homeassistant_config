@@ -28,3 +28,6 @@
 [submodule "custom_components/custom_updater"]
 	path = ha_config/custom_components/custom_updater
 	url = https://github.com/custom-components/custom_updater
+[submodule "packages/tod"]
+	path = packages/tod
+	url = https://github.com/hearthminion/homeassistant_package_times_of_day.git

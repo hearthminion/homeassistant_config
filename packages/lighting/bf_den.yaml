@@ -892,6 +892,52 @@ input_select:
 
 # ==================================================================================================
 #
+# Input Text
+#
+# These are used to hold the UUIDs for each bulb.  This should make moving a bulb easier.
+#
+# ==================================================================================================
+input_text:
+  bf1_den_cf1_bulb1:
+    min: 36
+    max: 36
+  bf1_den_cf2_bulb1:
+    min: 36
+    max: 36
+  bf1_den_lamp1_bulb1:
+    min: 36
+    max: 36
+  bf1_den_lamp2_bulb1:
+    min: 36
+    max: 36
+  bf1_den_lamp3_bulb1:
+    min: 36
+    max: 36
+  bf1_den_lamp3_bulb2:
+    min: 36
+    max: 36
+
+  bf1_den_scene_homeassistant:
+    min: 30
+    max: 30
+  bf1_den_cf1_scene_homeassistant:
+    min: 36
+    max: 36
+  bf1_den_cf2_scene_homeassistant:
+    min: 36
+    max: 36
+  bf1_den_lamp1_scene_homeassistant:
+    min: 36
+    max: 36
+  bf1_den_lamp2_scene_homeassistant:
+    min: 36
+    max: 36
+  bf1_den_lamp3_scene_homeassistant:
+    min: 36
+    max: 36
+
+# ==================================================================================================
+#
 # Template Lights
 #
 # ==================================================================================================
@@ -943,138 +989,6 @@ light:
         #       - light.bf1_den
         #     effect: "{{ effect }}"
         supports_transition_template: "{{ true }}"
-
-# ==================================================================================================
-#
-# Rest Commands
-#
-# ==================================================================================================
-rest_command:
-  light_update_bf1_den_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "4ccf6d6f-5aa0-4817-b726-a73cf23409bf","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "6bdd88fc-67ab-4fe2-baba-10002e77d1d5","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_bf1_den_lamp1_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "5d9e8921-1307-4181-826e-55c3a05e14ac","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_bf1_den_lamp2_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "84e56e8b-a96f-4a25-9715-4ecc0921ab8d","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_bf1_den_lamp3_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "4ccf6d6f-5aa0-4817-b726-a73cf23409bf","rtype":"light"}
-          },
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "6bdd88fc-67ab-4fe2-baba-10002e77d1d5","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_bf1_den_cf1_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "2b238059-189a-4f70-b33a-6b6948b70dc7","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_bf1_den_cf2_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid": "b02df779-caaa-446a-8e0e-e73e069f9cbd","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
 
 # ==================================================================================================
 #

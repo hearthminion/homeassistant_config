@@ -1,7 +1,7 @@
 ---
 # ==================================================================================================
 #
-# Basement Floor: Hallway
+# Basement Floor: Storage1
 #
 # ==================================================================================================
 adaptive_lighting:
@@ -162,35 +162,20 @@ input_boolean:
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# Light IDs:
-# - 04: 3781ec36-a5a4-4d11-9965-5f453a3004b4
-#   name: BF1 Storage1 CF2 Bulb1
-# - 08: 12fe02ef-c867-4eae-982e-f8fdf9e0ba23
-#   name: BF Storage1 CF1 Bulb1
+# Input Text
 #
 # ==================================================================================================
-rest_command:
-  light_update_bf1_storage1_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"3781ec36-a5a4-4d11-9965-5f453a3004b4","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"12fe02ef-c867-4eae-982e-f8fdf9e0ba23","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+input_text:
+  bf1_storage1_cf1_bulb1:
+    min: 36
+    max: 36
+  bf1_storage1_cf2_bulb1:
+    min: 36
+    max: 36
+
+  bf1_storage1_scene_homeassistant:
+    min: 36
+    max: 36
 
 # ==================================================================================================
 #

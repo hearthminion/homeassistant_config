@@ -1,7 +1,7 @@
 ---
 # ==================================================================================================
 #
-# Adaptive Lighting
+# Basement Floor: Stairwell
 #
 # ==================================================================================================
 adaptive_lighting:
@@ -162,30 +162,17 @@ input_boolean:
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# Light IDs:
-# - 02: 068c9cd1-0128-423b-b0f4-e9bc57e0308e
-#   name: BF1 Stairwell Bulb
+# Input Text
 #
 # ==================================================================================================
-rest_command:
-  light_update_bf1_stairwell_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"068c9cd1-0128-423b-b0f4-e9bc57e0308e","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+input_text:
+  bf1_stairwell_cf1_bulb1:
+    min: 36
+    max: 36
+
+  bf1_stairwell_scene_homeassistant:
+    min: 36
+    max: 36
 
 # ==================================================================================================
 #

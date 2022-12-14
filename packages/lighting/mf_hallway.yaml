@@ -19,90 +19,23 @@ adaptive_lighting:
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# Light IDs:
-# - 04: 0a6f4c2e-2864-4a97-bffe-24f629b7008e
-#   name: MF1: Hallway CF1 Bulb1
-# - 08: 67647900-2f25-4d2d-965a-3fac2ef7b044
-#   name: MF1: Hallway CF2 Bulb1
-# - 09: f8ca7348-2fdc-4351-b554-85e776159c8f
-#   name: MF1: Hallway CF1 Bulb2
-# - 10: 264f5ee8-6cd0-4b5e-b1a8-3af7b07de307
-#   name: MF1: Hallway CF2 Bulb2
-# - 17: 82416e7b-27a5-4ed2-a44b-3496bfed62a9
-#   name: MF1: Hallway Lamp1 Bulb1
+# Input Text
 #
 # ==================================================================================================
-rest_command:
-  light_update_mf1_hallway_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"0a6f4c2e-2864-4a97-bffe-24f629b7008e","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"67647900-2f25-4d2d-965a-3fac2ef7b044","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"f8ca7348-2fdc-4351-b554-85e776159c8f","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"264f5ee8-6cd0-4b5e-b1a8-3af7b07de307","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"82416e7b-27a5-4ed2-a44b-3496bfed62a9","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+input_text:
+  mf1_hallway_cf1_bulb1:
+    min: 36
+    max: 36
+  mf1_hallway_cf1_bulb2:
+    min: 36
+    max: 36
+  mf1_hallway_cf2_bulb1:
+    min: 36
+    max: 36
+  mf1_hallway_cf1_bulb2:
+    min: 36
+    max: 36
 
-  light_update_mf1_hallway_cf_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"0a6f4c2e-2864-4a97-bffe-24f629b7008e","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"67647900-2f25-4d2d-965a-3fac2ef7b044","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"f8ca7348-2fdc-4351-b554-85e776159c8f","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"264f5ee8-6cd0-4b5e-b1a8-3af7b07de307","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-  light_update_mf1_hallway_lamp1_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"82416e7b-27a5-4ed2-a44b-3496bfed62a9","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+  mf1_hallway_scene_homeassistant:
+    min: 36
+    max: 36

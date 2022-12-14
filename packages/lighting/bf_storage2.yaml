@@ -162,40 +162,26 @@ input_boolean:
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# Light IDs:
-# - 03: 9393d087-3b37-4b3b-be15-49ad8d1da861
-#   name: BF1 Storage2 Lamp1 Bulb1
-# - 10: 2f340335-486f-4c67-921b-e7d8c33f581f
-#   name: BF1 Storage2 Lamp2 Bulb1
-# - 13: bbf6ca34-f834-4ffb-8f94-bb9165d0ed57
-#   name: BF1 Storage2 Lamp3 Bulb1
+# Input Text
 #
 # ==================================================================================================
-rest_command:
-  light_update_bf1_storage2_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"9393d087-3b37-4b3b-be15-49ad8d1da861","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"2f340335-486f-4c67-921b-e7d8c33f581f","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"bbf6ca34-f834-4ffb-8f94-bb9165d0ed57","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+input_text:
+  bf1_storage2_lamp1_bulb1:
+    min: 36
+    max: 36
+  bf1_storage2_lamp1_bulb2:
+    min: 36
+    max: 36
+  bf1_storage2_lamp1_bulb3:
+    min: 36
+    max: 36
+  bf1_storage2_lamp1_bulb4:
+    min: 36
+    max: 36
+
+  bf1_storage2_scene_homeassistant:
+    min: 36
+    max: 36
 
 # ==================================================================================================
 #

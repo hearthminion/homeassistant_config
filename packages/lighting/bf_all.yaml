@@ -208,7 +208,7 @@ light:
         color_template: "{{ state_attr('light.bf1_all','hs_color') }}"
         min_mireds_template: "{{ state_attr('light.bf1_all','min_mireds') | int(100) }}"
         max_mireds_template: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
-        effect_list_template: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
+        #effect_list_template: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
         turn_on:
           service: scene.turn_on
           data_template:
@@ -238,11 +238,11 @@ light:
             hs_color:
               - "{{ hs[0] }}"
               - "{{ hs[1] }}"
-        set_effect:
-          - service: scene.turn_on
-            data_template:
-              entity_id: >-
-                {{ states('input_select.bf1_all_scene') }}
+        # set_effect:
+        #   - service: scene.turn_on
+        #     data_template:
+        #       entity_id: >-
+        #         {{ states('input_select.bf1_all_scene') }}
         supports_transition_template: "{{ true }}"
 
 # ==================================================================================================

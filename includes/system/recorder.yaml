@@ -18,6 +18,8 @@ include:
     - input_number.mf*
     - input_select.bf*
     - input_select.mf*
+    - input_text.bf*
+    - input_text.mf*
     - binary_sensor.bf*
     - binary_sensor.global*
     - binary_sensor.mf*

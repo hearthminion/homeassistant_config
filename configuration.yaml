@@ -173,12 +173,18 @@ owntracks:
   mqtt_topic: "owntracks/#"
   events_only: false
 
+
+api:
+lovelace: !include includes/lovelace.yaml
+
 geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
 
-lovelace: !include includes/lovelace.yaml
+
+
+
 
 # ======================================================================
 # configuration.yaml ends here

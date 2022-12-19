@@ -392,28 +392,36 @@ input_boolean:
 # ==================================================================================================
 input_text:
   mf2_den_lamp1_bulb1:
+    name: "MF2: Den Lamp1 Bulb1"
     min: 36
     max: 36
   mf2_den_lamp2_bulb1:
+    name: "MF2: Den Lamp2 Bulb1"
     min: 36
     max: 36
   mf2_den_lamp3_bulb1:
+    name: "MF2: Den Lamp3 Bulb1"
     min: 36
     max: 36
   mf2_den_lamp5_bulb1:
+    name: "MF2: Den Lamp5 Bulb1"
     min: 36
     max: 36
 
   mf2_den_lamp1_scene_homeassistant:
+    name: "MF2: Den Lamp1 Scene HomeAssistant"
     min: 36
     max: 36
   mf2_den_lamp2_scene_homeassistant:
+    name: "MF2: Den Lamp2 Scene HomeAssistant"
     min: 36
     max: 36
   mf2_den_lamp3_scene_homeassistant:
+    name: "MF2: Den Lamp3 Scene HomeAssistant"
     min: 36
     max: 36
   mf2_den_lamp5_scene_homeassistant:
+    name: "MF2: Den Lamp5 HomeAssistant"
     min: 36
     max: 36
 

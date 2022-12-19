@@ -35,17 +35,21 @@ input_boolean:
 #
 # ==================================================================================================
 input_text:
-  bf1_bathroom1_inner_cf1_bulb1:
+  mf1_bathroom1_inner_cf1_bulb1:
+    name: "MF1: Bathroom1 (Inner) CF1 Bulb1"
     min: 36
     max: 36
-  bf1_bathroom1_inner_cf1_bulb2:
+  mf1_bathroom1_inner_cf1_bulb2:
+    name: "MF1: Bathroom1 (Inner) CF1 Bulb2"
     min: 36
     max: 36
-  bf1_bathroom1_inner_cf1_bulb3:
+  mf1_bathroom1_inner_cf1_bulb3:
+    name: "MF1: Bathroom1 (Inner) CF1 Bulb3"
     min: 36
     max: 36
 
-  bf1_bathroom1_inner_scene_homeassistant:
+  mf1_bathroom1_inner_scene_homeassistant:
+    name: "MF1: Bathroom1 (Inner) Scene HomeAssistant"
     min: 36
     max: 36
 

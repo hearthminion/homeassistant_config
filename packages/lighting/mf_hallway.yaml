@@ -24,18 +24,23 @@ adaptive_lighting:
 # ==================================================================================================
 input_text:
   mf1_hallway_cf1_bulb1:
+    name: "MF1: Hallway CF1 Bulb1"
     min: 36
     max: 36
   mf1_hallway_cf1_bulb2:
+    name: "MF1: Hallway CF1 Bulb2"
     min: 36
     max: 36
   mf1_hallway_cf2_bulb1:
+    name: "MF1: Hallway CF2 Bulb1"
     min: 36
     max: 36
   mf1_hallway_cf1_bulb2:
+    name: "MF1: Hallway CF2 Bulb2"
     min: 36
     max: 36
 
   mf1_hallway_scene_homeassistant:
+    name: "MF1: Hallway Scene HomeAssistant"
     min: 36
     max: 36

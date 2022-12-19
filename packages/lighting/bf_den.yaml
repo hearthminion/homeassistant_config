@@ -899,40 +899,52 @@ input_select:
 # ==================================================================================================
 input_text:
   bf1_den_cf1_bulb1:
+    name: "BF1: Den CF1 Bulb1 Id"
     min: 36
     max: 36
   bf1_den_cf2_bulb1:
+    name: "BF1: Den CF2 Bulb1 Id"
     min: 36
     max: 36
   bf1_den_lamp1_bulb1:
+    name: "BF1: Den Lamp1 Bulb1 Id"
     min: 36
     max: 36
   bf1_den_lamp2_bulb1:
+    name: "BF1: Den Lamp2 Bulb1 Id"
     min: 36
     max: 36
   bf1_den_lamp3_bulb1:
+    name: "BF1: Den Lamp3 Bulb1 Id"
     min: 36
     max: 36
   bf1_den_lamp3_bulb2:
+    name: "BF1: Den Lamp3 Bulb2 Id"
     min: 36
     max: 36
 
   bf1_den_scene_homeassistant:
+    name: "BF1: Den - HomeAssistant Scene Id"
     min: 30
     max: 30
   bf1_den_cf1_scene_homeassistant:
+    name: "BF1: Den CF1 - HomeAssistant Scene Id"
     min: 36
     max: 36
   bf1_den_cf2_scene_homeassistant:
+    name: "BF1: Den CF2 - HomeAssistant Scene Id"
     min: 36
     max: 36
   bf1_den_lamp1_scene_homeassistant:
+    name: "BF1: Den Lamp1 - HomeAssistant Scene Id"
     min: 36
     max: 36
   bf1_den_lamp2_scene_homeassistant:
+    name: "BF1: Den Lamp2 - HomeAssistant Scene Id"
     min: 36
     max: 36
   bf1_den_lamp3_scene_homeassistant:
+    name: "BF1: Den Lamp3 - HomeAssistant Scene Id"
     min: 36
     max: 36
 

@@ -13,5 +13,6 @@
 # ==================================================================================================
 input_text:
   mf2_great_room_scene_homeassistant:
+    name: "MF2: Great Room Scene HomeAssistant"
     min: 36
     max: 36

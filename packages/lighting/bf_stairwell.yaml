@@ -167,10 +167,12 @@ input_boolean:
 # ==================================================================================================
 input_text:
   bf1_stairwell_cf1_bulb1:
+    name: "BF1: Stairwell CF1 Bulb1"
     min: 36
     max: 36
 
   bf1_stairwell_scene_homeassistant:
+    name: "BF1: Stairwell Scene HomeAssistant"
     min: 36
     max: 36
 

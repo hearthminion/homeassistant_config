@@ -167,13 +167,16 @@ input_boolean:
 # ==================================================================================================
 input_text:
   bf1_storage1_cf1_bulb1:
+    name: "BF1: Storage1 CF1 Bulb1"
     min: 36
     max: 36
   bf1_storage1_cf2_bulb1:
+    name: "BF1: Storage1 CF2 Bulb1"
     min: 36
     max: 36
 
   bf1_storage1_scene_homeassistant:
+    name: "BF1: Storage1 Scene HomeAssistant"
     min: 36
     max: 36
 

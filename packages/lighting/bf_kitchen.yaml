@@ -195,10 +195,12 @@ input_select:
 # ==================================================================================================
 input_text:
   bf1_kitchen_cf1_bulb1:
+    name: "BF1: Kitchen CF1 Bulb1 Id"
     min: 36
     max: 36
 
   bf1_kitchen_scene_homeassistant:
+    name: "BF1: Kitchen - HomeAssistant Scene Id"
     min: 36
     max: 36
 

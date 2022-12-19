@@ -18,11 +18,19 @@ adaptive_lighting:
 # ==================================================================================================
 input_text:
   mf1_bathroom2_cf1_bulb1:
+    name: "MF1: Bathroom2 CF1 Bulb1"
     min: 36
     max: 36
   mf1_bathroom2_cf1_bulb2:
+    name: "MF1: Bathroom2 CF1 Bulb2"
     min: 36
     max: 36
   mf1_bathroom2_cf1_bulb3:
+    name: "MF1: Bathroom2 CF1 Bulb3"
+    min: 36
+    max: 36
+
+  mf1_bathroom2_scene_homeassistant:
+    name: "MF1: Bathroom2 Scene HomeAssistant"
     min: 36
     max: 36

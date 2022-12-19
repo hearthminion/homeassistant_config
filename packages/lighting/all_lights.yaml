@@ -340,6 +340,9 @@ input_select:
 #
 # Input Text
 #
+# These input_text entities store the id of the hue hub.  This is expected to be either a fully
+# qualified domain name ('hue.example.com') or ip address ('192.168.23.92').
+#
 # ==================================================================================================
 input_text:
   hue_hub01_id:
@@ -474,7 +477,7 @@ script:
       # Whole Hub Scenes
       #
       # ============================================================================================
-      - service: rest_command.light_update_scene_16_bulbs
+      - service: rest_command.light_update_scene_15_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
           scene_id: "{{ states('input_text.mf1_all_scene_homeassistant') }}"

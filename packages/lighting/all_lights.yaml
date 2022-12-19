@@ -304,6 +304,11 @@ input_number:
     max: 255
     step: 10
 
+  hue_update_scene_wait:
+    min: 1
+    max: 10
+    step: 1
+
 # ==================================================================================================
 #
 # Input select
@@ -541,8 +546,354 @@ script:
           bulb04_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
 
       # We now add a delay to not overwhelm the bridge
-      - alias: "Wait 1s"
-        delay: 1
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      # ============================================================================================
+      #
+      # Room Scenes
+      #
+      # ============================================================================================
+      - service: rest_command.light_update_scene_03_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bathroom1_inner_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb3') }}"
+
+      - service: rest_command.light_update_scene_06_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
+          bulb03_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+          bulb05_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+          bulb06_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+
+      - service: rest_command.light_update_scene_04_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_great_room_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf2_den_lamp2_bulb1') }}"
+          bulb03_id: "{{ states('input_text.mf2_den_lamp3_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_03_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bathroom2_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb3') }}"
+
+      - service: rest_command.light_update_scene_03_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_hallway_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_hallway_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.bf1_hallway_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.bf1_hallway_cf1_bulb3') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_05_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
+          bulb03_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
+          bulb04_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+          bulb05_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_kitchen_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_kitchen_cf1_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ input_number.hue_update_scene_wait | int(1) }}"
+
+      - service: rest_command.light_update_scene_04_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_hallway_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_stairwell_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_stairwell_cf1_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_02_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_storage1_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_storage1_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.bf1_storage1_cf2_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_02_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_storage2_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_storage2_lamp1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.bf1_storage2_lamp2_bulb1') }}"
+          bulb03_id: "{{ states('input_text.bf1_storage2_lamp3_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_storage2_lamp4_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      # ============================================================================================
+      #
+      # Zone Scenes
+      #
+      # ============================================================================================
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_cf1_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb07_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_cf1_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_den_lamp1_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp1_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_lamp1_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_cf2_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_den_lamp2_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp2_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_lamp2_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_lamp1_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_den_lamp3_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp3_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_lamp2_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_lamp1_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_04_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_hallway_cf_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_lamp2_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+
+      - service: rest_command.light_update_scene_01_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_den_lamp5_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - service: rest_command.light_update_scene_02_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          scene_id: "{{ states('input_text.bf1_den_lamp3_scene_homeassistant') }}"
+          username: !secret hue2_username
+          color: '"color_temperature":{ "mirek":{{ min(states("sensor.global_dummy_light_color_temperature") | int(367), 454) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+          bulb02_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
 
   # ================================================================================================
   #

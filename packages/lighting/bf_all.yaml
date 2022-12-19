@@ -182,6 +182,7 @@ input_select:
 # ==================================================================================================
 input_text:
   bf1_all_scene_homeassistant:
+    name: "BF1: All - HomeAssistant Scene Id"
     min: 36
     max: 36
 

@@ -925,8 +925,8 @@ input_text:
 
   bf1_den_scene_homeassistant:
     name: "BF1: Den - HomeAssistant Scene Id"
-    min: 30
-    max: 30
+    min: 36
+    max: 36
   bf1_den_cf1_scene_homeassistant:
     name: "BF1: Den CF1 - HomeAssistant Scene Id"
     min: 36

@@ -696,7 +696,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_02_bulbs
+      - service: rest_command.light_update_scene_04_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           scene_id: "{{ states('input_text.bf1_storage2_scene_homeassistant') }}"
@@ -726,7 +726,7 @@ script:
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb07_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
 
       - service: rest_command.light_update_scene_01_bulbs
         data:
@@ -752,7 +752,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_01_bulbs
+      - service: rest_command.light_update_scene_02_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
           scene_id: "{{ states('input_text.mf1_bedroom1_lamp1_scene_homeassistant') }}"
@@ -787,7 +787,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_01_bulbs
+      - service: rest_command.light_update_scene_02_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
           scene_id: "{{ states('input_text.mf1_bedroom1_lamp2_scene_homeassistant') }}"
@@ -822,7 +822,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_01_bulbs
+      - service: rest_command.light_update_scene_02_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
           scene_id: "{{ states('input_text.mf1_bedroom1_lamp2_scene_homeassistant') }}"

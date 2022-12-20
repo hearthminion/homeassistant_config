@@ -34,8 +34,6 @@ rest_command:
           {
           "action":{ {{ color }},{{ brightness }},{{ on_state }} },
           "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
           }
           ]
           }'

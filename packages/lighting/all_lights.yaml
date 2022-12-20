@@ -821,16 +821,18 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_02_bulbs
+      - service: rest_command.light_update_scene_04_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_bedroom1_lamp2_scene_homeassistant') }}"
+          scene_id: "{{ states('input_text.mf1_hallway_cf1_scene_homeassistant') }}"
           username: !secret hue1_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
 
       - service: rest_command.light_update_scene_01_bulbs
         data:
@@ -845,19 +847,6 @@ script:
       # We now add a delay to not overwhelm the bridge
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
-
-      - service: rest_command.light_update_scene_04_bulbs
-        data:
-          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_hallway_cf_scene_homeassistant') }}"
-          username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
-          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
 
       - service: rest_command.light_update_scene_01_bulbs
         data:

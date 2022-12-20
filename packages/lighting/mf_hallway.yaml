@@ -35,7 +35,7 @@ input_text:
     name: "MF1: Hallway CF2 Bulb1"
     min: 36
     max: 36
-  mf1_hallway_cf1_bulb2:
+  mf1_hallway_cf2_bulb2:
     name: "MF1: Hallway CF2 Bulb2"
     min: 36
     max: 36

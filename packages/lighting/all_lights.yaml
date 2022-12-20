@@ -652,7 +652,7 @@ script:
 
       # We now add a delay to not overwhelm the bridge
       - alias: "Wait"
-        delay: "{{ input_number.hue_update_scene_wait | int(1) }}"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
       - service: rest_command.light_update_scene_04_bulbs
         data:

@@ -44,3 +44,8 @@ input_text:
     name: "MF1: Hallway Scene HomeAssistant"
     min: 36
     max: 36
+
+  mf1_hallway_cf_scene_homeassistant:
+    name: "MF1: Hallway CF Scene HomeAssistant"
+    min: 36
+    max: 36

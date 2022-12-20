@@ -233,15 +233,15 @@ input_select:
 # ==================================================================================================
 input_text:
   bf1_hallway_cf1_bulb1:
-    name: "BF1: Den CF1 Bulb1 Id"
+    name: "BF1: Hallway CF1 Bulb1 Id"
     min: 36
     max: 36
   bf1_hallway_cf1_bulb2:
-    name: "BF1: Den CF1 Bulb2 Id"
+    name: "BF1: Hallway CF1 Bulb2 Id"
     min: 36
     max: 36
   bf1_hallway_cf1_bulb3:
-    name: "BF1: Den CF1 Bulb3 Id"
+    name: "BF1: Hallway CF1 Bulb3 Id"
     min: 36
     max: 36
 

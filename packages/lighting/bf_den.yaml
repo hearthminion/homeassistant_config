@@ -263,7 +263,7 @@ automation:
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
   # ================================================================================================
@@ -422,7 +422,7 @@ automation:
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
   # ================================================================================================
@@ -581,7 +581,7 @@ automation:
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
   # ================================================================================================
@@ -736,7 +736,7 @@ automation:
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
   # ================================================================================================
@@ -891,13 +891,13 @@ automation:
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
       - service: rest_command.hue_update_bulb
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           light_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
-          username: !secret hue1_username
+          username: !secret hue2_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
 # ==================================================================================================

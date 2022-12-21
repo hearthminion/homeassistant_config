@@ -240,6 +240,34 @@ automation:
 
   # ================================================================================================
   #
+  # This updates the bulb state when the light bulb is turned off.  For example, the light was
+  # turned off while it's color was 'green'.  When using an physical switch to turn the light back
+  # on, it usually turns on the last color it was set to.  This modifies the color so that the last
+  # color used is the circadian color temp.
+  #
+  # ================================================================================================
+  - id: "6d573530-e397-4b35-a416-ffe1fe4d38e8"
+    alias: "BF1: Den CF1 - Update Bulb State"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_den_cf1
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+  # ================================================================================================
+  #
   # BF1: Den CF2
   #
   # ================================================================================================
@@ -369,6 +397,33 @@ automation:
         service: input_boolean.turn_off
     mode: single
 
+  # ================================================================================================
+  #
+  # This updates the bulb state when the light bulb is turned off.  For example, the light was
+  # turned off while it's color was 'green'.  When using an physical switch to turn the light back
+  # on, it usually turns on the last color it was set to.  This modifies the color so that the last
+  # color used is the circadian color temp.
+  #
+  # ================================================================================================
+  - id: "0ca3adf9-7c75-4218-9362-3e4a67627bc8"
+    alias: "BF1: Den CF2 - Update Bulb State"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_den_cf2
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
   # ================================================================================================
   #
@@ -503,6 +558,34 @@ automation:
 
   # ================================================================================================
   #
+  # This updates the bulb state when the light bulb is turned off.  For example, the light was
+  # turned off while it's color was 'green'.  When using an physical switch to turn the light back
+  # on, it usually turns on the last color it was set to.  This modifies the color so that the last
+  # color used is the circadian color temp.
+  #
+  # ================================================================================================
+  - id: "3fb0c0a4-4b5d-4f66-89c2-8a2ba1a91efd"
+    alias: "BF1: Den Lamp1 - Update Bulb State"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_den_lamp1
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+  # ================================================================================================
+  #
   # BF1: Den Lamp2
   #
   # ================================================================================================
@@ -630,6 +713,34 @@ automation:
 
   # ================================================================================================
   #
+  # This updates the bulb state when the light bulb is turned off.  For example, the light was
+  # turned off while it's color was 'green'.  When using an physical switch to turn the light back
+  # on, it usually turns on the last color it was set to.  This modifies the color so that the last
+  # color used is the circadian color temp.
+  #
+  # ================================================================================================
+  - id: "d16e27ed-ee28-41d0-b47f-d97934f9935c"
+    alias: "BF1: Den Lamp2 - Update Bulb State"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_den_lamp2
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+  # ================================================================================================
+  #
   # BF1: Den Lamp3
   #
   # ================================================================================================
@@ -754,6 +865,40 @@ automation:
       - entity_id: input_boolean.bf1_den_lamp3_green_event
         service: input_boolean.turn_off
     mode: single
+
+  # ================================================================================================
+  #
+  # This updates the bulb state when the light bulb is turned off.  For example, the light was
+  # turned off while it's color was 'green'.  When using an physical switch to turn the light back
+  # on, it usually turns on the last color it was set to.  This modifies the color so that the last
+  # color used is the circadian color temp.
+  #
+  # ================================================================================================
+  - id: "a6a38843-6ad3-4b62-af11-a17725a012ec"
+    alias: "BF1: Den Lamp3 - Update Bulb State"
+    description: ""
+    trigger:
+      - platform: state
+        entity_id: light.bf1_den_lamp3
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+      - service: rest_command.hue_update_bulb
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+          light_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
 # ==================================================================================================
 #
@@ -1021,7 +1166,6 @@ light:
 # Scripts
 #
 # ==================================================================================================
-#script:
 
 # ==================================================================================================
 #

@@ -16,6 +16,15 @@ rest_command:
     payload: '{ {{ config }} }'
     verify_ssl: false
 
+  hue_update_bulb:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/light/{{ light_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+      "{{ color }}"
+    }'
+
   # ================================================================================================
   #
   # The next group of rest commands update scenes based on the number of bulbs for that scene.

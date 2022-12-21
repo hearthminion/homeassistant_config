@@ -3,40 +3,6 @@
 #
 # Great Room: Den Area Lighting Configuration
 #
-# Lights:
-#   - light.mf_den_ceiling_bulb
-#     light id: 8
-#   - light.mf_den_couch_lamp_1_bulb
-#     light id: 7
-#   - light.mf_den_couch_lamp_2_bulb
-#     light id: 6
-#   - light.mf_den_fireplace_bulb
-#     light id: 25
-#   - light.mf_dining_area_ceiling_bulb
-#     light id: 31
-#   - light.mf_entryway_ceiling_bulb
-#     light id: 13
-#   - light.mf_kitchen_ceiling_bulb
-#     light id: 10
-#   - light.mf_kitchen_island_ceiling_bulb
-#     light id: 24
-#   - light.mf_living_area_ceiling_bulb
-#     light id: 26
-#
-# Light Groups (Rooms):
-#   - light.mf_great_room
-#
-# Light Groups (Zones):
-#   - light.mf_den_ceiling
-#   - light.mf_den_couch_lamp_1
-#   - light.mf_den_couch_lamp_2
-#   - light.mf_den_fireplace
-#   - light.mf_dining_area_ceiling
-#   - light.mf_entryway_ceiling
-#   - light.mf_kitchen_ceiling
-#   - light.mf_kitchen_island_ceiling
-#   - light.mf_living_area_ceiling
-
 # ==================================================================================================
 adaptive_lighting:
   - name: "MF2: Den Lamp1"
@@ -48,6 +14,18 @@ adaptive_lighting:
   - name: "MF2: Den Lamp2"
     lights:
       - light.mf2_den_lamp2
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
+  - name: "MF2: Den Lamp3"
+    lights: []
+    initial_transition: 1
+    min_color_temp: 2000
+    max_color_temp: 6500
+
+  - name: "MF2: Den Lamp5"
+    lights: []
     initial_transition: 1
     min_color_temp: 2000
     max_color_temp: 6500

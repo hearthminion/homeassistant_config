@@ -24,6 +24,8 @@ rest_command:
     payload: '{
       "{{ color }}"
     }'
+    content_type: "application/json"
+    verify_ssl: false
 
   # ================================================================================================
   #

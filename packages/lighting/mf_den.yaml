@@ -134,12 +134,12 @@ automation:
           event_type: hue_event
           event_data:
             id: mf2_den_lamp1_switch_button
-            subtype: 3
+            subtype: 2
         - platform: event
           event_type: hue_event
           event_data:
             id: mf2_den_lamp1_switch_button
-            subtype: 2
+            subtype: 3
     condition: []
     action:
       - service: switch.turn_off
@@ -196,7 +196,7 @@ automation:
     mode: single
 
   - id: "8f312960-1147-447f-a1f8-4b42a9381493"
-    alias: "MF2: Den LAMP1 - Green Has Been On"
+    alias: "MF2: Den Lamp1 - Green Has Been On"
     description: ""
     trigger:
       - platform: state

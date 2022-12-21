@@ -22,7 +22,7 @@ rest_command:
     headers:
       hue-application-key: "{{ username }}"
     payload: '{
-      "{{ color }}"
+      {{ color }}
     }'
     content_type: "application/json"
     verify_ssl: false

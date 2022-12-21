@@ -4,7 +4,39 @@
 # Great Room
 #
 # ==================================================================================================
-# automations:
+automation:
+  # ================================================================================================
+  #
+  # Whole Room
+  #
+  # ================================================================================================
+  - id: "0dc03f6b-efc4-4165-8acc-d2bf702707eb"
+    alias: "MF2: Den - Adaptive Lighting (Toggle)"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.mf2_great_room_color_mode
+    variables:
+      adaptive_mode: "{{ iif(is_state('binary_sensor.mf2_great_room_color_mode','on'), 'off','on') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ adaptive_mode }}"
+        data:
+          entity_id:
+            - switch.mf2_den_lamp1_adaptive_lighting
+            - switch.mf2_den_lamp2_adaptive_lighting
+            - switch.mf2_den_lamp3_adaptive_lighting
+            - switch.mf2_den_lamp5_adaptive_lighting
+    mode: single
+
+# ==================================================================================================
+#
+# Input Select
+#
+# ==================================================================================================
 
 # ==================================================================================================
 #
@@ -16,3 +48,29 @@ input_text:
     name: "MF2: Great Room Scene HomeAssistant"
     min: 36
     max: 36
+
+# ==================================================================================================
+#
+# Templates
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      # ============================================================================================
+      #
+      # Whole Room Binary Sensors
+      #
+      # ============================================================================================
+      - unique_id: "6d965e04-4512-45c9-ab87-2476ea475d26"
+        name: "MF2: Great Room Color Mode"
+        state: "{{ is_state_attr('light.mf1_great_room','color_mode', 'xy') }}"
+
+  - sensor:
+      # ============================================================================================
+      #
+      # Whole Room Sensors
+      #
+      # ============================================================================================
+      - unique_id: "669ebf38-bf66-4117-b138-8606867ba620"
+        name: "MF2: Great Room Color"
+        state: "{{ state_attr('light.mf2_great_room', 'xy_color') }}"

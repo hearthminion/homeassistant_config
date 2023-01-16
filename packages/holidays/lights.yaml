@@ -11,7 +11,7 @@ automation:
     description: "Turns on all Christmas lights at 6:00 A.M."
     trigger:
       - platform: time
-        at: "06:00:00"
+        at: input_datetime.christmas_lights_morning
     condition: []
     action:
       - scene: scene.christmas_lights_on
@@ -23,7 +23,7 @@ automation:
     description: "Turns off all Christmas lights at 10:00 P.M."
     trigger:
       - platform: time
-        at: "22:00:00"
+        at: input_datetime.christmas_lights_evening
     condition: []
     action:
       - scene: scene.christmas_lights_off

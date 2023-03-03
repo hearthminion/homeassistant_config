@@ -199,7 +199,9 @@ automation:
   #
   # Update HomeAssistant Scene on Hue Bridge
   #
-  # Runs every 5 minutes while light mode is "circadian"
+  # Runs every 10 minutes on the '5s' so 5, 15, 25, 35, etc... while light mode is "circadian"
+  #
+  # There may be a better a better way of doing this.
   #
   # ================================================================================================
   - id: "b9267e40-af1c-4f92-bb98-e6839787cc97"
@@ -207,17 +209,37 @@ automation:
     description: ""
     trigger:
       - platform: time_pattern
-        minutes: "/5"
+        minutes: "/10"
     condition:
       condition: and
       conditions:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
+      - delay:
+          minutes: 5
       - service: script.turn_on
         data: {}
         target:
           entity_id: script.light_update_scene_homeassistant
+    mode: single
+
+  - id: "850b046e-09e0-48ff-8139-1969d9672dcd"
+    alias: "Update Bulb States"
+    description: ""
+    initial_state: false
+    trigger:
+      - platform: time_pattern
+        minutes: "/10"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+        data: {}
+        target:
+          entity_id: script.hue_update_bulbs
     mode: single
 
   # - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
@@ -471,6 +493,227 @@ scene:
 #
 # ==================================================================================================
 script:
+  hue_update_bulbs:
+    alias: "Update Lights colors during off states"
+    mode: single
+    sequence:
+
+      # ============================================================================================
+      #
+      #
+      #
+      # ============================================================================================
+      - if:
+          - condition: state
+            entity_id: light.mf1_bedroom1_cf1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_cf1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.mf2_den_lamp1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+              light_id: "{{ states('input_text.mf2_den_lamp1_bulb1') }}"
+              username: !secret hue3_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - if:
+          - condition: state
+            entity_id: light.mf1_bedroom1_lamp1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_cf2_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.mf2_den_lamp2_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+              light_id: "{{ states('input_text.mf2_den_lamp2_bulb1') }}"
+              username: !secret hue3_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - if:
+          - condition: state
+            entity_id: light.mf1_bedroom1_lamp1_bulb2
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_lamp1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.mf2_den_lamp3_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+              light_id: "{{ states('input_text.mf2_den_lamp3_bulb1') }}"
+              username: !secret hue3_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - if:
+          - condition: state
+            entity_id: light.mf1_bedroom1_lamp2_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_lamp2_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.mf2_den_lamp5_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+              light_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
+              username: !secret hue3_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - if:
+          - condition: state
+            entity_id: light.mf1_bedroom1_lamp2_bulb2
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_lamp3_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      - if:
+          - condition: state
+            entity_id: light.mf1_bathroom1_inner_cf1_bulb1
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+              light_id: "{{ states('input_text.mf1_bathroom1_cf1_bulb1') }}"
+              username: !secret hue1_username
+              color: '"color_temperature":{ "mirek": 367 }'
+              #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - if:
+          - condition: state
+            entity_id: light.bf1_den_lamp3_bulb3
+            state: "off"
+        then:
+          - service: rest_command.hue_update_bulb
+            data:
+              hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
+              light_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+              username: !secret hue2_username
+              color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+
+      - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
   light_update_scene_homeassistant:
     alias: "Update Home Assistant Scenes"
     mode: single

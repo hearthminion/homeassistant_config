@@ -237,6 +237,7 @@ automation:
         - condition: template
           value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
     action:
+      - service: script.turn_on
         data: {}
         target:
           entity_id: script.hue_update_bulbs
@@ -695,14 +696,14 @@ script:
           - service: rest_command.hue_update_bulb
             data:
               hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-              light_id: "{{ states('input_text.mf1_bathroom1_cf1_bulb1') }}"
+              light_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
               username: !secret hue1_username
               color: '"color_temperature":{ "mirek": 367 }'
               #color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
 
       - if:
           - condition: state
-            entity_id: light.bf1_den_lamp3_bulb3
+            entity_id: light.bf1_den_lamp3_bulb2
             state: "off"
         then:
           - service: rest_command.hue_update_bulb

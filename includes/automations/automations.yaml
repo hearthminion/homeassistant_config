@@ -70,9 +70,7 @@
       repeat:
         sequence:
           - service: "switch.turn_off"
-            data:
-              entity_id:
-                - switch.mf1_bedroom1_zwave13_switch
+            entity_id: switch.mf1_bedroom1_zwave13_switch
           - delay: 5
       until:
         - condition: state

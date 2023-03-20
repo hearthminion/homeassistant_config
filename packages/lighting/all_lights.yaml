@@ -1316,6 +1316,15 @@ template:
         state_class: measurement
         unit_of_measurement: "°K"
 
+      - unique_id: "c595cf2d-875d-4699-9a46-223e3bfeb1e2"
+        name: "Global Dummy Light Color Temperature (Mired)"
+        state: >-
+          {% if state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin") is number %}
+            {{ (1000000/(state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin")) | round(0, 'floor') }}
+          {% else %}
+            {{ (1000000/367 | round(0, 'floor') }}
+          {% endif %}
+          
 # ==================================================================================================
 #
 # Timers

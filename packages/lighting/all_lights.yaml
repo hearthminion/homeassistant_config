@@ -1320,10 +1320,11 @@ template:
         name: "Global Dummy Light Color Temperature (Mired)"
         state: >-
           {% if state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin") is number %}
-            {{ (1000000/(state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin")) | round(0, 'floor') }}
+            {{ (1000000/(state_attr("switch.global_dummy_light_adaptive_lighting", "color_temp_kelvin"))) | round(0, "floor") }}
           {% else %}
-            {{ (1000000/367) | round(0, 'floor') }}
+            {{ (1000000/367) | round(0, "floor") }}
           {% endif %}
+        state_class: measurement
 
 # ==================================================================================================
 #

@@ -72,10 +72,10 @@
           - service: "switch.turn_off"
             entity_id: switch.mf1_bedroom1_zwave13_switch
           - delay: 5
-      until:
-        - condition: state
-          entity_id: switch.mf1_bedroom1_zwave13_switch
-          state: "off"
+        until:
+          - condition: state
+            entity_id: switch.mf1_bedroom1_zwave13_switch
+            state: "off"
   mode: single
 
 - id: "e63c0e77-1904-4a46-a73c-6982837270a8"

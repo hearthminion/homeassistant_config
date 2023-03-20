@@ -92,7 +92,7 @@ homeassistant_alerts:
 image:
 input_boolean: !include includes/input_boolean.yaml
 input_button:
-input_datetime:
+input_datetime: !include includes/input_datetime.yaml
 input_number:
 input_select:
 input_text:

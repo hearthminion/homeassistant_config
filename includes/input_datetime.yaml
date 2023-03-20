@@ -1,0 +1,5 @@
+mf1_bedroom1_tv_on:
+  name: "MF1: Bedroom TV - On"
+  has_date: false
+  has_time: true
+  

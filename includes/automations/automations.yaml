@@ -84,8 +84,8 @@
   alias: "Turn On Master Bedroom TV power"
   description: ""
   trigger:
-    - platform: sun
-      event: sunrise
+    - platform: time
+      event: input_datetime.mf1_bedroom1_tv_on
     - platform: state
       entity_id: media_player.mf1_bedroom1_bd_f5900
       from: "off"

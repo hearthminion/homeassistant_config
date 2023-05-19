@@ -87,7 +87,7 @@ counter:
 #energy:
 frontend:
 #hardware:
-history: !include includes/system/history.yaml
+history:
 homeassistant_alerts:
 image:
 input_boolean: !include includes/input_boolean.yaml

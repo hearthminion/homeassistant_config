@@ -6,9 +6,8 @@
 # ==================================================================================================
 automation:
   - id: "51b89d95-4cd8-4834-acba-bfb796c119eb"
-    alias: "[Christmas] Activate 'Christmas Lights On' Scene"
-    initial_state: false
-    description: "Turns on all Christmas lights at 6:00 A.M."
+    alias: "[Christmas] Activate 'Indoor Lights On' Scene"
+    description: "Turns on indoor Christmas lights at time specified in input_datetime.christmas_lights_morning"
     trigger:
       - platform: time
         at: input_datetime.christmas_lights_morning
@@ -18,9 +17,8 @@ automation:
     mode: single
 
   - id: "b11661ac-4aaa-42cd-9b95-af4e99e76d60"
-    alias: "[Christmas] Activate 'Christmas Lights Off' Scene"
-    initial_state: false
-    description: "Turns off all Christmas lights at 10:00 P.M."
+    alias: "[Christmas] Activate 'Indoor Lights Off' Scene"
+    description: "Turns off indoor lights at time specified in inupt_datetime.christmas_lights_evening"
     trigger:
       - platform: time
         at: input_datetime.christmas_lights_evening
@@ -30,20 +28,21 @@ automation:
     mode: single
 
   - id: "678b965c-45ae-45df-b5fc-6f1b5aa7fdfb"
-    alias: "[Christmas] Activate 'Christmas Outdoor Lights On' Scene"
-    initial_state: false
+    alias: "[Christmas] Activate 'Outdoor Lights On' Scene"
     description: "Turns on outdoor Christmas lights."
     trigger:
       - platform: sun
         event: sunset
-    condition: []
+      - platform: time
+        at: input_datetime.christmas_lights_morning
+    condition:
+      - condition: "{{ is_state('sun.sun', 'below_horizon') }}"
     action:
       - scene: scene.christmas_outdoor_lights_on
     mode: single
 
   - id: "7670c95b-1283-4a5d-8bc4-ad6977d5fa49"
-    alias: "[Christmas] Activate 'Christmas Outdoor Lights Off' Scene"
-    initial_state: false
+    alias: "[Christmas] Activate 'Outdoor Lights Off' Scene"
     description: "Turns off outdoor Christmas lights."
     trigger:
       - platform: sun
@@ -60,21 +59,17 @@ automation:
 # ==================================================================================================
 scene:
   - id: "fb6cec0b-c060-4f4c-9554-3c65a12cd5ce"
-    name: "[Christmas] Lights On"
+    name: "[Christmas] Indoor Lights On"
     entities:
       switch.mf1_den_zwave34_switch:
-        state: "on"
-      switch.by_zwave7_switch:
         state: "on"
       light.twinkly_a8a6fd:
         state: "on"
 
   - id: "d7f5be4d-0de2-45b4-90d6-e9c47605c9c8"
-    name: "[Christmas] Lights Off"
+    name: "[Christmas] Indoor Lights Off"
     entities:
       switch.mf1_den_zwave34_switch:
-        state: "off"
-      switch.by_zwave7_switch:
         state: "off"
       light.twinkly_a8a6fd:
         state: "off"

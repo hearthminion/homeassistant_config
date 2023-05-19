@@ -89,7 +89,7 @@ frontend:
 #hardware:
 history:
 homeassistant_alerts:
-image:
+image_upload:
 input_boolean: !include includes/input_boolean.yaml
 input_button:
 input_datetime: !include includes/input_datetime.yaml

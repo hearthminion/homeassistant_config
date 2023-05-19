@@ -36,7 +36,9 @@ automation:
       - platform: time
         at: input_datetime.christmas_lights_morning
     condition:
-      - condition: "{{ is_state('sun.sun', 'below_horizon') }}"
+      - condition: state
+        entity_id: "sun.sun"
+        state: "below_horizon"
     action:
       - scene: scene.christmas_outdoor_lights_on
     mode: single

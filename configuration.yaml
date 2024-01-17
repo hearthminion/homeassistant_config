@@ -115,9 +115,6 @@ timer: !include includes/timers.yaml
 zeroconf:
 zone:
 
-# Not part of default_config, but appears to need to be explicitely set if default_config is not
-discovery: !include includes/system/discovery.yaml
-
 # ==================================================================================================
 #
 # Old Style Configurations
@@ -155,14 +152,6 @@ device_tracker:
   - platform: bluetooth_tracker
     consider_home: 120
     interval_seconds: 40
-
-  - platform: ping
-    hosts:
-      user0001_laptop_wifi: 10.0.2.41
-      user0002_laptop_1_wifi: 10.0.2.42
-      user0002_laptop_2_wifi: 10.0.2.43
-    count: 1
-    interval_seconds: 60
 
 owntracks:
   max_gps_accuracy: 200

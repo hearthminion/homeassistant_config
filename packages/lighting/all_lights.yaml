@@ -41,9 +41,11 @@ automation:
           entity_id:
             - switch.bf1_den_cf1_adaptive_lighting
             - switch.bf1_den_cf2_adaptive_lighting
+            - switch.bf1_den_cf3_adaptive_lighting
             - switch.bf1_den_lamp1_adaptive_lighting
             - switch.bf1_den_lamp2_adaptive_lighting
             - switch.bf1_den_lamp3_adaptive_lighting
+            - switch.bf1_den_lamp4_adaptive_lighting
             - switch.bf1_hallway_adaptive_lighting
             - switch.bf1_kitchen_adaptive_lighting
             - switch.bf1_stairwell_adaptive_lighting
@@ -243,21 +245,6 @@ automation:
           entity_id: script.hue_update_bulbs
     mode: single
 
-  # - id: "ac5fbf47-d0d4-4ae1-9858-1522f3d96fa3"
-  #   alias: "Update Migraine Scene on Hue Bridges"
-  #   description: ""
-  #   initial_state: false
-  #   trigger:
-  #     - platform: time
-  #       at: "23:00:00"
-  #   condition: []
-  #   action:
-  #     - service: script.turn_on
-  #       data: {}
-  #       target:
-  #         entity_id: script.light_update_scene_migraine
-  #   mode: single
-
   # ================================================================================================
   #
   # Starts a 30 minute timer when all lights are turned off
@@ -341,12 +328,12 @@ input_select:
     name: "Light Mode"
     options:
       - "Circadian"
-      - "Darken House"
-      - "Migraine"
-      - "Sleeping (Migraine)"
-      - "Night Out"
       - "Guests"
+      - "Migraine"
+      - "Night Out"
       - "Other"
+      - "Sleeping (Migraine)"
+      - "Sleeping"
 
   hue_group:
     name: "All: Select Hue Group"
@@ -740,6 +727,13 @@ script:
 
       - delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
+  # ================================================================================================
+  #
+  # Updates 'homeassistant' scenes on the hue hubs.
+  #
+  # This is designed to send one scene update to each hub, then pause for a couple seconds.
+  #
+  # ================================================================================================
   light_update_scene_homeassistant:
     alias: "Update Home Assistant Scenes"
     mode: single
@@ -750,7 +744,7 @@ script:
       # Whole Hub Scenes
       #
       # ============================================================================================
-      - service: rest_command.light_update_scene_15_bulbs
+      - service: rest_command.light_update_scene_12_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
           scene_id: "{{ states('input_text.mf1_all_scene_homeassistant') }}"
@@ -758,21 +752,18 @@ script:
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb3') }}"
-          bulb04_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb1') }}"
-          bulb05_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb2') }}"
-          bulb06_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb3') }}"
-          bulb07_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
-          bulb08_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
-          bulb09_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
-          bulb10_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
-          bulb11_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
-          bulb12_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
-          bulb13_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
-          bulb14_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
-          bulb15_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
+          bulb01_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb3') }}"
+          bulb04_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+          bulb05_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
+          bulb06_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
+          bulb07_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+          bulb08_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+          bulb09_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
+          bulb10_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
+          bulb11_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
+          bulb12_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
 
       - service: rest_command.light_update_scene_18_bulbs
         data:
@@ -784,35 +775,38 @@ script:
           on_state: '"on":{"on":true}'
           bulb01_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
           bulb02_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
-          bulb03_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
-          bulb04_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
-          bulb05_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
-          bulb06_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
-          bulb07_id: "{{ states('input_text.bf1_den_lamp4_bulb1') }}"
-          bulb08_id: "{{ states('input_text.bf1_hallway_cf1_bulb1') }}"
-          bulb09_id: "{{ states('input_text.bf1_hallway_cf1_bulb2') }}"
-          bulb10_id: "{{ states('input_text.bf1_hallway_cf1_bulb3') }}"
-          bulb11_id: "{{ states('input_text.bf1_kitchen_cf1_bulb1') }}"
-          bulb12_id: "{{ states('input_text.bf1_stairwell_cf1_bulb1') }}"
-          bulb13_id: "{{ states('input_text.bf1_storage1_cf1_bulb1') }}"
-          bulb14_id: "{{ states('input_text.bf1_storage1_cf2_bulb1') }}"
-          bulb15_id: "{{ states('input_text.bf1_storage2_lamp1_bulb1') }}"
-          bulb16_id: "{{ states('input_text.bf1_storage2_lamp2_bulb1') }}"
-          bulb17_id: "{{ states('input_text.bf1_storage2_lamp3_bulb1') }}"
-          bulb18_id: "{{ states('input_text.bf1_storage2_lamp4_bulb1') }}"
+          bulb03_id: "{{ states('input_text.bf1_den_cf3_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+          bulb05_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+          bulb06_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+          bulb07_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+          bulb08_id: "{{ states('input_text.bf1_den_lamp4_bulb1') }}"
+          bulb09_id: "{{ states('input_text.bf1_hallway_cf1_bulb1') }}"
+          bulb10_id: "{{ states('input_text.bf1_hallway_cf1_bulb2') }}"
+          bulb11_id: "{{ states('input_text.bf1_hallway_cf1_bulb3') }}"
+          bulb12_id: "{{ states('input_text.bf1_kitchen_cf1_bulb1') }}"
+          bulb13_id: "{{ states('input_text.bf1_stairwell_cf1_bulb1') }}"
+          bulb14_id: "{{ states('input_text.bf1_storage1_cf1_bulb1') }}"
+          bulb15_id: "{{ states('input_text.bf1_storage1_cf2_bulb1') }}"
+          bulb16_id: "{{ states('input_text.bf1_storage2_lamp1_bulb1') }}"
+          bulb17_id: "{{ states('input_text.bf1_storage2_lamp2_bulb1') }}"
+          bulb18_id: "{{ states('input_text.bf1_storage2_lamp3_bulb1') }}"
+          bulb19_id: "{{ states('input_text.bf1_storage2_lamp4_bulb1') }}"
+          bulb20_id: "{{ states('input_text.bf1_storage2_cf1_bulb1') }}"
+          bulb21_id: "{{ states('input_text.bf1_storage2_cf2_bulb1') }}"
 
-      # - service: rest_command.light_update_scene_04_bulbs
-      #   data:
-      #     hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
-      #     scene_id: "{{ states('input_text.mf2_all_scene_homeassistant') }}"
-      #     username: !secret hue3_username
-      #     color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-      #     brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-      #     on_state: '"on":{"on":true}'
-      #     bulb01_id: "{{ states('input_text.mf2_den_lamp1_bulb1') }}"
-      #     bulb02_id: "{{ states('input_text.mf2_den_lamp2_bulb1') }}"
-      #     bulb03_id: "{{ states('input_text.mf2_den_lamp3_bulb1') }}"
-      #     bulb04_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
+      - service: rest_command.light_update_scene_04_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub03_id') }}"
+          scene_id: "{{ states('input_text.mf2_all_scene_homeassistant') }}"
+          username: !secret hue3_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf2_den_lamp1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf2_den_lamp2_bulb1') }}"
+          bulb03_id: "{{ states('input_text.mf2_den_lamp3_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf2_den_lamp5_bulb1') }}"
 
       # We now add a delay to not overwhelm the bridge
       - alias: "Wait"
@@ -823,19 +817,8 @@ script:
       # Room Scenes
       #
       # ============================================================================================
-      - service: rest_command.light_update_scene_03_bulbs
-        data:
-          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_bathroom1_inner_scene_homeassistant') }}"
-          username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb3') }}"
-
-      - service: rest_command.light_update_scene_06_bulbs
+      # Main Rooms
+      - service: rest_command.light_update_scene_08_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           scene_id: "{{ states('input_text.bf1_den_scene_homeassistant') }}"
@@ -845,10 +828,12 @@ script:
           on_state: '"on":{"on":true}'
           bulb01_id: "{{ states('input_text.bf1_den_cf1_bulb1') }}"
           bulb02_id: "{{ states('input_text.bf1_den_cf2_bulb1') }}"
-          bulb03_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
-          bulb04_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
-          bulb05_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
-          bulb06_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+          bulb03_id: "{{ states('input_text.bf1_den_cf3_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_den_lamp1_bulb1') }}"
+          bulb05_id: "{{ states('input_text.bf1_den_lamp2_bulb1') }}"
+          bulb06_id: "{{ states('input_text.bf1_den_lamp3_bulb1') }}"
+          bulb07_id: "{{ states('input_text.bf1_den_lamp3_bulb2') }}"
+          bulb08_id: "{{ states('input_text.bf1_den_lamp4_bulb1') }}"
 
       - service: rest_command.light_update_scene_04_bulbs
         data:
@@ -867,17 +852,38 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_03_bulbs
+      # Bedrooms
+      - service: rest_command.light_update_scene_05_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_bathroom2_scene_homeassistant') }}"
+          scene_id: "{{ states('input_text.mf1_bedroom1_scene_homeassistant') }}"
           username: !secret hue1_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb3') }}"
+          bulb01_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
+          bulb03_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
+          bulb04_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
+          bulb05_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
+
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      # Hallways
+      - service: rest_command.light_update_scene_04_bulbs
+        data:
+          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
+          scene_id: "{{ states('input_text.mf1_hallway_scene_homeassistant') }}"
+          username: !secret hue1_username
+          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
+          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
+          on_state: '"on":{"on":true}'
+          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
+          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
 
       - service: rest_command.light_update_scene_03_bulbs
         data:
@@ -895,20 +901,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_05_bulbs
-        data:
-          hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_bedroom1_scene_homeassistant') }}"
-          username: !secret hue1_username
-          color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
-          brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
-          on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
-          bulb03_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
-          bulb04_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb1') }}"
-          bulb05_id: "{{ states('input_text.mf1_bedroom1_lamp2_bulb2') }}"
-
+      # Kitchens
       - service: rest_command.light_update_scene_01_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
@@ -923,19 +916,24 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_04_bulbs
+      # Bathrooms
+      - service: rest_command.light_update_scene_03_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub01_id') }}"
-          scene_id: "{{ states('input_text.mf1_hallway_scene_homeassistant') }}"
+          scene_id: "{{ states('input_text.mf1_bathroom1_inner_scene_homeassistant') }}"
           username: !secret hue1_username
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_hallway_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_hallway_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
-          bulb04_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
+          bulb01_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb3') }}"
 
+      # We now add a delay to not overwhelm the bridge
+      - alias: "Wait"
+        delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
+
+      # Stairwells
       - service: rest_command.light_update_scene_01_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
@@ -950,6 +948,7 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
+      # Storage Room 1
       - service: rest_command.light_update_scene_02_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
@@ -965,7 +964,8 @@ script:
       - alias: "Wait"
         delay: "{{ states('input_number.hue_update_scene_wait') | int(1) }}"
 
-      - service: rest_command.light_update_scene_04_bulbs
+      # Storage Room 2
+      - service: rest_command.light_update_scene_06_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           scene_id: "{{ states('input_text.bf1_storage2_scene_homeassistant') }}"
@@ -977,6 +977,8 @@ script:
           bulb02_id: "{{ states('input_text.bf1_storage2_lamp2_bulb1') }}"
           bulb03_id: "{{ states('input_text.bf1_storage2_lamp3_bulb1') }}"
           bulb04_id: "{{ states('input_text.bf1_storage2_lamp4_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_storage2_cf1_bulb1') }}"
+          bulb04_id: "{{ states('input_text.bf1_storage2_cf2_bulb1') }}"
 
       # We now add a delay to not overwhelm the bridge
       - alias: "Wait"

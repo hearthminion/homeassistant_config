@@ -752,9 +752,9 @@ script:
           color: '"color_temperature":{ "mirek":{{ states("sensor.global_dummy_light_color_temperature") | int(367) }} }'
           brightness: '"dimming":{ "brightness": {{ states("sensor.global_dummy_light_brightness") | int(100) }} }'
           on_state: '"on":{"on":true}'
-          bulb01_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb1') }}"
-          bulb02_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb2') }}"
-          bulb03_id: "{{ states('input_text.mf1_bathroom2_cf1_bulb3') }}"
+          bulb01_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb1') }}"
+          bulb02_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb2') }}"
+          bulb03_id: "{{ states('input_text.mf1_bathroom1_inner_cf1_bulb3') }}"
           bulb04_id: "{{ states('input_text.mf1_bedroom1_cf1_bulb1') }}"
           bulb05_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb1') }}"
           bulb06_id: "{{ states('input_text.mf1_bedroom1_lamp1_bulb2') }}"
@@ -765,7 +765,7 @@ script:
           bulb11_id: "{{ states('input_text.mf1_hallway_cf2_bulb1') }}"
           bulb12_id: "{{ states('input_text.mf1_hallway_cf2_bulb2') }}"
 
-      - service: rest_command.light_update_scene_18_bulbs
+      - service: rest_command.light_update_scene_21_bulbs
         data:
           hue_hub_id: "{{ states('input_text.hue_hub02_id') }}"
           scene_id: "{{ states('input_text.bf1_all_scene_homeassistant') }}"

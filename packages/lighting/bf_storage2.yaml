@@ -205,6 +205,15 @@ input_text:
     name: "BF1: Storage2 Lamp4 Bulb1"
     min: 36
     max: 36
+  bf1_storage2_cf1_bulb1:
+    name: "BF1: Storage2 CF1 Bulb1"
+    min: 36
+    max: 36
+  bf1_storage2_cf2_bulb1:
+    name: "BF1: Storage2 CF2 Bulb1"
+    min: 36
+    max: 36
+
 
   bf1_storage2_scene_homeassistant:
     name: "BF1: Storage2 Scene HomeAssistant"

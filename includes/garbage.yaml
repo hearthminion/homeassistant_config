@@ -1,7 +1,0 @@
-sensors:
-  - name: "Garbage Day"
-    frequency: "weekly"
-    collection_days: "thu"
-
-  
-  

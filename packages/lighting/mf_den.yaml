@@ -3,54 +3,124 @@
 #
 # Great Room: Den Area Lighting Configuration
 #
-# Lights:
-#   - light.mf_den_ceiling_bulb
-#     light id: 8
-#   - light.mf_den_couch_lamp_1_bulb
-#     light id: 7
-#   - light.mf_den_couch_lamp_2_bulb
-#     light id: 6
-#   - light.mf_den_fireplace_bulb
-#     light id: 25
-#   - light.mf_dining_area_ceiling_bulb
-#     light id: 31
-#   - light.mf_entryway_ceiling_bulb
-#     light id: 13
-#   - light.mf_kitchen_ceiling_bulb
-#     light id: 10
-#   - light.mf_kitchen_island_ceiling_bulb
-#     light id: 24
-#   - light.mf_living_area_ceiling_bulb
-#     light id: 26
-#
-# Light Groups (Rooms):
-#   - light.mf_great_room
-#
-# Light Groups (Zones):
-#   - light.mf_den_ceiling
-#   - light.mf_den_couch_lamp_1
-#   - light.mf_den_couch_lamp_2
-#   - light.mf_den_fireplace
-#   - light.mf_dining_area_ceiling
-#   - light.mf_entryway_ceiling
-#   - light.mf_kitchen_ceiling
-#   - light.mf_kitchen_island_ceiling
-#   - light.mf_living_area_ceiling
-
 # ==================================================================================================
 adaptive_lighting:
   - name: "MF2: Den Lamp1"
     lights: []
+    #prefer_rgb_color: false
     initial_transition: 1
+    #sleep_transition: 1
+    #transition: 45
+    #interval: 90
+    #min_brightness: 1
+    #max_brightness: 100
     min_color_temp: 2000
     max_color_temp: 6500
+    #sleep_brightness: 1
+    #sleep_rgb_or_color_temp: "color_temp"
+    #sleep_rgb_color:
+    #  - 255
+    #  - 56
+    #  - 0
+    #sleep_color_temp: 1000
+    #sunrise_time: None
+    #max_sunrise_time: None
+    #sunrise_offset: 0
+    #sunset_time: None
+    #min_sunset_time: None
+    #sunset_offset: 0
+    #only_once: False
+    #take_over_control: True
+    #detect_non_ha_changes: False
+    adapt_delay: 10
 
   - name: "MF2: Den Lamp2"
     lights:
       - light.mf2_den_lamp2
+    #prefer_rgb_color: false
     initial_transition: 1
+    #sleep_transition: 1
+    #transition: 45
+    #interval: 90
+    #min_brightness: 1
+    #max_brightness: 100
     min_color_temp: 2000
     max_color_temp: 6500
+    #sleep_brightness: 1
+    #sleep_rgb_or_color_temp: "color_temp"
+    #sleep_rgb_color:
+    #  - 255
+    #  - 56
+    #  - 0
+    #sleep_color_temp: 1000
+    #sunrise_time: None
+    #max_sunrise_time: None
+    #sunrise_offset: 0
+    #sunset_time: None
+    #min_sunset_time: None
+    #sunset_offset: 0
+    #only_once: False
+    #take_over_control: True
+    #detect_non_ha_changes: False
+    adapt_delay: 10
+
+  - name: "MF2: Den Lamp3"
+    lights: []
+    #prefer_rgb_color: false
+    initial_transition: 1
+    #sleep_transition: 1
+    #transition: 45
+    #interval: 90
+    #min_brightness: 1
+    #max_brightness: 100
+    min_color_temp: 2000
+    max_color_temp: 6500
+    #sleep_brightness: 1
+    #sleep_rgb_or_color_temp: "color_temp"
+    #sleep_rgb_color:
+    #  - 255
+    #  - 56
+    #  - 0
+    #sleep_color_temp: 1000
+    #sunrise_time: None
+    #max_sunrise_time: None
+    #sunrise_offset: 0
+    #sunset_time: None
+    #min_sunset_time: None
+    #sunset_offset: 0
+    #only_once: False
+    #take_over_control: True
+    #detect_non_ha_changes: False
+    adapt_delay: 10
+
+  - name: "MF2: Den Lamp5"
+    lights: []
+    #prefer_rgb_color: false
+    initial_transition: 1
+    #sleep_transition: 1
+    #transition: 45
+    #interval: 90
+    #min_brightness: 1
+    #max_brightness: 100
+    min_color_temp: 2000
+    max_color_temp: 6500
+    #sleep_brightness: 1
+    #sleep_rgb_or_color_temp: "color_temp"
+    #sleep_rgb_color:
+    #  - 255
+    #  - 56
+    #  - 0
+    #sleep_color_temp: 1000
+    #sunrise_time: None
+    #max_sunrise_time: None
+    #sunrise_offset: 0
+    #sunset_time: None
+    #min_sunset_time: None
+    #sunset_offset: 0
+    #only_once: False
+    #take_over_control: True
+    #detect_non_ha_changes: False
+    adapt_delay: 10
 
 # ==================================================================================================
 #
@@ -60,31 +130,6 @@ adaptive_lighting:
 #
 # ==================================================================================================
 automation:
-  # ================================================================================================
-  #
-  # Whole Room
-  #
-  # ================================================================================================
-  - id: "0dc03f6b-efc4-4165-8acc-d2bf702707eb"
-    alias: "MF2: Den - Adaptive Lighting (Toggle)"
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.mf2_den_color_mode
-    variables:
-      adaptive_mode: "{{ iif(is_state('binary_sensor.mf2_den_color_mode','on'), 'off','on') }}"
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
-    action:
-      - service: "switch.turn_{{ adaptive_mode }}"
-        data:
-          entity_id:
-            - switch.mf2_den_lamp1_adaptive_lighting
-            - switch.mf2_den_lamp2_adaptive_lighting
-    mode: single
-
   # ================================================================================================
   #
   # Light fixture: Den Lamp1
@@ -134,12 +179,12 @@ automation:
           event_type: hue_event
           event_data:
             id: mf2_den_lamp1_switch_button
-            subtype: 3
+            subtype: 2
         - platform: event
           event_type: hue_event
           event_data:
             id: mf2_den_lamp1_switch_button
-            subtype: 2
+            subtype: 3
     condition: []
     action:
       - service: switch.turn_off
@@ -196,7 +241,7 @@ automation:
     mode: single
 
   - id: "8f312960-1147-447f-a1f8-4b42a9381493"
-    alias: "MF2: Den LAMP1 - Green Has Been On"
+    alias: "MF2: Den Lamp1 - Green Has Been On"
     description: ""
     trigger:
       - platform: state
@@ -387,68 +432,43 @@ input_boolean:
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# - 01: e1becc60-2dea-4b73-9578-ea56d7340d30
-#   name: MF2: Den Lamp1 Bulb1
-# - 02: f45e5a8d-931c-435d-bc41-8dd0e8fa6682
-#   name: MF2: Den Small Desk Lamp Bulb1
-# - 03: 941df8c2-1308-4746-8c22-e9f65faa450a
-#   name: MF2: Den Lamp2 Bulb1
+# Input text
 #
 # ==================================================================================================
-rest_command:
-  light_update_mf2_den_lamp1_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-  light_update_mf2_den_lamp2_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+input_text:
+  mf2_den_lamp1_bulb1:
+    name: "MF2: Den Lamp1 Bulb1"
+    min: 36
+    max: 36
+  mf2_den_lamp2_bulb1:
+    name: "MF2: Den Lamp2 Bulb1"
+    min: 36
+    max: 36
+  mf2_den_lamp3_bulb1:
+    name: "MF2: Den Lamp3 Bulb1"
+    min: 36
+    max: 36
+  mf2_den_lamp5_bulb1:
+    name: "MF2: Den Lamp5 Bulb1"
+    min: 36
+    max: 36
 
-  light_update_mf2_den_lamp5_scene:
-    url: "https://hue1.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"f45e5a8d-931c-435d-bc41-8dd0e8fa6682","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
-
-
+  mf2_den_lamp1_scene_homeassistant:
+    name: "MF2: Den Lamp1 Scene HomeAssistant"
+    min: 36
+    max: 36
+  mf2_den_lamp2_scene_homeassistant:
+    name: "MF2: Den Lamp2 Scene HomeAssistant"
+    min: 36
+    max: 36
+  mf2_den_lamp3_scene_homeassistant:
+    name: "MF2: Den Lamp3 Scene HomeAssistant"
+    min: 36
+    max: 36
+  mf2_den_lamp5_scene_homeassistant:
+    name: "MF2: Den Lamp5 HomeAssistant"
+    min: 36
+    max: 36
 
 # ==================================================================================================
 #
@@ -464,15 +484,6 @@ rest_command:
 # ==================================================================================================
 template:
   - binary_sensor:
-      # ============================================================================================
-      #
-      # Whole Room Binary Sensors
-      #
-      # ============================================================================================
-      - unique_id: "6d965e04-4512-45c9-ab87-2476ea475d26"
-        name: "MF2: Den Color Mode"
-        state: "{{ is_state_attr('light.mf1_bedroom1','color_mode', 'xy') }}"
-
       # ============================================================================================
       #
       # Lamp 1 Binary Sensors

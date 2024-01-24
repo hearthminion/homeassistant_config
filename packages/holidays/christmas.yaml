@@ -15,6 +15,26 @@ automation:
     action:
       - scene: scene.christmas_enable_light_automations
 
+# ==================================================================================================
+#
+# Input DateTime
+#
+# ==================================================================================================
+input_datetime:
+  christmas_lights_morning:
+    name: "Christmas Lights On Time"
+    has_date: false
+    has_time: true
+  christmas_lights_evening:
+    name: "Christmas Lights Off Time"
+    has_date: false
+    has_time: true
+
+# ==================================================================================================
+#
+# Scenes
+#
+# ==================================================================================================
 scene:
   - id: "832aa014-6c04-44d8-a244-99501f907a18"
     name: "[Christmas] Enable Light Automations"

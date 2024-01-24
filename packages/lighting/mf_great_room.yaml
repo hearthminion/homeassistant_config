@@ -4,40 +4,73 @@
 # Great Room
 #
 # ==================================================================================================
-# automations:
+automation:
+  # ================================================================================================
+  #
+  # Whole Room
+  #
+  # ================================================================================================
+  - id: "0dc03f6b-efc4-4165-8acc-d2bf702707eb"
+    alias: "MF2: Den - Adaptive Lighting (Toggle)"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.mf2_great_room_color_mode
+    variables:
+      adaptive_mode: "{{ iif(is_state('binary_sensor.mf2_great_room_color_mode','on'), 'off','on') }}"
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ is_state('input_select.light_mode', 'Circadian') }}"
+    action:
+      - service: "switch.turn_{{ adaptive_mode }}"
+        data:
+          entity_id:
+            - switch.mf2_den_lamp1_adaptive_lighting
+            - switch.mf2_den_lamp2_adaptive_lighting
+            - switch.mf2_den_lamp3_adaptive_lighting
+            - switch.mf2_den_lamp5_adaptive_lighting
+    mode: single
 
 # ==================================================================================================
 #
-# Rest Command
-#
-# - 01: e1becc60-2dea-4b73-9578-ea56d7340d30
-#   name: MF2: Den Lamp1 Bulb1
-# - 02: f45e5a8d-931c-435d-bc41-8dd0e8fa6682
-#   name: MF2: Den Small Desk Lamp Bulb1
-# - 03: 941df8c2-1308-4746-8c22-e9f65faa450a
-#   name: MF2: Den Lamp2 Bulb1
+# Input Select
 #
 # ==================================================================================================
-rest_command:
-  light_update_mf2_great_room_scene:
-    url: "https://hue3.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e1becc60-2dea-4b73-9578-ea56d7340d30","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"f45e5a8d-931c-435d-bc41-8dd0e8fa6682","rtype":"light"}
-          },{
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"941df8c2-1308-4746-8c22-e9f65faa450a","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+
+# ==================================================================================================
+#
+# Input Text
+#
+# ==================================================================================================
+input_text:
+  mf2_great_room_scene_homeassistant:
+    name: "MF2: Great Room Scene HomeAssistant"
+    min: 36
+    max: 36
+
+# ==================================================================================================
+#
+# Templates
+#
+# ==================================================================================================
+template:
+  - binary_sensor:
+      # ============================================================================================
+      #
+      # Whole Room Binary Sensors
+      #
+      # ============================================================================================
+      - unique_id: "6d965e04-4512-45c9-ab87-2476ea475d26"
+        name: "MF2: Great Room Color Mode"
+        state: "{{ is_state_attr('light.mf1_great_room','color_mode', 'xy') }}"
+
+  - sensor:
+      # ============================================================================================
+      #
+      # Whole Room Sensors
+      #
+      # ============================================================================================
+      - unique_id: "669ebf38-bf66-4117-b138-8606867ba620"
+        name: "MF2: Great Room Color"
+        state: "{{ state_attr('light.mf2_great_room', 'xy_color') }}"

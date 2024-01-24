@@ -65,18 +65,25 @@
       entity_id: sensor.mf1_bedroom1_zwave13_power
       below: "5"
   action:
-    - service: "switch.turn_off"
-      data:
-        entity_id:
-            - switch.mf1_bedroom1_zwave13_switch
+    # This doesn't always turn off properly.
+    - alias: "Ensure Power to TV is turned off"
+      repeat:
+        sequence:
+          - service: "switch.turn_off"
+            entity_id: switch.mf1_bedroom1_zwave13_switch
+          - delay: 5
+        until:
+          - condition: state
+            entity_id: switch.mf1_bedroom1_zwave13_switch
+            state: "off"
   mode: single
 
 - id: "e63c0e77-1904-4a46-a73c-6982837270a8"
   alias: "Turn On Master Bedroom TV power"
   description: ""
   trigger:
-    - platform: sun
-      event: sunrise
+    - platform: time
+      at: input_datetime.mf1_bedroom1_tv_on
     - platform: state
       entity_id: media_player.mf1_bedroom1_bd_f5900
       from: "off"

@@ -1,0 +1,2694 @@
+---
+# ==================================================================================================
+#
+# Rest Commands
+#
+# ==================================================================================================
+rest_command:
+  # ================================================================================================
+  #
+  # For sending commands to hue configuration
+  #
+  # ================================================================================================
+  hue_config:
+    url: "{{ url1 }}/{{ url2 }}"
+    method: post
+    payload: '{ {{ config }} }'
+    verify_ssl: false
+
+  hue_update_bulb:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/light/{{ light_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+      {{ color }}
+    }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  # ================================================================================================
+  #
+  # The next group of rest commands update scenes based on the number of bulbs for that scene.
+  #
+  # This is for basic configuration where all bulbs have the same setting.
+  #
+  # ================================================================================================
+  light_update_scene_01_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_02_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_03_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_04_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_05_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_06_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_07_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_08_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_09_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_10_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_11_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_12_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_13_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_14_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_15_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_16_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_17_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_18_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_19_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_20_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_21_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_22_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_23_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_24_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb24_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_25_bulbs:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb24_id }}","rtype":"light"}
+          },{
+          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
+          "target":{"rid":"{{ bulb25_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  # ================================================================================================
+  #
+  # The next group of rest commands update scenes based on the number of bulbs for that scene.
+  #
+  # This is for complex configuration where each bulb can have a different setting.
+  #
+  # ================================================================================================
+  light_update_scene_01_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_02_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_03_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_04_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_05_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_06_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_07_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_08_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_09_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_10_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_11_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_12_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_13_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_14_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_15_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_16_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_17_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_18_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_19_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_20_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_21_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb21_color }},{{ bulb21_brightness }},{{ bulb21_on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_22_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb21_color }},{{ bulb21_brightness }},{{ bulb21_on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb22_color }},{{ bulb22_brightness }},{{ bulb22_on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+  light_update_scene_23_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb21_color }},{{ bulb21_brightness }},{{ bulb21_on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb22_color }},{{ bulb22_brightness }},{{ bulb22_on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb23_color }},{{ bulb23_brightness }},{{ bulb23_on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+
+  light_update_scene_24_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb21_color }},{{ bulb21_brightness }},{{ bulb21_on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb22_color }},{{ bulb22_brightness }},{{ bulb22_on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb23_color }},{{ bulb23_brightness }},{{ bulb23_on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb24_color }},{{ bulb24_brightness }},{{ bulb24_on_state }} },
+          "target":{"rid":"{{ bulb24_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false
+
+
+  light_update_scene_25_bulbs_complex:
+    url: "https://{{ hue_hub_id }}/clip/v2/resource/scene/{{ scene_id }}"
+    method: put
+    headers:
+      hue-application-key: "{{ username }}"
+    payload: '{
+          "id":"{{ scene_id }}",
+          "actions":[
+          {
+          "action":{ {{ bulb01_color }},{{ bulb01_brightness }},{{ bulb01_on_state }} },
+          "target":{"rid":"{{ bulb01_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb02_color }},{{ bulb02_brightness }},{{ bulb02_on_state }} },
+          "target":{"rid":"{{ bulb02_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb03_color }},{{ bulb03_brightness }},{{ bulb03_on_state }} },
+          "target":{"rid":"{{ bulb03_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb04_color }},{{ bulb04_brightness }},{{ bulb04_on_state }} },
+          "target":{"rid":"{{ bulb04_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb05_color }},{{ bulb05_brightness }},{{ bulb05_on_state }} },
+          "target":{"rid":"{{ bulb05_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb06_color }},{{ bulb06_brightness }},{{ bulb06_on_state }} },
+          "target":{"rid":"{{ bulb06_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb07_color }},{{ bulb07_brightness }},{{ bulb07_on_state }} },
+          "target":{"rid":"{{ bulb07_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb08_color }},{{ bulb08_brightness }},{{ bulb08_on_state }} },
+          "target":{"rid":"{{ bulb08_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb09_color }},{{ bulb09_brightness }},{{ bulb09_on_state }} },
+          "target":{"rid":"{{ bulb09_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb10_color }},{{ bulb10_brightness }},{{ bulb10_on_state }} },
+          "target":{"rid":"{{ bulb10_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb11_color }},{{ bulb11_brightness }},{{ bulb11_on_state }} },
+          "target":{"rid":"{{ bulb11_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb12_color }},{{ bulb_12brightness }},{{ bulb12_on_state }} },
+          "target":{"rid":"{{ bulb12_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb13_color }},{{ bulb13_brightness }},{{ bulb13_on_state }} },
+          "target":{"rid":"{{ bulb13_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb14_color }},{{ bulb14_brightness }},{{ bulb14_on_state }} },
+          "target":{"rid":"{{ bulb14_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb15_color }},{{ bulb15_brightness }},{{ bulb15_on_state }} },
+          "target":{"rid":"{{ bulb15_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb16_color }},{{ bulb16_brightness }},{{ bulb16_on_state }} },
+          "target":{"rid":"{{ bulb16_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb17_color }},{{ bulb17_brightness }},{{ bulb17_on_state }} },
+          "target":{"rid":"{{ bulb17_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb18_color }},{{ bulb18_brightness }},{{ bulb18_on_state }} },
+          "target":{"rid":"{{ bulb18_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb19_color }},{{ bulb19_brightness }},{{ bulb19_on_state }} },
+          "target":{"rid":"{{ bulb19_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb20_color }},{{ bulb20_brightness }},{{ bulb20_on_state }} },
+          "target":{"rid":"{{ bulb20_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb21_color }},{{ bulb21_brightness }},{{ bulb21_on_state }} },
+          "target":{"rid":"{{ bulb21_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb22_color }},{{ bulb22_brightness }},{{ bulb22_on_state }} },
+          "target":{"rid":"{{ bulb22_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb23_color }},{{ bulb23_brightness }},{{ bulb23_on_state }} },
+          "target":{"rid":"{{ bulb23_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb24_color }},{{ bulb24_brightness }},{{ bulb24_on_state }} },
+          "target":{"rid":"{{ bulb24_id }}","rtype":"light"}
+          },{
+          "action":{ {{ bulb25_color }},{{ bulb25_brightness }},{{ bulb25_on_state }} },
+          "target":{"rid":"{{ bulb25_id }}","rtype":"light"}
+          }
+          ]
+          }'
+    content_type: "application/json"
+    verify_ssl: false

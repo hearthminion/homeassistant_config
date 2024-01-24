@@ -1,34 +1,18 @@
+---
 # ==================================================================================================
 #
 # configuration.yaml ---
 #
 # Filename: configuration.yaml
 # Description: Home Assistant Configuration Files
-# Author: Geoff S Derber
+# Author: Hearth Minion
 # Maintainer:
 # Created: Sun Jan 13 12:21:16 2019 (-0500)
-# Home Assistant Version: 2022.11.4
-# Version: 2022.11.0
+# Home Assistant Version: 2024.1.3
+# Version: 2024.01.0
 # Package-Requires: ()
-# Last-Updated: Thu Apr 07 09:02 2022 (-0400)
-#           By: G S Derber
-#     Update #: 67
+# Last-Updated: Wed Jan 24 15:39 2024 (-0500)
 # URL: https://github.com/hearthminion/homeassistant_config/
-# Doc URL:
-# Keywords: Home Assistant
-# Compatibility:
-#
-#
-# Commentary:
-#
-#
-#
-#
-#
-#
-#
-# License:
-#
 #
 # ==================================================================================================
 # Code:
@@ -54,6 +38,7 @@ homeassistant:
       trusted_networks:
         - !secret trusted_net1
         - !secret trusted_net2
+        - !secret trusted_net4
       allow_bypass_login: true
 #    - type: command_line
 #      command:
@@ -86,12 +71,12 @@ counter:
 #energy:
 frontend:
 #hardware:
-history: !include includes/system/history.yaml
+history:
 homeassistant_alerts:
-image:
+image_upload:
 input_boolean: !include includes/input_boolean.yaml
 input_button:
-input_datetime:
+input_datetime: !include includes/input_datetime.yaml
 input_number:
 input_select:
 input_text:
@@ -113,9 +98,6 @@ timer: !include includes/timers.yaml
 #webhook:
 zeroconf:
 zone:
-
-# Not part of default_config, but appears to need to be explicitely set if default_config is not
-discovery: !include includes/system/discovery.yaml
 
 # ==================================================================================================
 #
@@ -155,14 +137,6 @@ device_tracker:
     consider_home: 120
     interval_seconds: 40
 
-  - platform: ping
-    hosts:
-      user0001_laptop_wifi: 10.0.2.41
-      user0002_laptop_1_wifi: 10.0.2.42
-      user0002_laptop_2_wifi: 10.0.2.43
-    count: 1
-    interval_seconds: 60
-
 owntracks:
   max_gps_accuracy: 200
   waypoints: true
@@ -172,12 +146,14 @@ owntracks:
   mqtt_topic: "owntracks/#"
   events_only: false
 
+
+api:
+lovelace: !include includes/lovelace.yaml
+
 geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
-
-lovelace: !include includes/lovelace.yaml
 
 # ======================================================================
 # configuration.yaml ends here

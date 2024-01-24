@@ -7,22 +7,25 @@ include:
     - climate
     - device_tracker
     - light
+    - media_player
     - person
     - weather
   entity_globs:
     - automation.bf*
     - automation.mf*
+    - binary_sensor.bf*
+    - binary_sensor.global*
+    - binary_sensor.mf*
+    - binary_sensor.tod*
+    - binary_sensor.user00*
     - input_boolean.bf*
     - input_boolean.mf*
     - input_number.bf*
     - input_number.mf*
     - input_select.bf*
     - input_select.mf*
-    - binary_sensor.bf*
-    - binary_sensor.global*
-    - binary_sensor.mf*
-    - binary_sensor.tod*
-    - binary_sensor.user00*
+    - input_text.bf*
+    - input_text.mf*
     - sensor.air_quality_*
     - sensor.bf*
     - sensor.climacell_*
@@ -37,9 +40,9 @@ include:
     - sensor.tod*
     - sensor.user*
     - switch.bf*
-    - switch.mf*
     - switch.by*
     - switch.fy*
+    - switch.mf*
   entities:
     - input_select.light_mode
     - input_select.user0001_status_dropdown

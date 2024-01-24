@@ -1,5 +1,13 @@
 ---
 template:
+  - binary_sensor:
+      - unique_id: "e74cd5b3-f2e6-488f-84a4-f8ced2b6c8c2"
+        name: "Thermostat Between Heat and Cool"
+        state: >-
+          {{ (state_attr('climate.thermostat', 'current_temperature')) >
+             (state_attr('climate.thermostat', 'target_temp_low'))
+            and (state_attr('climate.thermostat', 'current_temperature')) <
+                      (state_attr('climate.thermostat', 'target_temp_high')) }}
   - sensor:
       - unique_id: "e4d63dc8-48de-46f3-b838-1d3449283cef"
         name: "Thermostat Temperature"

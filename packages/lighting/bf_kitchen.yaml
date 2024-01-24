@@ -1,16 +1,39 @@
+---
 # ==================================================================================================
 #
-# Basement Floor: Hallway
+# Basement Floor: Kitchen
 #
 # ==================================================================================================
 adaptive_lighting:
   - name: "BF1: Kitchen"
     lights:
       - light.bf1_kitchen
+    #prefer_rgb_color: false
     initial_transition: 1
+    #sleep_transition: 1
+    #transition: 45
+    #interval: 90
+    #min_brightness: 1
+    #max_brightness: 100
     min_color_temp: 2200
     max_color_temp: 6500
-
+    #sleep_brightness: 1
+    #sleep_rgb_or_color_temp: "color_temp"
+    #sleep_rgb_color:
+    #  - 255
+    #  - 56
+    #  - 0
+    #sleep_color_temp: 1000
+    #sunrise_time: None
+    #max_sunrise_time: None
+    #sunrise_offset: 0
+    #sunset_time: None
+    #min_sunset_time: None
+    #sunset_offset: 0
+    #only_once: False
+    #take_over_control: True
+    #detect_non_ha_changes: False
+    adapt_delay: 10
 
 # ==================================================================================================
 #
@@ -186,6 +209,26 @@ input_select:
 
 # ==================================================================================================
 #
+# Input Text
+#
+# Kitchen Light IDs:
+# - name: BF1 Kitchen CF1 Bulb
+#   id: e687cdcb-7022-4d66-9763-ec5ead8f8808
+#
+# ==================================================================================================
+input_text:
+  bf1_kitchen_cf1_bulb1:
+    name: "BF1: Kitchen CF1 Bulb1 Id"
+    min: 36
+    max: 36
+
+  bf1_kitchen_scene_homeassistant:
+    name: "BF1: Kitchen - HomeAssistant Scene Id"
+    min: 36
+    max: 36
+
+# ==================================================================================================
+#
 # Template Lights
 #
 # ==================================================================================================
@@ -236,34 +279,7 @@ light:
         #     data_template:
         #       - light.bf1_kitchen
         #     effect: "{{ effect }}"
-        supports_transition_template: "{{ true }}"  
-
-# ==================================================================================================
-#
-# Rest Command
-#
-# Light IDs:
-# - 01: e687cdcb-7022-4d66-9763-ec5ead8f8808
-#   name: BF1 Kitchen CF1 Bulb
-#
-# ==================================================================================================
-rest_command:
-  light_update_bf1_kitchen_scene:
-    url: "https://hue2.iot.home/clip/v2/resource/scene/{{ scene_id }}"
-    method: put
-    headers:
-      hue-application-key: "{{ username }}"
-    payload: '{
-          "id":"{{ scene_id }}",
-          "actions":[
-          {
-          "action":{ {{ color }},{{ brightness }},{{ on_state }} },
-          "target":{"rid":"e687cdcb-7022-4d66-9763-ec5ead8f8808","rtype":"light"}
-          }
-          ]
-          }'
-    verify_ssl: false
-    content_type: "application/json"
+        supports_transition_template: "{{ true }}"
 
 # ==================================================================================================
 #

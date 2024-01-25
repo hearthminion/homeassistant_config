@@ -1,8 +1,6 @@
 ---
 # ==================================================================================================
 #
-# configuration.yaml ---
-#
 # Filename: configuration.yaml
 # Description: Home Assistant Configuration Files
 # Author: Hearth Minion
@@ -84,6 +82,7 @@ input_number:
 input_select:
 input_text:
 logbook:
+logger: !include includes/logger.yaml
 map:
 media_source:
 mobile_app:
@@ -115,26 +114,18 @@ zone:
 automation old: !include_dir_merge_list includes/automations/
 scene old: !include_dir_merge_list includes/scenes/
 
-binary_sensor: !include_dir_merge_list includes/binary_sensors/
-#group: !include_dir_merge_named includes/groups/
-logger: !include includes/system/logger.yaml
+# ==================================================================================================
+#
+# Non 'default_config' entries
+#
+# ==================================================================================================
 mqtt: !include includes/mqtt.yaml
-recorder: !include includes/system/recorder.yaml
+recorder: !include includes/recorder.yaml
 sensor: !include_dir_merge_list includes/sensors/
-#switch: !include_dir_merge_list includes/switches/
-system_log: !include includes/system/system_log.yaml
+system_log:
+  max_entries: 50
+  fire_event: false
 template: !include_dir_merge_list includes/templates/
-
-# calendar:
-#   - platform: caldav
-#     username: !secret caldav_username
-#     password: !secret caldav_password
-#     url: !secret caldav_url
-#     verify_ssl: false
-#     custom_calendars:
-#       - name: Migraine
-#         calendar: "Migraine Log"
-#         search: ".*"
 
 device_tracker:
   # - platform: bluetooth_tracker
@@ -150,7 +141,6 @@ owntracks:
   mqtt_topic: "owntracks/#"
   events_only: false
 
-
 api:
 lovelace: !include includes/lovelace.yaml
 
@@ -158,6 +148,8 @@ geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
+
+#vacuum: !include includes/vacuum.yaml
 
 # ======================================================================
 # configuration.yaml ends here

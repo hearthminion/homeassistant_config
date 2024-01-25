@@ -1,8 +1,6 @@
 ---
 # ==================================================================================================
 #
-# configuration.yaml ---
-#
 # Filename: configuration.yaml
 # Description: Home Assistant Configuration Files
 # Author: Hearth Minion
@@ -47,22 +45,28 @@ homeassistant:
 #
 # I do not want everything enabled from default config.  Items not used that are part of
 # default_config:
-#   - cloud
+#   - assist_pipeline
 #   - backup (I have this done via two git repos, the yaml config repo available via github, and
 #            a private repo for the .storage directory)
+#   - cloud
+#   - conversation (I may enable this in the future)
 #   - dhcp
 #   - energy
+#   - hardware
 #   - stream
 #   - usb
+#   - webhook
 #
 # Documentation: https://www.home-assistant.io/integrations/default_config/
 #
 # ==================================================================================================
 automation: !include automations.yaml
+#assist_pipeline:
 #backup:
 bluetooth:
 #cloud: Disabled
 config:
+#conversation:
 counter:
 #dhcp:
 #energy:
@@ -78,13 +82,15 @@ input_number:
 input_select:
 input_text:
 logbook:
+logger: !include includes/logger.yaml
 map:
 media_source:
 mobile_app:
 my:
+network:
 person:
-scene: !include scenes.yaml
 schedule:
+scene: !include scenes.yaml
 script: !include scripts.yaml
 ssdp:
 #stream:
@@ -108,31 +114,23 @@ zone:
 automation old: !include_dir_merge_list includes/automations/
 scene old: !include_dir_merge_list includes/scenes/
 
-binary_sensor: !include_dir_merge_list includes/binary_sensors/
-group: !include_dir_merge_named includes/groups/
-logger: !include includes/system/logger.yaml
+# ==================================================================================================
+#
+# Non 'default_config' entries
+#
+# ==================================================================================================
 mqtt: !include includes/mqtt.yaml
-recorder: !include includes/system/recorder.yaml
+recorder: !include includes/recorder.yaml
 sensor: !include_dir_merge_list includes/sensors/
-switch: !include_dir_merge_list includes/switches/
-system_log: !include includes/system/system_log.yaml
+system_log:
+  max_entries: 50
+  fire_event: false
 template: !include_dir_merge_list includes/templates/
 
-# calendar:
-#   - platform: caldav
-#     username: !secret caldav_username
-#     password: !secret caldav_password
-#     url: !secret caldav_url
-#     verify_ssl: false
-#     custom_calendars:
-#       - name: Migraine
-#         calendar: "Migraine Log"
-#         search: ".*"
-
 device_tracker:
-  - platform: bluetooth_tracker
-    consider_home: 120
-    interval_seconds: 40
+  # - platform: bluetooth_tracker
+  #   consider_home: 120
+  #   interval_seconds: 40
 
 owntracks:
   max_gps_accuracy: 200
@@ -143,7 +141,6 @@ owntracks:
   mqtt_topic: "owntracks/#"
   events_only: false
 
-
 api:
 lovelace: !include includes/lovelace.yaml
 
@@ -151,6 +148,8 @@ geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
     radius: 300
+
+#vacuum: !include includes/vacuum.yaml
 
 # ======================================================================
 # configuration.yaml ends here

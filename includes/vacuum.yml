@@ -1,6 +1,0 @@
-vacuum:
-  - platform: template
-    vacuums:
-      lurch:
-        value_template: "{{ state_attr('vacuum.roomba','status') }}"
-        battery_level_template: "{{ state_attr('vacuum.roomba','battery_level') }}"

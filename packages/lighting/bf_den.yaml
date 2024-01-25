@@ -1238,6 +1238,43 @@ automation:
 
   # ================================================================================================
   #
+  # Dim's this light to 40%
+  #
+  # I created this automation because this lamp sits on my desk, and it's bright.  I needed
+  # something that would dim the light after turning on the whole room lights.  I couldn't really
+  # adjust the scene definition well because of the way the various automations work with adaptive
+  # lighting, and updating hue scene definitions.  So this became the alternative.
+  #
+  # ================================================================================================
+  - id: "40f76053-1954-4561-9546-8695fa5f2383"
+    alias: "BF1: Den Lamp3 - Dim to 40pct"
+    description: ''
+    trigger:
+    - platform: state
+      entity_id:
+      - light.bf1_den_lamp3
+      from: 'off'
+      to: 'on'
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 30
+    condition:
+    - condition: numeric_state
+      entity_id: light.bf1_den_lamp3
+      attribute: brightness
+      above: 40
+    action:
+    - service: light.turn_on
+      metadata: {}
+      data:
+        brightness_pct: 40
+      target:
+        entity_id: light.bf1_den_lamp3
+    mode: single
+
+  # ================================================================================================
+  #
   # BF1: Den Lamp4
   #
   # ================================================================================================

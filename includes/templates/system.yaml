@@ -8,3 +8,9 @@
     - unique_id: "6ac254a8-3e3d-4ad7-bf70-2ef890a2637d"
       name: "Daylight Saving Time"
       state: "{{ now().timetuple().tm_isdst > 0 }}"
+
+    - unique_id: "24fb5ad7-493d-4e98-9e4c-13d3b3cf1896"
+      name: "User0001 Laptop Wifi"
+      device_class: connectivity
+      state: >-
+        {{ is_state("device_tracker.user0001_laptop_wifi", "home") }}

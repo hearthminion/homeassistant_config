@@ -4,11 +4,22 @@ weather:
     unique_id: "f8cdd695-ac15-45a6-9fd0-d33729bb9c46"
     condition_template: "{{ states('weather.openweathermap') }}"
     temperature_template: "{{ states('sensor.pirateweather_temperature') }}"
+    dew_point_template: "{{ states('sensor.pirateweather_dew_point') }}"
+    apparent_temperature_template: "{{ states('sensor.pirateweather_apparent_temperature') }}"
+    #temperature_unit:
     humidity_template: "{{ states('sensor.pirateweather_humidity') }}"
     #attribution_template:
-    pressure_template: "{{ states('sensor.khan_barometric_pressure') }}"
+    pressure_template: "{{ states('sensor.pirateweather_pressure') }}"
+    #pressure_unit:
     wind_speed_template: "{{ states('sensor.pirateweather_wind_speed') }}"
+    #wind_speed_unit:
     wind_bearing_template: "{{ states('sensor.pirateweather_wind_bearing') }}"
     ozone_template: "{{ states('sensor.pirateweather_ozone') }}"
+    cloud_coverage_template: "{{ states('sensor.pirateweather_cloud_coverage') }}"
     visibility_template: "{{ states('sensor.pirateweather_visibility') }}"
-    forecast_template: "{{ state_attr('weather.pirateweather','forecast') }}"
+    #visibility_unit:
+    #forecast_template: "{{ state_attr('weather.pirateweather','forecast') }}"
+    forecast_daily_template: "{{ state_attr('weather.khan_daynight','forecast') }}"
+    forecast_hourly_template: "{{ state_attr('weather.khan_hourly','forecast') }}"
+    #forecast_twice_daily_template:
+    #precipitation_unit:

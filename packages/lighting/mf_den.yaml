@@ -132,13 +132,7 @@ adaptive_lighting:
 automation:
   # ================================================================================================
   #
-  # Light fixture: Den Lamp1
-  #
-  # Light Group:
-  #   - light.den_lamp1
-  #
-  # Automations:
-  #   -
+  # MF2: Den Lamp1
   #
   # ================================================================================================
   - id: "ab8e3063-5b76-4146-980f-d945c1d9eebd"
@@ -270,13 +264,7 @@ automation:
 
   # ================================================================================================
   #
-  # Light fixture: Den Lamp2
-  #
-  # Light Group:
-  #   - light.den_lamp2
-  #
-  # Automations:
-  #   -
+  # MF2: Den Lamp2
   #
   # ================================================================================================
   - id: "a80e9988-f278-4e7d-b625-e407db54e3f9"
@@ -404,6 +392,42 @@ automation:
     action:
       - entity_id: input_boolean.mf2_den_Lamp1_green_event
         service: input_boolean.turn_off
+    mode: single
+
+
+  # ================================================================================================
+  #
+  # MF2: Den Lamp 3
+  #
+  # ================================================================================================
+  - id: '7eb68dd1-d794-43e5-b619-e8da76dac212'
+    alias: Turn on den lamp at night
+    description: ''
+    trigger:
+    - platform: state
+      entity_id:
+      - media_player.denon_avr_3313ci
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id:
+      - switch.mf1_den_tv01
+      from: 'on'
+      to: 'off'
+    condition:
+    - condition: time
+      before: 04:00:00
+      after: '21:00:00'
+    - condition: state
+      entity_id: light.mf2_den_lamp3
+      state: 'off'
+    action:
+    - service: light.turn_on
+      data:
+        brightness_pct: 25
+        transition: 1
+      target:
+        entity_id: light.mf2_den_lamp3
     mode: single
 
 # ==================================================================================================

@@ -11,6 +11,7 @@
     entity_id: switch.mf1_den_zwave1_switch
     domain: switch
   mode: single
+
 - id: '1660584153932'
   alias: Turn off Fan at night
   description: ''
@@ -23,67 +24,4 @@
     device_id: 1a570ebfe8b8919888bca7fcec6b8f9a
     entity_id: switch.mf1_den_zwave1_switch
     domain: switch
-  mode: single
-- id: '1670385762538'
-  alias: Turn lights on
-  description: ''
-  trigger:
-  - platform: time
-    at: 06:00:00
-  condition: []
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id:
-      - switch.mf1_greatroom_zwave8_switch
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id:
-      - light.twinkly_68e925
-      - light.twinkly_a8a6fd
-  mode: single
-- id: '1670385809356'
-  alias: Turn off lights
-  description: ''
-  trigger:
-  - platform: time
-    at: '22:00:00'
-  condition: []
-  action:
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.mf1_greatroom_zwave8_switch
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id:
-      - light.twinkly_68e925
-      - light.twinkly_a8a6fd
-  mode: single
-- id: '1670585245636'
-  alias: Turn on den lamp at night
-  description: ''
-  trigger:
-  - platform: device
-    device_id: 0168eb1af830d74322c926755eb791b5
-    domain: media_player
-    entity_id: media_player.denon_avr_3313ci
-    type: turned_off
-  condition:
-  - condition: time
-    before: 04:00:00
-    after: '21:00:00'
-  - condition: state
-    entity_id: light.mf2_den_lamp3
-    state: 'off'
-  action:
-  - service: light.turn_on
-    data:
-      brightness_pct: 25
-      transition: 1
-    target:
-      entity_id: light.mf2_den_lamp3
   mode: single

@@ -63,17 +63,25 @@ scene:
   - id: "fb6cec0b-c060-4f4c-9554-3c65a12cd5ce"
     name: "[Christmas] Indoor Lights On"
     entities:
-      switch.mf1_den_zwave34_switch:
-        state: "on"
+      # switch.mf1_greatroom_zwave8_switch:
+      #   state: "on"
+      # switch.mf1_den_zwave34_switch:
+      #   state: "on"
       light.twinkly_a8a6fd:
+        state: "on"
+      light.twinkly_68e925:
         state: "on"
 
   - id: "d7f5be4d-0de2-45b4-90d6-e9c47605c9c8"
     name: "[Christmas] Indoor Lights Off"
     entities:
-      switch.mf1_den_zwave34_switch:
-        state: "off"
+      # switch.mf1_greatroom_zwave8_switch:
+      #   state: "on"
+      # switch.mf1_den_zwave34_switch:
+      #   state: "on"
       light.twinkly_a8a6fd:
+        state: "off"
+      light.twinkly_68e925:
         state: "off"
 
   - id: "c881541b-8a2a-4d90-9e49-7771c7c1e7fe"

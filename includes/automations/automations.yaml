@@ -1,3 +1,4 @@
+---
 # ==================================================================================================
 #
 # Set Lighting Mode: Circadian (with Brightness adjustments)"
@@ -94,48 +95,4 @@
       data:
         entity_id:
             - switch.mf1_bedroom1_zwave13_switch
-  mode: single
-
-- id: '1685196282630'
-  alias: Switch Fan mode to auto
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.thermostat_between_heat_and_cool
-    to: 'off'
-  condition: []
-  action:
-  - service: climate.set_fan_mode
-    data:
-      fan_mode: auto
-    target:
-      device_id: 395e42ae0afefba3c30deb198d3030e8
-  mode: single
-
-- id: '1706053893548'
-  alias: 'BF1: Den Lamp3 - Dim to 40'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - light.bf1_den_lamp3
-    from: 'off'
-    to: 'on'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-  condition:
-  - condition: numeric_state
-    entity_id: light.bf1_den_lamp3
-    attribute: brightness
-    above: 40
-  action:
-  - service: light.turn_on
-    metadata: {}
-    data:
-      brightness_pct: 40
-    target:
-      entity_id: light.bf1_den_lamp3
   mode: single

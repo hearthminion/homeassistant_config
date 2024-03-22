@@ -76,7 +76,7 @@ automation:
       - service: "switch.turn_on"
         data:
           entity_id:
-              - switch.mf1_bedroom1_zwave13_switch
+              - switch.mf1_bedroom1_zwave1
     mode: single
 
 # template:

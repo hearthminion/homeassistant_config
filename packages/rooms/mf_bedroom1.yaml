@@ -1,0 +1,85 @@
+---
+automation:
+  - id: "6ed4807a-3951-412e-be81-5d6d74a77d14"
+    alias: "Turn Off Master Bedroom TV Power"
+    description: ""
+    trigger:
+      - platform: time
+        at: "21:00:00"
+      - platform: state
+        entity_id: sensor.mf1_bedroom1_zwave1_power
+        to: "0"
+      - platform: state
+        entity_id: light.mf1_bedroom1_lamp1
+        from: "on"
+        to: "off"
+      - platform: state
+        entity_id: light.mf1_bedroom1_lamp2
+        from: "on"
+        to: "off"
+      - platform: state
+        entity_id: media_player.mf1_bedroom1_bd_f5900
+        to: "off"
+        for:
+          hours: 0
+          minutes: 1
+          seconds: 30
+    condition:
+      - condition: state
+        entity_id: media_player.mf1_bedroom1_bd_f5900
+        state: "off"
+        for:
+          hours: 0
+          minutes: 1
+          seconds: 0
+      - condition:
+        - or:
+            - condition: time
+              after: "21:00:00"
+            - condition: time
+              before: "04:00:00"
+      - condition: state
+        entity_id: light.mf1_bedroom1_lamp1
+        state: "off"
+      - condition: state
+        entity_id: light.mf1_bedroom1_lamp2
+        state: "off"
+      - condition: numeric_state
+        entity_id: sensor.mf1_bedroom1_zwave1_power
+        below: "5"
+    action:
+      # This doesn't always turn off properly.
+      - alias: "Ensure Power to TV is turned off"
+        repeat:
+          sequence:
+            - service: "switch.turn_off"
+              entity_id: switch.mf1_bedroom1_zwave1
+            - delay: 5
+          until:
+            - condition: state
+              entity_id: switch.mf1_bedroom1_zwave1
+              state: "off"
+    mode: single
+
+  - id: "e63c0e77-1904-4a46-a73c-6982837270a8"
+    alias: "Turn On Master Bedroom TV power"
+    description: ""
+    trigger:
+      - platform: time
+        at: input_datetime.mf1_bedroom1_tv_on
+      - platform: state
+        entity_id: media_player.mf1_bedroom1_bd_f5900
+        from: "off"
+        to: "on"
+    condition: []
+    action:
+      - service: "switch.turn_on"
+        data:
+          entity_id:
+              - switch.mf1_bedroom1_zwave13_switch
+    mode: single
+
+# template:
+#   - binary_sensor:
+#       - unique_id: "b0ae6776-d7df-4409-8052-fcde37387aa4"
+#         name: "TV State"

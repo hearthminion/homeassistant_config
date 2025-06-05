@@ -1,6 +1,6 @@
 sensor:
   - unique_id: "5ed058c2-1299-4597-89ee-7847b36ff2d4"
-    name: "Home01: Sensehat - Temp"
+    name: "Home01: Sensehat - Temperature"
     state_topic: "homeassistant/sensor/home01/sensehat/state"
     value_template: "{{ value_json.temperature }}"
     unit_of_measurement: "°C"

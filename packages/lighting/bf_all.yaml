@@ -626,7 +626,7 @@ template:
         supports_transition: '{{ true }}'
         temperature: '{{ state_attr(''light.bf1_all'',''color_temp'') | int(367) }}'
         state: '{{ is_state(''light.bf1_all'', ''on'') }}'
-        effect_list: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
+        #effect_list: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
         turn_on:
           - data_template:
               entity_id: >

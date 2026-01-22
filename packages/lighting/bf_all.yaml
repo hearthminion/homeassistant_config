@@ -198,54 +198,6 @@ light:
     entities:
       - light.bf1_all
 
-  - platform: template
-    lights:
-      bf1_all_alt:
-        friendly_name: "BF1: All (Alt)"
-        unique_id: "58831bb7-9e66-4dee-b2bc-48e659c3f734"
-        value_template: "{{ is_state('light.bf1_all', 'on') }}"
-        level_template: "{{ state_attr('light.bf1_all','brightness') | int(255) }}"
-        temperature_template: "{{ state_attr('light.bf1_all','color_temp') | int(367) }}"
-        color_template: "{{ state_attr('light.bf1_all','hs_color') }}"
-        min_mireds_template: "{{ state_attr('light.bf1_all','min_mireds') | int(100) }}"
-        max_mireds_template: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
-        #effect_list_template: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
-        turn_on:
-          service: scene.turn_on
-          data_template:
-            entity_id: >
-              {{ states('input_select.bf1_all_scene') }}
-        turn_off:
-          service: light.turn_off
-          target:
-            entity_id: light.bf1_all
-        set_level:
-          service: light.turn_on
-          target:
-            entity_id: light.bf1_all
-          data:
-            brightness: "{{ brightness }}"
-        set_temperature:
-          service: light.turn_on
-          target:
-            entity_id: light.bf1_all
-          data:
-            color_temp: "{{ color_temp }}"
-        set_color:
-          service: light.turn_on
-          target:
-            entity_id: light.bf1_all
-          data:
-            hs_color:
-              - "{{ hs[0] }}"
-              - "{{ hs[1] }}"
-        # set_effect:
-        #   - service: scene.turn_on
-        #     data_template:
-        #       entity_id: >-
-        #         {{ states('input_select.bf1_all_scene') }}
-        supports_transition_template: "{{ true }}"
-
 # ==================================================================================================
 #
 # Scenes
@@ -661,3 +613,54 @@ script:
         target:
           entity_id:
             - scene.bf1_all_homeassistant
+
+template:
+  - light:
+      - unique_id: "58831bb7-9e66-4dee-b2bc-48e659c3f734"
+        name: 'BF1: All (Alt)'
+        default_entity_id: light.bf1_all_alt
+        hs: '{{ state_attr(''light.bf1_all'',''hs_color'') }}'
+        level: '{{ state_attr(''light.bf1_all'',''brightness'') | int(255) }}'
+        max_mireds: '{{ state_attr(''light.bf1_all'',''max_mireds'') | int(500) }}'
+        min_mireds: '{{ state_attr(''light.bf1_all'',''min_mireds'') | int(100) }}'
+        supports_transition: '{{ true }}'
+        temperature: '{{ state_attr(''light.bf1_all'',''color_temp'') | int(367) }}'
+        state: '{{ is_state(''light.bf1_all'', ''on'') }}'        effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        effect_list: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
+        turn_on:
+          - data_template:
+              entity_id: >
+                {{ states('input_select.bf1_all_scene') }}
+            service: scene.turn_on
+        turn_off:
+          - target:
+              entity_id: light.bf1_all
+            service: light.turn_off
+        set_level:
+          - target:
+              entity_id:
+                - light.bf1_all
+            data:
+              brightness: "{{ brightness }}"
+            action: light.turn_on
+        set_temperature:
+          - target:
+              entity_id:
+                - light.bf1_all
+            data:
+              color_temp: '{{ color_temp }}'
+            action: light.turn_on
+        set_hs:
+          - target:
+              entity_id:
+                - light.bf1_all
+            data:
+              hs_color:
+                - '{{ hs[0] }}'
+                - '{{ hs[1] }}'
+            action: light.turn_on
+        # set_effect:
+        #   - service: scene.turn_on
+        #     data_template:
+        #       entity_id: >-
+        #         {{ states('input_select.bf1_all_scene') }}

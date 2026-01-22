@@ -360,7 +360,7 @@ template:
         - data_template:
             entity_id: "{{ states('input_select.bf1_kitchen_scene') }}"
           action: scene.turn_on
-        turn_off:
+      turn_off:
         - target:
             entity_id:
             - light.bf1_kitchen

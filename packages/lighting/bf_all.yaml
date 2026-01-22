@@ -617,15 +617,15 @@ script:
 template:
   - light:
       - unique_id: "58831bb7-9e66-4dee-b2bc-48e659c3f734"
-        name: 'BF1: All (Alt)'
+        name: "BF1: All (Alt)"
         default_entity_id: light.bf1_all_alt
-        hs: '{{ state_attr(''light.bf1_all'',''hs_color'') }}'
-        level: '{{ state_attr(''light.bf1_all'',''brightness'') | int(255) }}'
-        max_mireds: '{{ state_attr(''light.bf1_all'',''max_mireds'') | int(500) }}'
+        hs: "{{ state_attr('light.bf1_all','hs_color') }}"
+        level: "{{ state_attr('light.bf1_all','brightness') | int(255) }}"
+        max_mireds: "{{ state_attr('light.bf1_all','max_mireds') | int(500) }}"
         min_mireds: '{{ state_attr(''light.bf1_all'',''min_mireds'') | int(100) }}'
         supports_transition: '{{ true }}'
         temperature: '{{ state_attr(''light.bf1_all'',''color_temp'') | int(367) }}'
-        state: '{{ is_state(''light.bf1_all'', ''on'') }}'        effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        state: '{{ is_state(''light.bf1_all'', ''on'') }}'
         effect_list: "{{ state_attr('input_select.bf1_all_lights_scene', 'options') }}"
         turn_on:
           - data_template:
